@@ -1,0 +1,375 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_toc</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_toc</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_toc.txt"></A><b>usr_toc.txt</b>*	For Vim version 7.3.  Last change: 2010 Jul 20
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+			      Table Of <a href="quickref.html#Contents">Contents</a>			*<a name="user-manual"></A><b>user-manual</b>*
+
+==============================================================================
+<b><font color="purple">Overview </font></b>
+
+Getting Started
+|<a href="usr_01.html">usr_01.txt</a>|  About the manuals
+|<a href="usr_02.html">usr_02.txt</a>|  The first steps in Vim
+|<a href="usr_03.html">usr_03.txt</a>|  Moving around
+|<a href="usr_04.html">usr_04.txt</a>|  Making small changes
+|<a href="usr_05.html">usr_05.txt</a>|  Set your settings
+|<a href="usr_06.html">usr_06.txt</a>|  Using <a href="syntax.html#syntax">syntax</a> highlighting
+|<a href="usr_07.html">usr_07.txt</a>|  Editing more than one file
+|<a href="usr_08.html">usr_08.txt</a>|  Splitting <a href="windows.html#windows">windows</a>
+|<a href="usr_09.html">usr_09.txt</a>|  Using the <a href="gui.html#GUI">GUI</a>
+|<a href="usr_10.html">usr_10.txt</a>|  Making big changes
+|<a href="usr_11.html">usr_11.txt</a>|  Recovering from a crash
+|<a href="usr_12.html">usr_12.txt</a>|  Clever tricks
+
+Editing Effectively
+|<a href="usr_20.html">usr_20.txt</a>|  Typing command-line commands quickly
+|<a href="usr_21.html">usr_21.txt</a>|  Go away and come back
+|<a href="usr_22.html">usr_22.txt</a>|  Finding the file to edit
+|<a href="usr_23.html">usr_23.txt</a>|  Editing other files
+|<a href="usr_24.html">usr_24.txt</a>|  Inserting quickly
+|<a href="usr_25.html">usr_25.txt</a>|  Editing formatted text
+|<a href="usr_26.html">usr_26.txt</a>|  Repeating
+|<a href="usr_27.html">usr_27.txt</a>|  Search commands and patterns
+|<a href="usr_28.html">usr_28.txt</a>|  <a href="fold.html#Folding">Folding</a>
+|<a href="usr_29.html">usr_29.txt</a>|  Moving through programs
+|<a href="usr_30.html">usr_30.txt</a>|  Editing programs
+|<a href="usr_31.html">usr_31.txt</a>|  Exploiting the <a href="gui.html#GUI">GUI</a>
+|<a href="usr_32.html">usr_32.txt</a>|  The <a href="undo.html#undo">undo</a> tree
+
+Tuning Vim
+|<a href="usr_40.html">usr_40.txt</a>|  Make new commands
+|<a href="usr_41.html">usr_41.txt</a>|  Write a Vim <a href="usr_41.html#script">script</a>
+|<a href="usr_42.html">usr_42.txt</a>|  Add new <a href="gui.html#menus">menus</a>
+|<a href="usr_43.html">usr_43.txt</a>|  Using <a href="filetype.html#filetypes">filetypes</a>
+|<a href="usr_44.html">usr_44.txt</a>|  Your own <a href="syntax.html#syntax">syntax</a> highlighted
+|<a href="usr_45.html">usr_45.txt</a>|  <a href="visual.html#Select">Select</a> your language
+
+Making Vim Run
+|<a href="usr_90.html">usr_90.txt</a>|  Installing Vim
+
+
+Reference manual
+|<a href="help.html#reference_toc">reference_toc</a>|     More detailed information for all commands
+
+The user manual is available <a href="motion.html#as">as</a> a single, ready to print HTML and PDF file
+here:
+	<a href="http://vimdoc.sf.net">http://vimdoc.sf.net</a>
+
+==============================================================================
+<b><font color="purple">Getting Started </font></b>
+
+Read this from start to end to learn the essential commands.
+
+|<a href="usr_01.html">usr_01.txt</a>|  About the manuals
+		|<a href="usr_01.html#01.1">01.1</a>|	Two manuals
+		|<a href="usr_01.html#01.2">01.2</a>|	Vim installed
+		|<a href="usr_01.html#01.3">01.3</a>|	Using the Vim <a href="usr_01.html#tutor">tutor</a>
+		|<a href="usr_01.html#01.4">01.4</a>|	Copyright
+
+|<a href="usr_02.html">usr_02.txt</a>|  The first steps in Vim
+		|<a href="usr_02.html#02.1">02.1</a>|	Running Vim for the First Time
+		|<a href="usr_02.html#02.2">02.2</a>|	Inserting text
+		|<a href="usr_02.html#02.3">02.3</a>|	Moving around
+		|<a href="usr_02.html#02.4">02.4</a>|	Deleting characters
+		|<a href="usr_02.html#02.5">02.5</a>|	Undo and Redo
+		|<a href="usr_02.html#02.6">02.6</a>|	Other editing commands
+		|<a href="usr_02.html#02.7">02.7</a>|	Getting out
+		|<a href="usr_02.html#02.8">02.8</a>|	Finding help
+
+|<a href="usr_03.html">usr_03.txt</a>|  Moving around
+		|<a href="usr_03.html#03.1">03.1</a>|	Word <a href="intro.html#movement">movement</a>
+		|<a href="usr_03.html#03.2">03.2</a>|	Moving to the start or end of a line
+		|<a href="usr_03.html#03.3">03.3</a>|	Moving to a character
+		|<a href="usr_03.html#03.4">03.4</a>|	Matching a paren
+		|<a href="usr_03.html#03.5">03.5</a>|	Moving to a specific line
+		|<a href="usr_03.html#03.6">03.6</a>|	Telling where you are
+		|<a href="usr_03.html#03.7">03.7</a>|	Scrolling around
+		|<a href="usr_03.html#03.8">03.8</a>|	Simple searches
+		|<a href="usr_03.html#03.9">03.9</a>|	Simple search patterns
+		|<a href="usr_03.html#03.10">03.10</a>|	Using marks
+
+|<a href="usr_04.html">usr_04.txt</a>|  Making small changes
+		|<a href="usr_04.html#04.1">04.1</a>|	Operators and motions
+		|<a href="usr_04.html#04.2">04.2</a>|	Changing text
+		|<a href="usr_04.html#04.3">04.3</a>|	Repeating a change
+		|<a href="usr_04.html#04.4">04.4</a>|	<a href="visual.html#Visual">Visual</a> mode
+		|<a href="usr_04.html#04.5">04.5</a>|	Moving text
+		|<a href="usr_04.html#04.6">04.6</a>|	Copying text
+		|<a href="usr_04.html#04.7">04.7</a>|	Using the <a href="gui.html#clipboard">clipboard</a>
+		|<a href="usr_04.html#04.8">04.8</a>|	Text <a href="index.html#objects">objects</a>
+		|<a href="usr_04.html#04.9">04.9</a>|	<a href="insert.html#Replace">Replace</a> mode
+		|<a href="usr_04.html#04.10">04.10</a>|	Conclusion
+
+|<a href="usr_05.html">usr_05.txt</a>|  Set your settings
+		|<a href="usr_05.html#05.1">05.1</a>|	The <a href="starting.html#vimrc">vimrc</a> file
+		|<a href="usr_05.html#05.2">05.2</a>|	The example <a href="starting.html#vimrc">vimrc</a> file explained
+		|<a href="usr_05.html#05.3">05.3</a>|	Simple mappings
+		|<a href="usr_05.html#05.4">05.4</a>|	Adding a <a href="usr_05.html#plugin">plugin</a>
+		|<a href="usr_05.html#05.5">05.5</a>|	Adding a help file
+		|<a href="usr_05.html#05.6">05.6</a>|	The option <a href="windows.html#window">window</a>
+		|<a href="usr_05.html#05.7">05.7</a>|	Often used <a href="options.html#options">options</a>
+
+|<a href="usr_06.html">usr_06.txt</a>|  Using <a href="syntax.html#syntax">syntax</a> highlighting
+		|<a href="usr_06.html#06.1">06.1</a>|	Switching it on
+		|<a href="usr_06.html#06.2">06.2</a>|	No or wrong colors?
+		|<a href="usr_06.html#06.3">06.3</a>|	Different colors
+		|<a href="usr_06.html#06.4">06.4</a>|	With colors or without colors
+		|<a href="usr_06.html#06.5">06.5</a>|	Printing with colors
+		|<a href="usr_06.html#06.6">06.6</a>|	Further reading
+
+|<a href="usr_07.html">usr_07.txt</a>|  Editing more than one file
+		|<a href="usr_07.html#07.1">07.1</a>|	Edit another file
+		|<a href="usr_07.html#07.2">07.2</a>|	A list of files
+		|<a href="usr_07.html#07.3">07.3</a>|	Jumping from file to file
+		|<a href="usr_07.html#07.4">07.4</a>|	Backup files
+		|<a href="usr_07.html#07.5">07.5</a>|	Copy text between files
+		|<a href="usr_07.html#07.6">07.6</a>|	Viewing a file
+		|<a href="usr_07.html#07.7">07.7</a>|	Changing the file name
+
+|<a href="usr_08.html">usr_08.txt</a>|  Splitting <a href="windows.html#windows">windows</a>
+		|<a href="usr_08.html#08.1">08.1</a>|	Split a <a href="windows.html#window">window</a>
+		|<a href="usr_08.html#08.2">08.2</a>|	Split a <a href="windows.html#window">window</a> on another file
+		|<a href="usr_08.html#08.3">08.3</a>|	Window size
+		|<a href="usr_08.html#08.4">08.4</a>|	Vertical splits
+		|<a href="usr_08.html#08.5">08.5</a>|	Moving <a href="windows.html#windows">windows</a>
+		|<a href="usr_08.html#08.6">08.6</a>|	Commands for all <a href="windows.html#windows">windows</a>
+		|<a href="usr_08.html#08.7">08.7</a>|	Viewing differences with <a href="diff.html#vimdiff">vimdiff</a>
+		|<a href="usr_08.html#08.8">08.8</a>|	Various
+
+|<a href="usr_09.html">usr_09.txt</a>|  Using the <a href="gui.html#GUI">GUI</a>
+		|<a href="usr_09.html#09.1">09.1</a>|	Parts of the <a href="gui.html#GUI">GUI</a>
+		|<a href="usr_09.html#09.2">09.2</a>|	Using the mouse
+		|<a href="usr_09.html#09.3">09.3</a>|	The <a href="gui.html#clipboard">clipboard</a>
+		|<a href="usr_09.html#09.4">09.4</a>|	<a href="visual.html#Select">Select</a> mode
+
+|<a href="usr_10.html">usr_10.txt</a>|  Making big changes
+		|<a href="usr_10.html#10.1">10.1</a>|	Record and playback commands
+		|<a href="usr_10.html#10.2">10.2</a>|	Substitution
+		|<a href="usr_10.html#10.3">10.3</a>|	Command ranges
+		|<a href="usr_10.html#10.4">10.4</a>|	The global command
+		|<a href="usr_10.html#10.5">10.5</a>|	<a href="visual.html#Visual">Visual</a> block mode
+		|<a href="usr_10.html#10.6">10.6</a>|	Reading and <a href="editing.html#writing">writing</a> part of a file
+		|<a href="usr_10.html#10.7">10.7</a>|	Formatting text
+		|<a href="usr_10.html#10.8">10.8</a>|	Changing <a href="change.html#case">case</a>
+		|<a href="usr_10.html#10.9">10.9</a>|	Using an external program
+
+|<a href="usr_11.html">usr_11.txt</a>|  Recovering from a crash
+		|<a href="usr_11.html#11.1">11.1</a>|	Basic <a href="recover.html#recovery">recovery</a>
+		|<a href="usr_11.html#11.2">11.2</a>|	Where is the swap file?
+		|<a href="usr_11.html#11.3">11.3</a>|	Crashed or not?
+		|<a href="usr_11.html#11.4">11.4</a>|	Further reading
+
+|<a href="usr_12.html">usr_12.txt</a>|  Clever tricks
+		|<a href="usr_12.html#12.1">12.1</a>|	<a href="insert.html#Replace">Replace</a> a <a href="motion.html#word">word</a>
+		|<a href="usr_12.html#12.2">12.2</a>|	Change &quot;Last, First&quot; to &quot;First Last&quot;
+		|<a href="usr_12.html#12.3">12.3</a>|	Sort a list
+		|<a href="usr_12.html#12.4">12.4</a>|	Reverse line order
+		|<a href="usr_12.html#12.5">12.5</a>|	Count words
+		|<a href="usr_12.html#12.6">12.6</a>|	Find a man page
+		|<a href="usr_12.html#12.7">12.7</a>|	Trim blanks
+		|<a href="usr_12.html#12.8">12.8</a>|	Find where a <a href="motion.html#word">word</a> is used
+
+==============================================================================
+<b><font color="purple">Editing Effectively </font></b>
+
+Subjects that can be read independently.
+
+|<a href="usr_20.html">usr_20.txt</a>|  Typing command-line commands quickly
+		|<a href="usr_20.html#20.1">20.1</a>|	Command line editing
+		|<a href="usr_20.html#20.2">20.2</a>|	Command line <a href="map.html#abbreviations">abbreviations</a>
+		|<a href="usr_20.html#20.3">20.3</a>|	Command line completion
+		|<a href="usr_20.html#20.4">20.4</a>|	Command line <a href="cmdline.html#history">history</a>
+		|<a href="usr_20.html#20.5">20.5</a>|	Command line <a href="windows.html#window">window</a>
+
+|<a href="usr_21.html">usr_21.txt</a>|  Go away and come back
+		|<a href="usr_21.html#21.1">21.1</a>|	Suspend and resume
+		|<a href="usr_21.html#21.2">21.2</a>|	Executing shell commands
+		|<a href="usr_21.html#21.3">21.3</a>|	Remembering information; <a href="starting.html#viminfo">viminfo</a>
+		|<a href="usr_21.html#21.4">21.4</a>|	Sessions
+		|<a href="usr_21.html#21.5">21.5</a>|	Views
+		|<a href="usr_21.html#21.6">21.6</a>|	Modelines
+
+|<a href="usr_22.html">usr_22.txt</a>|  Finding the file to edit
+		|<a href="usr_22.html#22.1">22.1</a>|	The file explorer
+		|<a href="usr_22.html#22.2">22.2</a>|	The current directory
+		|<a href="usr_22.html#22.3">22.3</a>|	Finding a file
+		|<a href="usr_22.html#22.4">22.4</a>|	The buffer list
+
+|<a href="usr_23.html">usr_23.txt</a>|  Editing other files
+		|<a href="usr_23.html#23.1">23.1</a>|	<a href="os_dos.html#DOS">DOS</a>, <a href="os_mac.html#Mac">Mac</a> and <a href="os_unix.html#Unix">Unix</a> files
+		|<a href="usr_23.html#23.2">23.2</a>|	Files on the <a href="intro.html#internet">internet</a>
+		|<a href="usr_23.html#23.3">23.3</a>|	Encryption
+		|<a href="usr_23.html#23.4">23.4</a>|	Binary files
+		|<a href="usr_23.html#23.5">23.5</a>|	Compressed files
+
+|<a href="usr_24.html">usr_24.txt</a>|  Inserting quickly
+		|<a href="usr_24.html#24.1">24.1</a>|	Making corrections
+		|<a href="usr_24.html#24.2">24.2</a>|	Showing matches
+		|<a href="usr_24.html#24.3">24.3</a>|	Completion
+		|<a href="usr_24.html#24.4">24.4</a>|	Repeating an insert
+		|<a href="usr_24.html#24.5">24.5</a>|	Copying from another line
+		|<a href="usr_24.html#24.6">24.6</a>|	Inserting a <a href="sponsor.html#register">register</a>
+		|<a href="usr_24.html#24.7">24.7</a>|	<a href="map.html#Abbreviations">Abbreviations</a>
+		|<a href="usr_24.html#24.8">24.8</a>|	Entering special characters
+		|<a href="usr_24.html#24.9">24.9</a>|	<a href="digraph.html#Digraphs">Digraphs</a>
+		|<a href="usr_24.html#24.10">24.10</a>|	<a href="intro.html#Normal">Normal</a> mode commands
+
+|<a href="usr_25.html">usr_25.txt</a>|  Editing formatted text
+		|<a href="usr_25.html#25.1">25.1</a>|	Breaking lines
+		|<a href="usr_25.html#25.2">25.2</a>|	Aligning text
+		|<a href="usr_25.html#25.3">25.3</a>|	Indents and tabs
+		|<a href="usr_25.html#25.4">25.4</a>|	Dealing with long lines
+		|<a href="usr_25.html#25.5">25.5</a>|	Editing tables
+
+|<a href="usr_26.html">usr_26.txt</a>|  Repeating
+		|<a href="usr_26.html#26.1">26.1</a>|	Repeating with <a href="visual.html#Visual">Visual</a> mode
+		|<a href="usr_26.html#26.2">26.2</a>|	Add and subtract
+		|<a href="usr_26.html#26.3">26.3</a>|	Making a change in many files
+		|<a href="usr_26.html#26.4">26.4</a>|	Using Vim from a shell <a href="usr_41.html#script">script</a>
+
+|<a href="usr_27.html">usr_27.txt</a>|  Search commands and patterns
+		|<a href="usr_27.html#27.1">27.1</a>|	Ignoring <a href="change.html#case">case</a>
+		|<a href="usr_27.html#27.2">27.2</a>|	Wrapping around the file end
+		|<a href="usr_27.html#27.3">27.3</a>|	Offsets
+		|<a href="usr_27.html#27.4">27.4</a>|	Matching multiple times
+		|<a href="usr_27.html#27.5">27.5</a>|	Alternatives
+		|<a href="usr_27.html#27.6">27.6</a>|	Character ranges
+		|<a href="usr_27.html#27.7">27.7</a>|	Character classes
+		|<a href="usr_27.html#27.8">27.8</a>|	Matching a line break
+		|<a href="usr_27.html#27.9">27.9</a>|	Examples
+
+|<a href="usr_28.html">usr_28.txt</a>|  <a href="fold.html#Folding">Folding</a>
+		|<a href="usr_28.html#28.1">28.1</a>|	What is <a href="fold.html#folding">folding</a>?
+		|<a href="usr_28.html#28.2">28.2</a>|	Manual <a href="fold.html#folding">folding</a>
+		|<a href="usr_28.html#28.3">28.3</a>|	Working with <a href="fold.html#folds">folds</a>
+		|<a href="usr_28.html#28.4">28.4</a>|	Saving and restoring <a href="fold.html#folds">folds</a>
+		|<a href="usr_28.html#28.5">28.5</a>|	<a href="fold.html#Folding">Folding</a> by indent
+		|<a href="usr_28.html#28.6">28.6</a>|	<a href="fold.html#Folding">Folding</a> with markers
+		|<a href="usr_28.html#28.7">28.7</a>|	<a href="fold.html#Folding">Folding</a> by <a href="syntax.html#syntax">syntax</a>
+		|<a href="usr_28.html#28.8">28.8</a>|	<a href="fold.html#Folding">Folding</a> by <a href="eval.html#expression">expression</a>
+		|<a href="usr_28.html#28.9">28.9</a>|	<a href="fold.html#Folding">Folding</a> unchanged lines
+		|<a href="usr_28.html#28.10">28.10</a>| Which fold method to use?
+
+|<a href="usr_29.html">usr_29.txt</a>|  Moving through programs
+		|<a href="usr_29.html#29.1">29.1</a>|	Using <a href="tagsrch.html#tags">tags</a>
+		|<a href="usr_29.html#29.2">29.2</a>|	The preview <a href="windows.html#window">window</a>
+		|<a href="usr_29.html#29.3">29.3</a>|	Moving through a program
+		|<a href="usr_29.html#29.4">29.4</a>|	Finding global identifiers
+		|<a href="usr_29.html#29.5">29.5</a>|	Finding local identifiers
+
+|<a href="usr_30.html">usr_30.txt</a>|  Editing programs
+		|<a href="usr_30.html#30.1">30.1</a>|	Compiling
+		|<a href="usr_30.html#30.2">30.2</a>|	Indenting C files
+		|<a href="usr_30.html#30.3">30.3</a>|	Automatic indenting
+		|<a href="usr_30.html#30.4">30.4</a>|	Other indenting
+		|<a href="usr_30.html#30.5">30.5</a>|	Tabs and spaces
+		|<a href="usr_30.html#30.6">30.6</a>|	Formatting comments
+
+|<a href="usr_31.html">usr_31.txt</a>|  Exploiting the <a href="gui.html#GUI">GUI</a>
+		|<a href="usr_31.html#31.1">31.1</a>|	The file browser
+		|<a href="usr_31.html#31.2">31.2</a>|	Confirmation
+		|<a href="usr_31.html#31.3">31.3</a>|	Menu shortcuts
+		|<a href="usr_31.html#31.4">31.4</a>|	Vim <a href="windows.html#window">window</a> position and size
+		|<a href="usr_31.html#31.5">31.5</a>|	Various
+
+|<a href="usr_32.html">usr_32.txt</a>|  The <a href="undo.html#undo">undo</a> tree
+		|<a href="usr_32.html#32.1">32.1</a>|	Undo up to a file write
+		|<a href="usr_32.html#32.2">32.2</a>|	Numbering changes
+		|<a href="usr_32.html#32.3">32.3</a>|	Jumping around the tree
+		|<a href="usr_32.html#32.4">32.4</a>|	Time travelling
+
+==============================================================================
+<b><font color="purple">Tuning Vim </font></b>
+
+Make Vim work <a href="motion.html#as">as</a> you like it.
+
+|<a href="usr_40.html">usr_40.txt</a>|  Make new commands
+		|<a href="usr_40.html#40.1">40.1</a>|	Key <a href="map.html#mapping">mapping</a>
+		|<a href="usr_40.html#40.2">40.2</a>|	Defining command-line commands
+		|<a href="usr_40.html#40.3">40.3</a>|	Autocommands
+
+|<a href="usr_41.html">usr_41.txt</a>|  Write a Vim <a href="usr_41.html#script">script</a>
+		|<a href="usr_41.html#41.1">41.1</a>|	Introduction
+		|<a href="usr_41.html#41.2">41.2</a>|	Variables
+		|<a href="usr_41.html#41.3">41.3</a>|	Expressions
+		|<a href="usr_41.html#41.4">41.4</a>|	Conditionals
+		|<a href="usr_41.html#41.5">41.5</a>|	Executing an <a href="eval.html#expression">expression</a>
+		|<a href="usr_41.html#41.6">41.6</a>|	Using <a href="eval.html#functions">functions</a>
+		|<a href="usr_41.html#41.7">41.7</a>|	Defining a function
+		|<a href="usr_41.html#41.8">41.8</a>|	<a href="eval.html#Lists">Lists</a> and <a href="eval.html#Dictionaries">Dictionaries</a>
+		|<a href="usr_41.html#41.9">41.9</a>|	Exceptions
+		|<a href="usr_41.html#41.10">41.10</a>|	Various remarks
+		|<a href="usr_41.html#41.11">41.11</a>|	Writing a <a href="usr_05.html#plugin">plugin</a>
+		|<a href="usr_41.html#41.12">41.12</a>|	Writing a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a>
+		|<a href="usr_41.html#41.13">41.13</a>|	Writing a compiler <a href="usr_05.html#plugin">plugin</a>
+		|<a href="usr_41.html#41.14">41.14</a>|	Writing a <a href="usr_05.html#plugin">plugin</a> that loads quickly
+		|<a href="usr_41.html#41.15">41.15</a>|	Writing library scripts
+		|<a href="usr_41.html#41.16">41.16</a>|	Distributing Vim scripts
+
+|<a href="usr_42.html">usr_42.txt</a>|  Add new <a href="gui.html#menus">menus</a>
+		|<a href="usr_42.html#42.1">42.1</a>|	Introduction
+		|<a href="usr_42.html#42.2">42.2</a>|	Menu commands
+		|<a href="usr_42.html#42.3">42.3</a>|	Various
+		|<a href="usr_42.html#42.4">42.4</a>|	Toolbar and popup <a href="gui.html#menus">menus</a>
+
+|<a href="usr_43.html">usr_43.txt</a>|  Using <a href="filetype.html#filetypes">filetypes</a>
+		|<a href="usr_43.html#43.1">43.1</a>|	Plugins for a <a href="filetype.html#filetype">filetype</a>
+		|<a href="usr_43.html#43.2">43.2</a>|	Adding a <a href="filetype.html#filetype">filetype</a>
+
+|<a href="usr_44.html">usr_44.txt</a>|  Your own <a href="syntax.html#syntax">syntax</a> highlighted
+		|<a href="usr_44.html#44.1">44.1</a>|	Basic <a href="syntax.html#syntax">syntax</a> commands
+		|<a href="usr_44.html#44.2">44.2</a>|	Keywords
+		|<a href="usr_44.html#44.3">44.3</a>|	Matches
+		|<a href="usr_44.html#44.4">44.4</a>|	Regions
+		|<a href="usr_44.html#44.5">44.5</a>|	Nested items
+		|<a href="usr_44.html#44.6">44.6</a>|	Following groups
+		|<a href="usr_44.html#44.7">44.7</a>|	Other arguments
+		|<a href="usr_44.html#44.8">44.8</a>|	Clusters
+		|<a href="usr_44.html#44.9">44.9</a>|	Including another <a href="syntax.html#syntax">syntax</a> file
+		|<a href="usr_44.html#44.10">44.10</a>|	Synchronizing
+		|<a href="usr_44.html#44.11">44.11</a>|	Installing a <a href="syntax.html#syntax">syntax</a> file
+		|<a href="usr_44.html#44.12">44.12</a>|	Portable <a href="syntax.html#syntax">syntax</a> file layout
+
+|<a href="usr_45.html">usr_45.txt</a>|  <a href="visual.html#Select">Select</a> your language
+		|<a href="usr_45.html#45.1">45.1</a>|	Language for Messages
+		|<a href="usr_45.html#45.2">45.2</a>|	Language for Menus
+		|<a href="usr_45.html#45.3">45.3</a>|	Using another encoding
+		|<a href="usr_45.html#45.4">45.4</a>|	Editing files with a different encoding
+		|<a href="usr_45.html#45.5">45.5</a>|	Entering language text
+
+==============================================================================
+<b><font color="purple">Making Vim Run </font></b>
+
+Before you can use Vim.
+
+|<a href="usr_90.html">usr_90.txt</a>|  Installing Vim
+		|<a href="usr_90.html#90.1">90.1</a>|	<a href="os_unix.html#Unix">Unix</a>
+		|<a href="usr_90.html#90.2">90.2</a>|	<a href="os_win32.html#MS-Windows">MS-Windows</a>
+		|<a href="usr_90.html#90.3">90.3</a>|	Upgrading
+		|<a href="usr_90.html#90.4">90.4</a>|	Common installation issues
+		|<a href="usr_90.html#90.5">90.5</a>|	Uninstalling Vim
+
+==============================================================================
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_toc.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

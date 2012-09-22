@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: os_mint</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: os_mint</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="os_mint.txt"></A><b>os_mint.txt</b>*   For Vim version 7.3.  Last change: 2005 Mar 29
+
+
+		  VIM REFERENCE MANUAL    by Jens <a href="motion.html#M">M</a>. Felderhoff
+
+
+
+							*<a name="MiNT"></A><b>MiNT</b>* *<a name="Atari"></A><b>Atari</b>*
+This file contains the particularities for the <a href="os_mint.html#Atari">Atari</a> <a href="os_mint.html#MiNT">MiNT</a> version of Vim.
+
+For compiling Vim on the <a href="os_mint.html#Atari">Atari</a> running <a href="os_mint.html#MiNT">MiNT</a> see &quot;INSTALL&quot; and &quot;Makefile&quot;
+in the src directory.
+
+Vim for <a href="os_mint.html#MiNT">MiNT</a> behaves almost exactly like the <a href="os_unix.html#Unix">Unix</a> version.
+The <a href="os_unix.html#Unix">Unix</a> behavior described in the documentation also refers to the
+<a href="os_mint.html#MiNT">MiNT</a> version of Vim unless explicitly stated otherwise.
+
+For <a href="editing.html#wildcard">wildcard</a> expansion of &lt;~&gt; (home directory) you need a shell that
+expands the tilde.  The vanilla Bourne shell doesn't recognize it.
+With csh and ksh it should work OK.
+
+The <a href="os_mint.html#MiNT">MiNT</a> version of vim needs the <a href="term.html#termcap">termcap</a> file /etc/termcap with the
+terminal capabilities of your terminal.  Builtin termcaps are
+supported for the vt52 terminal.  Termcap entries for the TOSWIN <a href="windows.html#window">window</a>
+manager and the virtual console terminals have been appended to the
+<a href="term.html#termcap">termcap</a> file that comes with the Vim <a href="intro.html#distribution">distribution</a>.
+
+If you should encounter problems with swapped <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> and <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a> keys, see
+|<a href="options.html#:fixdel">:fixdel</a>|.
+
+Because terminal updating under <a href="os_mint.html#MiNT">MiNT</a> is often slow (e.g. serial line
+terminal), the <a href="options.html#'showcmd'">'showcmd'</a> and <a href="options.html#'ruler'">'ruler'</a> <a href="options.html#options">options</a> are default off.
+If you have a fast terminal, try setting them on.  You might
+also want to set <a href="options.html#'ttyfast'">'ttyfast'</a>.
+
+Send bug reports to
+
+	Jens M. Felderhoff, e-mail: <a href="mailto:jmf@infko.uni-koblenz.de">&lt;jmf@infko.uni-koblenz.de&gt;</a> 
+
+<a href="os_mint.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

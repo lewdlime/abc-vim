@@ -1,0 +1,529 @@
+%% custos.fmt - Hudson Lacerda (2010)
+%% Extension file for abcm2ps: Custodes symbols
+
+%% Custodes glyphs exported from font parmesan23.pfb
+%% included in LilyPond distribution (www.lilypond.org)
+
+% setdefl
+
+%%%%%%%
+beginps
+%%%%%%%
+
+/custodes.hufnagel.d0 {
+gsave newpath
+	339 -241 moveto
+	 339 -243 339 -244 337 -244 curveto
+	 326 -244 292 -198 283 -185 curveto
+	 157 -6 lineto
+	 93 -136 lineto
+	 86 -150 -9 -24 0 -7 curveto
+	 71 136 lineto
+	 71 136 72 137 73 137 curveto
+	 84 137 118 91 127 78 curveto
+	 302 -172 lineto
+	 311 -185 339 -227 339 -241 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.hufnagel.d1 {
+gsave newpath
+	427 -366 moveto
+	 427 -368 427 -369 425 -369 curveto
+	 414 -369 380 -323 371 -310 curveto
+	 157 -6 lineto
+	 93 -136 lineto
+	 86 -150 -9 -24 0 -7 curveto
+	 71 136 lineto
+	 71 136 72 137 73 137 curveto
+	 84 137 118 91 127 78 curveto
+	 390 -297 lineto
+	 399 -310 427 -352 427 -366 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.hufnagel.d2 {
+gsave newpath
+	383 -304 moveto
+	 383 -306 383 -307 381 -307 curveto
+	 370 -307 336 -261 327 -248 curveto
+	 157 -6 lineto
+	 93 -136 lineto
+	 86 -150 -9 -24 0 -7 curveto
+	 71 136 lineto
+	 71 136 72 137 73 137 curveto
+	 84 137 118 91 127 78 curveto
+	 346 -234 lineto
+	 355 -247 383 -290 383 -304 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.hufnagel.u0 {
+gsave newpath
+	337 244 moveto
+	 338 244 339 243 339 241 curveto
+	 339 233 326 206 302 172 curveto
+	 127 -78 lineto
+	 118 -91 84 -137 73 -137 curveto
+	 72 -137 71 -136 71 -136 curveto
+	 0 7 lineto
+	 -7 21 85 151 93 136 curveto
+	 157 6 lineto
+	 283 185 lineto
+	 292 198 326 244 337 244 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.hufnagel.u1 {
+gsave newpath
+	425 369 moveto
+	 426 369 427 368 427 366 curveto
+	 427 358 414 331 390 297 curveto
+	 127 -78 lineto
+	 118 -91 84 -137 73 -137 curveto
+	 72 -137 71 -136 71 -136 curveto
+	 0 7 lineto
+	 -7 21 85 151 93 136 curveto
+	 157 6 lineto
+	 371 310 lineto
+	 380 323 414 369 425 369 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.hufnagel.u2 {
+gsave newpath
+	381 307 moveto
+	 382 307 383 306 383 304 curveto
+	 383 296 370 268 346 234 curveto
+	 127 -78 lineto
+	 118 -91 84 -137 73 -137 curveto
+	 72 -137 71 -136 71 -136 curveto
+	 0 7 lineto
+	 -7 21 85 151 93 136 curveto
+	 157 6 lineto
+	 327 248 lineto
+	 336 261 370 307 381 307 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.medicaea.d0 {
+gsave newpath
+	61 137 moveto
+	 67 137 68 28 68 0 curveto
+	 68 -243 lineto
+	 68 -247 65 -250 61 -250 curveto
+	 57 -250 54 -247 54 -243 curveto
+	 54 -137 lineto
+	 7 -137 lineto
+	 1 -137 0 -28 0 0 curveto
+	 0 28 1 137 7 137 curveto
+	 61 137 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.medicaea.d1 {
+gsave newpath
+	61 137 moveto
+	 67 137 68 28 68 0 curveto
+	 68 -368 lineto
+	 68 -372 65 -375 61 -375 curveto
+	 57 -375 54 -372 54 -368 curveto
+	 54 -137 lineto
+	 7 -137 lineto
+	 1 -137 0 -28 0 0 curveto
+	 0 28 1 137 7 137 curveto
+	 61 137 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.medicaea.d2 {
+gsave newpath
+	61 137 moveto
+	 67 137 68 28 68 0 curveto
+	 68 -306 lineto
+	 68 -310 65 -312 61 -312 curveto
+	 57 -312 54 -310 54 -306 curveto
+	 54 -137 lineto
+	 7 -137 lineto
+	 1 -137 0 -28 0 0 curveto
+	 0 28 1 137 7 137 curveto
+	 61 137 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.medicaea.u0 {
+gsave newpath
+	7 -137 moveto
+	 1 -137 0 -28 0 0 curveto
+	 0 28 1 137 7 137 curveto
+	 54 137 lineto
+	 54 243 lineto
+	 54 247 57 250 61 250 curveto
+	 65 250 68 247 68 243 curveto
+	 68 0 lineto
+	 68 -28 67 -137 61 -137 curveto
+	 7 -137 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.medicaea.u1 {
+gsave newpath
+	7 -137 moveto
+	 1 -137 0 -28 0 0 curveto
+	 0 28 1 137 7 137 curveto
+	 54 137 lineto
+	 54 368 lineto
+	 54 372 57 375 61 375 curveto
+	 65 375 68 372 68 368 curveto
+	 68 0 lineto
+	 68 -28 67 -137 61 -137 curveto
+	 7 -137 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.medicaea.u2 {
+gsave newpath
+	7 -137 moveto
+	 1 -137 0 -28 0 0 curveto
+	 0 28 1 137 7 137 curveto
+	 54 137 lineto
+	 54 306 lineto
+	 54 310 57 312 61 312 curveto
+	 65 312 68 310 68 306 curveto
+	 68 0 lineto
+	 68 -28 67 -137 61 -137 curveto
+	 7 -137 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.mensural.d0 {
+gsave newpath
+	503 -245 moveto
+	 503 -249 501 -250 500 -250 curveto
+	 492 -250 475 -231 461 -211 curveto
+	 319 -9 lineto
+	 261 -90 lineto
+	 257 -95 241 -82 222 -55 curveto
+	 189 -9 lineto
+	 130 -90 lineto
+	 126 -95 110 -82 91 -55 curveto
+	 23 39 lineto
+	 11 56 0 76 0 86 curveto
+	 0 90 2 91 3 91 curveto
+	 10 91 26 74 40 55 curveto
+	 74 9 lineto
+	 132 90 lineto
+	 132 90 133 91 134 91 curveto
+	 141 91 157 74 171 55 curveto
+	 205 9 lineto
+	 263 90 lineto
+	 263 90 264 91 265 91 curveto
+	 273 91 291 72 305 52 curveto
+	 480 -198 lineto
+	 492 -215 503 -235 503 -245 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.mensural.d1 {
+gsave newpath
+	590 -370 moveto
+	 590 -374 588 -375 587 -375 curveto
+	 579 -375 562 -356 548 -336 curveto
+	 319 -9 lineto
+	 261 -90 lineto
+	 257 -95 241 -82 222 -55 curveto
+	 189 -9 lineto
+	 130 -90 lineto
+	 126 -95 110 -82 91 -55 curveto
+	 23 39 lineto
+	 11 56 0 76 0 86 curveto
+	 0 90 2 91 3 91 curveto
+	 10 91 26 74 40 55 curveto
+	 74 9 lineto
+	 132 90 lineto
+	 132 90 133 91 134 91 curveto
+	 141 91 157 74 171 55 curveto
+	 205 9 lineto
+	 263 90 lineto
+	 263 90 264 91 265 91 curveto
+	 273 91 291 72 305 52 curveto
+	 567 -323 lineto
+	 579 -340 590 -360 590 -370 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.mensural.d2 {
+gsave newpath
+	547 -308 moveto
+	 547 -312 544 -312 543 -312 curveto
+	 535 -312 518 -294 504 -274 curveto
+	 319 -9 lineto
+	 261 -90 lineto
+	 257 -95 241 -82 222 -55 curveto
+	 189 -9 lineto
+	 130 -90 lineto
+	 126 -95 110 -82 91 -55 curveto
+	 23 39 lineto
+	 11 56 0 76 0 86 curveto
+	 0 90 2 91 3 91 curveto
+	 10 91 26 74 40 55 curveto
+	 74 9 lineto
+	 132 90 lineto
+	 132 90 133 91 134 91 curveto
+	 141 91 157 74 171 55 curveto
+	 205 9 lineto
+	 263 90 lineto
+	 263 90 264 91 265 91 curveto
+	 273 91 291 72 305 52 curveto
+	 523 -260 lineto
+	 535 -277 547 -298 547 -308 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.mensural.u0 {
+gsave newpath
+	3 -91 moveto
+	 2 -91 0 -90 0 -86 curveto
+	 0 -76 12 -54 25 -36 curveto
+	 91 55 lineto
+	 96 62 124 99 130 90 curveto
+	 189 9 lineto
+	 222 55 lineto
+	 227 62 255 99 261 90 curveto
+	 319 9 lineto
+	 461 211 lineto
+	 473 229 492 250 500 250 curveto
+	 501 250 503 249 503 245 curveto
+	 503 235 492 215 480 198 curveto
+	 305 -52 lineto
+	 293 -70 273 -91 265 -91 curveto
+	 264 -91 263 -90 263 -90 curveto
+	 205 -9 lineto
+	 171 -55 lineto
+	 157 -74 141 -91 134 -91 curveto
+	 133 -91 132 -90 132 -90 curveto
+	 74 -9 lineto
+	 40 -55 lineto
+	 26 -74 10 -91 3 -91 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.mensural.u1 {
+gsave newpath
+	3 -91 moveto
+	 2 -91 0 -90 0 -86 curveto
+	 0 -76 12 -54 25 -36 curveto
+	 91 55 lineto
+	 96 62 124 99 130 90 curveto
+	 189 9 lineto
+	 222 55 lineto
+	 227 62 255 99 261 90 curveto
+	 319 9 lineto
+	 548 336 lineto
+	 560 354 579 375 587 375 curveto
+	 588 375 590 374 590 370 curveto
+	 590 360 579 340 567 323 curveto
+	 305 -52 lineto
+	 293 -70 273 -91 265 -91 curveto
+	 264 -91 263 -90 263 -90 curveto
+	 205 -9 lineto
+	 171 -55 lineto
+	 157 -74 141 -91 134 -91 curveto
+	 133 -91 132 -90 132 -90 curveto
+	 74 -9 lineto
+	 40 -55 lineto
+	 26 -74 10 -91 3 -91 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.mensural.u2 {
+gsave newpath
+	3 -91 moveto
+	 2 -91 0 -90 0 -86 curveto
+	 0 -76 12 -54 25 -36 curveto
+	 91 55 lineto
+	 96 62 124 99 130 90 curveto
+	 189 9 lineto
+	 222 55 lineto
+	 227 62 255 99 261 90 curveto
+	 319 9 lineto
+	 504 274 lineto
+	 516 292 535 312 543 312 curveto
+	 544 312 547 312 547 308 curveto
+	 547 298 535 277 523 260 curveto
+	 305 -52 lineto
+	 293 -70 273 -91 265 -91 curveto
+	 264 -91 263 -90 263 -90 curveto
+	 205 -9 lineto
+	 171 -55 lineto
+	 157 -74 141 -91 134 -91 curveto
+	 133 -91 132 -90 132 -90 curveto
+	 74 -9 lineto
+	 40 -55 lineto
+	 26 -74 10 -91 3 -91 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.vaticana.d0 {
+gsave newpath
+	66 -243 moveto
+	 66 -247 63 -250 59 -250 curveto
+	 55 -250 52 -247 52 -243 curveto
+	 52 -68 lineto
+	 46 -68 lineto
+	 27 -68 16 -87 0 -96 curveto
+	 0 57 lineto
+	 16 66 27 85 46 85 curveto
+	 66 85 lineto
+	 66 -243 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.vaticana.d1 {
+gsave newpath
+	66 -368 moveto
+	 66 -372 63 -375 59 -375 curveto
+	 55 -375 52 -372 52 -368 curveto
+	 52 -68 lineto
+	 46 -68 lineto
+	 27 -68 16 -87 0 -96 curveto
+	 0 57 lineto
+	 16 66 27 85 46 85 curveto
+	 66 85 lineto
+	 66 -368 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.vaticana.d2 {
+gsave newpath
+	66 -306 moveto
+	 66 -310 63 -312 59 -312 curveto
+	 55 -312 52 -310 52 -306 curveto
+	 52 -68 lineto
+	 46 -68 lineto
+	 27 -68 16 -87 0 -96 curveto
+	 0 57 lineto
+	 16 66 27 85 46 85 curveto
+	 66 85 lineto
+	 66 -306 lineto
+	closepath
+fill grestore } bind def
+
+/custodes.vaticana.u0 {
+gsave newpath
+	0 -57 moveto
+	 0 96 lineto
+	 16 87 27 68 46 68 curveto
+	 52 68 lineto
+	 52 243 lineto
+	 52 247 55 250 59 250 curveto
+	 63 250 66 247 66 243 curveto
+	 66 -85 lineto
+	 46 -85 lineto
+	 27 -85 16 -66 0 -57 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.vaticana.u1 {
+gsave newpath
+	0 -57 moveto
+	 0 96 lineto
+	 16 87 27 68 46 68 curveto
+	 52 68 lineto
+	 52 368 lineto
+	 52 372 55 375 59 375 curveto
+	 63 375 66 372 66 368 curveto
+	 66 -85 lineto
+	 46 -85 lineto
+	 27 -85 16 -66 0 -57 curveto
+	closepath
+fill grestore } bind def
+
+/custodes.vaticana.u2 {
+gsave newpath
+	0 -57 moveto
+	 0 96 lineto
+	 16 87 27 68 46 68 curveto
+	 52 68 lineto
+	 52 306 lineto
+	 52 310 55 312 59 312 curveto
+	 63 312 66 310 66 306 curveto
+	 66 -85 lineto
+	 46 -85 lineto
+	 27 -85 16 -66 0 -57 curveto
+	closepath
+fill grestore } bind def
+
+
+/custos {
+    gsave
+    3 sub translate
+    0 -23 translate
+    1 46 div dup scale
+
+    %% REMOVE THE % OF THE CHOSEN STYLE
+% custodes.hufnagel.d0
+% custodes.hufnagel.d1
+% custodes.hufnagel.d2
+% custodes.hufnagel.u0
+% custodes.hufnagel.u1
+% custodes.hufnagel.u2
+% custodes.medicaea.d0
+% custodes.medicaea.d1
+% custodes.medicaea.d2
+% custodes.medicaea.u0
+% custodes.medicaea.u1
+% custodes.medicaea.u2
+% custodes.mensural.d0
+% custodes.mensural.d1
+% custodes.mensural.d2
+% custodes.mensural.u0
+ custodes.mensural.u1
+% custodes.mensural.u2
+% custodes.vaticana.d0
+% custodes.vaticana.d1
+% custodes.vaticana.d2
+% custodes.vaticana.u0
+% custodes.vaticana.u1
+% custodes.vaticana.u2
+
+    grestore
+} bind def
+
+
+/custos0S {-3 add custos} bind def
+/custos1S {3 add custos} bind def
+/custos2S {9 add custos} bind def
+/custos3S {15 add custos} bind def
+/custos4S {21 add custos} bind def
+/custos5S {27 add custos} bind def
+
+/custos1L {custos} bind def
+/custos2L {6 add custos} bind def
+/custos3L {12 add custos} bind def
+/custos4L {18 add custos} bind def
+/custos5L {24 add custos} bind def
+
+
+%%%%%
+endps
+%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+deco custos 3 custos 0 0 0
+
+deco custos0S 3 custos0S 0 0 0
+deco custos1S 3 custos1S 0 0 0
+deco custos2S 3 custos2S 0 0 0
+deco custos3S 3 custos3S 0 0 0
+deco custos4S 3 custos4S 0 0 0
+deco custos5S 3 custos5S 0 0 0
+
+deco custos1L 3 custos1L 0 0 0
+deco custos2L 3 custos2L 0 0 0
+deco custos3L 3 custos3L 0 0 0
+deco custos4L 3 custos4L 0 0 0
+deco custos5L 3 custos5L 0 0 0
+

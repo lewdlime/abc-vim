@@ -1,0 +1,119 @@
+This file contains 7 hornpipes (#101 - #107).
+You can find more abc tune files at http://home.swipnet.se/hnorbeck/abc.htm
+I've transcribed them as I have learnt them, which does not necessarily mean
+that I play them that way nowadays. Many of the tunes include variations and
+different versions. If there is a source (S:) or discography (D:) included the
+version transcribed might still not be exactly as that source played the tune,
+since I might have changed the tune around a bit when I learnt it.
+The tunes were learnt from sessions, from friends or from recordings.
+When I've included discography, it's often just a reference to what recordings
+the tune appears on.
+
+Last updated 8 March 2005.
+
+(c) Copyright 1996-2005 Henrik Norbeck. This file:
+- May be distributed with restrictions below.
+- May not be used for commercial purposes (such as printing a tune book to sell).
+- This file (or parts of it) may not be made available on a web page for
+  download without permission from me.
+- This copyright notice must be kept, except when e-mailing individual tunes.
+- May be printed on paper for personal use.
+- Questions? E-mail: henrik@norbeck.nu
+
+R:hornpipe
+M:C|
+Z:id:hn-hornpipe-%X
+X:101
+T:When the Tide Comes In
+T:Factory Smoke
+R:hornpipe
+C:James Hill (?)
+Z:id:hn-hornpipe-101
+M:C|
+K:Gm
+dc|BAGF GABc|d2 G2 Gbag|f2 dc BcdB|c2 AG F2 dc|
+BAGF GABc|dg^fa g3 d|edcB cedc|B2 G2 G2:|
+|:ga|bgdB gdBG|DGBd gabg|afcA fcAF|CFAc fcAc|
+BAGF GABc|dg^fa g3 d|edcB cedc|B2 G2 G2:|
+
+X:102
+T:Acrobat, The
+R:hornpipe
+N:Original key Bb
+Z:hn-hornpipe-102
+M:C|
+L:1/8
+K:D
+AG|FAde fdba|(3gec (3gec c'2c'b|a^g=ge cc'ba|^gaba fdAG|
+FAde fdba|(3gec (3gec c'2c'b|a^g=ge cc'bc|d2f2 d2:|
+|:ed|cefe c'a^ga|f^efb d'b^ab|^ge^de =f^f=g^g|(3ac'b (3a^gf ef (3e_ed|
+cefe c'a^ga|f^efb d'b^ab|^ge^de =f^f=g^g|(3aba ^gb a2:|
+
+X:103
+T:Dance of the Honey Bees, The
+R:hornpipe
+C:Charlie Lennon
+Z:id:hn-hornpipe-103
+M:C|
+L:1/8
+K:D
+AG|:F2EF DFAF|(3GAG FG E3F|GFGA (3Bcd ed|cege cAGE|
+FGEF DFAF|G2FG E3F|G2GA (3Bcd ed|1 cAGE D2AG:|2 cAGE DEFA||
+|:dAaA fAdA|GFEF DEFA|Beed Bded|(3Bcd ef gece|
+dAaA fAdA|GFEF DEFA|Beed (3Bcd ed|1 cAGE DEFA:|2 cAGE D2||
+
+X:104
+T:Tomorrow Morning
+R:hornpipe
+Z:id:hn-hornpipe-104
+M:C|
+L:1/8
+K:D
+(3gfe|dAFA defd|ecAc efge|fafd Bded|c2A2 A2fe|
+dAFA defd|ecAc efge|fafd Acec|d2dc d2:|
+|:fg|afdf a2gf|gece g2ag|fafd Bded|c2A2 A2fe|
+dAFA defd|ecAc efge|fafd Acec|d2dc d2:|
+"variations"
+|:(3gfe|dAFA dAfA|ecAc eAgA|(3fga fd Bged|cdBc A2 (3ABc|
+dAFA defd|ecAc efge|fafd Acec|d2dc d2:|
+|:fg|afdf a2gf|gece g2fe|fafd Bged|ceBe A2 (3gfe|
+dAFA defd|ecAc efge|(3fga fd Acec|d2dc d2:|
+
+X:105
+T:Smoky Chimney, The
+R:hornpipe
+Z:id:hn-hornpipe-105
+M:C|
+L:1/8
+K:D
+(3ABc|dcde fdAF|GFGA BGE2|efge cABc|defd AGFA|
+dcde fdAF|GFGA BGE2|efge cABc|d2dc d2:|
+|:de|fefg afdf|gfga bgeg|f2df bagf|edcB A2de|
+fefg afdf|gfga bgeg|f2df e2ce|d2dc d2:|
+
+X:106
+T:Sheridan's Hornpipe
+R:hornpipe
+Z:id:hn-hornpipe-106
+M:C|
+L:1/8
+K:G
+B,D|GFGA Bdgf|agfc ed^cd|BGDG cAFG|ABcB AG (3FED|
+G,B,D=F ECEG|(3FED FA GBAc|Bgfg cAFD|(3GGG (3AGF G2:|
+|:fg|afdg bgfa|gfge dcBd|ceAc BcdG|FAcB AG (3FED|
+G,B,D=F ECEG|(3FED FA GBAc|Bgfg cAFD|(3GGG (3AGF G2:|
+
+X:107
+T:Glengesh Hornpipe, The
+T:Dr. Peter's Hornpipe
+R:hornpipe
+S:Anders Clarh\"all
+Z:id:hn-hornpipe-107
+M:C|
+L:1/8
+K:D
+dB|ADFA BG (3Bcd|ADFA d2cd|eAce fd (3fga|edcB AGFG|
+ADFA BG (3Bcd|ADFA d2cd|eAce faec|d2f2 d2:|
+|:cd|eAce fdfa|eAce f2fd|ea^gf edcB|(3ABA GB A2G2|
+FDFA dfaf|g2B2 b2ag|(3faf df (3efe ce|dfec d2:|
+

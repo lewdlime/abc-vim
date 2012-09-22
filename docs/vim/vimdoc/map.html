@@ -1,0 +1,1589 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: map</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: map</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="map.txt"></A><b>map.txt</b>*       For Vim version 7.3.  Last change: 2010 Nov 10
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+Key <a href="map.html#mapping">mapping</a>, <a href="map.html#abbreviations">abbreviations</a> and user-defined commands.
+
+This subject is introduced in sections |<a href="usr_05.html#05.3">05.3</a>|, |<a href="usr_24.html#24.7">24.7</a>| and |<a href="usr_40.html#40.1">40.1</a>| of the user
+manual.
+
+1. Key mapping			|<a href="map.html#key-mapping">key-mapping</a>|
+   1.1 MAP COMMANDS			|<a href="map.html#:map-commands">:map-commands</a>|
+   1.2 Special arguments		|<a href="map.html#:map-arguments">:map-arguments</a>|
+   1.3 Mapping and modes		|<a href="map.html#:map-modes">:map-modes</a>|
+   1.4 Listing mappings			|<a href="map.html#map-listing">map-listing</a>|
+   1.5 Mapping special keys		|<a href="map.html#:map-special-keys">:map-special-keys</a>|
+   1.6 Special characters		|<a href="map.html#:map-special-chars">:map-special-chars</a>|
+   1.7 What keys to map			|<a href="map.html#map-which-keys">map-which-keys</a>|
+   1.8 Examples				|<a href="map.html#map-examples">map-examples</a>|
+   1.9 Using mappings			|<a href="map.html#map-typing">map-typing</a>|
+   1.10 Mapping alt-keys		|<a href="map.html#:map-alt-keys">:map-alt-keys</a>|
+   1.11 Mapping an operator		|<a href="map.html#:map-operator">:map-operator</a>|
+2. <a href="map.html#Abbreviations">Abbreviations</a>		|<a href="map.html#abbreviations">abbreviations</a>|
+3. Local mappings and <a href="eval.html#functions">functions</a>	|<a href="map.html#script-local">script-local</a>|
+4. User-defined commands	|<a href="map.html#user-commands">user-commands</a>|
+
+==============================================================================
+
+1. Key <a href="map.html#mapping">mapping</a>				*<a name="key-mapping"></A><b>key-mapping</b>* *<a name="mapping"></A><b>mapping</b>* *<a name="macro"></A><b>macro</b>*
+
+Key <a href="map.html#mapping">mapping</a> is used to change the meaning of typed keys.  The most common use
+is to define a sequence commands for a function key.  Example:
+
+<b>	:map &lt;F2&gt; a&lt;C-R&gt;=strftime("%c")&lt;CR&gt;&lt;Esc&gt;</b>
+
+This appends the current date and time after the cursor (in &lt;&gt; <a href="intro.html#notation">notation</a> |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|).
+
+
+
+1.1 MAP COMMANDS					*<a name=":map-commands"></A><b>:map-commands</b>*
+
+There are commands to enter new mappings, remove mappings and list mappings.
+See |<a href="map.html#map-overview">map-overview</a>| for the various forms of &quot;map&quot; and their relationships with
+modes.
+
+
+<a href="map.html#{lhs}">{lhs}</a>	means left-hand-side	*<a name="{lhs}"></A><b>{lhs}</b>*
+
+<a href="map.html#{rhs}">{rhs}</a>	means right-hand-side	*<a name="{rhs}"></A><b>{rhs}</b>*
+
+
+<a href="map.html#:map">:map</a>	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-nvo">mapmode-nvo</a>|		*<a name=":map"></a><b>:map</b>*
+
+:nm[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-n">mapmode-n</a>|		*<a name=":nm"></a><b>:nm</b>* *<a name=":nmap"></a><b>:nmap</b>*
+
+:vm[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-v">mapmode-v</a>|		*<a name=":vm"></a><b>:vm</b>* *<a name=":vmap"></a><b>:vmap</b>*
+
+:xm[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-x">mapmode-x</a>|		*<a name=":xm"></a><b>:xm</b>* *<a name=":xmap"></a><b>:xmap</b>*
+
+<a href="map.html#:smap">:smap</a>	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-s">mapmode-s</a>|		      *<a name=":smap"></a><b>:smap</b>*
+
+:om[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-o">mapmode-o</a>|		*<a name=":om"></a><b>:om</b>* *<a name=":omap"></a><b>:omap</b>*
+
+<a href="map.html#:map!">:map!</a>	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-ic">mapmode-ic</a>|		*<a name=":map!"></a><b>:map!</b>*
+
+:im[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-i">mapmode-i</a>|		*<a name=":im"></a><b>:im</b>* *<a name=":imap"></a><b>:imap</b>*
+
+:lm[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-l">mapmode-l</a>|		*<a name=":lm"></a><b>:lm</b>* *<a name=":lmap"></a><b>:lmap</b>*
+
+:cm[ap]	<a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-c">mapmode-c</a>|		*<a name=":cm"></a><b>:cm</b>* *<a name=":cmap"></a><b>:cmap</b>*
+			Map the key sequence <a href="map.html#{lhs}">{lhs}</a> to <a href="map.html#{rhs}">{rhs}</a> for the modes
+			where the map command applies.  The result, including
+			<a href="map.html#{rhs}">{rhs}</a>, is then further scanned for mappings.  This
+			allows for nested and recursive use of mappings.
+
+
+
+:no[remap]  <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-nvo">mapmode-nvo</a>|		*<a name=":no"></a><b>:no</b>*  *<a name=":noremap"></a><b>:noremap</b>*
+
+:nn[oremap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-n">mapmode-n</a>|		*<a name=":nn"></a><b>:nn</b>*  *<a name=":nnoremap"></a><b>:nnoremap</b>*
+
+:vn[oremap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-v">mapmode-v</a>|		*<a name=":vn"></a><b>:vn</b>*  *<a name=":vnoremap"></a><b>:vnoremap</b>*
+
+:xn[oremap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-x">mapmode-x</a>|		*<a name=":xn"></a><b>:xn</b>*  *<a name=":xnoremap"></a><b>:xnoremap</b>*
+
+:snor[emap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-s">mapmode-s</a>|		*<a name=":snor"></a><b>:snor</b>* *<a name=":snoremap"></a><b>:snoremap</b>*
+
+:ono[remap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-o">mapmode-o</a>|		*<a name=":ono"></a><b>:ono</b>* *<a name=":onoremap"></a><b>:onoremap</b>*
+
+:no[remap]! <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-ic">mapmode-ic</a>|		*<a name=":no!"></a><b>:no!</b>* *<a name=":noremap!"></a><b>:noremap!</b>*
+
+:ino[remap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-i">mapmode-i</a>|		*<a name=":ino"></a><b>:ino</b>* *<a name=":inoremap"></a><b>:inoremap</b>*
+
+:ln[oremap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-l">mapmode-l</a>|		*<a name=":ln"></a><b>:ln</b>*  *<a name=":lnoremap"></a><b>:lnoremap</b>*
+
+:cno[remap] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>		|<a href="map.html#mapmode-c">mapmode-c</a>|		*<a name=":cno"></a><b>:cno</b>* *<a name=":cnoremap"></a><b>:cnoremap</b>*
+			Map the key sequence <a href="map.html#{lhs}">{lhs}</a> to <a href="map.html#{rhs}">{rhs}</a> for the modes
+			where the map command applies.  Disallow <a href="map.html#mapping">mapping</a> of
+			<a href="map.html#{rhs}">{rhs}</a>, to avoid nested and recursive mappings.  Often
+			used to redefine a command.  {not in Vi}
+
+
+
+:unm[ap]  <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-nvo">mapmode-nvo</a>|		*<a name=":unm"></a><b>:unm</b>*  *<a name=":unmap"></a><b>:unmap</b>*
+
+:nun[map] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-n">mapmode-n</a>|		*<a name=":nun"></a><b>:nun</b>*  *<a name=":nunmap"></a><b>:nunmap</b>*
+
+:vu[nmap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-v">mapmode-v</a>|		*<a name=":vu"></a><b>:vu</b>*   *<a name=":vunmap"></a><b>:vunmap</b>*
+
+:xu[nmap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-x">mapmode-x</a>|		*<a name=":xu"></a><b>:xu</b>*   *<a name=":xunmap"></a><b>:xunmap</b>*
+
+:sunm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-s">mapmode-s</a>|		*<a name=":sunm"></a><b>:sunm</b>* *<a name=":sunmap"></a><b>:sunmap</b>*
+
+:ou[nmap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-o">mapmode-o</a>|		*<a name=":ou"></a><b>:ou</b>*   *<a name=":ounmap"></a><b>:ounmap</b>*
+
+:unm[ap]! <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-ic">mapmode-ic</a>|		*<a name=":unm!"></a><b>:unm!</b>* *<a name=":unmap!"></a><b>:unmap!</b>*
+
+:iu[nmap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-i">mapmode-i</a>|		*<a name=":iu"></a><b>:iu</b>*   *<a name=":iunmap"></a><b>:iunmap</b>*
+
+:lu[nmap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-l">mapmode-l</a>|		*<a name=":lu"></a><b>:lu</b>*   *<a name=":lunmap"></a><b>:lunmap</b>*
+
+:cu[nmap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-c">mapmode-c</a>|		*<a name=":cu"></a><b>:cu</b>*   *<a name=":cunmap"></a><b>:cunmap</b>*
+			Remove the <a href="map.html#mapping">mapping</a> of <a href="map.html#{lhs}">{lhs}</a> for the modes where the
+			map command applies.  The <a href="map.html#mapping">mapping</a> may remain defined
+			for other modes where it applies.
+			Note: Trailing spaces are included in the <a href="map.html#{lhs}">{lhs}</a>.  This
+			unmap does NOT work:
+<b>				:map @@ foo</b>
+<b>				:unmap @@ | print</b>
+
+
+:mapc[lear]			|<a href="map.html#mapmode-nvo">mapmode-nvo</a>|		*<a name=":mapc"></a><b>:mapc</b>*   *<a name=":mapclear"></a><b>:mapclear</b>*
+
+:nmapc[lear]			|<a href="map.html#mapmode-n">mapmode-n</a>|		*<a name=":nmapc"></a><b>:nmapc</b>*  *<a name=":nmapclear"></a><b>:nmapclear</b>*
+
+:vmapc[lear]			|<a href="map.html#mapmode-v">mapmode-v</a>|		*<a name=":vmapc"></a><b>:vmapc</b>*  *<a name=":vmapclear"></a><b>:vmapclear</b>*
+
+:xmapc[lear]			|<a href="map.html#mapmode-x">mapmode-x</a>|		*<a name=":xmapc"></a><b>:xmapc</b>*  *<a name=":xmapclear"></a><b>:xmapclear</b>*
+
+:smapc[lear]			|<a href="map.html#mapmode-s">mapmode-s</a>|		*<a name=":smapc"></a><b>:smapc</b>*  *<a name=":smapclear"></a><b>:smapclear</b>*
+
+:omapc[lear]			|<a href="map.html#mapmode-o">mapmode-o</a>|		*<a name=":omapc"></a><b>:omapc</b>*  *<a name=":omapclear"></a><b>:omapclear</b>*
+
+:mapc[lear]!			|<a href="map.html#mapmode-ic">mapmode-ic</a>|		*<a name=":mapc!"></a><b>:mapc!</b>*  *<a name=":mapclear!"></a><b>:mapclear!</b>*
+
+:imapc[lear]			|<a href="map.html#mapmode-i">mapmode-i</a>|		*<a name=":imapc"></a><b>:imapc</b>*  *<a name=":imapclear"></a><b>:imapclear</b>*
+
+:lmapc[lear]			|<a href="map.html#mapmode-l">mapmode-l</a>|		*<a name=":lmapc"></a><b>:lmapc</b>*  *<a name=":lmapclear"></a><b>:lmapclear</b>*
+
+:cmapc[lear]			|<a href="map.html#mapmode-c">mapmode-c</a>|		*<a name=":cmapc"></a><b>:cmapc</b>*  *<a name=":cmapclear"></a><b>:cmapclear</b>*
+			Remove ALL mappings for the modes where the map
+			command applies.  {not in Vi}
+			Warning: This also removes the default mappings.
+
+<a href="map.html#:map">:map</a>				|<a href="map.html#mapmode-nvo">mapmode-nvo</a>|
+:nm[ap]				|<a href="map.html#mapmode-n">mapmode-n</a>|
+:vm[ap]				|<a href="map.html#mapmode-v">mapmode-v</a>|
+:xm[ap]				|<a href="map.html#mapmode-x">mapmode-x</a>|
+:sm[ap]				|<a href="map.html#mapmode-s">mapmode-s</a>|
+:om[ap]				|<a href="map.html#mapmode-o">mapmode-o</a>|
+<a href="map.html#:map!">:map!</a>				|<a href="map.html#mapmode-ic">mapmode-ic</a>|
+:im[ap]				|<a href="map.html#mapmode-i">mapmode-i</a>|
+:lm[ap]				|<a href="map.html#mapmode-l">mapmode-l</a>|
+:cm[ap]				|<a href="map.html#mapmode-c">mapmode-c</a>|
+			<a href="eval.html#List">List</a> all key mappings for the modes where the map
+			command applies.  Note that &quot;<a href="map.html#:map">:map</a>&quot; and &quot;<a href="map.html#:map!">:map!</a>&quot; are
+			used most often, because they include the other modes.
+
+
+<a href="map.html#:map">:map</a>    <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-nvo">mapmode-nvo</a>|		*<a name=":map_l"></a><b>:map_l</b>*
+
+:nm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-n">mapmode-n</a>|		*<a name=":nmap_l"></a><b>:nmap_l</b>*
+
+:vm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-v">mapmode-v</a>|		*<a name=":vmap_l"></a><b>:vmap_l</b>*
+
+:xm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-x">mapmode-x</a>|		*<a name=":xmap_l"></a><b>:xmap_l</b>*
+
+:sm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-s">mapmode-s</a>|		*<a name=":smap_l"></a><b>:smap_l</b>*
+
+:om[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-o">mapmode-o</a>|		*<a name=":omap_l"></a><b>:omap_l</b>*
+
+<a href="map.html#:map!">:map!</a>   <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-ic">mapmode-ic</a>|		*<a name=":map_l!"></a><b>:map_l!</b>*
+
+:im[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-i">mapmode-i</a>|		*<a name=":imap_l"></a><b>:imap_l</b>*
+
+:lm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-l">mapmode-l</a>|		*<a name=":lmap_l"></a><b>:lmap_l</b>*
+
+:cm[ap] <a href="map.html#{lhs}">{lhs}</a>			|<a href="map.html#mapmode-c">mapmode-c</a>|		*<a name=":cmap_l"></a><b>:cmap_l</b>*
+			<a href="eval.html#List">List</a> the key mappings for the key sequences starting
+			with <a href="map.html#{lhs}">{lhs}</a> in the modes where the map command applies.
+			{not in Vi}
+
+These commands are used to map a key or key sequence to a string of
+characters.  You can use this to put command sequences under function keys,
+translate one key into another, etc.  See |<a href="starting.html#:mkexrc">:mkexrc</a>| for how to save and
+restore the current mappings.
+
+
+							*<a name="map-ambiguous"></A><b>map-ambiguous</b>*
+When two mappings start with the same sequence of characters, they are
+ambiguous.  Example:
+<b>	:imap aa foo</b>
+<b>	:imap aaa bar</b>
+When Vim has read &quot;aa&quot;, it will need to get another character to be able to
+decide if &quot;aa&quot; or &quot;aaa&quot; should be mapped.  This means that after typing &quot;aa&quot;
+that <a href="map.html#mapping">mapping</a> won't get expanded yet, Vim is waiting for another character.
+If you type a space, then &quot;foo&quot; will get inserted, plus the space.  If you
+type &quot;<a href="insert.html#a">a</a>&quot;, then &quot;<a href="motion.html#bar">bar</a>&quot; will get inserted.
+{Vi does not allow ambiguous mappings}
+
+
+
+1.2 SPECIAL ARGUMENTS					*<a name=":map-arguments"></A><b>:map-arguments</b>*
+
+&quot;&lt;buffer&gt;&quot;, &quot;&lt;silent&gt;&quot;, &quot;&lt;special&gt;&quot;, &quot;&lt;script&gt;&quot;, &quot;&lt;expr&gt;&quot; and &quot;&lt;unique&gt;&quot; can
+be used in any order.  They must appear right after the command, before any
+other arguments.
+
+
+				*<a name=":map-local"></A><b>:map-local</b>* *<a name=":map-&lt;buffer&gt;"></A><b>:map-&lt;buffer&gt;</b>* *<a name="E224"></A><b>E224</b>* *<a name="E225"></A><b>E225</b>*
+If the first argument to one of these commands is &quot;&lt;buffer&gt;&quot; the <a href="map.html#mapping">mapping</a> will
+be effective in the current buffer only.  Example:
+<b>	:map &lt;buffer&gt;  ,w  /[.,;]&lt;CR&gt;</b>
+Then you can map &quot;,w&quot; to something else in another buffer:
+<b>	:map &lt;buffer&gt;  ,w  /[#&amp;!]&lt;CR&gt;</b>
+The local buffer mappings are used before the global ones.
+The &quot;&lt;buffer&gt;&quot; argument can also be used to clear mappings:
+<b>	:unmap &lt;buffer&gt; ,w</b>
+<b>	:mapclear &lt;buffer&gt;</b>
+Local mappings are also cleared when a buffer is deleted, but not when it is
+unloaded.  Just like local option values.
+
+
+						*<a name=":map-&lt;silent&gt;"></A><b>:map-&lt;silent&gt;</b>* *<a name=":map-silent"></A><b>:map-silent</b>*
+To define a <a href="map.html#mapping">mapping</a> which will not be echoed on the command line, add
+&quot;&lt;silent&gt;&quot; <a href="motion.html#as">as</a> the first argument.  Example:
+<b>	:map &lt;silent&gt; ,h /Header&lt;CR&gt;</b>
+The search string will not be echoed when using this <a href="map.html#mapping">mapping</a>.  Messages from
+the executed command are still given though.  To shut them up too, add a
+&quot;<a href="various.html#:silent">:silent</a>&quot; in the executed command:
+<b>	:map &lt;silent&gt; ,h :exe ":silent normal /Header\r"&lt;CR&gt;</b>
+Prompts will still be given, e.g., for <a href="eval.html#inputdialog()">inputdialog()</a>.
+Using &quot;&lt;silent&gt;&quot; for an abbreviation is possible, but will cause redrawing of
+the command line to fail.
+
+
+						*<a name=":map-&lt;special&gt;"></A><b>:map-&lt;special&gt;</b>* *<a name=":map-special"></A><b>:map-special</b>*
+Define a <a href="map.html#mapping">mapping</a> with <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> for special keys, even though the &quot;<a href="change.html#&lt;">&lt;</a>&quot; flag
+may appear in <a href="options.html#'cpoptions'">'cpoptions'</a>.  This is useful if the side effect of setting
+<a href="options.html#'cpoptions'">'cpoptions'</a> is not desired.  Example:
+<b>	:map &lt;special&gt; &lt;F12&gt; /Header&lt;CR&gt;</b>
+ 
+
+						*<a name=":map-&lt;script&gt;"></A><b>:map-&lt;script&gt;</b>* *<a name=":map-script"></A><b>:map-script</b>*
+If the first argument to one of these commands is &quot;&lt;script&gt;&quot; and it is used to
+define a new <a href="map.html#mapping">mapping</a> or abbreviation, the <a href="map.html#mapping">mapping</a> will only remap characters
+in the <a href="map.html#{rhs}">{rhs}</a> using mappings that were defined local to a <a href="usr_41.html#script">script</a>, starting with
+&quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot;.  This can be used to avoid that mappings from outside a <a href="usr_41.html#script">script</a>
+interfere (e.g., when <a href="visual.html#CTRL-V">CTRL-V</a> is remapped in mswin.vim), but <a href="diff.html#do">do</a> use other
+mappings defined in the <a href="usr_41.html#script">script</a>.
+Note: &quot;<a href="map.html#:map">:map</a> &lt;script&gt;&quot; and &quot;<a href="map.html#:noremap">:noremap</a> &lt;script&gt;&quot; <a href="diff.html#do">do</a> the same thing.  The
+&quot;&lt;script&gt;&quot; overrules the command name.  Using &quot;<a href="map.html#:noremap">:noremap</a> &lt;script&gt;&quot; is
+preferred, because it's clearer that remapping is (mostly) disabled.
+
+
+						*<a name=":map-&lt;unique&gt;"></A><b>:map-&lt;unique&gt;</b>* *<a name="E226"></A><b>E226</b>* *<a name="E227"></A><b>E227</b>*
+If the first argument to one of these commands is &quot;&lt;unique&gt;&quot; and it is used to
+define a new <a href="map.html#mapping">mapping</a> or abbreviation, the command will fail if the <a href="map.html#mapping">mapping</a> or
+abbreviation already exists.  Example:
+<b>	:map &lt;unique&gt; ,w  /[#&amp;!]&lt;CR&gt;</b>
+When defining a local <a href="map.html#mapping">mapping</a>, there will also be a check if a global map
+already exists which is equal.
+Example of what will fail:
+<b>	:map ,w  /[#&amp;!]&lt;CR&gt;</b>
+<b>	:map &lt;buffer&gt; &lt;unique&gt; ,w  /[.,;]&lt;CR&gt;</b>
+If you want to map a key and then have it <a href="diff.html#do">do</a> what it was originally mapped to,
+have a look at |<a href="eval.html#maparg()">maparg()</a>|.
+
+
+						*<a name=":map-&lt;expr&gt;"></A><b>:map-&lt;expr&gt;</b>* *<a name=":map-expression"></A><b>:map-expression</b>*
+If the first argument to one of these commands is &quot;&lt;expr&gt;&quot; and it is used to
+define a new <a href="map.html#mapping">mapping</a> or abbreviation, the argument is an <a href="eval.html#expression">expression</a>.  The
+<a href="eval.html#expression">expression</a> is evaluated to obtain the <a href="map.html#{rhs}">{rhs}</a> that is used.  Example:
+<b>	:inoremap &lt;expr&gt; . InsertDot()</b>
+The result of the InsertDot() function will be inserted.  It could check the
+text before the cursor and start omni completion when some condition is met.
+
+For <a href="map.html#abbreviations">abbreviations</a> |<a href="eval.html#v:char">v:char</a>| is set to the character that was typed to trigger
+the abbreviation.  You can use this to decide how to expand the <a href="map.html#{lhs}">{lhs}</a>.  You
+can't change <a href="eval.html#v:char">v:char</a> and you should not insert it.
+
+Be very careful about side effects!  The <a href="eval.html#expression">expression</a> is evaluated while
+obtaining characters, you may very well make the command dysfunctional.
+For this reason the following is blocked:
+- Changing the buffer text |<a href="eval.html#textlock">textlock</a>|.
+- Editing another buffer.
+- The |<a href="various.html#:normal">:normal</a>| command.
+- Moving the cursor is allowed, but it is restored afterwards.
+- You can use <a href="eval.html#getchar()">getchar()</a>, but the existing typeahead isn't seen and new
+  typeahead is discarded.
+If you want the <a href="map.html#mapping">mapping</a> to <a href="diff.html#do">do</a> any of these let the returned characters <a href="diff.html#do">do</a>
+that.
+
+Here is an example that inserts a list number that increases:
+<b>	let counter = 0</b>
+<b>	inoremap &lt;expr&gt; &lt;C-L&gt; ListItem()</b>
+<b>	inoremap &lt;expr&gt; &lt;C-R&gt; ListReset()</b>
+
+<b>	func ListItem()</b>
+<b>	  let g:counter += 1</b>
+<b>	  return g:counter . '. '</b>
+<b>	endfunc</b>
+
+<b>	func ListReset()</b>
+<b>	  let g:counter = 0</b>
+<b>	  return ''</b>
+<b>	endfunc</b>
+
+<a href="various.html#CTRL-L">CTRL-L</a> inserts the next number, <a href="undo.html#CTRL-R">CTRL-R</a> resets the <a href="intro.html#count">count</a>.  <a href="undo.html#CTRL-R">CTRL-R</a> returns an
+empty string, so that nothing is inserted.
+
+Note that there are some tricks to make special keys work and <a href="intro.html#escape">escape</a> CSI bytes
+in the text.  The |<a href="map.html#:map">:map</a>| command also does this, thus you must avoid that it
+is done <a href="if_cscop.html#twice">twice</a>.  This does not work:
+<b>	:imap &lt;expr&gt; &lt;F3&gt; "&lt;Char-0x611B&gt;"</b>
+Because the &lt;Char- sequence is escaped for being a |<a href="map.html#:imap">:imap</a>| argument and then
+again for using &lt;expr&gt;.  This does work:
+<b>	:imap &lt;expr&gt; &lt;F3&gt; "\u611B"</b>
+Using 0x80 <a href="motion.html#as">as</a> a single byte before other text does not work, it will be seen
+<a href="motion.html#as">as</a> a special key.
+
+
+
+1.3 MAPPING AND MODES					*<a name=":map-modes"></A><b>:map-modes</b>*
+
+			*<a name="mapmode-nvo"></A><b>mapmode-nvo</b>* *<a name="mapmode-n"></A><b>mapmode-n</b>* *<a name="mapmode-v"></A><b>mapmode-v</b>* *<a name="mapmode-o"></A><b>mapmode-o</b>*
+
+There are six sets of mappings
+- For <a href="intro.html#Normal">Normal</a> mode: When typing commands.
+- For <a href="visual.html#Visual">Visual</a> mode: When typing commands while the <a href="visual.html#Visual">Visual</a> area is highlighted.
+- For <a href="visual.html#Select">Select</a> mode: like <a href="visual.html#Visual">Visual</a> mode but typing text replaces the selection.
+- For <a href="intro.html#Operator-pending">Operator-pending</a> mode: When an <a href="motion.html#operator">operator</a> is pending (after &quot;<a href="change.html#d">d</a>&quot;, &quot;<a href="change.html#y">y</a>&quot;, &quot;<a href="change.html#c">c</a>&quot;,
+  etc.).  See below: |<a href="map.html#omap-info">omap-info</a>|.
+- For <a href="insert.html#Insert">Insert</a> mode.  These are also used in <a href="insert.html#Replace">Replace</a> mode.
+- For <a href="cmdline.html#Command-line">Command-line</a> mode: When entering a &quot;<a href="cmdline.html#:">:</a>&quot; or &quot;<a href="pattern.html#/">/</a>&quot; command.
+
+Special <a href="change.html#case">case</a>: While typing a <a href="intro.html#count">count</a> for a command in <a href="intro.html#Normal">Normal</a> mode, <a href="map.html#mapping">mapping</a> zero
+is disabled.  This makes it possible to map zero without making it impossible
+to type a <a href="intro.html#count">count</a> with a zero.
+
+
+						*<a name="map-overview"></A><b>map-overview</b>* *<a name="map-modes"></A><b>map-modes</b>*
+Overview of which map command works in which mode:
+
+<b><font color="purple">    commands:				      modes: </font></b>
+<b><font color="purple">				       Normal  Visual+Select  Operator-pending </font></b>
+<a href="map.html#:map">:map</a>   <a href="map.html#:noremap">:noremap</a>   <a href="map.html#:unmap">:unmap</a>   <a href="map.html#:mapclear">:mapclear</a>	 yes	    yes		   yes
+<a href="map.html#:nmap">:nmap</a>  <a href="map.html#:nnoremap">:nnoremap</a>  <a href="map.html#:nunmap">:nunmap</a>  <a href="map.html#:nmapclear">:nmapclear</a>	 yes	     -		    -
+<a href="map.html#:vmap">:vmap</a>  <a href="map.html#:vnoremap">:vnoremap</a>  <a href="map.html#:vunmap">:vunmap</a>  <a href="map.html#:vmapclear">:vmapclear</a>	  -	    yes		    -
+<a href="map.html#:omap">:omap</a>  <a href="map.html#:onoremap">:onoremap</a>  <a href="map.html#:ounmap">:ounmap</a>  <a href="map.html#:omapclear">:omapclear</a>	  -	     -		   yes
+
+<a href="map.html#:nunmap">:nunmap</a> can also be used outside of a monastery.
+
+						*<a name="mapmode-x"></A><b>mapmode-x</b>* *<a name="mapmode-s"></A><b>mapmode-s</b>*
+Some commands work both in <a href="visual.html#Visual">Visual</a> and <a href="visual.html#Select">Select</a> mode, some in only one.  Note
+that quite often &quot;<a href="visual.html#Visual">Visual</a>&quot; is mentioned where both <a href="visual.html#Visual">Visual</a> and <a href="visual.html#Select">Select</a> mode
+apply. |<a href="visual.html#Select-mode-mapping">Select-mode-mapping</a>|
+NOTE: Mapping a printable character in <a href="visual.html#Select">Select</a> mode may confuse the user.  It's
+better to explicitly use <a href="map.html#:xmap">:xmap</a> and <a href="map.html#:smap">:smap</a> for printable characters.  Or use
+<a href="map.html#:sunmap">:sunmap</a> after defining the <a href="map.html#mapping">mapping</a>.
+
+<b><font color="purple">    commands:				      modes: </font></b>
+<b><font color="purple">					  Visual    Select </font></b>
+<a href="map.html#:vmap">:vmap</a>  <a href="map.html#:vnoremap">:vnoremap</a>  <a href="map.html#:vunmap">:vunmap</a>  <a href="map.html#:vmapclear">:vmapclear</a>	    yes      yes
+<a href="map.html#:xmap">:xmap</a>  <a href="map.html#:xnoremap">:xnoremap</a>  <a href="map.html#:xunmap">:xunmap</a>  <a href="map.html#:xmapclear">:xmapclear</a>	    yes       -
+<a href="map.html#:smap">:smap</a>  <a href="map.html#:snoremap">:snoremap</a>  <a href="map.html#:sunmap">:sunmap</a>  <a href="map.html#:smapclear">:smapclear</a>	    -	     yes
+
+
+			*<a name="mapmode-ic"></A><b>mapmode-ic</b>* *<a name="mapmode-i"></A><b>mapmode-i</b>* *<a name="mapmode-c"></A><b>mapmode-c</b>* *<a name="mapmode-l"></A><b>mapmode-l</b>*
+Some commands work both in <a href="insert.html#Insert">Insert</a> mode and <a href="cmdline.html#Command-line">Command-line</a> mode, some not:
+
+<b><font color="purple">    commands:				      modes: </font></b>
+<b><font color="purple">					  Insert  Command-line	Lang-Arg </font></b>
+<a href="map.html#:map!">:map!</a>  <a href="map.html#:noremap!">:noremap!</a>  <a href="map.html#:unmap!">:unmap!</a>  <a href="map.html#:mapclear!">:mapclear!</a>	    yes	       yes	   -
+<a href="map.html#:imap">:imap</a>  <a href="map.html#:inoremap">:inoremap</a>  <a href="map.html#:iunmap">:iunmap</a>  <a href="map.html#:imapclear">:imapclear</a>	    yes		-	   -
+<a href="map.html#:cmap">:cmap</a>  <a href="map.html#:cnoremap">:cnoremap</a>  <a href="map.html#:cunmap">:cunmap</a>  <a href="map.html#:cmapclear">:cmapclear</a>	     -	       yes	   -
+<a href="map.html#:lmap">:lmap</a>  <a href="map.html#:lnoremap">:lnoremap</a>  <a href="map.html#:lunmap">:lunmap</a>  <a href="map.html#:lmapclear">:lmapclear</a>	    yes*       yes*	  yes*
+
+The original <a href="intro.html#Vi">Vi</a> did not have separate mappings for
+Normal/Visual/Operator-pending mode and for Insert/Command-line mode.
+Therefore the &quot;<a href="map.html#:map">:map</a>&quot; and &quot;<a href="map.html#:map!">:map!</a>&quot; commands enter and display mappings for
+several modes.  In Vim you can use the &quot;<a href="map.html#:nmap">:nmap</a>&quot;, &quot;<a href="map.html#:vmap">:vmap</a>&quot;, &quot;<a href="map.html#:omap">:omap</a>&quot;, &quot;<a href="map.html#:cmap">:cmap</a>&quot; and
+&quot;<a href="map.html#:imap">:imap</a>&quot; commands to enter mappings for each mode separately.
+
+
+							*<a name="omap-info"></A><b>omap-info</b>*
+<a href="intro.html#Operator-pending">Operator-pending</a> mappings can be used to define a <a href="intro.html#movement">movement</a> command that can be
+used with any <a href="motion.html#operator">operator</a>.  Simple example: &quot;<a href="map.html#:omap">:omap</a> { w&quot; makes &quot;y{&quot; work like &quot;yw&quot;
+and &quot;d{&quot; like &quot;dw&quot;.
+
+To ignore the starting cursor position and select different text, you can have
+the omap start <a href="visual.html#Visual">Visual</a> mode to select the text to be operated upon.  Example
+that operates on a function name in the current line:
+<b>	onoremap &lt;silent&gt; F :&lt;C-U&gt;normal! 0f(hviw&lt;CR&gt;</b>
+The <a href="scroll.html#CTRL-U">CTRL-U</a> (&lt;C-U&gt;) is used to remove the range that Vim may insert.  The
+<a href="intro.html#Normal">Normal</a> mode commands find the first '<a href="motion.html#(">(</a>' character and select the first <a href="motion.html#word">word</a>
+before it.  That usually is the function name.
+
+To enter a <a href="map.html#mapping">mapping</a> for <a href="intro.html#Normal">Normal</a> and <a href="visual.html#Visual">Visual</a> mode, but not <a href="intro.html#Operator-pending">Operator-pending</a> mode,
+first define it for all three modes, then unmap it for <a href="intro.html#Operator-pending">Operator-pending</a> mode:
+	<a href="map.html#:map">:map</a>    xx something-difficult
+	<a href="map.html#:ounmap">:ounmap</a> xx
+Likewise for a <a href="map.html#mapping">mapping</a> for <a href="visual.html#Visual">Visual</a> and <a href="intro.html#Operator-pending">Operator-pending</a> mode or <a href="intro.html#Normal">Normal</a> and
+<a href="intro.html#Operator-pending">Operator-pending</a> mode.
+
+
+						*<a name="language-mapping"></A><b>language-mapping</b>*
+&quot;<a href="map.html#:lmap">:lmap</a>&quot; defines a <a href="map.html#mapping">mapping</a> that applies to:
+- <a href="insert.html#Insert">Insert</a> mode
+- <a href="cmdline.html#Command-line">Command-line</a> mode
+- when entering a search <a href="pattern.html#pattern">pattern</a>
+- the argument of the commands that accept a text character, such <a href="motion.html#as">as</a> &quot;<a href="change.html#r">r</a>&quot; and
+  &quot;<a href="motion.html#f">f</a>&quot;
+- for the <a href="eval.html#input()">input()</a> line
+Generally: Whenever a character is to be typed that is part of the text in the
+buffer, not a Vim command character.  &quot;Lang-Arg&quot; isn't really another mode,
+it's just used here for this situation.
+   The simplest way to load a set of related language mappings is by using the
+<a href="options.html#'keymap'">'keymap'</a> option.  See |<a href="usr_45.html#45.5">45.5</a>|.
+   In <a href="insert.html#Insert">Insert</a> mode and in <a href="cmdline.html#Command-line">Command-line</a> mode the mappings can be disabled with
+the CTRL-^ command |<a href="insert.html#i_CTRL-^">i_CTRL-^</a>| |<a href="cmdline.html#c_CTRL-^">c_CTRL-^</a>|.  When starting to enter a normal
+command line (not a search <a href="pattern.html#pattern">pattern</a>) the mappings are disabled until a <a href="editing.html#CTRL-^">CTRL-^</a>
+is typed.  The state last used is remembered for <a href="insert.html#Insert">Insert</a> mode and Search
+patterns separately.  The state for <a href="insert.html#Insert">Insert</a> mode is also used when typing a
+character <a href="motion.html#as">as</a> an argument to command like &quot;<a href="motion.html#f">f</a>&quot; or &quot;<a href="motion.html#t">t</a>&quot;.
+   Language mappings will never be applied to already mapped characters.  They
+are only used for typed characters.  This assumes that the language <a href="map.html#mapping">mapping</a>
+was already done when typing the <a href="map.html#mapping">mapping</a>.
+
+
+
+1.4 LISTING MAPPINGS					*<a name="map-listing"></A><b>map-listing</b>*
+
+When listing mappings the characters in the first two columns are:
+
+<b><font color="purple">      CHAR	MODE	</font></b>
+     <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>	<a href="intro.html#Normal">Normal</a>, <a href="visual.html#Visual">Visual</a>, <a href="visual.html#Select">Select</a> and <a href="intro.html#Operator-pending">Operator-pending</a>
+	<a href="pattern.html#n">n</a>	<a href="intro.html#Normal">Normal</a>
+	<a href="visual.html#v">v</a>	<a href="visual.html#Visual">Visual</a> and <a href="visual.html#Select">Select</a>
+	<a href="change.html#s">s</a>	<a href="visual.html#Select">Select</a>
+	<a href="change.html#x">x</a>	<a href="visual.html#Visual">Visual</a>
+	<a href="insert.html#o">o</a>	<a href="intro.html#Operator-pending">Operator-pending</a>
+	!	<a href="insert.html#Insert">Insert</a> and <a href="cmdline.html#Command-line">Command-line</a>
+	<a href="insert.html#i">i</a>	<a href="insert.html#Insert">Insert</a>
+	<a href="motion.html#l">l</a>	&quot;<a href="map.html#:lmap">:lmap</a>&quot; mappings for <a href="insert.html#Insert">Insert</a>, <a href="cmdline.html#Command-line">Command-line</a> and Lang-Arg
+	<a href="change.html#c">c</a>	<a href="cmdline.html#Command-line">Command-line</a>
+
+Just before the <a href="map.html#{rhs}">{rhs}</a> a special character can appear:
+	&#42;	indicates that it is not remappable
+	<a href="change.html#&amp;">&amp;</a>	indicates that only <a href="map.html#script-local">script-local</a> mappings are remappable
+	@	indicates a buffer-local <a href="map.html#mapping">mapping</a>
+
+Everything from the first non-blank after <a href="map.html#{lhs}">{lhs}</a> up to the end of the line
+(or '&#124;') is considered to be part of <a href="map.html#{rhs}">{rhs}</a>.  This allows the <a href="map.html#{rhs}">{rhs}</a> to end
+with a space.
+
+Note: When using mappings for <a href="visual.html#Visual">Visual</a> mode, you can use the &quot;<a href="motion.html#'&lt;">'&lt;</a>&quot; <a href="motion.html#mark">mark</a>, which
+is the start of the last selected <a href="visual.html#Visual">Visual</a> area in the current buffer |<a href="motion.html#'&lt;">'&lt;</a>|.
+
+
+							*<a name=":map-verbose"></A><b>:map-verbose</b>*
+When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing a key map will also display where it was
+last defined.  Example:
+
+<b>	:verbose map &lt;C-W&gt;*</b>
+<b>	n  &lt;C-W&gt;*      * &lt;C-W&gt;&lt;C-S&gt;*</b>
+<b>		Last set from /home/abcd/.vimrc</b>
+
+See |<a href="various.html#:verbose-cmd">:verbose-cmd</a>| for more information.
+
+
+
+1.5 MAPPING SPECIAL KEYS				*<a name=":map-special-keys"></A><b>:map-special-keys</b>*
+
+There are three ways to map a special key:
+1. The Vi-compatible method: Map the key code.  Often this is a sequence that
+   starts with <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>.  To enter a <a href="map.html#mapping">mapping</a> like this you type &quot;<a href="map.html#:map">:map</a> &quot; and then
+   you have to type <a href="visual.html#CTRL-V">CTRL-V</a> before hitting the function key.  Note that when
+   the key code for the key is in the <a href="term.html#termcap">termcap</a> (the t_ options), it will
+   automatically be translated into the internal code and become the second
+   way of <a href="map.html#mapping">mapping</a> (unless the '<a href="motion.html#k">k</a>' flag is included in <a href="options.html#'cpoptions'">'cpoptions'</a>).
+2. The second method is to use the internal code for the function key.  To
+   enter such a <a href="map.html#mapping">mapping</a> type CTRL-K and then hit the function key, or use
+   the form &quot;#1&quot;, &quot;#2&quot;, .. &quot;#9&quot;, &quot;#0&quot;, &quot;<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>&quot;, &quot;<a href="scroll.html#&lt;S-Down&gt;">&lt;S-Down&gt;</a>&quot;, &quot;<a href="term.html#&lt;S-F7&gt;">&lt;S-F7&gt;</a>&quot;, etc.
+   (see table of keys |<a href="intro.html#key-notation">key-notation</a>|, all keys from <a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a> can be used).  The
+   first ten function keys can be defined in two ways: Just the number, like
+   &quot;#2&quot;, and with &quot;&lt;F&gt;&quot;, like &quot;<a href="term.html#&lt;F2&gt;">&lt;F2&gt;</a>&quot;.  Both stand for function key 2.  &quot;#0&quot;
+   refers to function key 10, defined with option '<a href="version4.html#t_f10">t_f10</a>', which may be
+   function key zero on some keyboards.  The <a href="intro.html#&lt;&gt;">&lt;&gt;</a> form cannot be used when
+   <a href="options.html#'cpoptions'">'cpoptions'</a> includes the '<a href="change.html#&lt;">&lt;</a>' flag.
+3. Use the <a href="term.html#termcap">termcap</a> entry, with the form &lt;t_xx&gt;, where &quot;xx&quot; is the name of the
+   <a href="term.html#termcap">termcap</a> entry.  Any string entry can be used.  For example:
+<b>     :map &lt;t_F3&gt; G</b>
+   Maps function key 13 to &quot;<a href="motion.html#G">G</a>&quot;.  This does not work if <a href="options.html#'cpoptions'">'cpoptions'</a> includes
+   the '<a href="change.html#&lt;">&lt;</a>' flag.
+
+The advantage of the second and third method is that the <a href="map.html#mapping">mapping</a> will work on
+different terminals without modification (the function key will be
+translated into the same internal code or the actual key code, no matter what
+terminal you are using.  The <a href="term.html#termcap">termcap</a> must be correct for this to work, and you
+must use the same mappings).
+
+DETAIL: Vim first checks if a sequence from the keyboard is mapped.  If it
+isn't the terminal key codes are tried (see |<a href="term.html#terminal-options">terminal-options</a>|).  If a
+terminal code is found it is replaced with the internal code.  Then the check
+for a <a href="map.html#mapping">mapping</a> is done again (so you can map an internal code to something
+else).  What is written into the <a href="usr_41.html#script">script</a> file depends on what is recognized.
+If the terminal key code was recognized <a href="motion.html#as">as</a> a <a href="map.html#mapping">mapping</a> the key code itself is
+written to the <a href="usr_41.html#script">script</a> file.  If it was recognized <a href="motion.html#as">as</a> a terminal code the
+internal code is written to the <a href="usr_41.html#script">script</a> file.
+
+
+
+1.6 SPECIAL CHARACTERS					*<a name=":map-special-chars"></A><b>:map-special-chars</b>*
+
+							*<a name="map_backslash"></A><b>map_backslash</b>*
+Note that only <a href="visual.html#CTRL-V">CTRL-V</a> is mentioned here <a href="motion.html#as">as</a> a special character for mappings
+and <a href="map.html#abbreviations">abbreviations</a>.  When <a href="options.html#'cpoptions'">'cpoptions'</a> does not contain '<a href="motion.html#B">B</a>', a <a href="intro.html#backslash">backslash</a> can
+also be used like <a href="visual.html#CTRL-V">CTRL-V</a>.  The &lt;&gt; <a href="intro.html#notation">notation</a> can be fully used then |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|.  But
+you cannot use &quot;&lt;C-V&gt;&quot; like <a href="visual.html#CTRL-V">CTRL-V</a> to <a href="intro.html#escape">escape</a> the special meaning of what
+follows.
+
+To map a <a href="intro.html#backslash">backslash</a>, or use a <a href="intro.html#backslash">backslash</a> literally in the <a href="map.html#{rhs}">{rhs}</a>, the special
+sequence &quot;<a href="intro.html#&lt;Bslash&gt;">&lt;Bslash&gt;</a>&quot; can be used.  This avoids the need to double backslashes
+when using nested mappings.
+
+
+							*<a name="map_CTRL-C"></A><b>map_CTRL-C</b>*
+Using <a href="pattern.html#CTRL-C">CTRL-C</a> in the <a href="map.html#{lhs}">{lhs}</a> is possible, but it will only work when Vim is
+waiting for a key, not when Vim is busy with something.  When Vim is busy
+<a href="pattern.html#CTRL-C">CTRL-C</a> interrupts/breaks the command.
+When using the <a href="gui.html#GUI">GUI</a> version on <a href="os_win32.html#MS-Windows">MS-Windows</a> <a href="pattern.html#CTRL-C">CTRL-C</a> can be mapped to allow a Copy
+command to the <a href="gui.html#clipboard">clipboard</a>.  Use CTRL-Break to interrupt Vim.
+
+
+							*<a name="map_space_in_lhs"></A><b>map_space_in_lhs</b>*
+To include a space in <a href="map.html#{lhs}">{lhs}</a> precede it with a <a href="visual.html#CTRL-V">CTRL-V</a> (type two CTRL-Vs for
+each space).
+
+							*<a name="map_space_in_rhs"></A><b>map_space_in_rhs</b>*
+If you want a <a href="map.html#{rhs}">{rhs}</a> that starts with a space, use &quot;<a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>&quot;.  To be fully <a href="intro.html#Vi">Vi</a>
+compatible (but unreadable) don't use the |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>| <a href="intro.html#notation">notation</a>, precede <a href="map.html#{rhs}">{rhs}</a> with a
+single <a href="visual.html#CTRL-V">CTRL-V</a> (you have to type <a href="visual.html#CTRL-V">CTRL-V</a> two times).
+
+							*<a name="map_empty_rhs"></A><b>map_empty_rhs</b>*
+You can create an empty <a href="map.html#{rhs}">{rhs}</a> by typing nothing after a single <a href="visual.html#CTRL-V">CTRL-V</a> (you
+have to type <a href="visual.html#CTRL-V">CTRL-V</a> two times).  Unfortunately, you cannot <a href="diff.html#do">do</a> this in a <a href="starting.html#vimrc">vimrc</a>
+file.
+
+							*<a name="&lt;Nop&gt;"></A><b>&lt;Nop&gt;</b>*
+A easier way to get a <a href="map.html#mapping">mapping</a> that doesn't produce anything, is to use &quot;<a href="map.html#&lt;Nop&gt;">&lt;Nop&gt;</a>&quot;
+for the <a href="map.html#{rhs}">{rhs}</a>.  This only works when the |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>| <a href="intro.html#notation">notation</a> is enabled.  For
+example, to make sure that function key 8 does nothing at all:
+<b>	:map  &lt;F8&gt;  &lt;Nop&gt;</b>
+<b>	:map! &lt;F8&gt;  &lt;Nop&gt;</b>
+ 
+
+							*<a name="map-multibyte"></A><b>map-multibyte</b>*
+It is possible to map <a href="mbyte.html#multibyte">multibyte</a> characters, but only the whole character.  You
+cannot map the first byte only.  This was done to prevent problems in this
+scenario:
+<b>	:set encoding=latin1</b>
+<b>	:imap &lt;M-C&gt; foo</b>
+<b>	:set encoding=utf-8</b>
+The <a href="map.html#mapping">mapping</a> for &lt;M-C&gt; is defined with the latin1 encoding, resulting in a 0xc3
+byte.  If you type the character &aacute; (0xe1 &lt;M-a&gt;) in <a href="mbyte.html#UTF-8">UTF-8</a> encoding this is the
+two bytes 0xc3 0xa1.  You don't want the 0xc3 byte to be mapped then,
+otherwise it would be impossible to type the &aacute; character.
+
+
+					*<a name="&lt;Leader&gt;"></A><b>&lt;Leader&gt;</b>* *<a name="mapleader"></A><b>mapleader</b>*
+To define a <a href="map.html#mapping">mapping</a> which uses the &quot;<a href="map.html#mapleader">mapleader</a>&quot; variable, the special string
+&quot;<a href="map.html#&lt;Leader&gt;">&lt;Leader&gt;</a>&quot; can be used.  It is replaced with the string value of &quot;<a href="map.html#mapleader">mapleader</a>&quot;.
+If &quot;<a href="map.html#mapleader">mapleader</a>&quot; is not set or empty, a <a href="intro.html#backslash">backslash</a> is used instead.  Example:
+<b>	:map &lt;Leader&gt;A  oanother line&lt;Esc&gt;</b>
+Works like:
+<b>	:map \A  oanother line&lt;Esc&gt;</b>
+But after:
+<b>	:let mapleader = ","</b>
+It works like:
+<b>	:map ,A  oanother line&lt;Esc&gt;</b>
+
+Note that the value of &quot;<a href="map.html#mapleader">mapleader</a>&quot; is used at the moment the <a href="map.html#mapping">mapping</a> is
+defined.  Changing &quot;<a href="map.html#mapleader">mapleader</a>&quot; after that has no effect for already defined
+mappings.
+
+
+					*<a name="&lt;LocalLeader&gt;"></A><b>&lt;LocalLeader&gt;</b>* *<a name="maplocalleader"></A><b>maplocalleader</b>*
+<a href="map.html#&lt;LocalLeader&gt;">&lt;LocalLeader&gt;</a> is just like <a href="map.html#&lt;Leader&gt;">&lt;Leader&gt;</a>, except that it uses &quot;<a href="map.html#maplocalleader">maplocalleader</a>&quot;
+instead of &quot;<a href="map.html#mapleader">mapleader</a>&quot;.  <a href="map.html#&lt;LocalLeader&gt;">&lt;LocalLeader&gt;</a> is to be used for mappings which are
+local to a buffer.  Example:
+<b>      :map &lt;LocalLeader&gt;q  \DoItNow</b>
+ 
+In a global <a href="usr_05.html#plugin">plugin</a> <a href="map.html#&lt;Leader&gt;">&lt;Leader&gt;</a> should be used and in a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a>
+<a href="map.html#&lt;LocalLeader&gt;">&lt;LocalLeader&gt;</a>.  &quot;<a href="map.html#mapleader">mapleader</a>&quot; and &quot;<a href="map.html#maplocalleader">maplocalleader</a>&quot; can be equal.  Although, if
+you make them different, there is a smaller chance of mappings from global
+plugins to clash with mappings for <a href="filetype.html#filetype">filetype</a> plugins.  For example, you could
+keep &quot;<a href="map.html#mapleader">mapleader</a>&quot; at the default <a href="intro.html#backslash">backslash</a>, and set &quot;<a href="map.html#maplocalleader">maplocalleader</a>&quot; to an
+underscore.
+
+
+							*<a name="map-&lt;SID&gt;"></A><b>map-&lt;SID&gt;</b>*
+In a <a href="usr_41.html#script">script</a> the special key name &quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot; can be used to define a <a href="map.html#mapping">mapping</a>
+that's local to the <a href="usr_41.html#script">script</a>.  See |<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>| for details.
+
+
+							*<a name="&lt;Plug&gt;"></A><b>&lt;Plug&gt;</b>*
+The special key name &quot;<a href="map.html#&lt;Plug&gt;">&lt;Plug&gt;</a>&quot; can be used for an internal <a href="map.html#mapping">mapping</a>, which is
+not to be matched with any key sequence.  This is useful in plugins
+|<a href="usr_41.html#using-&lt;Plug&gt;">using-&lt;Plug&gt;</a>|.
+
+
+							*<a name="&lt;Char&gt;"></A><b>&lt;Char&gt;</b>* *<a name="&lt;Char-&gt;"></A><b>&lt;Char-&gt;</b>*
+To map a character by its decimal, <a href="eval.html#octal">octal</a> or hexadecimal number the <a href="map.html#&lt;Char&gt;">&lt;Char&gt;</a>
+construct can be used:
+	&lt;Char-123&gt;	character 123
+	&lt;Char-033&gt;	character 27
+	&lt;Char-0x7f&gt;	character 127
+This is useful to specify a (multi-byte) character in a <a href="options.html#'keymap'">'keymap'</a> file.
+Upper and <a href="change.html#lowercase">lowercase</a> differences are ignored.
+
+
+							*<a name="map-comments"></A><b>map-comments</b>*
+It is not possible to put a comment after these commands, because the &#39;&#34;''
+character is considered to be part of the <a href="map.html#{lhs}">{lhs}</a> or <a href="map.html#{rhs}">{rhs}</a>.
+
+
+							*<a name="map_bar"></A><b>map_bar</b>*
+Since the '&#124;' character is used to separate a map command from the next
+command, you will have to <a href="diff.html#do">do</a> something special to include  a '&#124;' in <a href="map.html#{rhs}">{rhs}</a>.
+There are three methods:
+<b><font color="purple">   use	     works when			   example	</font></b>
+   <a href="intro.html#&lt;Bar&gt;">&lt;Bar&gt;</a>     '<a href="change.html#&lt;">&lt;</a>' is not in <a href="options.html#'cpoptions'">'cpoptions'</a>	   <a href="map.html#:map">:map</a> _l :!ls <a href="intro.html#&lt;Bar&gt;">&lt;Bar&gt;</a> more^M
+   \&#124;	     '<a href="motion.html#b">b</a>' is not in <a href="options.html#'cpoptions'">'cpoptions'</a>	   <a href="map.html#:map">:map</a> _l :!ls \&#124; more^M
+   ^V&#124;	     always, in Vim and <a href="intro.html#Vi">Vi</a>	   <a href="map.html#:map">:map</a> _l :!ls ^V&#124; more^M
+
+(here ^V stands for <a href="visual.html#CTRL-V">CTRL-V</a>; to get one <a href="visual.html#CTRL-V">CTRL-V</a> you have to type it <a href="if_cscop.html#twice">twice</a>; you
+cannot use the <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> &quot;&lt;C-V&gt;&quot; here).
+
+All three work when you use the default setting for <a href="options.html#'cpoptions'">'cpoptions'</a>.
+
+When '<a href="motion.html#b">b</a>' is present in <a href="options.html#'cpoptions'">'cpoptions'</a>, &quot;\|&quot; will be recognized <a href="motion.html#as">as</a> a <a href="map.html#mapping">mapping</a>
+ending in a '\' and then another command.  This is <a href="intro.html#Vi">Vi</a> compatible, but
+illogical when compared to other commands.
+
+
+							*<a name="map_return"></A><b>map_return</b>*
+When you have a <a href="map.html#mapping">mapping</a> that contains an <a href="intro.html#Ex">Ex</a> command, you need to put a line
+terminator after it to have it executed.  The use of <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> is recommended for
+this (see |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|).  Example:
+<b>   :map  _ls  :!ls -l %&lt;CR&gt;:echo "the end"&lt;CR&gt;</b>
+
+To avoid <a href="map.html#mapping">mapping</a> of the characters you type in insert or <a href="cmdline.html#Command-line">Command-line</a> mode,
+type a <a href="visual.html#CTRL-V">CTRL-V</a> first.  The <a href="map.html#mapping">mapping</a> in <a href="insert.html#Insert">Insert</a> mode is disabled if the <a href="options.html#'paste'">'paste'</a>
+option is on.
+
+Note that when an error is encountered (that causes an error message or beep)
+the rest of the <a href="map.html#mapping">mapping</a> is not executed.  This is Vi-compatible.
+
+Note that the second character (argument) of the commands @zZtTfF[]rm'`&quot;v
+and <a href="change.html#CTRL-X">CTRL-X</a> is not mapped.  This was done to be able to use all the named
+<a href="change.html#registers">registers</a> and marks, even when the command with the same name has been
+mapped.
+
+
+
+1.7 WHAT KEYS TO MAP					*<a name="map-which-keys"></A><b>map-which-keys</b>*
+
+If you are going to map something, you will need to choose which key(s) to use
+for the <a href="map.html#{lhs}">{lhs}</a>.  You will have to avoid keys that are used for Vim commands,
+otherwise you would not be able to use those commands anymore.  Here are a few
+suggestions:
+- Function keys <a href="term.html#&lt;F2&gt;">&lt;F2&gt;</a>, <a href="term.html#&lt;F3&gt;">&lt;F3&gt;</a>, etc..  Also the shifted function keys <a href="intro.html#&lt;S-F1&gt;">&lt;S-F1&gt;</a>,
+  <a href="term.html#&lt;S-F2&gt;">&lt;S-F2&gt;</a>, etc.  Note that <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> is already used for the help command.
+- Meta-keys (with the ALT key pressed).  Depending on your keyboard accented
+  characters may be used <a href="motion.html#as">as</a> well. |<a href="map.html#:map-alt-keys">:map-alt-keys</a>|
+- Use the '<a href="motion.html#_">_</a>' or '<a href="motion.html#,">,</a>' character and then any other character.  The &quot;<a href="motion.html#_">_</a>&quot; and &quot;<a href="motion.html#,">,</a>&quot;
+  commands <a href="diff.html#do">do</a> exist in Vim (see |<a href="motion.html#_">_</a>| and |<a href="motion.html#,">,</a>|), but you probably never use them.
+- Use a key that is a synonym for another command.  For example: <a href="motion.html#CTRL-P">CTRL-P</a> and
+  <a href="motion.html#CTRL-N">CTRL-N</a>.  Use an extra character to allow more mappings.
+- The key defined by <a href="map.html#&lt;Leader&gt;">&lt;Leader&gt;</a> and one or more other keys.  This is especially
+  useful in scripts. |<a href="map.html#mapleader">mapleader</a>|
+
+See the file &quot;index&quot; for keys that are not used and thus can be mapped without
+losing any builtin function.  You can also use &quot;<a href="helphelp.html#:help">:help</a> {key}^D&quot; to find out if
+a key is used for some command.  ({key} is the specific key you want to find
+out about, ^D is <a href="scroll.html#CTRL-D">CTRL-D</a>).
+
+
+
+1.8 EXAMPLES						*<a name="map-examples"></A><b>map-examples</b>*
+
+A few examples (given <a href="motion.html#as">as</a> you type them, for &quot;<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>&quot; you type four characters;
+the '<a href="change.html#&lt;">&lt;</a>' flag must not be present in <a href="options.html#'cpoptions'">'cpoptions'</a> for this to work).
+
+<b>   :map &lt;F3&gt;  o#include</b>
+<b>   :map &lt;M-g&gt; /foo&lt;CR&gt;cwbar&lt;Esc&gt;</b>
+<b>   :map _x    d/END/e&lt;CR&gt;</b>
+<b>   :map! qq   quadrillion questions</b>
+
+
+Multiplying a <a href="intro.html#count">count</a>
+
+When you type a <a href="intro.html#count">count</a> before triggering a <a href="map.html#mapping">mapping</a>, it's like the <a href="intro.html#count">count</a> was
+typed before the <a href="map.html#{lhs}">{lhs}</a>.  For example, with this <a href="map.html#mapping">mapping</a>:
+<b>   :map &lt;F4&gt;  3w</b>
+Typing 2&lt;F4&gt; will result in &quot;23w&quot;. Thus not moving 2 &#42; 3 words but 23 words.
+If you want to multiply counts use the <a href="eval.html#expression">expression</a> <a href="sponsor.html#register">register</a>:
+<b>   :map &lt;F4&gt;  @='3w'&lt;CR&gt;</b>
+The part between <a href="quotes.html#quotes">quotes</a> is the <a href="eval.html#expression">expression</a> being executed. |<a href="change.html#@=">@=</a>|
+
+
+
+1.9 USING MAPPINGS					*<a name="map-typing"></A><b>map-typing</b>*
+
+Vim will compare what you type with the start of a mapped sequence.  If there
+is an incomplete match, it will get more characters until there either is a
+complete match or until there is no match at all.  Example: If you map! &quot;qq&quot;,
+the first '<a href="repeat.html#q">q</a>' will not appear on the screen until you type another
+character.  This is because Vim cannot know if the next character will be a
+'<a href="repeat.html#q">q</a>' or not.  If the <a href="options.html#'timeout'">'timeout'</a> option is on (which is the default) Vim will
+only wait for one second (or <a href="motion.html#as">as</a> long <a href="motion.html#as">as</a> specified with the <a href="options.html#'timeoutlen'">'timeoutlen'</a>
+option).  After that it assumes that the '<a href="repeat.html#q">q</a>' is to be interpreted <a href="motion.html#as">as</a> such.  If
+you type slowly, or your system is slow, reset the <a href="options.html#'timeout'">'timeout'</a> option.  Then you
+might want to set the <a href="options.html#'ttimeout'">'ttimeout'</a> option.
+
+
+							*<a name="map-keys-fails"></A><b>map-keys-fails</b>*
+There are situations where key codes might not be recognized:
+- Vim can only read part of the key code.  Mostly this is only the first
+  character.  This happens on some <a href="os_unix.html#Unix">Unix</a> versions in an xterm.
+- The key code is after character(s) that are mapped.  E.g., &quot;&lt;F1&gt;&lt;F1&gt;&quot; or
+  &quot;g&lt;F1&gt;&quot;.
+
+The result is that the key code is not recognized in this situation, and the
+<a href="map.html#mapping">mapping</a> fails.  There are two actions needed to avoid this problem:
+
+- Remove the '<a href="various.html#K">K</a>' flag from <a href="options.html#'cpoptions'">'cpoptions'</a>.  This will make Vim wait for the rest
+  of the characters of the function key.
+- When using <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> to <a href="term.html#&lt;F4&gt;">&lt;F4&gt;</a> the actual key code generated may correspond to
+  <a href="term.html#&lt;xF1&gt;">&lt;xF1&gt;</a> to <a href="term.html#&lt;xF4&gt;">&lt;xF4&gt;</a>.  There are mappings from <a href="term.html#&lt;xF1&gt;">&lt;xF1&gt;</a> to <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a>, <a href="term.html#&lt;xF2&gt;">&lt;xF2&gt;</a> to <a href="term.html#&lt;F2&gt;">&lt;F2&gt;</a>, etc.,
+  but these are not recognized after another half a <a href="map.html#mapping">mapping</a>.  Make sure the
+  key codes for <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> to <a href="term.html#&lt;F4&gt;">&lt;F4&gt;</a> are correct:
+<b>	:set &lt;F1&gt;=&lt;type CTRL-V&gt;&lt;type F1&gt;</b>
+  Type the <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> <a href="motion.html#as">as</a> four characters.  The part after the &quot;<a href="change.html#=">=</a>&quot; must be done with
+  the actual keys, not the literal text.
+Another solution is to use the actual key code in the <a href="map.html#mapping">mapping</a> for the second
+special key:
+<b>	:map &lt;F1&gt;&lt;Esc&gt;OP :echo "yes"&lt;CR&gt;</b>
+Don't type a real <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, Vim will recognize the key code and replace it with
+<a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> anyway.
+
+Another problem may be that when keeping ALT or Meta pressed the terminal
+prepends ESC instead of setting the 8th bit.  See |<a href="map.html#:map-alt-keys">:map-alt-keys</a>|.
+
+
+						*<a name="recursive_mapping"></A><b>recursive_mapping</b>*
+If you include the <a href="map.html#{lhs}">{lhs}</a> in the <a href="map.html#{rhs}">{rhs}</a> you have a recursive <a href="map.html#mapping">mapping</a>.  When
+<a href="map.html#{lhs}">{lhs}</a> is typed, it will be replaced with <a href="map.html#{rhs}">{rhs}</a>.  When the <a href="map.html#{lhs}">{lhs}</a> which is
+included in <a href="map.html#{rhs}">{rhs}</a> is encountered it will be replaced with <a href="map.html#{rhs}">{rhs}</a>, and so on.
+This makes it possible to repeat a command an infinite number of times.  The
+only problem is that the only way to stop this is by causing an error.  The
+macros to solve a maze uses this, look there for an example.  There is one
+exception: If the <a href="map.html#{rhs}">{rhs}</a> starts with <a href="map.html#{lhs}">{lhs}</a>, the first character is not mapped
+again (this is <a href="intro.html#Vi">Vi</a> compatible).
+For example:
+<b>   :map ab abcd</b>
+will execute the &quot;<a href="insert.html#a">a</a>&quot; command and insert &quot;bcd&quot; in the text.  The &quot;<a href="motion.html#ab">ab</a>&quot; in the
+<a href="map.html#{rhs}">{rhs}</a> will not be mapped again.
+
+If you want to exchange the meaning of two keys you should use the <a href="map.html#:noremap">:noremap</a>
+command.  For example:
+<b>   :noremap k j</b>
+<b>   :noremap j k</b>
+This will exchange the cursor up and down commands.
+
+With the normal <a href="map.html#:map">:map</a> command, when the <a href="options.html#'remap'">'remap'</a> option is on, <a href="map.html#mapping">mapping</a> takes
+place until the text is found not to be a part of a <a href="map.html#{lhs}">{lhs}</a>.  For example, if
+you use:
+<b>   :map x y</b>
+<b>   :map y x</b>
+Vim will replace <a href="change.html#x">x</a> with <a href="change.html#y">y</a>, and then <a href="change.html#y">y</a> with <a href="change.html#x">x</a>, etc.  When this has happened
+<a href="options.html#'maxmapdepth'">'maxmapdepth'</a> times (default 1000), Vim will give the error message
+&quot;recursive mapping&quot;.
+
+
+							*<a name=":map-undo"></A><b>:map-undo</b>*
+If you include an <a href="undo.html#undo">undo</a> command inside a mapped sequence, this will bring the
+text back in the state before executing the <a href="map.html#macro">macro</a>.  This is compatible with
+the original <a href="intro.html#Vi">Vi</a>, <a href="motion.html#as">as</a> long <a href="motion.html#as">as</a> there is only one <a href="undo.html#undo">undo</a> command in the mapped
+sequence (having two <a href="undo.html#undo">undo</a> commands in a mapped sequence did not make sense
+in the original <a href="intro.html#Vi">Vi</a>, you would get back the text before the first <a href="undo.html#undo">undo</a>).
+
+
+
+1.10 MAPPING ALT-KEYS					*<a name=":map-alt-keys"></A><b>:map-alt-keys</b>*
+
+In the <a href="gui.html#GUI">GUI</a> Vim handles the Alt key itself, thus <a href="map.html#mapping">mapping</a> keys with ALT should
+always work.  But in a terminal Vim gets a sequence of bytes and has to figure
+out whether ALT was pressed or not.
+
+By default Vim assumes that pressing the ALT key sets the 8th bit of a typed
+character.  Most decent terminals can work that way, such <a href="motion.html#as">as</a> xterm, aterm and
+<a href="syntax.html#rxvt">rxvt</a>.  If your &lt;A-k&gt; mappings don't work it might be that the terminal is
+prefixing the character with an ESC character.  But you can just <a href="motion.html#as">as</a> well type
+ESC before a character, thus Vim doesn't know what happened (except for
+checking the delay between characters, which is not reliable).
+
+As of this <a href="editing.html#writing">writing</a>, some mainstream terminals like gnome-terminal and konsole
+use the ESC prefix.  There doesn't appear a way to have them use the 8th bit
+instead.  Xterm should work well by default.  Aterm and <a href="syntax.html#rxvt">rxvt</a> should work well
+when started with the &quot;--meta8&quot; argument.  You can also tweak resources like
+&quot;metaSendsEscape&quot;, &quot;eightBitInput&quot; and &quot;eightBitOutput&quot;.
+
+On the Linux console, this behavior can be toggled with the &quot;setmetamode&quot;
+command.  Bear in mind that not using an ESC prefix could get you in trouble
+with other programs.  You should make sure that bash has the &quot;convert-meta&quot;
+option set to &quot;on&quot; in order for your Meta keybindings to still work on it
+(it's the default readline behavior, unless changed by specific system
+configuration).  For that, you can add the line:
+
+<b>	set convert-meta on</b>
+
+to your ~/.inputrc file. If you're creating the file, you might want to use:
+
+<b>	$include /etc/inputrc</b>
+
+<a href="motion.html#as">as</a> the first line, if that file exists on your system, to keep global <a href="options.html#options">options</a>.
+This may cause a problem for entering special characters, such <a href="motion.html#as">as</a> the umlaut.
+Then you should use <a href="visual.html#CTRL-V">CTRL-V</a> before that character.
+
+Bear in mind that convert-meta has been reported to have troubles when used in
+<a href="mbyte.html#UTF-8">UTF-8</a> locales.  On terminals like xterm, the &quot;metaSendsEscape&quot; resource can be
+toggled on the fly through the &quot;Main Options&quot; menu, by pressing Ctrl-LeftClick
+on the terminal; that's a good last resource in <a href="change.html#case">case</a> you want to send ESC when
+using other applications but not when inside VIM.
+
+
+
+1.11 MAPPING AN OPERATOR				*<a name=":map-operator"></A><b>:map-operator</b>*
+
+An <a href="motion.html#operator">operator</a> is used before a <a href="intro.html#{motion}">{motion}</a> command.  To define your own <a href="motion.html#operator">operator</a>
+you must create <a href="map.html#mapping">mapping</a> that first sets the <a href="options.html#'operatorfunc'">'operatorfunc'</a> option and then
+invoke the |<a href="map.html#g@">g@</a>| <a href="motion.html#operator">operator</a>.  After the user types the <a href="intro.html#{motion}">{motion}</a> command the
+specified function will be called.
+
+
+							*<a name="g@"></A><b>g@</b>* *<a name="E774"></A><b>E774</b>* *<a name="E775"></A><b>E775</b>*
+g@{motion}		Call the function set by the <a href="options.html#'operatorfunc'">'operatorfunc'</a> option.
+			The <a href="motion.html#'[">'[</a> <a href="motion.html#mark">mark</a> is positioned at the start of the text
+			moved over by <a href="intro.html#{motion}">{motion}</a>, the <a href="motion.html#']">']</a> <a href="motion.html#mark">mark</a> on the last
+			character of the text.
+			The function is called with one String argument:
+			    &quot;line&quot;	<a href="intro.html#{motion}">{motion}</a> was |<a href="motion.html#linewise">linewise</a>|
+			    &quot;char&quot;	<a href="intro.html#{motion}">{motion}</a> was |<a href="motion.html#characterwise">characterwise</a>|
+			    &quot;block&quot;	<a href="intro.html#{motion}">{motion}</a> was |<a href="visual.html#blockwise-visual">blockwise-visual</a>|
+			Although &quot;block&quot; would rarely appear, since it can
+			only result from <a href="visual.html#Visual">Visual</a> mode where &quot;<a href="map.html#g@">g@</a>&quot; is not useful.
+			{not available when compiled without the |<a href="various.html#+eval">+eval</a>|
+			feature}
+
+Here is an example that counts the number of spaces with <a href="term.html#&lt;F4&gt;">&lt;F4&gt;</a>:
+
+<b>	nmap &lt;silent&gt; &lt;F4&gt; :set opfunc=CountSpaces&lt;CR&gt;g@</b>
+<b>	vmap &lt;silent&gt; &lt;F4&gt; :&lt;C-U&gt;call CountSpaces(visualmode(), 1)&lt;CR&gt;</b>
+
+<b>	function! CountSpaces(type, ...)</b>
+<b>	  let sel_save = &amp;selection</b>
+<b>	  let &amp;selection = "inclusive"</b>
+<b>	  let reg_save = @@</b>
+
+<b>	  if a:0  " Invoked from Visual mode, use '&lt; and '&gt; marks.</b>
+<b>	    silent exe "normal! `&lt;" . a:type . "`&gt;y"</b>
+<b>	  elseif a:type == 'line'</b>
+<b>	    silent exe "normal! '[V']y"</b>
+<b>	  elseif a:type == 'block'</b>
+<b>	    silent exe "normal! `[\&lt;C-V&gt;`]y"</b>
+<b>	  else</b>
+<b>	    silent exe "normal! `[v`]y"</b>
+<b>	  endif</b>
+
+<b>	  echomsg strlen(substitute(@@, '[^ ]', '', 'g'))</b>
+
+<b>	  let &amp;selection = sel_save</b>
+<b>	  let @@ = reg_save</b>
+<b>	endfunction</b>
+
+Note that the <a href="options.html#'selection'">'selection'</a> option is temporarily set to &quot;<a href="motion.html#inclusive">inclusive</a>&quot; to be able
+to <a href="change.html#yank">yank</a> exactly the right text by using <a href="visual.html#Visual">Visual</a> mode from the <a href="motion.html#'[">'[</a> to the <a href="motion.html#']">']</a>
+<a href="motion.html#mark">mark</a>.
+
+Also note that there is a separate <a href="map.html#mapping">mapping</a> for <a href="visual.html#Visual">Visual</a> mode.  It removes the
+&quot;'&lt;,'&gt;&quot; range that &quot;<a href="cmdline.html#:">:</a>&quot; inserts in <a href="visual.html#Visual">Visual</a> mode and invokes the function with
+<a href="eval.html#visualmode()">visualmode()</a> and an extra argument.
+
+==============================================================================
+
+2. <a href="map.html#Abbreviations">Abbreviations</a>			*<a name="abbreviations"></A><b>abbreviations</b>* *<a name="Abbreviations"></A><b>Abbreviations</b>*
+
+<a href="map.html#Abbreviations">Abbreviations</a> are used in <a href="insert.html#Insert">Insert</a> mode, <a href="insert.html#Replace">Replace</a> mode and <a href="cmdline.html#Command-line">Command-line</a> mode.
+If you enter a <a href="motion.html#word">word</a> that is an abbreviation, it is replaced with the <a href="motion.html#word">word</a> it
+stands for.  This can be used to save typing for often used long words.  And
+you can use it to automatically correct obvious spelling <a href="message.html#errors">errors</a>.
+Examples:
+
+	:iab ms Microsoft
+	:iab tihs this
+
+There are three types of <a href="map.html#abbreviations">abbreviations</a>:
+
+full-id	  The &quot;full-id&quot; type consists entirely of keyword characters (letters
+	  and characters from <a href="options.html#'iskeyword'">'iskeyword'</a> option).  This is the most common
+	  abbreviation.
+
+	  Examples: &quot;foo&quot;, &quot;g3&quot;, &quot;-1&quot;
+
+end-id	  The &quot;end-id&quot; type ends in a keyword character, but all the other
+	  characters are not keyword characters.
+
+	  Examples: &quot;#i&quot;, &quot;..f&quot;, &quot;$/7&quot;
+
+non-id	  The &quot;non-id&quot; type ends in a non-keyword character, the other
+	  characters may be of any type, excluding space and <a href="intro.html#tab">tab</a>.  {this type
+	  is not supported by Vi}
+
+	  Examples: &quot;def#&quot;, &quot;4/7$&quot;
+
+Examples of strings that cannot be <a href="map.html#abbreviations">abbreviations</a>: &quot;a.b&quot;, &quot;#def&quot;, &quot;a b&quot;, &quot;_$r&quot;
+
+An abbreviation is only recognized when you type a non-keyword character.
+This can also be the <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> that ends insert mode or the <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> that ends a
+command.  The non-keyword character which ends the abbreviation is inserted
+after the expanded abbreviation.  An exception to this is the character &lt;C-]&gt;,
+which is used to expand an abbreviation without <a href="insert.html#inserting">inserting</a> any extra
+characters.
+
+Example:
+<b>   :ab hh	hello</b>
+ 	    &quot;hh&lt;Space&gt;&quot; is expanded to &quot;hello&lt;Space&gt;&quot;
+	    &quot;hh&lt;C-]&gt;&quot; is expanded to &quot;hello&quot;
+
+The characters before the cursor must match the abbreviation.  Each type has
+an additional rule:
+
+full-id	  In front of the match is a non-keyword character, or this is where
+	  the line or insertion starts.  Exception: When the abbreviation is
+	  only one character, it is not recognized if there is a non-keyword
+	  character in front of it, other than a space or a <a href="intro.html#tab">tab</a>.
+
+end-id	  In front of the match is a keyword character, or a space or a <a href="intro.html#tab">tab</a>,
+	  or this is where the line or insertion starts.
+
+non-id	  In front of the match is a space, <a href="intro.html#tab">tab</a> or the start of the line or
+	  the insertion.
+
+Examples: ({CURSOR} is where you type a non-keyword character)
+<b>   :ab foo   four old otters</b>
+ 		&quot; foo{CURSOR}&quot;	  is expanded to &quot; four old otters&quot;
+		&quot; foobar{CURSOR}&quot; is not expanded
+		&quot;barfoo{CURSOR}&quot;  is not expanded
+
+<b>   :ab #i #include</b>
+ 		&quot;#i{CURSOR}&quot;	  is expanded to &quot;#include&quot;
+		&quot;&gt;#i{CURSOR}&quot;	  is not expanded
+
+<b>   :ab ;; &lt;endofline&gt;</b>
+ 		&quot;test;;&quot;	  is not expanded
+		&quot;test ;;&quot;	  is expanded to &quot;test &lt;endofline&gt;&quot;
+
+To avoid the abbreviation in insert mode: Type part of the abbreviation, exit
+insert mode with <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, re-enter insert mode with &quot;<a href="insert.html#a">a</a>&quot; and type the rest.  Or
+type <a href="visual.html#CTRL-V">CTRL-V</a> before the character after the abbreviation.
+To avoid the abbreviation in <a href="cmdline.html#Command-line">Command-line</a> mode: Type <a href="visual.html#CTRL-V">CTRL-V</a> <a href="if_cscop.html#twice">twice</a> somewhere in
+the abbreviation to avoid it to be replaced.  A <a href="visual.html#CTRL-V">CTRL-V</a> in front of a normal
+character is mostly ignored otherwise.
+
+It is possible to move the cursor after an abbreviation:
+<b>   :iab if if ()&lt;Left&gt;</b>
+This does not work if <a href="options.html#'cpoptions'">'cpoptions'</a> includes the '&lt;' flag. |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|
+
+You can even <a href="diff.html#do">do</a> more complicated things.  For example, to consume the space
+typed after an abbreviation:
+<b>   func Eatchar(pat)</b>
+<b>      let c = nr2char(getchar(0))</b>
+<b>      return (c =~ a:pat) ? '' : c</b>
+<b>   endfunc</b>
+<b>   iabbr &lt;silent&gt; if if ()&lt;Left&gt;&lt;C-R&gt;=Eatchar('\s')&lt;CR&gt;</b>
+
+There are no default <a href="map.html#abbreviations">abbreviations</a>.
+
+<a href="map.html#Abbreviations">Abbreviations</a> are never recursive.  You can use &quot;<a href="map.html#:ab">:ab</a> <a href="motion.html#f">f</a> f-o-o&quot; without any
+problem.  But <a href="map.html#abbreviations">abbreviations</a> can be mapped.  {some versions of <a href="intro.html#Vi">Vi</a> support
+recursive <a href="map.html#abbreviations">abbreviations</a>, for no apparent reason}
+
+<a href="map.html#Abbreviations">Abbreviations</a> are disabled if the <a href="options.html#'paste'">'paste'</a> option is on.
+
+
+				*<a name=":abbreviate-local"></A><b>:abbreviate-local</b>* *<a name=":abbreviate-&lt;buffer&gt;"></A><b>:abbreviate-&lt;buffer&gt;</b>*
+Just like mappings, <a href="map.html#abbreviations">abbreviations</a> can be local to a buffer.  This is mostly
+used in a |<a href="usr_43.html#filetype-plugin">filetype-plugin</a>| file.  Example for a C plugin file:
+<b>	:abb &lt;buffer&gt; FF  for (i = 0; i &lt; ; ++i)</b>
+ 
+
+						*<a name=":ab"></A><b>:ab</b>* *<a name=":abbreviate"></A><b>:abbreviate</b>*
+:ab[breviate]		list all <a href="map.html#abbreviations">abbreviations</a>.  The character in the first
+			column indicates the mode where the abbreviation is
+			used: '<a href="insert.html#i">i</a>' for insert mode, '<a href="change.html#c">c</a>' for <a href="cmdline.html#Command-line">Command-line</a>
+			mode, '<a href="change.html#!">!</a>' for both.  These are the same <a href="motion.html#as">as</a> for
+			mappings, see |<a href="map.html#map-listing">map-listing</a>|.
+
+
+						*<a name=":abbreviate-verbose"></A><b>:abbreviate-verbose</b>*
+When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing an abbreviation will also display where it
+was last defined.  Example:
+
+<b>	:verbose abbreviate</b>
+<b>	!  teh		 the</b>
+<b>		Last set from /home/abcd/vim/abbr.vim</b>
+
+See |<a href="various.html#:verbose-cmd">:verbose-cmd</a>| for more information.
+
+:ab[breviate] <a href="map.html#{lhs}">{lhs}</a>	list the <a href="map.html#abbreviations">abbreviations</a> that start with <a href="map.html#{lhs}">{lhs}</a>
+			You may need to insert a <a href="visual.html#CTRL-V">CTRL-V</a> (type it <a href="if_cscop.html#twice">twice</a>) to
+			avoid that a typed <a href="map.html#{lhs}">{lhs}</a> is expanded, since
+			command-line <a href="map.html#abbreviations">abbreviations</a> apply here.
+
+:ab[breviate] [&lt;expr&gt;] <a href="map.html#{lhs}">{lhs}</a> <a href="map.html#{rhs}">{rhs}</a>
+			add abbreviation for <a href="map.html#{lhs}">{lhs}</a> to <a href="map.html#{rhs}">{rhs}</a>.  If <a href="map.html#{lhs}">{lhs}</a> already
+			existed it is replaced with the new <a href="map.html#{rhs}">{rhs}</a>.  <a href="map.html#{rhs}">{rhs}</a> may
+			contain spaces.
+			See |<a href="map.html#:map-&lt;expr&gt;">:map-&lt;expr&gt;</a>| for the optional &lt;expr&gt; argument.
+
+
+						*<a name=":una"></A><b>:una</b>* *<a name=":unabbreviate"></A><b>:unabbreviate</b>*
+:una[bbreviate] <a href="map.html#{lhs}">{lhs}</a>	Remove abbreviation for <a href="map.html#{lhs}">{lhs}</a> from the list.  If none
+			is found, remove <a href="map.html#abbreviations">abbreviations</a> in which <a href="map.html#{lhs}">{lhs}</a> matches
+			with the <a href="map.html#{rhs}">{rhs}</a>.  This is done so that you can even
+			remove <a href="map.html#abbreviations">abbreviations</a> after expansion.  To avoid
+			expansion insert a <a href="visual.html#CTRL-V">CTRL-V</a> (type it <a href="if_cscop.html#twice">twice</a>).
+
+
+						*<a name=":norea"></A><b>:norea</b>* *<a name=":noreabbrev"></A><b>:noreabbrev</b>*
+:norea[bbrev] [&lt;expr&gt;] [lhs] [rhs]
+			same <a href="motion.html#as">as</a> &quot;<a href="map.html#:ab">:ab</a>&quot;, but no remapping for this <a href="map.html#{rhs}">{rhs}</a> {not
+			in Vi}
+
+
+						*<a name=":ca"></A><b>:ca</b>* *<a name=":cabbrev"></A><b>:cabbrev</b>*
+:ca[bbrev] [&lt;expr&gt;] [lhs] [rhs]
+			same <a href="motion.html#as">as</a> &quot;<a href="map.html#:ab">:ab</a>&quot;, but for <a href="cmdline.html#Command-line">Command-line</a> mode only.  {not
+			in Vi}
+
+
+						*<a name=":cuna"></A><b>:cuna</b>* *<a name=":cunabbrev"></A><b>:cunabbrev</b>*
+:cuna[bbrev] <a href="map.html#{lhs}">{lhs}</a>	same <a href="motion.html#as">as</a> &quot;<a href="map.html#:una">:una</a>&quot;, but for <a href="cmdline.html#Command-line">Command-line</a> mode only.  {not
+			in Vi}
+
+
+						*<a name=":cnorea"></A><b>:cnorea</b>* *<a name=":cnoreabbrev"></A><b>:cnoreabbrev</b>*
+:cnorea[bbrev] [&lt;expr&gt;] [lhs] [rhs]
+			same <a href="motion.html#as">as</a> &quot;<a href="map.html#:ab">:ab</a>&quot;, but for <a href="cmdline.html#Command-line">Command-line</a> mode only and no
+			remapping for this <a href="map.html#{rhs}">{rhs}</a> {not in Vi}
+
+
+						*<a name=":ia"></A><b>:ia</b>* *<a name=":iabbrev"></A><b>:iabbrev</b>*
+:ia[bbrev] [&lt;expr&gt;] [lhs] [rhs]
+			same <a href="motion.html#as">as</a> &quot;<a href="map.html#:ab">:ab</a>&quot;, but for <a href="insert.html#Insert">Insert</a> mode only.  {not in Vi}
+
+
+						*<a name=":iuna"></A><b>:iuna</b>* *<a name=":iunabbrev"></A><b>:iunabbrev</b>*
+:iuna[bbrev] <a href="map.html#{lhs}">{lhs}</a>	same <a href="motion.html#as">as</a> &quot;<a href="map.html#:una">:una</a>&quot;, but for insert mode only.  {not in
+			Vi}
+
+
+						*<a name=":inorea"></A><b>:inorea</b>* *<a name=":inoreabbrev"></A><b>:inoreabbrev</b>*
+:inorea[bbrev] [&lt;expr&gt;] [lhs] [rhs]
+			same <a href="motion.html#as">as</a> &quot;<a href="map.html#:ab">:ab</a>&quot;, but for <a href="insert.html#Insert">Insert</a> mode only and no
+			remapping for this <a href="map.html#{rhs}">{rhs}</a> {not in Vi}
+
+
+							*<a name=":abc"></A><b>:abc</b>* *<a name=":abclear"></A><b>:abclear</b>*
+:abc[lear]		Remove all <a href="map.html#abbreviations">abbreviations</a>.  {not in Vi}
+
+
+							*<a name=":iabc"></A><b>:iabc</b>* *<a name=":iabclear"></A><b>:iabclear</b>*
+:iabc[lear]		Remove all <a href="map.html#abbreviations">abbreviations</a> for <a href="insert.html#Insert">Insert</a> mode.  {not in Vi}
+
+
+							*<a name=":cabc"></A><b>:cabc</b>* *<a name=":cabclear"></A><b>:cabclear</b>*
+:cabc[lear]		Remove all <a href="map.html#abbreviations">abbreviations</a> for <a href="cmdline.html#Command-line">Command-line</a> mode.  {not
+			in Vi}
+
+
+							*<a name="using_CTRL-V"></A><b>using_CTRL-V</b>*
+It is possible to use special characters in the rhs of an abbreviation.
+<a href="visual.html#CTRL-V">CTRL-V</a> has to be used to avoid the special meaning of most non printable
+characters.  How many CTRL-Vs need to be typed depends on how you enter the
+abbreviation.  This also applies to mappings.  Let's use an example here.
+
+Suppose you want to abbreviate &quot;esc&quot; to enter an <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> character.  When you
+type the &quot;<a href="map.html#:ab">:ab</a>&quot; command in Vim, you have to enter this: (here ^V is a <a href="visual.html#CTRL-V">CTRL-V</a>
+and ^[ is <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>)
+
+You type:   <a href="motion.html#ab">ab</a> esc ^V^V^V^V^V^[
+
+	All keyboard input is subjected to ^V <a href="change.html#quote">quote</a> interpretation, so
+	the first, third, and fifth ^V  characters simply allow the second,
+	and fourth ^Vs, and the ^[, to be entered into the command-line.
+
+You see:    <a href="motion.html#ab">ab</a> esc ^V^V^[
+
+	The command-line contains two actual ^Vs before the ^[.  This is
+	how it should appear in your <a href="starting.html#.exrc">.exrc</a> file, if you choose to go that
+	route.  The first ^V is there to <a href="change.html#quote">quote</a> the second ^V; the <a href="map.html#:ab">:ab</a>
+	command uses ^V <a href="motion.html#as">as</a> its own <a href="change.html#quote">quote</a> character, so you can include quoted
+	<a href="pattern.html#whitespace">whitespace</a> or the &#124; character in the abbreviation.  The <a href="map.html#:ab">:ab</a> command
+	doesn't <a href="diff.html#do">do</a> anything special with the ^[ character, so it doesn't need
+	to be quoted.  (Although quoting isn't harmful; that's why typing 7
+	[but not 8!] ^Vs works.)
+
+Stored <a href="motion.html#as">as</a>:  esc     ^V^[
+
+	After parsing, the abbreviation's short form (&quot;esc&quot;) and long form
+	(the two characters &quot;^V^[&quot;) are stored in the abbreviation table.
+	If you give the <a href="map.html#:ab">:ab</a> command with no arguments, this is how the
+	abbreviation will be displayed.
+
+	Later, when the abbreviation is expanded because the user typed in
+	the <a href="motion.html#word">word</a> &quot;esc&quot;, the long form is subjected to the same type of
+	^V interpretation <a href="motion.html#as">as</a> keyboard input.  So the ^V protects the ^[
+	character from being interpreted <a href="motion.html#as">as</a> the &quot;exit <a href="insert.html#Insert">Insert</a> mode&quot; character.
+	Instead, the ^[ is inserted into the text.
+
+Expands to: ^[
+
+[example given by Steve Kirkendall]
+
+==============================================================================
+
+3. Local mappings and <a href="eval.html#functions">functions</a>				*<a name="script-local"></A><b>script-local</b>*
+
+When using several Vim <a href="usr_41.html#script">script</a> files, there is the danger that mappings and
+<a href="eval.html#functions">functions</a> used in one <a href="usr_41.html#script">script</a> use the same name <a href="motion.html#as">as</a> in other scripts.  To avoid
+this, they can be made local to the <a href="usr_41.html#script">script</a>.
+
+
+						*<a name="&lt;SID&gt;"></A><b>&lt;SID&gt;</b>* *<a name="&lt;SNR&gt;"></A><b>&lt;SNR&gt;</b>* *<a name="E81"></A><b>E81</b>*
+The string &quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot; can be used in a <a href="map.html#mapping">mapping</a> or menu.  This requires that the
+'<a href="change.html#&lt;">&lt;</a>' flag is not present in <a href="options.html#'cpoptions'">'cpoptions'</a>.
+   When executing the map command, Vim will replace &quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot; with the special
+key code <a href="map.html#&lt;SNR&gt;">&lt;SNR&gt;</a>, followed by a number that's unique for the <a href="usr_41.html#script">script</a>, and an
+underscore.  Example:
+<b>	:map &lt;SID&gt;Add</b>
+could define a <a href="map.html#mapping">mapping</a> &quot;&lt;SNR&gt;23_Add&quot;.
+
+When defining a function in a <a href="usr_41.html#script">script</a>, &quot;s:&quot; can be prepended to the name to
+make it local to the <a href="usr_41.html#script">script</a>.  But when a <a href="map.html#mapping">mapping</a> is executed from outside of
+the <a href="usr_41.html#script">script</a>, it doesn't know in which <a href="usr_41.html#script">script</a> the function was defined.  To
+avoid this problem, use &quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot; instead of &quot;s:&quot;.  The same translation is done
+<a href="motion.html#as">as</a> for mappings.  This makes it possible to define a call to the function in
+a <a href="map.html#mapping">mapping</a>.
+
+When a local function is executed, it runs in the context of the <a href="usr_41.html#script">script</a> it was
+defined in.  This means that new <a href="eval.html#functions">functions</a> and mappings it defines can also
+use &quot;s:&quot; or &quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot; and it will use the same unique number <a href="motion.html#as">as</a> when the
+function itself was defined.  Also, the &quot;<a href="eval.html#s:var">s:var</a>&quot; local <a href="usr_41.html#script">script</a> <a href="eval.html#variables">variables</a> can be
+used.
+
+When executing an <a href="autocmd.html#autocommand">autocommand</a> or a user command, it will run in the context of
+the <a href="usr_41.html#script">script</a> it was defined in.  This makes it possible that the command calls a
+local function or uses a local <a href="map.html#mapping">mapping</a>.
+
+Otherwise, using &quot;<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>&quot; outside of a <a href="usr_41.html#script">script</a> context is an error.
+
+If you need to get the <a href="usr_41.html#script">script</a> number to use in a complicated <a href="usr_41.html#script">script</a>, you can
+use this function:
+<b>	function s:SID()</b>
+<b>	  return matchstr(expand('&lt;sfile&gt;'), '&lt;SNR&gt;\zs\d\+\ze_SID$')</b>
+<b>	endfun</b>
+
+The &quot;<a href="map.html#&lt;SNR&gt;">&lt;SNR&gt;</a>&quot; will be shown when listing <a href="eval.html#functions">functions</a> and mappings.  This is useful
+to find out what they are defined to.
+
+The |<a href="repeat.html#:scriptnames">:scriptnames</a>| command can be used to see which scripts have been sourced
+and what their <a href="map.html#&lt;SNR&gt;">&lt;SNR&gt;</a> number is.
+
+This is all {not in Vi} and {not available when compiled without the |<a href="various.html#+eval">+eval</a>|
+feature}.
+
+==============================================================================
+
+4. User-defined commands				*<a name="user-commands"></A><b>user-commands</b>*
+
+It is possible to define your own <a href="intro.html#Ex">Ex</a> commands.  A user-defined command can act
+just like a built-in command (it can have a range or arguments, arguments can
+be completed <a href="motion.html#as">as</a> filenames or buffer names, etc), except that when the command
+is executed, it is transformed into a normal <a href="intro.html#Ex">Ex</a> command and then executed.
+
+For starters: See section |<a href="usr_40.html#40.2">40.2</a>| in the user manual.
+
+
+					*<a name="E183"></A><b>E183</b>* *<a name="E841"></A><b>E841</b>* *<a name="user-cmd-ambiguous"></A><b>user-cmd-ambiguous</b>*
+All user defined commands must start with an <a href="change.html#uppercase">uppercase</a> <a href="print.html#letter">letter</a>, to avoid
+confusion with builtin commands.  Exceptions are these builtin commands:
+	<a href="editing.html#:Next">:Next</a>
+	<a href="editing.html#:X">:X</a>
+They cannot be used for a user defined command.  &quot;<a href="various.html#:Print">:Print</a>&quot; is also an existing
+command, but it is deprecated and can be overruled.
+
+The other characters of the user command can be <a href="change.html#uppercase">uppercase</a> letters, <a href="change.html#lowercase">lowercase</a>
+letters or digits.  When using digits, note that other commands that take a
+numeric argument may become ambiguous.  For example, the command &quot;:Cc2&quot; could
+be the user command &quot;:Cc2&quot; without an argument, or the command &quot;:Cc&quot; with
+argument &quot;2&quot;.  It is advised to put a space between the command name and the
+argument to avoid these problems.
+
+When using a user-defined command, the command can be abbreviated.  However, if
+an abbreviation is not unique, an error will be issued.  Furthermore, a
+built-in command will always take precedence.
+
+Example:
+<b>	:command Rename ...</b>
+<b>	:command Renumber ...</b>
+<b>	:Rena				" Means "Rename"</b>
+<b>	:Renu				" Means "Renumber"</b>
+<b>	:Ren				" Error - ambiguous</b>
+<b>	:command Paste ...</b>
+<b>	:P				" The built-in :Print</b>
+
+It is recommended that full names for user-defined commands are used in
+scripts.
+
+
+:com[mand]						*<a name=":com"></A><b>:com</b>* *<a name=":command"></A><b>:command</b>*
+			<a href="eval.html#List">List</a> all user-defined commands.  When listing commands,
+			the characters in the first two columns are
+			    !	Command has the -bang attribute
+			    &quot;	Command has the <a href="if_ole.html#-register">-register</a> attribute
+			    <a href="motion.html#b">b</a>	Command is local to current buffer
+			(see below for details on attributes)
+
+:com[mand] {cmd}	<a href="eval.html#List">List</a> the user-defined commands that start with {cmd}
+
+
+							*<a name=":command-verbose"></A><b>:command-verbose</b>*
+When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing a command will also display where it was
+last defined. Example:
+
+<b>    :verbose command TOhtml</b>
+<b><font color="purple"> 	Name	    Args Range Complete  Definition </font></b>
+<b><font color="purple">	TOhtml	    0	 %		 :call Convert2HTML(&lt;line1&gt;, &lt;line2&gt;) </font></b>
+<b><font color="purple">	    Last set from /usr/share/vim/vim-7.0/plugin/tohtml.vim </font></b>
+
+See |<a href="various.html#:verbose-cmd">:verbose-cmd</a>| for more information.
+
+
+							*<a name="E174"></A><b>E174</b>* *<a name="E182"></A><b>E182</b>*
+:com[mand][!] [{attr}...] {cmd} {rep}
+			Define a user command.  The name of the command is
+			{cmd} and its replacement text is {rep}.  The command's
+			attributes (see below) are {attr}.  If the command
+			already exists, an error is reported, unless a ! is
+			specified, in which <a href="change.html#case">case</a> the command is redefined.
+
+
+:delc[ommand] {cmd}				*<a name=":delc"></A><b>:delc</b>* *<a name=":delcommand"></A><b>:delcommand</b>* *<a name="E184"></A><b>E184</b>*
+			Delete the user-defined command {cmd}.
+
+
+:comc[lear]						*<a name=":comc"></A><b>:comc</b>* *<a name=":comclear"></A><b>:comclear</b>*
+			Delete all user-defined commands.
+
+Command attributes
+
+User-defined commands are treated by Vim just like any other <a href="intro.html#Ex">Ex</a> commands.  They
+can have arguments, or have a range specified.  Arguments are subject to
+completion <a href="motion.html#as">as</a> filenames, <a href="windows.html#buffers">buffers</a>, etc.  Exactly how this works depends upon the
+command's attributes, which are specified when the command is defined.
+
+There are a number of attributes, split into four categories: argument
+handling, completion behavior, range handling, and special cases.  The
+attributes are described below, by category.
+
+
+Argument handling				*<a name="E175"></A><b>E175</b>* *<a name="E176"></A><b>E176</b>* *<a name=":command-nargs"></A><b>:command-nargs</b>*
+
+By default, a user defined command will take no arguments (and an error is
+reported if any are supplied).  However, it is possible to specify that the
+command can take arguments, using the -nargs attribute.  Valid cases are:
+
+	-nargs=0    No arguments are allowed (the default)
+	-nargs=1    Exactly one argument is required
+	-nargs=*    Any number of arguments are allowed (0, 1, or many)
+	-nargs=?    0 or 1 arguments are allowed
+	-nargs=+    Arguments must be supplied, but any number are allowed
+
+Arguments are considered to be separated by (unescaped) spaces or tabs in this
+context.
+
+Note that arguments are used <a href="motion.html#as">as</a> text, not <a href="motion.html#as">as</a> expressions.  Specifically,
+&quot;<a href="eval.html#s:var">s:var</a>&quot; will use the <a href="map.html#script-local">script-local</a> variable in the <a href="usr_41.html#script">script</a> where the command was
+defined, not where it is invoked!  Example:
+    script1.vim:
+<b>	:let s:error = "None"</b>
+<b>	:command -nargs=1 Error echoerr &lt;args&gt;</b>
+    script2.vim:
+<b>	:source script1.vim</b>
+<b>	:let s:error = "Wrong!"</b>
+<b>	:Error s:error</b>
+Executing script2.vim will result in &quot;None&quot; being echoed.  Not what you
+intended!  Calling a function may be an alternative.
+
+
+Completion behavior				*<a name=":command-completion"></A><b>:command-completion</b>* *<a name="E179"></A><b>E179</b>*
+
+					*<a name="E180"></A><b>E180</b>* *<a name="E181"></A><b>E181</b>* *<a name=":command-complete"></A><b>:command-complete</b>*
+By default, the arguments of user defined commands <a href="diff.html#do">do</a> not undergo completion.
+However, by specifying one or the other of the following attributes, argument
+completion can be enabled:
+
+	-complete=augroup	autocmd groups
+	-complete=buffer	buffer names
+	-complete=command	<a href="intro.html#Ex">Ex</a> command (and arguments)
+	-complete=cscope	|<a href="if_cscop.html#:cscope">:cscope</a>| suboptions
+	-complete=dir		directory names
+	-complete=environment	environment variable names
+	-complete=event		<a href="autocmd.html#autocommand">autocommand</a> events
+	-complete=expression	Vim <a href="eval.html#expression">expression</a>
+	-complete=file		file and directory names
+	-complete=filetype	filetype names |<a href="options.html#'filetype'">'filetype'</a>|
+	-complete=function	function name
+	-complete=help		help subjects
+	-complete=highlight	highlight groups
+	-complete=mapping	<a href="map.html#mapping">mapping</a> name
+	-complete=menu		<a href="gui.html#menus">menus</a>
+	-complete=option	<a href="options.html#options">options</a>
+	-complete=shellcmd	Shell command
+	-complete=sign		|<a href="sign.html#:sign">:sign</a>| suboptions
+	-complete=syntax	syntax file names |<a href="options.html#'syntax'">'syntax'</a>|
+	-complete=tag		<a href="tagsrch.html#tags">tags</a>
+	-complete=tag_listfiles	<a href="tagsrch.html#tags">tags</a>, file names are shown when <a href="scroll.html#CTRL-D">CTRL-D</a> is hit
+	-complete=var		user <a href="eval.html#variables">variables</a>
+	-complete=custom,{func} custom completion, defined via {func}
+	-complete=customlist,{func} custom completion, defined via {func}
+
+
+
+Custom completion			*<a name=":command-completion-custom"></A><b>:command-completion-custom</b>*
+
+					*<a name=":command-completion-customlist"></A><b>:command-completion-customlist</b>*
+
+					*<a name="E467"></A><b>E467</b>* *<a name="E468"></A><b>E468</b>*
+It is possible to define customized completion schemes via the &quot;custom,{func}&quot;
+or the &quot;customlist,{func}&quot; completion argument.  The {func} part should be a
+function with the following signature:
+
+<b>	:function {func}(ArgLead, CmdLine, CursorPos)</b>
+
+The function need not use all these arguments. The function should provide the
+completion candidates <a href="motion.html#as">as</a> the return value.
+
+For the &quot;custom&quot; argument, the function should return the completion
+candidates one per line in a newline separated string.
+
+For the &quot;customlist&quot; argument, the function should return the completion
+candidates <a href="motion.html#as">as</a> a Vim <a href="eval.html#List">List</a>.  Non-string items in the list are ignored.
+
+The function arguments are:
+	ArgLead		the leading portion of the argument currently being
+			completed on
+	CmdLine		the entire command line
+	CursorPos	the cursor position in it (byte index)
+The function may use these for determining context.  For the &quot;custom&quot;
+argument, it is not necessary to <a href="change.html#filter">filter</a> candidates against the (implicit
+<a href="pattern.html#pattern">pattern</a> in) ArgLead.  Vim will <a href="change.html#filter">filter</a> the candidates with its <a href="pattern.html#regexp">regexp</a> engine
+after function return, and this is probably more efficient in most cases. For
+the &quot;customlist&quot; argument, Vim will not <a href="change.html#filter">filter</a> the returned completion
+candidates and the user supplied function should <a href="change.html#filter">filter</a> the candidates.
+
+The following example lists user names to a Finger command
+<b>    :com -complete=custom,ListUsers -nargs=1 Finger !finger &lt;args&gt;</b>
+<b>    :fun ListUsers(A,L,P)</b>
+<b>    :    return system("cut -d: -f1 /etc/passwd")</b>
+<b>    :endfun</b>
+
+The following example completes filenames from the directories specified in
+the <a href="options.html#'path'">'path'</a> option:
+<b>    :com -nargs=1 -bang -complete=customlist,EditFileComplete</b>
+<b>			\ EditFile edit&lt;bang&gt; &lt;args&gt;</b>
+<b>    :fun EditFileComplete(A,L,P)</b>
+<b>    :    return split(globpath(&amp;path, a:A), "\n")</b>
+<b>    :endfun</b>
+ 
+This example does not work for file names with spaces!
+
+
+
+Range handling				*<a name="E177"></A><b>E177</b>* *<a name="E178"></A><b>E178</b>* *<a name=":command-range"></A><b>:command-range</b>*
+
+							*<a name=":command-count"></A><b>:command-count</b>*
+By default, user-defined commands <a href="diff.html#do">do</a> not accept a line number range.  However,
+it is possible to specify that the command does take a range (the -range
+attribute), or that it takes an arbitrary <a href="intro.html#count">count</a> value, either in the line
+number position (-range=N, like the |<a href="windows.html#:split">:split</a>| command) or <a href="motion.html#as">as</a> a &quot;<a href="intro.html#count">count</a>&quot;
+argument (-count=N, like the |<a href="editing.html#:Next">:Next</a>| command).  The <a href="intro.html#count">count</a> will then be
+available in the argument with |<a href="map.html#&lt;count&gt;">&lt;count&gt;</a>|.
+
+Possible attributes are:
+
+	-range	    Range allowed, default is current line
+	-range=&#37;    Range allowed, default is whole file (1,$)
+	-range=N    A <a href="intro.html#count">count</a> (default N) which is specified in the line
+		    number position (like |<a href="windows.html#:split">:split</a>|)
+	-count=N    A <a href="intro.html#count">count</a> (default N) which is specified either in the line
+		    number position, or <a href="motion.html#as">as</a> an initial argument (like |<a href="editing.html#:Next">:Next</a>|).
+		    Specifying -count (without a default) acts like -count=0
+
+Note that -range=N and -count=N are mutually <a href="motion.html#exclusive">exclusive</a> - only one should be
+specified.
+
+
+Special cases				*<a name=":command-bang"></A><b>:command-bang</b>* *<a name=":command-bar"></A><b>:command-bar</b>*
+
+					*<a name=":command-register"></A><b>:command-register</b>* *<a name=":command-buffer"></A><b>:command-buffer</b>*
+There are some special cases <a href="motion.html#as">as</a> well:
+
+	-bang	    The command can take a ! modifier (like <a href="editing.html#:q">:q</a> or <a href="editing.html#:w">:w</a>)
+	-bar	    The command can be followed by a &quot;|&quot; and another command.
+		    A &quot;|&quot; inside the command argument is not allowed then.
+		    Also checks for a &quot; to start a comment.
+	<a href="if_ole.html#-register">-register</a>   The first argument to the command can be an optional
+		    <a href="sponsor.html#register">register</a> name (like <a href="change.html#:del">:del</a>, <a href="change.html#:put">:put</a>, <a href="change.html#:yank">:yank</a>).
+	-buffer	    The command will only be available in the current buffer.
+
+In the cases of the -count and <a href="if_ole.html#-register">-register</a> attributes, if the optional argument
+is supplied, it is removed from the argument list and is available to the
+replacement text separately.
+
+Replacement text
+
+The replacement text for a user defined command is scanned for special <a href="intro.html#escape">escape</a>
+sequences, using &lt;...&gt; <a href="intro.html#notation">notation</a>.  Escape sequences are replaced with values
+from the entered command line, and all other text is copied unchanged.  The
+resulting string is executed <a href="motion.html#as">as</a> an <a href="intro.html#Ex">Ex</a> command.  To avoid the replacement use
+<a href="intro.html#&lt;lt&gt;">&lt;lt&gt;</a> in place of the initial <a href="change.html#&lt;">&lt;</a>.  Thus to include &quot;<a href="map.html#&lt;bang&gt;">&lt;bang&gt;</a>&quot; literally use
+&quot;&lt;lt&gt;bang&gt;&quot;.
+
+The valid <a href="intro.html#escape">escape</a> sequences are
+
+
+						*<a name="&lt;line1&gt;"></A><b>&lt;line1&gt;</b>*
+	<a href="map.html#&lt;line1&gt;">&lt;line1&gt;</a>	The starting line of the command range.
+
+						*<a name="&lt;line2&gt;"></A><b>&lt;line2&gt;</b>*
+	<a href="map.html#&lt;line2&gt;">&lt;line2&gt;</a>	The final line of the command range.
+
+						*<a name="&lt;count&gt;"></A><b>&lt;count&gt;</b>*
+	<a href="map.html#&lt;count&gt;">&lt;count&gt;</a>	Any <a href="intro.html#count">count</a> supplied (as described for the '-range'
+		and '-count' attributes).
+
+						*<a name="&lt;bang&gt;"></A><b>&lt;bang&gt;</b>*
+	<a href="map.html#&lt;bang&gt;">&lt;bang&gt;</a>	(See the '-bang' attribute) Expands to a ! if the
+		command was executed with a ! modifier, otherwise
+		expands to nothing.
+
+						*<a name="&lt;reg&gt;"></A><b>&lt;reg&gt;</b>* *<a name="&lt;register&gt;"></A><b>&lt;register&gt;</b>*
+	<a href="map.html#&lt;reg&gt;">&lt;reg&gt;</a>	(See the '<a href="if_ole.html#-register">-register</a>' attribute) The optional <a href="sponsor.html#register">register</a>,
+		if specified.  Otherwise, expands to nothing.  <a href="map.html#&lt;register&gt;">&lt;register&gt;</a>
+		is a synonym for this.
+
+						*<a name="&lt;args&gt;"></A><b>&lt;args&gt;</b>*
+	<a href="map.html#&lt;args&gt;">&lt;args&gt;</a>	The command arguments, exactly <a href="motion.html#as">as</a> supplied (but <a href="motion.html#as">as</a>
+		noted above, any <a href="intro.html#count">count</a> or <a href="sponsor.html#register">register</a> can consume some
+		of the arguments, which are then not part of <a href="map.html#&lt;args&gt;">&lt;args&gt;</a>).
+	<a href="intro.html#&lt;lt&gt;">&lt;lt&gt;</a>	A single '<a href="change.html#&lt;">&lt;</a>' (Less-Than) character.  This is needed if you
+		want to get a literal copy of one of these <a href="intro.html#escape">escape</a> sequences
+		into the expansion - for example, to get <a href="map.html#&lt;bang&gt;">&lt;bang&gt;</a>, use
+		&lt;lt&gt;bang&gt;.
+
+
+							*<a name="&lt;q-args&gt;"></A><b>&lt;q-args&gt;</b>*
+If the first two characters of an <a href="intro.html#escape">escape</a> sequence are &quot;q-&quot; (for example,
+<a href="map.html#&lt;q-args&gt;">&lt;q-args&gt;</a>) then the value is quoted in such a way <a href="motion.html#as">as</a> to make it a valid value
+for use in an <a href="eval.html#expression">expression</a>.  This uses the argument <a href="motion.html#as">as</a> one single value.
+When there is no argument <a href="map.html#&lt;q-args&gt;">&lt;q-args&gt;</a> is an empty string.
+
+							*<a name="&lt;f-args&gt;"></A><b>&lt;f-args&gt;</b>*
+To allow commands to pass their arguments on to a user-defined function, there
+is a special form <a href="map.html#&lt;f-args&gt;">&lt;f-args&gt;</a> (&quot;function args&quot;).  This splits the command
+arguments at spaces and tabs, <a href="quotes.html#quotes">quotes</a> each argument individually, and the
+<a href="map.html#&lt;f-args&gt;">&lt;f-args&gt;</a> sequence is replaced by the comma-separated list of quoted arguments.
+See the Mycmd example below.  If no arguments are given <a href="map.html#&lt;f-args&gt;">&lt;f-args&gt;</a> is removed.
+   To embed <a href="pattern.html#whitespace">whitespace</a> into an argument of <a href="map.html#&lt;f-args&gt;">&lt;f-args&gt;</a>, prepend a <a href="intro.html#backslash">backslash</a>.
+<a href="map.html#&lt;f-args&gt;">&lt;f-args&gt;</a> replaces every pair of backslashes (\\) with one <a href="intro.html#backslash">backslash</a>.  A
+<a href="intro.html#backslash">backslash</a> followed by a character other than white space or a <a href="intro.html#backslash">backslash</a>
+remains unmodified.  Overview:
+
+<b><font color="purple">	command		   &lt;f-args&gt; </font></b>
+	XX <a href="motion.html#ab">ab</a>		   '<a href="motion.html#ab">ab</a>'
+	XX a\b		   'a\b'
+	XX a\ <a href="motion.html#b">b</a>		   <a href="motion.html#'a">'a</a> b'
+	XX a\  <a href="motion.html#b">b</a>	   <a href="motion.html#'a">'a</a> '', '<a href="motion.html#b">b</a>'
+	XX a\\b		   'a\b'
+	XX a\\ <a href="motion.html#b">b</a>	   'a\', '<a href="motion.html#b">b</a>'
+	XX a\\\b	   'a\\b'
+	XX a\\\ <a href="motion.html#b">b</a>	   'a\ b'
+	XX a\\\\b	   'a\\b'
+	XX a\\\\ <a href="motion.html#b">b</a>	   'a\\', '<a href="motion.html#b">b</a>'
+
+Examples
+
+<b>   " Delete everything after here to the end</b>
+<b>   :com Ddel +,$d</b>
+
+<b>   " Rename the current buffer</b>
+<b>   :com -nargs=1 -bang -complete=file Ren f &lt;args&gt;|w&lt;bang&gt;</b>
+
+<b>   " Replace a range with the contents of a file</b>
+<b>   " (Enter this all as one line)</b>
+<b>   :com -range -nargs=1 -complete=file</b>
+<b>	 Replace &lt;line1&gt;-pu_|&lt;line1&gt;,&lt;line2&gt;d|r &lt;args&gt;|&lt;line1&gt;d</b>
+
+<b>   " Count the number of lines in the range</b>
+<b>   :com! -range -nargs=0 Lines  echo &lt;line2&gt; - &lt;line1&gt; + 1 "lines"</b>
+
+<b>   " Call a user function (example of &lt;f-args&gt;)</b>
+<b>   :com -nargs=* Mycmd call Myfunc(&lt;f-args&gt;)</b>
+
+When executed <a href="motion.html#as">as</a>:
+<b>	:Mycmd arg1 arg2</b>
+This will invoke:
+<b>	:call Myfunc("arg1","arg2")</b>
+
+<b>   :" A more substantial example</b>
+<b>   :function Allargs(command)</b>
+<b>   :   let i = 0</b>
+<b>   :   while i &lt; argc()</b>
+<b>   :	  if filereadable(argv(i))</b>
+<b>   :	     execute "e " . argv(i)</b>
+<b>   :	     execute a:command</b>
+<b>   :      endif</b>
+<b>   :      let i = i + 1</b>
+<b>   :   endwhile</b>
+<b>   :endfunction</b>
+<b>   :command -nargs=+ -complete=command Allargs call Allargs(&lt;q-args&gt;)</b>
+
+The command Allargs takes any Vim command(s) <a href="motion.html#as">as</a> argument and executes it on all
+files in the argument list.  Usage example (note use of the &quot;<a href="motion.html#e">e</a>&quot; flag to ignore
+<a href="message.html#errors">errors</a> and the &quot;update&quot; command to write modified buffers):
+<b>	:Allargs %s/foo/bar/ge|update</b>
+This will invoke:
+<b>	:call Allargs("%s/foo/bar/ge|update")</b>
+ 
+When defining a user command in a <a href="usr_41.html#script">script</a>, it will be able to call <a href="eval.html#functions">functions</a>
+local to the <a href="usr_41.html#script">script</a> and use mappings local to the <a href="usr_41.html#script">script</a>.  When the user
+invokes the user command, it will run in the context of the <a href="usr_41.html#script">script</a> it was
+defined in.  This matters if |<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>| is used in a command.
+
+<a href="map.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

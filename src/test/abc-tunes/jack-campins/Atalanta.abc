@@ -1,0 +1,1364 @@
+% ======================================================================
+%
+%                           Atalanta Fugiens
+%                          (Atalanta Fleeing)
+%               fifty alchemical fugues by Michael Maier
+% 
+% ======================================================================
+
+% Maier's "Atalanta Fugiens" (1617-18) is a remarkable early example of
+% a multimedia artwork.  It describes the alchemical process in fifty
+% stages, each illustrated by a six-line Latin verse set to Maier's own
+% music, an emblematic illustration, and a prose commentary.  This file
+% only has the music, which I have transcribed into ABC from Joscelyn
+% Godwin's edition; see <http://www.alchemy.dial.pipex.com/mohs22.html>
+% for details of where to order this.  This is with Godwin's permission,
+% but the ABC coding is entirely my responsibility.
+
+% The illustrations and translations of the text are available on the
+% web at three sites:
+%  * in English, Adam Maclean's enormous alchemy site:
+%      <http://www.levity.com/alchemy/atalanta.html>
+%  * in French, Herve Delboy's site:
+%      <http://perso.club-internet.fr/hdelboy/atalanta_fugiens.html>
+%  * a site-in-progress from Hereward Tilton in Australia, who is doing
+%    a doctorate on this work:
+%      <http://student.uq.edu.au/~s169776/AtalantaIndex.html>
+
+% As far as I know there is not yet a complete facsimile of the original
+% on the Internet; a print facsimile was published by Barenreiter, and
+% there is a Spanish edition which may also contain the original score
+% (I haven't seen it: <http://www.geocities.com/symbolos/libjmd01.htm>).
+
+% You are NOT going to make much sense of this without having the text
+% and images as well, either in print or via your web browser.
+
+% I have deviated from Godwin's edition by removing barlines (there are
+% none in the original) and this version does not match the text to the
+% music; I hope to do that in a later release, with the parts separated
+% out.  Also, ABC can't yet represent Maier's metric indications.  The
+% mode indications I've added are sometimes a bit arbitrary.
+
+% As with my other ABC files, this is intended to be readable in source
+% form (use a fixed-width font).  I have, as far as possible, aligned
+% the parts vertically.
+
+% There is some defensive coding with accidentals - ABC applications
+% disagree on whether these are to be interpreted in the Renaissance
+% or modern manner, so I have added redundant accidentals which should
+% be read the same way under all conceivable interpretions.
+
+% I have also added MIDI instrumentation in the syntax BarFly uses; other
+% programs will probably ignore this, which is fine by me.  It's purely
+% to make the parts clearly audible on primitive machines like the ones
+% I have; you are not expected to take it seriously.  (There are no bowed
+% string sounds, simply because the Roland-supplied ones I have with my
+% Mac software are unlistenably awful). I have also pushed the tempi
+% beyond the speeds it might be reasonable to sing at - there are no
+% hints of tempo in Maier's book.
+
+% Godwin's book contains detailed analyses of the musical symbolism in
+% these pieces which I will not summarize here.  The basic form of each
+% piece is a two-voice canon over a ground which is rarely varied much.
+% The overall structure derives from the Greek myth of Atalanta, who
+% challenged her suitors to a footrace and had the losers all killed,
+% until Hippomenes raced her carrying golden apples, which he threw
+% in front of her, distracting her and letting him catch up.  The myth
+% is made to symbolize the struggle to fix the Philosophical Mercury
+% with Sulphur in pursuit of the Philosopher's Stone.  Musically, the
+% Atalanta part always leads the Hippomenes one in canon until the last
+% few pieces, when more complex relationships are introduced.  The
+% pitch ranges assigned to the voices are varied in every way possible.
+
+% The texts and pictures have nothing directly to do with the Atalanta
+% story: they are based on other myths and images which had been given
+% alchemical significance.
+
+% One run-through of a fugue fits two lines of text, so each piece was
+% intended to be sung three times, as the "Christe eleison" theme would
+% have been in liturgical use.
+
+% These are basically meditative pieces, and it is doubtful if Maier
+% ever expected them to be performed publicly (though they have been).
+% As such, experimenting with them on your own in whatever way makes
+% sense to you is at least as authentic as trying to assemble a vocal
+% trio to sing them.
+
+% Thanks to Laura Conrad for spotting a mistake in an earlier version.
+% This version uses the now-standard ABC multivoice syntax instead of
+% the old BarFly form.
+ 
+% ======================================================================
+% Jack Campin           http://www.campin.me.uk/         21 January 2007
+% ======================================================================
+
+
+X:0
+T:Golden Apple theme
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+N:"Christe eleison" from Gregorian Mass IV, "Cunctipotens genitor"
+S:Michael Maier, Atalanta Fugiens
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+M:none
+L:1/2
+Q:1/2=80
+K: G dorian transpose -12
+d2 dd c2 d2 c2 BB c2 d2 B2 cc dd A2 GG A2 c2 B2 A2 BB A2 GG G4|]
+
+
+X:1
+T:Portavit eum ventus in ventre suo
+T:The wind has carried it in its belly
+T:Fuga I
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74      % Atalanta
+V:2 program 1 74      % Hippomenes
+V:3 program 1 21 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=120
+K: G dorian
+[V:1] z2 d3  d dd  _e4   dc BA G4    z2  FF   GA Bc d_edc d4    z2  cB |
+[V:2] z4   z2  A3    AAA B4    AG FE D4       z2 CC D_EFG AB AG A4     |
+[V:3] D,4  D,2 D,2  C,4  D,4   C,4   B,,2B,,2 C,4   D,4   B,,4  C,2 C,2|
+%
+[V:1] AG  AB  c2 c2 z2   d2   c3  c BA G2 z2 d2 c2 cc BA   G2   z2 F2 =B2   B2   =B8  |]
+[V:2] z2  GF =ED EF G2   G2   z2 A2 G3  G FE D2 z2 A2 G2   GG   FE D2  z2   D2    D8  |]
+[V:3] D,2 D,2 A,,4  G,,2 G,,2 A,,4  C,4   B,,4  A,,4  B,,2 B,,2 A,,4   G,,2 G,,2  G,,8|]
+
+
+X:2
+T:Nutrix ejus terra est
+T:Its nurse is the earth
+T:Fuga II
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 68               % Atalanta
+V:2 program 1 69 transpose -12 % Golden Apple
+V:3 program 1 70 bass          % Hippomenes
+M:none
+L:1/4
+Q:1/2=96
+K:G dorian
+[V:1] d3c =BA  B2   c_BAG    F2  B2    cB AG/A/ B A       G F  E2   c2   AB/c/d3         cBA   G2  cB |
+[V:2] d4   d2  d2   c4       d2  d2    c4       B4             c4        d2   d2        B4     c2  c2 |
+[V:3] z2 G,3 F,E,D, E,2F,_E, D,C,B,,2 _E,2F,_E, D,C,/D,/ =E,D, C,B,,A,,2 F,2  D,_E,/F,/ G,3F, _E,D,C,2|
+%
+[V:1] A2   z A2 G^F2  G3  =F E2 c3    BAG/A/ BA       GA/B/ cBAG          F2  G2   A2^F2 G4      G8  |]
+[V:2] d2   d2  A4     G2  G2 A4      c4      B4             A4            B2  B2   A4    G2  G2  G8  |]
+[V:3] F,_E,D,2 zD,2C, B,,2C,3B,,A,,2 F,3_E,  D,C,/D,/_E,D,  C,D,/_E,/F,_E,D,C,B,,2 C,2D,2B,,2C,2 G,,8|]
+
+
+X:3
+T:Vade ad mulierem lavantem pannos, tu fac similiter
+T:Go to the woman washing sheets and do likewise
+T:Fuga III
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74      % Atalanta
+V:2 program 1 74      % Hippomenes
+V:3 program 1 70 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=108
+K: G dorian
+[V:1] z2 d3 c dB  c2 dc dc  AB  c2c2 zd  B2 G2 GA B2 Bc dc BA G4     |
+[V:2] z4  z2  A3   G AF G2  AG  AGEF G2  G2 zA F2 D2 DE F2 FG AG  FE |
+[V:3] D,4 D,2 D,2 C,4   D,2 D,2 C,4  B,,4   C,4   D,4   B,,4  C,2 C,2|
+%
+[V:1] z2  F2  c4    Bd   Bd   c4   G4   dB2B c4   z2   d2   ed ed  d4          d8  |]
+[V:2] D4      z2 C2 G4        FAFA G4   D4   AF2F G4        z2 A2 =BA   BA/A/ =B8  |]
+[V:3] D,2 D,2 A,,4  G,,2 G,,2 A,,4 C,4  B,,4 A,,4 B,,2 B,,2 A,,4   G,,2 G,,2   G,,8|]
+
+
+X:4
+T:Coniunge fratrem cum sorore, et propina illis poculum amoris
+T:Join brother to sister and hand them the cup of love
+T:Fuga IV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 14               % Golden Apple
+V:2 program 1 16               % Hippomenes
+V:3 program 1 16 transpose -12 % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+K: G dorian
+[V:1] d4   d2d2 c4   d2 d2 c4   B4   c4    d4    B4        c2   c2|
+[V:2] z4   z2G2 EEC2 z2 F3  EDC D4   C2_E2 DE F2 z2    _E3  F/G/AG|
+[V:3] z2d2 BBG2 z2c3  B AG A4   G2B2 AB c2 z2 B3  c/d/ _ed c4     |
+%
+[V:1] d2d2  A4    G4     A4  c4   B4   A4   B2B2    A4     G2G2 G8|]
+[V:2] F4    z_EDC B,C>DB,C4  z2G2 DEFD ECDE F3 F    E3D/C/ D4   D8|]
+[V:3] zBAG ^FG>AF G2  z4  d2 ABcA BGAB c3 c B3 A/G/ c>Acd  G4   G8|]
+
+
+X:5
+T:Appone mulieri super mammas bufonem, ut ablactet eum, et moriatur mulier, sitque bufo grossus de lacte
+T:Put a toad to the breasts of a woman, and nurse it; the woman may die, but the toad grows big from the milk
+T:Fuga V
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 16      % Atalanta
+V:2 program 1 16      % Hippomenes
+V:3 program 1 58 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=120
+K: G dorian
+[V:1] z2 A2 =B2  B2  c_B AG  BA  G2  A4    B2 B2 AB cB A2 A2 GA BG AB  c2 |
+[V:2] z4     z2  D2  E2  E2 ^FE  DC _ED C2 D4    E2 E2 DE FE D2 D2 CD  EC |
+[V:3] D,4    D,2 D,2 C,4     D,2 D,2 C,4   B,,4  C,4   D,4   B,,4  C,2 C,2|
+%
+[V:1] =B4      z2 A2 _BA   G2   cBAG ABc2  cB2B AGA2 GA   B2   F4    =B2   BB   B8  |]
+[V:2]  DE  F2  E4     z2   D2   EDC2 FEDC  DEF2 FE2E DC   D2   CD_E2 =B,4       D8  |]
+[V:3]  D,2 D,2 A,,4   G,,2 G,,2 A,,4 C,4   B,,4 A,,4 B,,2 B,,2 A,,4   G,,2 G,,2 G,,8|]
+
+
+X:6
+T:Seminate aurum vestrum in terram albam foliatum
+T:Sow your gold in the white furrowed earth
+T:Fuga VI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 14               % Golden Apple
+V:2 program 1 16 transpose -12 % Atalanta
+V:3 program 1 16 transpose -12 % Hippomenes
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] d4    d2 d2 c4    d4    c4    B4     c4     d2  d2 B4   |
+[V:2] z2 GA Bc d2 z2 c4   =B2 c2 z4    d2 _e2  cc GA _Bc d4   |
+[V:3] z4    z2 DE FG A2 z2 G4   ^F2 G2 z2  z2  A2 B2  GG DE FG|
+%
+[V:1] c2 c2 d2 d2 A4     G2G2  A4    c4   B4   A4    B2 B2 A4    G2G2 G8|]
+[V:2] z2 c4   =B2 c2 A2 _Bc2B  A2 d2 c4   z2 B4   c2 d3  e f4    e4   e8|]
+[V:3] A4    z2 G4   ^F2  G2E2 ^FG2^F E2A2 G4   z2 A4    G2 A2 AB c4   c8|]
+
+
+X:7
+T:Fit pullus a nido volans, qui iterum cadit in nidum
+T:There is a chick, flying up from its nest, that falls back into the nest again
+T:Fuga VII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Hippomenes
+V:2 program 1 74 transpose -12 % Atalanta
+V:3 program 1 74 bass          % Golden Apple
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] z4   z2 A2  cBcd =B3B A4   z2   c_B  ABcd =BA=Bc d2 d2 A=B c=B|
+[V:2] z2F2 AG AB  G3 G  F4  z2AG FG   AB   GFGA =B2 B2 FG AG G4     |
+[V:3] D,4  D,2D,2 C,4   D,4 C,4  B,,2 B,,2 C,4   D,4   B,,4  C,2 C,2|
+%
+[V:1] =B4      z2cd ef   cd   ef z4    c2_Bc de^f2f2 z2  =fe   dc=BA _e4       d8  |]
+[V:2]  z2  A=B cdAB cd   z4      A2 GA_Bc d2 d2 z2dc BA   GF   c4    =B2  B2   B8  |]
+[V:3]  D,2 D,2 A,,4 G,,2 G,,2 A,,4  C,4   B,,4  A,,4 B,,2 B,,2 A,,4   G,,2G,,2 G,,8|]
+
+
+X:8
+T:Accipe ovum et igneo percute gladeo
+T:Take the egg and pierce it with a fiery sword
+T:Fuga VIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 9                % Golden Apple
+V:2 program 1 12               % Hippomenes
+V:3 program 1 12 transpose -12 % Atalanta
+M:none
+L:1/2
+Q:1/2=120
+K: G dorian
+[V:1] d2 d d c2  d2 c2    B2    c2    d    d   =B2    cc   |
+[V:2] z2 z D F>G AF FF    z/BA/ G/G/ G2    F/E/ D d2   c/B/|
+[V:3] zD F>G A F FF z/BA/ G/G/G2     F/E/D d2     c/B/A> G |
+%
+[V:1] d d A2 GG  A2 c2     =B2 A2 _BB A2 GG G4|]
+[V:2] A>G FD z2  c>B A/G/F2  F Dd  d2 zD DD D4|]
+[V:3] F D z2 c>B A/G/F3     Dd2 d  zD DD G2 G4|]
+
+
+X:9
+T:Arborem cum sene conclude in rorida domo, et comedens de fructu ejus fiet juvenis
+T:Lock the tree with the old man in a house wet with dew, and eating its fruit he will become young
+T:Fuga IX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 71       % Hippomenes
+V:2 program 1 71       % Atalanta
+V:3 program 1 6  bass  % Golden Apple
+M:none
+L:1/4
+Q:1/2=100
+K:D minor
+[V:1] z4    z2 f2  ee e2 gfed c2c2 z2   dd   c4   Bcde f4   z2 cA |
+[V:2] z2=B2 AA A2  c_BAG F2F2 z2GG F4        EFGA B4   z2FD E2 E2 |
+[V:3] D,4   D,2D,2 C,4   D,4  C,4  B,,2 B,,2 C,4  D,4  B,,4 C,2C,2|
+%
+[V:1] =B2 =B2  A4   B4        A2A2 G4   z2_B2  cBcA G2  G2   A4  =B2 =B2   d8  |]
+[V:2]  D4      E4   D2   D2  ^C4   z2E2 FE FD =C2C2 D4       E2E2 G2  G2   G8  |]
+[V:3]  D,2 D,2 A,,4 G,,2 G,,2 A,,4 C,4  B,,4   A,,4 B,,2B,,2 A,,4 G,,2G,,2 G,,8|]
+
+
+X:10
+T:Da ignem igni, Mercurium Mercurio, et sufficit tibi
+T:Give fire to fire, Mercury to Mercury, and it is enough for you
+T:Fuga X
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 16               % Atalanta
+V:2 program 1 16               % Hippomenes
+V:3 program 1 57 transpose -12 % Golden Apple
+M:none
+L:1/4
+Q:1/2=100
+K:G dorian
+[V:1] z2 =Bc de f2 ef g2 f2 d2 z2 _e2 dc _BA GF E2 A2 A2 Bc dd c2 G2|
+[V:2] z4     z2 AB cd e2 de f2 e2  c2 z2  d2 cB AG FE D2 G2 G2 AB cc|
+[V:3] d4     d2 d2 c4    d2 d2 c4     B4     c4    d4    B4    c2 c2|
+%
+[V:1] z2 DE FG AF GA =B2 A2 F2 EF GA _Bc d2 c2 A2 z2 d2 e2 f2 g2 g2 g8|]
+[V:2] B2 F2 z2 CD EF  GE FG A2 G2 E2  DE FG AB c2 B2 G2 z2 c2 d2 d2 d8|]
+[V:3] d2 d2 A4    G2  G2 A4    c4     B4    A4    B2 B2 A4    G2 G2 G8|]
+
+
+X:11
+T:Dealbate Latonam et rumpite libros
+T:Make Latona white and tear up the books
+T:Fuga XI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 1035               % Hippomenes
+V:2 program 1 1035 transpose -12 % Atalanta
+V:3 program 1 1035 bass          % Golden Apple
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] z4     z2  d2 ed =f4     e2  f4     z2  d2 G2 G2 AFGA B2B2 z2  GB |
+[V:2] z2 ^f2 g^f a4     g2 a4      z2 =f2 B2  B2 cA Bc d2d2 z2Bd cB  A2 |
+[V:3] D,4    D,4    C,4    D,2 D,2 C,4    B,,4   C,4   D,4  B,,4 C,2 C,2|
+%
+[V:1] AG ^F2 ^F4     z2   D2   E4 A4     =F2F2 BA  GF z2   F2   BAGA B4       B8  |]
+[V:2] A4      z2 ^F2 G4        c4 A2  A2  dcBA z2  A2 dc   Bc   d2d2 d4       d8  |]
+[V:3] D,2 D,2 A,,4   G,,4 A,,4    C,2 C,2 B,,4 A,,4   B,,2 B,,2 A,,4 G,,2G,,2 G,,8|]
+
+
+X:12
+T:Lapis, quem Saturnus, pro Jove filio devoratum, evomuit, pro monumento in Helicone mortalibus est positus
+T:The stone which Saturn vomited up, having devoured it in place of his son Jupiter, has been placed on Helicon as a monument for mortals
+T:Fuga XII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Hippomenes
+V:2 program 1 74               % Atalanta
+V:3 program 1 74 transpose -12 % Golden Apple
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] z4    z2 =B2 c2 G4    ^F2 G2 E2 z2 _B2 A2GG =F4      G>AB2 zA2B|
+[V:2] z2A2 =B2 ^F4    E2 ^F2 D2 z2 A2 G2 =FF E4    F>G A2  z G2A EEc2|
+[V:3] d4    d2  d2 c4     d4    c4    B4     c4    d2  d2 =B4    c2c2|
+%
+[V:1] FF d2 c2 BA B2G2 z2 A2 A2G2 G2FG ABc2 d2G2 z2c2  d2d2 d8|]
+[V:2] B2 AG A2^F2 z2G2 G2=F2 F2EF GAB2 c2F2 z2B2 c2A2 =B4  =B8|]
+[V:3] d2 d2 A4    G4   A4    c2c2 B4   A4   B2B2 A4    G2G2 G8|]
+
+
+X:13
+T:Aes Philosophorum hydropicum est, et vult lavari septies in fluvio, ut Naaman leprosus in Jordane
+T:The Ore of the Philosophers is dropsical, and needs to be washed seven times in the river, as the leper Naaman was in the Jordan
+T:Fuga XIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 71               % Hippomenes
+V:2 program 1 71 transpose -12 % Atalanta
+V:3 program 1 71 bass          % Golden Apple
+M:none
+L:1/4
+Q:1/2=100
+K:G dorian
+[V:1] z4    z2  d2  g2fe f4   gfeg d4     z2cd fd  f2  d4   c2  de |
+[V:2] z2 A2 d2  cB  c4   dcBd A4   z2  GA cAc2 A4      G2AB c2  c2 |
+[V:3] D,4   D,2 D,2 C,4  D,4  C,4  B,,4   C,4  D,2 D,2 B,,4 C,2 C,2|
+%
+[V:1] f2  f2  z2 e2 de   fg   a4    gf ef   d4   z2e2 ff   f2   ecdc  d2   d2   d8  |]
+[V:2] z2 =B2  A=Bcd e4        dc_Bc A4      z2B2 ccc2 BG   AG   A4   =B4       =B8  |]
+[V:3] D,2 D,2 A,,4  G,,2 G,,2 A,,4  C,2 C,2 B,,4 A,,4 B,,2 B,,2 A,,4  G,,2 G,,2 G,,8|]
+
+
+X:14
+T:Hic est Draco caudam suam devorans
+T:This is the Dragon devouring its own tail
+T:Fuga XIV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 56                   % Atalanta
+V:2 program 1 14 transpose -12     % Golden Apple
+V:3 program 1 57 bass              % Hippomenes
+M:none
+L:1/4
+Q:1/2=80
+K:G dorian
+[V:1] z2 d2 f4     z2 f2 f4     z4  ff f4      f_edc B2   z2   ff   f2 ff   F>G AB  |
+[V:2] d4    d2 d2  c4    d2 d2  c4  B2 B2 c4      d2 d2   B4        c2 c2   d2  d2  |
+[V:3] z4    z2 D,2 F,4   z2 F,2 F,4 z4    F,F, F,4   F,_E,D,C, B,,2 z2 F,F, F,2 F,F,|
+%
+[V:1] c2     c2     z2 c2  c2 cB/A/ G2  GG         d4         z2d2 d2d2  e2  f2  g4     g8 |]
+[V:2] A4            G2 G2  A4       c2  c2         B4         A4   B2B2  A4      G2 G2  G8 |]
+[V:3] F,,>G,,A,,B,, C,2C,2 z2 C,2   C,2 C,B,,/A,,/ G,,2G,,G,, D,4  z2D,2 D,D,D,2 E,2E,2 E,8|]
+
+
+X:15
+T:Opus figuli, consistens in sicco et humido, te doceat
+T:Let the work of the potter, consisting of the dry and the wet, teach you
+T:Fuga XV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11      % Atalanta
+V:2 program 1 11      % Hippomenes
+V:3 program 1 57 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=100
+K:G dorian
+[V:1] z2 A2 BB  B2  c/c/d cc/c/ A4          z2GA BA B2 ABc2 d2  d2  z2 G2 cB  Ac |
+[V:2] z4    z2  F2  G   G A2    A/A/B AA/A/ F4   z2 EF GFG2 FG  A2  B2 B2 z2  E2 |
+[V:3] D,4   D,2 D,2 C,4         D,4         C,4  B,,4  C,4  D,2 D,2 B,,4  C,2 C,2|
+%
+[V:1] A2  A2  z2^F2 G2   G2   cBAG A2  A2  BcBA z2^F2  GG   G2   c2BA =B4       =B8  |]
+[V:2] AG  FA ^F2^F2 z2   D2   E2E2 AG =FE  F2F2 GA G^F z2   D2   EEE2  A2   G=F  D8  |]
+[V:3] D,2 D,2 A,,4  G,,2 G,,2 A,,4 C,2 C,2 B,,4 A,,4   B,,2 B,,2 A,,4  G,,2 G,,2 G,,8|]
+
+
+X:16
+T:Hic Leo, quas plumas non habet, alter habet
+T:This lion has no feathers, the other has
+T:Fuga XVI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 16      % Hippomenes
+V:2 program 1 16      % Atalanta
+V:3 program 1 66 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=100
+K:D minor
+[V:1] z4   A3   B  c2 c2 =B2  A=B cd e2 de   f2   f2e2 d2 f2  F2 FG A2  GA |
+[V:2] z2 D3 E ^F2 ^F2 E2  DE ^F^G A2=GA B2   B2   A2G2 B2 B,2 B,CD2 CD _E2 |
+[V:3] D,4  D,4     C,4    D,2 D,2 C,4   B,,2 B,,2 C,4  D,2D,2 B,,4  C,2 C,2|
+%
+[V:1] =B2  A2  A_B c2  zA   B2   AB c2 G3   A Bcd2 cde2 z G  FG   A=B    cd/c/ =B4      =B8  |]
+[V:2]  D2  DE ^F2  zD _E2   D=E ^F2 C3  D E=F G2FG A2zC B,C  DE  ^FG/^F/ E^F    G4       G8  |]
+[V:3]  D,2 D,2 A,,4    G,,2 G,,2 A,,4  C,4    B,,4 A,,4 B,,2 B,,2 A,,4          G,,2G,,2 G,,8|]
+
+
+X:17
+T:Orbita quadruplex hoc regit ignis opus
+T:A quadruple wheel rules this fiery work
+T:Fuga XVII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 56      % Hippomenes
+V:2 program 1 56      % Atalanta
+V:3 program 1 57 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=96
+K:G dorian
+[V:1] z4     z2  A2  c4 =B4      A4   z2   GG   F2G2  dc _BA  d2 d2 z2  AA |
+[V:2] z2 ^F2 A4      G4 ^F4      z2EE D2   E2   BAG=F B2  B2  z2 FF E2  EE |
+[V:3] D,4    D,2 D,2 C,4 D,2 D,2 C,4  B,,2 B,,2 C,4   D,2 D,2 B,,4  C,2 C,2|
+%
+[V:1] G2  GG  F2F2 z2   AG  ^F2^F^F Gc  c2  B4  =F4   F4        z2D2 =B2  =B2  =B8  |]
+[V:2] D2  D2  z2FE D2   DD   EA A2  G4      D4   D4   z2   D2   C4    D4        D8  |]
+[V:3] D,2 D,2 A,,4 G,,2 G,,2 A,,4   C,2 C,2 B,,4 A,,4 B,,2 B,,2 A,,4  G,,2 G,,2 G,,8|]
+
+
+X:18
+T:Ignire ignis amat, non aurificate, sed aurum
+T:Fire loves to make fire, but not to make gold, as gold does
+T:Fuga XVIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 71               % Hippomenes
+V:2 program 1 46 transpose -12 % Golden Apple
+V:3 program 1 71 bass          % Atalanta
+N:Godwin's edition has the E flattened in voice 3, first staff
+M:none
+L:1/4
+Q:1/2=108
+K:G dorian
+[V:1] z4        z2    F G       AB   cB/A/ G2         zB2  A/G/ A2  B3     d c2 A2  z2 B2  |
+[V:2] d4        d2    d2        c4         d2        d2   c4        B4       c4     d4     |
+[V:3] z2 G,,A,, B,,C, D,C,/B,,/ A,,2 zC,2   B,,/A,,/ B,,2 C,3    E, D,2 B,,2 z2 C,2 G,,3A,,|
+%
+[V:1] F3    GAB c4     B2 f2  c3d e4     d2  z2   e2   dc  de   f2 F2 z2 G4          F2  G4   G8  |]
+[V:2] B4     c2 c2 d2  d2 A4   G2 G2  A4     c2   c2   B4       A4    B2 B2     A4       G2G2 G8  |]
+[V:3] B,,C, D,4 C,2G,2 D,3 E, F,4 E,2 z2 F,2 E,D, E,F, G,2 G,,2 z2 A,,4  G,,G,, A,,2 D,2 G,,4 G,,8|]
+
+
+X:19
+T:Si de quattuor unum Occidas, subito mortuus omnis erit
+T:If you kill one of the four, suddenly all will be dead
+T:Fuga XIX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 46      % Atalanta
+V:2 program 1 46      % Hippomenes
+V:3 program 1 39 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=108
+K: G dorian
+[V:1] z2 d2 f2  f2 _ed cB A4      z2=e2 f2   f2   e4    d2 d2   f4    z2  gg |
+[V:2] z4    z2 ^F2  A2 A2 G=F ED  C4    z2   G2   A2 A2 G4      F2 F2 A4     |
+[V:3] D,4   D,2 D,2 C,4   D,4     C,4   B,,2 B,,2 C,4   D,2 D,2 B,,4  C,2 C,2|
+%
+[V:1] d4      c4   d2   d2   c4    z2 e2 f4    a2 a2 f2   ff   z2 e2  d2   d2     d8  |]
+[V:2] z2 =B=B F4   E4        F2 F2 E4    z2 G2 A4    c2   c2   A2 AA  z2   GG/G/ _B8  |]
+[V:3] D,2 D,2 A,,4 G,,2 G,,2 A,,4  C,4   B,,4  A,,4  B,,2 B,,2 A,,4   G,,2 G,,2   G,,8|]
+
+
+X:20
+T:Naturam natura docet, debellet ut ignem
+T:Nature teaches nature to overcome the fire
+T:Fuga XX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Hippomenes
+V:2 program 1 74               % Atalanta
+V:3 program 1 11 transpose -12 % Golden Apple
+M:none
+L:1/4
+Q:1/2=108
+K: G dorian
+[V:1] z4    z2 FG AB c2 cB B2 B2 A4    G2 A2 z4    Bc d2 d2 d2 c2|
+[V:2] z2 DE FG A2 AG G2 G2 F4    E2 F2 z4    GA B2 B2 B2 A2 G4   |
+[V:3] d4    d2 d2 c4    d4    c4    B2 B2 c4    d2 d2 B4    c2 c2|
+%
+[V:1] B4    z2 F2 G2 EE FF GF E4    z2 B2 FG A4    G2 z2 F2  G2  G2  G8|]
+[V:2] z2 D2 E2 C2 D2 ED C4    z2 G2 DE F4    E2 z2 DD EC c2 =B2 =B2 =B8|]
+[V:3] d2 d2 A4    G2 G2 A4    c2 c2 B4    A4    B2 B2 A4     G2  G2  G8|]
+
+
+X:21
+T:Fac ex mare et foemina circulum, inde quadrangulum, hinc triangulum, fac circulum et habebis lap. Philosophorum
+T:Make a circle around man and woman, then a square, now a triangle; make a circle and you will have the Philosophers' Stone
+T:Fuga XXI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Hippomenes
+V:2 program 1 74               % Atalanta
+V:3 program 1 16 transpose -12 % Golden Apple
+M:none
+L:1/4
+Q:1/2=108
+K: G dorian
+[V:1] z4     z2 d2 ef2e fg f3  e e4    d2 e2c2  z2 A2 Bc d3 c|
+[V:2] z2 A2 =Bc2=B cdc3 _B B4    A2 B2 G2 z2E2  FG A3  G BBA2|
+[V:3] d4     d2 d2 c4   d2 d2 c4    B4    c4    d2 d2 B4   c2|
+%
+[V:1] eed2 f3  e d  c =Bc d=B c2 c2 z2 A2 d3  d c_B c2 dc d4    c2 =B4   =B8|]
+[V:2] c3 B AG FG A ^F  G2 G2  z2 E2 A3  A G=FG2 A G A4    G2 ^F2E2  G4    G8|]
+[V:3] c2d2 d2 A4       G2 G2  A4    c4    B4    A4     B2 B2  A4    G2 G2 G8|]
+
+
+X:22
+T:Plumbo habito candido fac opus mulierum, hoc est, COQUE
+T:When you have the white lead, do the women's work, that is, COOK
+T:Fuga XXII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74      % Hippomenes
+V:2 program 1 74      % Atalanta
+V:3 program 1 16 bass % Golden Apple
+M:none
+L:1/4
+Q:1/2=108
+K: G dorian
+[V:1] z4    z2  A=B    c3=B/A/ =Bc  d=B c2A2    _B3   A/G/ A=B c4    _B2  z2  FGAB |
+[V:2] z2 DE F3    E/D/ EFGE     F2  D2 _E3 D/C/  D=E F4       _E2 z2  B,C D=E F4   |
+[V:3] D,4   D,2 D,2    C,4      D,2 D,2 C,4      B,,4      C,4    D,4 B,,4      C,2|
+%
+[V:1] c4     =B2  c2 A2 =B2 G2 z2  A2    G3    A _Bc d4    c2 z2   G2   A2^F2  G2  G2   G8  |]
+[V:2] E2  F2  D2  E2 C2  z2 D2 C3     D _EF  G4      F2 z2 C2 D2   B,2  C2 A,2 B,2 B,2  B,8 |]
+[V:3] C,2 D,2 D,2 A,,4   G,,4  A,,2A,,2  C,2 C,2  B,,4  A,,4  B,,2 B,,2 A,,4   G,,2G,,2 G,,8|]
+
+
+X:23
+T:Aurum pluit, dum nascitur Pallas Rhodi, et Sol concumbit Veneri
+T:Gold rains down, as Pallas is born on Rhodes, and the Sun lies with Venus
+T:Fuga XXIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11               % Hippomenes
+V:2 program 1 14 transpose -12 % Golden Apple
+V:3 program 1 11 bass          % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] z2     D>E   FG   A>B c3    G B2     A>=B cde>f     gG_B2  A2GA          BA/G/ F2   z   F F>G  |
+[V:2] d4           d4       c4      d2     d2   c4        B4     c4            d4         B4         |
+[V:3] G,,>A,,B,,C, D,>E,F,3  C,_E,2 D,>=E,^F,G, A,>B,CC, _E,2D,2 C,D,_E,D,/C,/ B,,2  zB,, B,,>C,D,B,,|
+%
+[V:1] AF  c2 =B2 A3   _Bc3G      B2   F2  A2  G3A      Bc d3   A c2   G2 B2   F2 A2     EFG2 G8 |]
+[V:2] c2  c2  d2 d2  A4      G2  G2   A4      c2  c2   B4    A4       B2 B2   A4        G2G2 G8 |]
+[V:3] F,2=E,2 D,3 E, F,3 C, _E,2 B,,2 D,2 C,3  D,_E,F, G,3D, F,2 C,2 _E,2B,,2 D,2A,,B,, C,4  C,8|]
+
+
+X:24
+T:Regem lupus voravit, et vitae, crematus redidit
+T:The wolf devoured the king, and when burned returned him to life
+T:Fuga XXIV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 68               % Hippomenes
+V:2 program 1 14 transpose -12 % Golden Apple
+V:3 program 1 70 bass          % Atalanta
+M:none
+L:1/4
+Q:1/2=108
+K:G dorian
+[V:1] z4      z2   AB cd c4     =B2 c2   z2  zG  _B4  A2  B2 G2 d4     z2  A3  G|
+[V:2] d4      d2   d2 c4     d4     c4       B2   B2  c4  d2 d2 B4     c2  c2 d2|
+[V:3] z2 D,E, F,G, F,4   E,2 F,2 z2 zC, _E,4 D,2 _E,2 C,2 G,4   z2  D,3 C, C,4  |
+%
+[V:1]  G4      ^F2    G2     zE  =FF   D2  AB c2  z2 G2   A2F2    G  A2  G  FGA=B c4   c8 |]
+[V:2]  d2   A4        G2     G2   A4       c4     B4      A4      B2   B2   A4    G2G2 G8 |]
+[V:3] =B,,2 C,2 zA,, _B,,B,, G,,2 D,E, F,2 z2 C,2 D,2B,,2 C,D,2C, B,,C,D,E, F,4   C,4  C,8|]
+
+
+X:25
+T:Draco non moritur, nisi cum fratre et sorore sua interficatur, qui sunt Sol et Luna
+T:The Dragon will not die, unless it be killed by its brother and sister, who are the Sun and Moon
+T:Fuga XXV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11               % Atalanta
+V:2 program 1 57 transpose -12 % Golden Apple
+V:3 program 1 14 bass          % Hippomenes
+M:none
+L:1/4
+Q:1/2=96
+K:G dorian
+[V:1] z2 dc =BA=B2  z2   c4    _B2 A2 GA  B>A G2    z2   c2  B2A2   G2 B2  A2  c2  cB AG  F  G2 ^F |
+[V:2] d4     d2 d2  c4       d2 d2 c4     B2  B2    c4       d4     B4     c2  c2  d2 d2  A4       |
+[V:3] z4     z2 G,F,E,D, E,2 z2 F,4  _E,2 D,2 C,D, _E,>D,C,2 z2F,2 _E,2D,2 C,2_E,2 D,2F,2 F,_E,D,C,|
+%
+[V:1]  G2   G2    E3F/G/ A2  A2       A2 G2  FD>EF  G2     z  G2 F/E/FE/F/G4                     G8 |]
+[V:2]  G2   G2    A4     c4           B4     A4     B2     B2     A4      G2         G2          G8 |]
+[V:3] =B,,C,2=B,, C,2C,2 A,,3_B,,/C,/ D,2D,2 D,2C,2 B,,G,,>A,,B,, C,2 z C,2 B,,/A,,/ B,,A,,/B,,/ C,8|]
+
+
+X:26
+T:Sapientiae humanae fructus Lignum vitae est
+T:The fruit of human wisdom is the Tree of Life
+T:Fuga XXVI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 71               % Atalanta
+V:2 program 1 21 transpose -12 % Golden Apple
+V:3 program 1 71 bass          % Hippomenes
+M:none
+L:1/4
+Q:1/2=108
+K:C mixolydian
+[V:1] z2 d>e fg    a2   e2  g2  zd  f2  zc _e>f gf   _ed    c2   z2  B3c    dc/B/fg        a>g  f =e |
+[V:2] d4     d2    d2   c4      d4      c4      B4          c4       d2 d2  B4             c2   c2   |
+[V:3] z4     D,>E, F,G, A,2 E,2 G,2 zD, F,2 zC,_E,>F, G,F, _E,D, C,2 z2 B,,3 C,  D,C,/B,,/ F,G, A,>G,|
+%
+[V:1] d>e fg    a A/B/ c>d        e2    c3   B A2  ef  g2   de f3   edc  B c d e   f2  cd e4   e8 |]
+[V:2] d2  d2    A4                G4        A4     c2  c2   B4     A4    B2  B2    A4     G2G2 G8 |]
+[V:3] F,E,D,>E, F,G,   A,A,,/B,,/ C,>D, E,2 C,3B,, A,,2E,F, G,2D,E,F,3E, D,C,B,,C, D,E,F,2 C,4 C,8|]
+
+
+X:27
+T:Qui Rosarium intrare conatur Philosophicum absque clave, assimilatur homini ambulare volenti absque pedibus
+T:He who tries to enter the Philosophic Rosegarden without a key is like a man trying to walk without feet
+T:Fuga XXVII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 10               % Hippomenes
+V:2 program 1 10 transpose -12 % Golden Apple
+V:3 program 1 10 bass          % Atalanta
+M:none
+L:1/4
+Q:1/2=108
+K:G dorian
+[V:1] z4    d2  B2  G2  E2  A2  D2  G2  C2  F2  D2   GF  E2   A G  FE  D2 G3   F  E2 |
+[V:2] d4    d2  d2  c4      d2  d2  c4      B4       c4       d4       B4     c2  c2 |
+[V:3] z2 D2 B,2 G,2 E,2 A,2 D,2 G,2 C,2 F,2 D,2 G,F, E,2 A,G, F,E, D,2 G,3 F, E,2 A,2|
+%
+[V:1] A2 D3    E F2  D2   G F  ED  C2 A3   A F2  D2 z2    F_E  DC   B,2 z2  F2  D2  =B,2 =B,8 |]
+[V:2] d2 d2  A4      G2   G2   A4     c4     B4     A4         B2   B2  A4      G2   G2   G8  |]
+[V:3] D,3 E, F,2 D,2 G,F, E,D, C,2 A,3 A,F,2 D,2 z2 F,_E, D,C, B,,2 z2  F,2 D,2 B,,2 G,,2 G,,8|]
+
+
+X:28
+T:Rex balneatur in Laconico sedens, atraque bile liberatur a Pharut
+T:The King is bathed, sitting in a steam-bath, and is freed from black bile by Pharut
+T:Fuga XXVIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 16               % Hippomenes
+V:2 program 1 11 transpose -12 % Golden Apple
+V:3 program 1 16 bass          % Atalanta
+M:none
+L:1/4
+Q:1/2=108
+K:G dorian
+[V:1] z4        z2   A,B, CD E2  F2 D2  z2  A2  D2  G2  AB  c2  B2F2  z2  G2  AB c2 |
+[V:2] d4        d4        c4     d2 d2  c4      B4      c4      d4    B4      c2 c2 |
+[V:3] z2 G,,A,, B,,C,D,2 _E,2C,2 z2 G,2 C,2 F,2 G,A,B,2 A,2=E,2 z2F,2 G,A,B,2 A,2E,2|
+%
+[V:1] B2 F2   A2 E F   G2 D_E  F2 C2  E2G2    z2  DE  FGA2   G3      G  FG AF   G4    G8 |]
+[V:2] d2 d2   A4       G2 G2   A4     c2c2    B4      A4     B2   B2    A4      G2 G2 G8 |]
+[V:3] G,2D,E, F,2C,D, _E,2B,,2 D,2F,2 z2C,D, _E,F,G,2 F,3F, _E,F, G,_E, F,2D,2 =E,4   E,8|]
+
+
+X:29
+T:Ut Salamandra vivit igne sic lapis
+T:Like the Salamander the stone lives in the fire
+T:Fuga XXIX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 26               % Atalanta
+V:2 program 1 71 transpose -12 % Golden Apple
+V:3 program 1 26 bass          % Hippomenes
+M:none
+L:1/4
+Q:1/2=108
+K:G dorian
+[V:1] z2 A2 FD B2  G2   c4      BB _e2 c2   z2 G2  E2 A4      GA  Bc d2   c2   A2|
+[V:2] d4    d2 d2  c4       d4      c4      B2 B2  c4     d2  d2  B4      c2   c2|
+[V:3] z4    z2 G,2 E,C, A,2 F,2 B,4    A,A, D2 B,2 z2 F,2 D,2 G,4    F,G, A,B, C2|
+%
+[V:1] G2  DE  FDEF     G A B2   z2  FG  AB c A  D2  G2   AG FE  D2   B2   c2 F2   G4    G8 |]
+[V:2] d2  d2  A4       G4       A4      c2 c2   B4       A4     B2   B2   A4      G2 G2 G8 |]
+[V:3] B,2 G,2 F,2 C,D, E,C,D,E, F,G,A,2 z2 E,F, G,A,B,G, C,2F,2 G,F,_E,D, C,2A,2 =B,4  =B,8|]
+
+
+X:30
+T:Sol indiget Luna, ut gallus gallina
+T:The Sun needs the Moon as the cock needs the hen
+T:Fuga XXX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 6               % Atalanta
+V:2 program 1 1 transpose -12 % Golden Apple
+V:3 program 1 6 bass          % Hippomenes
+M:none
+L:1/4
+Q:1/2=108
+K:G dorian
+[V:1] z2 f2 d2  dd e2  c2   z2 =B2  c>d ef  d3     d  c>de2  f>g  fe   d2   d2    c2 |
+[V:2] d4    d4     c4       d2  d2  c4      B4        c4     d4        B4         c2 |
+[V:3] z4    z2 G,2 E,2 E,E, F,2 D,2 z2  C,2 D,>E,F,G, E,3 E, D,>E,F,2  G,>A,G,F, _E,2|
+%
+[V:1]  c2 cB/A/ BA/G/ A4                  z2gf ed e2   f4       z2 B2 c2 A2  z2 g2  ab ^f2  g4   g8 |]
+[V:2]  c2 d2    d2    A4                  G2G2 A4      c2   c2  B4    A4     B2 B2  A4      G2G2 G8 |]
+[V:3] _E,3 D,   D,2   D,C,/B,,/C,B,,/A,,/ B,,4 z2 A,G, F,=E,F,2 G,4   z2 C,2 D,2B,,2z2  A,2 B,4  B,8|]
+
+
+X:31
+T:Rex natans in mari, clamans alta voce: Qui me eripiet, ingens praemium habebit
+T:The King swims in the sea, crying with a loud voice: He who rescues me shall have a vast reward
+T:Fuga XXXI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 56               % Hippomenes
+V:2 program 1 56               % Atalanta
+V:3 program 1 57 transpose -12 % Golden Apple
+M:none
+L:1/4
+Q:1/2=96
+K:G dorian
+[V:1] z4   d3  B _e2 c2 A2 zB _e2 c2 d2 B2 g4   f=e d2zg2f ed cB|
+[V:2] z2 A3 F B2  G2=E2 zF B2  G2 A2 F2 d4   cB A2  zd2cBA GF E2|
+[V:3] d4   d2 d2  c4    d2 d2  c4    B4    c4   d2  d2B4   c2 c2|
+%
+[V:1] A2 B2 z2f2 d2_ed cBA2 A2   z2d2 B2c2 A2ff B2 c2 AA =B4   =B8 |]
+[V:2] F2 z2 c2A2 BA GF E2E2 z2A2 F2G2 E2cc F2   G2 E2^F2  G4    G8 |]
+[V:3] d2 d2 A4   G2 G2 A4   c2c2 B4   A4   B2   B2 A4     G2 G2 G8 |]
+
+
+X:32
+T:Corallus sub aquis ut crescit et aere induratur, sic lapis
+T:As coral grows under water and hardens in the air, so does the stone
+T:Fuga XXXII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Golden Apple
+V:2 program 1 71 transpose -12 % Hippomenes
+V:3 program 1 71 bass          % Atalanta
+M:none
+L:1/4
+Q:1/2=96
+K:C mixolydian
+[V:1] d4      d2  d2 c4     d2 d2   c4      B2 B2       c4         d4      B4          c2  c2 |
+[V:2] z4      z2  D2 A2 c4    =B2   c2  A2 _B2 G2       z2   zd/c/ B A  G2    d e f F2   G A2 |
+[V:3] z2 G,,2 D,2 F,4   E,2 F,2D,2 _E,2 C,2 z2 zG,/F,/ _E,D, C,2   G,A, B, B,,2 C,D,2 _E,2 C,2|
+%
+[V:1] d2 d2 A4    G4     A4   c2 c2  B4      A4      B2          B2    A4        G2 G2 G8 |]
+[V:2] B2 G2 F4    z2 c4    B2 A4     z2 G2   A2 D2   G2          A  G  FE/D/ A=B c4    c8 |]
+[V:3] B,,4  z2 F,4  _E,2 D,4  z2 C,2 D,2G,,2 C,2D,C, B,,A,,/G,,/ D,=E, F,4       C,4   C,8|]
+
+
+X:33
+T:Hermaphroditus mortuo similis, in tenebris jacens, igne indiget
+T:The Hermaphrodite, like a corpse lying in the dark, needs fire
+T:Fuga XXXIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 73               % Golden Apple
+V:2 program 1 69 transpose -12 % Atalanta
+V:3 program 1 70 bass          % Hippomenes
+M:none
+L:1/4
+Q:1/2=96
+K:G dorian
+[V:1] d4     d2 d2  c4  d2 d2 c4     B4       c4      d4     B4     c2   c2  d2 |
+[V:2] z2 d2 =B4     c6    _B2 A2 GA  B2 G2    z2  A2  B3  A  G2 B2  A2   c3    B|
+[V:3] z4     z2 G,2 E,4 F,6     _E,2 D,2C,D, _E,2 C,2 z2D,2 _E,3 D, C,2 _E,2 D,2|
+%
+[V:1] d2  A4         G4         A4  c2 c2 B4       A4         B2 B2  A4      G2 G2 G8  |]
+[V:2] A>G F G2  ^F   G4         E4  z2 A2 G3 =F/G/ A6            G2 ^F2 E2   G4    G8  |]
+[V:3] F,3  _E,D,>C, =B,,C,2=B,, C,4 A,,4  z2 D,2   C,3B,,/C,/ D,4    D,2C,2 =B,,4 =B,,8|]
+
+
+X:34
+T:In balneis concipitur, et in aere nascitur, rubeus vero factus graditur super aquas
+T:He is conceived in the bath and born in the air, but when he is made red he steps over the waters
+T:Fuga XXXIV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11               % Golden Apple
+V:2 program 1 74               % Atalanta
+V:3 program 1 74 transpose -12 % Hippomenes
+M:none
+L:1/4
+Q:1/2=120
+K:C mixolydian
+[V:1] d4    d2 d2 c4    d4    c4     B2 B2  c4    d4    B4    c2 c2|
+[V:2] z2 DE FG A2 z2 F3  G AF B2 A>G F4     z2 F2 D2 d3  c BA G4   |
+[V:3] z4    z2 DE FG A2 z2 F3  G A F B2 A>G F4    z2 F2 D2 d3  c BA|
+%
+[V:1] d2 d2 A4    G4    A4    c2 c2 B4 A4    B2 B2 A4     G2 G2 G8|]
+[V:2] z2 D2 c2 BA c2 d2 c2 F2 z4    D4 D2 D2 F4    C3  D  E4    E8|]
+[V:3] G4    z2 D2 c2 BA c2 d2 c2 F2 z4 D4    D2 D2 F2 F2  C4    C8|]
+
+
+X:35
+T:Ceres Triptolemum, Thetis Achillem, ut sub igne morari assuefecit, sic artifex lapidem
+T:As Ceres accustomed Triptolemus to stay in the fire and and Thetis did to Achilles, so the master does to the stone
+T:Fuga XXXV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11               % Golden Apple
+V:2 program 1 74               % Hippomenes
+V:3 program 1 74 transpose -12 % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+K:C mixolydian
+[V:1] d4    d2 d2 c4    d2 d2    c4        B2  B2 c4    d2 d2 B4    c2|
+[V:2] z4    z2 FG AB cA B2 GB    zF  AF/F/ G>A BG A2 F2 z2 G2 FE FG AB|
+[V:3] z2 GA Bc dB c2 Ac zG BG/G/ A>B cA    B2  G2 z2 A2 GF GA Bc d4   |
+%
+[V:1] c2 d2 d2 A4    G2 G2    A4     c2 c2  B4    A4    B2 B2 A4 G2 G2 G8|]
+[V:2] c4    B2 z2 F2 B2 c2 Ff d2 c>d e2 G>A BG A2 F2 z2 G2 FG AB cd e2 e8|]
+[V:3] c2 z2 G2 c2 d2 Gg e2 d>ef2 A>B cA B2  G2 z2 A2 GA Bc de f2 c4    c8|]
+
+
+X:36
+T:Lapis projectus est in terras, et in montibus exaltatus, et in aere habitat, et in flumine pascitur, id est, Mercurius
+T:The Stone is projected onto the land, and lifted into the mountains, and lives in the air, and feeds in the river, that is, Mercury
+T:Fuga XXXVI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 73               % Golden Apple
+V:2 program 1 71               % Atalanta
+V:3 program 1 71 transpose -12 % Hippomenes
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] d4    d2 d2 c4    d4    c4    B4     c4   d2 d2 B4    c2 c2    d2 d2   |
+[V:2] z2 F2 G2 B2 AG A2 B2 G2 z2 c2 d3  d  cBAG F4    z2 B2 A3  G/A/ B2 G2   |
+[V:3] z4    z2 G2 A2 c2 BA B2 c2 A2 z2 d2 _e3_e dc BA G4    z2 c2    B3  A/B/|
+%
+[V:1] A4    G2 G2 A4       c2    c2 B4    A4    B2 B2    A4         G2 G2 G8|]
+[V:2] A2 F2 z2 G3  F/E/ FG A2    zF GA B2 c2 Ac BA GF/G/ AG ^FE/^F/ G4    G8|]
+[V:3] c2 A2 B2 G2 z2    A3  G/F/ GA B2 zG AB c2 d2 Bd    cB  AG/A/ =BA G2 G8|]
+
+
+X:37
+T:Tria sufficiunt ad magisterium, fumus albus, hoc est, aqua, leo viridis, id est, aes Hermetis, et aqua foetida
+T:Three things suffice for the mastery: white smoke, that is, water, the green lion, that is, the ore of Hermes, and foetid water
+T:Fuga XXXVII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 73      % Golden Apple
+V:2 program 1 71      % Hippomenes
+V:3 program 1 71 bass % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] d4      d2  d2  c4      d2  d2 c4     B4       c4       d2  d2 B4      c2  c2 |
+[V:2] z4      GA  B2  G2 c B  AG  F2 z2 c2  F2  BA   GF  E2   AG  F2 B3   A  GF  E2 |
+[V:3] z2 G,A, B,2 G,2 CB,A,G, F,2 z2 C2 F,2 B,A,G,F, E,2 A,G, F,2 B,3 A,G,F, E,2 A,2|
+%
+[V:1] d2   d2   A4      G2  G2   A4      c2  c2   B4     A4       B2   B2   A4      G2 G2 G8 |]
+[V:2] A2   D E  F G  AB c3    B  A G  FG A3    G  FE D3    E F E  D  C B,C  DE  F2  D4    D8 |]
+[V:3] D,E, F,G, A,B, C3  B, A,G, F,G, A,3 G, F,E, D,3 E, F,E,D,C, B,,C,D,E, F,2 D,2 G,4   G,8|]
+
+
+X:38
+T:Rebis, et Hermaphroditus, nascitur ex duobus montibus, Mercurii et Veneris
+T:The Rebis, like a Hermaphrodite, is born from two mountains, of Mercury and of Venus
+T:Fuga XXXVIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11               % Golden Apple
+V:2 program 1 56               % Hippomenes
+V:3 program 1 56 transpose -12 % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+K:G dorian
+[V:1] d4    d2 d2 c4  d4    c4    B2 B2 c4    d4     B4    c2 c2 d2 d2|
+[V:2] z4    z2 G2 E3E F4    z2 G2 D2 CD E3  E A>G FE D2 D2 E4    z2 A2|
+[V:3] z2 B2 G3  G A4  z2 B2 F2 EF G3  G c>BAG F2  F2 G4    z2 c2 F4   |
+%
+[V:1] A4    G2 G2    A4       c2 c2 B4    A4    B2 B2 A4      G2   G2  G8|]
+[V:2] D4    D2 D2    E3  F/G/ A2 A2 D2 D2 z2 E2 DE F2 zA =Bc  d>c =B2 =B8|]
+[V:3] F2 F2 G3  A/B/ c2 c2    F2 F2 z2 G2 FG A2 zc de f>e dc =B2   G2  G8|]
+
+
+X:39
+T:Oedypus Sphynge superata et trucidato Lajo patre matrem ducit in uxorem
+T:Oedipus, having overcome the Sphynx and murdered his father Laius, takes his mother to wife
+T:Fuga XXXIX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 75               % Hippomenes
+V:2 program 1 74               % Golden Apple
+V:3 program 1 75 transpose -12 % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+K:C mixolydian
+[V:1] z4    z2 B2 A2 F2 A2 AA F4 z4    f6       e2 d6       cB A2|
+[V:2] d4    d2 d2 c4    d4    c4 B2 B2 c4    d4    B4    c2 c2 d2|
+[V:3] z2 G2 F2 D2 F2 FF D4    z4 d6       c2 B6       AG F2 G2 F2|
+%
+[V:1] B2 A2 z2 z2 cd e3 d c4    z2 ag fe f2 f2 f2 zd>cd c4    c8|]
+[V:2] d2 A4    G2 G2 A4   c2 c2 B4    A4    B2 B2 A4    G2 G2 G8|]
+[V:3] z4    AB c3  B A4   z2 fe dc d2 d2 d2 zB>AB cd AB c4    c8|]
+
+
+X:40
+T:Ex duabis aquis, fac unam, et erit aqua sanctitatis
+T:From two waters make one, and it will be the water of holiness
+T:Fuga XL
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 75               % Atalanta
+V:2 program 1 75 transpose -12 % Hippomenes
+V:3 program 1 16 transpose -12 % Golden Apple
+M:none
+L:1/4
+Q:1/2=80
+K:C mixolydian
+[V:1] z2 DE FG A4    G2 z2 D2 ED/E/ F/G/F/E/ D4              zF GA BA GF/E/ D2 d2   |
+[V:2] z4    z2 FG AB c4   =B2 z2    F2       GF/G/ A/_B/A/G/ F4    zA Bc    dc BA/G/|
+[V:3] d4    d4    c4    d2 d2 c4             B4              c4    d4       B4      |
+%
+[V:1] z4    BA d4    c2 d3  c/B/ A3G/F/ GE G2    D2 d4    c2 dD FG A>B c>d e4    e8|]
+[V:2] F2 f2 z4    dc f4    e2    f3e/d/ c3  B/A/ BG B2 F2 f4    e2 f F A B c4    c8|]
+[V:3] c2 c2 d2 d2 A4    G2 G2    A4     c2 c2    B4    A4    B2 B2 A4      G2 G2 G8|]
+
+
+X:41
+T:Adonis ab apro occiditur, cui Venus accurrens tinxit Rosas sanguine
+T:Adonis is slain by a boar, and as Venus comes running she colours the Roses with her blood
+T:Fuga XLI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 12               % Hippomenes
+V:2 program 1 12               % Atalanta
+V:3 program 1 14 transpose -12 % Golden Apple (cancrizans)
+M:2/1
+L:1/4
+Q:1/2=120
+K:D minor
+[V:1] z2 G2 ^FGAG/F/|G2z2    z2A2|GABA/G/ ABc2   |z2F2 EFGF/E/|FGA2    z2BA/G/|
+[V:2] z4     z2E2   |DEFE/D/ E2z2|z2F2    EFGF/E/|FGA2 z2D2   |CDED/C/ DEF2   |
+[V:3] G4     A2A2   |B4      A2A2|B4      c4     |A4   G4     |A4      d2d2   |
+%
+[V:1] A2Bc    d4  |z2BA/G/ A2z2   |z2B2 ABcB/A/|Bc/d/cB z2   cd/e/|fdfg    f4  |f8|]
+[V:2] z2GF/E/ F2GA|B4      z2GF/E/|F2z4   G2   |FGAG/F/ GA/B/AG   |z2AB/c/ d4  |d8|]
+[V:3] c2c2    B4  |d2d2    c4     |B2B2 c4     |d4      c2   c2   |d4      d2d2|d8|]
+
+
+X:42
+T:In Chymicis versanti Natura, Ratio, Experientia et lectio, sint Dux, scipio, perspicilia et lampas
+T:Let Nature, Reason, Experience and reading be the Guide, staff, spectacles and lamp for the one versed in Chemistry
+T:Fuga XLII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Hippomenes
+V:2 program 1 74               % Atalanta
+V:3 program 1 75 transpose -12 % Golden Apple
+M:C|
+L:1/4
+Q:1/2=112
+K:G dorian
+[V:1] z2 d2 _e2 f2 _e2 d2 g2 f2 d2 _e2  d3   c =B2 c2 A2 d2 c2 d2  c2 =B2||
+[V:2] A2 B2  c2 B2  A2 d2 c2 A2 B2  A3   G ^F2  G2 E2 A2 G2 A2 G2 ^F2  G2||
+[V:3] d2 d2  c2 d2  c2 B2 c2 d2 B2  c2  d2  A2  G2 A2 c2 B2 A2 B2  A2  G2||
+%
+[V:1] z2 d2 _e2 f2 _e2 d2 g2 f2 d2 _e2  d3   c =B2 c2 A2 d2 c2 d2  c2 =B2-B8|]
+[V:2] A2 B2  c2 B2  A2 d2 c2 A2 B2  A3   G ^F2  G2 E2 A2 G2 A2 G2 ^F2  G2-G8|]
+[V:3] d2 d2  c2 d2  c2 B2 c2 d2 B2  c2  d2  A2  G2 A2 c2 B2 A2 B2  A2  G2-G8|]
+
+
+X:43
+T:Audi loquacem vulturem, qui ne utiquam te decipit
+T:Hear the garrulous vulture who in no way deceives you
+T:Fuga XLIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 56      % Atalanta
+V:2 program 1 56      % Golden Apple
+V:3 program 1 56 bass % Hippomenes
+M:none % C|
+L:1/4
+Q:1/2=80
+K:G dorian
+[V:1]  d2  =B2  c3  _B  A2  B2   z2  B2  G2  c2  A2  ^F2  G2    E2  A3    G =F2   G2   G^F G2    ||
+[V:2]  d2   d2  c2  d2  c2  B2   c2  d2  B2  c2  d2   A2  G2    A2  c2   B2  A2   B2   A2  G2    ||
+[V:3]  z2   G,2 E,2 F,3 _E, D,2 _E,2 z2 _E,2 C,2 F,2  D,2 =B,,2 C,2 A,,2 D,3  C, _B,,2 C,2 C,=B,,||
+%
+[V:1]  d2  =B2  c3  _B  A2  B2   z2  B2  G2  c2  A2  ^F2   G2   E2  A3    G =F2   G2   G^F G2-   G8 |]
+[V:2]  d2   d2  c2  d2  c2  B2   c2  d2  B2  c2  d2   A2   G2   A2  c2   B2  A2   B2   A2  G2-   G8 |]
+[V:3] =B,,2 G,2 E,2 F,3 _E, D,2 _E,2 z2 _E,2 C,2 F,2  D,2 =B,,2 C,2 A,,2 D,3  C, _B,,2 C,2 C,=B,,C,8|]
+
+
+X:44
+T:Dolo Typhon Osyridem trucidat, artusque illius hinc inde dissipat, sed hos collegit Isis incyta
+T:Typhon kills Osiris by trickery, and scatters his members far and wide, but the renowned Isis collects them
+T:Fuga XLIV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 16                   % Atalanta
+V:2 program 1 16 transpose -12     % Golden Apple
+V:3 program 1 16 bass              % Hippomenes
+M:6/4
+L:1/8
+Q:1/2=100
+K:D minor
+[V:1] A6         B6         |c6         B6       |A6          d6       |e6        f6        |
+[V:2] d6         d6         |c6         d6       |c6          B6       |c6        d6        |
+[V:3] D,2E,2F,E, D,2G,A,B,G,|A,2G,2F,E, D,2D,2E,2|F,2C,D,E,C, G,2D,2G,2|C,2A,2G,2 F,2 D,2F,2|
+%
+[V:1] d6       e6       |d6         c6       | B6            A6          |
+[V:2] B6       c6       |d6         A6       | G6            A6          |
+[V:3] G,3F,G,2 E,2C,2A,2|F,2D,2B,,2 F,2C,2D,2|_E,D,B,,C,D,E, F,C,D,E,F,G,|
+%
+[V:1] A6            B6           |c6         G6          |A6          =B6  |]
+[V:2] c6            B6           |A6         B6          |A6           G6  |]
+[V:3] A,G,F,_E,D,C, D,B,,E,F, G,2|F,2C,2F,2 _E,F,G,F,D,E,|F,=E,D,C,D,2 G,,6|]
+
+
+X:45
+T:Sol et ejus umbra perficiunt opus
+T:The sun and its shadow complete the work
+T:Fuga XLV
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+N:canon in inversion
+V:1 program 1 74               % Golden Apple
+V:2 program 1 21               % Hippomenes
+V:3 program 1 21 transpose -12 % Atalanta
+M:none
+L:1/4
+Q:1/1=100
+K:G dorian
+[V:1] d4    d2 d2 c4    d4    c4    B2 B2 c4    d4    B4    c2|
+[V:2] z4    z2 D2 F2 A2 G2 B2 F2 A2 G2 GG F2 A2 z2 B2 F3  F F2|
+[V:3] z2 d2 B2 G2 A2 F2 B2 G2 A2 AA B2 G2 z2 F2 B3  B B2 B4   |
+%
+[V:1] c2 d2 d2 A4   G2 G2 A4    c4    B4    A4    B2 B2 A4    G2 G2 G8|]
+[V:2] F4    G2 F3 E D3  E FG A2 z2 E2 G3  G F2 A2 D3  E FG A2 D4    D8|]
+[V:3] A2 B3  c d3 c BA G2 z2 c2 A3  A B2 G2 d3  c BA G2 d2 D2 G4    G8|]
+
+
+X:46
+T:Aquilae duae, una ab ortu, altera ab occasu conveniunt
+T:Two eagles meet, one from the east and one from the west
+T:Fuga XLVI
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 2054               % Atalanta
+V:2 program 1 2054               % Hippomenes
+V:3 program 1 2054 transpose -12 % Golden Apple
+M:none
+L:1/2
+Q:1/2=180
+N:all voices are palindromic
+K:D minor
+[V:1] df2 ge f ecd c2A Bdc fef  g2f e2d cAG A^FG||
+[V:2] f2d ec=B ceg egf dfe dAc =Bdc GEF Acd cA=B||
+[V:3] d2d c2 d c2B c2d B2c d2A  G2A c2B A2B A2 G||
+%
+[V:1]  G^FA GAc de2 fg2  edf cdB Ac2 dce  feg f2d|]
+[V:2] =B Ac dcA FEG cd=B cAd efd fge gec =Bce df2|]
+[V:3]  G A2 BA2 Bc2 AG2  Ad2 cB2 dc2 Bc2  dc2 dd2|]
+
+
+X:47
+T:Lupus ab Oriente et Canis ab Occidente venientes se invicem momorderunt
+T:The Wolf coming from the East and the Dog coming from the West have bitten each other
+T:Fuga XLVII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 46                   % Hippomenes
+V:2 program 1 46 transpose -12     % Golden Apple
+V:3 program 1 57 bass              % Atalanta
+M:3/2
+L:1/8
+Q:1/2=80
+N:only part of the Golden Apple theme is used
+K:D minor
+[V:1] G8              A4      |B8                    c4 |A8           d4        |
+[V:2] d8              A4      |G8                    A4 |c8           B4        |
+[V:3] G,,2A,,2B,,2C,2 A,,2D,C,|B,,C,B,,A,,G,,B,,A,,2 F,4|F,2F,2E,2D,2 B,,C,D,_E,|
+%
+[V:1] c8             B4     |c8              B4     |A8           G4     |B8             A4      |
+[V:2] A8             B4     |A8              G4     |A12                 |B4    c8               |
+[V:3] F,2C,2F,_E,D,2 E,F,G,2|F,3_E, C,D,E,D, E,F,G,2|F,2C,2D,2 _E,3F,G,2-|G,F,D,3_E,F,G, F,E,D,C,|
+%
+[V:1] f8           f4     |f8              e4                  |d8           =B4|]
+[V:2] B4     c8           |A4      G8                          |A4        d8    |]
+[V:3] D,2B,,2B,2A,2F,G,A,2|D,E,F,2 D,F,2G, A,E,/A,/ C/B,/A,/G,/|F,D,=B,G, DD,G,6|]
+
+
+X:48
+T:Rex ab aquis potatis morbum, a medicis curatus sanitatem obtinet
+T:The King, sick from drinking the waters, is cured by the physicians and gains his health
+T:Fuga XLVIII
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 11      % Golden Apple
+V:2 program 1 56      % Hippomenes
+V:3 program 1 57 bass % Atalanta
+M:none
+L:1/4
+Q:1/2=120
+N:N:Golden Apple theme is inverted and the canon is in diminution
+K:C mixolydian
+[V:1] A4  A2 A2  B4      A2A2 B4       c2c2 B4      A4     c4            B2B2 A2  A2 d4      |
+[V:2] A4  A4     G4      F4   G4       A4   D4      F4     E4            D4   d4     A4      |
+[V:3] D,4 D,2C,2 B,,2C,2 D,4  G,,2B,,2 A,,4 G,,2G,2 D,2F,2 C,C,/D,/E,C,  G,4  F,2 D,3  E, F,2|
+%
+[V:1] e4       d4       B2 B2  c4         d4          c2   c2        d4        e2e2 e8 |]
+[V:2] c4       G4       G4     A4         B4          G4             d4        c4-  c8 |]
+[V:3] C,D,E,F, G,2G,,2 _E,2D,2 C,F,>_E,F, D,B,,>C,D, _E,>D,C,/B,,/C, B,,D,F,G, C,4- C,8|]
+
+
+X:49
+T:Infans Philosophicus tres agnoscit patres, ut Orion
+T:The Philosophic Child acknowledges three fathers, like Orion
+T:Fuga XLIX
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74                % Hippomenes
+V:2 program 1 46                % Golden Apple
+V:3 program 1 74 transpose -12  % Atalanta
+M:none
+L:1/4
+Q:1/2=100
+N:Golden Apple theme is retrograded and the canon is a mirror
+K:G dorian
+[V:1] z4    z2 A2 B2 d2 z2 c2 B2 d2 A2 c2 z2 f2 fe d2 f2 e2 z2 g2|
+[V:2] d4    c2 c2 B4    c4    B4    A4    c4    d4    c4    G2 G2|
+[V:3] z2 d2 c2 A2 z2 B2 c2 A2 d2 B2 z2 F2 FG A2 F2 G2 z2 E2 F2 G2|
+%
+[V:1] f2 e2 dc=B2 cd e2 z4   D E FG A>_B c2 z2 =B2 z4   =B3 A GF E2 E8|]
+[V:2] A2 A2 B4    G4    A4   B2  B2 A4      G4     A2 A2 G4   G2 G2 G8|]
+[V:3] AB c2 BA G2 z4    agfe d>c B2 z2   c2 z4     c3  d efg2 g4    g8|]
+
+
+X:50
+T:Draco mulierem, et haec illum interimit, simulque sanguine perfunduntur
+T:The dragon kills the woman, and she him, and together they are soaked in blood
+T:Fuga L
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+S:Michael Maier, Atalanta Fugiens (1618)
+B:NLS H3.91.708 (Joscelyn Godwin's edition)
+V:1 program 1 74               % Atalanta
+V:2 program 1 74               % Golden Apple
+V:3 program 1 74 transpose -12 % Hippomenes
+M:none
+L:1/4
+Q:1/2=120
+K: G dorian
+[V:1] z2 B2 G4    zc =BA GF G2 z2 GG G2  G2   z4    _B3A GF _E2  z4   |
+[V:2] d4    d2 d2 c4     d4    c4    B2  B2   c4     d4  B4      c2 c2|
+[V:3] z4    z2 G2 E4     zA GF ED E2 z2 _E_E _E2 _E2 z4  G3   F _ED C2|
+%
+[V:1] f2 fe d4    d2 cB c4    F4 F2 f4     f2 f4    d2 d2 d4    d8|]
+[V:2] d2 d2 A4    G2 G2 A4    c4 B4     A4    B2 B2 A4    G2 G2 G8|]
+[V:3] z4    d2 dc B4    B2 AG A4 D2 D2  D2 d4    d2 d2 d2 B4    B8|]
+
+
+% ======================================================================
+%         an earlier piece of Maier's reprinted in Godwin's book
+% ======================================================================
+
+X:100
+T:Rosicrucian canon
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+C:Michael Maier
+N:see Hermetic Journal no 5 (1979) pp.4-7
+N:dedicated to James VI & I of Scotland and England
+N:I have absolutely NO idea what this is trying to achieve
+V:1 program 1 74      % archangel Gabriel
+V:2 program 1 74      % archangel Raphael
+V:3 program 1 74      % archangel Uriel
+V:4 program 1 74      % archangel Michael
+V:5 program 1 70 bass % shepherds Menaleas and Thirsis (cantus firmus)
+M:none
+L:1/4
+Q:1/2=80
+K:D minor
+[V:1] f3  e d2   f2 |ed2  c/B/ c4       |B2 B2"2"||
+[V:2] d3  e f2   a2-|ad' b3      a/g/ a2|b4   "3"||
+[V:3] B2 FF B2   A2-|Ad  f3      e/d/ c2|f4   "4"||
+[V:4] F2 B2 F F  c2 |A2  F2    A4       |d4   "1"||
+[V:5] z2 B,3  B, F,2|A,2 B,2   F4       |B,4     ||
+
+
+X:101
+T:Rosicrucian canon (expanded to play as a round)
+Z:Jack Campin <http://www.campin.me.uk/> version 1.3 Jan 2007
+C:Michael Maier
+N:see Hermetic Journal no 5 (1979) pp.4-7
+V:1 program 1 74      transpose -12 % archangel Gabriel
+V:2 program 1 74      transpose -12 % archangel Raphael
+V:3 program 1 74      transpose -12 % archangel Uriel
+V:4 program 1 74      transpose -12 % archangel Michael
+V:5 program 1 70 bass transpose -12 % shepherds Menaleas and Thirsis (cantus firmus)
+M:none
+L:1/4
+Q:1/2=80
+K:D minor
+[V:1] x8            |x8                 |x4   ||\
+      f3  e d2   f2 |ed2  c/B/ c4       |B2 B2||\
+      d3  e f2   a2-|ad' b3      a/g/ a2|b4   ||\
+      B2 FF B2   A2-|Ad  f3      e/d/ c2|f4   ||\
+      F2 B2 F F  c2 |A2  F2    A4       |d4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   |]
+%
+[V:2] x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      f3  e d2   f2 |ed2  c/B/ c4       |B2 B2||\
+      d3  e f2   a2-|ad' b3      a/g/ a2|b4   ||\
+      B2 FF B2   A2-|Ad  f3      e/d/ c2|f4   ||\
+      F2 B2 F F  c2 |A2  F2    A4       |d4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   |]
+%
+[V:3] x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      f3  e d2   f2 |ed2  c/B/ c4       |B2 B2||\
+      d3  e f2   a2-|ad' b3      a/g/ a2|b4   ||\
+      B2 FF B2   A2-|Ad  f3      e/d/ c2|f4   ||\
+      F2 B2 F F  c2 |A2  F2    A4       |d4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   |]
+%
+[V:4] x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      x8            |x8                 |x4   ||\
+      f3  e d2   f2 |ed2  c/B/ c4       |B2 B2||\
+      d3  e f2   a2-|ad' b3      a/g/ a2|b4   ||\
+      B2 FF B2   A2-|Ad  f3      e/d/ c2|f4   ||\
+      F2 B2 F F  c2 |A2  F2    A4       |d4   ||\
+      x8            |x8                 |x4   |]
+%
+[V:5] z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||\
+      z2 B,3  B, F,2|A,2 B,2   F4       |B,4  ||
+
+% == end of file =======================================================

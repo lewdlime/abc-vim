@@ -1,0 +1,751 @@
+X:1
+T:Alexander's
+Z: id:dc-hornpipe-1
+M:C|
+L:1/8
+K:D Major
+(3ABc|dAFA DFAd|fdcd FAdf|gfge fefd|(3efe (3dcB A2 (3ABc|!
+dAFA DFAd|fdcd FAdf|gfge fefd|(3efe dc d2:|!
+AG|FAdA FAdA|GBdB GBdB|Acec Acec|dfaf gecA|!
+FAdA FAdA|GBdB GBdB|Aceg fefd|(3efe dc d2:|!
+
+X:2
+T:An Buachaill Dreoite
+Z: id:dc-hornpipe-2
+M:C|
+L:1/8
+K:G Major
+GF|DGGB d2GB|d2GF Gc (3AGF|DGGB d2GB|dBcA F2GF|!
+DGGB d2GF|DGGF G2Ge|fgaf gbag|fdcA G2:|!
+GA|B2BG c2cA|d2GF G2GA|B2BG c2cA|d2DE F2GA|!
+B2BG c2cA|d^cde f2 (3def|g2gf gbag|fdcA G2:|!
+
+X:3
+T:Belfast
+Z: id:dc-hornpipe-3
+M:C|
+L:1/8
+K:D Major
+ag|(3faf df AdFA|DFAd f2ef|gbec dfAF|GABG E2ag|!
+(3faf df AdFA|DFAd f2ef|gbed cABc|d2f2 d2:|!
+(3DEF|GFGA Bcde|fgfe dcdB|A2f2 fef2|G2e2 ede2|!
+GFGA Bcde|fgfe dcdB|Afed cABc|d2f2 d2:|!
+ag|(3fgf (3efe (3ded (3cdc|(3BcB (3ABA G2ba|(3gag (3fgf (3efe (3ded|(3cdc (3BcB A2ag|!
+(3fgf (3efe (3ded (3cdc|(3BcB (3ABA (3GAG (3FGF|Eged cABc|d2f2 d2:|!
+
+X:4
+T:Blackbird
+Z: id:dc-hornpipe-4
+M:C|
+L:1/8
+K:D Mixolydian
+AG|F2FA GFD2|de (3fed d^cAF|G2GF GFDE|FdcA G2AG|!
+F2FA GFD2|de (3fed d^cAG|AdcA GcAG|F2D2 D2:|!
+fg|agfa gfeg|fd e^c d=cA2|agfa gfde|fdgf e2 fg|!
+a2ge f3e|d^cde fdAG|AdcA GcAG|F2D2 D2:|!
+
+X:5
+T:Bobby Casey's
+Z: id:dc-hornpipe-5
+M:C|
+L:1/8
+K:A Dorian
+ed|cAAB cBcd|eaaf gedB|c2Ac B2Bc|d2de dBGB|!
+AGAB cBcd|eaaf gedB|cAAc dBGB|BAAG A2:|!
+cd|eaab aged|eaab aged|egga gedB|egga gedB|!
+AGAB cBcd|eaaf gedB|cAAc dBGB|BAAG A2:|!
+
+X:6
+T:Boys of Ballycastle
+Z: id:dc-hornpipe-6
+M:C|
+L:1/8
+K:E Minor
+ef|gfed edBd|edeg B2BA|G3A BABd|e2A2 A2ga|!
+bagf gfed|edeg B2BA|G3A BcBA|G2E2 E2:|!
+gf|e2B2 B2gf|eBBA B2gf|e3f gfga|b2e2 e2ga|!
+bagf gfed|edeg B2BA|G3A BcBA|G2E2 E2:|!
+
+X:7
+T:Boys of Bluehill
+Z: id:dc-hornpipe-7
+M:C|
+L:1/8
+K:D Major
+dB|BAFA DAFA|BA (3Bcd e2de|fagf egfe|dfed B2dB|!
+BAFA DAFA|BA (3Bcd e2de|fagf egfe|d2dc d2:|!
+fg|afdf a2gf|gfga b2ag|fagf egfe|dfed B2dB|!
+BAFA DAFA|BA (3Bcd e2de|fagf egfe|d2dc d2:|!
+
+X:8
+T:Brown Chest
+Z: id:dc-hornpipe-63
+M:C|
+L:1/8
+K:D Major
+FG|ABAG FAde|fgfe dedA|BcdB AFDE|FEED E2FG|!
+ABAG FAde|fgfe dedA|BcdB ABAG|F2D2 D2:|!
+fg|agfd gfec|dcde fdAF|GABG FADF|EGgf eAce|!
+agfd gfec|dcde fdAF|GABG FAEG|F2D2 D2:|!
+
+X:9
+T:Byrne's
+Z: id:dc-hornpipe-8
+M:C|
+L:1/8
+K:D Major
+AG|FEFG AFDc|dA (3Bcd ecAg|fdge fdec|dA (3Bcd ecAG|!
+FEFG AFDc|dA (3Bcd ecAg|fdge fdec|dfec d2:|!
+cd|ecAc efge|afdf bgeg|afdf geaf|gefd ecAG|!
+FEFG AFDc|dA (3Bcd ecAg|fdge fdec|dfec d2:|!
+
+X:10
+T:Charlie Mulvihill's
+Z: id:dc-hornpipe-9
+M:C|
+L:1/8
+K:A Major
+(3EFG|AGAB cBAG|FcdB G2 (3EFG|AGAc efec|BAFA B2 (3Bcd|!
+efed cBAG|FcdB G2 (3EFG|AGAf ecAc|BEGB A2:|!
+(3cde|acgc fced|cAce a2ga|bBaB gBfB|(3efe ^df e2 (3efg|!
+acgc fced|cAce afeA|dcdf ecAc|BEGB A2:|!
+
+X:11
+T:Chief O'Neill's Favourite
+Z: id:dc-hornpipe-10
+M:C|
+L:1/8
+K:D Mixolydian
+de|fefg afge|fde^c d=cAG|FADE FGAB|cAdc A2de|!
+fefg afge|fde^c d=cAG|FADF GBAG|F2D2 D2:|!
+DE|=FEDE FGAB|cAdB cAGc|Adde fded|cAdc A2de|!
+fefg afge|fde^c d=cAG|FADF GBAG|F2D2 D2:|!
+
+X:12
+T:Cooley's
+Z: id:dc-hornpipe-11
+M:C|
+L:1/8
+K:G Major
+(3def|gGG2 EGDC|B,G,B,D GBdg|e2ce d2Bd|cAAG A2 (3def|!
+gGG2 EGDC|B,G,B,D GBdg|ecAG FAdc|BGGF G2:|!
+GA|BGBd edBd|g2bg edBd|gfge dBGA|BAAG Ad^cd|!
+BGG2 EGcE|EGcE DGBd|gfge dBcA|BGGF G2:|!
+
+X:13
+T:Cronin's
+Z: id:dc-hornpipe-12
+M:C|
+L:1/8
+K:G Major
+BA|GABc d^cdf|gage dega|bage dBGB|BAAG AcBA|!
+GABc d^cdf|gage dega|bage dBAB|G2GF G2:|!
+fg|add^c d2ga|bee^d e2ga|bgaf gedB|BAAG AcBA|!
+GABc d^cdf|gage dega|bage dBAB|G2GF G2:|!
+
+X:14
+T:Cuckoo
+Z: id:dc-hornpipe-13
+M:C|
+L:1/8
+K:G Major
+dc|BGBd cAFA|d^cde dBGF|EGcB AGFG|(3ABA (3GFE D2B,D|!
+BGBd cAFA|d^cde dBGF|EGcB AGFG|ADFA GB:|!
+dg|bgfg dgBg|bgfg dgBg|=c'a^ga eaca|=c'a^ga eaca|!
+bgfg dgBg|bgfg dgBg|(3aba (3gag (3fgf (3efe|defa g2:|!
+
+X:15
+T:Cuckoo's Nest
+Z: id:dc-hornpipe-14
+M:C|
+L:1/8
+K:G Major
+dc|BABA GBdg|fdcB cedc|BABG FGAB|c2A2 A2dc|!
+BABA GBdg|fdcB cedc|BABG FGAc|B2G2 G2:|!
+Bc|dBGB dBGB|dcBA G2AB|cAFA cAFA|cBAG F2D2|!
+GABc d2g2|fdcB cedc|BABG FGAc|B2G2 G2:|!
+Bc|dggf gabg|afd^c d2de|=fede ^fgaf|gfdB cedc|!
+BABA GBdg|fdcB cedc|BABG FGAc|B2G2 G2:|!
+
+X:16
+T:Dance of the Honeybees
+Z: id:dc-hornpipe-15
+M:C|
+L:1/8
+K:D Major
+AG|F2FE DFAF|G2FG E3F|GFGA Bded|cege cAGE|!
+F2FE DFAF|G2FG E3F|GFGA Bded|cAGE D2:|!
+(3ABc|d2ad fded|FGFE DEFA|Beed Bded|cdef gece|!
+d2ad fded|FGFE DEFA|Bdef gfed|cAGE D2:|!
+
+
+X:17
+T:Delahunty's
+Z: id:dc-hornpipe-16
+M:C|
+L:1/8
+K:D Mixolydian
+FG|ABAF DEFG|AGAB c2 (3AB^c|d^cde fdAF|DGGF G2FG|!
+ABAF DEFG|AGAB c2 (3AB^c|d^cde fdAG|F2D2 D2:|!
+de|fefd e^cAF|Gggf g2fg|a^gab a=ge^c|dcAF G2FG|!
+ABAF DEFG|AGAB c2 (3AB^c|d^cde fdAG|F2D2 D2:|!
+
+X:18
+T:Derry
+Z: id:dc-hornpipe-17
+M:C|
+L:1/8
+K:D Major
+AG|F2Ad fdAF|G2Bd gdBG|F2Ad fdAF|E2Ac ecAG|!
+F2Ad fdAF|G2Bd gbag|fafd egec|d2f2 d2:|!
+fg|a2fd Adfa|g2ec Aceg|a2fd Adgf|(3efe (3dcB A2fg|!
+a2fd Adfa|gfef gbag|fafd egec|d2f2 d2:|!
+fg|a^gab afdf|gfga gece|a^gab afdf|(3efe (3dcB A2fg|!
+a^gab afdf|gfef gbag|fafd egec|d2f2 d2:|!
+
+X:19
+T:Dunphy's
+Z: id:dc-hornpipe-18
+M:C|
+L:1/8
+K:G Major
+(3DEF|GDBD GBdg|feed ecAG|FADG FGAc|BGAF GFED|!
+GDBD GBdg|feed ecAG|FAdB cAFG|(3ABA GF G2:|!
+Bc|d2Bd gdBd|gbaf gdBd|gefd ed (3Bcd|ed^ce d2 ef|!
+gedc BGBd|ecAG FADF|GBdB cAFG|(3ABA GF G2:|!
+
+X:20
+T:Echo
+Z: id:dc-hornpipe-19
+M:C|
+L:1/8
+K:D Major
+fe|dAFA DAFA|d2ec dcBc|A2ce A2ce|fdec dcBA|!
+dAFA DAFA|d2ec dcBA|gfgb afdf|eABc d2:|!
+B=c|dgg2 bgg2|dgbg agfe|A2ce A2ce|fdec dcBA|!
+dgg2 bgg2|dgbg agef|gfgb afdf|eABc d2:|!
+
+X:21
+T:Fairies'
+Z: id:dc-hornpipe-20
+M:C|
+L:1/8
+K:G Major
+(3DEF|GFGA BdcB|AGAB G2Bc|dgfg edcB|cedB A2Bc|!
+dggf g2fe|dedc B2AG|ABcA dcAF|G2GF G2:|!
+Bc|dggf g2fe|dedc B2AG|ABcA edcB|Add^c d2B=c|!
+dggf g2fe|dedc B2AG|ABcA dcAF|G2GF G2:|!
+
+X:22
+T:Father Dollard's
+Z: id:dc-hornpipe-21
+M:C|
+L:1/8
+K:D Major
+
+A,C|D2 (3DDD DFAA|defe dcBA|FAA2 BAAF|GEFD CEA,C|!
+D2 (3DDD DFAA|defe dcBA|FAA2 BAGE|F2D2 D2:|!
+de|fdd2 Add2|fdd2 bgaf|gece Acef|g2bg agfe|!
+Add2 (3Bcd AF|Add2 (3Bcd AF|Adfa geAc|eddc d2:|!
+
+X:23
+T:Fisher's
+Z: id:dc-hornpipe-22
+M:C|
+L:1/8
+K:D Major
+(3ABc|dAFD GBAG|FDFD GBAG|FDD2 GEE2|FEDF E2 (3ABc|!
+dAFD GBAG|FDFD GBAG|FAdf ecAc|d2dc d2:|!
+cd|ecAc efge|fddc dfaf|ecAc efgf|(3efe (3dcB A2dc|!
+BGDG BdcB|AFDF ABcA|(3Bcd ef gece|d2dc d2:|!
+
+X:24
+T:Flowers of Edinburgh
+Z: id:dc-hornpipe-23
+M:C|
+L:1/8
+K:G Major
+GE|D2DE G2GA|BGBd cBAG|FGEF DEFG|A2FA D2GE|!
+D2DE G2GA|BGBd efge|dcBA GFGA|B2G2 G2:|!
+(3def|g2gf gbag|f2fe fagf|edef gfed|B2e2 e2ge|!
+dBGB d2Bd|edef g2ge|dcBA GFGA|B2G2 G2:|
+
+X:25
+T:Flowing Tide
+Z: id:dc-hornpipe-24
+M:C|
+L:1/8
+K:G Major
+D|G2 GB dGBd|GBdg bgag|egdg Bdge|dBAG edBA|!
+G2 GB dGBd|GBdg bgag|egdg Bdge|dBAB G3:|!
+D|GFGB AGED|gfge dBGB|ceBd AcGB|(3cBA BG AGEG|!
+DGBd BABd|(3cBA BG AGEG|DGBd gdBd|cAFA G3:|!
+
+X:26
+T:Friendly Visit
+Z: id:dc-hornpipe-25
+M:C|
+L:1/8
+K:G Major
+BA|G2DG BGBd|c2AB cdef|g2df ecAG|FGAB cAFD|!
+G2DG BGBd|c2AB cdef|gdBG FAdc|B2G2 G2:|!
+(3Bcd|g2dB GBdg|e2cA FGAg|f2ed ^cdeg|(3fgf (3efe dcBA|!
+G2DG BGBd|c2AB cdef|gdBG FAdc|B2G2 G2:|!
+
+X:27
+T:Galway
+Z: id:dc-hornpipe-60
+M:C|
+L:1/8
+K:D Major
+FE|D2FA dAFD|CDEF G2FE|D2FA dcdf|(3efe (3dcB (3ABA (3GFE|!
+D2FA dAFD|CDEF G2FG|AdcB AGFE|D2CE D2:|!
+de|fefg fedc|BABc B2cd|edef edcB|(3ABA ^GB A2 (3ABc|!
+dcde fdAF|GFGA BdcB|AdcB AGFE|D2CE D2:|!
+
+X:28
+T:Galway Bay
+Z: id:dc-hornpipe-66
+M:C|
+L:1/8
+K:G Dorian
+A|BABc dcd^f|g^fdf gabg|fdbg fdcd|BGA^F G=FDF|!
+G2GA BABG|FcFG AGFD|GABG dBGA|B2G2 G3:|!
+f|gfdf gabg|gfdf dBGA|BABc dcde|fcdB AGFA|!
+BFdB AFcA|BFdB AF_ec|dfga bag^f|d2g2 g3:|!
+
+X:29
+T:Golden Eagle
+Z: id:dc-hornpipe-27
+M:C|
+L:1/8
+K:G Major
+BA|GB,DG BDGB|dGBd gbag|fedB cAFA|G2AG FDBA|!
+GB,DG BDGB|dGBd gbag|fedB cAFA|G2FA G2:|!
+b^a|bB^df bagf|e^def gfg^g|aA^ce agfe|d2^ce d2ab|!
+c'afd ^cdef|gfga bgag|fedB cAFA|G2FA G2:|!
+
+X:30
+T:Greencastle
+Z: id:dc-hornpipe-28
+M:C|
+L:1/8
+K:G Major
+dc|BGDG BGDG|g2fg e2dc|BGDG BGDG|c2Bc A2dc|!
+BGDG BGDG|g2fg e2dc|Bdfe dcAF|G2GF G2:|!
+ga|bagf efga|bagf e2fg|agfe defg|agfe d2ef|!
+gfgd e2d2|cBAB cdef|gfgd ecAF|G2GF G2:|!
+
+X:31
+T:Groves
+Z: id:dc-hornpipe-64
+M:C|
+L:1/8
+K:G Major
+D|G2GF GABc|dBGB AGFE|F2FE FGAB|cdfe dcAF|!
+G2GF GABc|dBGB AGFA|dfeg fdcA|A2G2 G3:|!
+A|B2BA Bcde|fdcA AFF2|DFF2 AFF2|ABcA BGG2|!
+B2BA Bcde|fdcA dBcA|dfeg fdcA|A2G2 G3:|!
+B|dggf g2fg|abag f3e|d^cde fefg|abag f3e|!
+dggf g2fg|abag f3e|dfeg fdcA|A2G2 G3:|!
+D|GdBd GdBd|FcAc FcAc|GdBd GdBc|d^cde fd=cA|!
+GdBd GdBd|FcAc FcAc|dfeg fdcA|A2G2 G3:|!
+d|gdBd gdBd|fcAc fcAc|gdBd gdBc|d^cde fd=cA|!
+dedB cdcA|BcBG ABA^c|dfeg fdcA|A2G2 G3:|!
+
+X:32
+T:Harvest Home
+Z: id:dc-hornpipe-29
+M:C|
+L:1/8
+K:D Major
+AF|DAFA DAFA|defe dcBA|eAfA gAfA|(3efe (3dcB (3ABA (3GFE|!
+DAFA DAFA|defe dcBA|eAfA gece|d2dc d2:|!
+cd|eA (3AAA fA (3AAA|gAfA eA (3AAA|eAfA gAfA|(3efe (3dcB (3ABA (3GFE|!
+DAFA DAFA|defe dcBA|eAfA gece|d2dc d2:|!
+
+X:33
+T:High Level
+Z: id:dc-hornpipe-30
+M:C|
+L:1/8
+K:G Major
+BA|GBDG BDGB|dGBd GBAG|(3ABA FA DAFA|fed^c ed=cA|!
+GBDG BDGB|dGBd GBAG|EFGA Bd^cd|edcA G2:|!
+AG|FdAG FdAF|D2FA dcBA|BdGd BdGd|BGBd gfed|!
+^ceAe ceAe|^cAce aecA|d^cde fdce|d2d^c d2:|!
+(3def|g2dg ecAF|GdBG D2GF|EcEc DBDB|(3ABA FA GFEc|!
+DBGF EcAF|GdBG D2GF|EGce dBGB|ADFA G2:|!
+
+X:34
+T:Humours of Ballyconnell
+Z: id:dc-hornpipe-31
+M:C|
+L:1/8
+K:A Mixolydian
+ed|cBcd cBAG|AGEF GABd|cdcB AGEG|ABcd e2ed|!
+cBcd cBAG|AEAB cdcB|ABAG EDEG|A4 A2:|!
+AG|ABcd e2dc|dcde fged|efga bagb|a4 a2af|!
+gedB =cBAG|AEAB cdcB|ABAG EDEG|A4 A2:|!
+
+X:35
+T:Kitty's Wedding
+Z: id:dc-hornpipe-32
+M:C|
+L:1/8
+K:D Major
+fe|d2Bd A2FA|BAFA D2ED|B,DA,D DFBF|AFDF E2fe|!
+d2Bd A2FA|BAFA D2ED|B,DA,D DFBF|AFEF D2:|!
+fg|afed bafd|Adfd edBd|DFAd FAde|faef e2fg|!
+afed bafd|Adfd edBd|DFAd FAdf|eABc d2:|!
+
+X:36
+T:Leslie's
+Z: id:dc-hornpipe-68
+M:C|
+L:1/8
+K:D Major
+A|d2d2 d2cd|e2e2 e2fe|dcBA B2c2|defg agfe|!
+d2d2 d2cd|e2e2 e2fe|dcBA B2c2|d4 d3:|!
+e|f2f2 f2ef|g2g2 g2fg|e2e2 e2de|f2f2 fgaf|!
+d2d2 d2cd|e2e2 e2fe|dcBA B2c2|d4 d3:|!
+
+X:37
+T:Little Stack of Wheat
+Z: id:dc-hornpipe-33
+M:C|
+L:1/8
+K:G Major
+GA|BGAG EGDE|G2GF GBAG|EGAB cBAG|EAAG A2AB|!
+cecA BdBG|ABAG EGDG|BGAG EGDE|G2GF G2:|!
+Bc|d2ed dBGA|Beed e3f|gfed BGBd|g2fa g2ef|!
+gbgf efed|BGAG EGDG|BGAG EGDE|G2GF G2:|!
+
+X:38
+T:Liverpool
+Z: id:dc-hornpipe-34
+M:C|
+L:1/8
+K:D Major
+AG|FDFA dfaf|gfec dcBA|G2BG F2AF|EDEF GBAG|!
+FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
+(3ABc|d2fd c2ec|BABc dBAF|G2BG F2AF|EDEF GBAG|!
+FDFA dfaf|gfec dcBA|dfaf bgec|d2dc d2:|!
+
+X:39
+T:Manchester
+Z: id:dc-hornpipe-35
+M:C|
+L:1/8
+K:D Major
+(3ABc|dcdA FAdf|edcB A2g2|fgaf bagf|edcB Agfe|!
+dcdA FAdf|edcB A2g2|fgaf bgec|d2dc d2:|!
+fg|afaf d2ga|bgbg e2fg|afaf bagf|edcB Agfe|!
+dcdA FAdf|edcB A2g2|fgaf bgec|d2dc d2:|!
+
+X:40
+T:Miss Galvin's
+Z: id:dc-hornpipe-36
+M:C|
+L:1/8
+K:D Mixolydian
+fe|d2cA GEE2|DAFA DAFA|dBcA GEEA|(3B^cd ef g2fe|!
+d2cA GEE2|DAFA DAFA|dBcA GEEA|(3B^cd ec d2|]!
+fe|fgaf d2de|fgaf gbag|fgaf dcAB|cAA2 g2fe|!
+fgaf d2de|fgaf gbag|fAeA dcAd|(3B^cd ef g2|]!
+
+X:41
+T:Murphy's
+Z: id:dc-hornpipe-37
+M:C|
+L:1/8
+K:D Major
+(3ABc|d2AF d2AF|dcdf ecAg|fgaf gfed|c2A2 A2 (3ABc|!
+d2AF d2AF|dcdf ecAg|fgaf bgec|d2dc d2:|!
+fg|afdg faa2|bged ceag|fgaf gfed|c2A2 A2|!
+[1 fg|afdg faa2|bged ceag|fgaf bgec|d2dc d2:|!
+[2 (3ABc|d2AF d2AF|dcdf ecAg|fgaf bgec|d2dc d2|]!
+AG|FADg fdec|dcdf ecAG|FADg fdec|dfec dBAG|!
+FADg fdec|dcdf ecAg|fgaf bgec|d2dc d2:|!
+g2|f2fd g2ge|f2fd ecAg|f2fd gfed|c2A2 A2|!
+[1 AG|FDAD BDAc|dcdf ecAg|fgaf bgec|d2dc d2:|!
+[2 (3ABc|d2df e2eg|f2fa g2ge|fgaf bgec|d2dc d2|]!
+
+X:42
+T:Murphy's
+Z: id:dc-hornpipe-38
+M:C|
+L:1/8
+K:G Major
+(3DEF|GABG EFGE|ABcA FGAF|GBdg ecAG|FGAF DEFD|!
+GABG EFGE|ABcA FGAF|GBdg ecAF|G2GF G2:|!
+Bc|dedc BcdB|efed cdef|gfgd ecAG|FGAF DEFD|!
+GABG EFGE|ABcA FGAF|GBdg ecAF|G2GF G2:|!
+
+X:43
+T:New Century
+Z: id:dc-hornpipe-39
+M:C|
+L:1/8
+K:G Major
+Bc|dGGF GBdB|cA=FE FGAc|BGGF GBdf|gbaf g2 (3gfe|!
+dedB G2AB|cecA =F2GA|BGgd ecAF|AGGF G2:|!
+GA|Bcde =fdcA|dDEF GFGA|Bcde =fdge|afd^c d2 (3def|!
+gdBG ecAF|GFGB AGFE|DFAB cedF|AGGF G2:|!
+
+X:44
+T:O'Donnell's
+Z: id:dc-hornpipe-40
+M:C|
+L:1/8
+K:G Major
+Bc|(3dcB ge dBed|BGDG ABAG|FGAB cBcg|(3agf (3gfe dcBc|!
+(3dcB ge dBed|BGDG ABAG|FGAB cdef|(3gfg ba g2:|!
+(3def|gbag fagf|ef (3gfe fdBd|gbag fagf|ef (3gfe fdBd|!
+(3cdc Ac (3BdB GB|(3ABA FA GFEc|DEFG AB (3cBA|(3d^cd ba g2:|!
+
+X:45
+T:Off to California
+Z: id:dc-hornpipe-41
+M:C|
+L:1/8
+K:G Major
+(3DEF|GFGB AGED|GBdg e2 (3def|gfgd edBG|ABAG E2 (3DEF|!
+GFGB AGED|GBdg e2 (3def|gfgd edBG|ABAF G2:|!
+(3def|gfeg fedf|edef edBd|gfgd edBG|ABAG E2 (3DEF|!
+GFGB AGED|GBdg e2 (3def|gfgd edBG|ABAF G2:|!
+
+X:46
+T:Old Torn Petticoat
+Z: id:dc-hornpipe-42
+M:C|
+L:1/8
+K:A Dorian
+ed|cABG AGED|EGAB cded|cABG AGED|EGAB A2ed|!
+cABG AGED|EGAB cded|cABG AGED|EGAB A2:|!
+AB|cdef gedg|eaaf gedB|cdef gedg|eaag a2AB|!
+cdef gedg|eaaf gedB|cABG AGED|EGAB A2:|!
+
+X:47
+T:Peacock's Feather
+Z: id:dc-hornpipe-43
+M:C|
+L:1/8
+K:D Major
+DE|FEFD A3B|dfed Bdef|g2fg efdB|AFFD E2EA|!
+FEFD A3B|dfed Bdef|g2fg efdB|Adfe d2:|!
+df|afge f2ec|dfed Bdef|g2fg efdB|AFFD E2EA|!
+FEFD A3B|dfed Bdef|g2fg efdB|Adfe d2:|!
+
+X:48
+T:Phil Durkin's Favourite
+Z: id:dc-hornpipe-61
+M:C|
+L:1/8
+K:G Major
+(3DEF|G2BG ABcA|defd gfdc|B2GB A2FA|GBAF DEFD|!
+G2BG ABcA|defd gfdc|B2GB A2FA|G2GF G2:|!
+(3Bcd|gfga gfdf|g2bg gfde|fefg afge|fde^c d=cAF|!
+G2BG ABcA|defd gfdc|B2GB A2FA|G2GF G2:|!
+
+X:49
+T:Plains of Boyle
+Z: id:dc-hornpipe-44
+M:C|
+L:1/8
+K:D Mixolydian
+FG|AFDE FEDF|(3ABA GB AFDe|fedf ed^ce|d^cAB cAFG|!
+AFDE FEDF|(3ABA GB AFDe|fedB c2AG|F2D2 D2:|!
+fg|afdf gefe|dfed BAFG|A2FA BAFA|A2FA BAfg|!
+afdf gefe|dfed BAFG|A2FA dBAG|F2D2 D2:|!
+
+X:50
+T:Pride of Petravore
+Z: id:dc-hornpipe-45
+M:C|
+L:1/8
+K:E Minor
+B,|E3F G3A|BcBA G2E2|D^CDE FEFG|ABAG FDDF|!
+EDEF GFGA|BcBA GEFA|BABc BAFG|Eeee e3:|!
+B|e2e2 e2ge|dBGA B3c|B2FE FGAB|AGED EFGB|!
+cdef gfge|dBGA B2GA|BABc BAFG|Eeee e3:|!
+
+X:51
+T:Rights of Man
+Z: id:dc-hornpipe-46
+M:C|
+L:1/8
+K:E Minor
+GA|(3BcB (3ABA (3GAG (3FGF|EFGA B2ef|gfed edBd|cBAG A2GA|!
+(3BcB (3ABA (3GAG (3FGF|EFGA B2ef|gfed Bgfg|e2E2 E2:|!
+ga|babg efga|babg egfe|d2d^c defg|afdf a2gf|!
+edef gfga|(3bag (3agf gfef|gfed Bgfg|e2E2 E2:|!
+
+X:52
+T:Seanbhean Bhocht
+Z: id:dc-hornpipe-47
+M:C|
+L:1/8
+K:A Dorian
+ed|cABG AcBA|GEDE GABd|(3efg fa gedc|B2G2 G2ed|!
+cABG AcBA|GEDE GABd|(3efg fa gedB|c2A2 A2:|!
+(3efg|a^gab a=gef|gedB G2ef|gfga gfef|gedB GBAG|!
+E2A2 AcBA|GEDE GABd|(3efg fa gedB|c2A2 A2:|!
+
+X:53
+T:Sherlock's
+Z: id:dc-hornpipe-48
+M:C|
+L:1/8
+K:G Major
+(3DEF|GA (3GFE DG,B,D|GFGA Bdgf|edcB (3ABA GA|BAGF E2(3DEF|!
+GA (3GFE DG,B,D|GFGA Bdgf|edcB (3ABA GA|B2G2 G2:|!
+Bc|d^cde dBGF|GBd^c dgfg|ef (3gfe dBGB|(3cBA BG A2 (3DEF|!
+GA (3GFE DG,B,D|GFGA Bdgf|edcB (3ABA GA|B2G2 G2:|!
+
+X:54
+T:Smoky Chimney
+Z: id:dc-hornpipe-49
+M:C|
+L:1/8
+K:D Major
+(3ABc|dcde fdAF|GFGA BGE2|efge cdec|defd A2 (3ABc|!
+dcde fdAF|GFGA BGE2|efge cABc|dfec d2:|!
+de|fefg afdf|gfga bge2|fgaf defd|(3efe (3dcB A2de|!
+fefg afdf|gfga bge2|afge fdec|dfec d2:|!
+
+X:55
+T:Spell on the Fiddler
+Z: id:dc-hornpipe-67
+M:C|
+L:1/8
+K:G Major
+(3DEF|GDBG dBgd|bgdB cBAG|Fd^cd Adce|d2ed cAFA|!
+GDBG dBgd|bgdB cBAG|fedc edBG|FADF G2:|!
+ga|bgdB GBdg|afcA FAcf|afbg c'abg|agfe dcBA|!
+GDBG dBgd|bgdB cBAG|fedc edBG|FADF G2:|!
+
+X:56
+T:Stack of Barley
+Z: id:dc-hornpipe-50
+M:C|
+L:1/8
+K:A Major
+ag|f2fe c2ec|B2BA BdcB|AGAB cBce|f2B2 B2ce|!
+f2fe c2ec|B2BA BdcB|AGAB ceBd|c2A2 A2:|!
+AB|cAce a2ga|baga f2e2|a2ga fece|f2B2 B2ga|!
+bagb a2gf|ecBA BdcB|AGAB ceBd|c2A2 A2:|!
+
+X:57
+T:Stack of Barley
+Z: id:dc-hornpipe-51
+M:C|
+L:1/8
+K:G Major
+gf|e2ed B2dB|A2AG AcBA|GFGA BABd|e2A2 A2Bd|!
+e2ed B2dB|A2AG AcBA|GFGA BdAc|B2G2 G2:|!
+GA|BGBd g2fg|agfg e2d2|g2fg edBd|e2A2 A2fg|!
+agfa g2fe|dBAG AcBA|GFGA BdAc|B2G2 G2:|!
+
+X:58
+T:Stack of Wheat
+Z: id:dc-hornpipe-52
+M:C|
+L:1/8
+K:G Major
+BA|GEDE GABG|(3ABA GA Bdef|gedB GABG|dBAG E2BA|!
+GEDE GABG|(3ABA GA Bdef|gedB GABG|AGEF G2:|!
+(3Bcd|edBd edgd|edBd e2 (3def|gedB GABG|dBAG E2|!
+[1 (3Bcd|edBd edgd|edBd e2 (3def|gedB GABG|AGEF G2:|!
+[2 BA|GEDE GABG|(3ABA GA Bdef|gedB GABG|AGEF G2|]!
+
+X:59
+T:Stage
+Z: id:dc-hornpipe-53
+M:C|
+L:1/8
+K:G Major
+GA|BGFG EGDB,|G,B,DB cBAG|A3B cBcB|(3ABA (3GFE (3DED (3CB,A,|!
+G,B,DB cBcd|e3f ga (3gfe|dbca Bgfg|ecAF G2:|!
+ef|ga (3gfe dgbd|ceac Bdgd|BGDB (3cBA ag|fgfe defd|!
+ga (3gfe dgbd|ceac Bdgd|(3gag (3fgf egfg|ecAF G2:|!
+
+X:60
+T:Staten Island
+Z: id:dc-hornpipe-54
+M:C|
+L:1/8
+K:D Major
+AG|FDFG A2AB|dfed BcdB|A2AB AFDF|G2E2 E2AG|!
+FDFG A2AB|dfec dcBA|d2d2 efge|f2d2 d2:|!
+K:D Mixolydian
+fg|agfa gfeg|fedf edBA|c2c2 cde2|c2c2 cde2|!
+agfa gfeg|fedf edBA|d2d2 efge|f2d2 d2:|!
+
+X:61
+T:Tailor's Twist
+Z: id:dc-hornpipe-62
+M:C|
+L:1/8
+K:D Major
+BAF|DA,FD AFdA|Bged cbag|fedc Bged|(3cdc (3BcB (3ABA (3GFE|!
+DA,FD AFdA|Bged cbag|fedc Bgec|d2dc d:|!
+efg|a^gaf defa|bagf eAce|gfge cdef|(3gag (3fgf egfe|!
+dfec dAFA|Bged cbag|fedc Bgec|d2dc d:|!
+
+X:62
+T:Thomond Bridge
+Z: id:dc-hornpipe-55
+M:C|
+L:1/8
+K:F Major
+(3cde|f2cA BABc|AFGE F2fg|afba gafg|ecc=B c2cA|!
+Bdgb Acfa|Gceg FAcf|efga bgeg|f2fe f2:|!
+cB|Afcf Afcf|agfe dcBA|Bgdg Bgdg|bagf edcB|!
+Afcf Afcf|agfe dcBA|(3Bcd cB AFGE|F2FE F2:|!
+
+X:63
+T:Tomgraney Castle
+Z: id:dc-hornpipe-65
+M:C|
+L:1/8
+K:A Dorian
+cB|AGAB AGEG|AGAB cBcd|(3efg fa gedc|B2G2 G2cB|!
+AGAB AGEG|AGAB cBcd|(3efg fa gedB|c2A2 A2:|!
+(3efg|a2ab ageg|agab a2ge|dega gedc|B2G2 G2|!
+[1 (3efg|a2ab ageg|agab a2ge|dega gedB|c2A2 A2:|!
+[2 cB|AGAB AGEG|AGAB cBcd|(3efg fa gedB|c2A2 A2|]!
+
+X:64
+T:Walsh's
+Z: id:dc-hornpipe-56
+M:C|
+L:1/8
+K:A Major
+(3efg|aece fece|aece fecB|ABce fecA|(3Bcd cA BAF2|!
+(3ABc EF Ace2|(3def Bc def2|fece aecA|(3Bcd cB A2:|!
+cB|(3ABc EF Ace2|(3def Bc def2|fece aecA|(3Bcd cA BAF2|!
+(3ABc EF Ace2|(3def Bc def2|fece aecA|(3Bcd cB A2:|!
+
+X:65
+T:Western
+Z: id:dc-hornpipe-57
+M:C|
+L:1/8
+K:C Major
+gf|ecc2 GcEc|ecc2 GcEc|AFF2 CFA,F|AcBd cegf|!
+ecc2 GcEc|ecc2 GcEc|AFF2 CFA,F|AcBd ce:|!
+gf|e2ce gage|f2df abag|e2ce agfe|dcBA G2gf|!
+e2ce gage|f2df abag|e2ce d2Bd|c2cB c2:|!
+
+X:66
+T:Wonder
+Z: id:dc-hornpipe-59
+M:C|
+L:1/8
+K:G Major
+(3DEF|GdBG FdAF|GdBG D2GF|EGAB cBAG|Fd^cd ed=cA|!
+GdBG FdAF|GdBG D2GF|EGce dBGB|ADFA G2:|!
+AG|FAd^c d2AG|FAd^c dfed|^cdef g2fe|d^cde d3=c|!
+BcBA ^GBe2|ABAG FAd2|egfe dcBA|G2FA G2:|!
+

@@ -1,0 +1,34 @@
+%--------- Optional accidentals (#) (b) etc. ----------
+%--------------- Hudson Lacerda (2010) ----------------
+beginps
+%
+/GS/gsave load def
+/GR/grestore load def
+/sz .9 def % size (scaling)
+/optacc {gsave 3 sub M 11 F0 ((  )) showc grestore} !
+/optsh0{GS T -2 0 T sz dup scale 0 0 sh0 0 0 optacc GR}!
+/optft0{GS T -2 0 T sz dup scale 0 0 ft0 0 0 optacc GR}!
+/optnt0{GS T -2 0 T sz dup scale 0 0 nt0 0 0 optacc GR}!
+/optdsh0{GS T -2 0 T sz dup scale 0 0 dsh0 0 0 optacc GR}!
+/optdft0{GS T -2 0 T sz dup scale 0 0 dft0 0 0 optacc GR}!
+/nt1 /optsh0 load def
+/nt2 /optft0 load def
+/nt3 /optnt0 load def
+/nt4 /optdsh0 load def
+/nt5 /optdft0 load def
+
+/optsh {exch 9 sub exch optsh0} !
+/optft {exch 9 sub exch optft0} !
+/optdsh {exch 9 sub exch optdsh0} !
+/optdft {exch 9 sub exch optdft0} !
+/optnt {exch 9 sub exch optnt0} !
+
+%
+endps
+%------------------------------------------------------  
+
+deco (sharp) 1 optsh 0 0 0
+deco (dsharp) 1 optdsh 0 0 0
+deco (flat) 1 optft 0 0 0
+deco (dflat) 1 optdft 0 0 0
+deco (natural) 1 optnt 0 0 0

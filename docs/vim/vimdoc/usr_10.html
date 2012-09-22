@@ -1,0 +1,853 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_10</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_10</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_10.txt"></A><b>usr_10.txt</b>*	For Vim version 7.3.  Last change: 2006 Nov 05
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			     Making big changes
+
+
+In chapter 4 several ways to make small changes were explained.  This chapter
+goes into making changes that are repeated or can affect a large amount of
+text.  The <a href="visual.html#Visual">Visual</a> mode allows doing various things with blocks of text.  Use
+an external program to <a href="diff.html#do">do</a> really complicated things.
+
+|<a href="usr_10.html#10.1">10.1</a>|	Record and playback commands
+|<a href="usr_10.html#10.2">10.2</a>|	Substitution
+|<a href="usr_10.html#10.3">10.3</a>|	Command ranges
+|<a href="usr_10.html#10.4">10.4</a>|	The global command
+|<a href="usr_10.html#10.5">10.5</a>|	<a href="visual.html#Visual">Visual</a> block mode
+|<a href="usr_10.html#10.6">10.6</a>|	Reading and <a href="editing.html#writing">writing</a> part of a file
+|<a href="usr_10.html#10.7">10.7</a>|	Formatting text
+|<a href="usr_10.html#10.8">10.8</a>|	Changing <a href="change.html#case">case</a>
+|<a href="usr_10.html#10.9">10.9</a>|	Using an external program
+
+     Next chapter: |<a href="usr_11.html">usr_11.txt</a>|  Recovering from a crash
+ Previous chapter: |<a href="usr_09.html">usr_09.txt</a>|  Using the <a href="gui.html#GUI">GUI</a>
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="10.1"></A><b>10.1</b>*	Record and playback commands
+
+The &quot;<a href="repeat.html#.">.</a>&quot; command repeats the preceding change.  But what if you want to <a href="diff.html#do">do</a>
+something more complex than a single change?  That's where command <a href="repeat.html#recording">recording</a>
+comes in.  There are three steps:
+
+1. The &quot;q{register}&quot; command starts <a href="repeat.html#recording">recording</a> keystrokes into the <a href="sponsor.html#register">register</a>
+   named {register}.  The <a href="sponsor.html#register">register</a> name must be between a and <a href="scroll.html#z.">z.</a>
+2. Type your commands.
+3. To finish <a href="repeat.html#recording">recording</a>, press <a href="repeat.html#q">q</a> (without any extra character).
+
+You can now execute the <a href="map.html#macro">macro</a> by typing the command &quot;@{register}&quot;.
+
+Take a look at how to use these commands in practice.  You have a list of
+filenames that look like this:
+
+<b><font color="purple">	stdio.h </font></b>
+<b><font color="purple">	fcntl.h </font></b>
+<b><font color="purple">	unistd.h </font></b>
+<b><font color="purple">	stdlib.h </font></b>
+
+And what you want is the following:
+
+<b><font color="purple">	#include "stdio.h" </font></b>
+<b><font color="purple">	#include "fcntl.h" </font></b>
+<b><font color="purple">	#include "unistd.h" </font></b>
+<b><font color="purple">	#include "stdlib.h" </font></b>
+
+You start by moving to the first character of the first line.  Next you
+execute the following commands:
+
+	qa			Start <a href="repeat.html#recording">recording</a> a <a href="map.html#macro">macro</a> in <a href="sponsor.html#register">register</a> a.
+	^			Move to the beginning of the line.
+	i#include &quot;<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>	<a href="insert.html#Insert">Insert</a> the string #include &quot; at the beginning
+				of the line.
+	$			Move to the end of the line.
+	a&quot;&lt;Esc&gt;			Append the character double quotation <a href="motion.html#mark">mark</a> (&quot;)
+				to the end of the line.
+	<a href="motion.html#j">j</a>			Go to the next line.
+	<a href="repeat.html#q">q</a>			Stop <a href="repeat.html#recording">recording</a> the <a href="map.html#macro">macro</a>.
+
+Now that you have done the work once, you can repeat the change by typing the
+command &quot;@a&quot; three times.
+   The &quot;@a&quot; command can be preceded by a <a href="intro.html#count">count</a>, which will cause the <a href="map.html#macro">macro</a> to
+be executed that number of times.  In this <a href="change.html#case">case</a> you would type:
+
+<b>	3@a</b>
+
+
+MOVE AND EXECUTE
+
+You might have the lines you want to change in various places.  Just move the
+cursor to each location and use the &quot;@a&quot; command.  If you have done that once,
+you can <a href="diff.html#do">do</a> it again with &quot;<a href="repeat.html#@@">@@</a>&quot;.  That's a bit easier to type.  If you now
+execute <a href="sponsor.html#register">register</a> <a href="motion.html#b">b</a> with &quot;@b&quot;, the next &quot;<a href="repeat.html#@@">@@</a>&quot; will use <a href="sponsor.html#register">register</a> <a href="motion.html#b">b</a>.
+   If you compare the playback method with using &quot;<a href="repeat.html#.">.</a>&quot;, there are several
+differences.  First of all, &quot;<a href="repeat.html#.">.</a>&quot; can only repeat one change.  As seen in the
+example above, &quot;@a&quot; can <a href="diff.html#do">do</a> several changes, and move around <a href="motion.html#as">as</a> well.
+Secondly, &quot;<a href="repeat.html#.">.</a>&quot; can only remember the last change.  Executing a <a href="sponsor.html#register">register</a> allows
+you to make any changes and then still use &quot;@a&quot; to replay the recorded
+commands.  Finally, you can use 26 different <a href="change.html#registers">registers</a>.  Thus you can remember
+26 different command sequences to execute.
+
+
+USING REGISTERS
+
+The <a href="change.html#registers">registers</a> used for <a href="repeat.html#recording">recording</a> are the same ones you used for <a href="change.html#yank">yank</a> and
+delete commands.  This allows you to mix <a href="repeat.html#recording">recording</a> with other commands to
+manipulate the <a href="change.html#registers">registers</a>.
+   Suppose you have recorded a few commands in <a href="sponsor.html#register">register</a> <a href="pattern.html#n">n</a>.  When you execute
+this with &quot;@n&quot; you notice you did something wrong.  You could try <a href="repeat.html#recording">recording</a>
+again, but perhaps you will make another mistake.  Instead, use this trick:
+
+	<a href="motion.html#G">G</a>			Go to the end of the file.
+	o&lt;Esc&gt;			Create an empty line.
+	&quot;np			Put the text from the <a href="pattern.html#n">n</a> <a href="sponsor.html#register">register</a>.  You now see
+				the commands you typed <a href="motion.html#as">as</a> text in the file.
+	{edits}			Change the commands that were wrong.  This is
+				just like editing text.
+	0			Go to the start of the line.
+	&quot;ny$			Yank the corrected commands into the <a href="pattern.html#n">n</a>
+				<a href="sponsor.html#register">register</a>.
+	<a href="change.html#dd">dd</a>			Delete the scratch line.
+
+Now you can execute the corrected commands with &quot;@n&quot;.  (If your recorded
+commands include line breaks, adjust the last two items in the example to
+include all the lines.)
+
+
+APPENDING TO A REGISTER
+
+So far we have used a <a href="change.html#lowercase">lowercase</a> <a href="print.html#letter">letter</a> for the <a href="sponsor.html#register">register</a> name.  To append to a
+<a href="sponsor.html#register">register</a>, use an <a href="change.html#uppercase">uppercase</a> <a href="print.html#letter">letter</a>.
+   Suppose you have recorded a command to change a <a href="motion.html#word">word</a> to <a href="sponsor.html#register">register</a> <a href="change.html#c">c</a>.  It
+works properly, but you would like to add a search for the next <a href="motion.html#word">word</a> to
+change.  This can be done with:
+
+<b>	qC/word&lt;Enter&gt;q</b>
+
+You start with &quot;qC&quot;, which records to the <a href="change.html#c">c</a> <a href="sponsor.html#register">register</a> and appends.  Thus
+<a href="editing.html#writing">writing</a> to an <a href="change.html#uppercase">uppercase</a> <a href="sponsor.html#register">register</a> name means to append to the <a href="sponsor.html#register">register</a> with
+the same <a href="print.html#letter">letter</a>, but <a href="change.html#lowercase">lowercase</a>.
+
+This works both with <a href="repeat.html#recording">recording</a> and with <a href="change.html#yank">yank</a> and delete commands.  For
+example, you want to collect a sequence of lines into the a <a href="sponsor.html#register">register</a>.  Yank
+the first line with:
+
+<b>	"aY</b>
+
+Now move to the second line, and type:
+
+<b>	"AY</b>
+
+Repeat this command for all lines.  The a <a href="sponsor.html#register">register</a> now contains all those
+lines, in the order you yanked them.
+
+==============================================================================
+
+*<a name="10.2"></A><b>10.2</b>*	Substitution						*<a name="find-replace"></A><b>find-replace</b>*
+
+The &quot;<a href="change.html#:substitute">:substitute</a>&quot; command enables you to perform string replacements on a
+whole range of lines.  The general form of this command is <a href="motion.html#as">as</a> follows:
+
+<b>	:[range]substitute/from/to/[flags]</b>
+
+This command changes the &quot;from&quot; string to the &quot;to&quot; string in the lines
+specified with <a href="cmdline.html#[range]">[range]</a>.  For example, you can change &quot;Professor&quot; to &quot;Teacher&quot;
+in all lines with the following command:
+
+<b>	:%substitute/Professor/Teacher/</b>
+ 
+	Note:
+	The &quot;<a href="change.html#:substitute">:substitute</a>&quot; command is almost never spelled out completely.
+	Most of the time, people use the abbreviated version &quot;<a href="change.html#:s">:s</a>&quot;.  From here
+	on the abbreviation will be used.
+
+The &quot;<a href="motion.html#&#37;">&#37;</a>&quot; before the command specifies the command works on all lines.  Without
+a range, &quot;<a href="change.html#:s">:s</a>&quot; only works on the current line.  More about ranges in the next
+section |<a href="usr_10.html#10.3">10.3</a>|.
+
+By default, the &quot;<a href="change.html#:substitute">:substitute</a>&quot; command changes only the first occurrence on
+each line.  For example, the preceding command changes the line:
+
+<b><font color="purple">	Professor Smith criticized Professor Johnson today. </font></b>
+
+to:
+
+<b><font color="purple">	Teacher Smith criticized Professor Johnson today. </font></b>
+
+To change every occurrence on the line, you need to add the <a href="index.html#g">g</a> (global) flag.
+The command:
+
+<b>	:%s/Professor/Teacher/g</b>
+
+results in (starting with the original line):
+
+<b><font color="purple">	Teacher Smith criticized Teacher Johnson today. </font></b>
+
+Other flags include <a href="change.html#p">p</a> (print), which causes the &quot;<a href="change.html#:substitute">:substitute</a>&quot; command to print
+out the last line it changes.  The <a href="change.html#c">c</a> (confirm) flag tells &quot;<a href="change.html#:substitute">:substitute</a>&quot; to ask
+you for confirmation before it performs each substitution.  Enter the
+following:
+
+<b>	:%s/Professor/Teacher/c</b>
+
+Vim finds the first occurrence of &quot;Professor&quot; and displays the text it is
+about to change.  You get the following prompt:
+
+<b>	replace with Teacher (y/n/a/q/l/^E/^Y)?</b>
+
+At this point, you must enter one of the following answers:
+
+	<a href="change.html#y">y</a>		Yes; make this change.
+	<a href="pattern.html#n">n</a>		No; skip this match.
+	a		All; make this change and all remaining ones without
+			further confirmation.
+	<a href="repeat.html#q">q</a>		Quit; don't make any more changes.
+	<a href="motion.html#l">l</a>		Last; make this change and then quit.
+	<a href="scroll.html#CTRL-E">CTRL-E</a>		Scroll the text one line up.
+	<a href="scroll.html#CTRL-Y">CTRL-Y</a>		Scroll the text one line down.
+
+
+The &quot;from&quot; part of the substitute command is actually a <a href="pattern.html#pattern">pattern</a>.  The same
+kind <a href="motion.html#as">as</a> used for the search command.  For example, this command only
+substitutes &quot;the&quot; when it appears at the start of a line:
+
+<b>	:s/^the/these/</b>
+
+If you are substituting with a &quot;from&quot; or &quot;to&quot; part that includes a slash, you
+need to put a <a href="intro.html#backslash">backslash</a> before it.  A simpler way is to use another character
+instead of the slash.  A plus, for example:
+
+<b>	:s+one/two+one or two+</b>
+
+==============================================================================
+
+*<a name="10.3"></A><b>10.3</b>*	Command ranges
+
+The &quot;<a href="change.html#:substitute">:substitute</a>&quot; command, and many other : commands, can be applied to a
+selection of lines.  This is called a range.
+   The simple form of a range is {number},{number}.  For example:
+
+<b>	:1,5s/this/that/g</b>
+
+Executes the substitute command on the lines 1 to 5.  Line 5 is included.
+The range is always placed before the command.
+
+A single number can be used to address one specific line:
+
+<b>	:54s/President/Fool/</b>
+
+Some commands work on the whole file when you <a href="diff.html#do">do</a> not specify a range.  To make
+them work on the current line the &quot;<a href="repeat.html#.">.</a>&quot; address is used.  The &quot;<a href="editing.html#:write">:write</a>&quot; command
+works like that.  Without a range, it writes the whole file.  To make it write
+only the current line into a file:
+
+<b>	:.write otherfile</b>
+
+The first line always has number one.  How about the last line?  The &quot;<a href="motion.html#$">$</a>&quot;
+character is used for this.  For example, to substitute in the lines from the
+cursor to the end:
+
+<b>	:.,$s/yes/no/</b>
+
+The &quot;<a href="motion.html#&#37;">&#37;</a>&quot; range that we used before, is actually a short way to say &quot;1,$&quot;, from
+the first to the last line.
+
+
+USING A PATTERN IN A RANGE
+
+Suppose you are editing a chapter in a <a href="intro.html#book">book</a>, and want to replace all
+occurrences of &quot;grey&quot; with &quot;gray&quot;.  But only in this chapter, not in the next
+one.  You know that only chapter boundaries have the <a href="motion.html#word">word</a> &quot;Chapter&quot; in the
+first column.  This command will work then:
+
+<b>	:?^Chapter?,/^Chapter/s=grey=gray=g</b>
+
+You can see a search <a href="pattern.html#pattern">pattern</a> is used <a href="if_cscop.html#twice">twice</a>.  The first &quot;?^Chapter?&quot; finds the
+line above the current position that matches this <a href="pattern.html#pattern">pattern</a>.  Thus the ?pattern?
+range is used to search backwards.  Similarly, &quot;/^Chapter/&quot; is used to search
+forward for the start of the next chapter.
+   To avoid confusion with the slashes, the &quot;<a href="change.html#=">=</a>&quot; character was used in the
+substitute command here.  A slash or another character would have worked <a href="motion.html#as">as</a>
+well.
+
+
+ADD AND SUBTRACT
+
+There is a slight error in the above command: If the title of the next chapter
+had included &quot;grey&quot; it would be replaced <a href="motion.html#as">as</a> well.  Maybe that's what you
+wanted, but what if you didn't?  Then you can specify an offset.
+   To search for a <a href="pattern.html#pattern">pattern</a> and then use the line above it:
+
+<b>	/Chapter/-1</b>
+
+You can use any number instead of the 1.  To address the second line below the
+match:
+
+<b>	/Chapter/+2</b>
+
+The offsets can also be used with the other items in a range.  Look at this
+one:
+
+<b>	:.+3,$-5</b>
+
+This specifies the range that starts three lines below the cursor and ends
+five lines before the last line in the file.
+
+
+USING MARKS
+
+Instead of figuring out the line numbers of certain positions, remembering them
+and typing them in a range, you can use marks.
+   Place the marks <a href="motion.html#as">as</a> mentioned in chapter 3.  For example, use &quot;mt&quot; to <a href="motion.html#mark">mark</a>
+the top of an area and &quot;mb&quot; to <a href="motion.html#mark">mark</a> the bottom.  Then you can use this range
+to specify the lines between the marks (including the lines with the marks):
+
+<b>	:'t,'b</b>
+
+
+VISUAL MODE AND RANGES
+
+You can select text with <a href="visual.html#Visual">Visual</a> mode.  If you then press &quot;<a href="cmdline.html#:">:</a>&quot; to start a colon
+command, you will see this:
+
+<b>	:'&lt;,'&gt;</b>
+
+Now you can type the command and it will be applied to the range of lines that
+was visually selected.
+
+	Note:
+	When using <a href="visual.html#Visual">Visual</a> mode to select part of a line, or using <a href="visual.html#CTRL-V">CTRL-V</a> to
+	select a block of text, the colon commands will still apply to whole
+	lines.  This might change in a future version of Vim.
+
+The <a href="motion.html#'&lt;">'&lt;</a> and <a href="motion.html#'&gt;">'&gt;</a> are actually marks, placed at the start and end of the <a href="visual.html#Visual">Visual</a>
+selection.  The marks remain at their position until another <a href="visual.html#Visual">Visual</a> selection
+is made.  Thus you can use the &quot;<a href="motion.html#'&lt;">'&lt;</a>&quot; command to jump to position where the
+<a href="visual.html#Visual">Visual</a> area started.  And you can mix the marks with other items:
+
+<b>	:'&gt;,$</b>
+
+This addresses the lines from the end of the <a href="visual.html#Visual">Visual</a> area to the end of the
+file.
+
+
+A NUMBER OF LINES
+
+When you know how many lines you want to change, you can type the number and
+then &quot;<a href="cmdline.html#:">:</a>&quot;.  For example, when you type &quot;5:&quot;, you will get:
+
+<b>	:.,.+4</b>
+
+Now you can type the command you want to use.  It will use the range &quot;<a href="repeat.html#.">.</a>&quot;
+(current line) until &quot;.+4&quot; (four lines down).  Thus it spans five lines.
+
+==============================================================================
+
+*<a name="10.4"></A><b>10.4</b>*	The global command
+
+The &quot;<a href="repeat.html#:global">:global</a>&quot; command is one of the more powerful features of Vim.  It allows
+you to find a match for a <a href="pattern.html#pattern">pattern</a> and execute a command there.  The general
+form is:
+
+<b>	:[range]global/{pattern}/{command}</b>
+
+This is similar to the &quot;<a href="change.html#:substitute">:substitute</a>&quot; command.  But, instead of <a href="change.html#replacing">replacing</a> the
+matched text with other text, the command {command} is executed.
+
+	Note:
+	The command executed for &quot;<a href="repeat.html#:global">:global</a>&quot; must be one that starts with a
+	colon.  <a href="intro.html#Normal">Normal</a> mode commands can not be used directly.  The |<a href="various.html#:normal">:normal</a>|
+	command can <a href="diff.html#do">do</a> this for you.
+
+Suppose you want to change &quot;foobar&quot; to &quot;barfoo&quot;, but only in C++ style
+comments.  These comments start with &quot;<a href="version7.html#//">//</a>&quot;.  Use this command:
+
+<b>	:g+//+s/foobar/barfoo/g</b>
+
+This starts with &quot;<a href="repeat.html#:g">:g</a>&quot;.  That is short for &quot;<a href="repeat.html#:global">:global</a>&quot;, just like &quot;<a href="change.html#:s">:s</a>&quot; is short
+for &quot;<a href="change.html#:substitute">:substitute</a>&quot;.  Then the <a href="pattern.html#pattern">pattern</a>, enclosed in plus characters.  Since the
+<a href="pattern.html#pattern">pattern</a> we are looking for contains a slash, this uses the plus character to
+separate the <a href="pattern.html#pattern">pattern</a>.  Next comes the substitute command that changes &quot;foobar&quot;
+into &quot;barfoo&quot;.
+   The default range for the global command is the whole file.  Thus no range
+was specified in this example.  This is different from &quot;<a href="change.html#:substitute">:substitute</a>&quot;, which
+works on one line without a range.
+   The command isn't perfect, since it also matches lines where &quot;<a href="version7.html#//">//</a>&quot; appears
+halfway a line, and the substitution will also take place before the &quot;<a href="version7.html#//">//</a>&quot;.
+
+Just like with &quot;<a href="change.html#:substitute">:substitute</a>&quot;, any <a href="pattern.html#pattern">pattern</a> can be used.  When you learn more
+complicated patterns later, you can use them here.
+
+==============================================================================
+
+*<a name="10.5"></A><b>10.5</b>*	<a href="visual.html#Visual">Visual</a> block mode
+
+With <a href="visual.html#CTRL-V">CTRL-V</a> you can start selection of a rectangular area of text.  There are
+a few commands that <a href="diff.html#do">do</a> something special with the text block.
+
+There is something special about using the &quot;<a href="motion.html#$">$</a>&quot; command in <a href="visual.html#Visual">Visual</a> block mode.
+When the last motion command used was &quot;<a href="motion.html#$">$</a>&quot;, all lines in the <a href="visual.html#Visual">Visual</a> selection
+will extend until the end of the line, also when the line with the cursor is
+shorter.  This remains effective until you use a motion command that moves the
+cursor horizontally.  Thus using &quot;<a href="motion.html#j">j</a>&quot; keeps it, &quot;<a href="motion.html#h">h</a>&quot; stops it.
+
+
+INSERTING TEXT
+
+The command  &quot;I{string}&lt;Esc&gt;&quot; inserts the text {string} in each line, just
+left of the visual block.  You start by pressing <a href="visual.html#CTRL-V">CTRL-V</a> to enter visual block
+mode.  Now you move the cursor to define your block.  Next you type I to enter
+<a href="insert.html#Insert">Insert</a> mode, followed by the text to insert.  As you type, the text appears on
+the first line only.
+   After you press <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> to end the insert, the text will magically be
+inserted in the rest of the lines contained in the visual selection.  Example:
+
+<b><font color="purple">	include one </font></b>
+<b><font color="purple">	include two </font></b>
+<b><font color="purple">	include three </font></b>
+<b><font color="purple">	include four </font></b>
+
+Move the cursor to the &quot;<a href="insert.html#o">o</a>&quot; of &quot;one&quot; and press <a href="visual.html#CTRL-V">CTRL-V</a>.  Move it down with &quot;3j&quot;
+to &quot;four&quot;.  You now have a block selection that spans four lines.  Now type:
+
+<b>	Imain.&lt;Esc&gt;</b>
+
+The result:
+
+<b><font color="purple">	include main.one </font></b>
+<b><font color="purple">	include main.two </font></b>
+<b><font color="purple">	include main.three </font></b>
+<b><font color="purple">	include main.four </font></b>
+
+If the block spans short lines that <a href="diff.html#do">do</a> not extend into the block, the text is
+not inserted in that line.  For example, make a <a href="visual.html#Visual">Visual</a> block selection that
+includes the <a href="motion.html#word">word</a> &quot;long&quot; in the first and last line of this text, and thus has
+no text selected in the second line:
+
+<b><font color="purple">	This is a long line </font></b>
+<b><font color="purple">	short </font></b>
+<b><font color="purple">	Any other long line </font></b>
+
+		  ^^^^ selected block
+
+Now use the command &quot;Ivery &lt;Esc&gt;&quot;.  The result is:
+
+<b><font color="purple">	This is a very long line </font></b>
+<b><font color="purple">	short </font></b>
+<b><font color="purple">	Any other very long line </font></b>
+
+In the short line no text was inserted.
+
+If the string you insert contains a newline, the &quot;<a href="insert.html#I">I</a>&quot; acts just like a <a href="intro.html#Normal">Normal</a>
+insert command and affects only the first line of the block.
+
+The &quot;<a href="insert.html#A">A</a>&quot; command works the same way, except that it appends after the right
+side of the block.  And it does insert text in a short line.  Thus you can
+make a choice whether you <a href="diff.html#do">do</a> or don't want to append text to a short line.
+   There is one special <a href="change.html#case">case</a> for &quot;<a href="insert.html#A">A</a>&quot;: <a href="visual.html#Select">Select</a> a <a href="visual.html#Visual">Visual</a> block and then use &quot;<a href="motion.html#$">$</a>&quot;
+to make the block extend to the end of each line.  Using &quot;<a href="insert.html#A">A</a>&quot; now will append
+the text to the end of each line.
+   Using the same example from above, and then typing &quot;$A XXX&lt;Esc&gt;, you get
+this result:
+
+<b><font color="purple">	This is a long line XXX </font></b>
+<b><font color="purple">	short XXX </font></b>
+<b><font color="purple">	Any other long line XXX </font></b>
+
+This really requires using the &quot;<a href="motion.html#$">$</a>&quot; command.  Vim remembers that it was used.
+Making the same selection by moving the cursor to the end of the longest line
+with other <a href="intro.html#movement">movement</a> commands will not have the same result.
+
+
+CHANGING TEXT
+
+The <a href="visual.html#Visual">Visual</a> block &quot;<a href="change.html#c">c</a>&quot; command deletes the block and then throws you into <a href="insert.html#Insert">Insert</a>
+mode to enable you to type in a string.  The string will be inserted in each
+line in the block.
+   Starting with the same selection of the &quot;long&quot; words <a href="motion.html#as">as</a> above, then typing
+&quot;c_LONG_&lt;Esc&gt;&quot;, you get this:
+
+<b><font color="purple">	This is a _LONG_ line </font></b>
+<b><font color="purple">	short </font></b>
+<b><font color="purple">	Any other _LONG_ line </font></b>
+
+Just like with &quot;<a href="insert.html#I">I</a>&quot; the short line is not changed.  Also, you can't enter a
+newline in the new text.
+
+The &quot;<a href="change.html#C">C</a>&quot; command deletes text from the left edge of the block to the end of
+line.  It then puts you in <a href="insert.html#Insert">Insert</a> mode so that you can type in a string,
+which is added to the end of each line.
+   Starting with the same text again, and typing &quot;Cnew text&lt;Esc&gt;&quot; you get:
+
+<b><font color="purple">	This is a new text </font></b>
+<b><font color="purple">	short </font></b>
+<b><font color="purple">	Any other new text </font></b>
+
+Notice that, even though only the &quot;long&quot; <a href="motion.html#word">word</a> was selected, the text after it
+is deleted <a href="motion.html#as">as</a> well.  Thus only the location of the left edge of the visual
+block really matters.
+   Again, short lines that <a href="diff.html#do">do</a> not reach into the block are excluded.
+
+Other commands that change the characters in the block:
+
+	~	swap <a href="change.html#case">case</a>	(a -&gt; A and A -&gt; <a href="motion.html#a)">a)</a>
+	<a href="undo.html#U">U</a>	make <a href="change.html#uppercase">uppercase</a>  (a -&gt; A and A -&gt; A)
+	<a href="undo.html#u">u</a>	make <a href="change.html#lowercase">lowercase</a>  (a -&gt; a and A -&gt; <a href="motion.html#a)">a)</a>
+
+
+FILLING WITH A CHARACTER
+
+To fill the whole block with one character, use the &quot;<a href="change.html#r">r</a>&quot; command.  Again,
+starting with the same example text from above, and then typing &quot;rx&quot;:
+
+<b><font color="purple">	This is a xxxx line </font></b>
+<b><font color="purple">	short </font></b>
+<b><font color="purple">	Any other xxxx line </font></b>
+
+
+	Note:
+	If you want to include characters beyond the end of the line in the
+	block, check out the <a href="options.html#'virtualedit'">'virtualedit'</a> feature in chapter 25.
+
+
+SHIFTING
+
+The command &quot;<a href="change.html#&gt;">&gt;</a>&quot; shifts the selected text to the right one <a href="intro.html#shift">shift</a> amount,
+<a href="insert.html#inserting">inserting</a> <a href="pattern.html#whitespace">whitespace</a>.  The starting point for this <a href="intro.html#shift">shift</a> is the left edge of
+the visual block.
+   With the same example again, &quot;<a href="change.html#&gt;">&gt;</a>&quot; gives this result:
+
+<b><font color="purple">	This is a	  long line </font></b>
+<b><font color="purple">	short </font></b>
+<b><font color="purple">	Any other	  long line </font></b>
+
+The <a href="intro.html#shift">shift</a> amount is specified with the <a href="options.html#'shiftwidth'">'shiftwidth'</a> option.  To change it to
+use 4 spaces:
+
+<b>	:set shiftwidth=4</b>
+
+The &quot;<a href="change.html#&lt;">&lt;</a>&quot; command removes one <a href="intro.html#shift">shift</a> amount of <a href="pattern.html#whitespace">whitespace</a> at the left
+edge of the block.  This command is limited by the amount of text that is
+there; so if there is <a href="various.html#less">less</a> than a <a href="intro.html#shift">shift</a> amount of <a href="pattern.html#whitespace">whitespace</a> available, it
+removes what it can.
+
+
+JOINING LINES
+
+The &quot;<a href="change.html#J">J</a>&quot; command joins all selected lines together into one line.  Thus it
+removes the line breaks.  Actually, the line break, leading white space and
+trailing white space is replaced by one space.  Two spaces are used after a
+line ending (that can be changed with the <a href="options.html#'joinspaces'">'joinspaces'</a> option).
+   Let's use the example that we got so familiar with now.  The result of
+using the &quot;<a href="change.html#J">J</a>&quot; command:
+
+<b><font color="purple">	This is a long line short Any other long line </font></b>
+
+The &quot;<a href="change.html#J">J</a>&quot; command doesn't require a blockwise selection.  It works with &quot;<a href="visual.html#v">v</a>&quot; and
+&quot;<a href="visual.html#V">V</a>&quot; selection in exactly the same way.
+
+If you don't want the white space to be changed, use the &quot;<a href="change.html#gJ">gJ</a>&quot; command.
+
+==============================================================================
+
+*<a name="10.6"></A><b>10.6</b>*	Reading and <a href="editing.html#writing">writing</a> part of a file
+
+When you are <a href="editing.html#writing">writing</a> an e-mail message, you may want to include another file.
+This can be done with the &quot;<a href="insert.html#:read">:read</a> {filename}&quot; command.  The text of the file is
+put below the cursor line.
+   Starting with this text:
+
+<b><font color="purple">	Hi John, </font></b>
+<b><font color="purple">	Here is the diff that fixes the bug: </font></b>
+<b><font color="purple">	Bye, Pierre. </font></b>
+
+Move the cursor to the second line and type:
+
+<b>	:read patch</b>
+
+The file named &quot;patch&quot; will be inserted, with this result:
+
+<b><font color="purple">	Hi John, </font></b>
+<b><font color="purple">	Here is the diff that fixes the bug: </font></b>
+<b><font color="purple">	2c2 </font></b>
+<b><font color="purple">	&lt;	for (i = 0; i &lt;= length; ++i) </font></b>
+<b><font color="purple">	--- </font></b>
+<b><font color="purple">	&gt;	for (i = 0; i &lt; length; ++i) </font></b>
+<b><font color="purple">	Bye, Pierre. </font></b>
+
+The &quot;<a href="insert.html#:read">:read</a>&quot; command accepts a range.  The file will be put below the last line
+number of this range.  Thus &quot;:$r patch&quot; appends the file &quot;patch&quot; at the end of
+the file.
+   What if you want to read the file above the first line?  This can be done
+with the line number zero.  This line doesn't really exist, you will get an
+error message when using it with most commands.  But this command is allowed:
+
+<b>	:0read patch</b>
+
+The file &quot;patch&quot; will be put above the first line of the file.
+
+
+WRITING A RANGE OF LINES
+
+To write a range of lines to a file, the &quot;<a href="editing.html#:write">:write</a>&quot; command can be used.
+Without a range it writes the whole file.  With a range only the specified
+lines are written:
+
+<b>	:.,$write tempo</b>
+
+This writes the lines from the cursor until the end of the file into the file
+&quot;tempo&quot;.  If this file already exists you will get an error message.  Vim
+protects you from accidentally overwriting an existing file.  If you know what
+you are doing and want to overwrite the file, append !:
+
+<b>	:.,$write! tempo</b>
+
+CAREFUL: The ! must follow the &quot;<a href="editing.html#:write">:write</a>&quot; command immediately, without white
+space.  Otherwise it becomes a <a href="change.html#filter">filter</a> command, which is explained later in
+this chapter.
+
+
+APPENDING TO A FILE
+
+In the first section of this chapter was explained how to collect a number of
+lines into a <a href="sponsor.html#register">register</a>.  The same can be done to collect lines in a file.
+Write the first line with this command:
+
+<b>	:.write collection</b>
+
+Now move the cursor to the second line you want to collect, and type this:
+
+<b>	:.write &gt;&gt;collection</b>
+
+The &quot;<a href="change.html#&gt;&gt;">&gt;&gt;</a>&quot; tells Vim the &quot;collection&quot; file is not to be written <a href="motion.html#as">as</a> a new file,
+but the line must be appended at the end.   You can repeat this <a href="motion.html#as">as</a> many times
+<a href="motion.html#as">as</a> you like.
+
+==============================================================================
+
+*<a name="10.7"></A><b>10.7</b>*	Formatting text
+
+When you are typing plain text, it's <a href="todo.html#nice">nice</a> if the length of each line is
+automatically trimmed to fit in the <a href="windows.html#window">window</a>.  To make this happen while
+<a href="insert.html#inserting">inserting</a> text, set the <a href="options.html#'textwidth'">'textwidth'</a> option:
+
+<b>	:set textwidth=72</b>
+
+You might remember that in the example <a href="starting.html#vimrc">vimrc</a> file this command was used for
+every text file.  Thus if you are using that <a href="starting.html#vimrc">vimrc</a> file, you were already
+using it.  To check the current value of <a href="options.html#'textwidth'">'textwidth'</a>:
+
+<b>	:set textwidth</b>
+
+Now lines will be broken to take only up to 72 characters.  But when you
+insert text halfway a line, or when you delete a few words, the lines will get
+too long or too short.  Vim doesn't automatically reformat the text.
+   To tell Vim to format the current <a href="motion.html#paragraph">paragraph</a>:
+
+<b>	gqap</b>
+
+This starts with the &quot;<a href="change.html#gq">gq</a>&quot; command, which is an <a href="motion.html#operator">operator</a>.  Following is &quot;<a href="motion.html#ap">ap</a>&quot;,
+the text object that stands for &quot;a paragraph&quot;.  A <a href="motion.html#paragraph">paragraph</a> is separated from
+the next <a href="motion.html#paragraph">paragraph</a> by an empty line.
+
+	Note:
+	A blank line, which contains white space, does NOT separate
+	paragraphs.  This is hard to notice!
+
+Instead of &quot;<a href="motion.html#ap">ap</a>&quot; you could use any motion or text object.  If your paragraphs
+are properly separated, you can use this command to format the whole file:
+
+<b>	gggqG</b>
+
+&quot;<a href="motion.html#gg">gg</a>&quot; takes you to the first line, &quot;<a href="change.html#gq">gq</a>&quot; is the format <a href="motion.html#operator">operator</a> and &quot;<a href="motion.html#G">G</a>&quot; the
+motion that jumps to the last line.
+
+In <a href="change.html#case">case</a> your paragraphs aren't clearly defined, you can format just the lines
+you manually select.  Move the cursor to the first line you want to format.
+Start with the command &quot;gqj&quot;.  This formats the current line and the one below
+it.  If the first line was short, words from the next line will be appended.
+If it was too long, words will be moved to the next line.  The cursor moves to
+the second line.  Now you can use &quot;<a href="repeat.html#.">.</a>&quot; to repeat the command.  Keep doing this
+until you are at the end of the text you want to format.
+
+==============================================================================
+
+*<a name="10.8"></A><b>10.8</b>*	Changing <a href="change.html#case">case</a>
+
+You have text with section headers in <a href="change.html#lowercase">lowercase</a>.  You want to make the <a href="motion.html#word">word</a>
+&quot;section&quot; all <a href="change.html#uppercase">uppercase</a>.  Do this with the &quot;<a href="change.html#gU">gU</a>&quot; <a href="motion.html#operator">operator</a>.  Start with the
+cursor in the first column:
+
+<b>			     gUw</b>
+ 	section header	    ----&gt;      SECTION header
+
+The &quot;<a href="change.html#gu">gu</a>&quot; <a href="motion.html#operator">operator</a> does exactly the opposite:
+
+<b>			     guw</b>
+ 	SECTION header	    ----&gt;      section header
+
+You can also use &quot;<a href="change.html#g~">g~</a>&quot; to swap <a href="change.html#case">case</a>.  All these are operators, thus they work
+with any motion command, with text <a href="index.html#objects">objects</a> and in <a href="visual.html#Visual">Visual</a> mode.
+   To make an <a href="motion.html#operator">operator</a> work on lines you double it.  The delete <a href="motion.html#operator">operator</a> is
+&quot;<a href="change.html#d">d</a>&quot;, thus to delete a line you use &quot;<a href="change.html#dd">dd</a>&quot;.  Similarly, &quot;<a href="change.html#gugu">gugu</a>&quot; makes a whole line
+<a href="change.html#lowercase">lowercase</a>.  This can be shortened to &quot;<a href="change.html#guu">guu</a>&quot;.  &quot;<a href="change.html#gUgU">gUgU</a>&quot; is shortened to &quot;<a href="change.html#gUU">gUU</a>&quot; and
+&quot;<a href="change.html#g~g~">g~g~</a>&quot; to &quot;<a href="change.html#g~~">g~~</a>&quot;.  Example:
+
+<b>				g~~ </b>
+<b><font color="purple"> 	Some GIRLS have Fun    ----&gt;   sOME girls HAVE fUN </font></b>
+
+==============================================================================
+
+*<a name="10.9"></A><b>10.9</b>*	Using an external program
+
+Vim has a very powerful set of commands, it can <a href="diff.html#do">do</a> anything.  But there may
+still be something that an external command can <a href="diff.html#do">do</a> better or faster.
+   The command &quot;!{motion}{program}&quot; takes a block of text and filters it
+through an external program.  In other words, it runs the system command
+represented by {program}, giving it the block of text represented by <a href="intro.html#{motion}">{motion}</a>
+<a href="motion.html#as">as</a> input.  The output of this command then replaces the selected block.
+   Because this summarizes badly if you are unfamiliar with UNIX filters, take
+a look at an example.  The sort command sorts a file.  If you execute the
+following command, the unsorted file input.txt will be sorted and written to
+output.txt.  (This works on both UNIX and Microsoft Windows.)
+
+<b>	sort &lt;input.txt &gt;output.txt</b>
+
+Now <a href="diff.html#do">do</a> the same thing in Vim.  You want to sort lines 1 through 5 of a file.
+You start by putting the cursor on line 1.  Next you execute the following
+command:
+
+<b>	!5G</b>
+
+The &quot;<a href="change.html#!">!</a>&quot; tells Vim that you are performing a <a href="change.html#filter">filter</a> operation.  The Vim editor
+expects a motion command to follow, indicating which part of the file to
+<a href="change.html#filter">filter</a>.  The &quot;5G&quot; command tells Vim to go to line 5, so it now knows that it
+is to <a href="change.html#filter">filter</a> lines 1 (the current line) through 5.
+   In anticipation of the filtering, the cursor drops to the bottom of the
+screen and a ! prompt displays.  You can now type in the name of the <a href="change.html#filter">filter</a>
+program, in this <a href="change.html#case">case</a> &quot;sort&quot;.  Therefore, your full command is <a href="motion.html#as">as</a> follows:
+
+<b>	!5Gsort&lt;Enter&gt;</b>
+
+The result is that the sort program is run on the first 5 lines.  The output
+of the program replaces these lines.
+
+	line 55			      line 11
+	line 33			      line 22
+	line 11		--&gt;	      line 33
+	line 22			      line 44
+	line 44			      line 55
+	last line		      last line
+
+The &quot;<a href="change.html#!!">!!</a>&quot; command filters the current line through a <a href="change.html#filter">filter</a>.  In <a href="os_unix.html#Unix">Unix</a> the &quot;date&quot;
+command prints the current time and date.  &quot;!!date&lt;Enter&gt;&quot; replaces the current
+line with the output of &quot;date&quot;.  This is useful to add a <a href="editing.html#timestamp">timestamp</a> to a file.
+
+
+WHEN IT DOESN'T WORK
+
+Starting a shell, sending it text and capturing the output requires that Vim
+knows how the shell works exactly.  When you have problems with filtering,
+check the values of these <a href="options.html#options">options</a>:
+
+	<a href="options.html#'shell'">'shell'</a>		specifies the program that Vim uses to execute
+			external programs.
+	<a href="options.html#'shellcmdflag'">'shellcmdflag'</a>	argument to pass a command to the shell
+	<a href="options.html#'shellquote'">'shellquote'</a>	<a href="change.html#quote">quote</a> to be used around the command
+	<a href="options.html#'shellxquote'">'shellxquote'</a>	<a href="change.html#quote">quote</a> to be used around the command and redirection
+	<a href="options.html#'shelltype'">'shelltype'</a>	kind of shell (only for the <a href="os_amiga.html#Amiga">Amiga</a>)
+	<a href="options.html#'shellslash'">'shellslash'</a>	use forward slashes in the command (only for
+			<a href="os_win32.html#MS-Windows">MS-Windows</a> and alikes)
+	<a href="options.html#'shellredir'">'shellredir'</a>	string used to write the command output into a file
+
+On <a href="os_unix.html#Unix">Unix</a> this is hardly ever a problem, because there are two kinds of shells:
+&quot;sh&quot; like and &quot;csh&quot; like.  Vim checks the <a href="options.html#'shell'">'shell'</a> option and sets related
+<a href="options.html#options">options</a> automatically, depending on whether it sees &quot;csh&quot; somewhere in
+<a href="options.html#'shell'">'shell'</a>.
+   On <a href="os_win32.html#MS-Windows">MS-Windows</a>, however, there are many different shells and you might have
+to tune the <a href="options.html#options">options</a> to make filtering work.  Check the help for the <a href="options.html#options">options</a>
+for more information.
+
+
+READING COMMAND OUTPUT
+
+To read the contents of the current directory into the file, use this:
+
+on <a href="os_unix.html#Unix">Unix</a>:
+<b>	:read !ls</b>
+on <a href="os_win32.html#MS-Windows">MS-Windows</a>:
+<b>	:read !dir</b>
+
+The output of the &quot;ls&quot; or &quot;dir&quot; command is captured and inserted in the text,
+below the cursor.  This is similar to reading a file, except that the &quot;<a href="change.html#!">!</a>&quot; is
+used to tell Vim that a command follows.
+   The command may have arguments.  And a range can be used to tell where Vim
+should put the lines:
+
+<b>	:0read !date -u</b>
+
+This inserts the current time and date in UTC format at the top of the file.
+(Well, if you have a date command that accepts the &quot;<a href="starting.html#-u">-u</a>&quot; argument.)  Note the
+difference with using &quot;!!date&quot;: that replaced a line, while &quot;<a href="insert.html#:read">:read</a> !date&quot; will
+insert a line.
+
+
+WRITING TEXT TO A COMMAND
+
+The <a href="os_unix.html#Unix">Unix</a> command &quot;wc&quot; counts words.  To <a href="intro.html#count">count</a> the words in the current file:
+
+<b>	:write !wc</b>
+
+This is the same write command <a href="motion.html#as">as</a> before, but instead of a file name the &quot;<a href="change.html#!">!</a>&quot;
+character is used and the name of an external command.  The written text will
+be passed to the specified command <a href="motion.html#as">as</a> its standard input.  The output could
+look like this:
+
+<b><font color="purple">       4      47     249 </font></b>
+
+The &quot;wc&quot; command isn't <a href="starting.html#verbose">verbose</a>.  This means you have 4 lines, 47 words and 249
+characters.
+
+Watch out for this mistake:
+
+<b>	:write! wc</b>
+
+This will write the file &quot;wc&quot; in the current directory, with force.  White
+space is important here!
+
+
+REDRAWING THE SCREEN
+
+If the external command produced an error message, the display may have been
+messed up.  Vim is very efficient and only redraws those parts of the screen
+that it knows need redrawing.  But it can't know about what another program
+has written.  To tell Vim to redraw the screen:
+
+<b>	CTRL-L</b>
+
+==============================================================================
+
+Next chapter: |<a href="usr_11.html">usr_11.txt</a>|  Recovering from a crash
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_10.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

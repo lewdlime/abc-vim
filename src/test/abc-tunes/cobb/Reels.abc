@@ -1,0 +1,4316 @@
+X:1
+T:Abbey
+Z: id:dc-reel-1
+M:C
+L:1/8
+K:A Dorian
+B|A3B A2GE|A2GA BddB|A3B AGEF|G3A Bdd:|!
+g|egg2 a2ba|gabg aged|egg2 a2ga|bgaf gedg|!
+egg2 a2bg|agbg aged|egg2 a2ga|bgaf ged|]!
+
+
+X:2
+T:Alice's
+Z: id:dc-reel-2
+M:C
+L:1/8
+K:E Minor
+D|EGBG AGED|E2GE DEB,D|EGBG A2Bd|eBdB AGED|!
+EGBG AGED|E2GE DEB,D|DB,A,B, DEFA|BFAF FEE:|!
+K:G Major
+F|G2DB, DGBG|A2EC EcBA|G2DB, DGBG|AcBA AGGF|!
+G2DB, DGBG|A2EC EcBA|G2DB, DGBG|AcBA AGG:|!
+
+X:3
+T:Anderson's
+Z: id:dc-reel-3
+M:C
+L:1/8
+K:D Major
+B|ABdf efdB|AFF2 EDEF|ABdf efdf|afef d3:|!
+f|a2fa bafa|a2fd edBd|a2fa bafb|afef defg|!
+a2fa bafa|a2fd edBd|AFF2 ABdf|afef d3|]!
+
+X:4
+T:Around the World for Sport
+Z: id:dc-reel-4
+M:C
+L:1/8
+K:E Minor
+F|G2BG F2AF|EBBA BGEF|G2BG FGAc|BdAG FDD:|!
+g|f2e^c dBAF|EBBA BGEg|f2e^c dBAF|GBAG FDD:|!
+
+X:5
+T:Bag of Spuds
+Z: id:dc-reel-6
+M:C
+L:1/8
+K:A Dorian
+A2eA cAeA|ABcd e2dB|G2dG BGdG|GBB2 GBdB|!
+A2eA cAeA|ABcd e2dB|ABcd egg2|dBGA BAA2:|!
+a2ea a2ea|agbg agef|gedc BGBd|gfga bgeg|!
+a2ea a2ea|agbg agef|gedc BGBd|gedB BAA2:|!
+
+X:6
+T:Bank of Ireland
+Z: id:dc-reel-7
+M:C
+L:1/8
+K:D Mixolydian
+AB|c2AB cBAG|EGDG EGAB|c2AB cBAG|Add^c dfed|!
+c2AB cBAG|EGDG EGAB|c2AB cBAG|Add^c d2:|!
+de|f3d e2fe|dfed ^cAA2|f3d e2fg|afge d2^cd|!
+eaa2 efge|dged cAGE| Add^c defg|afge d2:|!
+
+X:7
+T:Banshee
+Z: id:dc-reel-8
+M:C
+L:1/8
+K:G Major
+G3D EDEG|AGAB d2Bd|eged BAGA|BAGE EDDE|!
+G3D EDEG|AGAB d2Bd|eged BAGA|BAGE EDD2:|!
+eaag efge|dBBA B3d|eBB2 egfg|eBBA B3d|!
+eaag efge|dBBA B3d|eged BAGA|BAGE EDD2:|!
+
+X:8
+T:Barmaid
+Z: id:dc-reel-9
+M:C
+L:1/8
+K:D Major
+E|FAAB AFED|FAAB A2de|fBBA Bcde|f2gf edBA|!
+FAAB AFED|FAAB A2de|fBBA BcdB|AFEF D3:|!
+g|faag fdde|fdad fddf|efga beef|gebe geeg|!
+fgaf b2af|defd e2de|fdBc dedB|AFEF D3:|!
+
+X:9
+T:Bean a'ti ar Lar
+Z: id:dc-reel-10
+M:C
+L:1/8
+K:D Major
+B|AGFE D2FD|GEFE DBB2|AGFE D2FD|E2cA BGE:|!
+d|cdec A3d|cdec AFEd|cdec A3F|E2cA BGEd|!
+cdec A3d|cdec AFEd|cdeg f2ec|ABcA Bdc|]!
+
+X:10
+T:Beare Island
+Z: id:dc-reel-11
+M:C
+L:1/8
+K:E Dorian
+D|EB^GB A=GEc|dBcA Beec|d2fd AGFA|GEFD EDB,A,|!
+B,EEF GFGA|B2GA Bdef|g2fg egfe|dBAF E3:|!
+A|Bdef g2fe|dBAG FDD2|Bdef gfed|e2^df e3f|!
+edBc d3c|BcdB AFDF|GBB2 AGFA|GEFD E3:|!
+
+X:11
+T:Bird in the Bush
+Z: id:dc-reel-13
+M:C
+L:1/8
+K:G Major
+B|d2e^c dBB2|cBAB G2AG|EAAc BGGA|BABd efge|!
+d2e^c dBB2|cBAB G2GE|DEGA Bdge|dBAc BGG:|!
+A|BABd g2bg|agef gedB|GABd g2bg|agef g2ga|!
+bgg2 agef|gage dBGE|DEGA Bdge|dBAc BGG:|!
+
+X:12
+T:Bird's Nest
+Z: id:dc-reel-384
+M:C
+L:1/8
+K:A Dorian
+cAA2 GABG|A2AB cded|cAA2 GABG|Aage dced|!
+cAA2 GABG|A2AB cded|cAA2 GABG|Aage decd|]!
+K:C Major
+ecag egdg|ecgc acgc|ecag edcd|eage decd|!
+ecag egdg|ecgc acgc|aee2 edcd|eage dced|]!
+
+X:13
+T:Blackberry Blossom
+Z: id:dc-reel-14
+M:C
+L:1/8
+K:G Major
+ge|dBAc BGG2|dBBA B2ge|dBAc BGG2|eaa^g a2:|!
+ef|g3f gaba|gfgb agef|g3f gabg|eaa^g a=gef|!
+g3f gaba|gfgb a2ga|bgaf gedg|eaa^g a2|]!
+
+X:14
+T:Blackbird
+Z: id:dc-reel-15
+M:C
+L:1/8
+K:D Mixolydian
+GA|B2cB A2B^c|d2AG F2DE|FGAF GcAG|F2D2 D2:|!
+FG|Add^c d2eg|fded cAGc|Add^c dfag|f2d2 d2fe|!
+dcAF GAB^c|d2AG F2DE|FGAF GcAG|F2D2 D2:|!
+
+X:15
+T:Black Mill
+Z: id:dc-reel-368
+M:C
+L:1/8
+K:A Mixolydian
+gf|edef g2fe|dBGB dBGB|edef gage|dBgB A2:|!
+cd|e2ed eAAB|dBGB dBGB|e2ed eAAB|dBGB A2cd|!
+e2ed eAAB|dBGB dBGB|edef gage|dBgB A2|]!
+
+X:16
+T:Bloom of Youth
+Z: id:dc-reel-16
+M:C
+L:1/8
+K:G Major
+G2DG EGDF|G2BG AEE2|G2DG EGAB|cedc BdAF|!
+G2DG EGDF|G2BG AEE2|G2DG EGAB|cedc BGG2|]!
+gddg eBB2|cBAc BEE2|g2d2 edBA|Bdgd BGG2|!
+egg2 eBB2|cBAc BEEB|c3B cdef|gedc BdAF|]!
+
+X:17
+T:Boil the Breakfast Early
+Z: id:dc-reel-17
+M:C
+L:1/8
+K:G Major
+G3B ADD2|GBB2 c2BA|G3B ADD2|GEE2 c2BA|!
+G3B ADD2|GBB2 c2Bc|dBcA BGAF|GEE2 c2Bc|]!
+dAA2 dAFA|dAA2 defe|dAA2 dAFA|GEE2 c2Bc|!
+dAA2 dAFA|dAA2 defe|d2^cd BdAF|GEE2 c2BA|]!
+
+X:18
+T:Bonnie Kate
+Z: id:dc-reel-18
+M:C
+L:1/8
+K:D Major
+dB|A2dB ABAF|DFAF EA,CE|DFAF GBed|cABc d2:|!
+fg|a2fd fafd|gfed cdef|gfef gbag|fgec d2:|!
+
+X:19
+T:Boy in the Boat
+Z: id:dc-reel-19
+M:C
+L:1/8
+K:D Major
+FG|A3F DFAF|GFEF G2FG|ADFD ADFD|GBAG FDFG|!
+A3F DFAF|GFEF G2FG|AFAd BGBd|cAGE FD:|!
+Dd|cded cAAB|cAdB cAAd|cBcd efed|cAGE FDDd|!
+cded cAAB|cAdB cAAg|f3d e3d|cAGE FD:|!
+
+X:20
+T:Boyne Hunt
+Z: id:dc-reel-20
+M:C
+L:1/8
+K:D Major
+B|A2FA DAFA|DAFA BEEB|A2FA DAFB|ABde fdd:|!
+e|faaf afdf|gfga beeg|faaf afdB|ABde fdde|!
+faaf afdf|gfga beeg|f3e d3B|ABde fdd|]!
+
+X:21
+T:Boys of Ballinahinch
+Z: id:dc-reel-21
+M:C
+L:1/8
+K:D Major
+g|fedf eBB2|fedf gbag|fedf eBBc|dBAF EFDe|!
+fedf eBBA|Bdef gbag|fedf eBBc|dBAF EFD|]!
+e|faaf d3e|faaf gbag|faaf afdf|gfed BdAe|!
+faaf afde|faaf g3a|bgaf gfed|Bdef gba|]!
+
+X:22
+T:Boys of Ballisodare
+Z: id:dc-reel-22
+M:C
+L:1/8
+K:G Major
+dGG2 dGeG|dGGA BAA2|dGG2 dedB|AcBA GED2|!
+dGG2 dGeG|dGGA BAA2|Bdd2 e2dB|AcBA GED2|]!
+gfga bgaf|gfga bee2|gfga bgaf gfed ^cdef|!
+gfga bgaf|gfga bee2|bgaf gedB|AcBA GED2|]!
+Bdd2 Bdgd|Bdgd BAA2|Bdd2 e2dB|AcBA GED2|!
+Bdd2 Bdgd|Bdgd BAA2|eBB2 gBB2|AcBA GED2|]!
+
+X:23
+T:Boys of Malin
+Z: id:dc-reel-23
+M:C
+L:1/8
+K:A Major
+ABcd e2ce|fedf edcB|ABcd e2ce|fdBc d2cB|!
+ABcd e2ce|fedf edcB|ABcd e2ce|fdBc defg|]!
+aAA2 cee2|abag fefg|aAA2 cee2|fdBc defg|!
+aAA2 cee2|abag fefg|a2ga faec|dcBc d2cB|]!
+Aece Aece|Aece d2cB|Aece Aece|dcBc d2cB:|!
+
+X:24
+T:Boys of the Lough
+Z: id:dc-reel-24
+M:C
+L:1/8
+K:D Major
+dB|A2FD FAAB|defd efdB|A2FA BdAF|EDEF E2dB|!
+A2FD FAAB|defd efdB|A2FA BdAF|EDEF D2:|!
+de|faag fgfe|defd efdB|A2FA BdAF|EDEF E2de|!
+faag fgfe|defd efdB|A2FA BdAF|EDEF D2:|!
+
+X:25
+T:Brenda Stubbert's
+Z: id:dc-reel-385
+M:C
+L:1/8
+K:A Dorian
+G|A2BA GAAB|A2Bd edde|G2BA BGGA|BcBA BGGB|!
+A2BA GAAB|A2Bd edda|gedB GABd|e2dB eAA:|!
+G|A2a2 A2g2|Aage ageg|G2BA BGGA|BcBA BGGB|!
+[1 A2a2 A2g2|Aage agea|gedB GABd|e2dB eAA:|!
+[2 A2BA GAAB|A2Bd edda|gedB GABd|e2dB eAA|]!
+
+X:26
+T:Broken Pledge
+Z: id:dc-reel-26
+M:C
+L:1/8
+K:D Dorian
+A|dcAG ADDB|cAGF ECCE|DEFG Addc|AcGc Adfe|!
+dcAG A2dB|cAGF ECCE|DEFG Addc|AcGc ADD:|!
+A|dcAG Acde|fAdf ecAB|cAGE GAcd|ecc2 eage|!
+dcAG Acde|fAdf ecAG|F2FE FGAB|cAGE FDD:|!
+
+X:27
+T:Bucks of Oranmore
+Z: id:dc-reel-27
+M:C
+L:1/8
+K:D Major
+A2FA A2dB|A2FA BEE2|A2FA A2Bd|egfd ecdB|!
+A2FA A2dB|A2FA BEEF|DEFG AFAB|defd ecdB|]!
+ADFD A2dB|ADFA BEE2|ADFD A2Bd|egfd ecdB|!
+ADFD A2dB|ADFA BEEF|DEFG AFAB|defd efge|]!
+a2fd edBd|a2fd eBB2|a2fd edBd|egfd eBB2|!
+a2fd edBd|a2fd eBB2|f2af bfaf|egfd edBd|]!
+f2df e2de|f2df eBB2|f2df e2df|egfd eBB2|!
+f2df e2de|f2df eBB2|f2af bfaf|egfd edBd|]!
+Adfd edfd|Adfd eBB2|Adfd edfd|egfd edBd|!
+Adfd edfd|Adfd eBB2|f2af bfaf|egfd edBd|]!
+
+X:28
+T:Bunch of Green Rushes
+Z: id:dc-reel-28
+M:C
+L:1/8
+K:D Dorian
+B|cAGE F3A|c2cc AddB|cAGE F2de|fdec Add:|!
+K:D Mixolydian
+c|Add2 cAGE|=FGAB cAGc|Add2 cAA2|cdeg fdd^c|!
+d2dd cAGE|=FGAB cAGc|Add2 cAA2|cdeg fdd|]!
+^c|d2fd adfd|c2ec gcec|d2fd adfd|cAGc Add^c|!
+d2fd adfd|AccB cdeg|a3g =f3e|dcAG Add|]!
+
+X:29
+T:Bunch of Keys
+Z: id:dc-reel-29
+M:C
+L:1/8
+K:G Mixolydian
+E|DGG^F G2GA|BGdG eGdG|DFFE F2FG|AFcF dFcF|!
+DGG^F G2GA|BAGA Bcde|fgfd cBAc|BGA^F DGG:|!
+B|dgg^f g3a|bgag bga^f|d^cde ^fefg|a^fgf afge|!
+dgg^f g3a|bgag ^fdde|fgfd cBAc|BGA^F DGG:|!
+A|BGG2 BGdG|BGG2 Bdgd|AFF2 AFcF|AFF2 ABcA|!
+BGG2 BGdG|BGGA Bcde|fage fdcA|GBA^F G3:|!
+
+X:30
+T:Bunker Hill
+Z: id:dc-reel-30
+M:C
+L:1/8
+K:D Mixolydian
+cA|GEE2 D3G|EGAB c2Bc|ABAG EGG2|ABcA d2cA|!
+GEcE D3G|EGAB c2Bc|dBcA BGGc|ABcA d2:|!
+cA|Gcc2 ecc2|GccB cBAG|Add2 fdd2|Add^c d=cAG|!
+EGAB cAdB|cAdB c2Bc|dBcA BGGc|ABcA d2:|!
+ag|fdd2 fdad|fadf a2gf|gee2 gebe|gbeg b2ag|!
+fdd2 fdad|dcAB c2Bc|dBcA BGGc|ABcA d2:|!
+
+X:31
+T:Cabin Hunter
+Z: id:dc-reel-31
+M:C
+L:1/8
+K:E Dorian
+FEED E3B|FEE2 DFAB|FEED E2BA|FDDA BdAd:|!
+B3d egfe|dfab afed|Bdge f3e|dBAF FEED|!
+B3d egfe|dfab afef|bfef afef|bfaf edBA|]!
+
+X:32
+T:Cameronian
+Z: id:dc-reel-32
+M:C
+L:1/8
+K:D Major
+B|A2FA DAFA|GFEF GBdB|A2FA DAFA|GBAG FDDB|!
+A2FA DAFA|GEE2 GBdB|A2FA DAFA|GBAG FDD:|!
+B|Addc d2ed|cdef gfed|cAeA fAeA|cdef gfeg|!
+faeg faeg|faec defg|afge fdec|dBAG FDD:|!
+
+X:33
+T:Captain Kelly
+Z: id:dc-reel-363
+M:C
+L:1/8
+K:G Major
+B|GBAB G2ge|dBAc BGEF|GBAB G2ge|dBAc BGGF|!
+GABd g2fe|dBAc BGEF|GABd g2fe|dBAc BGG|]!
+f|g2bg agbg|egdg egde|g2bg agbg|egfa g2de|!
+g2bg agbg|egdg egdg|bgaf gfed|egfa ged|]!
+
+X:34
+T:Castlekelly
+Z: id:dc-reel-33
+M:C
+L:1/8
+K:A Dorian
+A2cA A2cA|GBEF G2EG|A2cA GAcd|egdB cAA2:|!
+agec d2ed|cAGE G3e|agec d2cd|eaab a2ba|!
+gedc d2ed|cAGE G2EG|A2cA GAcd|egdB cAA2:|!
+
+X:35
+T:Charlie Harris's No. 1
+Z: id:dc-reel-34
+M:C
+L:1/8
+K:D Major
+dB|AFDF EFDF|AFAB e2dB|AFDF EFDF|AFAB d2:|!
+AB|defd efdB|AFAB e2dB|defd efdB|AFAB d2AB|!
+defd efdB|AFAB e2dB|dff2 aff2|afef d2|]!
+
+X:36
+T:Charlie Harris's No. 2
+Z: id:dc-reel-35
+M:C
+L:1/8
+K:D Major
+B|A3B AFF2|AFAd f3g|afef dedB|ADDF FEEF|!
+A3B AFF2|AFAd f3g|afef dedB|Adfe d3:|!
+e|fded BAAB|d3f a3f|g2fg eBB2|dBAF EFDF|!
+A3B AFF2|AFAd f3g|afef dedB|Adfe d3:|!
+
+X:37
+T:Charlie Lennon's
+Z: id:dc-reel-36
+M:C
+L:1/8
+K:B Dorian
+A|FBB2 fBB2|dcBc AEE2|FBB2 ABce|afec Baga|!
+f2ec f2ec|BABc BAFE|FBB2 ABce|afec B3:|!
+A|FBdc BFF2|EAcB AEE2|FBdc Bdfb|afec Bcdc|!
+Bcde fBB2|afec ABce|f2bf afef|afec B3:|!
+
+X:38
+T:Chicago
+Z: id:dc-reel-37
+M:C
+L:1/8
+K:A Dorian
+AB|cded cAGE|G3E GAcd|ecgc acgc|eaag eged|!
+cded cAGE|G3E GAcd|eaag eged|cABG A2:|!
+AB|cdef g3a|gedc BGGB|cdef g2ed|eaag aged|!
+cdef g3e|a3f g3e|f3d eged|cABG A2:|!
+
+X:39
+T:Christmas Eve
+Z: id:dc-reel-38
+M:C
+L:1/8
+K:G Major
+GE|DB,DE GFGA|B2dB ABGB|ABGE DB,DE|G2BG ABGE|!
+DB,DE GFGA|B2dB ABGA|BAA2 GEBG|ABGE G2:|!
+GA|BABd edeg|abge g2eg|a2ge gage|dedB A2GA|!
+BABd edeg|abge g2eg|a2ge d2BG|ABGE G2:|!
+dc|BGG2 dGBd|egg2 egdc|BGG2 B2AG|EAA2 EAA2|!
+BGG2 dGBd|egg2 egga|bgaf gedB|ABGE G2:|!
+
+X:40
+T:Coalminer's
+Z: id:dc-reel-358
+M:C
+L:1/8
+K:G Major
+GE|DGG2 DGBd|d2BG AGEG|DGG2 DGBd|gedB ABGE|!
+DGG2 DGBd|d2BG AGEG|DGG2 DGBd|gedB G2:|!
+Bd|g3e dege|d2BG AGEG|g3e dega|bagb a2ga|!
+bgg2 ageg|d2BG AGEG|DGG2 DGBd|gedB G2:|!
+
+X:41
+T:College Groves
+Z: id:dc-reel-39
+M:C
+L:1/8
+K:D Mixolydian
+A,|D2FD ADFD|EEcE dEcE|D2FA d3B|cAGE EDD:|!
+g|fdd2 faaf|ecc2 egge|fdd^c dcAB|cAGE EDDg|!
+fdd2 faaf|ecc2 egge|d2eg fagb|afge fdd|]!
+e|fgag fdd2|efgf ecc2|fgag fddB|cAGE EDDe|!
+fgag fdd2|efgf ecc2|d2eg fagb|afge fdd|]!
+K:D Major
+e|f2df f2df|e2ce Aece|f2df f2af|e2cf edde|!
+f2df dfdf|e2ce cece|d2eg fagb|afge fdd|]!
+
+X:42
+T:Colonel Frazier
+Z: id:dc-reel-359
+M:C
+L:1/8
+K:G Major
+A|BGG2 DGG2|ADD2 d2cA|BGGF D2eg|fdcA BGGA|!
+BGG2 DGG2|ADD2 d2cA|BGGF D2eg|fdcA BGG:|!
+B|dggf g2ag|fddc ABcA|dgg2 bgag|fdcA BGGB|!
+dgfe dedc|BdBG AcAF|GBAc Bdeg|fdcA BGG:|!
+A|Bcdc BGG2|ABcB A=FF2|Bcdc BGGB|cAFG AGGA|!
+Bcdc BGG2|ABcB A=FF2|GBAc Bdeg|fdcA BGG:|!
+A|B2GB B2GB|A2FA A2FA|B2GB B2GB|cAFG AGG|!
+B2GB GBGB|A2FA FAFA|GBAc Bdeg|fdcA BGG:|!
+A|Bdgd Bdgd|Ac=fc Acfc|Bdgd Bdgd|cAFG AGG2|!
+Bdgd gdgd|Ac=fc fcfc|GBAc Bdeg|fdcA BGG:|!
+
+X:43
+T:Colonel McBain
+Z: id:dc-reel-40
+M:C
+L:1/8
+K:E Dorian
+EF|GEBE GEBE|FDAD FDAD|GEBE GEBE|AGFG E2EF|!
+GEBE GEBE|ABAG FDDF|G2GF GBdB|AGFG E2:|!
+EF|G2GF GBdB|ABAG FDD2|Beed efge|fedf e2ed|!
+efed BcdB|ABAG FDDF|G2GF GBdB|AGFG E2:|!
+
+X:44
+T:Come West along the Road
+Z: id:dc-reel-41
+M:C
+L:1/8
+K:G Major
+d2BG dGBG|G2Bd efge|d2BG dGBG|ABcd edBd:|!
+g2bg egdg|egdg edBd|g2bg egdB|ABcd edBd|!
+g2bg egdg|egdg edBd|gabg efge|dega bage|]!
+
+X:45
+T:Concertina
+Z: id:dc-reel-249
+M:C
+L:1/8
+K:D Major
+A2FA BAFA|A2FA BAFA|BAcA BAcA|BAcA BAFA|!
+A2FA BAFA|A2FA BAFA|FABc dcdB|AFEF D4:|!
+Add2 Add2|AddA BAFA|BAcA BAcA|BAcA BAFA|!
+Add2 Add2|AddA BAFA|FABc dcdB|AFEF D4:|!
+
+X:46
+T:Concertina
+Z: id:dc-reel-240
+M:C
+L:1/8
+K:G Major
+dgg2 dgg2|dgfg edBd|edfd edfd|edfd edBc|!
+dgg2 dgg2|dgfg edBA|Bdef gfge|dBAB G4:|!
+d2Bd edBd|d2Bd edBd|edfd edfd|edfd edBd|!
+d2Bd edBd|d2Bd edBA|Bdef gfge|dBAB G4:|!
+
+X:47
+T:Congress
+Z: id:dc-reel-42
+M:C
+L:1/8
+K:A Dorian
+gf|eAAG ABcd|eaaf gedB|eAAG ABcA|BAGF GABd|!
+eAAG ABcd|eaaf gedB|cBcd eged|cABG A2:|!
+Bd|eaab a3g|eaag e2dg|egdg egdg|egga ged2|!
+eaab a3g|eaag e2dB|cBcd eged|cABG A2:|!
+
+X:48
+T:Connaught Heifer
+Z: id:dc-reel-43
+M:C
+L:1/8
+K:D Mixolydian
+F3G A2BG|A2BG AGFD|F3G A2GF|DGG2 cAAG:|!
+fde^c d2=cA|A2BG ABde|fdd2 edcA|BGG2 AGFD:|!
+
+X:49
+T:Contradiction
+Z: id:dc-reel-44
+M:C
+L:1/8
+K:A Major
+ed|c3A BGED|CEAc dfed|c3A GABc|defg a2:|!
+eg|aAA2 cABA|GBEB GBEg|aAA2 cABA|GBEG Aceg|!
+aAA2 cABA|GBEB GBEg|agfe fedc|BAGB A2|]!
+ce|a2c'e aec'e|bed'e bed'e|c'ee'e c'ee'e|dcBA EA:|!
+Ad|cee2 ceae|dBcA BEEd|cee2 ceae|dfbg afed|!
+cee2 ceae|faec B2cd|ecea fdfa|gbeg a2|]!
+
+X:50
+T:Controversial
+Z: id:dc-reel-45
+M:C
+L:1/8
+K:G Major
+A|BABe dBB2|gabg abge|edBd gedB|A2GB A2GA|!
+Bdde dBB2|gfgb abge|edBd gedB|GBAF G3:|!
+A|Bdd2 AdBA|GEDE GABd|gbaf gedB|A2GB A2GA|!
+Bdd2 AdBA|GEDE GABd|bgaf gedB|GBAF G3:|!
+
+X:51
+T:Cooley's
+Z: id:dc-reel-46
+M:C
+L:1/8
+K:E Dorian
+D|EBBA B2EB|B2AB dBAG|FDAD BDAG|FDFA dAFD|!
+EBBA B2EB|B2AB defg|afef dBAd|DEFD E3:|!
+f|eBB2 egfg|eBB2 gedB|A2FA DAFA|BAFA defg|!
+eBB2 egfg|eBB2 defg|afef dBAd|DEFD E3:|!
+
+X:52
+T:Corney Is Coming
+Z: id:dc-reel-47
+M:C
+L:1/8
+K:D Mixolydian
+B|Add^c defd|cABG AGEG|Add^c defg|afge fde^c|!
+Add^c defd|cABG AGEG|Add^c defd|ge^cd edd:|!
+A|defg afdB|cdef gecA|defg afdf|g2ag fddf|!
+afdf afdf|gece|gece|defg a3f|g2ag fdd:|!
+
+X:53
+T:Craig's Pipes
+Z: id:dc-reel-48
+M:C
+L:1/8
+K:G Major
+B3A BAGA|B2GB AGED|B3A BAGB|AcBG AGED|!
+B3A BAGA|B2GB AGED|Bded BcdB|AcBG AGEG|]!
+DGG2 DGBG|DGBG AGEG|DGGF GABc|[1 dBAc BGGE:|[2 dBAc BGGB|]!
+d2Bd efge|dGBG AGEG|d2Bd efg2|[1 a2ba ageg:|[2 a2ba aged|]!
+
+X:54
+T:Crock of Gold
+Z: id:dc-reel-369
+M:C
+L:1/8
+K:G Major
+B3B BAGE|G3A GEDB,|DEGA BAGA|B2dB BAA2|!
+B3B BAGE|G3A GED2|g2fg egdB|DEGA BGG2:|!
+eaa2 bage|a2ba gede|gedB GABd|egdB BAA2|!
+eaa2 bage|a2ba gede|g2fg egdB|DEGA BGG2:|!
+
+X:55
+T:Croghan Hill
+Z: id:dc-reel-49
+M:C
+L:1/8
+K:G Major
+dB|G3B dBB2|g2fg egdB|c2Ac B2GB|Add^c dedB|!
+G3B dBB2|g2fg egdB|c2Ac B2GB|AGFA G2:|!
+Bd|g3f gdBd|g2fg egdB|c2Ac B2GB|Add^c ded|!
+[1 f|g3f gdBd|g2fg egdB|c2Ac B2GB|AGFA G2:|!
+[2 B|G3B dBB2|g2fg egdB|c2Ac B2GB|AGFA G2|]!
+
+X:56
+T:Crooked Road
+Z: id:dc-reel-50
+M:C
+L:1/8
+K:G Major
+G2AG FGAD|G2AG AdcA|G2AG FGAg|fdcA dBcA:|!
+dgg2 fgag|dgg2 agfe|dgg2 fgag|fdcA dBcA|!
+dgg2 fgag|dgg2 a2ga|bgaf gbag|fdcA dBcA|]!
+
+X:57
+T:Crossing the Shannon
+Z: id:dc-reel-51
+M:C
+L:1/8
+K:D Major
+FG|Add2 AdFG|Add2 fdBd|Add2 fdAF|G2FG EFGB|!
+Add2 AdFG|Add2 fdBd|Adfa gefa|gece d2:|!
+FG|Add2 fage|fage fdBd|Add2 fdAF|G2FG EFGB|!
+Add2 fage|fage fdBd|Adfa gefa|gece d2:|!
+
+X:58
+T:Crowley's No. 1
+Z: id:dc-reel-52
+M:C
+L:1/8
+K:D Major
+B|A3d B2dB|ADFD ADFD|A3d B3c|dfeg fdd:|!
+e|f3a g2fg|eAcA eAcA|f3a g2fg|afge fdd:|!
+
+X:59
+T:Crowley's No. 2
+Z: id:dc-reel-53
+M:C
+L:1/8
+K:D Major
+f2ed edBc|dBcA BAFA|B3d AFDF|GEFD EDB,e|!
+fdd2 ecc2|dBcA BAFA|B3d AFDF|GBAG FDD|]!
+A|d2dA dAFA|B3d cAAd|BdAd GdFd|EFGE FDD:|!
+
+X:60
+T:Cup of Tea
+Z: id:dc-reel-54
+M:C
+L:1/8
+K:E Dorian
+A|BAGF GEEF|GEBE GEEA|BAGF GEEG|FDAG FDDA|!
+BAGF GEEF|GEBE GEEA|BAGF GABc|dBAG FDD:|!
+A|d2eg fdec|d2eg fBBc|d2eg fdec|dBAG FDDA|!
+d2eg fdec|dfaf g2fg|afge fdec|dBAG FDD:|!
+G|FAdA FABA|FAdA FEEG|FAdA FABc|dBAG FDDG|!
+FAdA FABA|FAdA FEEe|f2ec dBAF|GBAG FDD:|!
+
+X:61
+T:Curlew
+Z: id:dc-reel-55
+M:C
+L:1/8
+K:B Dorian
+e|fBBA Bcde|fece agae|faed cAA2|GAce agba|!
+fBBA Bcde|fece agaf|=g2ge f2fe|dBBA FBB:|!
+c|d2cd BFF2|DFF2 Bcdf|ecBc AEE2|CEAB cedc|!
+d2cd BFF2|DFF2 Bcdf|ecBc fcec|dcBA FBB:|!
+
+X:62
+T:Dan Breen's
+Z: id:dc-reel-56
+M:C
+L:1/8
+K:A Dorian
+Bd|e2dB cABG|EAAG ABcd|e2dB cABG|EGGF G2:|!
+Bd|e2ge edBd|eaag efge|e2ge edBc|d2ef g2:|!
+
+X:63
+T:Dark-Haired Lass
+Z: id:dc-reel-57
+M:C
+L:1/8
+K:A Dorian
+B|cAAB cdec|d2gd BGGB|cBAB cdec|dfec A3B|!
+cAAB cdec|d2gd BGGB|cBAB cdeg|fdec A3:|!
+B|cdef g2eg|f2df gfed|cdef g2eg|fdec A3B|!
+cdef g2eg|f2df g2fg|afge fdec|dfec A3:|!
+
+X:64
+T:Darley's
+Z: id:dc-reel-58
+M:C
+L:1/8
+K:A Dorian
+G,|A,2EA, A,2EA,|A,2GE DB,A,B,|G,2B,G, DG,B,A,|G,B,B,2 G,B,DB,|!
+A,2EA, A,2AB|cABG AGAB|cABG AGEA|GEDB, G,A,A,:|!
+D|EAA2 eAA2|A,EE2 D2B,G,|B,G,DG, EG,D2|d2B2 G2DB,|!
+EAAG ABde|AGED E2AB|cABG AGEA|GEDB, G,A,A,:|!
+
+X:65
+T:Dawn
+Z: id:dc-reel-59
+M:C
+L:1/8
+K:G Major
+G,2B,D C2EG|D2FA GBdB|cdeg dBGB|A2BA AGEG|!
+G,2B,D C2EG|D2FA GBdB|cdeg dBGB|ABGA BGG2:|!
+B2dB eBdB|GABG AGEG|D2B,D GBdB|cdef gded|!
+B2dB eBdB|GABG AGEG|DGBd cdeg|dBAc BGG2:|!
+
+X:66
+T:Derry
+Z: id:dc-reel-60
+M:C
+L:1/8
+K:A Major
+AB|c3B ABcA|BAcB AFEF|ABce a2ge|faec B2AB|!
+c3B ABcA|BAcA BAFA|EAce faec|BAGB A2:|!
+ag|f2fe cfaf|geBe gbag|f2fe cfaf|gfeg f2fg|!
+aecB ABcA|BAcA BAFA|EAce faec|BAGB A2:|!
+
+X:67
+T:Dick Gossip
+Z: id:dc-reel-61
+M:C
+L:1/8
+K:D Major
+AG|F2AF GFED|F2AF GFED|E3F GFED|EDEF GFED|!
+F2AF GFED|F2AF GFED|Bdef gfec|dfec d2:|!
+ef|gBB2 gBaB|gBB2 gfed|cAeA fAed|cdef gfef|!
+gBB2 gBaB|gBB2 gfed|cdef gfec|dfec d2:|!
+
+X:68
+T:Dillon's Fancy
+Z: id:dc-reel-370
+M:C
+L:1/8
+K:G Major
+B|dGG2 dGBG|Bdgd eBdc|B2GB dGBG|A2BG AGEG|!
+DGG2 DGBG|Bdgd eBdc|Bdef gfgd|Bdgd BGG:|!
+f|gdBd gdBd|gbaf gdBd|gdBd gdBG|FGAB cdef|!
+g3a gdBd|gbaf gfed|Bdef gfgd|Bdgd BGG:|!
+
+X:69
+T:Dinky's
+Z: id:dc-reel-62
+M:C
+L:1/8
+K:A Mixolydian
+fed|ceBe ABcd|egfd ecAa|gBB2 gBaB|gBB2 gfed|!
+ceBe ABcd|egfd ecAa|gagf efed|ceBe A:|!
+ef^g|aAA2 aAbA|aAA2 agef|gBB2 gBaB|gBB2 gfe^g|!
+[1 aAA2 aAbA|aAA2 agef|gagf efed|ceBe A:|!
+[2 aAA2 gAA2|fAA2 eAA2|gagf efed|ceBe A|]!
+
+X:70
+T:Doctor Gilbert
+Z: id:dc-reel-63
+M:C
+L:1/8
+K:E Dorian
+gf|eBBA B3c|dBAd BAGF|EDB,D G3F|EDB,E DB,A,G,|!
+B,EED E3F|GEFD EFGA|Bded Bdgb|afdf e2:|!
+gf|eBB2 gBB2|defg afdf|g2bg f2af|gefd edB2|!
+afdf edBc|dBAF DEFD|EG=cA Bdgb|afdf e2:|!
+
+X:71
+T:Dogs among the Bushes
+Z: id:dc-reel-64
+M:C
+L:1/8
+K:G Major
+BGG2 DGG2|BGG2 cedc|BGG2 DGG2|A=FF2 =fdcA|!
+BGG2 DGG2|BGG2 cedc|[1 B2G=F DEFG|A=FF2 =fdcA:|[2 BABc dgfd|cAFA dBcA|]!
+dggf gagf|dgg2 bgag|d=ffe fgfe|d=ff2 afgf|!
+dggf gagf|dgg2 agg2|bgg2 afde|fgag fdcA:|!
+
+X:72
+T:Donegal
+Z: id:dc-reel-65
+M:C
+L:1/8
+K:D Major
+A,|D3E FDFA|dFAF BFAF|E3F GFGA|BdAF EGFE|!
+D3E FDFA|dFAF ABde|f2e2 dBAG|F2E2 D3:|!
+A|defg afdf|afdf a2gf|edef gfed|edef g2fe|!
+defg afdf|afdf abag|f2e2 dBAG|F2E2 D3:|!
+
+X:73
+T:Dowd's Favourite
+Z: id:dc-reel-67
+M:C
+L:1/8
+K:G Dorian
+F|DGGA BABF|DFF2 DFCF|DGGA BABd|cAfA AGG:|!
+A|B2dB fBdB|B2dB cAFA|B2dB fBdB|cAFA BGGA|!
+B2dB fBdB|B2dB cAFA|BAGF Ggge|fdcA BGG|]!
+z|gdd2 g2ag|fcc2 fcAc|gdd2 g2ag|fdcA BGG2|!
+gdd2 g2ag|fcc2 fcAF|GABc dgge|fdcA BGG|]!
+
+X:74
+T:Dowd's Favourite
+Z: id:dc-reel-68
+M:C
+L:1/8
+K:A Dorian
+G|EAAB cBcG|EGG2 EGDG|EAAB cBce|dBgB BAA:|!
+B|c2ec gcec|c2ec dBGB|c2ec gcec|dBGB cAAB|!
+c2ec gcec|c2ec dBGB|cBAG Aaaf|gedB cAA|]!
+z|aee2 a2ba|gdd2 gdBd|aee2 a2ba|gedB cAA2|!
+aee2 a2ba|gdd2 gdBG|ABcd eaaf|gedB cAA|]!
+
+X:75
+T:Dowd's No. 9
+Z: id:dc-reel-66
+M:C
+L:1/8
+K:D Major
+DFF2 GFEF|D2FA dABG|F2AF GFGB|AFDB, A,B,CE|!
+DFF2 GFEF|D2FA dABG|F2AF GFGB|AFEG FDD2:|!
+fdd2 g2ag|fdd2 cdeg|fdd2 gfec|dcde fdde|!
+fgaf gfeg|fedf ecAF|GABG FAdB|AFEG FDD2:|!
+
+X:76
+T:Down the Broom
+Z: id:dc-reel-69
+M:C
+L:1/8
+K:A Dorian
+EAAG A2Bd|egdg egdc|BGGF G2GE|D2B,D GABG|!
+EAAG ABcd|egg2 egdB|dgg2 gaba|gedB BAA2:|!
+a2ea ageg|a2bg agef|g2dg egde|geaf gede|!
+a2ea ageg|agbg ageg|dgg2 gaba|gedB BAA2:|!
+
+X:77
+T:Drowsy Maggie
+Z: id:dc-reel-70
+M:C
+L:1/8
+K:E Dorian
+D|E2BE dEBE|E2BE AFDF|E2BE dEBE|BABc dAF:|!
+A|d2fd c2ec|defg afge|d2fd c2ec|BABc dAFA|!
+d2fd c2ec|defg afge|afge fdec|BABc dAF|]!
+
+X:78
+T:Drunken Landlady
+Z: id:dc-reel-71
+M:C
+L:1/8
+K:A Dorian
+Bd|eAA2 edBd|eAA2 edBc|dedB G3A|Bcdg edBd|!
+eAA2 edBd|eAA2 edBc|d2ef gaag|gedB A2:|!
+Bd|eaag a2ga|b2gb abge|dedB G3A|Bcdg edBd|!
+eaag a2ga|b2gb abge|d2ef gaag|gedB A2:|!
+
+X:79
+T:Drunken Landlady
+Z: id:dc-reel-72
+M:C
+L:1/8
+K:E Dorian
+FA|BEE2 BAFA|BEE2 BAFG|ABAF D3E|FGAd BAFA|!
+BEE2 BAFA|BEE2 BAFG|A2Bc deed|dBAF E2:|!
+FA|Beed e2de|f2df efdB|ABAF D3E|FGAd BAFA|!
+Beed e2de|f2df efdB|A2Bc deed|dBAF E2:|!
+
+X:80
+T:Drunken Tinker
+Z: id:dc-reel-73
+M:C
+L:1/8
+K:A Mixolydian
+EAAG EGDG|EAA2 fAeA|EAAG EDEF|G2BG dGBG:|!
+A2eA fAeA|fAeA dBGB|A2eA fAeA|dcdB GABG|!
+A2eA fAeA|fAeA dBGB|edef gfge|dcdB GABG|]!
+
+X:81
+T:Dublin
+Z: id:dc-reel-74
+M:C
+L:1/8
+K:G Major
+ef|gBB2 gBaB|gBB2 dBAB|gBB2 gbag|fgef d2:|!
+K:D Major
+fg|add2 adbd|add2 edBd|add2 abag|fgef d2:|!
+K:G Major
+ef|g3f gdBd|g3d BGBd|g3f gbag|fgef d2:|!
+BA|GBB2 GBAB|GBB2 dBAB|GBB2 GBag|fgef d2:|!
+
+X:82
+T:Dublin
+Z: id:dc-reel-75
+M:C
+L:1/8
+K:D Major
+dFF2 dfec|dFF2 AFEF|dFF2 dfed|[1 cABG AFEA:|[2 cABc ABcd|]!
+K:A Major
+e2cA EAcf|e2cA BFF2|e2cA EAcA|BdcA BFF2|!
+e2cA ecfc|e2cA BFF2|e2cA EAcA|BdcA BAFA|]!
+K:D Major
+d3c dAFA|dcdB AFEA|d3c dfed|cABc AFEA|!
+d3c dAFA|dcdB AFEA|dcdf e2ae|fdBc dfec|]!
+
+X:83
+T:Dublin Lasses
+Z: id:dc-reel-76
+M:C
+L:1/8
+K:F Major
+d|cFF2 cFdF|cFFG AGG2|cFAc dAcA|GcAG FDDd|!
+cFF2 dFF2|cFF2 dFF2|DEFA dAcA|GcAG FDD:|!
+g|fcc2 eceg|f2fg afde|fcc2 AFF2|GcAG FDDg|!
+fcc2 eceg|f2fg afdf|afge fdcA|GcAG FDD:|!
+c|Addc Addc|Addc AcGc|Addc AcAG|FAdc AGGc|!
+Addc Addc|Addc AGGF|DEFA dAcA|GcAG FDD:|!
+
+X:84
+T:Duke of Leinster
+Z: id:dc-reel-77
+M:C
+L:1/8
+K:G Major
+G3B dBB2|dBeB dBAB|GBB2 dBB2|dBAB GEDE|!
+G3B dBB2|dBeB dBAB|GABd g3e|dBAB GEE2|]!
+dega bgg2|agbg ageg|dega bage|dBAB GEE2|!
+dega bgg2|agbg ageg|bgag efge|dBAB GEDE|]!
+
+X:85
+T:Duke of Leinster's Wife
+Z: id:dc-reel-78
+M:C
+L:1/8
+K:G Major
+GA|BdcA GFGB|A=FF2 cFF2|BdcA GBge|fdcA BG:|!
+Bd|fgaf g2fg|abag fdde|fgaf gbag|fdcA BGBd|!
+fgaf g2fg|abag fdd^c|defg abag|fdcA BG|]!
+
+X:86
+T:Dunmore Lasses
+Z: id:dc-reel-80
+M:C
+L:1/8
+K:E Minor
+D|EDEF GFGA|Bee2 Bee2|EDEF GABG|AdBA GEFD|!
+EDEF GFGA|Beed e2ef|g2fg edBG|AdBA GEE:|!
+f|gfeg fedA|Bee2 Beef|gfeg fedB|AdBA GEEf|!
+gfeg fedA|Beed e2ef|g2fg edBG|AdBA GEE:|!
+
+X:87
+T:Earl's Chair
+Z: id:dc-reel-81
+M:C
+L:1/8
+K:D Major
+A|B2dA BAFA|B2dA BAFB|AFF2 DFF2|BAdA BDFA|!
+B2dA BAFA|B2dA BAFB|A3B defd|edef d3:|!
+f|e3f d3f|edef dBA2|e3f d3e|fedB ADFA|!
+e2df eBB2|gBB2 defg|afbf afde|fedB ADF:|!
+
+X:88
+T:Eddie Curran's Monaghan Twig
+Z: id:dc-reel-388
+M:C
+L:1/8
+K:A Mixolydian
+ed|cABd cAGB|Add2 efed|cABd cAag|effe d2:|!
+cd|eaag efed|cdef g2fg|eaa2 efge|afge d2cd|!
+eaag efed|cdef g2fg|eaa2 eaa2|gage df|]!
+
+X:89
+T:Eel in the Sink
+Z: id:dc-reel-379
+M:C
+L:1/8
+K:A Mixolydian
+e2AB cdec|d2BG dGBd|e2AB cdea|gedB BAA2:|!
+a2ea aged|cdef g2fg|a2ea agab|gedB BAA2|!
+a2ea aged|cdef g2fg|afge fdea|gedB BAA2|]!
+
+X:90
+T:Eileen Curran
+Z: id:dc-reel-82
+M:C
+L:1/8
+K:G Dorian
+A|BAGF DGGB|AFcF dFcA|BAGF DFGA|B2Bc dgga|!
+bgaf gdde|f2cB AFFA|BAGF DFGA|BdcA BGG:|!
+z|g2g^f gbag|f2fe fgaf|dgg^f g3a|bgaf dgga|!
+bgaf gdde|f2cB AFFA|BAGF DFGA|BdcA BGG:|!
+
+X:91
+T:Enchanted Lady
+Z: id:dc-reel-83
+M:C
+L:1/8
+K:D Major
+B|A2AG FAdB|AGFD EAA2|A2AG FAdB|ABde fdd:|!
+e|f2df efdf|afdf edBd|f2df efdA|BdAG FDDe|!
+f2df efdf|afdf edBA|ABAB dfbf|afeg fdd2|]!
+
+X:92
+T:Ewe
+Z: id:dc-reel-84
+M:C
+L:1/8
+K:G Major
+GF|DGGF DGGE|=F2AF cFAF|DGGF G2eg|fdcA BGAF|!
+DGGF DGGE|=F2AF cFAF|DGGF G2eg|fdcA BG:|!
+Bd|g2bg dgbg|f2af dfaf|g2bg dgbg|agfa g2ga|!
+bgaf gdde|fdcA BGBc|dggf g2ag|fdcA BG:|!
+
+X:93
+T:Fahey's
+Z: id:dc-reel-85
+M:C
+L:1/8
+K:G Major
+B|AGEG DG,B,D|BAGA BedB|AGED B,DA,D|B,A,A,2 B,EED|!
+E2DE GEDB,|D2B,E DG,B,D|EDEG DEGA|BdAB G3:|!
+B|dGG2 EGDC|B,DGB dGBd|ecc2 AcFA|DAFA fed^c|!
+dGG2 EGDC|B,DGB dGBd|ecc2 ecge|dBcA G3:|!
+
+X:94
+T:Famous Ballymote
+Z: id:dc-reel-86
+M:C
+L:1/8
+K:D Mixolydian
+E|FDAD FDAB|cBcG EFGE|FDAD FDAB|cAGE EDD:|!
+E|FDFA d3B|cBcG EFGE|FDFA d2ed|cAGE EDD:|!
+
+X:95
+T:Fantastic
+Z: id:dc-reel-87
+M:C
+L:1/8
+K:D Major
+B,|A,DDE FEDF|Adcd BAFA|BABc dBAF|GEFD EDB,D|!
+A,DDE FEDF|Adcd BAFA|BABc dBAG|FDEC D3:|!
+e|fded cAAe|fdef gbag|fded cAAF|GBAG FDDe|!
+fded cAAe|fdfa g2fa|gfge fded|cABc d3:|!
+
+X:96
+T:Farewell to Connaught
+Z: id:dc-reel-89
+M:C
+L:1/8
+K:D Mixolydian
+D2ED EGAB|cBcd c2AG|Add^c d2cd|ed^cd edd2|!
+D2ED EGAB|cBcd c2AG|AcAG EGAB|cAGE EDD2:|!
+eggf g2ed|cded cAA2|eaa^g a3=g|eaab aged|!
+eggf g2ed|cded cAAG|ABAG EGAB|cAGE EDD2:|!
+
+X:97
+T:Farewell to Erin
+Z: id:dc-reel-90
+M:C
+L:1/8
+K:D Major
+E|D2FD FAAe|fedf edBc|dBAF GFGB|AGFD EGFE|!
+D2FD FAAe|fedf edBc|dBAF GFGB|AGFD EGF:|!
+A|defg afdf|g2fg edBA|defg afdg|feed e3A|!
+defg afdf|g2fg edBA|dBAF GFGB|AGFD EGF:|!
+
+X:98
+T:Farewell to Ireland
+Z: id:dc-reel-91
+M:C
+L:1/8
+K:A Dorian
+A,3^C E3F|GEDB, G,B,DB,|A,3^C E3F|GEDF EA,A,G,|!
+A,3^C E3F|GEDB, G,2g2|edeg abaf|gedB eAA2:|!
+a3b agef|g3a gedB|eaab agef|gedB eAAg|!
+agef gage|d^cdB GABd|cAdB cdef|gedB eAA2:|!
+eAcA eAcA|d^cdB GABd|eAcA cdef|gedB eAAg|!
+eAcA eAcA|d^cdB GABd|cAdB cdef|gedB eAA2:|!
+ae^ce aece|gdBd gdBd|ae^ce a3f|gedB eAA^g|!
+agef gage|d^cdB GABd|cAdB cdef|gedB eAA2:|!
+
+X:99
+T:Farrell O'Gara
+Z: id:dc-reel-88
+M:C
+L:1/8
+K:D Major
+B,|A,DD2 A,DFA|BFAF EABc|d2cA BdAF|GEFD EDB,D|!
+A,DD2 A,DFA|BFAF EABc|d2cA BdAF|GFEG FDD:|!
+e|fdd2 fdge|fdgf edBc|dBcA Bcde|fdgf e2de|!
+[1 fdd2 fdge|fdgf edBc|dBcA BcdB|AFEF D3:|!
+[2 fgaf efdA|defe dAFD|A,DD2 A,DFA|BFAF D3|]!
+
+X:100
+T:Father Kelly's No. 1
+Z: id:dc-reel-92
+M:C
+L:1/8
+K:G Major
+GA|B2GB AGEG|DGGF G2AB|cBAB cBAG|EGAG FDGA|!
+B2GB AGEG|DGGF G2Bc|d2Bd gdBd|cAFA G2:|!
+Bc|d2Bd gdBd|d2Bd gdBd|e2ce agfe|defg agfe|!
+d2Bd gdBd|d2Bd gdBd|c2Ac B2GB|AGEF G2:|!
+
+X:101
+T:Father Kelly's No. 2
+Z: id:dc-reel-93
+M:C
+L:1/8
+K:G Major
+BddB cBAF|G2BG DGBG|A3B cBAG|EAAG ABcA|!
+d2Bd cBAF|G2BG DGBG|A3B cdef|gedc BGG2:|!
+dggf gfed|eaag ageg|fdad bdad|gfge dcBc|!
+dggf gfed|eaag agef|g3e dcBc|dBcA BGG2:|!
+
+X:102
+T:Fermoy Lasses
+Z: id:dc-reel-94
+M:C
+L:1/8
+K:E Minor
+GEE2 BEE2|GEE2 BcBA|GEE2 BEE2|AFDF AcBA|!
+GEE2 BEE2|GEE2 BcBA|G3F GBdB|AFDF AcBA:|!
+G2BG dGBG|G2Bd efg2|G2BG dGBG|AFDF AcBA|!
+G2BG dGBG|G2Bd efg2|afge dedB|AFDF AcBA:|!
+
+X:103
+T:Finbar Dwyer's
+Z: id:dc-reel-95
+M:C
+L:1/8
+K:A Mixolydian
+AG|EA,CA, EA,CA,|G,3A, B,A,B,D|EA,B,E ABAG|EB,DB, A,2AG|!
+EAAG EAGE|DB,ED B,A,B,D|EA,B,D ABAG|EB,DB, A,2:|!
+AG|EAA2 EAAF|G2DG dGBG|EAA2 fAeB|AGED B,DA,2|!
+EAA2 fAeA|EAec d2ed|c3A BdcA|^GEDB, A,2:|!
+
+X:104
+T:First House in Connaught
+Z: id:dc-reel-96
+M:C
+L:1/8
+K:G Major
+GE|DGG2 AGG2|BddB AGFE|DFF2 AFF2|ABcA BGAF|!
+DGG2 AGG2|BddB AGFA|defg agfd|cAFA G2:|!
+Bd|g2ga gfdf|g2bg gede|fede fgaf|g2ag bgaf|!
+gfga gfdf|g2bg ged^c|defg agfd|cAFA G2:|!
+
+X:105
+T:First Month of Summer
+Z: id:dc-reel-97
+M:C
+L:1/8
+K:D Major
+e|dBB2 A2FA|d2d^c defe|dBB2 A2FA|Beed effe|!
+dBB2 A2FA|d2d^c defg|affe f2ed|BABc def:|!
+g|aff2 afbf|afef afe2|afef a3e|fgfe dBAf|!
+aff2 afbf|afef afe2|faa2 fbb2|affe f3:|!
+
+X:106
+T:Fisherman's Lilt
+Z: id:dc-reel-98
+M:C
+L:1/8
+K:C Major
+A|G3E GAcd|edcB cAA2|GEE2 GAcd|edcB c3:|!
+d|egg2 agea|gede cAA2|egg2 eaa2|gaag a3g|!
+egg2 agea|gede cAA2|GEE2 GAcd|edcB c3|]!
+
+X:107
+T:Fisherman's Lilt
+Z: id:dc-reel-99
+M:C
+L:1/8
+K:D Major
+B|A3F ABde|fedc dBB2|AFF2 ABde|fedc d3:|!
+e|faa2 bafb|afef dBB2|faa2 fbb2|abba b3a|!
+faa2 bafb|afef dBB2|AFF2 ABde|fedc d3|]!
+
+X:108
+T:Five Mile Chase
+Z: id:dc-reel-100
+M:C
+L:1/8
+K:G Major
+B|G2BG dGBG|FADA FADA|G2BG dGBd|egfa gedB|!
+G2BG dGBG|FADA FADA|G2BG dGBd|egfa g3|]!
+f|gdBd edBd|gabg agef|gdBd edBd|egfa g3f|!
+gabg efge|dedc BGBd|e3f edBd|egfa ged|]!
+
+X:109
+T:Flax in Bloom
+Z: id:dc-reel-101
+M:C
+L:1/8
+K:D Major
+z|D2FD FAAf|gefd edBd|A2FA dfaf|gefd edBd|!
+D2FD FAAf|gefd edBd|A2FA ABdf|afeg fdd:|!
+e|f2df e2ce|dcdA BAFA|DFAd FAdf|gefd edBd|!
+f2df e2ce|dcdA BAFA|DFAd FAdf|afeg fdd:|!
+
+X:110
+T:Floating Crowbar
+Z: id:dc-reel-102
+M:C
+L:1/8
+K:D Mixolydian
+dB|ADFD ADFD|ADFD A2GF|EGG2 AGG2|EDCD EFGB|!
+ADFD ADFD|ADFD G2FG|AGAB cded|cAGE D2:|!
+dB|Add^c d2cd|eaag egdB|A3B AFF2|A2GF EFGB|!
+Add^c d2cd|eaag egg2|agg2 eged|cAGE D2:|!
+
+X:111
+T:Flogging
+Z: id:dc-reel-103
+M:C
+L:1/8
+K:G Major
+A|BGG2 BGdG|BGG2 Bdgd|BGG2 BdcB|AGFG ABc:|!
+A|gfgd BGBd|gfge fgaf|gfgd BGBd|AGFG ABcA|!
+gfgd BGBd|gfge fgaf|bgaf gedB|AGFG ABc|]!
+A|Bdgd Bdgd|Bdgd BGGB|Ac=fc Acfc|Ac=fc A=FFA|!
+Bdgd Bdgd|Bdef gfga|bgaf gedB|AGFG ABc|]!
+
+X:112
+T:Flower of the Flock
+Z: id:dc-reel-104
+M:C
+L:1/8
+K:G Major
+GE|DEGA BGGB|cABG AGEG|DEGA BABc|dBAB G2:|!
+Bd|g3e d3B|cABG AGEG|g3e d2Bd|eaab agef|!
+g3e d3B|cABG AGEG|DEGA BABc|dBAB G2:|!
+
+X:113
+T:Flowers of Red Hill
+Z: id:dc-reel-105
+M:C
+L:1/8
+K:A Dorian
+eAA2 gAfA|eAA2 edBd|eAA2 e2af|gedB GABd:|!
+eaa2 baa2|eaag egdg|eaa2 baa2|edef gedg|!
+eaa2 baa2|eaaf g3a|b3g aged|eaag edBd|]!
+
+X:114
+T:For the Sake of Old Decency
+Z: id:dc-reel-106
+M:C
+L:1/8
+K:G Major
+e|d2BG AGEG|DGBG A3B|d2BG AGAB|dBAG EGG:|!
+D|G3B d2Bd|eaag egg2|G3B d2Bd|egga bgg2|!
+G3B d2Bd|eaag egga|bgg2 efge|dega bag|]!
+
+X:115
+T:Foxhunter's
+Z: id:dc-reel-107
+M:C
+L:1/8
+K:G Major
+d2BG dGBG|dGBG AGEG|d2BG dGBG|GABG AGEG:|!
+D3B BAGE|D2BG AGEG|D3B BABG|AcBG AGEG:|!
+gedB G2Bd|gdBd eAA2|gedB GBdB|ABcd eAA2:|!
+dggf g3e|dgg2 egdB|dggf g3d|egdB AGAB:|!
+G2BG dGBA|GBB2 AGAB|G2BG dGBd|egdB AGAB:|!
+
+X:116
+T:Foxhunter's
+Z: id:dc-reel-108
+M:C
+L:1/8
+K:A Major
+e2cA eAcA|eAcA BAFA|e2cA eAcA|ABcA BAFA:|!
+E3c cBAF|E2cA BAFA|E3c cBcA|BdcA BAFA:|!
+afec A2ce|aece fBB2|afec Acec|Bcde fBB2:|!
+eaag a3f|eaa2 faec|eaag a3e|faec BABc:|!
+A2cA eAcB|Acc2 BABc|A2cA eAce|faec BABc:|!
+
+X:117
+T:Fox on the Town
+Z: id:dc-reel-364
+M:C
+L:1/8
+K:G Major
+Bd|gedB edBA|G2BG DGBd|gedB edef|g3f efga|!
+beed edBA|G2BG DGBd|efgb adfa|gbaf g2:|!
+ga|beed Bdge|dBB2 dega|bee2 bege|efgb a2gf|!
+g3e dedB|GBdg edBd|efgb adfa|gbaf g2:|!
+
+X:118
+T:Fred Finn's
+Z: id:dc-reel-109
+M:C
+L:1/8
+K:D Major
+B|A3F ABde|fdec d2cd|BEE2 G3B|AFF2 dFAF|!
+A3F ABde|fdec d2cd|BAGB ABde|faeg fdd:|!
+e|fdad bdaf|dfaf gfed|fbba b3a|fbba feeg|!
+fdad bdaf|dfaf gfed|BAGB ABde|faeg fdd:|!
+
+X:119
+T:Gatehouse Maid
+Z: id:dc-reel-110
+M:C
+L:1/8
+K:A Dorian
+A2Bd edBA|GFGA GED2|A2Bd edBd|egdB BAA2:|!
+a2ea agef|g2dg Bgdg|a2ea agab|gedB BAA2|!
+agab agef|g2af gedB|dega bgaf|gedB BAA2|]!
+
+X:120
+T:George White's Fancy
+Z: id:dc-reel-111
+M:C
+L:1/8
+K:G Major
+Bd|eBB2 eBdB|AGAB GED2|GBB2 GBB2|gedB A2Bd|!
+eBB2 eBdB|AGAB GED2|GABd gedB|AGAB G2:|!
+Bd|gede gaba|gfga gedB|dega bgag|eaag a2ga|!
+bgeg dged|gede gaba|gfgd egdB|AGAB G2:|!
+
+X:121
+T:Girl that Broke My Heart
+Z: id:dc-reel-257
+M:C
+L:1/8
+K:G Dorian
+A|B2AG FDCF|DGG^F GABc|d2dd cAGF|DFFE FAdc|!
+B2AG FDCF|DGG^F GABc|defd cAGF|[1 DGG^F G3:|[2 DGG^F GDE|]!
+K:G Mixolydian
+^F|G2Bd gdBG|F2Ac fcAF|G2Bd gdBd|c2cd cA^FA|!
+G2Bd gdBG|F2Ac fcAF|GABd cAGF|[1 DGG^F GDE:|[2 DGG^F G3|]!
+
+X:122
+T:Gladstone
+Z: id:dc-reel-113
+M:C
+L:1/8
+K:A Major
+ed|cAdB efga|A2cA BGEd|cAdB efga|ecdB A2:|!
+eg|afba geag|fdgf eAce|dcBd cBAc|B3c defg|!
+aAA2 cee2|a2ga faec|defd ceaf|ecdB A2|]!
+
+X:123
+T:Glass of Beer
+Z: id:dc-reel-378
+M:C
+L:1/8
+K:B Minor
+de|fBB2 fBaB|fBB2 e2de|fBB2 fgfe|dfaf e2:|!
+dc|d3e fgfe|defd edBc|d3e fgfe|dfaf e2:|!
+
+X:124
+T:Glen Allen
+Z: id:dc-reel-114
+M:C
+L:1/8
+K:G Major
+DE|G2DG EGDE|G2BG AGEG|A2EA FAEA|ABcd edBA|!
+G2DG EGDE|G2BG AGEG|cBcd efge|dBAB G2:|!
+Bd|g2dg egde|g2bg ageg|a2ea fae^g|a2bg agef|!
+g2dg egde|g2bg aged|cBcd efge|dBAB G2:|!
+
+X:125
+T:Glen Road to Carrick
+Z: id:dc-reel-115
+M:C
+L:1/8
+K:D Mixolydian
+zAG|FDD2 FDGE|FDFG ABGA|FDD2 FDGF|EdcA G:|!
+zFG|AddB ABAF|AddB A2FG|AddB AGFD|EdcA G2FG|!
+AddB ABAF|AddB A2B^c|defd AGFD|EdcA G|]!
+zge|fdd2 fdge|fdfg abag|fdd2 fdef|g2ag f:|!
+zge|f3e d^cdB|AFF2 A2B^c|defd AGFD|EdcA G:|!
+AB^c|dDD2 ADD2|dDD2 A2B^c|dDD2 AGFD|EdcA GAB^c|!
+dDD2 AD^cD|dD^cD A2Bc|defd AGFD|EdcA G|]!
+
+X:126
+T:Golden Keyboard
+Z: id:dc-reel-116
+M:C
+L:1/8
+K:E Dorian
+D|EDEF GFGA|BBgB fBeB|BEEF GBAG|FDAD BDAF|!
+EDEF GFGA|BBgB fBec|dcde dBAF|DFAF FEE:|!
+A|Bee2 Bee2|Beef edBc|dAA2 fAA2|dcde dBAF|!
+EDEF GFGA|BBgB fBec|dcde dBAF|DFAF FEE:|!
+
+X:127
+T:Gooseberry Bush
+Z: id:dc-reel-117
+M:C
+L:1/8
+K:D Mixolydian
+A,|DEFD EFGB|AGAB c2AG|ABcA dcAG|FDEF GBAF|!
+DEFD EFGB|ABcA d^cde|f2ef dfed|cAGE D3:|!
+B|Add2 fded|cded cAGc|ABcA GEED|EGAB c2AG|!
+Add2 fded|cded cAGc|ABcA dcAG|ABcA d3:|!
+B|Add2 fdd2|efge aged|^cdef g2ef|g3e dcA^c|!
+d2AB GBAG|FGAB c2AG|ABcA dcAG|ABcA d3:|!
+
+X:128
+T:Gorman's
+Z: id:dc-reel-118
+M:C
+L:1/8
+K:D Major
+A3B defa|a2fd efdB|A3B defe|dBAF EFD2:|!
+a3f defa|a2fd efdf|a3f defe|dBAF EFD2|!
+a3f defa|a2fd efdB|A3B defe|dBAF EFD2|]!
+
+X:129
+T:Graf Spey
+Z: id:dc-reel-119
+M:C
+L:1/8
+K:C Major
+EDCD EGG2|AGcG AGcG|EDCD EGG2|AGcG EDD2:|!
+efed cBcA|GEE2 GAcd|eged cBcA|GEcE EDD2|!
+eccB cAGE|GEE2 GAcd|eaag eged|cAGE EDD2|]!
+egg^f g4|eaa^g a3=g|eged c3d|egag eddf:|!
+eccB cAGE|G2Ac cAGE|GAcd ecdc|AGcE EDD2:|!
+egcg egcg|^fada fada|egcg egcg|ABcd edd2|!
+g2a^f ge=fd|ecdB cAGE|GAcd ecdc|AGcE EDD2|]!
+
+X:130
+T:Graf Spey
+Z: id:dc-reel-120
+M:C
+L:1/8
+K:D Major
+FEDE FAA2|BAdA BAdA|FEDE FAA2|BAdA FEE2:|!
+fgfe dcdB|AFF2 ABde|fafe dcdB|AFdF FEE2|!
+fddc dBAF|AFF2 ABde|fbba fafe|dBAF FEE2|]!
+faa^g a4|fbb^a b3=a|fafe d3e|faba feeg:|!
+fddc dBAF|A2Bd dBAF|ABde fded|BAdF FEE2:|!
+fada fada|^gbeb gbeb|fada fada|Bcde fee2|!
+a2b^g af=ge|fdec dBAF|ABde fded|BAdF FEE2|]!
+
+X:131
+T:Grant's
+Z: id:dc-reel-121
+M:C
+L:1/8
+K:E Major
+agf|e2BA GBEB|GBEB GEB,A,|B,EGE B,EGE|FGFE DB,B,d|!
+e2BA GBEB|GBEB GEB=d|cBAa gfed|fedf e:|!
+Bcd|efga bgeg|fcfe dfBd|efga bgeg|fedc B3=d|!
+cAce BGBe|AFA=d F=DFA|EGBe gfed|fedf e:|!
+
+X:132
+T:Gravel Walk
+Z: id:dc-reel-122
+M:C
+L:1/8
+K:A Dorian
+A2eA BAeB|A2ed BAGB|A2eA Bdef|gedc BAGB:|!
+A2aA gAfA|A2ed BAGB|A2aA gAfA|efge dBGB|!
+A2aA gAfA|A2ed BAGB|ABcd egfa|gedc BAGB|]!
+cAAG A3B|cAA2 dBGB|cAAG A3f|gfge dBGB:|!
+c2gc acgc|c2gc BAGB|c2gc acga|gedc BAGB|!
+c2gc acgc|c2gc BAGB|ABcd egfa|gedc BAGB:|!
+
+X:133
+T:Green Banks of Rossbeigh
+Z: id:dc-reel-123
+M:C
+L:1/8
+K:E Dorian
+dc|BEE2 BAFB|ABde fded|BEE2 BAFA|BFAF DEFA|!
+B2Bd BAFB|ABde fded|BEE2 BAFA|BFAF E2:|!
+FA|Bdef gfge|dBB2 dBA2|Bdef gfge|dBAF E2ef|!
+g2ga gfed|f2fg fedB|ABde fgfe|dBAF E2:|!
+
+X:134
+T:Green Fields of America
+Z: id:dc-reel-124
+M:C
+L:1/8
+K:G Major
+B|c2ec B2dB|AGAB GEDE|GAGE DEGB|AGAB AGAB|!
+c2ec B2dB|AGAB GEDE|GAGE DEGB|AGAB G3:|!
+D|GABc d2ef|g3e dBGB|c2ec B2dB|AGAB GED|!
+[1 E|GABc d2ef|g3e dBGB|c2ec B2dB|AGAB G3:|!
+[2 f|gfgd efge|dedc BGEF|GAGE DEGB|AGAB G3|]!
+
+X:135
+T:Green Garters
+Z: id:dc-reel-374
+M:C
+L:1/8
+K:D Major
+defd Adfd|defa gece|defd Adfd|edcd efge:|!
+agfg afdf|a2fd efge|agfg afdf|edcd efge|!
+agfg afdf|a2fd efge|afge fdec|ABcd efge|]!
+ddad bdad|ddad eAce|ddad bdad|edcd efge|!
+ddad bdad|ddad eAce|afge fdec|ABcd efge|]!
+
+X:136
+T:Green Gates
+Z: id:dc-reel-125
+M:C
+L:1/8
+K:G Major
+D|GBdg egdB|GBdg egdf|eAcA eAcA|cdef gedB|!
+GBdg egdB|GBdg e2dB|cdef gedc|BGAF G3:|!
+B|dgg2 bgg2|dgfg egdf|eAcA eAcA|cdef gedB|!
+dgg2 bgg2|dgfg e2dB|cdef gedc|BGAF G3:|!
+
+X:137
+T:Green Groves of Erin
+Z: id:dc-reel-126
+M:C
+L:1/8
+K:A Dorian
+A2cA eAcA|G2Bd gdBG|A2cA eAcA|BEEF GABc|!
+A2cA eAcA|G2Bd gdBG|A2cA eAcA|BEEF GABc:|!
+eaa2 eaa2|egg2 agfg|eaa^g a3=g|egfa gedB|!
+eaa2 bgag|edef g3e|dega bgag|egfa gedB:|!
+
+X:138
+T:Guns of the Magnificent Seven
+Z: id:dc-reel-127
+M:4/4
+L:1/8
+K:A Dorian
+EAAG ABcA|EAFA GEDG|EAAG ABcd|egdB cAA2:|!
+ABcd eAAf|gedc BGGB|ABcd eaaf|gedB cAA2:|!
+M:3/4 egdB A2| M:4/4 egdB GABd|eBdB Aaaf|gedB cAA2:|!
+
+X:139
+T:Hand Me Down the Tackle
+Z: id:dc-reel-128
+M:C
+L:1/8
+K:D Major
+dDD2 FAA2|dfaf gfec|dDD2 FAA2|BGEF GABc|!
+dDD2 FAA2|dfaf gfeg|faec dBAF|GFEF GABc:|!
+d2fd Adfd|d2fd BAA2|d2fd Adfd|BGEF GABc|!
+d2fd Adfd|Bdef g3e|faec dBAF|GFEF GABc|!
+d2fd Adfd|d2fd BAA2|d2fd Adfd|Bdef g2fg|!
+a^gab aff2|gfef gbag|faec dBAF|GFEF GABc|]!
+
+X:140
+T:Hare's Foot
+Z: id:dc-reel-129
+M:C
+L:1/8
+K:E Dorian
+BA|G3A BEE2|BEdE BEEF|GFGA BABd|egfd ed:|!
+ef|g2fg edBc|d2ed Bdd2|g2fg edBd|egfd e2ef|!
+g2fg edBc|d2ed Bdd2|bgaf gfed|egfd ed|]!
+
+X:141
+T:Heather Breeze
+Z: id:dc-reel-365
+M:C
+L:1/8
+K:G Major
+GE|DGBG dGBG|DFAF cFAF|DGBG dGBG|BdAc BG:|!
+Bd|g3f gbag|fdde fgaf|g3f gbag|fdcA BGBd|!
+g3f gbag|fdde fgaf|bgaf gedB|cedc BG|]!
+ga|bgdg bagb|afdf agfa|bgdg bgag|fdcA BGga|!
+bgdg bagb|afdf agfa|bgaf gedB|cedc BG|]!
+
+X:142
+T:Heathery Cruach
+Z: id:dc-reel-130
+M:C
+L:1/8
+K:D Major
+Bc|d2AG FDAG|FDAF E2Bc|d2AG FDAG|FGAF Dgfe|!
+d2AG FDAG|FDAF E2FG|ABAG FDDE|FGAF D2:|!
+ed|cAA2 cAGE|cBcd efed|cAA2 cAAG|EFGE D2ed|!
+cAA2 cAGE|cBcd efe2|fded cAAG|EFGE D2:|!
+
+X:143
+T:High
+Z: id:dc-reel-131
+M:C
+L:1/8
+K:A Mixolydian
+a2fa ecA2|cAeA fAeA|a2fa ecA2|Bcdc BGG2|!
+a2fa ecA2|cdef g2fg|afge fdec|Bcdc BGG2:|!
+cAeA fAeA|cAaf ecA2|cAeA fAec|Bcdc BGG2|!
+cAeA fAed|cdef g2fg|afge fdec|Bcdc BGG2:|!
+
+X:144
+T:High Road to Linton
+Z: id:dc-reel-132
+M:C
+L:1/8
+K:A Mixolydian
+cefe a3e|fece faae|cefe a3e|faec B2A2:|!
+ceeg fddf|ecce fBB2|ceeg fddf|ecac B2A2:|!
+a2a2 efae|faef aefe|a2a2 efae|faec B2A2:|!
+cdec defd|cdec BcdB|cdec defd|eaec B2A2:|!
+
+X:145
+T:Holy Land
+Z: id:dc-reel-133
+M:C
+L:1/8
+K:D Major
+A|B3d A2Bc|dFF2 DFA=c|BGG2 ABdf|afeg fdd:|!
+e|f2df dfaf|gfed cdeg|f2df dfaf|gfeg fdde|!
+f2df dfaf|gfed cdef|dfaf g2ag|f2eg fdd|]!
+
+X:146
+T:Honeymoon
+Z: id:dc-reel-134
+M:C
+L:1/8
+K:G Major
+dc|BGAF DGG2|Bdef gedc|BGG2 DGG2|BedB A2dc|!
+BGAF DGG2|Bdef g3a|bgaf gfed|egdB A2:|!
+Bd|e3f edBA|Bdef gedc|BGG2 DGG2|BedB A2Bd|!
+e3f edBA|Bdef g3a|bgaf gfed|egdB A2:|!
+
+X:147
+T:Hughie Travers'
+Z: id:dc-reel-135
+M:C
+L:1/8
+K:G Major
+e|dBBA B2GB|dBGB AGED|GABd gaba|gedB A2ge|!
+dBBA B2GB|dBGB AGED|GABd gaba|gedB G3:|!
+A|Bdd2 edd2|gdfd edgd|Bdef g2bg|gedB A2GA|!
+Bdd2 edd2|gdfd edgd|Bdef g2bg|gedB G3:|!
+
+X:148
+T:Humours of Ballyconnell
+Z: id:dc-reel-136
+M:C
+L:1/8
+K:D Major
+zA|defe dBAF|BFAF E3A|defe dBAF|GBAF D2:|!
+AG|FDAD BDAD|GEBE cEBE|FDAD BDAF|GBAF D2:|!
+fg|a2b^g a2ef|gece gece|a2b^g a2ef|gecA d2:|!
+
+X:149
+T:Humours of Lisadell
+Z: id:dc-reel-137
+M:C
+L:1/8
+K:E Dorian
+f|eBB2 eBdB|AFF2 EDB,A,|B,EE2 B,EGE|FBB2 FB,Df|!
+eBB2 eBdB|AFF2 EDB,A,|B,EED EFGA|Bdef e3:|!
+f|eBB2 A2FA|defd edef|dff2 dfbf|afef edef|!
+defd BcdB|AFF2 ABde|fddc dfbf|afef e3:|!
+
+X:150
+T:Humours of Scarriff
+Z: id:dc-reel-138
+M:C
+L:1/8
+K:D Dorian
+Adde f2ed|cAGc AcGc|Adde f2ed|cAGE EDD2:|!
+ecgc acgc|ecgc eaa2|ecgc acgc|edd2 edd2|!
+ecgc acgc|ecgc eaa2|abag eged|cAGE EDD2|]!
+
+X:151
+T:Humours of Tulla
+Z: id:dc-reel-139
+M:C
+L:1/8
+K:D Major
+fe|d2Ad BdAB|d2fd edBA|d2Ad BdAd|Bdef g2:|!
+fg|aff2 dff2|aff2gee2|aff2 dfed|Bdef g2:|!
+
+X:152
+T:Humours of Westport
+Z: id:dc-reel-140
+M:C
+L:1/8
+K:F Major
+dcB|AFcF dFcF|AFcA BdcB|AFcF dFcA|BAGA BdcB|!
+AFcF dFcF|AFcA BdcB|Acfa gefc|BAGA B:|!
+cde|f3e fcAc|f3e fage|fage fcAc|BAGA Bcde|!
+f3e fcAc|f3e fagb|afge fcAc|BAGA B:|!
+
+X:153
+T:Hunter's House
+Z: id:dc-reel-141
+M:C
+L:1/8
+K:G Major
+dc|BddB cAFA|G2BG DGBG|BddB cAFA|GBAG FDCA,|!
+DGBG cGBG|cBAF GABc|defg agfd|cAFA G2:|!
+dc|B2gB aBgB|B2gf edcB|A2aA bAaA|A2af gfed|!
+B2gB aBgB|B2gf edcB|[1 cBAg fdBd|cAFA GB:|[2 cBAg fgaf|gdBd cA|]!
+
+X:154
+T:Hunter's Purse
+Z: id:dc-reel-142
+M:C
+L:1/8
+K:A Dorian
+gf|eAA2 AGEF|G2AF GED2|cBcd eged|Bdef gedB|!
+eAA2 AGEF|G2AF GED2|cBcd eged|cABG A2:|!
+Bd|eaa2 agef|g2af gedB|cBcd eged|Bdef gedB|!
+eaa2 agef|g2af gedB|cBcd eged|cABG A2:|!
+
+X:155
+T:I'm Waiting for You
+Z: id:dc-reel-360
+M:C
+L:1/8
+K:G Major
+DF|G2dG BGdG|AGFG ABcA|BAGF GABc|defd cAFA|!
+BGG2 BGAG|FGAB cBcA|BGBd cBAG|FDEF G2:|!
+Bd|g2fg edBG|FDAD BDAD|EDEF GFGA|Bd^ce d2ef|!
+g2fg edBG|FDAD BDAD|G2FE DGBd|cAFA G2:|!
+
+X:156
+T:Jackie Coleman's
+Z: id:dc-reel-143
+M:C
+L:1/8
+K:D Major
+B|AFF2 EFDE|F2AF BFAF|E2BE dEBE|ABde fedB|!
+AFF2 EFDE|F2AF BFAF|E2BE dEBE|ABde fdd:|!
+e|fddc dfag|fddc dfaf|eAA2 eAfA|eAA2 efge|!
+fddc dfag|fddc dfaf|g3f gbag|faeg fdd:|!
+
+X:157
+T:Jackson's No. 1
+Z: id:dc-reel-144
+M:C
+L:1/8
+K:D Major
+A,|D2FD EDFE|DEFD EA,A,2|CEE2 GBed|cABc dBAF|!
+D2FD EDFE|DEFD EA,A,2|CEE2 GBed|cAGE D3:|!
+e|fddc dfaf|e2ce fece|A2cA BAcB|ABcA Bcde|!
+fddc dfaf|e2ce fece|A2ce faeg|fddc d3:|!
+B|A3B AFF2|F2AF GFED|EDEF GFEF|GBed cAGE|!
+D2FD EDFE|DEFD EA,A,2|CEE2 GBed|cAGE D3|]!
+
+X:158
+T:Jackson's No. 2
+Z: id:dc-reel-145
+M:C
+L:1/8
+K:D Major
+B|A3B AFDF|A2FD GECE|A3d BdAG|FDD2 EFGE|!
+A3B AFDF|A2FD GECE|A3d BdAG|FDD2 EFG|]!
+E|FDD2 FDGE|FDD2 GECE|FDD2 FDGF|EDCD EFG:|!
+A|dff2 dffe|dcdB ADFA|cee2 fecA|BAGB ADFA|!
+dff2 dffe|dcdB ADFA|cee2 faec|dfec d3|]!
+
+X:159
+T:Jenny Picking Cockles
+Z: id:dc-reel-146
+M:C
+L:1/8
+K:D Mixolydian
+Addc AGEF|GEcE dEcE|Addc AGEF|GEcE EDD2|!
+Addc AGEF|G2AB c3d|eddc AGEF|GEcE EDD2:|!
+f3d e3d|cAAB cdeg|f3d e3d|eaag edd2|!
+f3d e3d|cAAB c3d|eddc AGEF|GEcE EDD2:|!
+
+X:160
+T:Jenny Rocking the Cradle
+Z: id:dc-reel-147
+M:C
+L:1/8
+K:D Major
+FE|DFFd AFFA|DFFd ABAF|DFFd AFFA|BEEF G2:|!
+FE|DFAF BFAF|DFAF ABAF|DFAF BFAF|BEEF G2:|!
+FE|DFAB =cBAF|DFAF ABAF|DFAB =cBAc|BEEF G2FE|!
+DFAB =cBAF|DFAF ABAc|dBcA BGAF|BEEF G2|]!
+FE|DFdf ecdF|DFdF ABAF|DFdf ecdA|BEEF G2:|!
+eg|fdd2 Add2|fdde fgag|fdd2 Add2|eAce g2:|!
+eg|fdec dBAF|DFAF BFAg|fdec dBAF|BEEF G2:|!
+Bc|dAFA DAFA|dAFG A2Bc|dAFA DAFA|BEEF G2Bc|!
+dAFA DAFA|dAFG A2Bc|dBcA BGAF|BEEF G2|]!
+
+X:161
+T:Jenny's Chickens
+Z: id:dc-reel-148
+M:C
+L:1/8
+K:F# Minor
+f2ae fece|f2ae fece|f2ae fece|fgaf eAce:|!
+K:B Minor
+fBBA B3e|fBB2 eAce|fBBA B3e|fgaf eAce|!
+fBBB gBBB|aBBB bBBB|fBBA B3e|fgaf eAce|]!
+BBbB aBgB|BBaf eAce|BBbB aBgB|fgaf eAce:|!
+
+X:162
+T:Jenny's Wedding
+Z: id:dc-reel-149
+M:C
+L:1/8
+K:D Mixolydian
+z|D2FD ADFD|Adde fded|cAAB c3d|eaag ed^cd|!
+D2FA defd|cAAB cdeg|fde^c d2=cA|BdAG FDD:|!
+K:D Major
+A|d2fd adfd|ecAB cdec|d2fd adfd|cdeg fddA|!
+d2fd adfd|cdef g2fg|afge fdec|dBAG FDD:|!
+
+X:163
+T:Jenny's Welcome to Charlie
+Z: id:dc-reel-150
+M:C
+L:1/8
+K:D Mixolydian
+D3B AGFD|E2cE dEcE|D2BD AGFD|E2cE EDD2|!
+D3B AGFD|E2cE dEcd|eddc AGEF|GEcE EDD2:|!
+K:D Dorian
+f3d e3d|cAAG AcG2|f3d ed^cd|eaag edd2|!
+f3d e3d|cAAG A2cd|eddc AGEF|GEcE EDD2:|!
+K:D Mixolydian
+a3b agef|g2af gedB|eaa2 ageg|agag egdg|!
+a3b agef|g2af gedB|ABcd eddc|AGcE EDD2:|!
+K:D Dorian
+Add^c def2|AccB cAG2|Add^c defg|eaag edd2|!
+Add^c d=cAB|c2ec cAGE|DEFG AddB|cBcG EFGE:|!
+
+X:164
+T:Jig Away the Donkey
+Z: id:dc-reel-151
+M:C
+L:1/8
+K:D Major
+E|F3d cAAB|cAcA cAGE|F3d cAAB|cAGE FDD:|!
+A|defg a2ba|gfed cdeA|defg a3A|ABAG FDDA|!
+defg a2ba|gfed cdeg|a3g e3d|cAGE FDD|]!
+
+X:165
+T:John Brennan's
+Z: id:dc-reel-152
+M:C
+L:1/8
+K:D Major
+z|D2FA d2ed|cdBd AFF2|BAGB ADFA|BAGF EGFE|!
+D2FA d2ed|cdBd AFF2|BAGB ABde|faeg fdd:|!
+e|f2df e2de|fedB AFF2|BAGB ADFA|BAGF EFGe|!
+f2df e2de|fedB AFF2|BAGB ABde|faeg fdd:|!
+
+X:166
+T:John Dwyer's
+Z: id:dc-reel-153
+M:C
+L:1/8
+K:G Major
+ge|dBB2 GEDE|GBB2 dBGB|A2AB AGED|EGAB c2ge|!
+dBB2 GEDE|GBB2 dBGA|B2BA BcdB|AcBA G2:|!
+ga|bgg2 bgg2|aff2 aff2|bgg2 aged|eaa2 eaa2|!
+bgg2 agef|g3e dBGA|B2BA BcdB|AcBA G2:|!
+
+X:167
+T:Johnny Allen's
+Z: id:dc-reel-154
+M:C
+L:1/8
+K:D Mixolydian
+FG|A2BG AGFD|EccB cdcB|A2BG AGFG|DGGF G2FG|!
+A2BG AGFG|Adde f2fg|afge fde^c|dcAF|G2:|!
+FG|A3g fde^c|Add2 AddB|A3g fde^c|dcAF G2FG|!
+A3g fde^c|Adde f2fg|afge fde^c|dcAF|G2:|!
+
+X:168
+T:John Stenson's No. 1
+Z: id:dc-reel-155
+M:C
+L:1/8
+K:D Major
+e|fBBA Bcde|fBBc d3e|fBBA Bcde|[1 faaf efd:|[2 faaf eAB|]!
+c|dAfA aAfA|abaf edBc|dAfA aAfA|abaf e3:|!
+
+X:169
+T:John Stenson's No. 2
+Z: id:dc-reel-156
+M:C
+L:1/8
+K:A Major
+cB|ABcA B2cB|ABcA BAFB|ABcA B3f|e2cA BAFB|!
+ABcA B2cB|ABcA BAFA|d3c dfed|cdBc A2:|!
+ef|e2cd edcd|edcA BAFf|e2cd edcA|BdcA BAFf|!
+e2cd edcd|edcA BAFA|d3c dfed|cdBc A2:|!
+
+X:170
+T:Jolly Clamdiggers
+Z: id:dc-reel-157
+M:C
+L:1/8
+K:D Major
+A|d2FB AFEF|Dddc BABc|dFF2 AFF2|EDCE Dgfe|!
+d2FB AFEF|Dddc BABc|dFF2 AFF2|EDCE D3|]!
+A|defd egfd|A2cA eAcA|defd e2fg|abag fdec|!
+defd egfd|A2cA eAcA|defg abag|fdec d3|]!
+
+X:171
+T:Jolly Tinker
+Z: id:dc-reel-158
+M:C
+L:1/8
+K:A Mixolydian
+dB|A3B G3B|A3f gedB|A3B G3B|dBGB d2:|!
+ed|edef g2ef|g2af gedg|edeg a2bg|a2bg ag:|!
+ed|eaag edBd|eaag egdg|eaag efge|dBGB d2Bd|!
+eaag eaag|eaag egdg|eaag efge|dBGB d2|]!
+Bd|edgd edgd|edgd e2Bd|edef gage|dBGB d2:|!
+fg|eAA2 edBd|edef g2fg|eAA2 efge|dBGB d2fg|!
+eAA2 edBd|edef g2fg|eaag efge|dBGB d2|]!
+
+X:172
+T:Jug of Punch No. 1
+Z: id:dc-reel-159
+M:C
+L:1/8
+K:D Dorian
+A,DDE F3G|A2Gc Add2|A,DDE FDdB|cAGE FDEC|!
+A,DDE F3G|A2Gc Adde|fdd2 dcAd|cAGE FDD2:|!
+d3A c3A|d3A cAGA|d3A c3A|GEcE EDD2|!
+d3A c3A|d3A cAGA|fdd2 dcAd|cAGE FDD2:|!
+
+X:173
+T:Jug of Punch No. 2
+Z: id:dc-reel-160
+M:C
+L:1/8
+K:D Dorian
+C|A,DDC DEFG|AGG2 AFGF|EA,A,B, CDEF|G2AG FDEC|!
+A,DDE F2DE|F2ED CDEG|cded cAGE|FDEC D3:|!
+c|Adde fsedf|efed cAAG|AEAB c3d|eaag edcA|!
+d3e fedf|efed cAAB|c3A B2AG|FDEC D3:|!
+
+X:174
+T:Julia Delaney
+Z: id:dc-reel-161
+M:C
+L:1/8
+K:D Minor
+A|dcAG F2DF|E2CE F2DF|dcAG F2DF|Add^c defe|!
+dcAG F2DF|E2CE F2DF|dcAG F2DF|Add^c d3:|!
+e|fede fagf|ecgc acgc|fede fagf|edcA Adde|!
+fede fagf|ecgc acgc|fedf edcA|Add^c d3:|!
+
+X:175
+T:Kerry Reel
+Z: id:dc-reel-162
+M:C
+L:1/8
+K:E Dorian
+A|Beed BcdA|B2AF EFGA|Beed BcdA|B2AF D2F:|!
+A|Beec d2fd|edBc dBA2|Beec d2fd|edBc d3A|!
+Beec d2fd|edBc dBAf|g2ge f2fe|dBAB e3|]!
+
+X:176
+T:Kevin Keegan
+Z: id:dc-reel-381
+M:C
+L:1/8
+K:D Major
+de|fgfe d2Bd|ADFD ADFA|fgfe dfab|afdf edBc|!
+dBcA BAGB|ADFD ADFA|baa2 fdd2|egfe d2:|!
+Bc|d2fd adfa|bagb agfe|d2fd adfd|cAeA fAec|!
+d2fd adfa|bagb a3f|g3e fgaf|gfed cA:|!
+
+X:177
+T:Kilfodda
+Z: id:dc-reel-163
+M:C
+L:1/8
+K:F Major
+ddc|AdcA GcAG|FAGF DGFD|CA,A,2 CDFG|AFF2 GABG|!
+AdcA G2AG|F2GF DGFD|CA,A,2 CDFG|AcGE F:|!
+GAB|c2Ac BAGE|F2AF GFDF|CFF2 dFcF|BAGF EFGA|!
+BABd cAGF|dcde fcAF|CFAF DFBd|cAGA F:|!
+
+X:178
+T:Kilfodda
+Z: id:dc-reel-164
+M:C
+L:1/8
+K:G Major
+eed|BedB AdBA|GBAG EAGE|DB,B,2 DEGA|BGG2 ABcA|!
+BedB A2BA|G2AG EAGE|DB,B,2 DEGA|BdAF G:|!
+ABc|d2Bd cBAF|G2BG AGEG|DGG2 eGdG|cBAG FGAB|!
+cBce dBAG|edef gdBG|DGBG EGce|dBAB G:|!
+
+X:179
+T:Killarney Boys of Pleasure
+Z: id:dc-reel-386
+M:C
+L:1/8
+K:E Dorian
+D|E2ED E2FA|BFAF DEFA|B2Bd e2ed|BdAF DEFD|!
+E2ED E2FA|BFAF DEFA|B2Bd e2ed|BdAF FEE:|!
+A|Bee2 Bee2|BdAF DEFA|f2fe f2fe|dBAF DEFA|!
+Bee2 Bee2|BdAF DEFA|f2fe defe|dBAF FEE:|!
+
+
+X:180
+T:Killavil
+Z: id:dc-reel-383
+M:C
+L:1/8
+K:D Major
+F|D2AD BDAD|D2AD BDAD|E2BE dEBE|BABc dBAF|!
+D2AD BDAD|D2AD BDAD|GFEF GABc|d2fd BdA:|!
+B|d2fd Adfa|g2fg edBc|d2fd Adfa|g2fg e2A2|!
+d2fd Adfa|g2fg edBc|dcBA Bcde|f2ed BdA:|!
+
+X:181
+T:Killavil Fancy
+Z: id:dc-reel-165
+M:C
+L:1/8
+K:G Major
+E|DGBG A2BA|GEE2 cEGE|DGBG A2BA|GEED EFGA|!
+B3d A2BA|GEE2 cEGE|DGBG A2BA|GEED EFG|]!
+A|GABd edge|dBB2 dBAB|GABd edge|dBAB G3A|!
+GABd edge|dBB2 dega|bggb ageg|dBAB G3|]!
+
+X:182
+T:Killoran's
+Z: id:dc-reel-166
+M:C
+L:1/8
+K:D Major
+A|d3A B2AF|E2eg fdec|dcdA BGAF|GBAG FDDA|!
+d3A B2AF|E2eg fdec|defd edBc|dBAG FDD|]!
+g|fddc dfaf|g2ga beeg|fddc dfaf|gfeg fdde|!
+fddc dfaf|g2ga beef|g3f gabg|faeg fdd|]!
+
+X:183
+T:King of the Clans
+Z: id:dc-reel-167
+M:C
+L:1/8
+K:G Major
+GA|B2GA Bdge|dedB AGEG|DGBG dGBG|cege dcBc|!
+dGBd GdBd|gabg agef|gage dBge|dBAc BG:|!
+Bd|g2fg egde|gdBG AGEG|DGBG dGBG|cege dcBd|!
+[1 g2fg egde|gdBG AGEF|GABd gece|dBAc BG:|!
+[2 gabg eage|dBGB AGEF|GABd gece|dBAc BG|]!
+
+X:184
+T:Kiss Me Kate
+Z: id:dc-reel-168
+M:C
+L:1/8
+K:G Major
+G2Bd gdBG|D2GB ADEF|G2Bd gdBd|ecBc ADEF|!
+G2Bd gdBG|D2GB ADEF|G2Bd gdBd|ecBc AGGg|]!
+fgag fddg|fgag bgeg|fgag fddg|fdef g2ef|!
+gbaf g2bg|fgag fddg|fdd2 Add2|fdef gedB|]!
+
+X:185
+T:Kiss the Maid behind the Barrel
+Z: id:dc-reel-169
+M:C
+L:1/8
+K:G Major
+DGG2 AGG2|DGG2 cAFA|DGG2 AGG2|defd cAFA:|!
+dgg2 agg2|dgg2 agfe|dff2 aff2|defd cAFA|!
+dgg2 agg2|dgg2 agfg|afge fde^c|defd cAFA|]!
+G2dG BGdG|G2dG cAFA|G2dG BGBc|defd cAFA|!
+G2dG BGdG|G2dG cAFA|GABG ABcA|defd cAFA|]!
+B3G A3G|B3G cAFA|B3G ABcA|defd cAFA:|!
+
+X:186
+T:Kitty Goes a Milking
+Z: id:dc-reel-170
+M:C
+L:1/8
+K:G Major
+dGG2 dGBc|dGG2 FGAc|dGG2 d2eg|fdcA BABc:|!
+dgg2 agg2|dggf d2Bc|dgg2 agg2|dcAB c2Bc|!
+dgg2 agg2|dggf d2Bc|defg abag|fdcA BABc|]!
+
+X:187
+T:Kitty the Hare
+Z: id:dc-reel-389
+M:C
+L:1/8
+K:A Dorian
+G|A2cA eAcA|eAaA gedB|G2BG dGBA|Bdgd BGGB|!
+A2cA eAcA|eAaA gedB|G2BG dGBA|BedB A3:|!
+B|c2cB cedB|G2BG DGBG|c2cB cedB|GABG A3B|!
+[1 c2cB cedB|G2BG DGBG|c2cB cedB|GABG A3:|!
+[2 cAA2 cAFA|GDB,D G,DB,D|c2cB cedB|GABG A3|]!
+
+X:188
+T:Knotted Cord
+Z: id:dc-reel-171
+M:C
+L:1/8
+K:A Dorian
+A3B AEE2|A2Bd edBA|G3A GEDE|G2BG dGBG|!
+A3B AEE2|A2Bd edBA|GABd gfge|dBGA BAA2:|!
+eaa2 eaa2|eaab aged|egg2 egg2|egga ged2|!
+eaa2 eaa2|eaab aged|BABd gfge|dBGA BAA2:|!
+
+X:189
+T:Kylebrack Rambler
+Z: id:dc-reel-172
+M:C
+L:1/8
+K:D Mixolydian
+=FE|DA,A,2 DA,=FA,|DA,A,2 CA,G,A,|DA,A,2 D2DE|FGAF G2FG|!
+Add2 dcAB|cGAc GECE|DCA,G, A,DD2|FAGE DE:|!
+FG|A2GE EDD2|d3c AGAB|c2Gc EcGc|cded cAGA|!
+d2fd dAA2|^cAA2 EAA2|GEE2 CDEG|cAGE DE:|!
+
+X:190
+T:Lad O'Beirne's
+Z: id:dc-reel-173
+M:C
+L:1/8
+K:G Major
+E|DGG2 DGBG|AcBG AGEG|DGG2 DGBd|edgd edge|!
+dBB2 dBGB|cEE2 GEDB,|DEGA B3c|dBAc BGG:|!
+B|d2e^c d2Bd|edgd edge|dBB2 dBGB|cEE2 GED2|!
+Bdd^c d2ef|g2fg edBG|DEGA B3c|dBAc BGG:|!
+
+X:191
+T:Lady Anne Montgomery
+Z: id:dc-reel-174
+M:C
+L:1/8
+K:D Major
+E|FADA FADA|FAdA BAdA|FADF EDB,G,|A,B,DE D3E|!
+FADA FADA|FAdA BABc|dBAF E3F|DB,A,B, D3:|!
+e|f3e fede|fedB ABde|f3e fede|fgaf efde|!
+f2af efde|fedB ABde|f2ed BdAd|egfe d3:|!
+
+X:192
+T:Lady Gordon
+Z: id:dc-reel-175
+M:C
+L:1/8
+K:D Major
+E|FEDF A3B|d2fd efdB|BAFB ABde|faeg fdd:|!
+A|defg a2fa|afef dBAB|defg afdB|ABde fddA|!
+defg a2fa|afed Bdeg|fedB A2FA|ABde faa|]!
+
+X:193
+T:Laington's
+Z: id:dc-reel-176
+M:C
+L:1/8
+K:A Major
+cB|AFEF A3e|fece faaf|ecc2 acec|fcec B2cB|!
+AFEF A3e|fece faaf|ecc2 acec|BAGB A2:|!
+ed|ceAe ceAc|BEE2 BcdB|BAAG Acec|BEE2 BcdB|!
+AceA cedc|B2BA BcdB|ABce faaf|ecc2 d2|]!
+
+X:194
+T:Last House in Connaught
+Z: id:dc-reel-177
+M:C
+L:1/8
+K:D Mixolydian
+e|fdd^c d=cAB|c2Bd cAGE|D2ED EGAB|c2Bd cAGe|!
+fdd^c d=cAB|c2Bd cAGE|D2ED EGAB|cAGE FDD:|!
+e|fdd^c defg|add2 bdad|eccB cdef|gcc2 acgc|!
+fdd^c d=cAB|c2Bd cAGE|D2ED EGAB|cAGE FDD:|!
+
+X:195
+T:Limestone Rock
+Z: id:dc-reel-178
+M:C
+L:1/8
+K:G Major
+dc|BGG2 AGG2|DGG2 A2dc|BGG2 AGAB|cABG A2:|!
+Bd|e2dg e2dg|e2dB A2Bd|eBB2 gBB2|cABG A2Bd|!
+efgf eaaf|gedB A2Bd|g3f gabg|agef ge|]!
+
+X:196
+T:Lisdoonvarna
+Z: id:dc-reel-179
+M:C
+L:1/8
+K:G Major
+E|DEGA B2GB|cBAc BAGE|DEGA Bdge|dBAB GFGE|!
+DEGA B2GB|cBAc BAGE|DEGA Bdge|dBAB G3:|!
+A|Bdd2 cdeg|dgdB ABGA|Bdd2 cdeg|dBAB GFGA|!
+Bdd2 c2Ac|BcdB ABGE|DEGA Bdge|dBAB G3:|!
+
+X:197
+T:Log Cabin
+Z: id:dc-reel-180
+M:C
+L:1/8
+K:D Major
+DB,|A,DD2 FGAB|=cdDE EDA^c|dcdA BdAG|FADB, =C2B,C|!
+A,DD2 FGAB|=cdDE EDA^c|dcdA BAGF|EDCE D2:|!
+Ac|d2fd Adfa|g2fg egfe|d2fd AddB|=cAGE =CDEC|!
+d2fd Adfd|cdef g2ag|faec dBAG|FAEA D2:|!
+
+X:198
+T:London Lasses
+Z: id:dc-reel-181
+M:C
+L:1/8
+K:G Major
+G2BG dGBd|eaag efg2|G2BG dGBd|egdB AGEF|!
+G2BG dGBd|eaag efga|bgag egfa|gedB AGED:|!
+g2fg edBc|dGG2 dGBd|g2fg efge|dBGA BAA2|!
+g2fg efge|dBB2 dega|bgag egfa|gedB AGED:|!
+
+X:199
+T:Longford Collector
+Z: id:dc-reel-182
+M:C
+L:1/8
+K:G Major
+G3A Bcdf|eBB2 eBAB|G3A BcdB|AcBA GED2|!
+G3A Bcdf|eBB2 d2ef|gbaf gedB|AcBA GED2:|!
+g3a gedf|eBB2 d2ef|g2fa gedB|AcBA GED2|!
+g3a gedf|eBB2 d2ef|gbaf gedB|AcBA GED2:|!
+
+X:200
+T:Longford Tinker
+Z: id:dc-reel-183
+M:C
+L:1/8
+K:B Minor
+dBBA B3c|dBB2 gefe|dBBA B2dB|ABde fgfe|!
+dBB2 fBB2|dBB2 fefg|a2AF ABAF|ABde fgfe|]!
+d2fd efge|defa g2fe|d2fd efge|faaf gefe|!
+d2fd efge|defa g3a|bgaf gfed|faaf gfed|]!
+faa2 faa2|faaf gfed|gbb2 gbb2|gbaf gfed|!
+faa2 faa2|faaf g3a|bgaf gfed|faaf gfef|]!
+
+X:201
+T:Lord Gordon
+Z: id:dc-reel-184
+M:C
+L:1/8
+K:D Major
+dB|ADFD A,DFB|ADFD FAdc|BEE2 dEE2|BEE2 BAFA|!
+dcdf ecdB|AFDF A2Bc|cBBA BFAF|EFGA Bc:|!
+de|f2df afdf|afdf a2gf|efga bgec|dcBA FABc|!
+dff2 ecdB|AFDF A2Bc|cBBA BFAF|EFGA Bc:|!
+de|faa2 fdad|faa2 fdad|gbb2 gebe|gbb2 gebe|!
+fgfe dcdB|BAGB ABdf|afec dBAF|EFGA Bc:|!
+dB|Addc def2|Addc def2|egg2 agfg|eggf g3e|!
+fgfe dcdB|BAGB ABdf|afec dBAF|EFGA Bc:|!
+de|faa^g afde|faa^g a2=gf|gbef gbef|gbeg bgef|!
+g2bg f2af|fedB ABdf|afec dBAF|EFGA Bc:|!
+
+X:202
+T:Lord McDonald
+Z: id:dc-reel-185
+M:C
+L:1/8
+K:G Major
+DGBG DGBG|c2Bc AGEG|DGGF G3E|DEDC B,G,G,2|!
+DGBG DGBG|c2Bc AGEG|B3A G3E|DEGA BGG2|]!
+Bdd^c dBAd|Bdef aged|Bdd^c d3B|A2GA BGG2|!
+Bdd^c dBAd|Bdef aged|Bdef gfge|dBAc BGG2|]!
+dgbg agbg|dgbg ageg|dgbg agbg|dedc BGG2|!
+dgbg agbg|dgbg ageg|bggf gage|dega bgg2|]!
+Bdd^c dBAd|Bdef aged|Bdd^c d3B|A2GA BGG2|!
+Bdd^c dBAd|Bdef aged|Bdef gfge|dBAc BGG2|]!
+
+X:203
+T:Lost in the Loop
+Z: id:dc-reel-390
+M:C
+L:1/8
+K:D Dorian
+z|CDEF DA,A,F|EFGA FDD^F|GABc dcBc|dGcG BAGA,|!
+CDEF DA,A,F|EFGA FDD^F|GABc d2GF|DA,CD FDD:|!
+A|dDDc BGG2|ADDF ECED|dDcD BAGA,|CDEF DA,A,A|!
+dDDc BGG2|ADDF ECE2|GABc d2GF|DA,CD FDD:|!
+A|d3d ^gadc|d2dc AGAc|dGGd GGdG|CDEF DA,A,A|!
+d3d ^gadc|d2dc AGAc|dDcD GABc|dDcD A,DF:|!
+"Coda (to replace last 2 measures)"decA G2GB|cBcC A,2Ac|decA G2GB|cBcC A,DD2|D4|]!
+
+X:204
+T:Lucky in Love
+Z: id:dc-reel-186
+M:C
+L:1/8
+K:G Major
+z|gfgd BGGA|BGdG BAA2|gfgd BGGA|BdAc BGG:|!
+A|BGdG eGdG|BGdG BAAc|BGdG eGdG|BdAc BGGA|!
+BGdG eGdG|BGdG BAAB|GABd eaag|fdef gab|]!
+
+X:205
+T:Lucy Campbell
+Z: id:dc-reel-187
+M:C
+L:1/8
+K:D Major
+dB|ADFD D2dB|ADFA BEE2|ADFA defe|[1 dBAF AD:|[2 dBAF ADD2|]!
+dBAB defe|dBcA BEE2|dBAB defe|dBAF ADD2:|!
+faaf defg|a2fa bee2|faaf defe|dBAF ADD2|!
+faaf defg|a2fa beef|g3e f3e|dBAF ADD2|]!
+dff2 dff2|dff2 afef|dffe f3e|dBAF ADD2|!
+dff2 dff2|dff2 afef|g3e f3e|dBAF AD|]!
+
+X:206
+T:Maid in the Cherry Tree
+Z: id:dc-reel-188
+M:C
+L:1/8
+K:G Major
+G2BG dGBd|eaag efg2|G2BG dGBd|egdB AGEF|!
+G2BG dGBd|eaag efga|bgag eaaf|gedB AGED:|!
+g3d edBA|dGG2 Bdef|g2ag edBd|egdB AGED|!
+g3d egge|dBB2 dega|bgag eaaf|gedB AGED:|!
+
+X:207
+T:Maid of Mount Kisco
+Z: id:dc-reel-189
+M:C
+L:1/8
+K:A Dorian
+AG|EAA2 BAA2|EAA2 BGAG|EGG2 AGG2|EGG2 EGD2|!
+EAA2 BAA2|EAA2 BABd|egg2 afge|dBGA BA:|!
+dB|A3B dBAB|G2BG dGBG|A3B dBAB|egfa gedB|!
+A3B dBAB|G2BG dGBG|A3B dBAB|efge d2|]!
+Bd|eaa2 bgag|e2dB GABd|eaa2 bgag|e2de g2eg|!
+a3f gage|dedB GABd|eAA2 efge|dBGA BA:|!
+
+X:208
+T:Maids of Castlebar
+Z: id:dc-reel-190
+M:C
+L:1/8
+K:D Major
+c|dDD2 EDB,E|D2FA BAFA|dBcA BGAF|EGFD EB,B,2|!
+FGFD EDB,E|DEFA B3c|dgfe dBAF|GBAG FDD:|!
+^g|a2ga fdde|fdad fddf|gebe geef|gebe geeg|!
+f3a g3e|faec dBAF|GBed cBAG|FA,CE D3:|!
+
+X:209
+T:Maids of Mitchelstown
+Z: id:dc-reel-191
+M:C
+L:1/8
+K:D Dorian
+D2AG EGG2|AcGc cAGE|D2AG EGG2|AcGE EDDC:|!
+EGAB c3A|d2de f2ed|cAGE FEFG|AcGE EDDC|!
+EGAB c3A|d2de f2ed|cAGE FEFG|AddB cAGE|]!
+
+X:210
+T:Maids of Tullyknockbrine
+Z: id:dc-reel-192
+M:C
+L:1/8
+K:G Major
+D|G2dc BDGB|DGBd eAAB|G2dc Bcde|dBcA BGG:|!
+d|egfg egfe|defg afdf|egfg efga|bgaf geed|!
+efga bge^c|defg afdB|G2dc Bcde|dBcA BGG|]!
+
+X:211
+T:Man from Bundoran
+Z: id:dc-reel-193
+M:C
+L:1/8
+K:D Major
+dc|BEE2 BEdE|BEE2 BcdB|cAA2 cdeA|cdef e2:|!
+ge|f2fe dcBA|fgfe d3e|f2fe fgaf|ecAc e2:|!
+
+X:212
+T:Man of the House
+Z: id:dc-reel-194
+M:C
+L:1/8
+K:E Dorian
+D|E2BE GABG|E2BG FDAF|E2BE GABe|dBAF BEE:|!
+B|efge fgaf|gfed edBd|efge fgaf|gfed Beed|!
+efge fgaf|gfed efga|bgaf gfed|eBBA BEE|]!
+
+X:213
+T:Man Who Shot the Windmill
+Z: id:dc-reel-391
+M:C
+L:1/8
+K:D Major
+A|F2ED FAA2|FAfe dBBA|F2ED FABc|dBAF E3F|!
+D2B,A, B,EE2|FEDE FAfe|dBBA B2bf|afec|dBB:|!
+A|F2AF A2FA|A2fe dBBA|F2AF ABBA|dBAF E3F|!
+D2B,A, B,EE2|FEDE FAfe|dBBA B2bf|afec|dBB:|!
+
+
+X:214
+T:Maple Leaf
+Z: id:dc-reel-195
+M:C
+L:1/8
+K:E Dorian
+E3F GEE2|B2AB AGED|EDEF GFGA|B2dB AGED|!
+E3F GEE2|B2AB AGED|Beed BAA2|B2AB AGED:|!
+Beed efg2|Beed edBA|Beed efge|a2eg fedA|!
+Beed efg2|Beed edB2|a2eg fedA|B2AB AGED:|!
+
+X:215
+T:Martin Wynne's No. 1
+Z: id:dc-reel-196
+M:C
+L:1/8
+K:D Major
+B|AFF2 GEE2|DFF2 EFDB|ABDE F3B|ABde fedB|!
+AFF2 GEE2|DFF2 EFDB|ABDE F3B|ABde fdd:|!
+e|f2af gfeg|fedf edBc|dBAF DEFB|ABde fee2|!
+f2af gfeg|fedf edBc|dBAF DEFB|ABde fdd:|!
+
+X:216
+T:Martin Wynne's No. 2
+Z: id:dc-reel-197
+M:C
+L:1/8
+K:B Minor
+A|FBAF E2FE|DB,B,2 DB,A,2|B,EE2 FEDE|FABc dcBA|!
+FBAF E2FE|DB,B,2 DB,A,2|B,EE2 FEDE|FBBA B3:|!
+A|FBAF A2BA|Bdeg fdde|f2af e2fe|dBBA B3A|!
+FBAF A2BA|Bdeg fddf|bfaf egfe|dBBA B3:|!
+
+X:217
+T:Mary McMahon
+Z: id:dc-reel-198
+M:C
+L:1/8
+K:D Mixolydian
+ag|fde^c d2AG|FGAB cAGc|Adde fded|^cdef g2ag|!
+fde^c d2AG|FGAB cAGc|Adde fded|cAGE D2:|!
+ag|fefg a3^g|abag fdd2|fefg a2fa|bgaf g2ag|!
+fefg a3^g|abag fdd2|bgaf g2ag|fdef g2:|!
+
+X:218
+T:Mason's Apron
+Z: id:dc-reel-199
+M:C
+L:1/8
+K:A Major
+ed|cAA2 ABAF|EFAc dcBA|dBB2 BcBA|Bcde fefg|!
+aAA2 ABAF|EFAc dcBA|Bcde fefa|A2cB A2:|!
+ed|cAeA fAeA|cAeA fedc|dBfB gBfB|defg afed|!
+cAeA fAeA|EFAc dcBA|Bcde fefa|A2cB A2:|!
+
+X:219
+T:Master Crowley's No. 1
+Z: id:dc-reel-200
+M:C
+L:1/8
+K:D Minor
+C|A,DD2 A,DED|DCC2 G,CEC|A,DDC B,DDC|EGcG EDDC|!
+A,DD2 A,DED|DCC2 G,CEC|A,DDC B,3D|EGcG EDD:|!
+C|Da^ga efdf|ecgc acge|da^ga efd=B|cAGE EDDC|!
+Da^ga efdf|ecgc acgc|DEFG AGAc|GECD EDD:|!
+
+X:220
+T:Master Crowley's No. 2
+Z: id:dc-reel-201
+M:C
+L:1/8
+K:D Minor
+C|DEFG ADFA|GEE2 cEGE|DEFG AFF2|GEcC EDD:|!
+A|dAA2 defd|egg2 aege|dAA2 defd|eGce defe|!
+dAA2 defd|egg2 aegf|e3c dfed|cAGE DEF|]!
+G|A2AG AdcA|GEE2 GCEG|A2AG AdcA|GEcC EDD:|!
+
+
+X:221
+T:Master McDermott's
+Z: id:dc-reel-202
+M:C
+L:1/8
+K:D Major
+FE|D2FA D2FA|d2fe dBB2|AFF2 DEFA|B2AF EGFE|!
+D2FA D2FA|d2fe dBB2|AFF2 DEFA|BFAF D2:|!
+FA|dff2 dff2|g2bg afef|dBB2 ABde|fdgf e2de|!
+f2af g2bg|afef dBB2|AFF2 DFBF|AFEF D2:|!
+
+X:222
+T:Matt Peoples'
+Z: id:dc-reel-203
+M:C
+L:1/8
+K:A Dorian
+A2eA BAeA|Bdgd BAGB|A2eA BAeA|BAGB A4:|!
+a2ea agef|gBB2 g3g|a2ea aged|BAGA BAA2|!
+a2ea agef|gBB2 g3g|afge fded|BAGA BAA2|]!
+
+X:223
+T:Maud Millar
+Z: id:dc-reel-204
+M:C
+L:1/8
+K:E Dorian
+gf|edBA GEDE|G2BG DGBd|eBdB A2GA|Beed e2:|!
+ge|dega bgg2|aee2 gee2|dega bgg2|aged eage|!
+dega bgg2|aee2 g3a|bgaf gfed|Beed e2|]!
+
+X:224
+T:McDermott's
+Z: id:dc-reel-205
+M:C
+L:1/8
+K:D Major
+FG|Adde fded|ABAG EFDe|fded cAAG|EFGE D2de|!
+fded A3G|EGG2 ABde|fded cAAG|EFGE D2:|!
+FG|Adde fage|dfed cAAF|G3A GEE2|edcA GEE2|!
+Adde fage|dfed cAAe|f2df gee2|fage d2:|!
+
+X:225
+T:McDonagh's
+Z: id:dc-reel-206
+M:C
+L:1/8
+K:E Dorian
+A|B2Ad BEED|E2BE E2BE|BAFA D3E|FDAD FDFA|!
+B2Ad BEED|E2BE E2BE|BAGF GABc|dBAG FDD:|!
+A|d2ef gfed|fBB2 fBB2|d2ef gfed|ceae ceae|!
+d2ef gfed|fBB2 fBB2|afge fdec|dBAG FDD:|!
+
+X:226
+T:McDonagh's
+Z: id:dc-reel-207
+M:C
+L:1/8
+K:D Major
+A|defd A3d|Bdef gfef|defd A3B|cAGE EDD:|!
+B|Adfd adfd|Acec gcec|Adfd adfd|efge fddB|!
+Adfd adfd|cdef g2fe|defg a3f|gfeg fdd|]!
+
+X:227
+T:McFadden's Handsome Daughter
+Z: id:dc-reel-208
+M:C
+L:1/8
+K:A Major
+E3F A2cA|BABc ecBA|E3F A2af|ecBd cAAF|!
+E3F A2cA|BABc ecBA|E3F A2af|ecBd cAA2|]!
+aece fgaf|edcA BAFA|aece fgaf|edcB ABce|!
+aece aecA|B3c BAFA|agfe fgaf|edcB ABcd|]!
+e3f ecc2|ecac bBB2|cefg aecA|EFAd cAAc|!
+e3f ecc2|ecac bBB2|cefg a3f|e2ce aecA|]!
+
+X:228
+T:McFadden's Handsome Daughter
+Z: id:dc-reel-209
+M:C
+L:1/8
+K:G Major
+D3E G2BG|AGAB dBAG|D3E G2ge|dBAc BGG2:|!
+gdBd efge|dcBG AGEG|gdBd efge|dcBA GABd|!
+gdBd gdBG|A3B AGEG|gfed efge|dcBA GABc|]!
+d3e dBB2|dBgB aAA2|Bdef gdBG|DEGc BGGB|!
+d3e dBB2|dBgB aAA2|Bdef g3e|d2Bd gdBG|]!
+
+X:229
+T:McFarley's
+Z: id:dc-reel-210
+M:C
+L:1/8
+K:D Major
+(3ABc|d2D2 EDB,E|DEFA BAFA|dBcA BGAF|EGFD EDB,2|!
+A,DD2 EDB,E|DEFA BAFA|d2ef dBAF|EDEF D2:|!
+ag|fgab afde|fdad bdad|efga ge=cd|e=cgc acgc|!
+fgaf bagf|gfeg fdBc|dBAF ABdB|AFEF D2:|!
+
+X:230
+T:McGovern's Favourite
+Z: id:dc-reel-211
+M:C
+L:1/8
+K:A Dorian
+GF|E2AE GED2|GFGB edBd|eaaf gedB|AcBG AGED|!
+E2AE GED2|GFGB edBd|eaaf gedB|AcBc A2:|!
+eg|a2bg agea|gedB GABd|eaaf gedB|AcBG AGED|!
+[1 a2bg agea|g2ga g2gf|eaaf gedB|AcBG A3:|!
+[2 E2AE GED2|GFGB edBd|eaaf gedB|AcBc A2|]!
+
+X:231
+T:Merry Blacksmith
+Z: id:dc-reel-212
+M:C
+L:1/8
+K:D Major
+zA|d3A BAFA|ABdA BAFA|ABde f2ed|Beed egfe|!
+d3A BAFA|ABdA BAFA|ABde fdec|dBAF D2:|!
+fg|a3g fgfe|d3A BAFA|ABde f2ed|Beed egfe|!
+abag fgfe|defd edBd|ABde fdec|dBAF D2:|!
+
+X:232
+T:Merry Harriers
+Z: id:dc-reel-213
+M:C
+L:1/8
+K:A Dorian
+gfg|eAA2 eAgA|eAA2 BGBd|eAA2 egg2|abge d:|!
+K: G Major
+cBc|dggf g2bg|efgd BGBc|dggf gabg|abge d:|!
+
+X:233
+T:Michael Coleman's
+Z: id:dc-reel-214
+M:C
+L:1/8
+K:A Dorian
+e4 d3B|cBcd e2d2|e4 d3B|cABG EGD2|!
+e4 d3B|cBcd e2d2|egfa gedB|cABG EGD2:|!
+EAAc BGGB|cBcd e2d2|EAAc BGGB|cABG EGD2|!
+EAAc BGGB|cBcd e2d2|egfa gedB|cABG EGD2:|!
+
+X:234
+T:Michael Kennedy's
+Z: id:dc-reel-215
+M:C
+L:1/8
+K:A Dorian
+eg|a3g edBd|ea2g e2d2|ea2b agef|gedB G2:|!
+Bd|eAAB cBAe|aAAG ABcd|eAAB cBAf|gedB G2:|!
+
+X:235
+T:Micho Russell's Ashplant
+Z: id:dc-reel-5
+M:C
+L:1/8
+K:E Minor
+BEE2 GFGA|BEE2 Bded|BEE2 dedB|ABAF DFAc:|!
+B3A G3A|BGG2 Bdgd|B3A G3B|ADFD ADFA|!
+B3A G3A|BGG2 Bdef|gbaf gfge|dedB A2GA|]!
+
+X:236
+T:Mickey Doherty's
+Z: id:dc-reel-216
+M:C
+L:1/8
+K:D Major
+A|d2fa gfed|cAA2 cdec|d2fa gfed|cABc dABc|!
+d2fa gfed|cAA2 cdec|d2fa gfed|cABc d3:|!
+K: D Mixolydian
+D|FGAB cAGE|D2FD ADFD|FGAB cAGc|BdcA GFDE|!
+FGAB cAGE|D2FD ADFD|FGAB cAGc|BdcA G3:|!
+
+X:237
+T:Milliner's Daughter
+Z: id:dc-reel-217
+M:C
+L:1/8
+K:G Major
+G2BG DFAF|G2eg fdcA|G2BG DFAB|cAFG AGGD|!
+G2BG DFAF|G2eg fdcA|GBB2 FAA2|cAFG AGG2|]!
+dgg2 dgg2|dff2 dff2|dgg2 dgg2|d^cde fd=cA|!
+dgg2 bgag|fdde f3g|afge fde^c|d^cde fd=cA|]!
+
+X:238
+T:Miss McCloud
+Z: id:dc-reel-219
+M:C
+L:1/8
+K:G Major
+G2BG dGBG|B3A BcBA|G2BG dGBG|A3G AcBA|!
+G2BG dGBG|BcBA B2d2|efed Bdef|gedB AcBA:|!
+G2g2 edeg|B3A BcBA|G2g2 edeg|a3g ac'ba|!
+g2fg edeg|BcBA B2d2|efed Bdef|gedB AcBA:|!
+
+X:239
+T:Miss McDonald
+Z: id:dc-reel-371
+M:C
+L:1/8
+K:G Major
+dc|BGG2 BdcA|BGBd g2fg|aAA2 ABcA|Bdef ge:|!
+dB|G3D EDEF|GFGD B,G,B,D|G3D EDEd|egdB BA:|!
+Bd|gdBd gagf|edef gdBd|gdBd gagf|edef g2ef|!
+gdBd gdBd|gbaf gdBd|gfga gfed|egfa gd|]!
+Bd|egdB cBAB|GBB2 GBdg|eBdB cBAB|GEDE G2gf|!
+egdB cBAB|GBB2 GBdg|e3g efge|dfaf ge|]!
+
+X:240
+T:Miss Monaghan
+Z: id:dc-reel-220
+M:C
+L:1/8
+K:D Major
+D2FD FAA2|BcBA FABc|dedB ABde|f2ed fee2|!
+D2FD FAA2|BcBA FABc|dedB ABdB|AFEG FDD2:|!
+faab afdf|gefd edBc|dedB ABde|f2ed fee2|!
+faab afdf|gefd edBc|dedB ABdB|AFEG FDD2:|!
+
+X:241
+T:Miss Ramsey's
+Z: id:dc-reel-221
+M:C
+L:1/8
+K:D Major
+B,|D3A AGFG|A3B AGFE|D2FA ADFA|BFAF GBAF|!
+D3A AGFG|A3B AGFE|D2FA ADFA|BFAF D3|]!
+g|f2df e2ce|dcdA Bcde|f3d edce|d2AG FDD:|!
+A|d3f a2fa|g2af gfef|d3f a2fa|gbaf e3:|!
+g|f2df e2ce|dcdA Bcde|f3d edce|d2AG FDD:|!
+
+X:242
+T:Miss Thornton's
+Z: id:dc-reel-222
+M:C
+L:1/8
+K:G Major
+BA|G2Bd gdBd|cBAB cedc|BGAF GBdg|ecAF GFED|!
+G2Bd gdBd|cBAB cedc|BGAF GBdg|ecAF G2:|!
+ga|b2ag b2ag|egdg egdg|b2ag b2ag|egfa gfga|!
+bgag bgag|egdg egdg|bgaf gfed|egfa g2:|!
+
+X:243
+T:Molloy's Favourite
+Z: id:dc-reel-223
+M:C
+L:1/8
+K:D Major
+d2Ad fdAF|GFEF GABc|d2Ad fdAF|GBAG FDD2:|!
+fggf gaag|fggf gfeg|fggf gaag|faeg fdd2|!
+dfaf gbag|fggf gfeg|feec dcBA|^GABc dgfe|]!
+
+X:244
+T:Monaghan Twig
+Z: id:dc-reel-224
+M:C
+L:1/8
+K:A Mixolydian
+ed|cAAG Aced|cAAG E2ed|cAAG Aced|BAGB d2:|!
+ed|cdef gfed|cdef e3d|cdef gfge|dBGB d2ed|!
+cded cded|cAA2 cdef|gfge dfed|BAGB d2|]!
+
+X:245
+T:Morning Dew
+Z: id:dc-reel-225
+M:C
+L:1/8
+K:E Dorian
+E3B BAFD|EBEB ADFD|E3B BAFA|BcdB ADFA|!
+E3B BAFD|EBEB ADFD|E3B BAFA|dcdB ADFA|]!
+B2eB fBeB|BcdB ADFA|B2eB fBeB|dcdB ADFA|!
+B2eB fBeB|BcdB ADFA|Bdef gfge|dcdB ADFA|]!
+B2GB EBGB|B2GB ADFA|B2GB EBGB|BcdB ADFA|!
+B2GB EBGB|B2GB ADFA|BAGF GABc|dcdB ADFA|]!
+
+X:246
+T:Morning Star
+Z: id:dc-reel-226
+M:C
+L:1/8
+K:G Major
+B3A BGEF|GABd efgd|B3A BGEF|GBAF G3A:|!
+Bdef g2eg|f2df edBA|Bdef g2eg|afdf e3d|!
+Bdef g2eg|f2df edBA|Bdef g2bg|f2af gfed|]!
+
+X:247
+T:Mountain Road
+Z: id:dc-reel-227
+M:C
+L:1/8
+K:D Major
+D|F2AF BFAF|F2AF EFDE|F2AF BFAF|G2FG EDB,D|!
+F2AF BFAF|F2AF EFDE|FAA2 BAFB|ABde fdd|]!
+A|dcdB ADFA|dcde fgfe|dcdB ADFA|G2FG EDB,:|!
+
+X:248
+T:Moving Bog
+Z: id:dc-reel-228
+M:C
+L:1/8
+K:D Major
+A,|D2FA d2Bc|defg ecAc|d2cd BGED|CEAG FDEF|!
+D2FA d2Bc|defg ecAc|d2cd BGED|CEAG FDD:|!
+A|defd gefd|gabg ecAc|defd gefd|gabg e3A|!
+defd gefd|gabg ecAc|d2cd BGED|CEAG FDD:|!
+
+X:249
+T:Moving Cloud
+Z: id:dc-reel-229
+M:C
+L:1/8
+K:G Major
+GE|DGBG EGcG|DGBG AGEG|c3A Bdgb|aged cAFA|!
+DGBG EGcG|DGBG AGEG|cBAc BAGB|AGEF G2:|!
+Bc|d2bd adgd|d2bd adgd|e2c'e beae|e2c'e beae|!
+d2bd adgd|d2bd adgd|cBAc BAGB|AGEF G2:|!
+GA|Bdd2 edBA|Bdd2 edcB|cee2 fee2|fefe fedc|!
+Bdd2 edBA|Bdd2 edcB|cBAc BAGB|AGEF G2:|!
+
+X:250
+T:Mulhaire's
+Z: id:dc-reel-230
+M:C
+L:1/8
+K:D Major
+AG|F2AF DFAF|G2BG DGBd|c2Ac eAce|dcde fdAG|!
+F2AF DFAF|GBB2 dBB2|Acef gecd|e2dc d2:|!
+fg|a2fd adfd|adfd edBd|e3f gfga|bee2 begb|!
+a2fd adfd|adfd edBA|FAA2 GBdB|AFEF D2:|!
+
+X:251
+T:Mullinavat
+Z: id:dc-reel-231
+M:C
+L:1/8
+K:E Dorian
+ef|g2fg edBA|GAFA E2BE|GEBE GABc|dBBA B2ef|!
+g2fg edBA|GAFA E2EF|GFED EFGA|Beed e2:|!
+ef|gBB2 gabg|f2fe fgaf|gBB2 gabg|fedf e3f|!
+g2gf gbag|f2fe fga2|bgaf gfed|Bgfg e2:|!
+
+X:252
+T:Mullingar Lea
+Z: id:dc-reel-232
+M:C
+L:1/8
+K:G Mixolydian
+BGdG G^FDE|F2AF cFAc|BGG^F GFDE|FAdc BGG2:|!
+g^fgd Bcde|fefc ABcd|gfdc ABcA|dgg2 bga^f|!
+g^fgd Bcde|fefc ABcd|edcA d2DE|FAdc BGG2|]!
+
+X:253
+T:Mulqueen's
+Z: id:dc-reel-233
+M:C
+L:1/8
+K:D Major
+AG|F2EG FDDE|FDAG FDDE|F2EG FDDE|FABc d2:|!
+cd|e3^d efe=d|cdef g2fg|e3^d efe=d|cABc d2cd|!
+e3^d efe=d|cdef g2fg|aff2 gece|dfec d2|]!
+
+X:254
+T:Mulvihill's
+Z: id:dc-reel-234
+M:C
+L:1/8
+K:D Major
+dB|AFF2 G2FG|ADFD EGFE|D2FA defe|dBAF E2dB|!
+AFF2 G2FG|ADFD EGFE|D2FA defe|dBAF D2:|!
+de|f2fa g2fg|afdf efde|f3e defe|dBAF E2fg|!
+aff2 bff2|afdf efde|f3e defe|dBAF D2:|!
+
+X:255
+T:Musical Priest
+Z: id:dc-reel-235
+M:C
+L:1/8
+K:B Dorian
+BA|FBBA B3d|cBAf ecBA|FBBA BcdB|cBAc B2:|!
+Bc|d3c dfed|cAeA fAec|dcBc defb|afec B2:|!
+Bc|dBB2 bafb|afec ABce|dBB2 bafb|afec B2:|!
+
+X:256
+T:Music in the Glen
+Z: id:dc-reel-236
+M:C
+L:1/8
+K:G Major
+D|G2BG EGDC|B,DGB AGAB|c2ec B2dB|cABG AGED|!
+G2BG EGDC|B,DGB AGAB|cdef gfge|dcBA G3:|!
+A|BGdG eGdc|BGdB cAFA|BGdG eGdf|gdBG AGEG|!
+BGdG eGdf|gdfg afdf|gefd ecdB|cABG AGE:|!
+
+X:257
+T:Music in the Glen
+Z: id:dc-reel-237
+M:C
+L:1/8
+K:A Major
+E|A2cA FAED|CEAc BABc|d2fd c2ec|dBcA BAFE|!
+A2cA FAED|CEAc BABc|defg agaf|edcB A3:|!
+B|cAeA fAed|cAec dBGB|cAeA fAeg|aecA BAFA|!
+cAeA fAeg|aega bgeg|afge fdec|dBcA BAF:|!
+
+X:258
+T:My Love is in America
+Z: id:dc-reel-238
+M:C
+L:1/8
+K:D Mixolydian
+E|FEFG ABcB|Add2 Add2|FEFG AdcA|G2AG FDDE|!
+FEFG ABcB|Add^c defg|afge fdAF|GBAG FDD:|!
+K:D Major
+e|fdeg fdec|Add2 Adde|fdeg fdAF|GBAG FDDe|!
+f3g fedB|Addc defg|afge fdAF|GBAG FDD:|!
+
+X:259
+T:Navvy on the Line
+Z: id:dc-reel-239
+M:C
+L:1/8
+K:G Major
+GA|B2ge dBGB|A2AB AGEF|G2ge dBGB|AGAB A2GA|!
+Bdge dBGB|A2AB AGEG|gfgd edBG|AGFA G2|]!
+Bd|g2BA GABd|edBA GABd|g2BA GABd|eBdB AGEG|!
+g2BA GABd|edBA GABd|gfgd edBG|AGFA G2|]!
+
+X:260
+T:Never Was Piping So Gay
+Z: id:dc-reel-361
+M:C
+L:1/8
+K:G Major
+D|G,2B,D GBdB|cafd cAFA|G2BG DGBG|AFF2 dFAF|!
+G2BG DGBA|Ggfe ^cdef|gfgd BdBG|FGAd BGG:|!
+f|gfgd BdBG|DGBd cAFA|GBBA BcdB|cafd ^cdef|!
+gfgd BdBG|DGBd cAFA|BGG2 AFF2|BdcA G3:|!
+
+X:261
+T:New Copperplate
+Z: id:dc-reel-241
+M:C
+L:1/8
+K:G Major
+cAFA|G2dG BGdG|G2dG BGGB|A2eA cAeA|A2eB cAFA|!
+G2dG BGdG|G2dG BGGB|ABcd efgb|aged:|!
+^cdef|g2gf gfef|gedc BGG2|eaag ageg|aged ^cdef|!
+g2gf gbaf|gedc BGGB|ABcd efgb|aged:|!
+
+X:262
+T:New-Mown Meadow
+Z: id:dc-reel-242
+M:C
+L:1/8
+K:G Major
+B|ADD2 D3G|AcBG AGEG|ADD2 EDEF|G2AG EGGB|!
+ADD2 D3G|AcBG AGEG|c3A B2BA|GBAG EGG:|!
+B|d2Bd edBd|dedB AGEG|d2Bd edBA|GBAG EDDB|!
+d2Bd edBd|dedB AGEG|c3A B2BA|GBAG EGG:|!
+
+X:263
+T:New Policeman
+Z: id:dc-reel-243
+M:C
+L:1/8
+K:D Major
+A,|D2FA D2FA|defe dBBA|B2AF ABde|f2ed fee2|!
+dAA2 DEFA|d2fe dBBA|B2AF ABdB|AFEG FDD:|!
+e|faaf afdf|gfed cdef|g2gf gbag|fagf e3f|!
+dBB2 AFF2|DFF2 ABdf|afef dBAF|A2ag fdd:|!
+
+X:264
+T:New-Rigged Ship
+Z: id:dc-reel-244
+M:C
+L:1/8
+K:A Mixolydian
+eg|a3g ageg|agbg agef|g3g fgag|f2d2 d2:|!
+ed|cAcA B2ed|cAcA E2ed|cAcA B2ed|c2A2 A2:|!
+K:A Dorian
+AB|cdec BcdB|ABAF GFE2|cdec BcdB|c2A2 A2:|!
+
+X:265
+T:New Ships A Sailing
+Z: id:dc-reel-245
+M:C
+L:1/8
+K:G Major
+D|G2FG AGED|G2Bd edef|gdBG AGED|AGFE DcBA|!
+G2FG AGED|G2Bd edef|gdBG AGED|GBAF G3:|!
+D|G2Bd edBd|g2fg edBd|cBAc BAGB|AGFE DcBA|!
+G2FG AGED|G2Bd edef|gdBG AGED|GBAF G3:|!
+
+X:266
+T:Nine Points to Roguery
+Z: id:dc-reel-246
+M:C
+L:1/8
+K:D Major
+FE|D2FD GEFE|DEFG ABAF|D2FD GEFA|BEE2 BEE2|!
+D2FD GEFE|DEFG ABAF|D2FA GBAc|dedc d2:|!
+AB|=c3A B3G|A3B AGFE|D2FD GEFA|BEE2 BEE2|!
+=c3A B3G|Adcd fdAF|D2FA GBAc|dedc d2:|!
+fe|d2fd gefe|defg abaf|d2fd gefa|bee2 bee2|!
+d2fd gefe|defg abaf|dfaf gece|dedc d2:|!
+AB|=c3A B3G|A3B AGFE|D2FD GEFA|BEE2 BEE2|!
+=c3A B3G|Adcd fdAF|D2FA GBAc|dedc d2:|!
+
+X:267
+T:Oak Tree
+Z: id:dc-reel-247
+M:C
+L:1/8
+K:D Major
+AG|FDAD FDAD|FDAF GEFD|A,3G, A,3G,|A,G,A,B, CDEG|!
+FDAD FDAD|FDAF GFED|Bdef gece|dfec d2:|!
+K:B Dorian
+ce|fBB2 fage|fece faed|cAeA fAed|cAea fece|!
+fBB2 fage|fece faec|ABce agae|faed cA:|!
+K:D Major
+Bc|d2fd d2fd|c2ec c2ec|d2fd d2fg|afge dcBc|!
+d2fd Adfd|c2ec Acec|d2fd Adfg|afge dB|]!
+
+X:268
+T:Old Bush
+Z: id:dc-reel-248
+M:C
+L:1/8
+K:D Mixolydian
+dc|A2GA cAAG|Adde fdec|A2GA c2Ac|d2ed cAdc|!
+A2GA cAAG|Adde f3g|afge fde^c|dfed cA:|!
+Af|efgf edcd|efge c3d|efge afge|d2ed cAAf|!
+efge afge|fde^c defg|afge fde^c|dfed cA:|!
+
+X:269
+T:Old Copperplate
+Z: id:dc-reel-250
+M:C
+L:1/8
+K:A Dorian
+A2EA cAAe|aged cAFA|G2DG BGBd|gedc BAGB|!
+A2EA cAAe|aged cAGB|ABcd efge|aged cAA2:|!
+ageg a2eg|aged cAA2|gfef g2ef|gfge dBGB|!
+ageg a2eg|aged cAGB|ABcd efge|aged cAA2:|!
+
+X:270
+T:Old French
+Z: id:dc-reel-251
+M:C
+L:1/8
+K:D Major
+(3ABc|d2cd BdAF|DFAd f2ed|cdef gfec|defd A2Bc|!
+d2cd BdAF|DFAd f2ed|cdef gfec|d2f2 d2:|!
+K:A Mixolydian
+cd|efed cdcB|AEAc e2dc|BGBd gfed|cAce a2cd|!
+efed cdcB|AEAc e2dc|BGBd gfed|c2A2 A2:|!
+
+X:271
+T:Old Torn Petticoat
+Z: id:dc-reel-252
+M:C
+L:1/8
+K:A Dorian
+AB|c2Bc AGEF|G2BG dGBG|c2Bc AGEF|GABG A2:|!
+AB|cdef g2ed|aged cAA2|cdef g2ed|eaag a2ga|!
+bagb agef|gedc BGGB|c2Bc AGEF|GABG A2:|!
+
+X:272
+T:Opera
+Z: id:dc-reel-253
+M:C
+L:1/8
+K:D Major
+FE|D2DE FDFA|DEFD EDB,D|A,DDE FDFA|BFAF E2:|!
+FA|d2dc dAFA|defd egfe|dfed BAFA|BFAF E2:|!
+fg|a2fa g2eg|fdec dcBA|a2fa g2eg|fdec d2:|!
+Bc|defd efge|faec dcBA|defd efge|fdec d2Bc|!
+defd efge|faec dcBA|a2fa g2eg|fdec d2|]!
+
+X:273
+T:O'Rourke's
+Z: id:dc-reel-366
+M:C
+L:1/8
+K:A Mixolydian
+ed|cAeA fAeA|cAec dfed|cAA2 fdd2|fage d2:|!
+ef|g2fg e3f|gfed eaa2|gefd edcd|eage d2ef|!
+g2fg e3f|gfed eaa2|bgaf gfed|eaag ag|]!
+
+X:274
+T:Otter's Holt
+Z: id:dc-reel-254
+M:C
+L:1/8
+K:B Dorian
+de|fBBA BAFB|A2FB ABde|fBBA BAFA|BdcA B2de|!
+fBBA BAFB|A2FB ABde|fbba fafe|dBcA B2:|!
+Bc|d2fd adfa|bfaf efdc|d2fd adfa|bfaf e2dc|!
+d2fd adfa|bfaf e2de|fBBA BAFA|BdcA B2:|!
+
+X:275
+T:Over the Bog Road
+Z: id:dc-reel-255
+M:C
+L:1/8
+K:G Major
+GEDE G3A|Bdgd BGG2|AGEG A3d|Bdgd B2AB|!
+GEDE G3A|Bdgd BGG2|Bdgd e2ge|dBAd BGG2:|!
+gede g3a|b2ab gedg|ageg a3b|c'abg agea|!
+gede g3a|b2af gfed|Bdgd e2ge|dBAd BGG2:|!
+
+X:276
+T:Over the Moor to Maggie
+Z: id:dc-reel-256
+M:C
+L:1/8
+K:G Major
+GF|G2GA BABd|efge dBAG|EAAG ABAG|EAAG AcBA|!
+G2GA BABd|efge dBAG|EGGF GAGE|DGGF G2:|!
+ga|b2gb a2fa|gfge dcBd|eaag abag|eaag a2ga|!
+b2gb a2fa|gfge dcBd|eggf gage|dggf g2:|!
+cd|e3c d3B|c3A B2AG|EAAG ABAG|EAAG A2cd|!
+e3c d3B|c3A B2AG|EGGF GAGE|DGGF G2:|!
+
+X:277
+T:Paddy Cronin's
+Z: id:dc-reel-375
+M:C
+L:1/8
+K:A Dorian
+D|E3F G2EF|G2AG FDDF|E3F GFGA|Bdd2 Bee2|!
+E3F G2EF|G2AG FDDF|E3F GFGA|Bdd2 BEE|]!
+d|e3d Bdef|geag fdd2|f2ed Bdeg|fedf e2ed|!
+Bded Bdef|geag fdd2|g3e dged|Bded BEE|]!
+
+
+X:278
+T:Paddy Fahey's
+Z: id:dc-reel-258
+M:C
+L:1/8
+K:D Minor
+D2A,D FEFG|Ad^ce d2de|f2df edcA|dcAG FDEC|!
+D2A,D FEFG|Ad^ce d2de|f2df edcA|dcAG FDD2:|!
+Add2 ^fded|c2Gc EcGc|Add2 ^fded|c=Bcd edd2|!
+a2^ga A=BcA|dcAG FDEC|A,DDE FEFG|Ad^ce d4:|!
+
+X:279
+T:Paddy Kelly's
+Z: id:dc-reel-259
+M:C
+L:1/8
+K:A Dorian
+EG|A2EA eAcA|G2DG dGBG|A2EA FAEA|GABd gdBG|!
+EAA2 EAFA|G2DG dGBG|AGEF GABd|gdBG A2:|!
+K:A Mixolydian
+Bd|eaa^g a2ba|c'aba ageg|GABd gfga|bgag edBd|!
+eaa^g a2ba|c'aba agef|gfgb aged|cABG A2:|!
+
+X:280
+T:Paddy Kelly's
+Z: id:dc-reel-260
+M:C
+L:1/8
+K:G Mixolydian
+DE|G2dG BGdG|G2dG G^FDE|F2cF AFcF|F2cF FED^F|!
+G2dG BGdG|G2dG G^FDE|FGAe fefd|cA^FA G2:|!
+Bd|g2dg g^fdf|g2a^f gfde|f2cf Afcf|fga^f gfdf|!
+g2a^f gfdf|g2a^f gfde|f2a^f gfdc|BGA^F G2:|!
+DE|GA_B2 cA=BG|G2Bd gdBG|F2cF AFcF|F2cF FED^F|!
+GA_B2 cA=BG|G2^FD GABc|dgg2 ^fdcA|BGA^F G2:|!
+Bc|dgg2 agg^f|dgg^f dcBc|defg ag^fd|gbag ^fdcA|!
+dgg2 agg^f|dgg^f dcBc|defa g^fdc|BGA^F G2:|!
+
+X:281
+T:Paddy Murphy's Wife
+Z: id:dc-reel-261
+M:C
+L:1/8
+K:D Major
+E|FDAD BDAD|G2=cG E=CAG|FDAD BDAD|Adce d2AG|!
+FDAD BDAD|G2=cG E=CAG|FDAD BDAD|Adce d3|]!
+e|fada fdag|eg=cd efge|fade fddc|d2AG FADe|!
+fada fdag|eg=cd efge|afge eddc|d2AG FAD|]!
+
+X:282
+T:Paddy on the Turnpike
+Z: id:dc-reel-262
+M:C
+L:1/8
+K:A Major
+A2cA B2AF|E3F ABce|a2ge faec|cBBA B2cB|!
+A2cA B2AF|E3F ABce|a2ge faec|BABc A4:|!
+E2GE BEGE|A2cA eAcA|B2^dB fBdB|e2ge bege|!
+agae faec|defg a2fg|a2ge faec|BABc A4:|!
+
+X:283
+T:Paddy Ryan's Dream
+Z: id:dc-reel-263
+M:C
+L:1/8
+K:A Minor
+cB|AEE2 cABG|EGDC B,CDB,|A,3B, CDEG|cABG ABcB|!
+AEE2 cABG|EGDC B,CDB,|A,3B, CDEG|cABG A2:|!
+cB|Aaa^g aecA|Ggg^f gdBG|Aaa^g aefd|ecdB cABG|!
+Aaa^g aecA|Ggg^f gdBG|AcBd cedf|edcB A2:|!
+
+X:284
+T:Paddy Ryan's Nightmare
+Z: id:dc-reel-264
+M:C
+L:1/8
+K:G Major
+DGG2 BGAF|DGGF GDB,D|DGGF GABc|dfeg fdcA|!
+BGG2 BGAF|DGGF GDB,G,|A,B,CD EGAB|cAFA G4:|!
+dgg2 dgbg|dgbg agfg|eaa2 ^caea|a^gab a=gfe|!
+dgg2 dgbg|dgbg agfe|dega bgdB|cAFA G4:|!
+
+X:285
+T:Paddy's Trip to Scotland
+Z: id:dc-reel-265
+M:C
+L:1/8
+K:D Major
+A|d2AA BAGF|GABd cABc|d2ed cABc|dfed cABc|!
+d2AA BAGF|GABd cABc|d2ed cABc|dfec d3:|!
+B|Adfd Adfd|Adfd dcBc|Acec Acec|Acec dcBc|!
+Adfd Adfd|Adfd dcBc|aAA2 dcBA|Bdce d3:|!
+
+X:286
+T:Palm Tree
+Z: id:dc-reel-266
+M:C
+L:1/8
+K:D Major
+AFF2 Adfa|g2ag fddf|eAA2 d=cAF|G2AF GFe=c|!
+AFF2 Adfa|g2ag fddf|eaa2 aged|cAGE FDD2:|!
+aff2 dff2|gee2 ceAG|F2AF GBed|ca^ga bagb|!
+aff2 dff2|gee2 ceAG|F2AF GBed|cAGE FDD2:|!
+
+X:287
+T:Patsy Tuohey's
+Z: id:dc-reel-267
+M:C
+L:1/8
+K:E Dorian
+ed|BEE2 BAFA|D2FA DAFA|BEE2 BAFA|Bdeg fe:|!
+ed|e2ge bege|defg afdf|e2ge bege|defa geed|!
+e2ge bege|defg a2ga|bgaf gefd|Bdeg fe|]!
+
+X:288
+T:Peeler's Jacket
+Z: id:dc-reel-268
+M:C
+L:1/8
+K:G Major
+AF|G2BG DGBG|FGAB c2Bc|dggf d2eg|fdcA BG:|!
+Bd|g2gf d2ef|gfga bgaf|gagf d2eg|fdcA BG:|!
+
+X:289
+T:Peter Street
+Z: id:dc-reel-269
+M:C
+L:1/8
+K:G Major
+D|G2BG dGBG|dgg2 efge|G2BG dGBG|ADBD cAFA|!
+G2BG dGBG|dgg2 efge|dBde gfge|dBAB G3:|!
+D|A2FD ADFD|ADBD cAFA|G2BG dGBG|dgg2 efge|!
+dBde gfge|dBde gfge|degf edcB|[1 AGFE DEF:|[2 AGAB G3|]!
+
+X:290
+T:Peter Street
+Z: id:dc-reel-270
+M:C
+L:1/8
+K:A Major
+A2cA eAcA|eAaA gAfA|e2cA eAcA|BEcE dEBE|!
+A2cA eAcA|eAaA gAfA|efec eaec|BABc A4:|!
+E2GE BEGE|BEdE cEBE|A2cA eAcA|eAaA gAfA|!
+efec agaf|efec agaf|efag fedc|[1 BAGF EFGE:|[2 BABc A4|]!
+
+X:291
+T:Pigeon on the Gate
+Z: id:dc-reel-271
+M:C
+L:1/8
+K:E Dorian
+A|BEE2 BEdE|BEE2 BAFE|D2FD ADFD|FABc d2cd|!
+BEE2 BEdE|BEE2 BAFE|D2FA dcdA|BAFA BEE:|!
+A|Beed efed|Bdef gfed|Addc dedB|ABde fded|!
+Beed efed|Bdef g2fg|afge faec|dBAF BEE:|!
+
+X:292
+T:Pile of Bricks
+Z: id:dc-reel-272
+M:C
+L:1/8
+K:G Major
+GE|DGGF GABd|eged edBA|G2BG dGBG|ABAG FDD2|!
+DGGF GABd|eged efga|bggb ageg|dBAB G2:|!
+Bc|dggf g2ga|bgag edBA|G2BG dGBG|ABAG FDD2|!
+[1 dggf g2ga|bgag edBA|G2BG dGBG|AGFA G2:|!
+[2 dgg2 bgg2|agfa gedB|G2BG dGBG|AGFA G2|]!
+
+X:293
+T:Pinch of Snuff
+Z: id:dc-reel-273
+M:C
+L:1/8
+K:D Mixolydian
+afge d^cdB|ADFA EFGB|A3B cBcd|ed^cd efge:|!
+f2df afde|f2df efge|f2df afdf|eA^cA efge:|!
+
+X:294
+T:Pinch of Snuff
+Z: id:dc-reel-112
+M:C
+L:1/8
+K:D Major
+E|DFAF BFAF|DFAF EFFE|DFAF BFAF|G2BG EFF:|!
+K:G Major
+A|dBGB ABGB|dBGB ABBA|dBGB ABGB|c2ec ABB:|!
+A|GBdB eBdB|GBdB ABBA|GBdB eBdB|c2ec ABB:|!
+K:D Major
+e|afdf efdf|afdf effe|afdf efdf|g2bg eff:|!
+e|dfaf bfaf|dfaf effe|dfaf bfaf|g2bg eff:|!
+e|f2fe dcdB|ABAF DFAF|DFAF BFAF|G2BG EFF:|!
+
+X:295
+T:Piper's Despair
+Z: id:dc-reel-274
+M:C
+L:1/8
+K:D Major
+EFGA BAFA|d3c dBAF|D2FD ADFA|d3c dBAF|!
+EFGA BAFA|d3c dBAF|D2FA dfaf|gfed Bee2:|!
+e2ge begf|efga bfaf|dff2 aff2|dff2 afdf|!
+e2ge begf|efga bfaf|dff2 abaf|gfed Bee2:|!
+
+X:296
+T:Pretty Peg
+Z: id:dc-reel-275
+M:C
+L:1/8
+K:D Major
+A|defd AFDF|defd egfe|defd AFDF|GEFD CEE:|!
+A|FDAD BDAD|FDAD CEE2|FDAD BDAD|GEFD CDD2|!
+FDdD cDBD|ADFD CEE2|FAdf ecdB|AFGE D3|]!
+
+X:297
+T:Primrose Lasses
+Z: id:dc-reel-276
+M:C
+L:1/8
+K:G Major
+B3A G3E|DEGA BAA2|B3A G3E|DEGA BGG2|!
+B3A G3E|DEGA BAA2|dcBA GFED|DEGA BGG2|]!
+Bdgd edgd|Bdgd BAA2|Bdgd edgd|BdAc BGG2|!
+Bdgd edgd|Bdgd BAA2|Bdef gage|dBAc BGG2|]!
+
+X:298
+T:Providence
+Z: id:dc-reel-387
+M:C
+L:1/8
+K:D Major
+
+E3F D2FA|d2fd gdfd|edBd A2FA|B2AF GFED|!
+E3F D2FA|d2fd gdfd|edBd A2FA|BdAG FDD2:|!
+fdd2 fdgd|fdd2 fcAe|fdd2 gfec|dfag fdd2|!
+fgaf gfec|dBAF G2FG|A2GB ABde|faeg fdd2:|!
+
+X:299
+T:Raheen
+Z: id:dc-reel-277
+M:C
+L:1/8
+K:G Major
+B|d3e dBGA|B3G AGEG|d3e dBGA|BAGB A3c|!
+Bdd2 e2dB|d3B AGEG|B3G AGEG|DGGF G3:|!
+A|Bdd2 cee2|d3e dBGA|Bdd2 edd2|gedB A3c|!
+BGBd e2dB|d3B AGEG|B3G AGEG|DGGF G3:|!
+
+X:300
+T:Rainy Day
+Z: id:dc-reel-278
+M:C
+L:1/8
+K:A Dorian
+EAAG A3B|cdef gedc|BGGF G3A|BGdG eGdG|!
+EAAG A3B|cBAB cdef|g3e dBGA|B2dB A4:|!
+eaag a3a|baa2 bgag|eggf g3a|bgag bgag|!
+eaag aged|Bdef g3e|eaag eged|B2dB A4:|!
+
+X:301
+T:Rakish Paddy
+Z: id:dc-reel-279
+M:C
+L:1/8
+K:D Mixolydian
+c2AB c2AB|cABG EGG2|Add^c d2ge|dcAG FDDB|!
+c2AB c3e|dcAG FDE^C|DEFG ABcA|dcAG FDD2:|!
+egg2 agg2|egg2 ed^cd|eaa2 baa2|eaa2 ed^cd|!
+egg2 afge|fde^c defg|afge fde^c|dcAG FDD2:|!
+
+X:302
+T:Ravelled Hank of Yarn
+Z: id:dc-reel-280
+M:C
+L:1/8
+K:D Mixolydian
+A|B3d A3B|GBB2 GBB2|dAA2 d2eg|fdcA AGG:|!
+B|dGG2 dGBd|g3a bgag|dGG2 d2eg|fdcA AGGB|!
+dGG2 dGBd|g3a bgaf|g3a bgag|fdcA AGG|]!
+
+X:303
+T:Reconciliation
+Z: id:dc-reel-281
+M:C
+L:1/8
+K:A Major
+cB|A2cA eAfA|eAfA ecBc|A2cA eAfA|ecBc AFEF|!
+A2cA eAfA|eAfA ecBc|ABAF EAcf|ecBc A2:|!
+cB|A2ce agaf|efed cdBc|A2ce agag|fbba gbeg|!
+agae faec|dBcA BAFG|ABAF EAcf|ecBc A2:|!
+
+X:304
+T:Red Box
+Z: id:dc-reel-25
+M:C
+L:1/8
+K:D Mixolydian
+g|afge fdd2|cABG AFDE|FEFG A3B|cBAB cdeg|!
+afge fdd2|cABG AFDE|FEFG A3B|cAGE FDD:|!
+A|cBce gecA|d^cdf afdf|g2bg f2af|edef edBA|!
+cBce gecA|d^cdf afdf|gfeg fedB|cAGE FDD:|!
+
+X:305
+T:Red Crow
+Z: id:dc-reel-282
+M:C
+L:1/8
+K:A Dorian
+B,G,|A,2EA, B,G,G,B,|A,2EG FDEG|AGED EA,A,D|ECDC B,G,G,B,|!
+A,2EA, B,G,G,B, A,2EG FDEG|AGED EA,CE|DB,G,B, A,2:|!
+EG|A2eA ceAc|eAce dcBA|G2dc BdGB|dGBd edcB|!
+[1 A2eA ceAc|eAcb age^g|age^c d=fed|cABG A2:|!
+[2 A2aA gAfA|A2cA BAGB|cABG AGED|ECDB, CA,|]!
+
+X:306
+T:Red-Haired Lass
+Z: id:dc-reel-283
+M:C
+L:1/8
+K:G Major
+DGGF G2BG|DGBG AGEG|DGGF G2Bd|egdB cBAB|!
+DGGF G2BG|DGBG AGEG|DGGF G2Bd|egdB c2Bc|]!
+d2gd edgd|d2gd BGBc|d2gd edef|gedB c2Bc|!
+d2gd edgd|d2gd BGAB|c3A B3A|GABd gdBG|]!
+
+X:307
+T:Rediggan's
+Z: id:dc-reel-284
+M:C
+L:1/8
+K:E Dorian
+B2AF B2AF|EDEF EDB,D|B2AF B2AF|DFAF FEE2|!
+B2AF B2AF|EDEF EDB,A,|B,EE2 DEFA|BFAF FEE2:|!
+eBB2 egfe|fdd2 Adfd|eBB2 egfe|dBAF FEE2|!
+eBB2 egfe|fdd2 Adfd|BABd egfe|dBAF FEE2:|!
+
+X:308
+T:Repeal of the Union
+Z: id:dc-reel-285
+M:C
+L:1/8
+K:D Mixolydian
+B|ADFD A3G|E2cE dEcE|ADFD A3G|E2cE EDD:|!
+B|Adde fded|ABcA dBcA|Adde fdcA|GEcE EDDB|!
+Adde fded|ABcd efge|afge d2ed|cAGE EDD|]!
+
+X:309
+T:Return to Milltown
+Z: id:dc-reel-286
+M:C
+L:1/8
+K:D Dorian
+A,|D3G FEDB,|C2EC FCEC|D3G FEDE|FDEC DCA,C|!
+D3G FEDB,|C2EC FCEC|F3D E3C|DFEC D3:|!
+K:D Major
+A|dcde f2ed|cdef g2fe|dcde f2ed|cAGE EDD2|!
+dcde f2ed|cdef g2fe|fgfd efed|cAGE EDD:|!
+
+X:310
+T:Richard Dwyer's
+Z: id:dc-reel-287
+M:C
+L:1/8
+K:A Dorian
+A2EA cdec|dBGB AEGF|EAcA Bdgf|eaa^g aba=g|!
+e=fed cAA2|gedc BdcB|AEcE dEcd|ecAG EAA2:|!
+a2ea c'aea|g2dg bgdg|aged cded|cABG EAA2|!
+a2ea c'aea|gage dBGB|ABcd eaaf|gedg eAA2:|!
+
+X:311
+T:Rip the Calico
+Z: id:dc-reel-289
+M:C
+L:1/8
+K:D Major
+c|d3c defd|edBd egfe|d3c defd|efdB A3:|!
+B|dBB2 gefd|edBd egfe|dBB2 gefd|efdB A3:|!
+e|faaf gefd|edBd egfe|faaf gefd|efdB A3|!
+e|faaf gefd|edBd egfe|faaf bfaf|e3f gef|]!
+
+X:312
+T:Road to Lisdoonvarna
+Z: id:dc-reel-290
+M:C
+L:1/8
+K:D Mixolydian
+C|DAAG ABcA|GEE2cEGE|DAAG ABcA|BcAG FDD:|!
+A|defd cAA2|BGG2 cAA2|defd cAAc|BcAG FDD:|!
+
+X:313
+T:Road to Recovery
+Z: id:dc-reel-291
+M:C
+L:1/8
+K:D Minor
+DA,B,C DFAG|cG=BG cG=BG|DA,B,C DB,B,2|DB,FB, DCGC|!
+DA,B,C DFAG|cG=BG cG=BG|FBB2 AFDA,|B,CDE FDD2:|!
+Add2 fdd2|fdgd add2|Add2 fdd2|adgd ecc2|!
+BGG2 FDD2|B,DFD C3E|FDB,F DA,FD|B,CDE FDD2:|!
+
+X:314
+T:Road to Rio
+Z: id:dc-reel-292
+M:C
+L:1/8
+K:G Major
+GE|DEGA BABd|egg2 agef|gede gedB|AcBA GEE2|!
+DEGA BABd|egg2 agef|gede gedB|AcBA G2:|!
+Bc|dgg2 bgg2|bgag edBd|eBB2 GABd|e2dB AGEG|!
+DEGA BABd|egg2 agef|gede gedB|AcBA G2:|!
+
+X:315
+T:Roaring Mary
+Z: id:dc-reel-293
+M:C
+L:1/8
+K:D Major
+DFF2 AFF2|ABdf g2fe|dedB AFAB|defd edef|!
+DFF2 AFF2|ABdf g2fe|dedB ABdf|afeg fdd2:|!
+abag fgfe|defd edBd|egg2 bgg2|aff2 gee2|!
+DFF2 AFF2|ABdf g2fe|dedB ABdf|afeg fdd2:|!
+
+X:316
+T:Rolling in the Rye Grass
+Z: id:dc-reel-294
+M:C
+L:1/8
+K:D Mixolydian
+B|A3F DFAF|G2BG cGBG|A3F DFAF|GBAG F2D:|!
+B|ABde f2df|g2eg fedB|ABde fefg|afdf e2dB|!
+ABde f2df|g2eg fedB|ABde faab|afdf e2d|]!
+B|A3c BAGF|GABc dBAG|FGAc BGGB|AFDF E2DF|!
+A3c BAGF|GABc dBAG|FGAB defb|afdf e2d:|!
+
+X:317
+T:Rough Road
+Z: id:dc-reel-12
+M:C
+L:1/8
+K:G Major
+GE|DGG2 DGBd|g2dg egdB|A2AG AcBA|GBAF GFEF|!
+DGG2 DGBd|g2dg egdB|GABd gedc|BGAF G2:|!
+Bc|dgg2 gGBd|g2af gfed|eaa2 abag|eaag egdB|!
+dgg2 gGBd|g2af gedB|GABd gedc|BGAF G2:|!
+
+X:318
+T:Roving Bachelor
+Z: id:dc-reel-296
+M:C
+L:1/8
+K:G Major
+A|B2BA B2ge|d2ge dBGA|B2BA B2ge|dBAc BGG:|!
+f|gfed edBd|gfed e3f|gfed efge|agfe dfaf|!
+gfed edBd|gfed e3f|g2bg f2af|efge dBG|]!
+
+X:319
+T:Sailing into Walpole's Marsh
+Z: id:dc-reel-297
+M:C
+L:1/8
+K:D Mixolydian
+dB|A3B A2cA|GEE2 GED2|A3G ABcd|ecdB BAdB|!
+AGG2 AGG2|GEDE GED2|A3G ABcd|ecdB BAdB|!
+A3G c3A|GEE2 GED2|A3G ABcd|ecdB BAdB|!
+AGG2 AGG2|GEDE GED2|A3G ABcd|ecdB BA|]!
+z2|egg2 eaaf|gedB cAA2|egg2 eaab|age^c d2ef|!
+g3e a3f|gedB cAAB|c2gc acgc|egge d2:|!
+
+X:320
+T:Sailor on the Rock
+Z: id:dc-reel-298
+M:C
+L:1/8
+K:D Major
+A|defd BAFB|ADFD FAA2|defd BAFB|A2df eBBA|!
+defd BAFB|ADFD FAA2|defd BAFB|A2df edd|]!
+e|faag fddf|gfga bgeg|faag fedB|ABdf e2d:|!
+
+X:321
+T:Sailor's Bonnet
+Z: id:dc-reel-299
+M:C
+L:1/8
+K:D Major
+A2FA dfef|dfec dBB2|A2FA dfec|dBAG FDD2|!
+A2FA dff2|dfec dBB2|A2FA dfec|dBAG FDD2|]!
+faab afdf|afef dBB2|fbb2 bafa|b2af fee2|!
+bff2 aff2|afef dBB2|A2FA dfec|dBAG FDD2:|!
+
+X:322
+T:Saint Anne's
+Z: id:dc-reel-300
+M:C
+L:1/8
+K:D Major
+de|fedf edBd|A2FA DAFA|B2GB EBGB|A2FA DAde|!
+fedf edBd|A2FA DAFA|BGBd cABc|d2fe d2:|!
+ag|f2fe fedf|aggf g3f|edcB ABce|baa^g a2a=g|!
+f2fe fedf|aggf g3f|edcB ABce|d2fe d2:|!
+
+X:323
+T:Salamanca
+Z: id:dc-reel-301
+M:C
+L:1/8
+K:D Major
+dB|ADFD ADFD|Adcd fdcd|BEGE BEGE|Bded cdeg|!
+fBdB fBdB|faec dfag|fdec dBAG|FGEF D2:|!
+fg|afdg bgeg|fdec dcBc|Addc defg|a2^gb a2f=g|!
+agfa gfeg|fdec dfag|fdec dBAG|FGEF D2:|!
+
+X:324
+T:Sally Gardens
+Z: id:dc-reel-302
+M:C
+L:1/8
+K:G Major
+BA|G2DG B2GB|dBeB dBAB|d2Bd egdB|AcBA GEDE|!
+G2DG B2GB|dBeB dBAB|d2Bd egdB|AcBA G2:|!
+Bc|dggf g2de|g2bg ageg|eaag a2eg|a2bg ageg|!
+dggf g2de|g2bg ageg|d2Bd egdB|AcBA G2:|!
+
+X:325
+T:Sandmount
+Z: id:dc-reel-303
+M:C
+L:1/8
+K:A Dorian
+g|eAA2 ABAG|EGDG EGDG|eAA2 ABcd|egfa ged:|!
+g|eaa^g a3=g|gede gedg|eaa^g ae=ga|bagb a3g|!
+eaa^g a3=g|gedB dega|bggf g2fg|egdg eaa|]!
+
+X:326
+T:Scholar
+Z: id:dc-reel-304
+M:C
+L:1/8
+K:D Mixolydian
+A|dfaf gfeg|fdAG FGAc|BGG2 EFGg|fde^c dcBA|!
+dfaf gfeg|fdAG FGAc|BGG2 EFGg|fde^c d3:|!
+f|a^gaf dfaf|dfaf bagf|gfge cege|cege agfe|!
+a^gaf dfaf|dfaf bagf|gfef gbag|fde^c d3:|!
+
+X:327
+T:Scotch Mary
+Z: id:dc-reel-305
+M:C
+L:1/8
+K:A Dorian
+AB|cEE2 cded|cEEF G2AB|cEE2 cded|cABG A2:|!
+cd|eaag eged|cdef g2fg|eaag eged|cABG A2cd|!
+eaag eged|cdef g2fg|afge fded|cABG A2|]!
+
+X:328
+T:Sean Frank
+Z: id:dc-reel-306
+M:C
+L:1/8
+K:D Dorian
+E|F2FE F2DE|F2AF GECE|Dddc defe|d2cd ABcA|!
+d3c A3B|cBcG ECCE|Dddc A3B|cAGE EDD:|!
+E|FAdA FDD2|EGcG ECC2|FAdA FDDF|EcCE D3:|!
+
+X:329
+T:Sean Sa Ceo
+Z: id:dc-reel-307
+M:C
+L:1/8
+K:A Mixolydian
+Bd|e2df eABd|efeB d2BA|Beed efge|Bded cA:|!
+Bd|cAA2 BGBd|cAA2 dGBd|cAA2 EAA2|cAed cA:|!
+ce|a2c'a bac'a|a2c'a e3f|g2bg agbg|g2bg efge|!
+a2c'a bac'a|a2c'a e3f|gfga gedf|gfge dG|]!
+
+X:330
+T:Shaskeen
+Z: id:dc-reel-308
+M:C
+L:1/8
+K:G Major
+E|DGG2 AGAB|cded cAAc|BGG2 AFF2|GBAG FDD2|!
+DGG2 AGAB|cded cAAg|f2fe fdcA|BGAF G3:|!
+B|dggf g2fg|abag fddc|BGG2 AFF2|GBAG FDD|!
+[1 B|dggf g2fg|abag fddc|BGG2 AFF2|GBAF G3:|!
+[2 A|BGG2 cAA2|d^cde d=cAg|f2fe fdcA|BGAF G3|]!
+
+X:331
+T:Sheila Coyle's
+Z: id:dc-reel-382
+M:C
+L:1/8
+K:D Major
+DE|FAA2 FADF|AFdA BdAF|GBBA B3A|GBdf edBA|!
+FAA2 FADF|AFdA BdAF|GABd AFF2|EGFE FD:|!
+FA|dffe fgfe|dedB ADFA|Acc2 ecc2|BAGB ADFA|!
+dffe fgfe|dedB ADFA|GABd AFF2|EGFE FD:|!
+
+X:332
+T:Shetland Fiddler
+Z: id:dc-reel-309
+M:C
+L:1/8
+K:D Major
+Ac|d2fd Adfe|defg afdf|e2ge Bded|cdef gece|!
+d2fd Adfe|defg afdg|fafd fafd|Bgec d2:|!
+cd|eAfA gAaA|fAaf gfed|AABA cAdA|efed cABc|!
+dded fdgd|fdaf gfed|fafd fafd|Bgec d2:|!
+
+X:333
+T:Ships Are Sailing
+Z: id:dc-reel-310
+M:C
+L:1/8
+K:E Dorian
+ed|Beed BcdB|ADFD ADFD|EDEF GFGA|Beef gfed|!
+Beed BcdB|ADFD ADFD|EDEF GFGA|Beed e2:|!
+ef|gfga bgeg|fefg afdf|gfga bgeg|fedf e2ef|!
+gfga bgeg|fefg afdf|g2bg f2af|edef gf:|!
+
+X:334
+T:Silver Spear
+Z: id:dc-reel-311
+M:C
+L:1/8
+K:D Major
+FAA2 BAFA|dfed BcdA|FAA2 BAFA|dfed B2A2|!
+FAA2 BAFA|dfed Bdef|g3e f3e|dfed B2A2:|!
+f2af bfaf|gfed Bcde|f2af bfaf|gfed B2A2|!
+f2af bfaf|gfed Bdef|g3e f3e|dfed B2A2:|!
+
+X:335
+T:Silver Spire
+Z: id:dc-reel-312
+M:C
+L:1/8
+K:D Major
+FE|D2FD ADFA|dcde fdAF|GABG FADF|GEFD EDCE|!
+D2FD ADFA|dcde fdAF|GABG FADF|EDCE D2:|!
+zB,|A,B,CD EFGE|FDEF GABc|dcBA Bcde|fdgf e3A|!
+defd cdec|dcdB ADFA|GABG FADF|EDCE D2:|!
+
+X:336
+T:Skylark
+Z: id:dc-reel-313
+M:C
+L:1/8
+K:D Major
+f|agfg efdB|AFF2 DFAd|BGG2 EGBG|FAA2 FAdf|!
+agfg efdB|AFF2 DFAd|BGG2 E2ag|faeg fdd:|!
+f|a2fd Adfd|efed cAA2|a2fa bged|ceed efge|!
+faa2 gbb2|faef dBAG|FAdc B2ag|faeg fdd:|!
+
+X:337
+T:Sligo Maid
+Z: id:dc-reel-314
+M:C
+L:1/8
+K:A Dorian
+A2BA Bdef|gedB AGEF|G2BG dGBG|DEGA BAdB|!
+A2BA Bdef|gedB AGEG|B3G A2GE|DEGA BAA2:|!
+eaag a2ga|bgaf gfed|eggf g3e|dega bgag|!
+eaag a2ga|bgaf gfed|egg2 edBc|dBgB BAA2:|!
+
+X:338
+T:Speed the Plough
+Z: id:dc-reel-315
+M:C
+L:1/8
+K:D Major
+A|dcdB BAFB|AFFE EDDE|F2AF G2BG|ABde fgfe|!
+dcdB BAFB|AFFE EDDE|F2AF G2BG|ABde fdd:|!
+e|faag fddf|gefd edBA|faag fedB|ABde fdde|!
+faag fddf|gefd edBA|F2AF G2BG|ABde fdd:|!
+
+X:339
+T:Spike Island Lasses
+Z: id:dc-reel-316
+M:C
+L:1/8
+K:D Mixolydian
+d|cAGB ADDE|FDAD FGAd|cAGB AGFG|[1 Adde fde:|[2 Add^c d3|]!
+e|f2df efge|fded cAA2|f2df edcA|Add^c defg|!
+agfa gfe^c|dfed cAAG|Add^c defd|Adde fde|]!
+d|cAGB A3d|BAGB A2dB|cAGB AGFG|Adde fded|!
+cAGB A3d|BAGB A2dB|cAGB ADD2|Add^c d3|]!
+e|fdad fdad|fdaf gee2|fdad fdad|fgfe dcA2|!
+defg a3f|bfaf gfeg|fedf edcA|d^cde fde|]!
+
+X:340
+T:Sporting Paddy
+Z: id:dc-reel-317
+M:C
+L:1/8
+K:A Dorian
+AG|EAAB GABG|EAAB G2ED|EAAB GABd|efge dBAG|!
+EAAB GABG|EAAB G2ED|EAAB GABd|efge d2|]!
+ef|gee2 gede|gee2 a2ba|gee2 ged2|efge d2ef|!
+gee2 gede|gee2 a2ga|bgab ged2|efge dB|]!
+
+X:341
+T:Sporting Nell
+Z: id:dc-reel-377
+M:C
+L:1/8
+K:D Dorian
+c|ADD2 A2dc|AcGE EDEG|ADD2 A2dc|AcGE EDD:|!
+B|c2ec gcec|c2ec AddB|c2ec gcec|AcGE EDDB|!
+c2ec gcec|c2ec Adde|f3d e3d|c2BG Add|]!
+
+X:342
+T:Star of Munster
+Z: id:dc-reel-318
+M:C
+L:1/8
+K:A Dorian
+ed|c2Ac B2GB|AGEF GEDF|EAAB cBcd|eaaf gedB|!
+c2Ac B2GB|AGEF GEDF|EAAB cded|cABG A2:|!
+ed|eaab ageg|agbg agef|gfga gfef|geaf gedg|!
+eaab ageg|agbg agef|g3e a3g|b3a gf:|!
+
+X:343
+T:Star of Munster
+Z: id:dc-reel-319
+M:C
+L:1/8
+K:G Dorian
+dc|B2GB A2FA|GFDE FDCE|DGGA BABc|dgge fdcA|!
+B2GB A2FA|GFDE FDCE|DGGA Bcdc|BGAF G2:|!
+dc|dgga gfdf|gfaf gfde|fefg fede|fdge fdcf|!
+dgga gfdf|gfaf gfde|f3d g3f|a3g fe:|!
+
+X:344
+T:Steam Packet
+Z: id:dc-reel-320
+M:C
+L:1/8
+K:G Major
+AGG2 AGFD|AGG2 Addc|AGG2 AGFD|FEFG Addc:|!
+dgg2 agg2|dgge fdcA|dgg2 agg2|d^cde fd=cA|!
+dgg2 agg2|abag f3g|afge fde^c|d^cde fd=cA|]!
+
+X:345
+T:Steeplechase
+Z: id:dc-reel-321
+M:C
+L:1/8
+K:C Major
+B|c2C2 EGG2|Add^c dfed|cBcG AdcA|G2EC DCA,2|!
+G,CC2 EGG2|Add^c dfed|cBcG AdcA|GEDF ECC:|!
+B|c2ec gcea|gedf eGAB|c2ec gcea|gedc BGAB|!
+cdec Gcea|gedc ABcd|egg2 eaa2|[1 gedf eGA:|[2 gedf ecc|]!
+
+X:346
+T:Stone in the Field
+Z: id:dc-reel-322
+M:C
+L:1/8
+K:A Dorian
+AG|EAAG ABcd|eaaf gedB|c3A BAGB|AcBA GEDG|!
+EAAG ABcd|eaaf gedB|c3d eage|dBGA BA:|!
+Bd|eaag a3b|c'2ba gedB|c3A BAGB|AcBA GEDg|!
+eaa2 bgfg|agef gfga|bgaf gedB|AdBG A2:|!
+
+X:347
+T:Stoney Steps
+Z: id:dc-reel-323
+M:C
+L:1/8
+K:D Major
+dB|A3B AFF2|ABdf edBA|FAA2 BAGF|GFEG FD:|!
+de|fedc defg|afbf afeg|fded fded|BdAF E2de|!
+fedc defg|afbf afeg|f3a e2de|fgaf ef|]!
+
+X:348
+T:Sunny Banks
+Z: id:dc-reel-324
+M:C
+L:1/8
+K:D Major
+B|AFF2 dBcA|BdAF GFGB|AFF2 dBcA|BdAF DEFG|!
+AFF2 dBcA|BdAF GFGB|AFF2 dBcA|BdAF D3|]!
+e|fded cAAe|fdef gfge|fded cAA=c|BdAG FDD:|!
+
+X:349
+T:Swallow's Tail
+Z: id:dc-reel-325
+M:C
+L:1/8
+K:A Dorian
+gf|eAA2 eAcA|Bdef gedB|G2BG dGBG|Bdef g2fg|!
+eAA2 efed|^cdef gfgb|afge dBGB|AcBG A2:|!
+Bd|eaa^g aba=g|edef gedB|G2BG dGBG|Bdef g2fg|!
+a^gab a=ged|^cdef gfgb|afge dBGB|AcBG A2:|!
+
+X:350
+T:Sweeney's Dream
+Z: id:dc-reel-326
+M:C
+L:1/8
+K:D Major
+c|dFF2 ABdf|gfeg fdBc|dFF2 ABdB|AFDF EFD:|!
+e|faab afdf|gfed Bdeg|faa2 bgg2|afeg fdde|!
+faa2 bgg2|afeg fdBc|dFF2 ABdf|afeg fdd|]!
+
+X:351
+T:Tam Lin
+Z: id:dc-reel-328
+M:C
+L:1/8
+K:D Minor
+C|A,DFD A,DFD|B,DFD B,DFD|CEGE CEGE|FAGE FEDC|!
+A,DFD A,DFD|B,DFD B,DFD|CEGE CEGE|FDEC D3:|!
+A|d^cdA FDD2|d^cdA FDD2|cEEE cEdE|cEEE A=BcA|!
+d^cdA FDD2|d^cdA FDD2|B,DFD CEGE|FDEC D3:|!
+
+X:352
+T:Tarbolton
+Z: id:dc-reel-329
+M:C
+L:1/8
+K:E Minor
+D|Eeed e2AF|GBAF GEEF|Ddd^c d2AF|GBAG FDDF|!
+Eeed efge|fedf edBA|GABG F2Ac|BGAF GEE:|!
+f|gfef gebe|gebe gfe^c|defg a2AF|GBAG FDDF|!
+G2BG F2AF|Eeef gfed|BcdB AGFA|BGAF GEE:|!
+
+X:353
+T:Temperance
+Z: id:dc-reel-330
+M:C
+L:1/8
+K:G Major
+D|G2GF GABc|dBge dBAc|BEED EFGA|BdAF GFED|!
+G2GF GABc|dBge dBAc|BEED EFGA|BdAF G3:|!
+A|Beed e3f|geaf gfed|Bdd^c d3e|fgaf gfed|!
+Beed e3f|geaf gfed|BEED EFGA|BdAF G3:|!
+
+X:354
+T:Tempest
+Z: id:dc-reel-331
+M:C
+L:1/8
+K:D Dorian
+d2cA GEE2|DEcE dEcE|d2cA GEE2|EDCD EDD2|!
+d2cA GEE2|DEcE dEcE|DEFA GEcE|EDCD EDD2:|!
+d2ed cAGc|AdcA GEE2|d2ed cdef|edcA d2ag|!
+eage dcAB|cAGc AEGE|DEFA GEcE|EDCD EDD2:|!
+
+X:355
+T:Templehouse
+Z: id:dc-reel-332
+M:C
+L:1/8
+K:E Minor
+EFGA BGFE|D2FD ADFD|EDEF GABc|dBAc BEE2:|!
+g2ef g2eg|fdd2 Add2|g2ef gfed|BdAc BEE2|!
+g2ef g2eg|fdd2 Add2|efge afge|dBAc BEE2|]!
+
+X:356
+T:Tommy Coen's
+Z: id:dc-reel-362
+M:C
+L:1/8
+K:E Dorian
+D|B,EE2 EFGA|B2eB dBAF|D3F E2DB,|A,DFD EDB,A,|!
+B,EE2 EFGA|B2eB dBAF|DEFA dBAF|DEFD E3:|!
+A|Bee2 fedB|e3f dBAF|A3B d2fd|edef d2BA|!
+Bee2 fedB|egfe dBAF|DEFA dBAF|DEFD E3:|!
+
+X:357
+T:Tommy Peoples'
+Z: id:dc-reel-333
+M:C
+L:1/8
+K:B Minor
+B3c dBAF|B3c dfec|B3c dcdB|ABde fdec:|!
+K:D Major
+dfaf bfaf|dfaf g2fg|afge dedB|ABde fdec:|!
+
+X:358
+T:Tommy Whelan's
+Z: id:dc-reel-334
+M:C
+L:1/8
+K:G Major
+dB|G3A BAA2|bgag egdB|GEGA BAGE|ABAG EAEF|!
+G3A BAA2|bgag egdB|GEGA BAGE|ABAG E2|]!
+ef|gfeg fdBd|g2ef gaba|geed edBd|eaag agef|!
+gfeg fdBd|g2ef gaba|gfge a^gaf|dgbg eg|]!
+
+X:359
+T:Tom Ward's Downfall
+Z: id:dc-reel-335
+M:C
+L:1/8
+K:G Major
+A|BGG2 GEDG|EDEG AEGE|DEGA BABd|edd2 Bdgd|!
+BGG2 GEDG|EDEG AEGE|DEGA BABd|eBdc BGG:|!
+B|dgg2 gedg|eaa2 abga|bgg2 agef|gedc BGGB|!
+dgg2 gedg|eaa2 abga|bgg2 agef|gedc BGG:|!
+
+X:360
+T:Toss the Feathers
+Z: id:dc-reel-336
+M:C
+L:1/8
+K:D Mixolydian
+D2FD ADFD|ABcA GEE2|D2FD ADFD|d2ed cAGE|!
+D2FD ADFD|ABcA GEE2|cABG A3c|d2ed cAGE:|!
+Add2 Add2|Add2 ed^cd|eaa^g a3=g|eaag egdg|!
+efge afge|dfed cAAB|cABG A3^c|d2ed cAGE:|!
+
+X:361
+T:Toss the Feathers
+Z: id:dc-reel-337
+M:C
+L:1/8
+K:E Dorian
+EBB2 dBB2|EBB2 ADFA|EBBA B2AB|dffe dBAF:|!
+e2df e2de|fede fee2|febe febe|fede fee2|!
+Beef e2de|fede faaf|b3f a3f|effe dBAF|]!
+
+X:362
+T:Traveller
+Z: id:dc-reel-338
+M:C
+L:1/8
+K:G Major
+G2BG dGBG|ABcd cBAG|Bdgd egdB|cBAG FADF|!
+G2BG dGBG|ABcd cBAG|Bdgd egdB|cAFA G4:|!
+g2dg Bgdg|g2bg agef|g2dg BgdB|cBAG FAD2|!
+g2dg Bgdg|g2bg agef|gfga gfed|egfa g4:|!
+
+X:363
+T:Travers'
+Z: id:dc-reel-372
+M:C
+L:1/8
+K:A Dorian
+GB|A2dA eAdA|A2BG AGEG|A2dA eAdA|egdB GBdB|!
+A2dA eAdA|A2BG AGEG|cBcA BGGB|dBAG EF:|!
+GA|Bdef gedB|GBAG GED2|Bdef g3b|a3f gfed|!
+Bdef gedB|GBAG GED2|cBcA BGGB|dBAG EF:|!
+
+X:364
+T:Trim the Velvet
+Z: id:dc-reel-367
+M:C
+L:1/8
+K:G Major
+G3B AGFD|GBdB cAFA|G3B AGFD|defd cAFA|!
+G3B A3c|BcdB cAFA|G3B AGFD|defd cAFA|]!
+dgeB dgg2|dedB cAFA|dgeB dgg2|defd cAFA|!
+d3e dBB2|dBGd cAFA|dgeB dgg2|defd cAFA|]!
+g3a bgaf|g2ab c'baf|g3a bgaf|defd cAFA:|!
+BGdG BGG2|DGBd cAFA|BGdG BGBc|defd cAFA|!
+BGdG BGG2|DGBd cAFA|B3G AGFD|defd cAFA|]!
+
+X:365
+T:Trip to Durrow
+Z: id:dc-reel-339
+M:C
+L:1/8
+K:D Major
+A,|D2FD ADFA|defd B3c|dBBA dBBA|FADE FEE2|!
+D2FD ADFA|defd B3c|dBBA FAdB|AFEG FDD:|!
+A|dcde fefg|afdf gfed|cdef gebe|gebe gfec|!
+dcde fefg|afdf gfed|cdef gbag|fgec d3e|!
+fdec d3e|fded B3c|dBBA dBBA|FADE FEE2|!
+D2FD ADFA|defd B3c|dBBA FAdB|AFEG FDD:|!
+
+X:366
+T:Trip to Nenagh
+Z: id:dc-reel-340
+M:C
+L:1/8
+K:D Mixolydian
+A|dcAG FDDC|A,DFA dcAG|Add^c d=fed|c2Gc EcGc|!
+dcAG FDDC|A,DFA dcAG|Add2 AdFA|G2EG FDD:|!
+A|d2fd adfa|gfed ^ceAc|d2AG FDAG|FGAB c2Bc|!
+Add2 fdd2|^cdef g2fg|a2ea aged|^cAGE FDD:|!
+
+X:367
+T:Trip to Pakistan
+Z: id:dc-reel-373
+M:C
+L:1/8
+K:E Minor
+EGBE G3B|ABAG FGAF|EGBE G3B|AGFG E4:|!
+EGBc-c2A2|BABd BABG|EGBc-c2A2|BAGB A4:|!
+FGBF GBFG|EFGE FGEF|DFAD FADF|AGFG E4:|!
+
+X:368
+T:Turnpike
+Z: id:dc-reel-262
+M:C
+L:1/8
+K:A Major
+A2cA B2AF|E3F ABce|a2ge faec|cBBA B2cB|!
+A2cA B2AF|E3F ABce|a2ge faec|BABc A4:|!
+E2GE BEGE|A2cA eAcA|B2^dB fBdB|e2ge bege|!
+agae faec|defg a2fg|a2ge faec|BABc A4:|!
+
+X:369
+T:Union
+Z: id:dc-reel-341
+M:C
+L:1/8
+K:A Major
+f|e2cA eAcA|eAcA Bcdf|e2cA eAcA|Bcdc BAFA|!
+e2cA eAcA|eAcA Bcdf|efec dcBA|FABc d3|]!
+K:D Major
+A|dff2 dfef|dff2 afef|dff2 dfec|dcBA FAd:|!
+
+X:370
+T:Up against the Buachalawns
+Z: id:dc-reel-218
+M:C
+L:1/8
+K:D Major
+A,|D2FA D2FA|dfed cAAc|dBcA BdAF|GBAF GFEF|!
+D2FA D2FA|dfed cAAc|dBcA BdAF|GBAG FDD:|!
+f|aff2 dff2|gfed cdeg|aff2 dff2|g2eg fddf|!
+aff2 dff2|gfed cdeg|afge fdAF|GBAG FDD:|!
+
+X:371
+T:Up to Your Knees in Sand
+Z: id:dc-reel-343
+M:C
+L:1/8
+K:E Minor
+F|G2GF GABc|dBeB dBAF|DFAF BFAF|DFAF BFAF|!
+G2GF GABc|dBeB dBA2|Bee2 dBAF|DEFG E3:|!
+F|GBB2 GBAG|FAA2 FAD2|GBB2 GBdB|AGFG E3F|!
+GBB2 GBAG|FAA2 FAD2|G2GF GBdB|AGFG E3:|!
+
+X:372
+T:Vincent Broderick's
+Z: id:dc-reel-344
+M:C
+L:1/8
+K:D Major
+B|A2FA DAFA|f2df edBd|A2FA DAFA|B2dB BAFB|!
+A2FA DAFA|f2df edBd|f2af bfaf|e2de fdd:|!
+e|f2af bfaf|e2de fdde|f2df e2de|f2df edBd|!
+f2af bfaf|e2de fdde|f2df edBd|AFEF D3:|!
+
+X:373
+T:Virginia
+Z: id:dc-reel-345
+M:C
+L:1/8
+K:D Major
+DBBA B3A|BAdB AFEF|DFF2 A3B|AFBF AFEF|!
+DBBA B3A|BAdB ABde|f3e defe|dBAF BEE2:|!
+defe d3A|BAFA dBAB|defe defg|a2bf afeg|!
+f2df efdB|AFF2 ABde|f3e defe|dBAF BEE2:|!
+
+X:374
+T:Wellington's
+Z: id:dc-reel-346
+M:C
+L:1/8
+K:G Major
+D|G2BG DGBG|A3B cdec|A3B cABG|FADE FGAB|!
+G2BG DGBd|cBAB cdef|gedB c2Bc|dBcA BGG:|!
+d|g2bg dgbg|g2bg fdde|f2af dfaf|g2bg fddf|!
+[1 g2bg dgbg|g2bg fdef|gedB c2Bc|dBcA BGG:|!
+[2 g3b a3b|g3a fdef|gedB c2Bc|dBcA BGG|]!
+
+X:375
+T:West Wind No. 1
+Z: id:dc-reel-347
+M:C
+L:1/8
+K:G Major
+GF|DGG2 BGG2|cAA2 dcAF|DGG2 BGBd|cAFG AGGF|!
+DGG2 B3d|c3A dcA2|g3a gfde|fdcA AG:|!
+Bd|g3a gfde|f2ge fdcA|dgg2 gfde|fdcA AGBd|!
+g3a gfde|f2ge fdcA|dgg2 bgag|fdcA AG:|!
+
+X:376
+T:West Wind No. 2
+Z: id:dc-reel-348
+M:C
+L:1/8
+K:G Major
+A|BdGA BGdB|ADFG ABcA|BdGA BGdB|cAFG AGGA|!
+BdGA BGdB|ADD2 ABcA|G2Bd g3e|fdcA BGG|]!
+D|G2Bd g3e|f3d ABcA|G2Bd g3e|fdcA dBcA|!
+G2Bd g3e|f3d ABcA|dgg2 bgag|fdcA BGG|]!
+A|B2GB B2dB|ADFG ABcA|B2GB B2de|fdcA dBcA|!
+B2GB B2dB|ADD2 ABcA|G2Bd g3e|fdcA BGG|]!
+
+X:377
+T:Wheels of the World
+Z: id:dc-reel-349
+M:C
+L:1/8
+K:D Mixolydian
+B|ADD2 FAGF|ECC2 G,CEG|ADD2 FAde|=fedc AddB|!
+ADD2 FAGF|ECC2 G,CEG|AddB cBAG|EDCE EDD:|!
+B|cBce gecA|d2ad bdad|cBcd edd2|eaa2 edAB|!
+cBce gecA|d2ad bdad|abag efge|fage d3:|!
+
+X:378
+T:Wild Irishman
+Z: id:dc-reel-350
+M:C
+L:1/8
+K:D Major
+c|d2fd gefe|dfed cdec|d2fd gefd|fgfe d3c|!
+d2fd gefe|dfed cdeg|f3d g3e|cdec d3|]!
+f|edcB A2cA|eAA2 eAfA|edcB A3e|fgfe d3f|!
+edcB ABcd|eAA2 eAfA|edcB A3e|fgfe d3|]!
+
+X:379
+T:Windmill
+Z: id:dc-reel-351
+M:C
+L:1/8
+K:D Major
+ABc|d2fd ceAc|dBGB AFDE|FBB2 Adfd|eAce afge|!
+d2fd ceAc|dBGB AFDF|GFGB Adfa|gece d:|!
+efg|eAA2 a3f|gAA2 dFAd|BdAB GAGF|EDEF GABc|!
+dAA2 eAaA|fdce defd|cdef gfga|eAce d:|!
+
+X:380
+T:Wind that Shakes the Barley
+Z: id:dc-reel-352
+M:C
+L:1/8
+K:D Major
+B|A3B AFED|B3A BcdB|A3B AFED|gfed Bcd:|!
+e|f3d g3e|f3d Bcde|f3d g2fg|afed Bcde|!
+f3d g3e|f3d Bcde|fafd gbge|afed Bcd|]!
+
+X:381
+T:Wise Maid
+Z: id:dc-reel-353
+M:C
+L:1/8
+K:D Major
+F3G FEDE|FAAB AFED|d2eg fdec|[1 dBAF BEE2:|[2 dBAG FDD2|]!
+dBAG FDFA|dfaf gfeg|fAdf eAce|dfed cAA2|!
+BDGB ADFA|dfaf gfed|cdec dBAG|F2EG FDD2:|!
+
+X:382
+T:Wissahickon Drive
+Z: id:dc-reel-376
+M:C
+L:1/8
+K:A Major
+AF|EFAB cBAB|ceef ecBA|F2dF eFde|fedf ecBA|!
+EFAB cBAB|ceef ecBA|f3a e2cA|BAGB A2:|!
+ce|a2ga baga|f3e feaf|ecc2 acec|fcec BA|!
+[1 ce|a2ga baga|f2de feaf|ecc2 afec|BABc AB:|!
+[2 Bc|ABce a2ga|f2de feaf|ecc2 afec|BABc A2|]!
+
+X:383
+T:Within a Mile of Dublin
+Z: id:dc-reel-354
+M:C
+L:1/8
+K:D Mixolydian
+FG|ADD2 FEFG|ADD2 c2dc|ADD2 FEFG|ABcA G2:|!
+FG|Addc AGFG|Adde fdec|Addc AGFG|ABcA G2FG|!
+Addc AGFG|Adde f3g|afge fde^c|dcAF G2|]!
+
+X:384
+T:Woman of the House
+Z: id:dc-reel-355
+M:C
+L:1/8
+K:G Major
+E|DBBA B3A|GBB2 eBdB|A2GB A2Bd|eBB2 gfed|!
+DBBA B3A|GBB2 eBdB|GABG A2GA|BGAG EFG:|!
+e|f3d eBB2|eBgB eBB2|f3d edBd|eaa^g aba=g|!
+f3d eBB2|g3e dBB2|GABG A2GA|BGAG EFG:|!
+
+X:385
+T:Yellow Tinker
+Z: id:dc-reel-356
+M:C
+L:1/8
+K:G Mixolydian
+FE|DGG2 DFCF|DGG2 dGBG|DGG2 DFF2|cAFA c2:|!
+Bc|dGG2 dGBc|dgg2 ^fdcA|dGG2 dGBd|cAFA c2Bc|!
+dGG2 dGBc|dgg2 ^fgag|^f2de ^f2de|^fgag ^fd|]!
+cA|d2BG BdBG|BdBG c2Bc|d2BG Bcde|fdcA FAcA|!
+d2BG BdBG|BdBG c2Bc|d^cde f2ed|cAFA G2|]!
+
+X:386
+T:Youngest Daughter
+Z: id:dc-reel-357
+M:C
+L:1/8
+K:E Dorian
+E2BE dEBe|dBAF DEFD|E2BE dEBe|dBAF BEE2:|!
+Beef gfed|BdAF DEFA|Beef gfed|BdAF BEE2|!
+Beef gfed|BdAF DEFe|afge fdec|dBAF BEE2|]!
+

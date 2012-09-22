@@ -1,0 +1,80 @@
+% Making Music for Malcolm
+% (The Biggest Ceilidh Band Revisited)
+
+% 1-4pm 18th October 2009
+% Kelham Island Museum, Alma Street, Sheffield S3 8RY
+
+% from the PDFs on the page for the event:
+% http://www.robingarside.co.uk/malcolm
+
+% ABC versions by Jack Campin
+
+X:1
+T:Whitby Pier
+C:trad. arr. Robin Garside
+Z:ABC version by Jack Campin
+M:6/8
+L:1/8
+Q:3/8=120
+K:D
+A|"D"F2A d2e|   fed    cBA|"G" BdB "D" AFD|   FAF "A"E2
+A|"D"F2A d2e|   fed    cBA|"Em"Bgf "A" edc|"D"d3     d2:|
+g|"D"faf d2f|"G"gbg    e2g|"D" fed     faf|"A"ecA    A2
+g|"D"faf d2f|"G"bag "D"fed|"Em"Bgf "A7"edc|"D"d3     d2:|
+
+X:2
+T:Hunt the Squirrel
+C:trad. arr. Robin Garside
+Z:ABC version by Jack Campin
+M:6/8
+L:1/8
+Q:3/8=120
+K:G
+"G"G2d d2e|    d3  B3 |"G" GAB "D"A2G|   "G"GAB "D"A2G |
+"G"G2d d2e|    d3  B3 |"G" GAB "D"A2G|[1 "G"G3     D3 :|\
+                                      [2 "G"G3     GAB||
+"C"c2d edc|"Am"c2d edc|"Am"c2d    e2f|   "C"g3     gfe |
+"G"d2B d2B|    d2B d3 |"G" GAB "D"A2G|[1 "G"G3     GAB:|\
+                                      [2 "G"G3     D3 |]
+
+X:3
+T:Speed the Plough
+C:trad. arr. Robin Garside
+Z:ABC version by Jack Campin
+M:C|
+L:1/8
+Q:1/2=96
+K:G
+   "G"GABc dedB|dedB    dedB|"Am"c2ec "G"B2dB|"Am"c2A2 "D7"A2
+BA|"G"GABc dedB|dedB    dedB|"Am"c2ec "G"B2dB|"D7"A2A2 "G" G4:|
+   "C"g2gg g2ef|g2fe "G"dBGB|"Am"c2ec "G"B2dB|"Am"c2A2 "D7"A2
+Bd|"C"g2gg g2ef|g2fe "G"dBGB|"Am"c2ec "G"B2dB|"D7"A2A2 "G" G4:|
+
+X:4
+T:Jenny Lind
+C:trad. arr. Robin Garside
+Z:ABC version by Jack Campin
+N:initial A upbeat added to simplify repeat structure (JC)
+M:C|
+L:1/8
+Q:1/2=96
+K:D
+A2|"D"F2A2 "G"G2B2|"D"A2f2 fef2|"Em"G2e2    ede2|"D"F2d2 d2
+A2|"D"F2A2 "G"G2B2|"D"A2f2 fef2|"Em"g2e2 "A"egfe|"D"d2f2 d2:|
+K:G
+ef|"C"g2f2    egfe|"G"d2B2 BAB2|"D7"c2A2    AGA2|"G"B2G2 G2
+Bd|"C"g2f2    egfe|"G"d2B2 BAB2|"D7"c2A2    AcBA|"G"G2B2 G2:|
+
+X:5
+T:Whitby Pier [for garklein etc.]
+C:trad. arr. Robin Garside
+Z:ABC version by Jack Campin
+N:JC's version for instruments that can't go above g
+M:6/8
+L:1/8
+Q:3/8=120
+K:D
+A|"D"F2A d2e|   fed    cBA|"G" BdB "D" AFD|   FAF "A"E2
+A|"D"F2A d2e|   fed    cBA|"Em"Bgf "A" edc|"D"d3     d2:|
+G|"D"FAF D2F|"G"GBG    e2g|"D" fed     fdA|"A"ecA    A2
+G|"D"FAF D2A|"G"BAG "D"fed|"Em"Bgf "A7"edc|"D"d3     d2:|

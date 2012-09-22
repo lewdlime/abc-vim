@@ -1,0 +1,307 @@
+X:1
+T:Blind Mary
+Z: id:dc-ocarolan-16
+M:2/4
+L:1/8
+K:D Major
+A|d2 d3/2c/|B2 AF/G/|A3/2B/ AF|E3 F/G/|!
+Af f3/2e/|dB AD/E/|F3/2G/ E3/2D/|D3|]!
+d/e/|f3/2g/ fB|e3/2c/ AB/c/|d3/2D/ DE/F/|E3 A/G/|!
+F3/2G/ Ad|f3/2e/ dD/E/|F3/2G/ E3/2D/|D3|]!
+
+
+X:2
+T:Brian Maguire
+Z: id:dc-ocarolan-18
+M:4/4
+L:1/8
+K:F Major
+C2FE F2DE|F2ED C2A,2|B2BG A/B/ccA|F2A2 c2f2|!
+fefg fefg|
+M:2/4
+a2g/f/e|
+M:4/4
+d3a d3a|g3f e2de|!
+|fcde fcde|fedc B2AG|A2DA GBAG|F2FE F4:|!
+A/B/c/A/FA FAcA|B2Bd B2Bd|cBAG ABcA|F2FA F2FA|!
+GAGF GAB2|ABAG ABc2|BAGF EFGA|F2ED D4|!
+cdef fgga|abbc' a2gf|gafa f2ed|c2e2 f4:|!
+
+
+X:3
+T:Carolan's Concerto
+Z: id:dc-ocarolan-1
+M:C|
+L:1/8
+K:D Major
+ABc|d2dd d2cB|ABGA F2A2|E2A2 D2A2|Bcde dcBA|!
+d2a2 fgaf|efge fgaf|gabg fdfa|gfed dcBA|!
+BdBd gBgB|AdAd fAfA|GBGB efed|c2Bc A3G|!
+FGAF EFGE|FGAF GABG|A2d2 fedc|d4-d:|!
+ABc|d2b2 agfe|d2a2 c2a2|B2gB ABcd|ecBA d2df|!
+edcB caaa|Bggg Afff|edcB caaa|Bggg bgbg|!
+afaf edcB|cABG AFGE|DAFA DAFA|GEBE GEBE|!
+FAdc BAGF|EFGA Bcde|A2d2 fedc|d4-d:|!
+
+X:4
+T:Carolan's Receipt for Drinking
+Z: id:dc-ocarolan-2
+M:C|
+L:1/8
+K:G Major
+gf|edcB cBAG|E2GA G2gf|edcB cBcd|e2AB A2Bc|!
+dBde d2ef|g2fe d2BA|BAGE AGED|E2GA G2|]!
+Bc|dBde dBAG|EFGA G2Bc|dBde d2Bd|e2eg e3g|!
+G2 (3GAB A2 (3ABc|B2 (3cde d3d|efgf edBd|e2eg e2ga|!
+babg agae|gfgd edcB|cBcd efgf|edgB A4|!
+BcBA G2eg|dgBA G2GA|BAGE AGED|E2GA G2|]!
+
+X:5
+T:Carolan's Draught
+Z: id:dc-ocarolan-3
+M:C|
+L:1/8
+K:G Major
+D2|GABc defd|g2fe d2d2|e2E2 d2D2|c2Bc AcBA|!
+GABc defd|gfed ^cbag|gfed A2^c2|d6:|!
+fg|afga bagf|egfe edcB|e^def gfga|bagf efga|!
+bBbB aBaB|gBgB fBfB|e^def gfe=d|e6 f2|!
+gfed cBAG|e2d2 d2D2|c2B2 A2G2|FGAF D3D|!
+EFGE FGAF|GABG ABcA|d2g2 bagf|g6|]!
+
+X:6
+T:Carolan's Ramble to Cashel
+Z: id:dc-ocarolan-4
+M:3/4
+L:1/8
+K:E Minor
+ef|gf ga ba|g2 fg af|e2 B2 de|d4 gf|!
+ed cB AG|GF GA BA|B2 e2 e2|e4:|!
+ef|g2 b2 b2|b2 a2 g2|fe de fg|a2 g2 f2|!
+gf ga ba|g2 fa gf|e2 B2 de|d4|]!
+Bd|ef ed ed|BA Bd ef|gf ga ba|g2 fa gf|!
+e2 B2 de|d4 gf|ed cB AG|GF GA BA|!
+B2 ed ef|g2 abag|ed cB AG|GF GA BA|B2 e2 e2|e4|]!
+
+X:7
+T:Colonel O'Hara
+Z: id:dc-ocarolan-19
+M:C
+L:1/8
+K:F Major
+eg|f2c2 fedc|d2cB B4|gffe dcc2|cBBA GFFC|!
+AGAF BABG|cBcA dcdA|BAGF EGDG|C2C2 C2GE|!
+FEFD B,CDB,|GFGE CDEC|AGAF DEFD|BABG EFGE|!
+FGAB c2de|f2ef gfed|c2AB cBAG|F2f2 F2:|!
+FD|C2F2 FEFG|FEFG F2C2|A2A2 ABAG|FGAB c2BA|!
+B2f2 efge|fedc c'2c2|a2fa bagf|efde ceag|!
+fefd BcdB|gfge cdec|agaf defd|babg efge|!
+a2f2 f2f2|e2c2 c2Ac|fedc BAGA|F2f2 F2:|!
+
+X:8
+T:Doctor John Hart
+Z: id:dc-ocarolan-5
+M:3/4
+L:1/8
+K:A Major
+e2 ce/f/ ec|ed cB A2|B2 A/B/c A/B/c|BA F2 F2|!
+ae ab c'b|ab af ae|fa/b/ af ec|B2 ce f2|!
+fc ef ec|A2 A2 A2|ec fe e/c/B/A/|B2 Bc B2|!
+ed cB A2|Bc BA GF|EA GB Ac|B2 A2 A2|]!
+E/C/E/F/ EC B,A,|E2 EF E2|FE FA FE|C2 EF F2|!
+AG AB cB|AB cd ed|cd ef ed/c/|B2 GA B2|!
+ec AF E/D/C/B,/|A,2 A2 Ac/d/|ec/e/ fe/f/ af|e2 cB B2|!
+ed cB A2|Bc BA GF|EA GB Ac|B2 A2 A2|]!
+
+
+X:9
+T:Fanny Power
+Z: id:dc-ocarolan-6
+M:3/4
+L:1/8
+K:G Major
+D2|G4 D2|G2 A2 B2|c4 B2|A4 G2|G2 F2 E2|D2 E2 D2|F4 G2|A4 c2|!
+B2 A2 G2|B2 c2 d2|e4 A2|A4 G2|G2 F2 E2|D2 G2 F2|G6|G4|]!
+B2|d2 Bc d2|d2 Bc d2|G2 B2 G2|G2 B2 G2|e2 cd e2|e2 cd e2|A2 c2 A2|A2 c2 A2|!
+B2 c2 d2|e2 f2 g2|f2 g2 a2|d4 c2|B4 G2|A2 B2 A2|G6|G4|]!
+
+X:10
+T:Festus Burke
+Z: id:dc-ocarolan-20
+M:C
+L:1/8
+K:D Major
+(3ABc|d2A2 d2e2|gfed d2f2|g2fe a2fd|c2B2 A2dc|!
+BAG2 G2B2|G2B2 cde2|dcBA B2c2|d4 d2:|!
+fg|a2f2 d2A2|agfe dega|b2g2 e2b2|bagf efge|!
+agfe fgaf|edcB cdec|dBGB DBGB|!
+ecAE Acec|dcBA GFED|CB,CD EFGE|!
+F2D2 D2F2|A4 A3A|B2G2G2B2|e4 e3e|!
+dcBA A2a2|gabg fgaf|g2B2 cdec|d4 d2|]!
+AG|FAdA FAFD|FAdB A2D/F/A|B2G2 dcdB|c2A2 e^dec|!
+d2a2 e2g2|gfef g2e2|d4 dABA|!
+G2GB G2GB|A2Aa A2Aa|G2GB G2Gg|!
+gfef gfed|Aaef gfed|B2ef gfed|cdBc A2dc|!
+Bcdc BAGF|AGFE GFED|A2A,2 CDEC|D4 D2|]!
+
+X:11
+T:Hewlett
+Z: id:dc-ocarolan-17
+M:3/4
+L:1/8
+K:D Major
+AF|D2 DE FG|AB c2 A2|d2 f2 fg|fe d2 dB|!
+A2 F2 FA|G3 A BG|AF D2 DE|D4:|!
+AB|A2 D2 AB|A2 D2 AB|A2 d3 e|dc BA GF|!
+G2 GF GA|G2 GF GA|G3 A BG|AF D3 E|!
+FE F2 G2|AB c2 A2|d2 f2 fg|fe d2 dB|!
+A2 F2 FA|G3 A BG|AF D2 DE|D4:|!
+
+X:12
+T:John O'Connor
+Z: id:dc-ocarolan-7
+M:6/8
+L:1/8
+K:G Major
+D|G2G FED|E2F G2A|B2G cBA|B2G cBA|!
+Bcd EGE|FGA DFD|GFE DB,D|G3 G2:|!
+B|ded def|g3 g3|cdB cdc|e3 e3|!
+dcB c2A|Bcd D2D|EFG AFD|G3 G2:|!
+A|BGE EGE|AFD DFD|EGE FAG|F3 D2c|!
+Bcd dBG|cde ecA|GFE AFD|G3 G2:|!
+
+X:13
+T:Loftus Jones
+Z: id:dc-ocarolan-8
+M:C
+L:1/8
+K:G Major
+g4 f2e2|d3c BcdB|cBAF G2GA|BcBA G2GA|!
+BcdB cdec|d2cB cBAG|F2EF D2 (3DEF|GAGF Eccc|dedB cBAF|!
+GGDD EEFF|GGEE FFGG|AAFF GGAA|BBGG AABB|!
+c3A dedB|cBAG FGAF|GEDC B,2D2|[1 G,4-G,4:|[2 G,4-G,2|]!
+B2|A2F2 G2E2|F2D2 E3F|G2B2 F2B2|E4 F3D|!
+B2cB A2BA|GABc B2BA|GABc d2 (3cBA|GAF2 E2GE|!
+B,EGE B,EGE|DFFF DFAF|EGGG EGAG|FAAA FAAA|!
+GBBB GBBB|GBGB GBGB|efg2 f4|e4-edef|!
+gage fgfd|efge dedB|ccec BcdB|AGFE DEFD|!
+GEDC B,DGB|AGFE DddB|cBAG FGAF|[1 GDB,D G,2:|[2 GDB,D G,4|]!
+
+X:14
+T:Lord Inchiquin
+Z: id:dc-ocarolan-9
+M:3/4
+L:1/8
+K:D Major
+A2|d2 de fe|d2 ed cB|A2 F2 A2|f4 fe|d2 ed cB|A2 G2 F2|G2 BA GF|E4 ag|!
+f3 e d2|d2 c2 B2|A2 F2 A2|f4 fe|d2 ed cB|A2 d2 F2|E4 D2|D4:|!
+A2|AB cd e2|e2 d2 e2|f2 d2 f2|e4 d2|de fg a2|a2 b2 g2|f2 d2 f2|e4 d2|!
+de fg a2|a2 b2 g2|f3 g e2|d4 f2|gf e4|e2 f2 d2|c2 d2 B2|A4 ag|!
+f3 e d2|d2 c2 B2|A2 F2 A2|g4 fe|d2 ed cB|A2 d2 F2|E4 D2|D4:|!
+
+X:15
+T:Morgan Magan
+Z: id:dc-ocarolan-21
+M:C
+L:1/8
+K:G Major
+D2|D2G2 G2A2|cBAG Bcd2|e2A2 A2G2|G2FE D2EF|!
+G4 GFGA|G2FE D3G|FGAB cBAG|F2E2 D2EF|!
+G3B cAFA|G4 G2B2|c3B ABc2|d2d2 e2c2|!
+d2B2 cBAG|AGFE D2EF|G2B2 cAFA|G4 G2:|!
+dc|B2d2 d2ef|g2gf gdBd|g2gf gdBd|e2A2 A3c|!
+BABc d2g2|e2c2 d2B2|c2A2 d2G2|F2D2 D2GF|!
+E2D2 C2CD|E2C2 C2AG|F2E2 D2DE|F2D2 D2Bc|!
+d4 edcB|cBAG AGFE|D2B2 cAFA|G4 G2:|!
+
+X:16
+T:Mrs. Judge
+Z: id:dc-ocarolan-10
+M:C
+L:1/8
+K:E Minor
+ED|B,2E2 E2G2|FGFE D2B2|BAGF AGFE|D4 B,2B,2|!
+E2F2 G2A2|BcBA G2e2|efg2 B2g2|f4 e2e2|!
+edB2 B2e2|dedB G2B2|AGFG A2G2|F4 E2D2|!
+B2G2 c2A2|d2B2 e2B2|cBAG BAGF|E4 E2:|!
+GA|B2B2 c2B2|BAGF G2d2|efg2 B2g2|efg2 B2g2|!
+fga2 d2a2|gfge bgbe|dBde BABc|B4 B2g2|!
+gfef g2f2|e3f e2dc|B2cB A2G2|G2F2 E2D2|!
+EFGA B2e2|DEFG A2d2|BABG BAGF|E4 E2:|!
+M:6/8
+E|EGB EGB|GA/G/F/E/ FB,B,|DdF EeB|GA/G/F/G/ E2:|!
+B|Bdg Bdg|g/f/e/d/e/f/ gdB|cc/B/A/G/ AdD|BeE e2d|!
+e/d/B/d/e d/B/A/B/d|B/A/G/A/B/G/ AFD|E/F/GE F/G/AF|G/A/BB, E2:|!
+
+X:17
+T:Ode to Whiskey
+Z: id:dc-ocarolan-11
+M:6/8
+L:1/8
+K:D Major
+d|dcB ABG|F2D DEF|GAB Bcd|cec A2d|!
+dcB ABG|F2D DFA|Bed cBc|d3 d2:|!
+e|f2d g2e|f2d Bcd|efd cdB|A2F F2e|!
+f2d g2e|a2f dcd|Bed cBc|d3 d2:|!
+
+X:18
+T:Planxty Drury
+Z: id:dc-ocarolan-23
+M:6/8
+L:1/8
+K:D Major
+A|d2d dcB|A2G F2G|E2e efd|c2B AFG|!
+A2f fgf|e2d cBA|f2g afd|ced cBA|!
+AFA AFA|Bcd ecA|afa gec|d3 d2:|!
+B|ABA GAG|FGF E2E|E2E E2G|FDG FGE|!
+D3 d3|efe ecA|ABc def|g2f edc|!
+d2d ded|BAG Bcd|efe egf|efd cBA|!
+d2F G2B|A2G FGA|BAG FGE|D3 D2:|!
+
+X:19
+T:Planxty George Brabazon
+Z: id:dc-ocarolan-12
+M:C
+L:1/8
+K:G Major
+ge|d2G2 cBAG|d2G2 cBAG|e2A2 ABcA|e2A2 ABcA|!
+d2cB g2fe|d2cB cBAG|BAGE DEGA|B2G2 G2:|!
+ga|b2gb a2fa|g2dg edcB|e2A2 ABcA|e2A2 A2ga|!
+b2gb a2fa|g2dg edcB|BAGE DEGA|B2G2 G2:|!
+
+X:20
+T:Planxty Irwin
+Z: id:dc-ocarolan-13
+M:3/4
+L:1/8
+K:G Major
+d2|g4 f2|e2 f2 g2|d4 c2|B2 A2 G2|c4 A2|B2 c2 d2|F4 G2|A4 d2|!
+g4 f2|e2 f2 g2|d4 c2|B2 A2 G2|c4 A2|B2 c2 d2|G4 F2|G4:|!
+d2|g4 g2|g2 f2 g2|a4 a2|a2 f2 d2|b4 b2|a4 g2|f4 e2|d2 e2 f2|!
+g4 f2|e2 f2 g2|d4 c2|B2 A2 G2|c4 A2|B2 c2 d2|G4 F2|G4:|!
+
+X:21
+T:Sheebeg and Sheemore
+Z: id:dc-ocarolan-14
+M:3/4
+L:1/8
+K:D Major
+de|f2 fe d2|d3 e d2|B4 A2|F4 A2|BA Bc d2|e4 de|f4 e2|d4 f2|!
+B4 e2|A4 d2|F4 E2|D4 f2|B4 e2|A4 dc|d6|d4:|!
+de|f2 fe d2|ed ef a2|b4 a2|f4 ed|e2 e2 a2|f3 e d2|d4 B2|A4 BA|!
+F4 E2|D4 f2|B4 e2|A4 fa|ba gf ed|e4 dc|d6|d4:|!
+
+X:22
+T:Thomas Judge
+Z: id:dc-ocarolan-15
+M:3/4
+L:1/8
+K:D Minor
+AG|A2 d2 d2|d4 c2|dc de f2|f2 g2 f2|!
+fe de f2|dc BA GF|D2 G2 G2|G4 AG|!
+F2 C2 c2|c2 AB c2|A2 F2 f2|ag fg a2|f2 d2 d2|c2 A2 G2|A2 d2 d2|d4|]!
+z2|d2 d2 d2|d2 e2 f2|A2 G2 F2|G2 F2 E2|c2 c2 c2|c2 c2 c2|c2 AB cA|d4 FE|!
+DE F2 E2|DE F2 D2|C2 E2 c2|G2 E2 C2|A3 G F2|F2 E2 D2|C2 A,2 C2|D4|]!
+C2|D2 F2 d2|D2 F2 d2|c2 dc BA|G2 E2 C2|F2 A2 f2|F2 A2 f2|fe dc de|f4 Ac|!
+d2 ed cB|c2 dc BA|G2 AG FE|F2 GF ED|C2 E2 c2|C2 E2 AE|F2 D2 D2|D4|]!
+

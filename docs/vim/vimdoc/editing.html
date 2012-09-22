@@ -1,0 +1,1790 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: editing</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: editing</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="editing.txt"></A><b>editing.txt</b>*   For Vim version 7.3.  Last change: 2011 Feb 26
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Editing files						*<a name="edit-files"></A><b>edit-files</b>*
+
+1.  Introduction		|<a href="editing.html#edit-intro">edit-intro</a>|
+2.  Editing a file		|<a href="editing.html#edit-a-file">edit-a-file</a>|
+3.  The argument list		|<a href="editing.html#argument-list">argument-list</a>|
+4.  Writing			|<a href="editing.html#writing">writing</a>|
+5.  Writing and quitting	|<a href="editing.html#write-quit">write-quit</a>|
+6.  Dialogs			|<a href="editing.html#edit-dialogs">edit-dialogs</a>|
+7.  The current directory	|<a href="editing.html#current-directory">current-directory</a>|
+8.  Editing binary files	|<a href="editing.html#edit-binary">edit-binary</a>|
+9.  Encryption			|<a href="editing.html#encryption">encryption</a>|
+10. Timestamps			|<a href="editing.html#timestamps">timestamps</a>|
+11. File Searching		|<a href="editing.html#file-searching">file-searching</a>|
+
+==============================================================================
+
+1. Introduction						*<a name="edit-intro"></A><b>edit-intro</b>*
+
+Editing a file with Vim means:
+
+1. reading the file into a buffer
+2. <a href="change.html#changing">changing</a> the buffer with editor commands
+3. <a href="editing.html#writing">writing</a> the buffer into a file
+
+
+							*<a name="current-file"></A><b>current-file</b>*
+As long <a href="motion.html#as">as</a> you don't write the buffer, the original file remains unchanged.
+If you start editing a file (read a file into the buffer), the file name is
+remembered <a href="motion.html#as">as</a> the &quot;current file name&quot;.  This is also known <a href="motion.html#as">as</a> the name of the
+current buffer.  It can be used with &quot;&#37;&quot; on the command line |<a href="cmdline.html#:_&#37;">:_&#37;</a>|.
+
+
+							*<a name="alternate-file"></A><b>alternate-file</b>*
+If there already was a current file name, then that one becomes the alternate
+file name.  It can be used with &quot;#&quot; on the command line |<a href="cmdline.html#:_#">:_#</a>| and you can use
+the |<a href="editing.html#CTRL-^">CTRL-^</a>| command to toggle between the current and the alternate file.
+However, the alternate file name is not changed when |<a href="editing.html#:keepalt">:keepalt</a>| is used.
+
+
+							*<a name=":keepalt"></A><b>:keepalt</b>* *<a name=":keepa"></A><b>:keepa</b>*
+<a href="editing.html#:keepalt">:keepalt</a> {cmd}		Execute {cmd} while keeping the current alternate file
+			name.  Note that commands invoked indirectly (e.g.,
+			with a function) may still set the alternate file
+			name.  {not in Vi}
+
+All file names are remembered in the buffer list.  When you enter a file name,
+for editing (e.g., with &quot;<a href="editing.html#:e">:e</a> filename&quot;) or <a href="editing.html#writing">writing</a> (e.g., with &quot;<a href="editing.html#:w">:w</a> filename&quot;),
+the file name is added to the list.  You can use the buffer list to remember
+which files you edited and to quickly switch from one file to another (e.g.,
+to copy text) with the |<a href="editing.html#CTRL-^">CTRL-^</a>| command.  First type the number of the file
+and then hit <a href="editing.html#CTRL-^">CTRL-^</a>.  {Vi: only one alternate file name is remembered}
+
+
+
+<a href="editing.html#CTRL-G">CTRL-G</a>		or				*<a name="CTRL-G"></A><b>CTRL-G</b>* *<a name=":f"></A><b>:f</b>* *<a name=":fi"></A><b>:fi</b>* *<a name=":file"></A><b>:file</b>*
+:f[ile]			Prints the current file name (as typed, unless &quot;<a href="editing.html#:cd">:cd</a>&quot;
+			was used), the cursor position (unless the <a href="options.html#'ruler'">'ruler'</a>
+			option is set), and the file status (readonly,
+			modified, read <a href="message.html#errors">errors</a>, new file).  See the <a href="options.html#'shortmess'">'shortmess'</a>
+			option about how to make this message shorter.
+			{Vi does not include column number}
+
+:f[ile]!		like |<a href="editing.html#:file">:file</a>|, but don't truncate the name even when
+			<a href="options.html#'shortmess'">'shortmess'</a> indicates this.
+
+{count}CTRL-G		Like <a href="editing.html#CTRL-G">CTRL-G</a>, but prints the current file name with
+			full path.  If the <a href="intro.html#count">count</a> is higher than 1 the current
+			buffer number is also given.  {not in Vi}
+
+
+					*<a name="g_CTRL-G"></A><b>g_CTRL-G</b>* *<a name="word-count"></A><b>word-count</b>* *<a name="byte-count"></A><b>byte-count</b>*
+<a href="index.html#g">g</a> <a href="editing.html#CTRL-G">CTRL-G</a>		Prints the current position of the cursor in five
+			ways: Column, Line, Word, Character and Byte.  If the
+			number of Characters and Bytes is the same then the
+			Character position is omitted.
+			If there are characters in the line that take more
+			than one position on the screen (&lt;Tab&gt; or special
+			character), both the &quot;real&quot; column and the screen
+			column are shown, separated with a dash.
+			See also <a href="options.html#'ruler'">'ruler'</a> option.  {not in Vi}
+
+
+							*<a name="v_g_CTRL-G"></A><b>v_g_CTRL-G</b>*
+{Visual}g <a href="editing.html#CTRL-G">CTRL-G</a>	Similar to &quot;g CTRL-G&quot;, but Word, Character, Line, and
+			Byte counts for the visually selected region are
+			displayed.
+			In Blockwise mode, Column <a href="intro.html#count">count</a> is also shown.  (For
+			<a href="intro.html#{Visual}">{Visual}</a> see |<a href="visual.html#Visual-mode">Visual-mode</a>|.)
+			{not in VI}
+
+
+							*<a name=":file_f"></A><b>:file_f</b>*
+:f[ile][!] {name}	Sets the current file name to {name}.  The optional !
+			avoids truncating the message, <a href="motion.html#as">as</a> with |<a href="editing.html#:file">:file</a>|.
+			If the buffer did have a name, that name becomes the
+			|<a href="editing.html#alternate-file">alternate-file</a>| name.  An unlisted buffer is created
+			to hold the old name.
+
+							*<a name=":0file"></A><b>:0file</b>*
+:0f[ile][!]		Remove the name of the current buffer.  The optional !
+			avoids truncating the message, <a href="motion.html#as">as</a> with |<a href="editing.html#:file">:file</a>|.  {not
+			in Vi}
+
+<a href="windows.html#:buffers">:buffers</a>
+<a href="windows.html#:files">:files</a>
+<a href="windows.html#:ls">:ls</a>			<a href="eval.html#List">List</a> all the currently known file names.  See
+			'<a href="windows.html#windows.txt">windows.txt</a>' |<a href="windows.html#:files">:files</a>| |<a href="windows.html#:buffers">:buffers</a>| |<a href="windows.html#:ls">:ls</a>|.  {not in
+			Vi}
+
+Vim will remember the full path name of a file name that you enter.  In most
+cases when the file name is displayed only the name you typed is shown, but
+the full path name is being used if you used the &quot;:cd&quot; command |<a href="editing.html#:cd">:cd</a>|.
+
+
+							*<a name="home-replace"></A><b>home-replace</b>*
+If the environment variable <a href="options.html#$HOME">$HOME</a> is set, and the file name starts with that
+string, it is often displayed with HOME replaced with &quot;<a href="change.html#~">~</a>&quot;.  This was done to
+keep file names short.  When reading or <a href="editing.html#writing">writing</a> files the full name is still
+used, the &quot;<a href="change.html#~">~</a>&quot; is only used when displaying file names.  When <a href="change.html#replacing">replacing</a> the
+file name would result in just &quot;<a href="change.html#~">~</a>&quot;, &quot;~/&quot; is used instead (to avoid confusion
+between <a href="options.html#options">options</a> set to <a href="options.html#$HOME">$HOME</a> with <a href="options.html#'backupext'">'backupext'</a> set to &quot;~&quot;).
+
+When <a href="editing.html#writing">writing</a> the buffer, the default is to use the current file name.  Thus
+when you give the &quot;<a href="editing.html#ZZ">ZZ</a>&quot; or &quot;<a href="editing.html#:wq">:wq</a>&quot; command, the original file will be
+overwritten.  If you <a href="diff.html#do">do</a> not want this, the buffer can be written into another
+file by giving a file name argument to the &quot;<a href="editing.html#:write">:write</a>&quot; command.  For example:
+
+<b>	vim testfile</b>
+<b>	[change the buffer with editor commands]</b>
+<b>	:w newfile</b>
+<b>	:q</b>
+
+This will create a file &quot;newfile&quot;, that is a modified copy of &quot;testfile&quot;.
+The file &quot;testfile&quot; will remain unchanged.  Anyway, if the <a href="options.html#'backup'">'backup'</a> option is
+set, Vim renames or copies the original file before it will be overwritten.
+You can use this file if you discover that you need the original file.  See
+also the <a href="options.html#'patchmode'">'patchmode'</a> option.  The name of the <a href="editing.html#backup">backup</a> file is normally the same
+<a href="motion.html#as">as</a> the original file with <a href="options.html#'backupext'">'backupext'</a> appended.  The default &quot;<a href="change.html#~">~</a>&quot; is a bit
+strange to avoid accidentally overwriting existing files.  If you prefer &quot;.bak&quot;
+change the <a href="options.html#'backupext'">'backupext'</a> option.  Extra dots are replaced with '<a href="motion.html#_">_</a>' on <a href="os_msdos.html#MS-DOS">MS-DOS</a>
+machines, when Vim has detected that an MS-DOS-like filesystem is being used
+(e.g., messydos or crossdos) or when the <a href="options.html#'shortname'">'shortname'</a> option is on.  The
+<a href="editing.html#backup">backup</a> file can be placed in another directory by setting <a href="options.html#'backupdir'">'backupdir'</a>.
+
+
+							*<a name="auto-shortname"></A><b>auto-shortname</b>*
+Technical: On the <a href="os_amiga.html#Amiga">Amiga</a> you can use 30 characters for a file name.  But on an
+	   MS-DOS-compatible filesystem only 8 plus 3 characters are
+	   available.  Vim tries to detect the type of filesystem when it is
+	   creating the .swp file.  If an MS-DOS-like filesystem is suspected,
+	   a flag is set that has the same effect <a href="motion.html#as">as</a> setting the <a href="options.html#'shortname'">'shortname'</a>
+	   option.  This flag will be reset <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> you start editing a
+	   new file.  The flag will be used when making the file name for the
+	   &quot;.swp&quot; and &quot;.~&quot; files for the current file.  But when you are
+	   editing a file in a normal filesystem and write to an MS-DOS-like
+	   filesystem the flag will not have been set.  In that <a href="change.html#case">case</a> the
+	   creation of the &quot;.~&quot; file may fail and you will get an error
+	   message.  Use the <a href="options.html#'shortname'">'shortname'</a> option in this <a href="change.html#case">case</a>.
+
+When you started editing without giving a file name, &quot;No File&quot; is displayed in
+<a href="message.html#messages">messages</a>.  If the &quot;<a href="editing.html#:write">:write</a>&quot; command is used with a file name argument, the file
+name for the current file is set to that file name.  This only happens when
+the 'F' flag is included in <a href="options.html#'cpoptions'">'cpoptions'</a> (by default it is included) |<a href="options.html#cpo-F">cpo-F</a>|.
+This is useful when entering text in an empty buffer and then <a href="editing.html#writing">writing</a> it to a
+file.  If <a href="options.html#'cpoptions'">'cpoptions'</a> contains the '<a href="motion.html#f">f</a>' flag (by default it is NOT included)
+|<a href="options.html#cpo-f">cpo-f</a>| the file name is set for the &quot;<a href="insert.html#:read">:read</a> file&quot; command.  This is useful
+when starting Vim without an argument and then doing &quot;<a href="insert.html#:read">:read</a> file&quot; to start
+editing a file.
+When the file name was set and <a href="options.html#'filetype'">'filetype'</a> is empty the <a href="filetype.html#filetype">filetype</a> detection
+autocommands will be triggered.
+
+							*<a name="not-edited"></A><b>not-edited</b>*
+Because the file name was set without really starting to edit that file, you
+are protected from overwriting that file.  This is done by setting the
+&quot;notedited&quot; flag.  You can see if this flag is set with the <a href="editing.html#CTRL-G">CTRL-G</a> or &quot;<a href="editing.html#:file">:file</a>&quot;
+command.  It will include &quot;[Not edited]&quot; when the &quot;notedited&quot; flag is set.
+When <a href="editing.html#writing">writing</a> the buffer to the current file name (with &quot;:w!&quot;), the &quot;notedited&quot;
+flag is reset.
+
+
+							*<a name="abandon"></A><b>abandon</b>*
+Vim remembers whether you have changed the buffer.  You are protected from
+losing the changes you made.  If you try to quit without <a href="editing.html#writing">writing</a>, or want to
+start editing another file, Vim will refuse this.  In order to overrule this
+protection, add a '<a href="change.html#!">!</a>' to the command.  The changes will then be lost.  For
+example: &quot;<a href="editing.html#:q">:q</a>&quot; will not work if the buffer was changed, but &quot;:q!&quot; will.  To see
+whether the buffer was changed use the &quot;<a href="editing.html#CTRL-G">CTRL-G</a>&quot; command.  The message includes
+the string &quot;[Modified]&quot; if the buffer has been changed.
+
+If you want to automatically save the changes without asking, switch on the
+<a href="options.html#'autowriteall'">'autowriteall'</a> option.  <a href="options.html#'autowrite'">'autowrite'</a> is the associated Vi-compatible option
+that does not work for all commands.
+
+If you want to keep the changed buffer without saving it, switch on the
+<a href="options.html#'hidden'">'hidden'</a> option.  See |<a href="windows.html#hidden-buffer">hidden-buffer</a>|.
+
+==============================================================================
+
+2. Editing a file					*<a name="edit-a-file"></A><b>edit-a-file</b>*
+
+
+							*<a name=":e"></A><b>:e</b>* *<a name=":edit"></A><b>:edit</b>*
+:e[dit] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>	Edit the current file.  This is useful to re-edit the
+			current file, when it has been changed outside of Vim.
+			This fails when changes have been made to the current
+			buffer and <a href="options.html#'autowriteall'">'autowriteall'</a> isn't set or the file can't
+			be written.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+
+							*<a name=":edit!"></A><b>:edit!</b>*
+:e[dit]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Edit the current file always.  Discard any changes to
+			the current buffer.  This is useful if you want to
+			start all over again.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+
+							*<a name=":edit_f"></A><b>:edit_f</b>*
+:e[dit] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{file}">{file}</a>
+			Edit <a href="editing.html#{file}">{file}</a>.
+			This fails when changes have been made to the current
+			buffer, unless <a href="options.html#'hidden'">'hidden'</a> is set or <a href="options.html#'autowriteall'">'autowriteall'</a> is
+			set and the file can be written.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+
+							*<a name=":edit!_f"></A><b>:edit!_f</b>*
+:e[dit]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{file}">{file}</a>
+			Edit <a href="editing.html#{file}">{file}</a> always.  Discard any changes to the
+			current buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+:e[dit] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> #[count]
+			Edit the [count]th buffer (as shown by |<a href="windows.html#:files">:files</a>|).
+			This command does the same <a href="motion.html#as">as</a> <a href="intro.html#[count]">[count]</a> <a href="editing.html#CTRL-^">CTRL-^</a>.  But &quot;<a href="editing.html#:e">:e</a>
+			#&quot; doesn't work if the alternate buffer doesn't have a
+			file name, while <a href="editing.html#CTRL-^">CTRL-^</a> still works then.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+
+							*<a name=":ene"></A><b>:ene</b>* *<a name=":enew"></A><b>:enew</b>*
+:ene[w]			Edit a new, unnamed buffer.  This fails when changes
+			have been made to the current buffer, unless <a href="options.html#'hidden'">'hidden'</a>
+			is set or <a href="options.html#'autowriteall'">'autowriteall'</a> is set and the file can be
+			written.
+			If <a href="options.html#'fileformats'">'fileformats'</a> is not empty, the first format given
+			will be used for the new buffer.  If <a href="options.html#'fileformats'">'fileformats'</a> is
+			empty, the <a href="options.html#'fileformat'">'fileformat'</a> of the current buffer is used.
+			{not in Vi}
+
+
+							*<a name=":ene!"></A><b>:ene!</b>* *<a name=":enew!"></A><b>:enew!</b>*
+:ene[w]!		Edit a new, unnamed buffer.  Discard any changes to
+			the current buffer.
+			Set <a href="options.html#'fileformat'">'fileformat'</a> like |<a href="editing.html#:enew">:enew</a>|.
+			{not in Vi}
+
+
+							*<a name=":fin"></A><b>:fin</b>* *<a name=":find"></A><b>:find</b>*
+:fin[d][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{file}">{file}</a>
+			Find <a href="editing.html#{file}">{file}</a> in <a href="options.html#'path'">'path'</a> and then |<a href="editing.html#:edit">:edit</a>| it.
+			{not in Vi} {not available when the |<a href="various.html#+file_in_path">+file_in_path</a>|
+			feature was disabled at compile time}
+
+:{count}fin[d][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{file}">{file}</a>
+			Just like &quot;<a href="editing.html#:find">:find</a>&quot;, but use the {count} match in
+			<a href="options.html#'path'">'path'</a>.  Thus &quot;:2find file&quot; will find the second
+			&quot;file&quot; found in <a href="options.html#'path'">'path'</a>.  When there are fewer matches
+			for the file in <a href="options.html#'path'">'path'</a> than asked for, you get an
+			error message.
+
+
+							*<a name=":ex"></A><b>:ex</b>*
+<a href="editing.html#:ex">:ex</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> [file]
+			Same <a href="motion.html#as">as</a> |<a href="editing.html#:edit">:edit</a>|.
+
+
+							*<a name=":vi"></A><b>:vi</b>* *<a name=":visual"></A><b>:visual</b>*
+:vi[sual][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> [file]
+			When used in Ex mode: Leave |<a href="intro.html#Ex-mode">Ex-mode</a>|, go back to
+			<a href="intro.html#Normal">Normal</a> mode.  Otherwise same <a href="motion.html#as">as</a> |<a href="editing.html#:edit">:edit</a>|.
+
+
+							*<a name=":vie"></A><b>:vie</b>* *<a name=":view"></A><b>:view</b>*
+:vie[w][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> file
+			When used in <a href="intro.html#Ex">Ex</a> mode: Leave |Ex mode|, go back to
+			<a href="intro.html#Normal">Normal</a> mode.  Otherwise same <a href="motion.html#as">as</a> |<a href="editing.html#:edit">:edit</a>|, but set
+			<a href="options.html#'readonly'">'readonly'</a> option for this buffer.  {not in Vi}
+
+
+							*<a name="CTRL-^"></A><b>CTRL-^</b>* *<a name="CTRL-6"></A><b>CTRL-6</b>*
+<a href="editing.html#CTRL-^">CTRL-^</a>			Edit the alternate file.  Mostly the alternate file is
+			the previously edited file.  This is a quick way to
+			toggle between two files.  It is equivalent to &quot;<a href="editing.html#:e">:e</a> #&quot;,
+			except that it also works when there is no file name.
+
+			If the <a href="options.html#'autowrite'">'autowrite'</a> or <a href="options.html#'autowriteall'">'autowriteall'</a> option is on and
+			the buffer was changed, write it.
+			Mostly the ^ character is positioned on the 6 key,
+			pressing CTRL and 6 then gets you what we call <a href="editing.html#CTRL-^">CTRL-^</a>.
+			But on some non-US keyboards <a href="editing.html#CTRL-^">CTRL-^</a> is produced in
+			another way.
+
+{count}CTRL-^		Edit [count]th file in the buffer list (equivalent to
+			&quot;<a href="editing.html#:e">:e</a> #[count]&quot;).  This is a quick way to switch between
+			files.
+			See |<a href="editing.html#CTRL-^">CTRL-^</a>| above for further details.
+			{not in Vi}
+
+
+[count]]f						*<a name="]f"></A><b>]f</b>* *<a name="[f"></A><b>[f</b>*
+[count][f		Same <a href="motion.html#as">as</a> &quot;<a href="editing.html#gf">gf</a>&quot;.  Deprecated.
+
+
+							*<a name="gf"></A><b>gf</b>* *<a name="E446"></A><b>E446</b>* *<a name="E447"></A><b>E447</b>*
+[count]gf		Edit the file whose name is under or after the cursor.
+			Mnemonic: &quot;goto file&quot;.
+			Uses the <a href="options.html#'isfname'">'isfname'</a> option to find out which characters
+			are supposed to be in a file name.  Trailing
+			punctuation characters &quot;.,:;!&quot; are ignored.
+			Uses the <a href="options.html#'path'">'path'</a> option <a href="motion.html#as">as</a> a list of directory names to
+			look for the file.  See the <a href="options.html#'path'">'path'</a> option for details
+			about relative directories and <a href="editing.html#wildcards">wildcards</a>.
+			Uses the <a href="options.html#'suffixesadd'">'suffixesadd'</a> option to check for file names
+			with a suffix added.
+			If the file can't be found, <a href="options.html#'includeexpr'">'includeexpr'</a> is used to
+			modify the name and another attempt is done.
+			If a <a href="intro.html#[count]">[count]</a> is given, the count'th file that is found
+			in the <a href="options.html#'path'">'path'</a> is edited.
+			This command fails if Vim refuses to |<a href="editing.html#abandon">abandon</a>| the
+			current file.
+			If you want to edit the file in a new <a href="windows.html#window">window</a> use
+			|<a href="windows.html#CTRL-W_CTRL-F">CTRL-W_CTRL-F</a>|.
+			If you <a href="diff.html#do">do</a> want to edit a new file, use:
+<b>				:e &lt;cfile&gt;</b>
+ 			To make <a href="editing.html#gf">gf</a> always work like that:
+<b>				:map gf :e &lt;cfile&gt;&lt;CR&gt;</b>
+ 			If the name is a hypertext link, that looks like
+			&quot;type://machine/path&quot;, you need the |<a href="pi_netrw.html#netrw">netrw</a>| <a href="usr_05.html#plugin">plugin</a>.
+			For <a href="os_unix.html#Unix">Unix</a> the '<a href="change.html#~">~</a>' character is expanded, like in
+			&quot;~user/file&quot;.  Environment <a href="eval.html#variables">variables</a> are expanded too
+			|<a href="options.html#expand-env">expand-env</a>|.
+			{not in Vi}
+			{not available when the |<a href="various.html#+file_in_path">+file_in_path</a>| feature was
+			disabled at compile time}
+
+
+							*<a name="v_gf"></A><b>v_gf</b>*
+{Visual}[count]gf	Same <a href="motion.html#as">as</a> &quot;<a href="editing.html#gf">gf</a>&quot;, but the highlighted text is used <a href="motion.html#as">as</a> the
+			name of the file to edit.  <a href="options.html#'isfname'">'isfname'</a> is ignored.
+			Leading blanks are skipped, otherwise all blanks and
+			special characters are included in the file name.
+			(For <a href="intro.html#{Visual}">{Visual}</a> see |<a href="visual.html#Visual-mode">Visual-mode</a>|.)
+			{not in VI}
+
+
+							*<a name="gF"></A><b>gF</b>*
+[count]gF		Same <a href="motion.html#as">as</a> &quot;<a href="editing.html#gf">gf</a>&quot;, except if a number follows the file
+			name, then the cursor is positioned on that line in
+			the file. The file name and the number must be
+			separated by a non-filename (see <a href="options.html#'isfname'">'isfname'</a>) and
+			non-numeric character. White space between the
+			filename, the separator and the number are ignored.
+			Examples:
+<b><font color="purple">				eval.c:10 </font></b>
+<b><font color="purple">				eval.c @ 20 </font></b>
+<b><font color="purple">				eval.c (30) </font></b>
+<b><font color="purple">				eval.c 40 </font></b>
+
+
+							*<a name="v_gF"></A><b>v_gF</b>*
+{Visual}[count]gF	Same <a href="motion.html#as">as</a> &quot;<a href="editing.html#v_gf">v_gf</a>&quot;.
+
+These commands are used to start editing a single file.  This means that the
+file is read into the buffer and the current file name is set.  The file that
+is opened depends on the current directory, see |<a href="editing.html#:cd">:cd</a>|.
+
+See |<a href="insert.html#read-messages">read-messages</a>| for an explanation of the message that is given after the
+file has been read.
+
+You can use the &quot;:e!&quot; command if you messed up the buffer and want to start
+all over again.  The &quot;<a href="editing.html#:e">:e</a>&quot; command is only useful if you have changed the
+current file name.
+
+
+							*<a name=":filename"></A><b>:filename</b>* *<a name="{file}"></A><b>{file}</b>*
+Besides the things mentioned here, more special items for where a filename is
+expected are mentioned at |<a href="cmdline.html#cmdline-special">cmdline-special</a>|.
+
+Note for systems other than <a href="os_unix.html#Unix">Unix</a>: When using a command that accepts a single
+file name (like &quot;<a href="editing.html#:edit">:edit</a> file&quot;) spaces in the file name are allowed, but
+trailing spaces are ignored.  This is useful on systems that regularly embed
+spaces in file names (like <a href="os_win32.html#MS-Windows">MS-Windows</a> and the <a href="os_amiga.html#Amiga">Amiga</a>).  Example: The command
+&quot;<a href="editing.html#:e">:e</a>   Long File Name &quot; will edit the file &quot;Long File Name&quot;.  When using a
+command that accepts more than one file name (like &quot;<a href="editing.html#:next">:next</a> file1 file2&quot;)
+embedded spaces must be escaped with a <a href="intro.html#backslash">backslash</a>.
+
+
+						*<a name="wildcard"></A><b>wildcard</b>* *<a name="wildcards"></A><b>wildcards</b>*
+Wildcards in <a href="editing.html#{file}">{file}</a> are expanded.  Which <a href="editing.html#wildcards">wildcards</a> are supported depends on
+the system.  These are the common ones:
+	?	matches one character
+	&#42;	matches anything, including nothing
+
+	**	matches anything, including nothing, recurses into directories
+	[abc]	match '<a href="insert.html#a">a</a>', '<a href="motion.html#b">b</a>' or '<a href="change.html#c">c</a>'
+
+To avoid the special meaning of the <a href="editing.html#wildcards">wildcards</a> prepend a <a href="intro.html#backslash">backslash</a>.  However,
+on <a href="os_win32.html#MS-Windows">MS-Windows</a> the <a href="intro.html#backslash">backslash</a> is a path separator and &quot;path\[abc]&quot; is still seen
+<a href="motion.html#as">as</a> a <a href="editing.html#wildcard">wildcard</a> when &quot;<a href="index.html#[">[</a>&quot; is in the <a href="options.html#'isfname'">'isfname'</a> option.  A simple way to avoid this
+is to use &quot;path\[[]abc]&quot;.  Then the file &quot;path[abc]&quot; literally.
+
+
+					*<a name="starstar-wildcard"></A><b>starstar-wildcard</b>*
+Expanding &quot;**&quot; is possible on <a href="os_unix.html#Unix">Unix</a>, <a href="os_win32.html#Win32">Win32</a>, <a href="os_mac.html#Mac">Mac</a> OS/X and a few other systems.
+This allows searching a directory tree.  This goes up to 100 directories deep.
+Note there are some commands where this works slightly different, see
+|<a href="editing.html#file-searching">file-searching</a>|.
+Example:
+<b>	:n **/*.txt</b>
+Finds files:
+	ttt.txt
+	subdir/ttt.txt
+	a/b/c/d/ttt.txt
+When non-wildcard characters are used these are only matched in the first
+directory.  Example:
+<b>	:n /usr/inc**/*.h</b>
+Finds files:
+	/usr/include/types.h
+	/usr/include/sys/types.h
+	/usr/inc_old/types.h
+
+					*<a name="backtick-expansion"></A><b>backtick-expansion</b>* *<a name="`-expansion"></A><b>`-expansion</b>*
+On <a href="os_unix.html#Unix">Unix</a> and a few other systems you can also use backticks in the file name,
+for example:
+<b>	:e `find . -name ver\\*.c -print`</b>
+The backslashes before the <a href="pattern.html#star">star</a> are required to prevent &quot;ver*.c&quot; to be
+expanded by the shell before executing the find program.
+This also works for most other systems, with the restriction that the
+backticks must be around the whole item.  It is not possible to have text
+directly before the first or just after the last backtick.
+
+
+							*<a name="`="></A><b>`=</b>*
+You can have the backticks expanded <a href="motion.html#as">as</a> a Vim <a href="eval.html#expression">expression</a>, instead of an
+external command, by using the <a href="syntax.html#syntax">syntax</a> `={expr}` e.g.:
+<b>	:e `=tempname()`</b>
+The <a href="eval.html#expression">expression</a> can contain just about anything, thus this can also be used to
+avoid the special meaning of &#39;&#34;'', '&#124;', '<a href="motion.html#&#37;">&#37;</a>' and '<a href="pattern.html##">#</a>'.  Names are to be separated
+with line breaks.  When the result is a |<a href="eval.html#List">List</a>| then each item is used <a href="motion.html#as">as</a> a
+name.  Line breaks also separate names.
+
+
+							*<a name="++opt"></A><b>++opt</b>* *<a name="[++opt]"></A><b>[++opt]</b>*
+The <a href="editing.html#[++opt]">[++opt]</a> argument can be used to force the value of <a href="options.html#'fileformat'">'fileformat'</a>,
+<a href="options.html#'fileencoding'">'fileencoding'</a> or <a href="options.html#'binary'">'binary'</a> to a value for one command, and to specify the
+behavior for bad characters.  The form is:
+<b>	++{optname}</b>
+Or:
+<b>	++{optname}={value}</b>
+
+
+Where {optname} is one of:	    *<a name="++ff"></A><b>++ff</b>* *<a name="++enc"></A><b>++enc</b>* *<a name="++bin"></A><b>++bin</b>* *<a name="++nobin"></A><b>++nobin</b>* *<a name="++edit"></A><b>++edit</b>*
+    ff     or  fileformat   overrides <a href="options.html#'fileformat'">'fileformat'</a>
+    enc    or  encoding	    overrides <a href="options.html#'fileencoding'">'fileencoding'</a>
+    bin    or  binary	    sets <a href="options.html#'binary'">'binary'</a>
+    nobin  or  nobinary	    resets <a href="options.html#'binary'">'binary'</a>
+    bad			    specifies behavior for bad characters
+    edit		    for |<a href="insert.html#:read">:read</a>| only: keep option values <a href="motion.html#as">as</a> if editing
+			    a file
+
+{value} cannot contain white space.  It can be any valid value for these
+<a href="options.html#options">options</a>.  Examples:
+<b>	:e ++ff=unix</b>
+This edits the same file again with <a href="options.html#'fileformat'">'fileformat'</a> set to &quot;<a href="os_unix.html#unix">unix</a>&quot;.
+
+<b>	:w ++enc=latin1 newfile</b>
+This writes the current buffer to &quot;newfile&quot; in latin1 format.
+
+There may be several <a href="editing.html#++opt">++opt</a> arguments, separated by white space.  They must all
+appear before any |<a href="editing.html#+cmd">+cmd</a>| argument.
+
+
+								*<a name="++bad"></A><b>++bad</b>*
+The argument of &quot;++bad=&quot; specifies what happens with characters that can't be
+converted and illegal bytes.  It can be one of three things:
+    ++bad=X      A single-byte character that replaces each bad character.
+    ++bad=keep   Keep bad characters without conversion.  Note that this may
+		 result in illegal bytes in your text!
+    ++bad=drop   Remove the bad characters.
+
+The default is like &quot;++bad=?&quot;: <a href="insert.html#Replace">Replace</a> each bad character with a question
+<a href="motion.html#mark">mark</a>.  In some places an inverted question <a href="motion.html#mark">mark</a> is used (0xBF).
+
+Note that not all commands use the <a href="editing.html#++bad">++bad</a> argument, even though they <a href="diff.html#do">do</a> not
+give an error when you add it.  E.g. |<a href="editing.html#:write">:write</a>|.
+
+Note that when reading, the <a href="options.html#'fileformat'">'fileformat'</a> and <a href="options.html#'fileencoding'">'fileencoding'</a> <a href="options.html#options">options</a> will be
+set to the used format.  When <a href="editing.html#writing">writing</a> this doesn't happen, thus a next write
+will use the old value of the option.  Same for the <a href="options.html#'binary'">'binary'</a> option.
+
+
+
+							*<a name="+cmd"></A><b>+cmd</b>* *<a name="[+cmd]"></A><b>[+cmd]</b>*
+The <a href="editing.html#[+cmd]">[+cmd]</a> argument can be used to position the cursor in the newly opened
+file, or execute any other command:
+	+		Start at the last line.
+	+{num}		Start at line {num}.
+	+/{pat}		Start at first line containing <a href="autocmd.html#{pat}">{pat}</a>.
+	+{command}	Execute {command} after opening the new file.
+			{command} is any <a href="intro.html#Ex">Ex</a> command.
+To include a white space in the <a href="autocmd.html#{pat}">{pat}</a> or {command}, precede it with a
+<a href="intro.html#backslash">backslash</a>.  Double the number of backslashes.
+<b>	:edit  +/The\ book	     file</b>
+<b>	:edit  +/dir\ dirname\\      file</b>
+<b>	:edit  +set\ dir=c:\\\\temp  file</b>
+Note that in the last example the number of backslashes is halved <a href="if_cscop.html#twice">twice</a>: Once
+for the &quot;<a href="editing.html#+cmd">+cmd</a>&quot; argument and once for the &quot;<a href="options.html#:set">:set</a>&quot; command.
+
+
+							*<a name="file-formats"></A><b>file-formats</b>*
+The <a href="options.html#'fileformat'">'fileformat'</a> option sets the <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a> style for a file:
+<b><font color="purple">'fileformat'    characters	   name				</font></b>
+
+  &quot;<a href="os_dos.html#dos">dos</a>&quot;		&lt;CR&gt;&lt;NL&gt; or <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>   <a href="os_dos.html#DOS">DOS</a> format		*<a name="DOS-format"></A><b>DOS-format</b>*
+
+  &quot;<a href="os_unix.html#unix">unix</a>&quot;	<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>		   <a href="os_unix.html#Unix">Unix</a> format		*<a name="Unix-format"></A><b>Unix-format</b>*
+
+  &quot;<a href="os_mac.html#mac">mac</a>&quot;		<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>		   <a href="os_mac.html#Mac">Mac</a> format		*<a name="Mac-format"></A><b>Mac-format</b>*
+Previously <a href="options.html#'textmode'">'textmode'</a> was used.  It is obsolete now.
+
+When reading a file, the mentioned characters are interpreted <a href="motion.html#as">as</a> the <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.
+In <a href="os_dos.html#DOS">DOS</a> format (default for <a href="os_msdos.html#MS-DOS">MS-DOS</a>, <a href="os_os2.html#OS/2">OS/2</a> and Win32), &lt;CR&gt;&lt;NL&gt; and <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> are both
+interpreted <a href="motion.html#as">as</a> the <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.  Note that when <a href="editing.html#writing">writing</a> the file in <a href="os_dos.html#DOS">DOS</a> format,
+<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> characters will be added for each single <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>.  Also see |<a href="insert.html#file-read">file-read</a>|.
+
+When <a href="editing.html#writing">writing</a> a file, the mentioned characters are used for <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.  For <a href="os_dos.html#DOS">DOS</a>
+format &lt;CR&gt;&lt;NL&gt; is used.  Also see |<a href="editing.html#DOS-format-write">DOS-format-write</a>|.
+
+You can read a file in <a href="os_dos.html#DOS">DOS</a> format and write it in <a href="os_unix.html#Unix">Unix</a> format.  This will
+replace all &lt;CR&gt;&lt;NL&gt; pairs by <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> (assuming <a href="options.html#'fileformats'">'fileformats'</a> includes &quot;dos&quot;):
+<b>	:e file</b>
+<b>	:set fileformat=unix</b>
+<b>	:w</b>
+If you read a file in <a href="os_unix.html#Unix">Unix</a> format and write with <a href="os_dos.html#DOS">DOS</a> format, all <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>
+characters will be replaced with &lt;CR&gt;&lt;NL&gt; (assuming <a href="options.html#'fileformats'">'fileformats'</a> includes
+&quot;unix&quot;):
+<b>	:e file</b>
+<b>	:set fileformat=dos</b>
+<b>	:w</b>
+
+If you start editing a new file and the <a href="options.html#'fileformats'">'fileformats'</a> option is not empty
+(which is the default), Vim will try to detect whether the lines in the file
+are separated by the specified formats.  When set to &quot;unix,dos&quot;, Vim will
+check for lines with a single <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> (as used on <a href="os_unix.html#Unix">Unix</a> and <a href="os_amiga.html#Amiga">Amiga</a>) or by a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>
+<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> pair (MS-DOS).  Only when ALL lines end in &lt;CR&gt;&lt;NL&gt;, <a href="options.html#'fileformat'">'fileformat'</a> is set
+to &quot;<a href="os_dos.html#dos">dos</a>&quot;, otherwise it is set to &quot;<a href="os_unix.html#unix">unix</a>&quot;.  When <a href="options.html#'fileformats'">'fileformats'</a> includes &quot;<a href="os_mac.html#mac">mac</a>&quot;,
+and no <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> characters are found in the file, <a href="options.html#'fileformat'">'fileformat'</a> is set to &quot;<a href="os_mac.html#mac">mac</a>&quot;.
+
+If the <a href="options.html#'fileformat'">'fileformat'</a> option is set to &quot;<a href="os_dos.html#dos">dos</a>&quot; on non-MS-DOS systems the message
+&quot;[dos format]&quot; is shown to remind you that something unusual is happening.  On
+<a href="os_msdos.html#MS-DOS">MS-DOS</a> systems you get the message &quot;[unix format]&quot; if <a href="options.html#'fileformat'">'fileformat'</a> is set to
+&quot;<a href="os_unix.html#unix">unix</a>&quot;.  On all systems but the <a href="os_mac.html#Macintosh">Macintosh</a> you get the message &quot;[mac format]&quot;
+if <a href="options.html#'fileformat'">'fileformat'</a> is set to &quot;<a href="os_mac.html#mac">mac</a>&quot;.
+
+If the <a href="options.html#'fileformats'">'fileformats'</a> option is empty and <a href="os_dos.html#DOS">DOS</a> format is used, but while reading
+a file some lines did not end in &lt;CR&gt;&lt;NL&gt;, &quot;[CR missing]&quot; will be included in
+the file message.
+If the <a href="options.html#'fileformats'">'fileformats'</a> option is empty and <a href="os_mac.html#Mac">Mac</a> format is used, but while reading
+a file a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> was found, &quot;[NL missing]&quot; will be included in the file message.
+
+If the new file does not exist, the <a href="options.html#'fileformat'">'fileformat'</a> of the current buffer is used
+when <a href="options.html#'fileformats'">'fileformats'</a> is empty.  Otherwise the first format from <a href="options.html#'fileformats'">'fileformats'</a> is
+used for the new file.
+
+Before editing binary, executable or Vim <a href="usr_41.html#script">script</a> files you should set the
+<a href="options.html#'binary'">'binary'</a> option.  A simple way to <a href="diff.html#do">do</a> this is by starting Vim with the &quot;<a href="starting.html#-b">-b</a>&quot;
+option.  This will avoid the use of <a href="options.html#'fileformat'">'fileformat'</a>.  Without this you risk that
+single <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> characters are unexpectedly replaced with &lt;CR&gt;&lt;NL&gt;.
+
+You can encrypt files that are written by setting the <a href="options.html#'key'">'key'</a> option.  This
+provides some security against others reading your files. |<a href="editing.html#encryption">encryption</a>|
+
+
+==============================================================================
+
+3. The argument list				*<a name="argument-list"></A><b>argument-list</b>* *<a name="arglist"></A><b>arglist</b>*
+
+If you give more than one file name when starting Vim, this list is remembered
+<a href="motion.html#as">as</a> the argument list.  You can jump to each file in this list.
+
+Do not confuse this with the buffer list, which you can see with the
+|<a href="windows.html#:buffers">:buffers</a>| command.  The argument list was already present in <a href="intro.html#Vi">Vi</a>, the buffer
+list is new in Vim.  Every file name in the argument list will also be present
+in the buffer list (unless it was deleted with |<a href="windows.html#:bdel">:bdel</a>| or |<a href="windows.html#:bwipe">:bwipe</a>|).  But it's
+common that names in the buffer list are not in the argument list.
+
+This subject is introduced in section |<a href="usr_07.html#07.2">07.2</a>| of the user manual.
+
+There is one global argument list, which is used for all <a href="windows.html#windows">windows</a> by default.
+It is possible to create a new argument list local to a <a href="windows.html#window">window</a>, see
+|<a href="editing.html#:arglocal">:arglocal</a>|.
+
+You can use the argument list with the following commands, and with the
+<a href="eval.html#expression">expression</a> <a href="eval.html#functions">functions</a> |<a href="eval.html#argc()">argc()</a>| and |<a href="eval.html#argv()">argv()</a>|.  These all work on the argument
+list of the current <a href="windows.html#window">window</a>.
+
+
+							*<a name=":ar"></A><b>:ar</b>* *<a name=":args"></A><b>:args</b>*
+:ar[gs]			Print the argument list, with the current file in
+			square brackets.
+
+
+:ar[gs] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{arglist}">{arglist}</a>			*<a name=":args_f"></A><b>:args_f</b>*
+			Define <a href="editing.html#{arglist}">{arglist}</a> <a href="motion.html#as">as</a> the new argument list and edit
+			the first one.  This fails when changes have been made
+			and Vim does not want to |<a href="editing.html#abandon">abandon</a>| the current buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+
+:ar[gs]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{arglist}">{arglist}</a>			*<a name=":args_f!"></A><b>:args_f!</b>*
+			Define <a href="editing.html#{arglist}">{arglist}</a> <a href="motion.html#as">as</a> the new argument list and edit
+			the first one.  Discard any changes to the current
+			buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{Vi: no ++opt}
+
+
+:[count]arge[dit][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> {name}		*<a name=":arge"></A><b>:arge</b>* *<a name=":argedit"></A><b>:argedit</b>*
+			Add {name} to the argument list and edit it.
+			When {name} already exists in the argument list, this
+			entry is edited.
+			This is like using |<a href="editing.html#:argadd">:argadd</a>| and then |<a href="editing.html#:edit">:edit</a>|.
+			Note that only one file name is allowed, and spaces
+			inside the file name are allowed, like with |<a href="editing.html#:edit">:edit</a>|.
+			<a href="intro.html#[count]">[count]</a> is used like with |<a href="editing.html#:argadd">:argadd</a>|.
+			[!] is required if the current file cannot be
+			YXXYabandon|ed.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{not in Vi}
+
+
+:[count]arga[dd] {name} ..			*<a name=":arga"></A><b>:arga</b>* *<a name=":argadd"></A><b>:argadd</b>* *<a name="E479"></A><b>E479</b>*
+			Add the {name}s to the argument list.
+			If <a href="intro.html#[count]">[count]</a> is omitted, the {name}s are added just
+			after the current entry in the argument list.
+			Otherwise they are added after the [count]'th file.
+			If the argument list is &quot;a <a href="motion.html#b">b</a> c&quot;, and &quot;<a href="motion.html#b">b</a>&quot; is the
+			current argument, then these commands result in:
+<b><font color="purple">				command		new argument list </font></b>
+				<a href="editing.html#:argadd">:argadd</a> <a href="change.html#x">x</a>	a <a href="motion.html#b">b</a> <a href="change.html#x">x</a> <a href="change.html#c">c</a>
+				:0argadd <a href="change.html#x">x</a>	<a href="change.html#x">x</a> a <a href="motion.html#b">b</a> <a href="change.html#c">c</a>
+				:1argadd <a href="change.html#x">x</a>	a <a href="change.html#x">x</a> <a href="motion.html#b">b</a> <a href="change.html#c">c</a>
+				:99argadd <a href="change.html#x">x</a>	a <a href="motion.html#b">b</a> <a href="change.html#c">c</a> <a href="change.html#x">x</a>
+			There is no check for duplicates, it is possible to
+			add a file to the argument list <a href="if_cscop.html#twice">twice</a>.
+			The currently edited file is not changed.
+			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+listcmds">+listcmds</a>| feature}
+			Note: you can also use this method:
+<b>				:args ## x</b>
+ 			This will add the &quot;<a href="change.html#x">x</a>&quot; item and sort the new list.
+
+
+:argd[elete] {pattern} ..			*<a name=":argd"></A><b>:argd</b>* *<a name=":argdelete"></A><b>:argdelete</b>* *<a name="E480"></A><b>E480</b>*
+			Delete files from the argument list that match the
+			{pattern}s.  {pattern} is used like a file <a href="pattern.html#pattern">pattern</a>,
+			see |<a href="autocmd.html#file-pattern">file-pattern</a>|.  &quot;<a href="motion.html#&#37;">&#37;</a>&quot; can be used to delete the
+			current entry.
+			This command keeps the currently edited file, also
+			when it's deleted from the argument list.
+			Example:
+<b>				:argdel *.obj</b>
+ 			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+listcmds">+listcmds</a>| feature}
+
+:{range}argd[elete]	Delete the {range} files from the argument list.
+			When the last number in the range is too high, up to
+			the last argument is deleted.  Example:
+<b>				:10,1000argdel</b>
+ 			Deletes arguments 10 and further, keeping 1-9.
+			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+listcmds">+listcmds</a>| feature}
+
+
+							*<a name=":argu"></A><b>:argu</b>* *<a name=":argument"></A><b>:argument</b>*
+:[count]argu[ment] <a href="intro.html#[count]">[count]</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Edit file <a href="intro.html#[count]">[count]</a> in the argument list.  When <a href="intro.html#[count]">[count]</a>
+			is omitted the current entry is used.  This fails
+			when changes have been made and Vim does not want to
+			|<a href="editing.html#abandon">abandon</a>| the current buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+listcmds">+listcmds</a>| feature}
+
+:[count]argu[ment]! <a href="intro.html#[count]">[count]</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Edit file <a href="intro.html#[count]">[count]</a> in the argument list, discard any
+			changes to the current buffer.  When <a href="intro.html#[count]">[count]</a> is
+			omitted the current entry is used.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.
+			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+listcmds">+listcmds</a>| feature}
+
+
+:[count]n[ext] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>			*<a name=":n"></A><b>:n</b>* *<a name=":ne"></A><b>:ne</b>* *<a name=":next"></A><b>:next</b>* *<a name="E165"></A><b>E165</b>* *<a name="E163"></A><b>E163</b>*
+			Edit <a href="intro.html#[count]">[count]</a> next file.  This fails when changes have
+			been made and Vim does not want to |<a href="editing.html#abandon">abandon</a>| the
+			current buffer.  Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {Vi: no
+			<a href="intro.html#count">count</a> or ++opt}.
+
+:[count]n[ext]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Edit <a href="intro.html#[count]">[count]</a> next file, discard any changes to the
+			buffer.  Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {Vi: no <a href="intro.html#count">count</a>
+			or ++opt}.
+
+
+:n[ext] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{arglist}">{arglist}</a>			*<a name=":next_f"></A><b>:next_f</b>*
+			Same <a href="motion.html#as">as</a> |<a href="editing.html#:args_f">:args_f</a>|.
+
+:n[ext]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{arglist}">{arglist}</a>
+			Same <a href="motion.html#as">as</a> |<a href="editing.html#:args_f!">:args_f!</a>|.
+
+
+:[count]N[ext] <a href="intro.html#[count]">[count]</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>			*<a name=":Next"></A><b>:Next</b>* *<a name=":N"></A><b>:N</b>* *<a name="E164"></A><b>E164</b>*
+			Edit <a href="intro.html#[count]">[count]</a> previous file in argument list.  This
+			fails when changes have been made and Vim does not
+			want to |<a href="editing.html#abandon">abandon</a>| the current buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {Vi: no <a href="intro.html#count">count</a> or ++opt}.
+
+:[count]N[ext]! <a href="intro.html#[count]">[count]</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Edit <a href="intro.html#[count]">[count]</a> previous file in argument list.  Discard
+			any changes to the buffer.  Also see |<a href="editing.html#++opt">++opt</a>| and
+			|<a href="editing.html#+cmd">+cmd</a>|.  {Vi: no <a href="intro.html#count">count</a> or ++opt}.
+
+
+:[count]prev[ious] <a href="intro.html#[count]">[count]</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>		*<a name=":prev"></A><b>:prev</b>* *<a name=":previous"></A><b>:previous</b>*
+			Same <a href="motion.html#as">as</a> <a href="editing.html#:Next">:Next</a>.  Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {Vi:
+			only in some versions}
+
+
+							*<a name=":rew"></A><b>:rew</b>* *<a name=":rewind"></A><b>:rewind</b>*
+:rew[ind] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Start editing the first file in the argument list.
+			This fails when changes have been made and Vim does
+			not want to |<a href="editing.html#abandon">abandon</a>| the current buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|. {Vi: no ++opt}
+
+:rew[ind]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Start editing the first file in the argument list.
+			Discard any changes to the buffer.  Also see |<a href="editing.html#++opt">++opt</a>|
+			and |<a href="editing.html#+cmd">+cmd</a>|. {Vi: no ++opt}
+
+
+							*<a name=":fir"></A><b>:fir</b>* *<a name=":first"></A><b>:first</b>*
+:fir[st][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Other name for &quot;<a href="editing.html#:rewind">:rewind</a>&quot;. {not in Vi}
+
+
+							*<a name=":la"></A><b>:la</b>* *<a name=":last"></A><b>:last</b>*
+:la[st] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Start editing the last file in the argument list.
+			This fails when changes have been made and Vim does
+			not want to |<a href="editing.html#abandon">abandon</a>| the current buffer.
+			Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {not in Vi}
+
+:la[st]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a>
+			Start editing the last file in the argument list.
+			Discard any changes to the buffer.  Also see |<a href="editing.html#++opt">++opt</a>|
+			and |<a href="editing.html#+cmd">+cmd</a>|.  {not in Vi}
+
+
+							*<a name=":wn"></A><b>:wn</b>* *<a name=":wnext"></A><b>:wnext</b>*
+:[count]wn[ext] <a href="editing.html#[++opt]">[++opt]</a>
+			Write current file and start editing the <a href="intro.html#[count]">[count]</a>
+			next file.  Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {not in Vi}
+
+:[count]wn[ext] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#{file}">{file}</a>
+			Write current file to <a href="editing.html#{file}">{file}</a> and start editing the
+			<a href="intro.html#[count]">[count]</a> next file, unless <a href="editing.html#{file}">{file}</a> already exists and
+			the <a href="options.html#'writeany'">'writeany'</a> option is off.  Also see |<a href="editing.html#++opt">++opt</a>| and
+			|<a href="editing.html#+cmd">+cmd</a>|.  {not in Vi}
+
+:[count]wn[ext]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#{file}">{file}</a>
+			Write current file to <a href="editing.html#{file}">{file}</a> and start editing the
+			<a href="intro.html#[count]">[count]</a> next file.  Also see |<a href="editing.html#++opt">++opt</a>| and |<a href="editing.html#+cmd">+cmd</a>|.  {not
+			in Vi}
+
+
+:[count]wN[ext][!] <a href="editing.html#[++opt]">[++opt]</a> [file]		*<a name=":wN"></A><b>:wN</b>* *<a name=":wNext"></A><b>:wNext</b>*
+
+:[count]wp[revious][!] <a href="editing.html#[++opt]">[++opt]</a> [file]		*<a name=":wp"></A><b>:wp</b>* *<a name=":wprevious"></A><b>:wprevious</b>*
+			Same <a href="motion.html#as">as</a> <a href="editing.html#:wnext">:wnext</a>, but go to previous file instead of
+			next.  {not in Vi}
+
+The <a href="intro.html#[count]">[count]</a> in the commands above defaults to one.  For some commands it is
+possible to use two counts.  The last one (rightmost one) is used.
+
+If no <a href="editing.html#[+cmd]">[+cmd]</a> argument is present, the cursor is positioned at the last known
+cursor position for the file.  If <a href="options.html#'startofline'">'startofline'</a> is set, the cursor will be
+positioned at the first non-blank in the line, otherwise the last know column
+is used.  If there is no last known cursor position the cursor will be in the
+first line (the last line in <a href="intro.html#Ex">Ex</a> mode).
+
+
+							*<a name="{arglist}"></A><b>{arglist}</b>*
+The <a href="editing.html#wildcards">wildcards</a> in the argument list are expanded and the file names are sorted.
+Thus you can use the command &quot;vim *.c&quot; to edit all the C files.  From within
+Vim the command &quot;<a href="editing.html#:n">:n</a> *.c&quot; does the same.
+
+White space is used to separate file names.  Put a <a href="intro.html#backslash">backslash</a> before a space or
+<a href="intro.html#tab">tab</a> to include it in a file name.  E.g., to edit the single file &quot;foo bar&quot;:
+<b>	:next foo\ bar</b>
+
+On <a href="os_unix.html#Unix">Unix</a> and a few other systems you can also use backticks, for example:
+<b>	:next `find . -name \\*.c -print`</b>
+The backslashes before the <a href="pattern.html#star">star</a> are required to prevent &quot;*.c&quot; to be expanded
+by the shell before executing the find program.
+
+
+							*<a name="arglist-position"></A><b>arglist-position</b>*
+When there is an argument list you can see which file you are editing in the
+title of the <a href="windows.html#window">window</a> (if there is one and <a href="options.html#'title'">'title'</a> is on) and with the file
+message you get with the &quot;<a href="editing.html#CTRL-G">CTRL-G</a>&quot; command.  You will see something like
+	(file 4 of 11)
+If <a href="options.html#'shortmess'">'shortmess'</a> contains '<a href="motion.html#f">f</a>' it will be
+	(4 of 11)
+If you are not really editing the file at the current position in the argument
+list it will be
+	(file (4) of 11)
+This means that you are position 4 in the argument list, but not editing the
+fourth file in the argument list.  This happens when you <a href="diff.html#do">do</a> &quot;<a href="editing.html#:e">:e</a> file&quot;.
+
+
+LOCAL ARGUMENT LIST
+
+{not in Vi}
+{not available when compiled without the |<a href="various.html#+windows">+windows</a>| or |<a href="various.html#+listcmds">+listcmds</a>| features}
+
+
+							*<a name=":arglocal"></A><b>:arglocal</b>*
+:argl[ocal]		Make a local copy of the global argument list.
+			Doesn't start editing another file.
+
+:argl[ocal][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{arglist}">{arglist}</a>
+			Define a new argument list, which is local to the
+			current <a href="windows.html#window">window</a>.  Works like |<a href="editing.html#:args_f">:args_f</a>| otherwise.
+
+
+							*<a name=":argglobal"></A><b>:argglobal</b>*
+:argg[lobal]		Use the global argument list for the current <a href="windows.html#window">window</a>.
+			Doesn't start editing another file.
+
+:argg[lobal][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#[+cmd]">[+cmd]</a> <a href="editing.html#{arglist}">{arglist}</a>
+			Use the global argument list for the current <a href="windows.html#window">window</a>.
+			Define a new global argument list like |<a href="editing.html#:args_f">:args_f</a>|.
+			All <a href="windows.html#windows">windows</a> using the global argument list will see
+			this new list.
+
+There can be several argument lists.  They can be shared between <a href="windows.html#windows">windows</a>.
+When they are shared, <a href="change.html#changing">changing</a> the argument list in one <a href="windows.html#window">window</a> will also
+change it in the other <a href="windows.html#window">window</a>.
+
+When a <a href="windows.html#window">window</a> is split the new <a href="windows.html#window">window</a> inherits the argument list from the
+current <a href="windows.html#window">window</a>.  The two <a href="windows.html#windows">windows</a> then share this list, until one of them uses
+|<a href="editing.html#:arglocal">:arglocal</a>| or |<a href="editing.html#:argglobal">:argglobal</a>| to use another argument list.
+
+
+USING THE ARGUMENT LIST
+
+
+						*<a name=":argdo"></A><b>:argdo</b>*
+:argdo[!] {cmd}		Execute {cmd} for each file in the argument list.
+			It works like doing this:
+<b>				:rewind</b>
+<b>				:{cmd}</b>
+<b>				:next</b>
+<b>				:{cmd}</b>
+<b>				etc.</b>
+ 			When the current file can't be |abandon|ed and the [!]
+			is not present, the command fails.
+			When an error is detected on one file, further files
+			in the argument list will not be visited.
+			The last file in the argument list (or where an error
+			occurred) becomes the current file.
+			{cmd} can contain '&#124;' to concatenate several commands.
+			{cmd} must not change the argument list.
+			Note: While this command is executing, the <a href="autocmd.html#Syntax">Syntax</a>
+			<a href="autocmd.html#autocommand">autocommand</a> event is disabled by adding it to
+			<a href="options.html#'eventignore'">'eventignore'</a>.  This considerably speeds up editing
+			each file.
+			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+listcmds">+listcmds</a>| feature}
+			Also see |<a href="windows.html#:windo">:windo</a>|, |<a href="tabpage.html#:tabdo">:tabdo</a>| and |<a href="windows.html#:bufdo">:bufdo</a>|.
+
+Example:
+<b>	:args *.c</b>
+<b>	:argdo set ff=unix | update</b>
+This sets the <a href="options.html#'fileformat'">'fileformat'</a> option to &quot;<a href="os_unix.html#unix">unix</a>&quot; and writes the file if it is now
+changed.  This is done for all *.c files.
+
+Example:
+<b>	:args *.[ch]</b>
+<b>	:argdo %s/\&lt;my_foo\&gt;/My_Foo/ge | update</b>
+This changes the <a href="motion.html#word">word</a> &quot;my_foo&quot; to &quot;My_Foo&quot; in all *.c and *.h files.  The &quot;<a href="motion.html#e">e</a>&quot;
+flag is used for the &quot;<a href="change.html#:substitute">:substitute</a>&quot; command to avoid an error for files where
+&quot;my_foo&quot; isn't used.  &quot;<a href="editing.html#:update">:update</a>&quot; writes the file only if changes were made.
+
+==============================================================================
+
+4. Writing					*<a name="writing"></A><b>writing</b>* *<a name="save-file"></A><b>save-file</b>*
+
+Note: When the <a href="options.html#'write'">'write'</a> option is off, you are not able to write any file.
+
+
+							*<a name=":w"></A><b>:w</b>* *<a name=":write"></A><b>:write</b>*
+
+						*<a name="E502"></A><b>E502</b>* *<a name="E503"></A><b>E503</b>* *<a name="E504"></A><b>E504</b>* *<a name="E505"></A><b>E505</b>*
+
+						*<a name="E512"></A><b>E512</b>* *<a name="E514"></A><b>E514</b>* *<a name="E667"></A><b>E667</b>* *<a name="E796"></A><b>E796</b>*
+:w[rite] <a href="editing.html#[++opt]">[++opt]</a>	Write the whole buffer to the current file.  This is
+			the normal way to save changes to a file.  It fails
+			when the <a href="options.html#'readonly'">'readonly'</a> option is set or when there is
+			another reason why the file can't be written.
+			For ++opt see |<a href="editing.html#++opt">++opt</a>|, but only <a href="editing.html#++bin">++bin</a>, <a href="editing.html#++nobin">++nobin</a>, <a href="editing.html#++ff">++ff</a>
+			and <a href="editing.html#++enc">++enc</a> are effective.
+
+:w[rite]! <a href="editing.html#[++opt]">[++opt]</a>	Like &quot;<a href="editing.html#:write">:write</a>&quot;, but forcefully write when <a href="options.html#'readonly'">'readonly'</a> is
+			set or there is another reason why <a href="editing.html#writing">writing</a> was
+			refused.
+			Note: This may change the permission and ownership of
+			the file and break (symbolic) links.  Add the '<a href="motion.html#W">W</a>' flag
+			to <a href="options.html#'cpoptions'">'cpoptions'</a> to avoid this.
+
+:[range]w[rite][!] <a href="editing.html#[++opt]">[++opt]</a>
+			Write the specified lines to the current file.  This
+			is unusual, because the file will not contain all
+			lines in the buffer.
+
+
+							*<a name=":w_f"></A><b>:w_f</b>* *<a name=":write_f"></A><b>:write_f</b>*
+:[range]w[rite] <a href="editing.html#[++opt]">[++opt]</a>	<a href="editing.html#{file}">{file}</a>
+			Write the specified lines to <a href="editing.html#{file}">{file}</a>, unless it
+			already exists and the <a href="options.html#'writeany'">'writeany'</a> option is off.
+
+
+							*<a name=":w!"></A><b>:w!</b>*
+:[range]w[rite]! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#{file}">{file}</a>
+			Write the specified lines to <a href="editing.html#{file}">{file}</a>.  Overwrite an
+			existing file.
+
+
+						*<a name=":w_a"></A><b>:w_a</b>* *<a name=":write_a"></A><b>:write_a</b>* *<a name="E494"></A><b>E494</b>*
+:[range]w[rite][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="change.html#&gt;&gt;">&gt;&gt;</a>
+			Append the specified lines to the current file.
+
+:[range]w[rite][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="change.html#&gt;&gt;">&gt;&gt;</a> <a href="editing.html#{file}">{file}</a>
+			Append the specified lines to <a href="editing.html#{file}">{file}</a>.  '<a href="change.html#!">!</a>' forces the
+			write even if file does not exist.
+
+
+							*<a name=":w_c"></A><b>:w_c</b>* *<a name=":write_c"></A><b>:write_c</b>*
+:[range]w[rite] <a href="editing.html#[++opt]">[++opt]</a> !{cmd}
+			Execute {cmd} with <a href="cmdline.html#[range]">[range]</a> lines <a href="motion.html#as">as</a> standard input
+			(note the space in front of the '!').  {cmd} is
+			executed like with &quot;:!{cmd}&quot;, any '<a href="change.html#!">!</a>' is replaced with
+			the previous command |<a href="various.html#:!">:!</a>|.
+
+The default <a href="cmdline.html#[range]">[range]</a> for the &quot;<a href="editing.html#:w">:w</a>&quot; command is the whole buffer (1,$).  If you
+write the whole buffer, it is no longer considered changed.  When you
+write it to a different file with &quot;<a href="editing.html#:w">:w</a> somefile&quot; it depends on the &quot;<a href="motion.html#+">+</a>&quot; flag in
+<a href="options.html#'cpoptions'">'cpoptions'</a>.  When included, the write command will reset the <a href="options.html#'modified'">'modified'</a> flag,
+even though the buffer itself may still be different from its file.
+
+If a file name is given with &quot;<a href="editing.html#:w">:w</a>&quot; it becomes the alternate file.  This can be
+used, for example, when the write fails and you want to try again later with
+&quot;<a href="editing.html#:w">:w</a> #&quot;.  This can be switched off by removing the '<a href="insert.html#A">A</a>' flag from the
+<a href="options.html#'cpoptions'">'cpoptions'</a> option.
+
+
+							*<a name=":sav"></A><b>:sav</b>* *<a name=":saveas"></A><b>:saveas</b>*
+:sav[eas][!] <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#{file}">{file}</a>
+			Save the current buffer under the name <a href="editing.html#{file}">{file}</a> and set
+			the filename of the current buffer to <a href="editing.html#{file}">{file}</a>.  The
+			previous name is used for the alternate file name.
+			The [!] is needed to overwrite an existing file.
+			When <a href="options.html#'filetype'">'filetype'</a> is empty <a href="filetype.html#filetype">filetype</a> detection is done
+			with the new name, before the file is written.
+			When the write was successful <a href="options.html#'readonly'">'readonly'</a> is reset.
+			{not in Vi}
+
+
+							*<a name=":up"></A><b>:up</b>* *<a name=":update"></A><b>:update</b>*
+:[range]up[date][!] <a href="editing.html#[++opt]">[++opt]</a> [&gt;&gt;] [file]
+			Like &quot;<a href="editing.html#:write">:write</a>&quot;, but only write when the buffer has been
+			modified.  {not in Vi}
+
+
+
+WRITING WITH MULTIPLE BUFFERS				*<a name="buffer-write"></A><b>buffer-write</b>*
+
+
+							*<a name=":wa"></A><b>:wa</b>* *<a name=":wall"></A><b>:wall</b>*
+:wa[ll]			Write all changed <a href="windows.html#buffers">buffers</a>.  Buffers without a file
+			name or which are readonly are not written. {not in
+			Vi}
+
+:wa[ll]!		Write all changed <a href="windows.html#buffers">buffers</a>, even the ones that are
+			readonly.  Buffers without a file name are not
+			written. {not in Vi}
+
+
+Vim will warn you if you try to overwrite a file that has been changed
+elsewhere.  See |<a href="editing.html#timestamp">timestamp</a>|.
+
+
+			    *<a name="backup"></A><b>backup</b>* *<a name="E207"></A><b>E207</b>* *<a name="E506"></A><b>E506</b>* *<a name="E507"></A><b>E507</b>* *<a name="E508"></A><b>E508</b>* *<a name="E509"></A><b>E509</b>* *<a name="E510"></A><b>E510</b>*
+If you write to an existing file (but <a href="diff.html#do">do</a> not append) while the <a href="options.html#'backup'">'backup'</a>,
+<a href="options.html#'writebackup'">'writebackup'</a> or <a href="options.html#'patchmode'">'patchmode'</a> option is on, a <a href="editing.html#backup">backup</a> of the original file is
+made.  The file is either copied or renamed (see <a href="options.html#'backupcopy'">'backupcopy'</a>).  After the
+file has been successfully written and when the <a href="options.html#'writebackup'">'writebackup'</a> option is on and
+the <a href="options.html#'backup'">'backup'</a> option is off, the <a href="editing.html#backup">backup</a> file is deleted.  When the <a href="options.html#'patchmode'">'patchmode'</a>
+option is on the <a href="editing.html#backup">backup</a> file may be renamed.
+
+
+							*<a name="backup-table"></A><b>backup-table</b>*
+<b><font color="purple">'backup' 'writebackup'	action	</font></b>
+   off	     off	no <a href="editing.html#backup">backup</a> made
+   off	     on		<a href="editing.html#backup">backup</a> current file, deleted afterwards (default)
+   on	     off	delete old <a href="editing.html#backup">backup</a>, <a href="editing.html#backup">backup</a> current file
+   on	     on		delete old <a href="editing.html#backup">backup</a>, <a href="editing.html#backup">backup</a> current file
+
+When the <a href="options.html#'backupskip'">'backupskip'</a> <a href="pattern.html#pattern">pattern</a> matches with the name of the file which is
+written, no <a href="editing.html#backup">backup</a> file is made.  The values of <a href="options.html#'backup'">'backup'</a> and <a href="options.html#'writebackup'">'writebackup'</a> are
+ignored then.
+
+When the <a href="options.html#'backup'">'backup'</a> option is on, an old <a href="editing.html#backup">backup</a> file (with the same name <a href="motion.html#as">as</a> the
+new <a href="editing.html#backup">backup</a> file) will be deleted.  If <a href="options.html#'backup'">'backup'</a> is not set, but <a href="options.html#'writebackup'">'writebackup'</a>
+is set, an existing <a href="editing.html#backup">backup</a> file will not be deleted.  The <a href="editing.html#backup">backup</a> file that is
+made while the file is being written will have a different name.
+
+On some filesystems it's possible that in a crash you lose both the <a href="editing.html#backup">backup</a> and
+the newly written file (it might be there but contain bogus data).  In that
+<a href="change.html#case">case</a> try <a href="recover.html#recovery">recovery</a>, because the swap file is synced to disk and might still be
+there. |<a href="recover.html#:recover">:recover</a>|
+
+The directories given with the <a href="options.html#'backupdir'">'backupdir'</a> option is used to put the <a href="editing.html#backup">backup</a>
+file in.  (default: same directory <a href="motion.html#as">as</a> the written file).
+
+Whether the <a href="editing.html#backup">backup</a> is a new file, which is a copy of the original file, or the
+original file renamed depends on the <a href="options.html#'backupcopy'">'backupcopy'</a> option.  See there for an
+explanation of when the copy is made and when the file is renamed.
+
+If the creation of a <a href="editing.html#backup">backup</a> file fails, the write is not done.  If you want
+to write anyway add a '<a href="change.html#!">!</a>' to the command.
+
+
+							*<a name="write-permissions"></A><b>write-permissions</b>*
+When <a href="editing.html#writing">writing</a> a new file the permissions are read-write.  For <a href="os_unix.html#unix">unix</a> the mask is
+0666 with additionally umask applied.  When <a href="editing.html#writing">writing</a> a file that was read Vim
+will preserve the permissions, but clear the s-bit.
+
+
+							*<a name="write-readonly"></A><b>write-readonly</b>*
+When the <a href="options.html#'cpoptions'">'cpoptions'</a> option contains '<a href="motion.html#W">W</a>', Vim will refuse to overwrite a
+readonly file.  When '<a href="motion.html#W">W</a>' is not present, &quot;<a href="editing.html#:w!">:w!</a>&quot; will overwrite a readonly file,
+if the system allows it (the directory must be writable).
+
+
+							*<a name="write-fail"></A><b>write-fail</b>*
+If the <a href="editing.html#writing">writing</a> of the new file fails, you have to be careful not to lose
+your changes AND the original file.  If there is no <a href="editing.html#backup">backup</a> file and <a href="editing.html#writing">writing</a>
+the new file failed, you have already lost the original file!  DON'T EXIT VIM
+UNTIL YOU WRITE OUT THE FILE!  If a <a href="editing.html#backup">backup</a> was made, it is put back in place
+of the original file (if possible).  If you exit Vim, and lose the changes
+you made, the original file will mostly still be there.  If putting back the
+original file fails, there will be an error message telling you that you
+lost the original file.
+
+
+						*<a name="DOS-format-write"></A><b>DOS-format-write</b>*
+If the <a href="options.html#'fileformat'">'fileformat'</a> is &quot;<a href="os_dos.html#dos">dos</a>&quot;, <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> is used for <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.  This is default
+for <a href="os_msdos.html#MS-DOS">MS-DOS</a>, <a href="os_win32.html#Win32">Win32</a> and <a href="os_os2.html#OS/2">OS/2</a>.  On other systems the message &quot;[dos format]&quot; is
+shown to remind you that an unusual <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a> was used.
+
+						*<a name="Unix-format-write"></A><b>Unix-format-write</b>*
+If the <a href="options.html#'fileformat'">'fileformat'</a> is &quot;<a href="os_unix.html#unix">unix</a>&quot;, <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> is used for <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.  On <a href="os_msdos.html#MS-DOS">MS-DOS</a>, <a href="os_win32.html#Win32">Win32</a> and
+<a href="os_os2.html#OS/2">OS/2</a> the message &quot;[unix format]&quot; is shown.
+
+						*<a name="Mac-format-write"></A><b>Mac-format-write</b>*
+If the <a href="options.html#'fileformat'">'fileformat'</a> is &quot;<a href="os_mac.html#mac">mac</a>&quot;, <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> is used for <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.  On non-Mac systems the
+message &quot;[mac format]&quot; is shown.
+
+See also |<a href="editing.html#file-formats">file-formats</a>| and the <a href="options.html#'fileformat'">'fileformat'</a> and <a href="options.html#'fileformats'">'fileformats'</a> <a href="options.html#options">options</a>.
+
+
+						*<a name="ACL"></A><b>ACL</b>*
+<a href="editing.html#ACL">ACL</a> stands for Access Control <a href="eval.html#List">List</a>.  It is an advanced way to <a href="intro.html#control">control</a> access
+rights for a file.  It is used on new <a href="os_win32.html#MS-Windows">MS-Windows</a> and <a href="os_unix.html#Unix">Unix</a> systems, but only
+when the filesystem supports it.
+   Vim attempts to preserve the <a href="editing.html#ACL">ACL</a> info when <a href="editing.html#writing">writing</a> a file.  The <a href="editing.html#backup">backup</a> file
+will get the <a href="editing.html#ACL">ACL</a> info of the original file.
+   The <a href="editing.html#ACL">ACL</a> info is also used to check if a file is read-only (when opening the
+file).
+
+
+						*<a name="read-only-share"></A><b>read-only-share</b>*
+When <a href="os_win32.html#MS-Windows">MS-Windows</a> shares a drive on the <a href="pi_netrw.html#network">network</a> it can be marked <a href="motion.html#as">as</a> read-only.
+This means that even if the file read-only attribute is absent, and the <a href="editing.html#ACL">ACL</a>
+settings on NT <a href="pi_netrw.html#network">network</a> shared drives allow <a href="editing.html#writing">writing</a> to the file, you can still
+not write to the file.  Vim on <a href="os_win32.html#Win32">Win32</a> platforms will detect read-only <a href="pi_netrw.html#network">network</a>
+drives and will <a href="motion.html#mark">mark</a> the file <a href="motion.html#as">as</a> read-only.  You will not be able to override
+it with |<a href="editing.html#:write">:write</a>|.
+
+
+						*<a name="write-device"></A><b>write-device</b>*
+When the file name is actually a device name, Vim will not make a <a href="editing.html#backup">backup</a> (that
+would be impossible).  You need to use &quot;<a href="change.html#!">!</a>&quot;, since the device already exists.
+Example for <a href="os_unix.html#Unix">Unix</a>:
+<b>	:w! /dev/lpt0</b>
+and for <a href="os_msdos.html#MS-DOS">MS-DOS</a> or <a href="os_win32.html#MS-Windows">MS-Windows</a>:
+<b>	:w! lpt0</b>
+For <a href="os_unix.html#Unix">Unix</a> a device is detected when the name doesn't refer to a normal file or
+a directory.  A fifo or named pipe also looks like a device to Vim.
+For <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#MS-Windows">MS-Windows</a> the device is detected by its name:
+	AUX
+	CON
+	CLOCK$
+	NUL
+	PRN
+	COMn	n=1,2,3... etc
+	LPTn	n=1,2,3... etc
+The names can be in upper- or <a href="change.html#lowercase">lowercase</a>.
+
+==============================================================================
+
+5. Writing and quitting					*<a name="write-quit"></A><b>write-quit</b>*
+
+
+							*<a name=":q"></A><b>:q</b>* *<a name=":quit"></A><b>:quit</b>*
+:q[uit]			Quit the current <a href="windows.html#window">window</a>.  Quit Vim if this is the last
+			<a href="windows.html#window">window</a>.  This fails when changes have been made and
+			Vim refuses to |<a href="editing.html#abandon">abandon</a>| the current buffer, and when
+			the last file in the argument list has not been
+			edited.
+			If there are other <a href="intro.html#tab">tab</a> pages and quitting the last
+			<a href="windows.html#window">window</a> in the current <a href="intro.html#tab">tab</a> page the current <a href="intro.html#tab">tab</a> page is
+			closed |<a href="tabpage.html#tab-page">tab-page</a>|.
+
+:conf[irm] q[uit]	Quit, but give prompt when changes have been made, or
+			the last file in the argument list has not been
+			edited.  See |<a href="editing.html#:confirm">:confirm</a>| and <a href="options.html#'confirm'">'confirm'</a>.  {not in Vi}
+
+:q[uit]!		Quit without <a href="editing.html#writing">writing</a>, also when visible <a href="windows.html#buffers">buffers</a> have
+			changes.  Does not exit when there are changed hidden
+			<a href="windows.html#buffers">buffers</a>.  Use &quot;:qall!&quot; to exit always.
+
+:cq[uit]		Quit always, without <a href="editing.html#writing">writing</a>, and return an error
+			code.  See |<a href="quickfix.html#:cq">:cq</a>|.  Used for Manx's QuickFix mode (see
+			|<a href="quickfix.html#quickfix">quickfix</a>|).  {not in Vi}
+
+
+							*<a name=":wq"></A><b>:wq</b>*
+<a href="editing.html#:wq">:wq</a> <a href="editing.html#[++opt]">[++opt]</a>		Write the current file and quit.  Writing fails when
+			the file is read-only or the buffer does not have a
+			name.  Quitting fails when the last file in the
+			argument list has not been edited.
+
+<a href="editing.html#:wq">:wq</a>! <a href="editing.html#[++opt]">[++opt]</a>		Write the current file and quit.  Writing fails when
+			the current buffer does not have a name.
+
+<a href="editing.html#:wq">:wq</a> <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#{file}">{file}</a>	Write to <a href="editing.html#{file}">{file}</a> and quit.  Quitting fails when the
+			last file in the argument list has not been edited.
+
+<a href="editing.html#:wq">:wq</a>! <a href="editing.html#[++opt]">[++opt]</a> <a href="editing.html#{file}">{file}</a>	Write to <a href="editing.html#{file}">{file}</a> and quit.
+
+:[range]wq[!] <a href="editing.html#[++opt]">[++opt]</a> [file]
+			Same <a href="motion.html#as">as</a> above, but only write the lines in <a href="cmdline.html#[range]">[range]</a>.
+
+
+							*<a name=":x"></A><b>:x</b>* *<a name=":xit"></A><b>:xit</b>*
+:[range]x[it][!] <a href="editing.html#[++opt]">[++opt]</a> [file]
+			Like &quot;<a href="editing.html#:wq">:wq</a>&quot;, but write only when changes have been
+			made.
+			When <a href="options.html#'hidden'">'hidden'</a> is set and there are more <a href="windows.html#windows">windows</a>, the
+			current buffer becomes hidden, after <a href="editing.html#writing">writing</a> the file.
+
+
+							*<a name=":exi"></A><b>:exi</b>* *<a name=":exit"></A><b>:exit</b>*
+:[range]exi[t][!] <a href="editing.html#[++opt]">[++opt]</a> [file]
+			Same <a href="motion.html#as">as</a> <a href="editing.html#:xit">:xit</a>.
+
+
+							*<a name="ZZ"></A><b>ZZ</b>*
+<a href="editing.html#ZZ">ZZ</a>			Write current file, if modified, and quit (same <a href="motion.html#as">as</a>
+			&quot;:x&quot;).  (Note: If there are several <a href="windows.html#windows">windows</a> for the
+			current file, the file is written if it was modified
+			and the <a href="windows.html#window">window</a> is closed).
+
+
+							*<a name="ZQ"></A><b>ZQ</b>*
+<a href="editing.html#ZQ">ZQ</a>			Quit without checking for changes (same <a href="motion.html#as">as</a> &quot;:q!&quot;).
+			{not in Vi}
+
+
+MULTIPLE WINDOWS AND BUFFERS				*<a name="window-exit"></A><b>window-exit</b>*
+
+
+							*<a name=":qa"></A><b>:qa</b>* *<a name=":qall"></A><b>:qall</b>*
+:qa[ll]		Exit Vim, unless there are some <a href="windows.html#buffers">buffers</a> which have been
+		changed.  (Use &quot;:bmod&quot; to go to the next modified buffer).
+		When <a href="options.html#'autowriteall'">'autowriteall'</a> is set all changed <a href="windows.html#buffers">buffers</a> will be
+		written, like |<a href="editing.html#:wqall">:wqall</a>|. {not in Vi}
+
+:conf[irm] qa[ll]
+		Exit Vim.  Bring up a prompt when some <a href="windows.html#buffers">buffers</a> have been
+		changed.  See |<a href="editing.html#:confirm">:confirm</a>|. {not in Vi}
+
+:qa[ll]!	Exit Vim.  Any changes to <a href="windows.html#buffers">buffers</a> are lost. {not in Vi}
+		Also see |<a href="quickfix.html#:cquit">:cquit</a>|, it does the same but exits with a non-zero
+		value.
+
+
+							*<a name=":quita"></A><b>:quita</b>* *<a name=":quitall"></A><b>:quitall</b>*
+:quita[ll][!]	Same <a href="motion.html#as">as</a> &quot;<a href="editing.html#:qall">:qall</a>&quot;. {not in Vi}
+
+
+:wqa[ll] <a href="editing.html#[++opt]">[++opt]</a>				*<a name=":wqa"></A><b>:wqa</b>* *<a name=":wqall"></A><b>:wqall</b>* *<a name=":xa"></A><b>:xa</b>* *<a name=":xall"></A><b>:xall</b>*
+:xa[ll]		Write all changed <a href="windows.html#buffers">buffers</a> and exit Vim.  If there are <a href="windows.html#buffers">buffers</a>
+		without a file name, which are readonly or which cannot be
+		written for another reason, Vim will not quit. {not in Vi}
+
+:conf[irm] wqa[ll] <a href="editing.html#[++opt]">[++opt]</a>
+:conf[irm] xa[ll]
+		Write all changed <a href="windows.html#buffers">buffers</a> and exit Vim.  Bring up a prompt
+		when some <a href="windows.html#buffers">buffers</a> are readonly or cannot be written for
+		another reason.  See |<a href="editing.html#:confirm">:confirm</a>|. {not in Vi}
+
+:wqa[ll]! <a href="editing.html#[++opt]">[++opt]</a>
+:xa[ll]!	Write all changed <a href="windows.html#buffers">buffers</a>, even the ones that are readonly,
+		and exit Vim.  If there are <a href="windows.html#buffers">buffers</a> without a file name or
+		which cannot be written for another reason, Vim will not quit.
+		{not in Vi}
+
+==============================================================================
+
+6. Dialogs						*<a name="edit-dialogs"></A><b>edit-dialogs</b>*
+
+
+							*<a name=":confirm"></A><b>:confirm</b>* *<a name=":conf"></A><b>:conf</b>*
+:conf[irm] {command}	Execute {command}, and use a <a href="gui_w32.html#dialog">dialog</a> when an
+			operation has to be confirmed.  Can be used on the
+			&quot;<a href="editing.html#:q">:q</a>&quot;, &quot;<a href="editing.html#:qa">:qa</a>&quot; and &quot;<a href="editing.html#:w">:w</a>&quot; commands (the latter to over-ride
+			a read-only setting).
+
+Examples:
+<b>  :confirm w foo</b>
+ 	Will ask for confirmation when &quot;foo&quot; already exists.
+<b>  :confirm q</b>
+ 	Will ask for confirmation when there are changes.
+<b>  :confirm qa</b>
+ 	If any modified, unsaved <a href="windows.html#buffers">buffers</a> exist, you will be prompted to save
+	or <a href="editing.html#abandon">abandon</a> each one.  There are also choices to &quot;save all&quot; or &quot;<a href="editing.html#abandon">abandon</a>
+	all&quot;.
+
+If you want to always use &quot;<a href="editing.html#:confirm">:confirm</a>&quot;, set the <a href="options.html#'confirm'">'confirm'</a> option.
+
+
+			*<a name=":browse"></A><b>:browse</b>* *<a name=":bro"></A><b>:bro</b>* *<a name="E338"></A><b>E338</b>* *<a name="E614"></A><b>E614</b>* *<a name="E615"></A><b>E615</b>* *<a name="E616"></A><b>E616</b>* *<a name="E578"></A><b>E578</b>*
+:bro[wse] {command}	Open a file selection <a href="gui_w32.html#dialog">dialog</a> for an argument to
+			{command}.  At present this works for |<a href="editing.html#:e">:e</a>|, |<a href="editing.html#:w">:w</a>|,
+			|<a href="editing.html#:wall">:wall</a>|, |<a href="editing.html#:wq">:wq</a>|, |<a href="editing.html#:wqall">:wqall</a>|, |<a href="editing.html#:x">:x</a>|, |<a href="editing.html#:xall">:xall</a>|, |<a href="editing.html#:exit">:exit</a>|,
+			|<a href="editing.html#:view">:view</a>|, |<a href="windows.html#:sview">:sview</a>|, |<a href="insert.html#:r">:r</a>|, |<a href="editing.html#:saveas">:saveas</a>|, |<a href="windows.html#:sp">:sp</a>|, |<a href="starting.html#:mkexrc">:mkexrc</a>|,
+			|<a href="starting.html#:mkvimrc">:mkvimrc</a>|, |<a href="starting.html#:mksession">:mksession</a>|, |<a href="starting.html#:mkview">:mkview</a>|, |<a href="windows.html#:split">:split</a>|,
+			|<a href="windows.html#:vsplit">:vsplit</a>|, |<a href="tabpage.html#:tabe">:tabe</a>|, |<a href="tabpage.html#:tabnew">:tabnew</a>|, |<a href="quickfix.html#:cfile">:cfile</a>|, |<a href="quickfix.html#:cgetfile">:cgetfile</a>|,
+			|<a href="quickfix.html#:caddfile">:caddfile</a>|, |<a href="quickfix.html#:lfile">:lfile</a>|, |<a href="quickfix.html#:lgetfile">:lgetfile</a>|, |<a href="quickfix.html#:laddfile">:laddfile</a>|,
+			|<a href="diff.html#:diffsplit">:diffsplit</a>|, |<a href="diff.html#:diffpatch">:diffpatch</a>|, |<a href="vi_diff.html#:open">:open</a>|, |<a href="windows.html#:pedit">:pedit</a>|,
+			|<a href="various.html#:redir">:redir</a>|, |<a href="repeat.html#:source">:source</a>|, |<a href="editing.html#:update">:update</a>|, |<a href="editing.html#:visual">:visual</a>|, |<a href="windows.html#:vsplit">:vsplit</a>|,
+			and |<a href="editing.html#:qall">:qall</a>| if <a href="options.html#'confirm'">'confirm'</a> is set.
+			{only in <a href="os_win32.html#Win32">Win32</a>, <a href="gui_x11.html#Athena">Athena</a>, <a href="gui_x11.html#Motif">Motif</a>, <a href="gui_x11.html#GTK">GTK</a> and <a href="os_mac.html#Mac">Mac</a> GUI}
+			When &quot;<a href="editing.html#:browse">:browse</a>&quot; is not possible you get an error
+			message.  If the |<a href="various.html#+browse">+browse</a>| feature is missing or the
+			{command} doesn't support browsing, the {command} is
+			executed without a <a href="gui_w32.html#dialog">dialog</a>.
+			&quot;<a href="editing.html#:browse">:browse</a> set&quot; works like |<a href="options.html#:options">:options</a>|.
+			See also |<a href="starting.html#:oldfiles">:oldfiles</a>| for &quot;<a href="editing.html#:browse">:browse</a> oldfiles&quot;.
+
+The <a href="syntax.html#syntax">syntax</a> is best shown via some examples:
+<b>	:browse e $vim/foo</b>
+ 		Open the browser in the $vim/foo directory, and edit the
+		file chosen.
+<b>	:browse e</b>
+ 		Open the browser in the directory specified with <a href="options.html#'browsedir'">'browsedir'</a>,
+		and edit the file chosen.
+<b>	:browse w</b>
+ 		Open the browser in the directory of the current buffer,
+		with the current buffer filename <a href="motion.html#as">as</a> default, and save the
+		buffer under the filename chosen.
+<b>	:browse w C:/bar</b>
+ 		Open the browser in the C:/bar directory, with the current
+		buffer filename <a href="motion.html#as">as</a> default, and save the buffer under the
+		filename chosen.
+Also see the |<a href="options.html#'browsedir'">'browsedir'</a>| option.
+For versions of Vim where browsing is not supported, the command is executed
+unmodified.
+
+
+							*<a name="browsefilter"></A><b>browsefilter</b>*
+For MS Windows, you can modify the filters that are used in the browse <a href="gui_w32.html#dialog">dialog</a>.
+By setting the g:browsefilter or b:browsefilter <a href="eval.html#variables">variables</a>, you can change the
+filters globally or locally to the buffer.  The variable is set to a string in
+the format &quot;{filter label}\t{pattern};{pattern}\n&quot; where {filter label} is the
+text that appears in the &quot;Files of Type&quot; comboBox, and {pattern} is the
+<a href="pattern.html#pattern">pattern</a> which filters the filenames.  Several patterns can be given, separated
+by '<a href="motion.html#;">;</a>'.
+
+For <a href="gui_x11.html#Motif">Motif</a> the same format is used, but only the very first <a href="pattern.html#pattern">pattern</a> is actually
+used (Motif only offers one <a href="pattern.html#pattern">pattern</a>, but you can edit it).
+
+For example, to have only Vim files in the <a href="gui_w32.html#dialog">dialog</a>, you could use the following
+command:
+
+<b>     let g:browsefilter="Vim Scripts\t*.vim\nVim Startup Files\t*vimrc\n"</b>
+
+You can override the <a href="change.html#filter">filter</a> setting on a per-buffer basis by setting the
+b:browsefilter variable.  You would most likely set b:browsefilter in a
+<a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a>, so that the browse <a href="gui_w32.html#dialog">dialog</a> would contain entries related to
+the type of file you are currently editing.  Disadvantage: This makes it
+difficult to start editing a file of a different type.  To overcome this, you
+may want to add &quot;All Files\t*.*\n&quot; <a href="motion.html#as">as</a> the final <a href="change.html#filter">filter</a>, so that the user can
+still access any desired file.
+
+==============================================================================
+
+7. The current directory				*<a name="current-directory"></A><b>current-directory</b>*
+
+You may use the |<a href="editing.html#:cd">:cd</a>| and |<a href="editing.html#:lcd">:lcd</a>| commands to change to another directory, so
+you will not have to type that directory name in front of the file names.  It
+also makes a difference for executing external commands, e.g. &quot;:!ls&quot;.
+
+Changing directory fails when the current buffer is modified, the '<a href="repeat.html#.">.</a>' flag is
+present in <a href="options.html#'cpoptions'">'cpoptions'</a> and &quot;<a href="change.html#!">!</a>&quot; is not used in the command.
+
+
+							*<a name=":cd"></A><b>:cd</b>* *<a name="E747"></A><b>E747</b>* *<a name="E472"></A><b>E472</b>*
+:cd[!]			On non-Unix systems: Print the current directory
+			name.  On <a href="os_unix.html#Unix">Unix</a> systems: Change the current directory
+			to the home directory.  Use |<a href="editing.html#:pwd">:pwd</a>| to print the
+			current directory on all systems.
+
+:cd[!] {path}		Change the current directory to {path}.
+			If {path} is relative, it is searched for in the
+			directories listed in |<a href="options.html#'cdpath'">'cdpath'</a>|.
+			Does not change the meaning of an already opened file,
+			because its full path name is remembered.  Files from
+			the |<a href="editing.html#arglist">arglist</a>| may change though!
+			On <a href="os_msdos.html#MS-DOS">MS-DOS</a> this also changes the active drive.
+			To change to the directory of the current file:
+<b>				:cd %:h</b>
+ 
+
+							*<a name=":cd-"></A><b>:cd-</b>* *<a name="E186"></A><b>E186</b>*
+:cd[!] -		Change to the previous current directory (before the
+			previous &quot;<a href="editing.html#:cd">:cd</a> {path}&quot; command). {not in Vi}
+
+
+							*<a name=":chd"></A><b>:chd</b>* *<a name=":chdir"></A><b>:chdir</b>*
+:chd[ir][!] [path]	Same <a href="motion.html#as">as</a> |<a href="editing.html#:cd">:cd</a>|.
+
+
+							*<a name=":lc"></A><b>:lc</b>* *<a name=":lcd"></A><b>:lcd</b>*
+:lc[d][!] {path}	Like |<a href="editing.html#:cd">:cd</a>|, but only set the current directory for the
+			current <a href="windows.html#window">window</a>.  The current directory for other
+			<a href="windows.html#windows">windows</a> is not changed. {not in Vi}
+
+
+							*<a name=":lch"></A><b>:lch</b>* *<a name=":lchdir"></A><b>:lchdir</b>*
+:lch[dir][!]		Same <a href="motion.html#as">as</a> |<a href="editing.html#:lcd">:lcd</a>|. {not in Vi}
+
+
+							*<a name=":pw"></A><b>:pw</b>* *<a name=":pwd"></A><b>:pwd</b>* *<a name="E187"></A><b>E187</b>*
+:pw[d]			Print the current directory name.  {Vi: no pwd}
+			Also see |<a href="eval.html#getcwd()">getcwd()</a>|.
+
+So long <a href="motion.html#as">as</a> no |<a href="editing.html#:lcd">:lcd</a>| command has been used, all <a href="windows.html#windows">windows</a> share the same current
+directory.  Using a command to jump to another <a href="windows.html#window">window</a> doesn't change anything
+for the current directory.
+When a |<a href="editing.html#:lcd">:lcd</a>| command has been used for a <a href="windows.html#window">window</a>, the specified directory
+becomes the current directory for that <a href="windows.html#window">window</a>.  Windows where the |<a href="editing.html#:lcd">:lcd</a>|
+command has not been used stick to the global current directory.  When jumping
+to another <a href="windows.html#window">window</a> the current directory will become the last specified local
+current directory.  If none was specified, the global current directory is
+used.
+When a |<a href="editing.html#:cd">:cd</a>| command is used, the current <a href="windows.html#window">window</a> will lose his local current
+directory and will use the global current directory from now on.
+
+After using |<a href="editing.html#:cd">:cd</a>| the full path name will be used for reading and <a href="editing.html#writing">writing</a>
+files.  On some networked file systems this may cause problems.  The result of
+using the full path name is that the file names currently in use will remain
+referring to the same file.  Example: If you have a file a:test and a
+directory a:vim the commands &quot;<a href="editing.html#:e">:e</a> test&quot; &quot;<a href="editing.html#:cd">:cd</a> vim&quot; &quot;<a href="editing.html#:w">:w</a>&quot; will overwrite the file
+a:test and not write a:vim/test.  But if you <a href="diff.html#do">do</a> &quot;<a href="editing.html#:w">:w</a> test&quot; the file a:vim/test
+will be written, because you gave a new file name and did not refer to a
+filename before the &quot;<a href="editing.html#:cd">:cd</a>&quot;.
+
+==============================================================================
+
+8. Editing binary files					*<a name="edit-binary"></A><b>edit-binary</b>*
+
+Although Vim was made to edit text files, it is possible to edit binary
+files.  The |<a href="starting.html#-b">-b</a>| Vim argument (b for binary) makes Vim <a href="diff.html#do">do</a> file I/O in binary
+mode, and sets some <a href="options.html#options">options</a> for editing binary files ('binary' on, <a href="options.html#'textwidth'">'textwidth'</a>
+to 0, <a href="options.html#'modeline'">'modeline'</a> off, <a href="options.html#'expandtab'">'expandtab'</a> off).  Setting the <a href="options.html#'binary'">'binary'</a> option has the
+same effect.  Don't forget to <a href="diff.html#do">do</a> this before reading the file.
+
+There are a few things to remember when editing binary files:
+- When editing executable files the number of characters must not change.
+  Use only the &quot;<a href="change.html#R">R</a>&quot; or &quot;<a href="change.html#r">r</a>&quot; command to change text.  Do not delete characters
+  with &quot;<a href="change.html#x">x</a>&quot; or by backspacing.
+- Set the <a href="options.html#'textwidth'">'textwidth'</a> option to 0.  Otherwise lines will unexpectedly be
+  split in two.
+- When there are not many &lt;EOL&gt;s, the lines will become very long.  If you
+  want to edit a line that does not fit on the screen reset the <a href="options.html#'wrap'">'wrap'</a> option.
+  Horizontal <a href="scroll.html#scrolling">scrolling</a> is used then.  If a line becomes too long (more than
+  about 32767 characters on the <a href="os_amiga.html#Amiga">Amiga</a>, much more on 32-bit systems, see
+  |<a href="vi_diff.html#limits">limits</a>|) you cannot edit that line.  The line will be split when reading
+  the file.  It is also possible that you get an &quot;out of memory&quot; error when
+  reading the file.
+- Make sure the <a href="options.html#'binary'">'binary'</a> option is set BEFORE loading the
+  file.  Otherwise both <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> and <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> are considered to end a line
+  and when the file is written the <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> will be replaced with <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>.
+- <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a> characters are shown on the screen <a href="motion.html#as">as</a> ^@.  You can enter them with
+  &quot;<a href="visual.html#CTRL-V">CTRL-V</a> CTRL-@&quot; or &quot;<a href="visual.html#CTRL-V">CTRL-V</a> 000&quot; {Vi cannot handle <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a> characters in the
+  file}
+- To insert a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> character in the file split up a line.  When <a href="editing.html#writing">writing</a> the
+  buffer to a file a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> will be written for the <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.
+- Vim normally appends an <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a> at the end of the file if there is none.
+  Setting the <a href="options.html#'binary'">'binary'</a> option prevents this.  If you want to add the final
+  <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>, set the <a href="options.html#'endofline'">'endofline'</a> option.  You can also read the value of this
+  option to see if there was an <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a> for the last line (you cannot see this
+  in the text).
+
+==============================================================================
+
+9. Encryption						*<a name="encryption"></A><b>encryption</b>*
+
+Vim is able to write files encrypted, and read them back.  The encrypted text
+cannot be read without the right key.
+
+{only available when compiled with the |<a href="various.html#+cryptv">+cryptv</a>| feature}  *<a name="E833"></a><b>E833</b>*
+
+
+The text in the swap file and the <a href="undo.html#undo">undo</a> file is also encrypted.  *<a name="E843"></A><b>E843</b>*
+
+Note: The text in memory is not encrypted.  A system administrator may be able
+to see your text while you are editing it.  When filtering text with
+&quot;:!filter&quot; or using &quot;<a href="editing.html#:w">:w</a> !command&quot; the text is not encrypted, this may reveal
+it to others.  The <a href="options.html#'viminfo'">'viminfo'</a> file is not encrypted.
+
+WARNING: If you make a typo when entering the key and then write the file and
+exit, the text will be lost!
+
+The normal way to work with <a href="editing.html#encryption">encryption</a>, is to use the &quot;<a href="editing.html#:X">:X</a>&quot; command, which will
+ask you to enter a key.  A following write command will use that key to
+encrypt the file.  If you later edit the same file, Vim will ask you to enter
+a key.  If you type the same key <a href="motion.html#as">as</a> that was used for <a href="editing.html#writing">writing</a>, the text will
+be readable again.  If you use a wrong key, it will be a mess.
+
+
+							*<a name=":X"></A><b>:X</b>*
+<a href="editing.html#:X">:X</a>	Prompt for an <a href="editing.html#encryption">encryption</a> key.  The typing is done without showing the
+	actual text, so that someone looking at the display won't see it.
+	The typed key is stored in the <a href="options.html#'key'">'key'</a> option, which is used to encrypt
+	the file when it is written.  The file will remain unchanged until you
+	write it.  See also |<a href="starting.html#-x">-x</a>|.
+
+The value of the <a href="options.html#'key'">'key'</a> <a href="options.html#options">options</a> is used when text is written.  When the option
+is not empty, the written file will be encrypted, using the value <a href="motion.html#as">as</a> the
+<a href="editing.html#encryption">encryption</a> key.  A magic number is prepended, so that Vim can recognize that
+the file is encrypted.
+
+To disable the <a href="editing.html#encryption">encryption</a>, reset the <a href="options.html#'key'">'key'</a> option to an empty value:
+<b>	:set key=</b>
+
+You can use the <a href="options.html#'cryptmethod'">'cryptmethod'</a> option to select the type of <a href="editing.html#encryption">encryption</a>, use one
+of these two:
+<b>	:setlocal cm=zip       " weak method, backwards compatible</b>
+<b>	:setlocal cm=blowfish  " strong method</b>
+Do this before <a href="editing.html#writing">writing</a> the file.  When reading an encrypted file it will be
+set automatically to the method used when that file was written.  You can
+change <a href="options.html#'cryptmethod'">'cryptmethod'</a> before <a href="editing.html#writing">writing</a> that file to change the method.
+To set the default method, used for new files, use one of these in your
+|<a href="starting.html#vimrc">vimrc</a>| file:
+<b>	set cm=zip</b>
+<b>	set cm=blowfish</b>
+The message given for reading and <a href="editing.html#writing">writing</a> a file will show &quot;[crypted]&quot; when
+using <a href="pi_zip.html#zip">zip</a>, &quot;[blowfish]&quot; when using <a href="options.html#blowfish">blowfish</a>.
+
+When <a href="editing.html#writing">writing</a> an <a href="undo.html#undo">undo</a> file, the same key and method will be used for the text
+in the undo file. |<a href="undo.html#persistent-undo">persistent-undo</a>|.
+
+
+						*<a name="E817"></A><b>E817</b>* *<a name="E818"></A><b>E818</b>* *<a name="E819"></A><b>E819</b>* *<a name="E820"></A><b>E820</b>*
+When <a href="editing.html#encryption">encryption</a> does not work properly, you would be able to write your text
+to a file and never be able to read it back.  Therefore a test is performed to
+check if the <a href="editing.html#encryption">encryption</a> works <a href="motion.html#as">as</a> expected.  If you get one of these <a href="message.html#errors">errors</a>
+don't write the file encrypted!  You need to rebuild the Vim binary to fix
+this.
+
+
+*<a name="E831"></A><b>E831</b>* This is an internal error, &quot;cannot happen&quot;.  If you can reproduce it,
+please report to the developers.
+
+When reading a file that has been encrypted and the <a href="options.html#'key'">'key'</a> option is not empty,
+it will be used for decryption.  If the value is empty, you will be prompted
+to enter the key.  If you don't enter a key, or you enter the wrong key, the
+file is edited without being decrypted.  There is no warning about using the
+wrong key (this makes brute force methods to find the key more difficult).
+
+If want to start reading a file that uses a different key, set the <a href="options.html#'key'">'key'</a>
+option to an empty string, so that Vim will prompt for a new one.  Don't use
+the &quot;<a href="options.html#:set">:set</a>&quot; command to enter the value, other people can read the command over
+your shoulder.
+
+Since the value of the <a href="options.html#'key'">'key'</a> option is supposed to be a secret, its value can
+never be viewed.  You should not set this option in a <a href="starting.html#vimrc">vimrc</a> file.
+
+An encrypted file can be recognized by the &quot;file&quot; command, if you add these
+lines to &quot;/etc/magic&quot;, &quot;/usr/share/misc/magic&quot; or wherever your system has the
+&quot;magic&quot; file:
+<b>     0	string	VimCrypt~	Vim encrypted file</b>
+<b>     &gt;9	string	01	- "zip" cryptmethod</b>
+<b>     &gt;9	string	02	- "blowfish" cryptmethod</b>
+
+
+Notes:
+- Encryption is not possible when doing conversion with <a href="options.html#'charconvert'">'charconvert'</a>.
+- Text you copy or delete goes to the numbered <a href="change.html#registers">registers</a>.  The <a href="change.html#registers">registers</a> can
+  be saved in the .viminfo file, where they could be read.  Change your
+  <a href="options.html#'viminfo'">'viminfo'</a> option to be safe.
+- Someone can type commands in Vim when you walk away for a moment, he should
+  not be able to get the key.
+- If you make a typing mistake when entering the key, you might not be able to
+  get your text back!
+- If you type the key with a &quot;<a href="options.html#:set">:set</a> <a href="options.html#'key'">key</a>=value&quot; command, it can be kept in the
+  <a href="cmdline.html#history">history</a>, showing the <a href="options.html#'key'">'key'</a> value in a <a href="starting.html#viminfo">viminfo</a> file.
+- There is never 100&#37; safety.  The <a href="editing.html#encryption">encryption</a> in Vim has not been tested for
+  robustness.
+- The algorithm used for <a href="options.html#'cryptmethod'">'cryptmethod'</a> &quot;<a href="pi_zip.html#zip">zip</a>&quot; is breakable.  A 4 character key
+  in about one hour, a 6 character key in one day (on a Pentium 133 PC).  This
+  requires that you know some text that must appear in the file.  An expert
+  can break it for any key.  When the text has been decrypted, this also means
+  that the key can be revealed, and other files encrypted with the same key
+  can be decrypted.
+- Pkzip uses the same <a href="editing.html#encryption">encryption</a> <a href="motion.html#as">as</a> <a href="options.html#'cryptmethod'">'cryptmethod'</a> &quot;<a href="pi_zip.html#zip">zip</a>&quot;, and US Govt has no
+  objection to its export.  Pkzip's public file APPNOTE.TXT describes this
+  algorithm in detail.
+- Vim originates from the Netherlands.  That is where the sources come from.
+  Thus the <a href="editing.html#encryption">encryption</a> code is not exported from the USA.
+
+==============================================================================
+
+10. Timestamps					*<a name="timestamp"></A><b>timestamp</b>* *<a name="timestamps"></A><b>timestamps</b>*
+
+Vim remembers the modification <a href="editing.html#timestamp">timestamp</a> of a file when you begin editing it.
+This is used to avoid that you have two different versions of the same file
+(without you knowing this).
+
+After a shell command is run (|<a href="various.html#:!cmd">:!cmd</a>| |<a href="starting.html#suspend">suspend</a>| |<a href="insert.html#:read!">:read!</a>| |<a href="various.html#K">K</a>|) <a href="editing.html#timestamps">timestamps</a> are
+compared for all <a href="windows.html#buffers">buffers</a> in a <a href="windows.html#window">window</a>.   Vim will run any associated
+|<a href="autocmd.html#FileChangedShell">FileChangedShell</a>| autocommands or display a warning for any files that have
+changed.  In the <a href="gui.html#GUI">GUI</a> this happens when Vim regains input focus.
+
+
+							*<a name="E321"></A><b>E321</b>* *<a name="E462"></A><b>E462</b>*
+If you want to automatically reload a file when it has been changed outside of
+Vim, set the <a href="options.html#'autoread'">'autoread'</a> option.  This doesn't work at the moment you write the
+file though, only when the file wasn't changed inside of Vim.
+
+Note that if a <a href="autocmd.html#FileChangedShell">FileChangedShell</a> <a href="autocmd.html#autocommand">autocommand</a> is defined you will not get a
+warning message or prompt.  The <a href="autocmd.html#autocommand">autocommand</a> is expected to handle this.
+
+There is no warning for a directory (e.g., with |<a href="pi_netrw.html#netrw-browse">netrw-browse</a>|).  But you <a href="diff.html#do">do</a>
+get warned if you started editing a new file and it was created <a href="motion.html#as">as</a> a directory
+later.
+
+When Vim notices the <a href="editing.html#timestamp">timestamp</a> of a file has changed, and the file is being
+edited in a buffer but has not changed, Vim checks if the contents of the file
+is equal.  This is done by reading the file again (into a hidden buffer, which
+is immediately deleted again) and comparing the text.  If the text is equal,
+you will get no warning.
+
+If you don't get warned often enough you can use the following command.
+
+
+							*<a name=":checkt"></A><b>:checkt</b>* *<a name=":checktime"></A><b>:checktime</b>*
+:checkt[ime]		Check if any <a href="windows.html#buffers">buffers</a> were changed outside of Vim.
+			This checks and warns you if you would end up with two
+			versions of a file.
+			If this is called from an <a href="autocmd.html#autocommand">autocommand</a>, a &quot;<a href="repeat.html#:global">:global</a>&quot;
+			command or is not typed the actual check is postponed
+			until a moment the side effects (reloading the file)
+			would be harmless.
+			Each loaded buffer is checked for its associated file
+			being changed.  If the file was changed Vim will take
+			action.  If there are no changes in the buffer and
+			<a href="options.html#'autoread'">'autoread'</a> is set, the buffer is reloaded.  Otherwise,
+			you are offered the choice of reloading the file.  If
+			the file was deleted you get an error message.
+			If the file previously didn't exist you get a warning
+			if it exists now.
+			Once a file has been checked the <a href="editing.html#timestamp">timestamp</a> is reset,
+			you will not be warned again.
+
+:[N]checkt[ime] {filename}
+:[N]checkt[ime] [N]
+			Check the <a href="editing.html#timestamp">timestamp</a> of a specific buffer.  The buffer
+			may be specified by name, number or with a <a href="pattern.html#pattern">pattern</a>.
+
+
+
+							*<a name="E813"></A><b>E813</b>* *<a name="E814"></A><b>E814</b>*
+Vim will reload the buffer if you chose to.  If a <a href="windows.html#window">window</a> is visible that
+contains this buffer, the reloading will happen in the context of this <a href="windows.html#window">window</a>.
+Otherwise a special <a href="windows.html#window">window</a> is used, so that most autocommands will work.  You
+can't close this <a href="windows.html#window">window</a>.  A few other restrictions apply.  Best is to make
+sure nothing happens outside of the current buffer.  E.g., setting
+window-local <a href="options.html#options">options</a> may end up in the wrong <a href="windows.html#window">window</a>.  Splitting the <a href="windows.html#window">window</a>,
+doing something there and closing it should be OK (if there are no side
+effects from other autocommands).  Closing unrelated <a href="windows.html#windows">windows</a> and <a href="windows.html#buffers">buffers</a> will
+get you into trouble.
+
+Before <a href="editing.html#writing">writing</a> a file the <a href="editing.html#timestamp">timestamp</a> is checked.  If it has changed, Vim will
+ask if you really want to overwrite the file:
+
+	WARNING: The file has been changed since reading it!!!
+	Do you really want to write to it (y/n)?
+
+If you hit '<a href="change.html#y">y</a>' Vim will continue <a href="editing.html#writing">writing</a> the file.  If you hit '<a href="pattern.html#n">n</a>' the write is
+aborted.  If you used &quot;<a href="editing.html#:wq">:wq</a>&quot; or &quot;<a href="editing.html#ZZ">ZZ</a>&quot; Vim will not exit, you will get another
+chance to write the file.
+
+The message would normally mean that somebody has written to the file after
+the edit session started.  This could be another person, in which <a href="change.html#case">case</a> you
+probably want to check if your changes to the file and the changes from the
+other person should be merged.  Write the file under another name and check for
+differences (the &quot;<a href="diff.html#diff">diff</a>&quot; program can be used for this).
+
+It is also possible that you modified the file yourself, from another edit
+session or with another command (e.g., a <a href="change.html#filter">filter</a> command).  Then you will know
+which version of the file you want to keep.
+
+There is one situation where you get the message while there is nothing wrong:
+On a <a href="os_win32.html#Win32">Win32</a> system on the day daylight saving time starts.  There is something
+in the <a href="os_win32.html#Win32">Win32</a> libraries that confuses Vim about the hour time difference.  The
+problem goes away the next day.
+
+==============================================================================
+
+11. File Searching					*<a name="file-searching"></A><b>file-searching</b>*
+
+{not available when compiled without the |<a href="various.html#+path_extra">+path_extra</a>| feature}
+
+The file searching is currently used for the <a href="options.html#'path'">'path'</a>, <a href="options.html#'cdpath'">'cdpath'</a> and <a href="options.html#'tags'">'tags'</a>
+<a href="options.html#options">options</a>, for |<a href="eval.html#finddir()">finddir()</a>| and |<a href="eval.html#findfile()">findfile()</a>|.  Other commands use |<a href="editing.html#wildcards">wildcards</a>|
+which is slightly different.
+
+There are three different types of searching:
+
+
+1) Downward search:					*<a name="starstar"></A><b>starstar</b>*
+   Downward search uses the <a href="editing.html#wildcards">wildcards</a> '*', '**' and possibly others
+   supported by your operating system.  '*' and '**' are handled inside Vim,
+   so they work on all operating systems.  Note that &quot;**&quot; only acts <a href="motion.html#as">as</a> a
+   special <a href="editing.html#wildcard">wildcard</a> when it is at the start of a name.
+
+   The usage of '*' is quite simple: It matches 0 or more characters.  In a
+   search <a href="pattern.html#pattern">pattern</a> this would be &quot;.*&quot;.  Note that the &quot;<a href="repeat.html#.">.</a>&quot; is not used for file
+   searching.
+
+   '**' is more sophisticated:
+      - It ONLY matches directories.
+      - It matches up to 30 directories deep by default, so you can use it to
+	search an entire directory tree
+      - The maximum number of levels matched can be given by appending a number
+	to '**'.
+	Thus '/usr/**2' can match:
+<b>		/usr</b>
+<b>		/usr/include</b>
+<b>		/usr/include/sys</b>
+<b>		/usr/include/g++</b>
+<b>		/usr/lib</b>
+<b>		/usr/lib/X11</b>
+<b>		....</b>
+ 	It does NOT match '/usr/include/g++/std' <a href="motion.html#as">as</a> this would be three
+	levels.
+	The allowed number range is 0 ('**0' is removed) to 100
+	If the given number is smaller than 0 it defaults to 30, if it's
+	bigger than 100 then 100 is used.  The system also has a limit on the
+	path length, usually 256 or 1024 bytes.
+      - '**' can only be at the end of the path or be followed by a path
+	separator or by a number and a path separator.
+
+   You can combine '*' and '**' in any order:
+<b>	/usr/**/sys/*</b>
+<b>	/usr/*tory/sys/**</b>
+<b>	/usr/**2/sys/*</b>
+
+2) Upward search:
+   Here you can give a directory and then search the directory tree upward for
+   a file.  You could give stop-directories to limit the upward search.  The
+   stop-directories are appended to the path (for the <a href="options.html#'path'">'path'</a> option) or to
+   the filename (for the <a href="options.html#'tags'">'tags'</a> option) with a '<a href="motion.html#;">;</a>'.  If you want several
+   stop-directories separate them with '<a href="motion.html#;">;</a>'.  If you want no stop-directory
+   (&quot;search upward till the root directory) just use '<a href="motion.html#;">;</a>'.
+<b>	/usr/include/sys;/usr</b>
+    will search in:
+<b>	   /usr/include/sys</b>
+<b>	   /usr/include</b>
+<b>	   /usr</b>
+ 
+   If you use a relative path the upward search is started in Vim's current
+   directory or in the directory of the current file (if the relative path
+   starts with './' and '<a href="change.html#d">d</a>' is not included in <a href="options.html#'cpoptions'">'cpoptions'</a>).
+
+   If Vim's current path is /u/user_x/work/release and you <a href="diff.html#do">do</a>
+<b>	:set path=include;/u/user_x</b>
+   and then search for a file with |<a href="editing.html#gf">gf</a>| the file is searched in:
+<b>	/u/user_x/work/release/include</b>
+<b>	/u/user_x/work/include</b>
+<b>	/u/user_x/include</b>
+
+3) Combined up/downward search:
+   If Vim's current path is /u/user_x/work/release and you <a href="diff.html#do">do</a>
+<b>	set path=**;/u/user_x</b>
+   and then search for a file with |<a href="editing.html#gf">gf</a>| the file is searched in:
+<b>	/u/user_x/work/release/**</b>
+<b>	/u/user_x/work/**</b>
+<b>	/u/user_x/**</b>
+ 
+   BE CAREFUL!  This might consume a lot of time, <a href="motion.html#as">as</a> the search of
+   '/u/user_x/**' includes '/u/user_x/work/**' and
+   '/u/user_x/work/release/**'.  So '/u/user_x/work/release/**' is searched
+   three times and '/u/user_x/work/**' is searched <a href="if_cscop.html#twice">twice</a>.
+
+   In the above example you might want to set path to:
+<b>	:set path=**,/u/user_x/**</b>
+   This searches:
+<b><font color="purple">	/u/user_x/work/release/** </font></b>
+<b><font color="purple">	/u/user_x/** </font></b>
+   This searches the same directories, but in a different order.
+
+   Note that completion for &quot;<a href="editing.html#:find">:find</a>&quot;, &quot;<a href="windows.html#:sfind">:sfind</a>&quot;, and &quot;<a href="tabpage.html#:tabfind">:tabfind</a>&quot; commands <a href="diff.html#do">do</a> not
+   currently work with <a href="options.html#'path'">'path'</a> items that contain a url or use the double <a href="pattern.html#star">star</a>
+   (/usr/**2) or upward search (;) notations.
+
+<b> vim:tw=78:ts=8:ft=help:norl:</b>
+<a href="editing.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

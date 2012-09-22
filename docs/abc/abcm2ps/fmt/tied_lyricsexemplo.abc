@@ -1,0 +1,34 @@
+% tied_lyricsexemplo.abc        -*- abc -*-
+%    Sample file for `tied_lyrics.fmt'
+%    Arquivo de exemplo para `tied_lyrics.fmt'
+% Hudson Lacerda (2004)
+
+%%format tied_lyrics
+
+%%pageheight  29.7cm
+%%pagewidth   21.0cm
+%%topmargin    1.5cm
+%%botmargin    1.5cm
+%%leftmargin   1.5cm
+%%rightmargin  1.5cm
+
+%%textfont Times-Roman 16
+%%setfont-1 Courier-Bold 16
+%%setfont-2 Times-Bold 20
+
+%%center $2tied_lyricsexemplo.abc - Exemplo de tied_lyrics.fmt
+%%center Hudson Lacerda (2004)
+%%text
+
+X: 1			% número da peça
+%%scale 1
+T: 'Tava na peneira	% título
+O: Popular		% origem
+M: 2/4			% metro (compasso)
+L: 1/8
+K: D			% tonalidade
+%
+DD EF|G2B2|GE ED|F2A2|
+w: 'Ta-va na pe-nei-ra~eu ta-va pe-nei-ran-do~oi
+FD DB,|E2G2|ED B,D|F2D2:|
+w: 'ta-va num na-mo-ro~eu ta-va na-mo-ran-do~oi

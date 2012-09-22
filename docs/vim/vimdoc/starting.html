@@ -1,0 +1,1650 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: starting</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: starting</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="starting.txt"></A><b>starting.txt</b>*  For Vim version 7.3.  Last change: 2010 Sep 18
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Starting Vim						*<a name="starting"></A><b>starting</b>*
+
+1. Vim arguments		|<a href="starting.html#vim-arguments">vim-arguments</a>|
+2. Vim on the <a href="os_amiga.html#Amiga">Amiga</a>		|<a href="starting.html#starting-amiga">starting-amiga</a>|
+3. Running eVim			|<a href="starting.html#evim-keys">evim-keys</a>|
+4. Initialization		|<a href="starting.html#initialization">initialization</a>|
+5. $VIM and <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>		|<a href="starting.html#$VIM">$VIM</a>|
+6. Suspending			|<a href="starting.html#suspend">suspend</a>|
+7. Saving settings		|<a href="starting.html#save-settings">save-settings</a>|
+8. Views and Sessions		|<a href="starting.html#views-sessions">views-sessions</a>|
+9. The viminfo file		|<a href="starting.html#viminfo-file">viminfo-file</a>|
+
+==============================================================================
+
+1. Vim arguments					*<a name="vim-arguments"></A><b>vim-arguments</b>*
+
+Most often, Vim is started to edit a single file with the command
+
+
+	vim filename					*<a name="-vim"></A><b>-vim</b>*
+
+More generally, Vim is started with:
+
+	vim [option &#124; filename] ..
+
+Option arguments and file name arguments can be mixed, and any number of them
+can be given.  However, watch out for <a href="options.html#options">options</a> that take an argument.
+
+For compatibility with various <a href="intro.html#Vi">Vi</a> versions, see	|<a href="vi_diff.html#cmdline-arguments">cmdline-arguments</a>|.
+
+Exactly one out of the following five items may be used to choose how to
+start editing:
+
+
+							*<a name="-file"></A><b>-file</b>* *<a name="---"></A><b>---</b>*
+filename	One or more file names.  The first one will be the current
+		file and read into the buffer.  The cursor will be positioned
+		on the first line of the buffer.
+		To avoid a file name starting with a '<a href="motion.html#-">-</a>' being interpreted <a href="motion.html#as">as</a>
+		an option, precede the <a href="editing.html#arglist">arglist</a> with &quot;<a href="starting.html#--">--</a>&quot;, e.g.:
+<b>			vim -- -filename</b>
+ 		All arguments after the &quot;<a href="starting.html#--">--</a>&quot; will be interpreted <a href="motion.html#as">as</a> file names,
+		no other <a href="options.html#options">options</a> or &quot;+command&quot; argument can follow.
+
+
+							*<a name="--"></A><b>--</b>*
+-		This argument can mean two things, depending on whether <a href="intro.html#Ex">Ex</a>
+		mode is to be used.
+
+		Starting in <a href="intro.html#Normal">Normal</a> mode:
+<b>			vim -</b>
+<b>			ex -v -</b>
+ 		Start editing a new buffer, which is filled with text
+		that is read from stdin.  The commands that would normally be
+		read from stdin will now be read from stderr.  Example:
+<b>			find . -name "*.c" -print | vim -</b>
+ 		The buffer will be marked modified, because it contains text
+		that needs to be saved.  Except when in readonly mode, then
+		the buffer is not marked modified.  Example:
+<b>			ls | view -</b>
+ 
+		Starting in <a href="intro.html#Ex">Ex</a> mode:
+<b>			ex -</b>
+<b>			vim -e -</b>
+<b>			exim -</b>
+<b>			vim -E</b>
+ 		Start editing in silent mode.  See |<a href="starting.html#-s-ex">-s-ex</a>|.
+
+
+							*<a name="-t"></A><b>-t</b>* *<a name="-tag"></A><b>-tag</b>*
+<a href="starting.html#-t">-t</a> {tag}	A <a href="tagsrch.html#tag">tag</a>.  &quot;<a href="tagsrch.html#tag">tag</a>&quot; is looked up in the <a href="tagsrch.html#tags">tags</a> file, the associated
+		file becomes the current file, and the associated command is
+		executed.  Mostly this is used for C programs, in which <a href="change.html#case">case</a>
+		&quot;<a href="tagsrch.html#tag">tag</a>&quot; often is a function name.  The effect is that the file
+		containing that function becomes the current file and the
+		cursor is positioned on the start of the function (see
+		|<a href="tagsrch.html#tags">tags</a>|).
+
+
+							*<a name="-q"></A><b>-q</b>* *<a name="-qf"></A><b>-qf</b>*
+<a href="starting.html#-q">-q</a> [errorfile]	QuickFix mode.  The file with the name [errorfile] is read
+		and the first error is displayed.  See |<a href="quickfix.html#quickfix">quickfix</a>|.
+		If [errorfile] is not given, the <a href="options.html#'errorfile'">'errorfile'</a> option is used
+		for the file name.  See <a href="options.html#'errorfile'">'errorfile'</a> for the default value.
+		{not in Vi}
+
+(nothing)	Without one of the four items above, Vim will start editing a
+		new buffer.  It's empty and doesn't have a file name.
+
+
+The <a href="starting.html#startup">startup</a> mode can be changed by using another name instead of &quot;vim&quot;, which
+is equal to giving <a href="options.html#options">options</a>:
+
+<a href="starting.html#ex">ex</a>	vim <a href="starting.html#-e">-e</a>	    Start in Ex mode (see |<a href="intro.html#Ex-mode">Ex-mode</a>|).		    *<a name="ex"></a><b>ex</b>*
+
+<a href="starting.html#exim">exim</a>	vim <a href="starting.html#-E">-E</a>	    Start in improved Ex mode (see |<a href="intro.html#Ex-mode">Ex-mode</a>|).	    *<a name="exim"></a><b>exim</b>*
+			(normally not installed)
+
+<a href="starting.html#view">view</a>	vim -R	    Start in read-only mode (see |<a href="starting.html#-R">-R</a>|).		    *<a name="view"></a><b>view</b>*
+
+<a href="starting.html#gvim">gvim</a>	vim <a href="starting.html#-g">-g</a>	    Start the <a href="gui.html#GUI">GUI</a> (see |<a href="gui.html#gui">gui</a>|).			    *<a name="gvim"></a><b>gvim</b>*
+
+<a href="starting.html#gex">gex</a>	vim -eg	    Start the <a href="gui.html#GUI">GUI</a> in <a href="intro.html#Ex">Ex</a> mode.			  *<a name="gex"></A><b>gex</b>*
+
+<a href="starting.html#gview">gview</a>	vim -Rg	    Start the <a href="gui.html#GUI">GUI</a> in read-only mode.		  *<a name="gview"></A><b>gview</b>*
+
+<a href="starting.html#rvim">rvim</a>	vim -Z	    Like &quot;vim&quot;, but in restricted mode (see |<a href="starting.html#-Z">-Z</a>|)   *<a name="rvim"></a><b>rvim</b>*
+
+<a href="starting.html#rview">rview</a>	vim -RZ	    Like &quot;<a href="starting.html#view">view</a>&quot;, but in restricted mode.	  *<a name="rview"></A><b>rview</b>*
+
+<a href="starting.html#rgvim">rgvim</a>	vim -gZ	    Like &quot;<a href="starting.html#gvim">gvim</a>&quot;, but in restricted mode.	  *<a name="rgvim"></A><b>rgvim</b>*
+
+<a href="starting.html#rgview">rgview</a>	vim -RgZ    Like &quot;<a href="starting.html#gview">gview</a>&quot;, but in restricted mode.	  *<a name="rgview"></A><b>rgview</b>*
+
+<a href="starting.html#evim">evim</a>    vim -y      Easy Vim: set <a href="options.html#'insertmode'">'insertmode'</a> (see |<a href="starting.html#-y">-y</a>|)	    *<a name="evim"></a><b>evim</b>*
+
+<a href="starting.html#eview">eview</a>   vim -yR     Like &quot;<a href="starting.html#evim">evim</a>&quot; in read-only mode		  *<a name="eview"></A><b>eview</b>*
+<a href="diff.html#vimdiff">vimdiff</a> vim <a href="starting.html#-d">-d</a>	    Start in diff mode |<a href="diff.html#diff-mode">diff-mode</a>|
+<a href="diff.html#gvimdiff">gvimdiff</a> vim -gd    Start in diff mode |<a href="diff.html#diff-mode">diff-mode</a>|
+
+Additional characters may follow, they are ignored.  For example, you can have
+&quot;gvim-5&quot; to start the <a href="gui.html#GUI">GUI</a>.  You must have an executable by that name then, of
+course.
+
+On <a href="os_unix.html#Unix">Unix</a>, you would normally have one executable called Vim, and links from the
+different startup-names to that executable.  If your system does not support
+links and you <a href="diff.html#do">do</a> not want to have several copies of the executable, you could
+use an alias instead.  For example:
+<b>	alias view   vim -R</b>
+<b>	alias gvim   vim -g</b>
+ 
+
+							*<a name="startup-options"></A><b>startup-options</b>*
+The option arguments may be given in any order.  Single-letter <a href="options.html#options">options</a> can be
+combined after one dash.  There can be no option arguments after the &quot;<a href="starting.html#--">--</a>&quot;
+argument.
+
+On <a href="os_vms.html#VMS">VMS</a> all option arguments are assumed to be <a href="change.html#lowercase">lowercase</a>, unless preceded with
+a slash.  Thus &quot;<a href="starting.html#-R">-R</a>&quot; means <a href="recover.html#recovery">recovery</a> and &quot;-/R&quot; readonly.
+
+
+<a href="starting.html#--help">--help</a>							*<a name="-h"></A><b>-h</b>* *<a name="--help"></A><b>--help</b>*
+<a href="starting.html#-h">-h</a>		Give usage (help) message and exit.  {not in Vi}
+		See |<a href="starting.html#info-message">info-message</a>| about capturing the text.
+
+
+							*<a name="--version"></A><b>--version</b>*
+<a href="starting.html#--version">--version</a>	Print version information and exit.  Same output <a href="motion.html#as">as</a> for
+		|<a href="various.html#:version">:version</a>| command.  {not in Vi}
+		See |<a href="starting.html#info-message">info-message</a>| about capturing the text.
+
+
+							*<a name="--noplugin"></A><b>--noplugin</b>*
+<a href="starting.html#--noplugin">--noplugin</a>	Skip loading plugins.  Resets the <a href="options.html#'loadplugins'">'loadplugins'</a> option.
+		{not in Vi}
+		Note that the |<a href="starting.html#-u">-u</a>| argument may also disable loading plugins:
+<b><font color="purple">			argument	load vimrc files	load plugins </font></b>
+			(nothing)		yes		    yes
+			<a href="starting.html#-u">-u</a> NONE			no		    no
+			<a href="starting.html#-u">-u</a> NORC			no		    yes
+			<a href="starting.html#--noplugin">--noplugin</a>		yes		    no
+
+
+<a href="starting.html#--startuptime">--startuptime</a> {fname}					*<a name="--startuptime"></A><b>--startuptime</b>*
+		During <a href="starting.html#startup">startup</a> write timing <a href="message.html#messages">messages</a> to the file {fname}.
+		This can be used to find out where time is spent while loading
+		your <a href="starting.html#.vimrc">.vimrc</a>, plugins and opening the first file.
+		When {fname} already exists new <a href="message.html#messages">messages</a> are appended.
+		(Only available when compiled with the |<a href="various.html#+startuptime">+startuptime</a>|
+		feature).
+
+
+							*<a name="--literal"></A><b>--literal</b>*
+<a href="starting.html#--literal">--literal</a>	Take file names literally, don't expand <a href="editing.html#wildcards">wildcards</a>.  Not needed
+		for <a href="os_unix.html#Unix">Unix</a>, because Vim always takes file names literally (the
+		shell expands <a href="editing.html#wildcards">wildcards</a>).
+		Applies to all the names, also the ones that come before this
+		argument.
+
+
+							*<a name="-+"></A><b>-+</b>*
++[num]		The cursor will be positioned on line &quot;num&quot; for the first
+		file being edited.  If &quot;num&quot; is missing, the cursor will be
+		positioned on the last line.
+
+
+							*<a name="-+/"></A><b>-+/</b>*
++/{pat}		The cursor will be positioned on the first line containing
+		&quot;pat&quot; in the first file being edited (see |<a href="pattern.html#pattern">pattern</a>| for the
+		available search patterns).
+
+
++{command}						*<a name="-+c"></A><b>-+c</b>* *<a name="-c"></A><b>-c</b>*
+<a href="starting.html#-c">-c</a> {command}	{command} will be executed after the first file has been
+		read (and after autocommands and modelines for that file have
+		been processed).  &quot;command&quot; is interpreted <a href="motion.html#as">as</a> an <a href="intro.html#Ex">Ex</a> command.
+		If the &quot;command&quot; contains spaces, it must be enclosed in
+		double <a href="quotes.html#quotes">quotes</a> (this depends on the shell that is used).
+		Example:
+<b>			vim  "+set si"  main.c</b>
+<b>			vim  "+find stdio.h"</b>
+<b>			vim  -c "set ff=dos"  -c wq  mine.mak</b>
+ 
+		Note: You can use up to 10 &quot;<a href="motion.html#+">+</a>&quot; or &quot;<a href="starting.html#-c">-c</a>&quot; arguments in a Vim
+		command.  They are executed in the order given.  A &quot;<a href="starting.html#-S">-S</a>&quot;
+		argument counts <a href="motion.html#as">as</a> a &quot;<a href="starting.html#-c">-c</a>&quot; argument <a href="motion.html#as">as</a> well.
+		{Vi only allows one command}
+
+
+<a href="starting.html#--cmd">--cmd</a> {command}						*<a name="--cmd"></A><b>--cmd</b>*
+		{command} will be executed before processing any <a href="starting.html#vimrc">vimrc</a> file.
+		Otherwise it acts like <a href="starting.html#-c">-c</a> {command}.  You can use up to 10 of
+		these commands, independently from &quot;<a href="starting.html#-c">-c</a>&quot; commands.
+		{not in Vi}
+
+
+							*<a name="-S"></A><b>-S</b>*
+<a href="starting.html#-S">-S</a> <a href="editing.html#{file}">{file}</a>	The <a href="editing.html#{file}">{file}</a> will be sourced after the first file has been read.
+		This is an <a href="starting.html#easy">easy</a> way to <a href="diff.html#do">do</a> the equivalent of:
+<b>			-c "source {file}"</b>
+ 		It can be mixed with &quot;<a href="starting.html#-c">-c</a>&quot; arguments and repeated like &quot;<a href="starting.html#-c">-c</a>&quot;.
+		The limit of 10 &quot;<a href="starting.html#-c">-c</a>&quot; arguments applies here <a href="motion.html#as">as</a> well.
+		<a href="editing.html#{file}">{file}</a> cannot start with a &quot;<a href="motion.html#-">-</a>&quot;.
+		{not in Vi}
+
+<a href="starting.html#-S">-S</a>		Works like &quot;<a href="starting.html#-S">-S</a> Session.vim&quot;.  Only when used <a href="motion.html#as">as</a> the last
+		argument or when another &quot;<a href="motion.html#-">-</a>&quot; option follows.
+
+
+							*<a name="-r"></A><b>-r</b>*
+<a href="starting.html#-r">-r</a>		Recovery mode.  Without a file name argument, a list of
+		existing swap files is given.  With a file name, a swap file
+		is read to recover a crashed editing session.  See
+		|<a href="recover.html#crash-recovery">crash-recovery</a>|.
+
+
+							*<a name="-L"></A><b>-L</b>*
+<a href="starting.html#-L">-L</a>		Same <a href="motion.html#as">as</a> <a href="starting.html#-r">-r</a>.  {only in some versions of <a href="intro.html#Vi">Vi</a>: &quot;<a href="eval.html#List">List</a> recoverable
+		edit sessions&quot;}
+
+
+							*<a name="-R"></A><b>-R</b>*
+<a href="starting.html#-R">-R</a>		Readonly mode.  The <a href="options.html#'readonly'">'readonly'</a> option will be set for all the
+		files being edited.  You can still edit the buffer, but will
+		be prevented from accidentally overwriting a file.  If you
+		forgot that you are in <a href="starting.html#View">View</a> mode and did make some changes,
+		you can overwrite a file by adding an exclamation <a href="motion.html#mark">mark</a> to
+		the <a href="intro.html#Ex">Ex</a> command, <a href="motion.html#as">as</a> in &quot;<a href="editing.html#:w!">:w!</a>&quot;.  The <a href="options.html#'readonly'">'readonly'</a> option can be
+		reset with &quot;<a href="options.html#:set">:set</a> <a href="options.html#'noro'">noro</a>&quot; (see the options chapter, |<a href="options.html#options">options</a>|).
+		Subsequent edits will not be done in readonly mode.  Calling
+		the executable &quot;<a href="starting.html#view">view</a>&quot; has the same effect <a href="motion.html#as">as</a> the <a href="starting.html#-R">-R</a> argument.
+		The <a href="options.html#'updatecount'">'updatecount'</a> option will be set to 10000, meaning that
+		the swap file will not be updated automatically very often.
+
+
+							*<a name="-m"></A><b>-m</b>*
+<a href="starting.html#-m">-m</a>		Modifications not allowed to be written.  The <a href="options.html#'write'">'write'</a> option
+		will be reset, so that <a href="editing.html#writing">writing</a> files is disabled.  However,
+		the <a href="options.html#'write'">'write'</a> option can be set to enable <a href="editing.html#writing">writing</a> again.
+		{not in Vi}
+
+
+							*<a name="-M"></A><b>-M</b>*
+<a href="starting.html#-M">-M</a>		Modifications not allowed.  The <a href="options.html#'modifiable'">'modifiable'</a> option will be
+		reset, so that changes are not allowed.  The <a href="options.html#'write'">'write'</a> option
+		will be reset, so that <a href="editing.html#writing">writing</a> files is disabled.  However,
+		the <a href="options.html#'modifiable'">'modifiable'</a> and <a href="options.html#'write'">'write'</a> <a href="options.html#options">options</a> can be set to enable
+		changes and <a href="editing.html#writing">writing</a>.
+		{not in Vi}
+
+
+						*<a name="-Z"></A><b>-Z</b>* *<a name="restricted-mode"></A><b>restricted-mode</b>* *<a name="E145"></A><b>E145</b>*
+<a href="starting.html#-Z">-Z</a>		Restricted mode.  All commands that make use of an external
+		shell are disabled.  This includes suspending with <a href="starting.html#CTRL-Z">CTRL-Z</a>,
+		&quot;<a href="various.html#:sh">:sh</a>&quot;, filtering, the <a href="eval.html#system()">system()</a> function, backtick expansion,
+		<a href="eval.html#delete()">delete()</a>, <a href="eval.html#rename()">rename()</a>, <a href="eval.html#mkdir()">mkdir()</a>, <a href="eval.html#writefile()">writefile()</a>, <a href="eval.html#libcall()">libcall()</a>, etc.
+		{not in Vi}
+
+
+							*<a name="-g"></A><b>-g</b>*
+<a href="starting.html#-g">-g</a>		Start Vim in <a href="gui.html#GUI">GUI</a> mode.  See |<a href="gui.html#gui">gui</a>|.  {not in Vi}
+
+
+							*<a name="-v"></A><b>-v</b>*
+<a href="starting.html#-v">-v</a>		Start <a href="intro.html#Ex">Ex</a> in <a href="intro.html#Vi">Vi</a> mode.  Only makes a difference when the
+		executable is called &quot;<a href="starting.html#ex">ex</a>&quot; or &quot;<a href="starting.html#gvim">gvim</a>&quot;.  For <a href="starting.html#gvim">gvim</a> the <a href="gui.html#GUI">GUI</a> is not
+		started if possible.
+
+
+							*<a name="-e"></A><b>-e</b>*
+<a href="starting.html#-e">-e</a>		Start Vim in <a href="intro.html#Ex">Ex</a> mode |<a href="intro.html#Q">Q</a>|.  Only makes a difference when the
+		executable is not called &quot;<a href="starting.html#ex">ex</a>&quot;.
+
+
+							*<a name="-E"></A><b>-E</b>*
+<a href="starting.html#-E">-E</a>		Start Vim in improved <a href="intro.html#Ex">Ex</a> mode |<a href="intro.html#gQ">gQ</a>|.  Only makes a difference
+		when the executable is not called &quot;<a href="starting.html#exim">exim</a>&quot;.
+		{not in Vi}
+
+
+							*<a name="-s-ex"></A><b>-s-ex</b>*
+<a href="starting.html#-s">-s</a>		Silent or batch mode.  Only when Vim was started <a href="motion.html#as">as</a> &quot;<a href="starting.html#ex">ex</a>&quot; or
+		when preceded with the &quot;<a href="starting.html#-e">-e</a>&quot; argument.  Otherwise see |<a href="starting.html#-s">-s</a>|,
+		which does take an argument while this use of &quot;<a href="starting.html#-s">-s</a>&quot; doesn't.
+		To be used when Vim is used to execute <a href="intro.html#Ex">Ex</a> commands from a file
+		instead of a terminal.  Switches off most prompts and
+		informative <a href="message.html#messages">messages</a>.  Also warnings and error <a href="message.html#messages">messages</a>.
+		The output of these commands is displayed (to stdout):
+			<a href="various.html#:print">:print</a>
+			<a href="various.html#:list">:list</a>
+			<a href="various.html#:number">:number</a>
+			<a href="options.html#:set">:set</a>      <a href="options.html#'to'">to</a> display option values.
+		When <a href="options.html#'verbose'">'verbose'</a> is non-zero <a href="message.html#messages">messages</a> are printed (for
+		debugging, to stderr).
+		<a href="options.html#'term'">'term'</a> and $TERM are not used.
+		If Vim appears to be stuck try typing &quot;qa!&lt;Enter&gt;&quot;.  You don't
+		get a prompt thus you can't see Vim is waiting for you to type
+		something.
+		Initializations are skipped (except the ones given with the
+		&quot;<a href="starting.html#-u">-u</a>&quot; argument).
+		Example:
+<b>			vim -e -s  &lt; thefilter  thefile</b>
+ 
+
+							*<a name="-b"></A><b>-b</b>*
+<a href="starting.html#-b">-b</a>		Binary mode.  File I/O will only recognize <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> to separate
+		lines.  The <a href="options.html#'expandtab'">'expandtab'</a> option will be reset.  The <a href="options.html#'textwidth'">'textwidth'</a>
+		option is set to 0.  <a href="options.html#'modeline'">'modeline'</a> is reset.  The <a href="options.html#'binary'">'binary'</a> option
+		is set.  This is done after reading the vimrc/exrc files but
+		before reading any file in the <a href="editing.html#arglist">arglist</a>.  See also
+		|<a href="editing.html#edit-binary">edit-binary</a>|.  {not in Vi}
+
+
+							*<a name="-l"></A><b>-l</b>*
+<a href="starting.html#-l">-l</a>		Lisp mode.  Sets the <a href="options.html#'lisp'">'lisp'</a> and <a href="options.html#'showmatch'">'showmatch'</a> <a href="options.html#options">options</a> on.
+
+
+							*<a name="-A"></A><b>-A</b>*
+<a href="starting.html#-A">-A</a>		<a href="arabic.html#Arabic">Arabic</a> mode.  Sets the <a href="options.html#'arabic'">'arabic'</a> option on.  (Only when
+		compiled with the |<a href="various.html#+arabic">+arabic</a>| features (which include
+		|<a href="various.html#+rightleft">+rightleft</a>|), otherwise Vim gives an error message
+		and exits.)  {not in Vi}
+
+
+							*<a name="-F"></A><b>-F</b>*
+<a href="starting.html#-F">-F</a>		<a href="farsi.html#Farsi">Farsi</a> mode.  Sets the <a href="options.html#'fkmap'">'fkmap'</a> and <a href="options.html#'rightleft'">'rightleft'</a> <a href="options.html#options">options</a> on.
+		(Only when compiled with |<a href="various.html#+rightleft">+rightleft</a>| and |<a href="various.html#+farsi">+farsi</a>| features,
+		otherwise Vim gives an error message and exits.)  {not in Vi}
+
+
+							*<a name="-H"></A><b>-H</b>*
+<a href="starting.html#-H">-H</a>		Hebrew mode.  Sets the <a href="options.html#'hkmap'">'hkmap'</a> and <a href="options.html#'rightleft'">'rightleft'</a> <a href="options.html#options">options</a> on.
+		(Only when compiled with the |<a href="various.html#+rightleft">+rightleft</a>| feature, otherwise
+		Vim gives an error message and exits.)  {not in Vi}
+
+
+							*<a name="-V"></A><b>-V</b>* *<a name="verbose"></A><b>verbose</b>*
+-V[N]		Verbose.  Sets the <a href="options.html#'verbose'">'verbose'</a> option to [N] (default: 10).
+		Messages will be given for each file that is &quot;<a href="repeat.html#:source">:source</a>&quot;d and
+		for reading or <a href="editing.html#writing">writing</a> a <a href="starting.html#viminfo">viminfo</a> file.  Can be used to find
+		out what is happening upon <a href="starting.html#startup">startup</a> and exit.  {not in Vi}
+		Example:
+<b>			vim -V8 foobar</b>
+
+-V[N]{filename}
+		Like <a href="starting.html#-V">-V</a> and set <a href="options.html#'verbosefile'">'verbosefile'</a> to {filename}.  The result is
+		that <a href="message.html#messages">messages</a> are not displayed but written to the file
+		{filename}.  {filename} must not start with a digit.
+		Example:
+<b>			vim -V20vimlog foobar</b>
+ 
+
+							*<a name="-D"></A><b>-D</b>*
+<a href="starting.html#-D">-D</a>		Debugging.  Go to debugging mode when executing the first
+		command from a <a href="usr_41.html#script">script</a>. |<a href="repeat.html#debug-mode">debug-mode</a>|
+		{not available when compiled without the |<a href="various.html#+eval">+eval</a>| feature}
+		{not in Vi}
+
+
+							*<a name="-C"></A><b>-C</b>*
+<a href="starting.html#-C">-C</a>		Compatible mode.  Sets the <a href="options.html#'compatible'">'compatible'</a> option.  You can use
+		this to get <a href="options.html#'compatible'">'compatible'</a>, even though a <a href="starting.html#.vimrc">.vimrc</a> file exists.
+		Keep in mind that the command &quot;<a href="options.html#:set">:set</a> <a href="options.html#'nocompatible'">nocompatible</a>&quot; in some
+		<a href="usr_05.html#plugin">plugin</a> or <a href="starting.html#startup">startup</a> <a href="usr_41.html#script">script</a> overrules this, so you may end up
+		with <a href="options.html#'nocompatible'">'nocompatible'</a> anyway.  To find out, use:
+<b>			:verbose set compatible?</b>
+ 		Several plugins won't work with <a href="options.html#'compatible'">'compatible'</a> set.  You may
+		want to set it after <a href="starting.html#startup">startup</a> this way:
+<b>			vim "+set cp" filename</b>
+ 		Also see |<a href="starting.html#compatible-default">compatible-default</a>|.  {not in Vi}
+
+
+							*<a name="-N"></A><b>-N</b>*
+<a href="starting.html#-N">-N</a>		Not compatible mode.  Resets the <a href="options.html#'compatible'">'compatible'</a> option.  You can
+		use this to get <a href="options.html#'nocompatible'">'nocompatible'</a>, when there is no <a href="starting.html#.vimrc">.vimrc</a> file
+		or when using &quot;<a href="starting.html#-u">-u</a> NONE&quot;.
+		Also see |<a href="starting.html#compatible-default">compatible-default</a>|.  {not in Vi}
+
+
+							*<a name="-y"></A><b>-y</b>* *<a name="easy"></A><b>easy</b>*
+<a href="starting.html#-y">-y</a>		Easy mode.  Implied for |<a href="starting.html#evim">evim</a>| and |<a href="starting.html#eview">eview</a>|.  Starts with
+		<a href="options.html#'insertmode'">'insertmode'</a> set and behaves like a click-and-type editor.
+		This sources the <a href="usr_41.html#script">script</a> $VIMRUNTIME/evim.vim.  Mappings are
+		set up to work like most click-and-type editors, see
+		|<a href="starting.html#evim-keys">evim-keys</a>|.  The <a href="gui.html#GUI">GUI</a> is started when available.
+		{not in Vi}
+
+
+							*<a name="-n"></A><b>-n</b>*
+<a href="starting.html#-n">-n</a>		No swap file will be used.  Recovery after a crash will be
+		impossible.  Handy if you want to <a href="starting.html#view">view</a> or edit a file on a
+		very slow medium (e.g., a floppy).
+		Can also be done with &quot;<a href="options.html#:set">:set</a> <a href="options.html#'updatecount'">updatecount</a>=0&quot;.  You can switch it
+		on again by setting the <a href="options.html#'updatecount'">'updatecount'</a> option to some value,
+		e.g., &quot;<a href="options.html#:set">:set</a> <a href="options.html#'uc'">uc</a>=100&quot;.
+		NOTE: Don't combine <a href="starting.html#-n">-n</a> with <a href="starting.html#-b">-b</a>, making <a href="starting.html#-nb">-nb</a>, because that has a
+		different meaning: |<a href="starting.html#-nb">-nb</a>|.
+		<a href="options.html#'updatecount'">'updatecount'</a> is set to 0 AFTER executing commands from a
+		<a href="starting.html#vimrc">vimrc</a> file, but before the <a href="gui.html#GUI">GUI</a> initializations.  Thus it
+		overrides a setting for <a href="options.html#'updatecount'">'updatecount'</a> in a <a href="starting.html#vimrc">vimrc</a> file, but not
+		in a <a href="gui.html#gvimrc">gvimrc</a> file.  See |<a href="starting.html#startup">startup</a>|.
+		When you want to reduce accesses to the disk (e.g., for a
+		laptop), don't use &quot;<a href="starting.html#-n">-n</a>&quot;, but set <a href="options.html#'updatetime'">'updatetime'</a> and
+		<a href="options.html#'updatecount'">'updatecount'</a> to very big numbers, and type &quot;<a href="recover.html#:preserve">:preserve</a>&quot; when
+		you want to save your work.  This way you keep the possibility
+		for crash <a href="recover.html#recovery">recovery</a>.
+		{not in Vi}
+
+
+							*<a name="-o"></A><b>-o</b>*
+-o[N]		Open N <a href="windows.html#windows">windows</a>, split horizontally.  If [N] is not given,
+		one <a href="windows.html#window">window</a> is opened for every file given <a href="motion.html#as">as</a> argument.  If
+		there is not enough room, only the first few files get a
+		<a href="windows.html#window">window</a>.  If there are more <a href="windows.html#windows">windows</a> than arguments, the last
+		few <a href="windows.html#windows">windows</a> will be editing an empty file.
+		{not in Vi}
+
+
+							*<a name="-O"></A><b>-O</b>*
+-O[N]		Open N <a href="windows.html#windows">windows</a>, split vertically.  Otherwise it's like <a href="starting.html#-o">-o</a>.
+		If both the <a href="starting.html#-o">-o</a> and the <a href="starting.html#-O">-O</a> option are given, the last one on
+		the command line determines how the <a href="windows.html#windows">windows</a> will be split.
+		{not in Vi}
+
+
+							*<a name="-p"></A><b>-p</b>*
+-p[N]		Open N <a href="intro.html#tab">tab</a> pages.  If [N] is not given, one <a href="intro.html#tab">tab</a> page is opened
+		for every file given <a href="motion.html#as">as</a> argument.  The maximum is set with
+		<a href="options.html#'tabpagemax'">'tabpagemax'</a> pages (default 10).  If there are more <a href="intro.html#tab">tab</a> pages
+		than arguments, the last few <a href="intro.html#tab">tab</a> pages will be editing an
+		empty file.  Also see |<a href="tabpage.html#tabpage">tabpage</a>|.
+		{not in Vi}
+
+
+							*<a name="-T"></A><b>-T</b>*
+<a href="starting.html#-T">-T</a> {terminal}	Set the terminal type to &quot;terminal&quot;.  This influences the
+		codes that Vim will send to your terminal.  This is normally
+		not needed, because Vim will be able to find out what type
+		of terminal you are using.  (See |<a href="term.html#terminal-info">terminal-info</a>|.)  {not in Vi}
+
+
+							*<a name="-d"></A><b>-d</b>*
+<a href="starting.html#-d">-d</a>		Start in diff mode, like |<a href="diff.html#vimdiff">vimdiff</a>|.
+		{not in Vi} {not available when compiled without the |<a href="various.html#+diff">+diff</a>|
+		feature}
+
+<a href="starting.html#-d">-d</a> {device}	Only on the <a href="os_amiga.html#Amiga">Amiga</a> and when not compiled with the |<a href="various.html#+diff">+diff</a>|
+		feature.  Works like &quot;<a href="starting.html#-dev">-dev</a>&quot;.
+
+							*<a name="-dev"></A><b>-dev</b>*
+<a href="starting.html#-dev">-dev</a> {device}	Only on the <a href="os_amiga.html#Amiga">Amiga</a>: The {device} is opened to be used for
+		editing.
+		Normally you would use this to set the <a href="windows.html#window">window</a> position and
+		size: &quot;<a href="starting.html#-d">-d</a> con:x/y/width/height&quot;, e.g.,
+		&quot;<a href="starting.html#-d">-d</a> con:30/10/600/150&quot;.  But you can also use it to start
+		editing on another device, e.g., AUX:.  {not in Vi}
+
+							*<a name="-f"></A><b>-f</b>*
+<a href="starting.html#-f">-f</a>		<a href="os_amiga.html#Amiga">Amiga</a>: Do not restart Vim to open a new <a href="windows.html#window">window</a>.  This
+		option should be used when Vim is started by a program that
+		will wait for the edit session to finish (e.g., mail or
+		readnews).  See |<a href="starting.html#amiga-window">amiga-window</a>|.
+
+		<a href="gui.html#GUI">GUI</a>: Do not disconnect from the program that started Vim.
+		'<a href="motion.html#f">f</a>' stands for &quot;foreground&quot;.  If omitted, the <a href="gui.html#GUI">GUI</a> forks a new
+		process and exits the current one.  &quot;<a href="starting.html#-f">-f</a>&quot; should be used when
+		<a href="starting.html#gvim">gvim</a> is started by a program that will wait for the edit
+		session to finish (e.g., mail or readnews).  If you want <a href="starting.html#gvim">gvim</a>
+		never to <a href="os_unix.html#fork">fork</a>, include '<a href="motion.html#f">f</a>' in <a href="options.html#'guioptions'">'guioptions'</a> in your |<a href="gui.html#gvimrc">gvimrc</a>|.
+		Careful: You can use &quot;-gf&quot; to start the <a href="gui.html#GUI">GUI</a> in the foreground,
+		but &quot;<a href="gui_x11.html#-fg">-fg</a>&quot; is used to specify the foreground color.  |<a href="gui_x11.html#gui-fork">gui-fork</a>|
+		{not in Vi}
+
+
+							*<a name="--nofork"></A><b>--nofork</b>*
+<a href="starting.html#--nofork">--nofork</a>	<a href="gui.html#GUI">GUI</a>: Do not <a href="os_unix.html#fork">fork</a>.  Same <a href="motion.html#as">as</a> |<a href="starting.html#-f">-f</a>|.
+
+							*<a name="-u"></A><b>-u</b>* *<a name="E282"></A><b>E282</b>*
+<a href="starting.html#-u">-u</a> {vimrc}	The file {vimrc} is read for initializations.  Most other
+		initializations are skipped; see |<a href="starting.html#initialization">initialization</a>|.  This can
+		be used to start Vim in a special mode, with special
+		mappings and settings.  A shell alias can be used to make
+		this <a href="starting.html#easy">easy</a> to use.  For example:
+<b>			alias vimc vim -u ~/.c_vimrc !*</b>
+ 		Also consider using autocommands; see |<a href="autocmd.html#autocommand">autocommand</a>|.
+		When {vimrc} is equal to &quot;NONE&quot; (all uppercase), all
+		initializations from files and environment <a href="eval.html#variables">variables</a> are
+		skipped, including reading the |<a href="gui.html#gvimrc">gvimrc</a>| file when the <a href="gui.html#GUI">GUI</a>
+		starts.  Loading plugins is also skipped.
+		When {vimrc} is equal to &quot;NORC&quot; (all uppercase), this has the
+		same effect <a href="motion.html#as">as</a> &quot;NONE&quot;, but loading plugins is not skipped.
+		Using the &quot;<a href="starting.html#-u">-u</a>&quot; argument has the side effect that the
+		<a href="options.html#'compatible'">'compatible'</a> option will be on by default.  This can have
+		unexpected effects.  See |<a href="options.html#'compatible'">'compatible'</a>|.
+		{not in Vi}
+
+
+							*<a name="-U"></A><b>-U</b>* *<a name="E230"></A><b>E230</b>*
+<a href="starting.html#-U">-U</a> {gvimrc}	The file {gvimrc} is read for initializations when the <a href="gui.html#GUI">GUI</a>
+		starts.  Other <a href="gui.html#GUI">GUI</a> initializations are skipped.  When {gvimrc}
+		is equal to &quot;NONE&quot;, no file is read for <a href="gui.html#GUI">GUI</a> initializations at
+		all.  |<a href="gui.html#gui-init">gui-init</a>|
+		Exception: Reading the system-wide menu file is always done.
+		{not in Vi}
+
+
+							*<a name="-i"></A><b>-i</b>*
+<a href="starting.html#-i">-i</a> {viminfo}	The file &quot;<a href="starting.html#viminfo">viminfo</a>&quot; is used instead of the default <a href="starting.html#viminfo">viminfo</a>
+		file.  If the name &quot;NONE&quot; is used (all uppercase), no <a href="starting.html#viminfo">viminfo</a>
+		file is read or written, even if <a href="options.html#'viminfo'">'viminfo'</a> is set or when
+		&quot;<a href="starting.html#:rv">:rv</a>&quot; or &quot;<a href="starting.html#:wv">:wv</a>&quot; are used.  See also |<a href="starting.html#viminfo-file">viminfo-file</a>|.
+		{not in Vi}
+
+
+							*<a name="-x"></A><b>-x</b>*
+<a href="starting.html#-x">-x</a>		Use <a href="editing.html#encryption">encryption</a> to read/write files.  Will prompt for a key,
+		which is then stored in the <a href="options.html#'key'">'key'</a> option.  All writes will
+		then use this key to encrypt the text.  The '<a href="starting.html#-x">-x</a>' argument is
+		not needed when reading a file, because there is a check if
+		the file that is being read has been encrypted, and Vim asks
+		for a key automatically. |<a href="editing.html#encryption">encryption</a>|
+
+
+							*<a name="-X"></A><b>-X</b>*
+<a href="starting.html#-X">-X</a>		Do not try connecting to the X server to get the current
+		<a href="windows.html#window">window</a> title and copy/paste using the X <a href="gui.html#clipboard">clipboard</a>.  This
+		avoids a long <a href="starting.html#startup">startup</a> time when running Vim in a terminal
+		emulator and the connection to the X server is slow.
+		See |<a href="starting.html#--startuptime">--startuptime</a>| to find out if affects you.
+		Only makes a difference on <a href="os_unix.html#Unix">Unix</a> or <a href="os_vms.html#VMS">VMS</a>, when compiled with the
+		|<a href="various.html#+X11">+X11</a>| feature.  Otherwise it's ignored.
+		To disable the connection only for specific terminals, see the
+		<a href="options.html#'clipboard'">'clipboard'</a> option.
+		When the <a href="options.html#X11">X11</a> <a href="starting.html#Session">Session</a> Management Protocol (XSMP) handler has
+		been built in, the <a href="starting.html#-X">-X</a> option also disables that connection <a href="motion.html#as">as</a>
+		it, too, may have undesirable delays.
+		When the connection is desired later anyway (e.g., for
+		<a href="remote.html#client-server">client-server</a> messages), call the |<a href="eval.html#serverlist()">serverlist()</a>| function.
+		This does not enable the XSMP handler though.
+		{not in Vi}
+
+
+							*<a name="-s"></A><b>-s</b>*
+<a href="starting.html#-s">-s</a> {scriptin}	The <a href="usr_41.html#script">script</a> file &quot;scriptin&quot; is read.  The characters in the
+		file are interpreted <a href="motion.html#as">as</a> if you had typed them.  The same can
+		be done with the command &quot;:source! {scriptin}&quot;.  If the end
+		of the file is reached before the editor exits, further
+		characters are read from the keyboard.  Only works when not
+		started in <a href="intro.html#Ex">Ex</a> mode, see |<a href="starting.html#-s-ex">-s-ex</a>|.  See also |<a href="repeat.html#complex-repeat">complex-repeat</a>|.
+		{not in Vi}
+
+
+							*<a name="-w_nr"></A><b>-w_nr</b>*
+<a href="starting.html#-w">-w</a> {number}
+-w{number}	Set the <a href="options.html#'window'">'window'</a> option to {number}.
+
+
+							*<a name="-w"></A><b>-w</b>*
+<a href="starting.html#-w">-w</a> {scriptout}	All the characters that you type are recorded in the file
+		&quot;scriptout&quot;, until you exit Vim.  This is useful if you want
+		to create a <a href="usr_41.html#script">script</a> file to be used with &quot;vim -s&quot; or
+		&quot;:source!&quot;.  When the &quot;scriptout&quot; file already exists, new
+		characters are appended.  See also |<a href="repeat.html#complex-repeat">complex-repeat</a>|.
+		{scriptout} cannot start with a digit.
+		{not in Vi}
+
+
+							*<a name="-W"></A><b>-W</b>*
+<a href="starting.html#-W">-W</a> {scriptout}	Like <a href="starting.html#-w">-w</a>, but <a href="diff.html#do">do</a> not append, overwrite an existing file.
+		{not in Vi}
+
+<a href="remote.html#--remote">--remote</a> [+{cmd}] <a href="editing.html#{file}">{file}</a> <a href="eval.html#...">...</a>
+		Open the <a href="editing.html#{file}">{file}</a> in another Vim that <a href="eval.html#functions">functions</a> <a href="motion.html#as">as</a> a server.
+		Any non-file arguments must come before this.
+		See |<a href="remote.html#--remote">--remote</a>|. {not in Vi}
+
+<a href="remote.html#--remote-silent">--remote-silent</a> [+{cmd}] <a href="editing.html#{file}">{file}</a> <a href="eval.html#...">...</a>
+		Like <a href="remote.html#--remote">--remote</a>, but don't complain if there is no server.
+		See |<a href="remote.html#--remote-silent">--remote-silent</a>|. {not in Vi}
+
+<a href="remote.html#--remote-wait">--remote-wait</a> [+{cmd}] <a href="editing.html#{file}">{file}</a> <a href="eval.html#...">...</a>
+		Like <a href="remote.html#--remote">--remote</a>, but wait for the server to finish editing the
+		file(s).
+		See |<a href="remote.html#--remote-wait">--remote-wait</a>|. {not in Vi}
+
+<a href="remote.html#--remote-wait-silent">--remote-wait-silent</a> [+{cmd}] <a href="editing.html#{file}">{file}</a> <a href="eval.html#...">...</a>
+		Like <a href="remote.html#--remote-wait">--remote-wait</a>, but don't complain if there is no server.
+		See |<a href="remote.html#--remote-wait-silent">--remote-wait-silent</a>|. {not in Vi}
+
+<a href="remote.html#--servername">--servername</a> {name}
+		Specify the name of the Vim server to send to or to become.
+		See |<a href="remote.html#--servername">--servername</a>|. {not in Vi}
+
+<a href="remote.html#--remote-send">--remote-send</a> {keys}
+		Send {keys} to a Vim server and exit.
+		See |<a href="remote.html#--remote-send">--remote-send</a>|. {not in Vi}
+
+<a href="remote.html#--remote-expr">--remote-expr</a> {expr}
+		Evaluate {expr} in another Vim that <a href="eval.html#functions">functions</a> <a href="motion.html#as">as</a> a server.
+		The result is printed on stdout.
+		See |<a href="remote.html#--remote-expr">--remote-expr</a>|. {not in Vi}
+
+<a href="remote.html#--serverlist">--serverlist</a>	Output a list of Vim server names and exit.  See
+		|<a href="remote.html#--serverlist">--serverlist</a>|. {not in Vi}
+
+
+<a href="starting.html#--socketid">--socketid</a> {id}						*<a name="--socketid"></A><b>--socketid</b>*
+		<a href="gui_x11.html#GTK+">GTK+</a> <a href="gui.html#GUI">GUI</a> Vim only.  Make <a href="starting.html#gvim">gvim</a> try to use GtkPlug mechanism, so
+		that it runs inside another <a href="windows.html#window">window</a>.  See |<a href="gui_x11.html#gui-gtk-socketid">gui-gtk-socketid</a>|
+		for details. {not in Vi}
+
+
+<a href="starting.html#--windowid">--windowid</a> {id}						*<a name="--windowid"></A><b>--windowid</b>*
+		<a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> Vim only.  Make <a href="starting.html#gvim">gvim</a> try to use the <a href="windows.html#window">window</a> {id} <a href="motion.html#as">as</a> a
+		parent, so that it runs inside that <a href="windows.html#window">window</a>.  See
+		|<a href="gui_w32.html#gui-w32-windowid">gui-w32-windowid</a>| for details. {not in Vi}
+
+
+<a href="starting.html#--echo-wid">--echo-wid</a>						*<a name="--echo-wid"></A><b>--echo-wid</b>*
+		<a href="gui_x11.html#GTK+">GTK+</a> <a href="gui.html#GUI">GUI</a> Vim only.  Make <a href="starting.html#gvim">gvim</a> echo the Window ID on stdout,
+		which can be used to run <a href="starting.html#gvim">gvim</a> in a kpart widget.  The format
+		of the output is:
+<b>			WID: 12345\n</b>
+ 		{not in Vi}
+
+
+<a href="starting.html#--role">--role</a> {role}						*<a name="--role"></A><b>--role</b>*
+		<a href="gui_x11.html#GTK+">GTK+</a> 2 <a href="gui.html#GUI">GUI</a> only.  Set the role of the main <a href="windows.html#window">window</a> to {role}.
+		The <a href="windows.html#window">window</a> role can be used by a <a href="windows.html#window">window</a> manager to uniquely
+		identify a <a href="windows.html#window">window</a>, in order to restore <a href="windows.html#window">window</a> placement and
+		such.  The <a href="starting.html#--role">--role</a> argument is passed automatically when
+		restoring the session on login.  See |<a href="gui_x11.html#gui-gnome-session">gui-gnome-session</a>|
+		{not in Vi}
+
+
+<a href="starting.html#-P">-P</a> {parent-title}				*<a name="-P"></A><b>-P</b>* *<a name="MDI"></A><b>MDI</b>* *<a name="E671"></A><b>E671</b>* *<a name="E672"></A><b>E672</b>*
+		<a href="os_win32.html#Win32">Win32</a> only: Specify the title of the parent application.  When
+		possible, Vim will run in an <a href="starting.html#MDI">MDI</a> <a href="windows.html#window">window</a> inside the
+		application.
+		{parent-title} must appear in the <a href="windows.html#window">window</a> title of the parent
+		application.  Make sure that it is specific enough.
+		Note that the implementation is still primitive.  It won't
+		work with all applications and the menu doesn't work.
+
+
+<a href="starting.html#-nb">-nb</a>							*<a name="-nb"></A><b>-nb</b>*
+-nb={fname}
+-nb:{hostname}:{addr}:{password}
+		Attempt connecting to Netbeans and become an editor server for
+		it.  The second form specifies a file to read connection info
+		from.  The third form specifies the hostname, address and
+		password for connecting to Netbeans. |<a href="netbeans.html#netbeans-run">netbeans-run</a>|
+		{only available when compiled with the |<a href="various.html#+netbeans_intg">+netbeans_intg</a>|
+		feature; if not then <a href="starting.html#-nb">-nb</a> will make Vim exit}
+
+If the executable is called &quot;<a href="starting.html#view">view</a>&quot;, Vim will start in Readonly mode.  This is
+useful if you can make a hard or symbolic link from &quot;<a href="starting.html#view">view</a>&quot; to &quot;vim&quot;.
+Starting in Readonly mode can also be done with &quot;vim -R&quot;.
+
+If the executable is called &quot;<a href="starting.html#ex">ex</a>&quot;, Vim will start in &quot;<a href="intro.html#Ex">Ex</a>&quot; mode.  This means it
+will accept only &quot;<a href="cmdline.html#:">:</a>&quot; commands.  But when the &quot;<a href="starting.html#-v">-v</a>&quot; argument is given, Vim will
+start in <a href="intro.html#Normal">Normal</a> mode anyway.
+
+Additional arguments are available on <a href="os_unix.html#unix">unix</a> like systems when compiled with
+<a href="options.html#X11">X11</a> <a href="gui.html#GUI">GUI</a> support.  See |<a href="gui_x11.html#gui-resources">gui-resources</a>|.
+
+==============================================================================
+
+2. Vim on the <a href="os_amiga.html#Amiga">Amiga</a>					*<a name="starting-amiga"></A><b>starting-amiga</b>*
+
+
+Starting Vim from the Workbench				*<a name="workbench"></A><b>workbench</b>*
+
+Vim can be started from the Workbench by clicking on its icon <a href="if_cscop.html#twice">twice</a>.  It will
+then start with an empty buffer.
+
+Vim can be started to edit one or more files by using a &quot;Project&quot; icon.  The
+&quot;Default Tool&quot; of the icon must be the full pathname of the Vim executable.
+The name of the &quot;.info&quot; file must be the same <a href="motion.html#as">as</a> the name of the text file.
+By clicking on this icon <a href="if_cscop.html#twice">twice</a>, Vim will be started with the file name <a href="motion.html#as">as</a>
+current file name, which will be read into the buffer (if it exists).  You can
+edit multiple files by pressing the <a href="intro.html#shift">shift</a> key while clicking on icons, and
+clicking <a href="if_cscop.html#twice">twice</a> on the last one.  The &quot;Default Tool&quot; for all these icons must
+be the same.
+
+It is not possible to give arguments to Vim, other than file names, from the
+<a href="starting.html#workbench">workbench</a>.
+
+
+Vim <a href="windows.html#window">window</a>						*<a name="amiga-window"></A><b>amiga-window</b>*
+
+Vim will run in the CLI <a href="windows.html#window">window</a> where it was started.  If Vim was started with
+the &quot;run&quot; or &quot;runback&quot; command, or if Vim was started from the <a href="starting.html#workbench">workbench</a>, it
+will open a <a href="windows.html#window">window</a> of its own.
+
+Technical detail:
+	To open the new <a href="windows.html#window">window</a> a little trick is used.  As soon <a href="motion.html#as">as</a> Vim
+	recognizes that it does not run in a normal CLI <a href="windows.html#window">window</a>, it will
+	create a <a href="usr_41.html#script">script</a> file in &quot;t:&quot;.  This <a href="usr_41.html#script">script</a> file contains the same
+	command <a href="motion.html#as">as</a> the one Vim was started with, and an &quot;endcli&quot; command.
+	This <a href="usr_41.html#script">script</a> file is then executed with a &quot;newcli&quot; command (the &quot;c:run&quot;
+	and &quot;c:newcli&quot; commands are required for this to work).  The <a href="usr_41.html#script">script</a>
+	file will hang around until reboot, or until you delete it.  This
+	method is required to get the &quot;<a href="various.html#:sh">:sh</a>&quot; and &quot;<a href="various.html#:!">:!</a>&quot; commands to work
+	correctly.  But when Vim was started with the <a href="starting.html#-f">-f</a> option (foreground
+	mode), this method is not used.  The reason for this is that
+	when a program starts Vim with the <a href="starting.html#-f">-f</a> option it will wait for Vim to
+	exit.  With the <a href="usr_41.html#script">script</a> trick, the calling program does not know when
+	Vim exits.  The <a href="starting.html#-f">-f</a> option can be used when Vim is started by a mail
+	program which also waits for the edit session to finish.  As a
+	consequence, the &quot;<a href="various.html#:sh">:sh</a>&quot; and &quot;<a href="various.html#:!">:!</a>&quot; commands are not available when the
+	<a href="starting.html#-f">-f</a> option is used.
+
+Vim will automatically recognize the <a href="windows.html#window">window</a> size and react to <a href="windows.html#window">window</a>
+resizing.  Under <a href="os_amiga.html#Amiga">Amiga</a> <a href="os_dos.html#DOS">DOS</a> 1.3, it is advised to use the fastfonts program,
+&quot;FF&quot;, to speed up display redrawing.
+
+==============================================================================
+
+3. Running eVim							*<a name="evim-keys"></A><b>evim-keys</b>*
+
+EVim runs Vim <a href="motion.html#as">as</a> click-and-type editor.  This is very unlike the original <a href="intro.html#Vi">Vi</a>
+idea.  But it helps for people that don't use Vim often enough to learn the
+commands.  Hopefully they will find out that learning to use <a href="intro.html#Normal">Normal</a> mode
+commands will make their editing much more effective.
+
+In Evim these <a href="options.html#options">options</a> are changed from their default value:
+
+	<a href="options.html#:set">:set</a> <a href="options.html#'nocompatible'">nocompatible</a>	Use Vim improvements
+	<a href="options.html#:set">:set</a> <a href="options.html#'insertmode'">insertmode</a>		Remain in <a href="insert.html#Insert">Insert</a> mode most of the time
+	<a href="options.html#:set">:set</a> <a href="options.html#'hidden'">hidden</a>		Keep invisible <a href="windows.html#buffers">buffers</a> loaded
+	<a href="options.html#:set">:set</a> <a href="options.html#'backup'">backup</a>		Keep <a href="editing.html#backup">backup</a> files (not for <a href="os_vms.html#VMS">VMS</a>)
+	<a href="options.html#:set">:set</a> <a href="options.html#'backspace'">backspace</a>=2	Backspace over everything
+	<a href="options.html#:set">:set</a> <a href="options.html#'autoindent'">autoindent</a>		auto-indent new lines
+	<a href="options.html#:set">:set</a> <a href="options.html#'history'">history</a>=50		keep 50 lines of <a href="intro.html#Ex">Ex</a> commands
+	<a href="options.html#:set">:set</a> <a href="options.html#'ruler'">ruler</a>		show the cursor position
+	<a href="options.html#:set">:set</a> <a href="options.html#'incsearch'">incsearch</a>		show matches halfway typing a <a href="pattern.html#pattern">pattern</a>
+	<a href="options.html#:set">:set</a> <a href="options.html#'mouse'">mouse</a>=a		use the mouse in all modes
+	<a href="options.html#:set">:set</a> <a href="options.html#'hlsearch'">hlsearch</a>		highlight all matches for a search <a href="pattern.html#pattern">pattern</a>
+	<a href="options.html#:set">:set</a> whichwrap+=&lt;,&gt;,[,]  <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> and <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> wrap around line breaks
+	<a href="options.html#:set">:set</a> guioptions-=a	non-Unix only: don't <a href="diff.html#do">do</a> auto-select
+
+Key mappings:
+	<a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>		moves by screen lines rather than file lines
+	<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>		idem
+	<a href="intro.html#Q">Q</a>		does &quot;<a href="change.html#gq">gq</a>&quot;, <a href="change.html#formatting">formatting</a>, instead of <a href="intro.html#Ex">Ex</a> mode
+	<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>		in <a href="visual.html#Visual">Visual</a> mode: deletes the selection
+	<a href="change.html#CTRL-X">CTRL-X</a>		in <a href="visual.html#Visual">Visual</a> mode: Cut to <a href="gui.html#clipboard">clipboard</a>
+	<a href="os_dos.html#&lt;S-Del&gt;">&lt;S-Del&gt;</a>		idem
+	<a href="pattern.html#CTRL-C">CTRL-C</a>		in <a href="visual.html#Visual">Visual</a> mode: Copy to <a href="gui.html#clipboard">clipboard</a>
+	<a href="os_dos.html#&lt;C-Insert&gt;">&lt;C-Insert&gt;</a>	idem
+	<a href="visual.html#CTRL-V">CTRL-V</a>		Pastes from the <a href="gui.html#clipboard">clipboard</a> (in any mode)
+	<a href="os_dos.html#&lt;S-Insert&gt;">&lt;S-Insert&gt;</a>	idem
+	<a href="gui_w32.html#CTRL-Q">CTRL-Q</a>		<a href="diff.html#do">do</a> what <a href="visual.html#CTRL-V">CTRL-V</a> used to <a href="diff.html#do">do</a>
+	<a href="starting.html#CTRL-Z">CTRL-Z</a>		<a href="undo.html#undo">undo</a>
+	<a href="scroll.html#CTRL-Y">CTRL-Y</a>		<a href="undo.html#redo">redo</a>
+	&lt;M-Space&gt;	system menu
+	<a href="change.html#CTRL-A">CTRL-A</a>		select all
+	&lt;C-Tab&gt;		next <a href="windows.html#window">window</a>, <a href="index.html#CTRL-W">CTRL-W</a> <a href="motion.html#w">w</a>
+	&lt;C-F4&gt;		close <a href="windows.html#window">window</a>, <a href="index.html#CTRL-W">CTRL-W</a> <a href="change.html#c">c</a>
+
+Additionally:
+- &quot;:behave mswin&quot; is used |<a href="gui.html#:behave">:behave</a>|
+- <a href="syntax.html#syntax">syntax</a> highlighting is enabled
+- <a href="filetype.html#filetype">filetype</a> detection is enabled, <a href="filetype.html#filetype">filetype</a> plugins and indenting is enabled
+- in a text file <a href="options.html#'textwidth'">'textwidth'</a> is set to 78
+
+One hint: If you want to go to <a href="intro.html#Normal">Normal</a> mode to be able to type a sequence of
+commands, use CTRL-L. |<a href="insert.html#i_CTRL-L">i_CTRL-L</a>|
+
+==============================================================================
+
+4. Initialization				*<a name="initialization"></A><b>initialization</b>* *<a name="startup"></A><b>startup</b>*
+
+This section is about the non-GUI version of Vim.  See |<a href="gui_x11.html#gui-fork">gui-fork</a>| for
+additional <a href="starting.html#initialization">initialization</a> when starting the <a href="gui.html#GUI">GUI</a>.
+
+At <a href="starting.html#startup">startup</a>, Vim checks environment <a href="eval.html#variables">variables</a> and files and sets values
+accordingly.  Vim proceeds in this order:
+
+
+1. Set the <a href="options.html#'shell'">'shell'</a> and <a href="options.html#'term'">'term'</a> option		*<a name="SHELL"></A><b>SHELL</b>* *<a name="COMSPEC"></A><b>COMSPEC</b>* *<a name="TERM"></A><b>TERM</b>*
+	The environment variable <a href="starting.html#SHELL">SHELL</a>, if it exists, is used to set the
+	<a href="options.html#'shell'">'shell'</a> option.  On <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>, the <a href="starting.html#COMSPEC">COMSPEC</a> variable is used
+	if <a href="starting.html#SHELL">SHELL</a> is not set.
+	The environment variable <a href="starting.html#TERM">TERM</a>, if it exists, is used to set the <a href="options.html#'term'">'term'</a>
+	option.  However, <a href="options.html#'term'">'term'</a> will change later when starting the <a href="gui.html#GUI">GUI</a> (step
+	8 below).
+
+2. Process the arguments
+	The <a href="options.html#options">options</a> and file names from the command that start Vim are
+	inspected.  Buffers are created for all files (but not loaded yet).
+	The |<a href="starting.html#-V">-V</a>| argument can be used to display or log what happens next,
+	useful for debugging the initializations.
+
+3. Execute <a href="intro.html#Ex">Ex</a> commands, from environment <a href="eval.html#variables">variables</a> and/or files
+	An environment variable is read <a href="motion.html#as">as</a> one <a href="intro.html#Ex">Ex</a> command line, where multiple
+	commands must be separated with '&#124;' or &quot;<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>&quot;.
+
+								*<a name="vimrc"></A><b>vimrc</b>* *<a name="exrc"></A><b>exrc</b>*
+	A file that contains <a href="starting.html#initialization">initialization</a> commands is called a &quot;<a href="starting.html#vimrc">vimrc</a>&quot; file.
+	Each line in a <a href="starting.html#vimrc">vimrc</a> file is executed <a href="motion.html#as">as</a> an <a href="intro.html#Ex">Ex</a> command line.  It is
+	sometimes also referred to <a href="motion.html#as">as</a> &quot;<a href="starting.html#exrc">exrc</a>&quot; file.  They are the same type of
+	file, but &quot;<a href="starting.html#exrc">exrc</a>&quot; is what <a href="intro.html#Vi">Vi</a> always used, &quot;<a href="starting.html#vimrc">vimrc</a>&quot; is a Vim specific
+	name.  Also see |<a href="usr_05.html#vimrc-intro">vimrc-intro</a>|.
+
+	Recommended place for your personal initializations:
+		<a href="os_unix.html#Unix">Unix</a>		    $HOME/.vimrc
+		<a href="os_os2.html#OS/2">OS/2</a>		    $HOME/.vimrc or $VIM/.vimrc (or <a href="starting.html#_vimrc">_vimrc</a>)
+		<a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>    $HOME/_vimrc or $VIM/_vimrc
+		<a href="os_amiga.html#Amiga">Amiga</a>		    s:.vimrc or $VIM/.vimrc
+
+	If Vim was started with &quot;<a href="starting.html#-u">-u</a> filename&quot;, the file &quot;filename&quot; is used.
+	All following initializations until 4. are skipped.
+	&quot;vim <a href="starting.html#-u">-u</a> NORC&quot; can be used to skip these initializations without
+	reading a file.  &quot;vim -u NONE&quot; also skips loading plugins.  |<a href="starting.html#-u">-u</a>|
+
+	If Vim was started in <a href="intro.html#Ex">Ex</a> mode with the &quot;<a href="starting.html#-s">-s</a>&quot; argument, all following
+	initializations until 4. are skipped.  Only the &quot;<a href="starting.html#-u">-u</a>&quot; option is
+	interpreted.
+
+							*<a name="evim.vim"></A><b>evim.vim</b>*
+     a. If vim was started <a href="motion.html#as">as</a> |<a href="starting.html#evim">evim</a>| or |<a href="starting.html#eview">eview</a>| or with the |<a href="starting.html#-y">-y</a>| argument, the
+	<a href="usr_41.html#script">script</a> $VIMRUNTIME/evim.vim will be loaded.
+
+							*<a name="system-vimrc"></A><b>system-vimrc</b>*
+     <a href="motion.html#b">b</a>. For <a href="os_unix.html#Unix">Unix</a>, <a href="os_msdos.html#MS-DOS">MS-DOS</a>, <a href="os_win32.html#MS-Windows">MS-Windows</a>, <a href="os_os2.html#OS/2">OS/2</a>, <a href="os_vms.html#VMS">VMS</a>, <a href="os_mac.html#Macintosh">Macintosh</a>, <a href="os_risc.html#RISC-OS">RISC-OS</a> and <a href="os_amiga.html#Amiga">Amiga</a>
+	the system <a href="starting.html#vimrc">vimrc</a> file is read for initializations.  The path of this
+	file is shown with the &quot;<a href="various.html#:version">:version</a>&quot; command.  Mostly it's &quot;$VIM/vimrc&quot;.
+	Note that this file is ALWAYS read in <a href="options.html#'compatible'">'compatible'</a> mode, since the
+	automatic resetting of <a href="options.html#'compatible'">'compatible'</a> is only done later.  Add a &quot;<a href="options.html#:set">:set</a>
+	nocp&quot; command if you like.
+	For the <a href="os_mac.html#Macintosh">Macintosh</a> the $VIMRUNTIME/macmap.vim is read.
+
+
+	  *<a name="VIMINIT"></A><b>VIMINIT</b>* *<a name=".vimrc"></A><b>.vimrc</b>* *<a name="_vimrc"></A><b>_vimrc</b>* *<a name="EXINIT"></A><b>EXINIT</b>* *<a name=".exrc"></A><b>.exrc</b>* *<a name="_exrc"></A><b>_exrc</b>* *<a name="$MYVIMRC"></A><b>$MYVIMRC</b>*
+     <a href="change.html#c">c</a>. Four places are searched for initializations.  The first that exists
+	is used, the others are ignored.  The <a href="starting.html#$MYVIMRC">$MYVIMRC</a> environment variable is
+	set to the file that was first found, unless <a href="starting.html#$MYVIMRC">$MYVIMRC</a> was already set
+	and when using <a href="starting.html#VIMINIT">VIMINIT</a>.
+	-  The environment variable <a href="starting.html#VIMINIT">VIMINIT</a> (see also |<a href="starting.html#compatible-default">compatible-default</a>|) (*)
+	   The value of $VIMINIT is used <a href="motion.html#as">as</a> an <a href="intro.html#Ex">Ex</a> command line.
+	-  The user <a href="starting.html#vimrc">vimrc</a> file(s):
+		    &quot;$HOME/.vimrc&quot;	(for <a href="os_unix.html#Unix">Unix</a> and <a href="os_os2.html#OS/2">OS/2</a>) (*)
+		    &quot;s:.vimrc&quot;		(for <a href="os_amiga.html#Amiga">Amiga</a>) (*)
+		    &quot;home:.vimrc&quot;	(for <a href="os_amiga.html#Amiga">Amiga</a>) (*)
+		    &quot;$VIM/.vimrc&quot;	(for <a href="os_os2.html#OS/2">OS/2</a> and <a href="os_amiga.html#Amiga">Amiga</a>) (*)
+		    &quot;$HOME/_vimrc&quot;	(for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>) (*)
+		    &quot;$VIM/_vimrc&quot;	(for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>) (*)
+		Note: For <a href="os_unix.html#Unix">Unix</a>, <a href="os_os2.html#OS/2">OS/2</a> and <a href="os_amiga.html#Amiga">Amiga</a>, when &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; does not exist,
+		&quot;<a href="starting.html#_vimrc">_vimrc</a>&quot; is also tried, in <a href="change.html#case">case</a> an <a href="os_msdos.html#MS-DOS">MS-DOS</a> compatible file
+		system is used.  For <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a> &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; is checked
+		after &quot;<a href="starting.html#_vimrc">_vimrc</a>&quot;, in <a href="change.html#case">case</a> long file names are used.
+		Note: For <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>, &quot;<a href="options.html#$HOME">$HOME</a>&quot; is checked first.  If no
+		&quot;<a href="starting.html#_vimrc">_vimrc</a>&quot; or &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; is found there, &quot;<a href="starting.html#$VIM">$VIM</a>&quot; is tried.
+		See |<a href="starting.html#$VIM">$VIM</a>| for when $VIM is not set.
+	-  The environment variable <a href="starting.html#EXINIT">EXINIT</a>.
+	   The value of $EXINIT is used <a href="motion.html#as">as</a> an <a href="intro.html#Ex">Ex</a> command line.
+	-  The user <a href="starting.html#exrc">exrc</a> file(s).  Same <a href="motion.html#as">as</a> for the user <a href="starting.html#vimrc">vimrc</a> file, but with
+	   &quot;<a href="starting.html#vimrc">vimrc</a>&quot; replaced by &quot;<a href="starting.html#exrc">exrc</a>&quot;.  But only one of &quot;<a href="starting.html#.exrc">.exrc</a>&quot; and &quot;<a href="starting.html#_exrc">_exrc</a>&quot; is
+	   used, depending on the system.  And without the (*)!
+
+     <a href="change.html#d">d</a>. If the <a href="options.html#'exrc'">'exrc'</a> option is on (which is not the default), the current
+	directory is searched for three files.  The first that exists is used,
+	the others are ignored.
+	-  The file &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; (for <a href="os_unix.html#Unix">Unix</a>, <a href="os_amiga.html#Amiga">Amiga</a> and <a href="os_os2.html#OS/2">OS/2</a>) (*)
+		    &quot;<a href="starting.html#_vimrc">_vimrc</a>&quot; (for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>) (*)
+	-  The file &quot;<a href="starting.html#_vimrc">_vimrc</a>&quot; (for <a href="os_unix.html#Unix">Unix</a>, <a href="os_amiga.html#Amiga">Amiga</a> and <a href="os_os2.html#OS/2">OS/2</a>) (*)
+		    &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; (for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>) (*)
+	-  The file &quot;<a href="starting.html#.exrc">.exrc</a>&quot;  (for <a href="os_unix.html#Unix">Unix</a>, <a href="os_amiga.html#Amiga">Amiga</a> and <a href="os_os2.html#OS/2">OS/2</a>)
+		    &quot;<a href="starting.html#_exrc">_exrc</a>&quot;  (for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>)
+
+     (*) Using this file or environment variable will cause <a href="options.html#'compatible'">'compatible'</a> to be
+	 off by default.  See |<a href="starting.html#compatible-default">compatible-default</a>|.
+
+
+4. Load the <a href="usr_05.html#plugin">plugin</a> scripts.					*<a name="load-plugins"></A><b>load-plugins</b>*
+	This does the same <a href="motion.html#as">as</a> the command:
+<b>		:runtime! plugin/**/*.vim</b>
+ 	The result is that all directories in the <a href="options.html#'runtimepath'">'runtimepath'</a> option will be
+	searched for the &quot;<a href="usr_05.html#plugin">plugin</a>&quot; sub-directory and all files ending in &quot;.vim&quot;
+	will be sourced (in alphabetical order per directory), also in
+	subdirectories.
+	Loading plugins won't be done when:
+	- The <a href="options.html#'loadplugins'">'loadplugins'</a> option was reset in a <a href="starting.html#vimrc">vimrc</a> file.
+	- The |<a href="starting.html#--noplugin">--noplugin</a>| command line argument is used.
+	- The &quot;-u NONE&quot; command line argument is used |<a href="starting.html#-u">-u</a>|.
+	- When Vim was compiled without the |<a href="various.html#+eval">+eval</a>| feature.
+	Note that using &quot;<a href="starting.html#-c">-c</a> 'set noloadplugins&#39;&#34;' doesn't work, because the
+	commands from the command line have not been executed yet.  You can
+	use &quot;--cmd 'set noloadplugins&#39;&#34;' |<a href="starting.html#--cmd">--cmd</a>|.
+
+5. Set <a href="options.html#'shellpipe'">'shellpipe'</a> and <a href="options.html#'shellredir'">'shellredir'</a>
+	The <a href="options.html#'shellpipe'">'shellpipe'</a> and <a href="options.html#'shellredir'">'shellredir'</a> <a href="options.html#options">options</a> are set according to the
+	value of the <a href="options.html#'shell'">'shell'</a> option, unless they have been set before.
+	This means that Vim will figure out the values of <a href="options.html#'shellpipe'">'shellpipe'</a> and
+	<a href="options.html#'shellredir'">'shellredir'</a> for you, unless you have set them yourself.
+
+6. Set <a href="options.html#'updatecount'">'updatecount'</a> to zero, if &quot;<a href="starting.html#-n">-n</a>&quot; command argument used
+
+7. Set binary <a href="options.html#options">options</a>
+	If the &quot;<a href="starting.html#-b">-b</a>&quot; flag was given to Vim, the <a href="options.html#options">options</a> for binary editing will
+	be set now.  See |<a href="starting.html#-b">-b</a>|.
+
+8. Perform <a href="gui.html#GUI">GUI</a> initializations
+	Only when starting &quot;<a href="starting.html#gvim">gvim</a>&quot;, the <a href="gui.html#GUI">GUI</a> initializations will be done.  See
+	|<a href="gui.html#gui-init">gui-init</a>|.
+
+9. Read the <a href="starting.html#viminfo">viminfo</a> file
+	If the <a href="options.html#'viminfo'">'viminfo'</a> option is not empty, the <a href="starting.html#viminfo">viminfo</a> file is read.  See
+	|<a href="starting.html#viminfo-file">viminfo-file</a>|.
+
+10. Read the <a href="quickfix.html#quickfix">quickfix</a> file
+	If the &quot;<a href="starting.html#-q">-q</a>&quot; flag was given to Vim, the <a href="quickfix.html#quickfix">quickfix</a> file is read.  If this
+	fails, Vim exits.
+
+11. Open all <a href="windows.html#windows">windows</a>
+	When the |<a href="starting.html#-o">-o</a>| flag was given, <a href="windows.html#windows">windows</a> will be opened (but not
+	displayed yet).
+	When the |<a href="starting.html#-p">-p</a>| flag was given, <a href="intro.html#tab">tab</a> pages will be created (but not
+	displayed yet).
+	When switching screens, it happens now.  Redrawing starts.
+	If the &quot;<a href="starting.html#-q">-q</a>&quot; flag was given to Vim, the first error is jumped to.
+	Buffers for all <a href="windows.html#windows">windows</a> will be loaded.
+
+12. Execute <a href="starting.html#startup">startup</a> commands
+	If a &quot;<a href="starting.html#-t">-t</a>&quot; flag was given to Vim, the <a href="tagsrch.html#tag">tag</a> is jumped to.
+	The commands given with the |<a href="starting.html#-c">-c</a>| and |<a href="editing.html#+cmd">+cmd</a>| arguments are executed.
+	The starting flag is reset, has(&quot;vim_starting&quot;) will now return zero.
+	If the <a href="options.html#'insertmode'">'insertmode'</a> option is set, <a href="insert.html#Insert">Insert</a> mode is entered.
+	The |<a href="autocmd.html#VimEnter">VimEnter</a>| autocommands are executed.
+
+Some hints on using initializations:
+
+Standard setup:
+Create a <a href="starting.html#vimrc">vimrc</a> file to set the default settings and mappings for all your edit
+sessions.  Put it in a place so that it will be found by 3b:
+	~/.vimrc	(Unix and <a href="os_os2.html#OS/2">OS/2</a>)
+	s:.vimrc	(Amiga)
+	$VIM\_vimrc	(MS-DOS and <a href="os_win32.html#Win32">Win32</a>)
+Note that creating a <a href="starting.html#vimrc">vimrc</a> file will cause the <a href="options.html#'compatible'">'compatible'</a> option to be off
+by default.  See |<a href="starting.html#compatible-default">compatible-default</a>|.
+
+Local setup:
+Put all commands that you need for editing a specific directory only into a
+<a href="starting.html#vimrc">vimrc</a> file and place it in that directory under the name &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; (&quot;_vimrc&quot;
+for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>).  NOTE: To make Vim look for these special files you
+have to turn on the option <a href="options.html#'exrc'">'exrc'</a>.  See |<a href="starting.html#trojan-horse">trojan-horse</a>| too.
+
+System setup:
+This only applies if you are managing a <a href="os_unix.html#Unix">Unix</a> system with several users and
+want to set the defaults for all users.  Create a <a href="starting.html#vimrc">vimrc</a> file with commands
+for default settings and mappings and put it in the place that is given with
+the &quot;<a href="various.html#:version">:version</a>&quot; command.
+
+Saving the current state of Vim to a file:
+Whenever you have changed values of <a href="options.html#options">options</a> or when you have created a
+<a href="map.html#mapping">mapping</a>, then you may want to save them in a <a href="starting.html#vimrc">vimrc</a> file for later use.  See
+|<a href="starting.html#save-settings">save-settings</a>| about saving the current state of settings to a file.
+
+Avoiding setup problems for <a href="intro.html#Vi">Vi</a> users:
+<a href="intro.html#Vi">Vi</a> uses the variable <a href="starting.html#EXINIT">EXINIT</a> and the file &quot;~/.exrc&quot;.  So if you <a href="diff.html#do">do</a> not want to
+interfere with <a href="intro.html#Vi">Vi</a>, then use the variable <a href="starting.html#VIMINIT">VIMINIT</a> and the file &quot;<a href="starting.html#vimrc">vimrc</a>&quot; instead.
+
+<a href="os_amiga.html#Amiga">Amiga</a> environment <a href="eval.html#variables">variables</a>:
+On the <a href="os_amiga.html#Amiga">Amiga</a>, two types of environment <a href="eval.html#variables">variables</a> exist.  The ones set with the
+<a href="os_dos.html#DOS">DOS</a> 1.3 (or later) setenv command are recognized.  See the AmigaDos 1.3
+manual.  The environment <a href="eval.html#variables">variables</a> set with the old Manx Set command (before
+version 5.0) are not recognized.
+
+<a href="os_msdos.html#MS-DOS">MS-DOS</a> line separators:
+On MS-DOS-like systems (MS-DOS itself, <a href="os_win32.html#Win32">Win32</a>, and OS/2), Vim assumes that all
+the <a href="starting.html#vimrc">vimrc</a> files have <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> pairs <a href="motion.html#as">as</a> line separators.  This will give
+problems if you have a file with only &lt;NL&gt;s and have a line like
+&quot;<a href="map.html#:map">:map</a> xx yy^M&quot;.  The trailing ^M will be ignored.
+
+
+						     *<a name="compatible-default"></A><b>compatible-default</b>*
+When Vim starts, the <a href="options.html#'compatible'">'compatible'</a> option is on.  This will be used when Vim
+starts its initializations.  But <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> a user <a href="starting.html#vimrc">vimrc</a> file is found, or a
+<a href="starting.html#vimrc">vimrc</a> file in the current directory, or the &quot;<a href="starting.html#VIMINIT">VIMINIT</a>&quot; environment variable is
+set, it will be set to <a href="options.html#'nocompatible'">'nocompatible'</a>.  This has the side effect of setting or
+resetting other <a href="options.html#options">options</a> (see <a href="options.html#'compatible'">'compatible'</a>).  But only the <a href="options.html#options">options</a> that have
+not been set or reset will be changed.  This has the same effect like the
+value of <a href="options.html#'compatible'">'compatible'</a> had this value when starting Vim.  Note that this
+doesn't happen for the system-wide <a href="starting.html#vimrc">vimrc</a> file nor when Vim was started with
+the |<a href="starting.html#-u">-u</a>| command line argument.  It does also happen for <a href="gui.html#gvimrc">gvimrc</a> files.  The
+<a href="starting.html#$MYVIMRC">$MYVIMRC</a> or <a href="gui.html#$MYGVIMRC">$MYGVIMRC</a> file will be set to the first found <a href="starting.html#vimrc">vimrc</a> and/or <a href="gui.html#gvimrc">gvimrc</a>
+file.
+
+But there is a side effect of setting or resetting <a href="options.html#'compatible'">'compatible'</a> at the moment
+a <a href="starting.html#.vimrc">.vimrc</a> file is found: Mappings are interpreted the moment they are
+encountered.  This makes a difference when using things like &quot;<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>&quot;.  If the
+mappings depend on a certain value of <a href="options.html#'compatible'">'compatible'</a>, set or reset it before
+giving the <a href="map.html#mapping">mapping</a>.
+
+The above behavior can be overridden in these ways:
+- If the &quot;<a href="starting.html#-N">-N</a>&quot; command line argument is given, <a href="options.html#'nocompatible'">'nocompatible'</a> will be used,
+  even when no <a href="starting.html#vimrc">vimrc</a> file exists.
+- If the &quot;<a href="starting.html#-C">-C</a>&quot; command line argument is given, <a href="options.html#'compatible'">'compatible'</a> will be used, even
+  when a <a href="starting.html#vimrc">vimrc</a> file exists.
+- If the &quot;<a href="starting.html#-u">-u</a> {vimrc}&quot; argument is used, <a href="options.html#'compatible'">'compatible'</a> will be used.
+- When the name of the executable ends in &quot;<a href="starting.html#ex">ex</a>&quot;, then this works like the &quot;<a href="starting.html#-C">-C</a>&quot;
+  argument was given: <a href="options.html#'compatible'">'compatible'</a> will be used, even when a <a href="starting.html#vimrc">vimrc</a> file
+  exists.  This has been done to make Vim behave like &quot;<a href="starting.html#ex">ex</a>&quot;, when it is started
+  <a href="motion.html#as">as</a> &quot;<a href="starting.html#ex">ex</a>&quot;.
+
+
+Avoiding trojan horses:					*<a name="trojan-horse"></A><b>trojan-horse</b>*
+While reading the &quot;<a href="starting.html#vimrc">vimrc</a>&quot; or the &quot;<a href="starting.html#exrc">exrc</a>&quot; file in the current directory, some
+commands can be disabled for security reasons by setting the <a href="options.html#'secure'">'secure'</a> option.
+This is always done when executing the command from a <a href="tagsrch.html#tags">tags</a> file.  Otherwise it
+would be possible that you accidentally use a <a href="starting.html#vimrc">vimrc</a> or <a href="tagsrch.html#tags">tags</a> file that somebody
+else created and contains nasty commands.  The disabled commands are the ones
+that start a shell, the ones that write to a file, and &quot;<a href="autocmd.html#:autocmd">:autocmd</a>&quot;.  The &quot;<a href="map.html#:map">:map</a>&quot;
+commands are echoed, so you can see which keys are being mapped.
+	If you want Vim to execute all commands in a local <a href="starting.html#vimrc">vimrc</a> file, you
+can reset the <a href="options.html#'secure'">'secure'</a> option in the <a href="starting.html#EXINIT">EXINIT</a> or <a href="starting.html#VIMINIT">VIMINIT</a> environment variable or
+in the global &quot;<a href="starting.html#exrc">exrc</a>&quot; or &quot;<a href="starting.html#vimrc">vimrc</a>&quot; file.  This is not possible in &quot;<a href="starting.html#vimrc">vimrc</a>&quot; or
+&quot;<a href="starting.html#exrc">exrc</a>&quot; in the current directory, for obvious reasons.
+	On <a href="os_unix.html#Unix">Unix</a> systems, this only happens if you are not the owner of the
+<a href="starting.html#vimrc">vimrc</a> file.  Warning: If you unpack an archive that contains a <a href="starting.html#vimrc">vimrc</a> or <a href="starting.html#exrc">exrc</a>
+file, it will be owned by you.  You won't have the security protection.  Check
+the <a href="starting.html#vimrc">vimrc</a> file before you start Vim in that directory, or reset the <a href="options.html#'exrc'">'exrc'</a>
+option.  Some <a href="os_unix.html#Unix">Unix</a> systems allow a user to <a href="diff.html#do">do</a> &quot;chown&quot; on a file.  This makes
+it possible for another user to create a nasty <a href="starting.html#vimrc">vimrc</a> and make you the owner.
+Be careful!
+	When using <a href="tagsrch.html#tag">tag</a> search commands, executing the search command (the last
+part of the line in the <a href="tagsrch.html#tags">tags</a> file) is always done in secure mode.  This works
+just like executing a command from a vimrc/exrc in the current directory.
+
+
+							*<a name="slow-start"></A><b>slow-start</b>*
+If Vim takes a long time to start up, use the |<a href="starting.html#--startuptime">--startuptime</a>| argument to find
+out what happens.  There are a few common causes:
+- If the <a href="os_unix.html#Unix">Unix</a> version was compiled with the <a href="gui.html#GUI">GUI</a> and/or <a href="options.html#X11">X11</a> (check the output
+  of &quot;<a href="various.html#:version">:version</a>&quot; for &quot;+GUI&quot; and &quot;+X11&quot;), it may need to load shared libraries
+  and connect to the <a href="options.html#X11">X11</a> server.  Try compiling a version with <a href="gui.html#GUI">GUI</a> and <a href="options.html#X11">X11</a>
+  disabled.  This also should make the executable smaller.
+  Use the |<a href="starting.html#-X">-X</a>| command line argument to avoid connecting to the X server when
+  running in a terminal.
+- If you have &quot;<a href="starting.html#viminfo">viminfo</a>&quot; enabled, the loading of the <a href="starting.html#viminfo">viminfo</a> file may take a
+  while.  You can find out if this is the problem by disabling <a href="starting.html#viminfo">viminfo</a> for a
+  moment (use the Vim argument &quot;-i NONE&quot;, |<a href="starting.html#-i">-i</a>|).  Try reducing the number of
+  lines stored in a <a href="sponsor.html#register">register</a> with &quot;<a href="options.html#:set">:set</a> <a href="options.html#'viminfo'">viminfo</a>='20,&lt;50,s10&quot;.  |<a href="starting.html#viminfo-file">viminfo-file</a>|.
+
+
+							*<a name=":intro"></A><b>:intro</b>*
+When Vim starts without a file name, an introductory message is displayed (for
+those who don't know what Vim is).  It is removed <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> the display is
+redrawn in any way.  To see the message again, use the &quot;<a href="starting.html#:intro">:intro</a>&quot; command (if
+there is not enough room, you will see only part of it).
+   To avoid the <a href="intro.html#intro">intro</a> message on <a href="starting.html#startup">startup</a>, add the '<a href="insert.html#I">I</a>' flag to <a href="options.html#'shortmess'">'shortmess'</a>.
+
+
+							*<a name="info-message"></A><b>info-message</b>*
+The |<a href="starting.html#--help">--help</a>| and |<a href="starting.html#--version">--version</a>| arguments cause Vim to print a message and then
+exit.  Normally the message is sent to stdout, thus can be redirected to a
+file with:
+
+<b>	vim --help &gt;file</b>
+
+From inside Vim:
+
+<b>	:read !vim --help</b>
+
+When using <a href="starting.html#gvim">gvim</a>, it detects that it might have been started from the desktop,
+without a terminal to show <a href="message.html#messages">messages</a> on.  This is detected when both stdout and
+stderr are not a tty.  This breaks the &quot;<a href="insert.html#:read">:read</a>&quot; command, <a href="motion.html#as">as</a> used in the example
+above.  To make it work again, set <a href="options.html#'shellredir'">'shellredir'</a> to &quot;<a href="change.html#&gt;">&gt;</a>&quot; instead of the default
+&quot;&gt;&amp;&quot;:
+
+<b>	:set shellredir=&gt;</b>
+<b>	:read !gvim --help</b>
+
+This still won't work for systems where <a href="starting.html#gvim">gvim</a> does not use stdout at all
+though.
+
+==============================================================================
+5. <a href="starting.html#$VIM">$VIM</a> and <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>
+
+								*<a name="$VIM"></A><b>$VIM</b>*
+The environment variable &quot;<a href="starting.html#$VIM">$VIM</a>&quot; is used to locate various user files for Vim,
+such <a href="motion.html#as">as</a> the user <a href="starting.html#startup">startup</a> <a href="usr_41.html#script">script</a> &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot;.  This depends on the system, see
+|<a href="starting.html#startup">startup</a>|.
+
+To avoid the need for every user to set the <a href="starting.html#$VIM">$VIM</a> environment variable, Vim
+will try to get the value for <a href="starting.html#$VIM">$VIM</a> in this order:
+1. The value defined by the <a href="starting.html#$VIM">$VIM</a> environment variable.  You can use this to
+   make Vim look in a specific directory for its support files.  Example:
+<b>	setenv VIM /home/paul/vim</b>
+2. The path from <a href="options.html#'helpfile'">'helpfile'</a> is used, unless it contains some environment
+   variable too (the default is &quot;$VIMRUNTIME/doc/help.txt&quot;: chicken-egg
+   problem).  The file name (&quot;help.txt&quot; or any other) is removed.  Then
+   trailing directory names are removed, in this order: &quot;doc&quot;, &quot;runtime&quot; and
+   &quot;vim{version}&quot; (e.g., &quot;vim54&quot;).
+3. For <a href="os_msdos.html#MSDOS">MSDOS</a>, <a href="os_win32.html#Win32">Win32</a> and <a href="os_os2.html#OS/2">OS/2</a> Vim tries to use the directory name of the
+   executable.  If it ends in &quot;/src&quot;, this is removed.  This is useful if you
+   unpacked the .zip file in some directory, and adjusted the search path to
+   find the vim executable.  Trailing directory names are removed, in this
+   order: &quot;runtime&quot; and &quot;vim{version}&quot; (e.g., &quot;vim54&quot;).
+4. For <a href="os_unix.html#Unix">Unix</a> the compile-time defined installation directory is used (see the
+   output of &quot;:version&quot;).
+
+Once Vim has done this once, it will set the <a href="starting.html#$VIM">$VIM</a> environment variable.  To
+change it later, use a &quot;<a href="eval.html#:let">:let</a>&quot; command like this:
+<b>	:let $VIM = "/home/paul/vim/"</b>
+ 
+
+								*<a name="$VIMRUNTIME"></A><b>$VIMRUNTIME</b>*
+The environment variable &quot;<a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>&quot; is used to locate various support
+files, such <a href="motion.html#as">as</a> the on-line documentation and files used for <a href="syntax.html#syntax">syntax</a>
+highlighting.  For example, the main help file is normally
+&quot;$VIMRUNTIME/doc/help.txt&quot;.
+You don't normally set <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> yourself, but let Vim figure it out.  This
+is the order used to find the value of <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>:
+1. If the environment variable <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> is set, it is used.  You can use
+   this when the runtime files are in an unusual location.
+2. If &quot;$VIM/vim{version}&quot; exists, it is used.  {version} is the version
+   number of Vim, without any '<a href="motion.html#-">-</a>' or '<a href="repeat.html#.">.</a>'.  For example: &quot;$VIM/vim54&quot;.  This is
+   the normal value for <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>.
+3. If &quot;$VIM/runtime&quot; exists, it is used.
+4. The value of <a href="starting.html#$VIM">$VIM</a> is used.  This is for backwards compatibility with older
+   versions.
+5. When the <a href="options.html#'helpfile'">'helpfile'</a> option is set and doesn't contain a '<a href="motion.html#$">$</a>', its value is
+   used, with &quot;doc/help.txt&quot; removed from the end.
+
+For <a href="os_unix.html#Unix">Unix</a>, when there is a compiled-in default for <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> (check the
+output of &quot;:version&quot;), steps 2, 3 and 4 are skipped, and the compiled-in
+default is used after step 5.  This means that the compiled-in default
+overrules the value of <a href="starting.html#$VIM">$VIM</a>.  This is useful if <a href="starting.html#$VIM">$VIM</a> is &quot;/etc&quot; and the runtime
+files are in &quot;/usr/share/vim/vim54&quot;.
+
+Once Vim has done this once, it will set the <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> environment variable.
+To change it later, use a &quot;<a href="eval.html#:let">:let</a>&quot; command like this:
+<b>	:let $VIMRUNTIME = "/home/piet/vim/vim54"</b>
+
+In <a href="change.html#case">case</a> you need the value of <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> in a shell (e.g., for a <a href="usr_41.html#script">script</a> that
+greps in the help files) you might be able to use this:
+
+<b>	VIMRUNTIME=`vim -e -T dumb --cmd 'exe "set t_cm=\&lt;C-M&gt;"|echo $VIMRUNTIME|quit' | tr -d '\015' `</b>
+
+==============================================================================
+
+6. Suspending						*<a name="suspend"></A><b>suspend</b>*
+
+
+					*<a name="iconize"></A><b>iconize</b>* *<a name="iconise"></A><b>iconise</b>* *<a name="CTRL-Z"></A><b>CTRL-Z</b>* *<a name="v_CTRL-Z"></A><b>v_CTRL-Z</b>*
+<a href="starting.html#CTRL-Z">CTRL-Z</a>			Suspend Vim, like &quot;<a href="starting.html#:stop">:stop</a>&quot;.
+			Works in <a href="intro.html#Normal">Normal</a> and in <a href="visual.html#Visual">Visual</a> mode.  In <a href="insert.html#Insert">Insert</a> and
+			<a href="cmdline.html#Command-line">Command-line</a> mode, the <a href="starting.html#CTRL-Z">CTRL-Z</a> is inserted <a href="motion.html#as">as</a> a normal
+			character.  In <a href="visual.html#Visual">Visual</a> mode Vim goes back to <a href="intro.html#Normal">Normal</a>
+			mode.
+			Note: if <a href="starting.html#CTRL-Z">CTRL-Z</a> undoes a change see |<a href="http://vimdoc.sourceforge.net/htmldoc/mswin.html">mswin.vim</a>|.
+
+
+
+:sus[pend][!]	or			*<a name=":sus"></A><b>:sus</b>* *<a name=":suspend"></A><b>:suspend</b>* *<a name=":st"></A><b>:st</b>* *<a name=":stop"></A><b>:stop</b>*
+:st[op][!]		Suspend Vim.
+			If the '<a href="change.html#!">!</a>' is not given and <a href="options.html#'autowrite'">'autowrite'</a> is set, every
+			buffer with changes and a file name is written out.
+			If the '<a href="change.html#!">!</a>' is given or <a href="options.html#'autowrite'">'autowrite'</a> is not set, changed
+			<a href="windows.html#buffers">buffers</a> are not written, don't forget to bring Vim
+			back to the foreground later!
+
+In the <a href="gui.html#GUI">GUI</a>, suspending is implemented <a href="motion.html#as">as</a> iconising <a href="starting.html#gvim">gvim</a>.  In Windows 95/NT,
+<a href="starting.html#gvim">gvim</a> is minimized.
+
+On many <a href="os_unix.html#Unix">Unix</a> systems, it is possible to <a href="starting.html#suspend">suspend</a> Vim with <a href="starting.html#CTRL-Z">CTRL-Z</a>.  This is only
+possible in <a href="intro.html#Normal">Normal</a> and <a href="visual.html#Visual">Visual</a> mode (see next chapter, |<a href="intro.html#vim-modes">vim-modes</a>|).  Vim will
+continue if you make it the foreground job again.  On other systems, <a href="starting.html#CTRL-Z">CTRL-Z</a>
+will start a new shell.  This is the same <a href="motion.html#as">as</a> the &quot;<a href="various.html#:sh">:sh</a>&quot; command.  Vim will
+continue if you exit from the shell.
+
+In X-windows the selection is disowned when Vim suspends.  this means you
+can't paste it in another application (since Vim is going to sleep an attempt
+to get the selection would make the program hang).
+
+==============================================================================
+
+7. Saving settings					*<a name="save-settings"></A><b>save-settings</b>*
+
+Mostly you will edit your <a href="starting.html#vimrc">vimrc</a> files manually.  This gives you the greatest
+flexibility.  There are a few commands to generate a <a href="starting.html#vimrc">vimrc</a> file automatically.
+You can use these files <a href="motion.html#as">as</a> they are, or copy/paste lines to include in another
+<a href="starting.html#vimrc">vimrc</a> file.
+
+
+							*<a name=":mk"></A><b>:mk</b>* *<a name=":mkexrc"></A><b>:mkexrc</b>*
+:mk[exrc] [file]	Write current key mappings and changed <a href="options.html#options">options</a> to
+			[file] (default &quot;<a href="starting.html#.exrc">.exrc</a>&quot; in the current directory),
+			unless it already exists.  {not in Vi}
+
+:mk[exrc]! [file]	Always write current key mappings and changed
+			<a href="options.html#options">options</a> to [file] (default &quot;<a href="starting.html#.exrc">.exrc</a>&quot; in the current
+			directory).  {not in Vi}
+
+
+							*<a name=":mkv"></A><b>:mkv</b>* *<a name=":mkvimrc"></A><b>:mkvimrc</b>*
+:mkv[imrc][!] [file]	Like &quot;<a href="starting.html#:mkexrc">:mkexrc</a>&quot;, but the default is &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; in the
+			current directory.  The &quot;<a href="various.html#:version">:version</a>&quot; command is also
+			written to the file.  {not in Vi}
+
+These commands will write &quot;<a href="map.html#:map">:map</a>&quot; and &quot;<a href="options.html#:set">:set</a>&quot; commands to a file, in such a way
+that when these commands are executed, the current key mappings and <a href="options.html#options">options</a>
+will be set to the same values.  The <a href="options.html#options">options</a> <a href="options.html#'columns'">'columns'</a>, <a href="options.html#'endofline'">'endofline'</a>,
+<a href="options.html#'fileformat'">'fileformat'</a>, <a href="options.html#'key'">'key'</a>, <a href="options.html#'lines'">'lines'</a>, <a href="options.html#'modified'">'modified'</a>, <a href="options.html#'scroll'">'scroll'</a>, <a href="options.html#'term'">'term'</a>, <a href="options.html#'textmode'">'textmode'</a>,
+<a href="options.html#'ttyfast'">'ttyfast'</a> and <a href="options.html#'ttymouse'">'ttymouse'</a> are not included, because these are terminal or file
+dependent.  Note that the <a href="options.html#options">options</a> <a href="options.html#'binary'">'binary'</a>, <a href="options.html#'paste'">'paste'</a> and <a href="options.html#'readonly'">'readonly'</a> are
+included, this might not always be what you want.
+
+When special keys are used in mappings, The <a href="options.html#'cpoptions'">'cpoptions'</a> option will be
+temporarily set to its Vim default, to avoid the mappings to be
+misinterpreted.  This makes the file incompatible with <a href="intro.html#Vi">Vi</a>, but makes sure it
+can be used with different terminals.
+
+Only global mappings are stored, not mappings local to a buffer.
+
+A common method is to use a default &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; file, make some modifications
+with &quot;<a href="map.html#:map">:map</a>&quot; and &quot;<a href="options.html#:set">:set</a>&quot; commands and write the modified file.  First read the
+default &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; in with a command like &quot;<a href="repeat.html#:source">:source</a> ~piet/.vimrc.Cprogs&quot;, change
+the settings and then save them in the current directory with &quot;:mkvimrc!&quot;.  If
+you want to make this file your default <a href="starting.html#.vimrc">.vimrc</a>, move it to your home directory
+(on Unix), <a href="change.html#s">s</a>: (Amiga) or <a href="starting.html#$VIM">$VIM</a> directory (MS-DOS).  You could also use
+autocommands |<a href="autocmd.html#autocommand">autocommand</a>| and/or modelines |<a href="options.html#modeline">modeline</a>|.
+
+
+						*<a name="vimrc-option-example"></A><b>vimrc-option-example</b>*
+If you only want to add a single option setting to your <a href="starting.html#vimrc">vimrc</a>, you can use
+these steps:
+1. Edit your <a href="starting.html#vimrc">vimrc</a> file with Vim.
+2. Play with the option until it's right.  E.g., try out different values for
+   <a href="options.html#'guifont'">'guifont'</a>.
+3. Append a line to set the value of the option, using the <a href="eval.html#expression">expression</a> <a href="sponsor.html#register">register</a>
+   '<a href="change.html#=">=</a>' to enter the value.  E.g., for the <a href="options.html#'guifont'">'guifont'</a> option:
+<b>   o:set guifont=&lt;C-R&gt;=&amp;guifont&lt;CR&gt;&lt;Esc&gt;</b>
+   [&lt;C-R&gt; is a <a href="undo.html#CTRL-R">CTRL-R</a>, <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> is a return, <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> is the <a href="intro.html#escape">escape</a> key]
+   You need to <a href="intro.html#escape">escape</a> special characters, esp. spaces.
+
+Note that when you create a <a href="starting.html#.vimrc">.vimrc</a> file, this can influence the <a href="options.html#'compatible'">'compatible'</a>
+option, which has several side effects.  See |<a href="options.html#'compatible'">'compatible'</a>|.
+&quot;<a href="starting.html#:mkvimrc">:mkvimrc</a>&quot;, &quot;<a href="starting.html#:mkexrc">:mkexrc</a>&quot; and &quot;<a href="starting.html#:mksession">:mksession</a>&quot; write the command to set or reset the
+<a href="options.html#'compatible'">'compatible'</a> option to the output file first, because of these side effects.
+
+==============================================================================
+
+8. Views and Sessions					*<a name="views-sessions"></A><b>views-sessions</b>*
+
+This is introduced in sections |<a href="usr_21.html#21.4">21.4</a>| and |<a href="usr_21.html#21.5">21.5</a>| of the user manual.
+
+
+						*<a name="View"></A><b>View</b>* *<a name="view-file"></A><b>view-file</b>*
+A <a href="starting.html#View">View</a> is a collection of settings that apply to one <a href="windows.html#window">window</a>.  You can save a
+<a href="starting.html#View">View</a> and when you restore it later, the text is displayed in the same way.
+The <a href="options.html#options">options</a> and mappings in this <a href="windows.html#window">window</a> will also be restored, so that you can
+continue editing like when the <a href="starting.html#View">View</a> was saved.
+
+
+						*<a name="Session"></A><b>Session</b>* *<a name="session-file"></A><b>session-file</b>*
+A <a href="starting.html#Session">Session</a> keeps the Views for all <a href="windows.html#windows">windows</a>, plus the global settings.  You can
+save a <a href="starting.html#Session">Session</a> and when you restore it later the <a href="windows.html#window">window</a> layout looks the same.
+You can use a <a href="starting.html#Session">Session</a> to quickly switch between different projects,
+automatically loading the files you were last working on in that project.
+
+Views and Sessions are a <a href="todo.html#nice">nice</a> addition to viminfo-files, which are used to
+remember information for all Views and Sessions together |<a href="starting.html#viminfo-file">viminfo-file</a>|.
+
+You can quickly start editing with a previously saved <a href="starting.html#View">View</a> or <a href="starting.html#Session">Session</a> with the
+|<a href="starting.html#-S">-S</a>| argument:
+<b>	vim -S Session.vim</b>
+ 
+All this is {not in Vi} and {not available when compiled without the
+|<a href="various.html#+mksession">+mksession</a>| feature}.
+
+
+							*<a name=":mks"></A><b>:mks</b>* *<a name=":mksession"></A><b>:mksession</b>*
+:mks[ession][!] [file]	Write a Vim <a href="usr_41.html#script">script</a> that restores the current editing
+			session.
+			When [!] is included an existing file is overwritten.
+			When [file] is omitted &quot;Session.vim&quot; is used.
+
+The output of &quot;<a href="starting.html#:mksession">:mksession</a>&quot; is like &quot;<a href="starting.html#:mkvimrc">:mkvimrc</a>&quot;, but additional commands are
+added to the file.  Which ones depends on the <a href="options.html#'sessionoptions'">'sessionoptions'</a> option.  The
+resulting file, when executed with a &quot;<a href="repeat.html#:source">:source</a>&quot; command:
+1. Restores global mappings and <a href="options.html#options">options</a>, if <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains
+   &quot;<a href="options.html#options">options</a>&quot;.  Script-local mappings will not be written.
+2. Restores global <a href="eval.html#variables">variables</a> that start with an <a href="change.html#uppercase">uppercase</a> <a href="print.html#letter">letter</a> and contain
+   at least one <a href="change.html#lowercase">lowercase</a> <a href="print.html#letter">letter</a>, if <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;globals&quot;.
+3. Unloads all currently loaded <a href="windows.html#buffers">buffers</a>.
+4. Restores the current directory if <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;curdir&quot;, or
+   sets the current directory to where the <a href="starting.html#Session">Session</a> file is if <a href="options.html#'sessionoptions'">'sessionoptions'</a>
+   contains &quot;sesdir&quot;.
+5. Restores <a href="gui.html#GUI">GUI</a> Vim <a href="windows.html#window">window</a> position, if <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;winpos&quot;.
+6. Restores screen size, if <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;resize&quot;.
+7. Reloads the buffer list, with the last cursor positions.  If
+   <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;<a href="windows.html#buffers">buffers</a>&quot; then all <a href="windows.html#buffers">buffers</a> are restored,
+   including hidden and unloaded <a href="windows.html#buffers">buffers</a>.  Otherwise only <a href="windows.html#buffers">buffers</a> in <a href="windows.html#windows">windows</a>
+   are restored.
+8. Restores all <a href="windows.html#windows">windows</a> with the same layout.  If <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains
+   &quot;help&quot;, help <a href="windows.html#windows">windows</a> are restored.  If <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;blank&quot;,
+   <a href="windows.html#windows">windows</a> editing a buffer without a name will be restored.
+   If <a href="options.html#'sessionoptions'">'sessionoptions'</a> contains &quot;winsize&quot; and no (help/blank) <a href="windows.html#windows">windows</a> were
+   left out, the <a href="windows.html#window">window</a> sizes are restored (relative to the screen size).
+   Otherwise, the <a href="windows.html#windows">windows</a> are just given sensible sizes.
+9. Restores the Views for all the <a href="windows.html#windows">windows</a>, <a href="motion.html#as">as</a> with |<a href="starting.html#:mkview">:mkview</a>|.  But
+   <a href="options.html#'sessionoptions'">'sessionoptions'</a> is used instead of <a href="options.html#'viewoptions'">'viewoptions'</a>.
+10. If a file exists with the same name <a href="motion.html#as">as</a> the <a href="starting.html#Session">Session</a> file, but ending in
+   &quot;x.vim&quot; (for eXtra), executes that <a href="motion.html#as">as</a> well.  You can use *x.vim files to
+   specify additional settings and actions associated with a given <a href="starting.html#Session">Session</a>,
+   such <a href="motion.html#as">as</a> creating menu items in the <a href="gui.html#GUI">GUI</a> version.
+
+After restoring the <a href="starting.html#Session">Session</a>, the full filename of your current <a href="starting.html#Session">Session</a> is
+available in the internal variable &quot;<a href="eval.html#v:this_session">v:this_session</a>&quot; |<a href="eval.html#this_session-variable">this_session-variable</a>|.
+An example <a href="map.html#mapping">mapping</a>:
+<b>  :nmap &lt;F2&gt; :wa&lt;Bar&gt;exe "mksession! " . v:this_session&lt;CR&gt;:so ~/sessions/</b>
+This saves the current <a href="starting.html#Session">Session</a>, and starts off the command to load another.
+
+A session includes all <a href="intro.html#tab">tab</a> pages, unless &quot;tabpages&quot; was removed from
+<a href="options.html#'sessionoptions'">'sessionoptions'</a>. |<a href="tabpage.html#tab-page">tab-page</a>|
+
+The |<a href="autocmd.html#SessionLoadPost">SessionLoadPost</a>| autocmd event is triggered after a session file is
+loaded/sourced.
+
+						*<a name="SessionLoad-variable"></A><b>SessionLoad-variable</b>*
+While the session file is loading the SessionLoad global variable is set to 1.
+Plugins can use this to postpone some work until the <a href="autocmd.html#SessionLoadPost">SessionLoadPost</a> event is
+triggered.
+
+
+							*<a name=":mkvie"></A><b>:mkvie</b>* *<a name=":mkview"></A><b>:mkview</b>*
+:mkvie[w][!] [file]	Write a Vim <a href="usr_41.html#script">script</a> that restores the contents of the
+			current <a href="windows.html#window">window</a>.
+			When [!] is included an existing file is overwritten.
+			When [file] is omitted or is a number from 1 to 9, a
+			name is generated and <a href="options.html#'viewdir'">'viewdir'</a> prepended.  When the
+			last directory name in <a href="options.html#'viewdir'">'viewdir'</a> does not exist, this
+			directory is created.
+			An existing file is always overwritten then.  Use
+			|<a href="starting.html#:loadview">:loadview</a>| to load this view again.
+			When [file] is the name of a file ('viewdir' is not
+			used), a command to edit the file is added to the
+			generated file.
+
+The output of &quot;<a href="starting.html#:mkview">:mkview</a>&quot; contains these items:
+1. The argument list used in the <a href="windows.html#window">window</a>.  When the global argument list is
+   used it is reset to the global list.
+   The index in the argument list is also restored.
+2. The file being edited in the <a href="windows.html#window">window</a>.  If there is no file, the <a href="windows.html#window">window</a> is
+   made empty.
+3. Restore mappings, <a href="map.html#abbreviations">abbreviations</a> and <a href="options.html#options">options</a> local to the <a href="windows.html#window">window</a> if
+   <a href="options.html#'viewoptions'">'viewoptions'</a> contains &quot;<a href="options.html#options">options</a>&quot; or &quot;localoptions&quot;.  For the <a href="options.html#options">options</a> it
+   restores only values that are local to the current buffer and values local
+   to the <a href="windows.html#window">window</a>.
+   When storing the <a href="starting.html#view">view</a> <a href="motion.html#as">as</a> part of a session and &quot;<a href="options.html#options">options</a>&quot; is in
+   <a href="options.html#'sessionoptions'">'sessionoptions'</a>, global values for local <a href="options.html#options">options</a> will be stored too.
+4. Restore <a href="fold.html#folds">folds</a> when using manual <a href="fold.html#folding">folding</a> and <a href="options.html#'viewoptions'">'viewoptions'</a> contains
+   &quot;<a href="fold.html#folds">folds</a>&quot;.  Restore manually opened and closed <a href="fold.html#folds">folds</a>.
+5. The scroll position and the cursor position in the file.  Doesn't work very
+   well when there are closed <a href="fold.html#folds">folds</a>.
+6. The local current directory, if it is different from the global current
+   directory.
+
+Note that Views and Sessions are not perfect:
+- They don't restore everything.  For example, defined <a href="eval.html#functions">functions</a>, autocommands
+  and &quot;<a href="syntax.html#:syntax">:syntax</a> on&quot; are not included.  Things like <a href="sponsor.html#register">register</a> contents and
+  command line <a href="cmdline.html#history">history</a> are in <a href="starting.html#viminfo">viminfo</a>, not in Sessions or Views.
+- Global option values are only set when they differ from the default value.
+  When the current value is not the default value, loading a <a href="starting.html#Session">Session</a> will not
+  set it back to the default value.  Local <a href="options.html#options">options</a> will be set back to the
+  default value though.
+- Existing mappings will be overwritten without warning.  An existing <a href="map.html#mapping">mapping</a>
+  may cause an error for ambiguity.
+- When storing manual <a href="fold.html#folds">folds</a> and when storing manually opened/closed <a href="fold.html#folds">folds</a>,
+  changes in the file between saving and loading the <a href="starting.html#view">view</a> will mess it up.
+- The Vim <a href="usr_41.html#script">script</a> is not very efficient.  But still faster than typing the
+  commands yourself!
+
+
+							*<a name=":lo"></A><b>:lo</b>* *<a name=":loadview"></A><b>:loadview</b>*
+:lo[adview] [nr]	Load the <a href="starting.html#view">view</a> for the current file.  When [nr] is
+			omitted, the <a href="starting.html#view">view</a> stored with &quot;<a href="starting.html#:mkview">:mkview</a>&quot; is loaded.
+			When [nr] is specified, the <a href="starting.html#view">view</a> stored with &quot;<a href="starting.html#:mkview">:mkview</a>
+			[nr]&quot; is loaded.
+
+The combination of &quot;<a href="starting.html#:mkview">:mkview</a>&quot; and &quot;<a href="starting.html#:loadview">:loadview</a>&quot; can be used to store up to ten
+different views of a file.  These are remembered in the directory specified
+with the <a href="options.html#'viewdir'">'viewdir'</a> option.  The views are stored using the file name.  If a
+file is renamed or accessed through a (symbolic) link the <a href="starting.html#view">view</a> will not be
+found.
+
+You might want to clean up your <a href="options.html#'viewdir'">'viewdir'</a> directory now and then.
+
+To automatically save and restore views for *.c files:
+<b>	au BufWinLeave *.c mkview</b>
+<b>	au BufWinEnter *.c silent loadview</b>
+
+==============================================================================
+
+9. The <a href="starting.html#viminfo">viminfo</a> file				*<a name="viminfo"></A><b>viminfo</b>* *<a name="viminfo-file"></A><b>viminfo-file</b>* *<a name="E136"></A><b>E136</b>*
+
+						*<a name="E575"></A><b>E575</b>* *<a name="E576"></A><b>E576</b>* *<a name="E577"></A><b>E577</b>*
+If you exit Vim and later start it again, you would normally lose a lot of
+information.  The <a href="starting.html#viminfo">viminfo</a> file can be used to remember that information, which
+enables you to continue where you left off.
+
+This is introduced in section |<a href="usr_21.html#21.3">21.3</a>| of the user manual.
+
+The <a href="starting.html#viminfo">viminfo</a> file is used to store:
+- The command line <a href="cmdline.html#history">history</a>.
+- The search string <a href="cmdline.html#history">history</a>.
+- The input-line <a href="cmdline.html#history">history</a>.
+- <a href="quickref.html#Contents">Contents</a> of non-empty <a href="change.html#registers">registers</a>.
+- Marks for several files.
+- File marks, pointing to locations in files.
+- Last search/substitute <a href="pattern.html#pattern">pattern</a> (for '<a href="pattern.html#n">n</a>' and '&amp;').
+- The buffer list.
+- Global <a href="eval.html#variables">variables</a>.
+
+The viminfo file is not supported when the |<a href="various.html#+viminfo">+viminfo</a>| feature has been
+disabled at compile time.
+
+You could also use a <a href="starting.html#Session">Session</a> file.  The difference is that the <a href="starting.html#viminfo">viminfo</a> file
+does not depend on what you are working on.  There normally is only one
+<a href="starting.html#viminfo">viminfo</a> file.  <a href="starting.html#Session">Session</a> files are used to save the state of a specific editing
+<a href="starting.html#Session">Session</a>.  You could have several <a href="starting.html#Session">Session</a> files, one for each project you are
+working on.  Viminfo and <a href="starting.html#Session">Session</a> files together can be used to effectively
+enter Vim and directly start working in your desired setup. |<a href="starting.html#session-file">session-file</a>|
+
+
+							*<a name="viminfo-read"></A><b>viminfo-read</b>*
+When Vim is started and the <a href="options.html#'viminfo'">'viminfo'</a> option is non-empty, the contents of
+the <a href="starting.html#viminfo">viminfo</a> file are read and the info can be used in the appropriate places.
+The |<a href="eval.html#v:oldfiles">v:oldfiles</a>| variable is filled.  The marks are not read in at <a href="starting.html#startup">startup</a>
+(but file marks are).  See |<a href="starting.html#initialization">initialization</a>| for how to set the <a href="options.html#'viminfo'">'viminfo'</a>
+option upon <a href="starting.html#startup">startup</a>.
+
+
+							*<a name="viminfo-write"></A><b>viminfo-write</b>*
+When Vim exits and <a href="options.html#'viminfo'">'viminfo'</a> is non-empty, the info is stored in the <a href="starting.html#viminfo">viminfo</a>
+file (it's actually merged with the existing one, if one exists).  The
+<a href="options.html#'viminfo'">'viminfo'</a> option is a string containing information about what info should be
+stored, and contains <a href="vi_diff.html#limits">limits</a> on how much should be stored (see <a href="options.html#'viminfo'">'viminfo'</a>).
+
+Notes for <a href="os_unix.html#Unix">Unix</a>:
+- The file protection for the <a href="starting.html#viminfo">viminfo</a> file will be set to prevent other users
+  from being able to read it, because it may contain any text or commands that
+  you have worked with.
+- If you want to share the <a href="starting.html#viminfo">viminfo</a> file with other users (e.g. when you &quot;su&quot;
+  to another user), you can make the file writable for the group or everybody.
+  Vim will preserve this when <a href="editing.html#writing">writing</a> new <a href="starting.html#viminfo">viminfo</a> files.  Be careful, don't
+  allow just anybody to read and write your <a href="starting.html#viminfo">viminfo</a> file!
+- Vim will not overwrite a <a href="starting.html#viminfo">viminfo</a> file that is not writable by the current
+  &quot;real&quot; user.  This helps for when you did &quot;su&quot; to become root, but your
+  <a href="options.html#$HOME">$HOME</a> is still set to a normal user's home directory.  Otherwise Vim would
+  create a <a href="starting.html#viminfo">viminfo</a> file owned by root that nobody else can read.
+- The <a href="starting.html#viminfo">viminfo</a> file cannot be a symbolic link.  This is to avoid security
+  issues.
+
+Marks are stored for each file separately.  When a file is read and <a href="options.html#'viminfo'">'viminfo'</a>
+is non-empty, the marks for that file are read from the <a href="starting.html#viminfo">viminfo</a> file.  NOTE:
+The marks are only written when exiting Vim, which is fine because marks are
+remembered for all the files you have opened in the current editing session,
+unless &quot;<a href="windows.html#:bdel">:bdel</a>&quot; is used.  If you want to save the marks for a file that you are
+about to <a href="editing.html#abandon">abandon</a> with &quot;<a href="windows.html#:bdel">:bdel</a>&quot;, use &quot;<a href="starting.html#:wv">:wv</a>&quot;.  The '<a href="index.html#[">[</a>' and '<a href="index.html#]">]</a>' marks are not
+stored, but the &#39;&#34;'' <a href="motion.html#mark">mark</a> is.  The &#39;&#34;'' <a href="motion.html#mark">mark</a> is very useful for jumping to the
+cursor position when the file was last exited.  No marks are saved for files
+that start with any string given with the &quot;<a href="change.html#r">r</a>&quot; flag in <a href="options.html#'viminfo'">'viminfo'</a>.  This can be
+used to avoid saving marks for files on removable media (for <a href="os_msdos.html#MS-DOS">MS-DOS</a> you would
+use &quot;ra:,rb:&quot;, for <a href="os_amiga.html#Amiga">Amiga</a> &quot;rdf0:,rdf1:,rdf2:&quot;).
+The |<a href="eval.html#v:oldfiles">v:oldfiles</a>| variable is filled with the file names that the <a href="starting.html#viminfo">viminfo</a> file
+has marks for.
+
+
+							*<a name="viminfo-file-marks"></A><b>viminfo-file-marks</b>*
+Uppercase marks ('A to 'Z) are stored when <a href="editing.html#writing">writing</a> the <a href="starting.html#viminfo">viminfo</a> file.  The
+numbered marks ('0 to '9) are a bit special.  When the <a href="starting.html#viminfo">viminfo</a> file is written
+(when exiting or with the &quot;<a href="starting.html#:wviminfo">:wviminfo</a>&quot; command), <a href="motion.html#'0">'0</a> is set to the current cursor
+position and file.  The old <a href="motion.html#'0">'0</a> is moved to '1, '1 to '2, etc.  This
+resembles what happens with the &quot;1 to &quot;9 delete <a href="change.html#registers">registers</a>.  If the current
+cursor position is already present in <a href="motion.html#'0">'0</a> to '9, it is moved to <a href="motion.html#'0">'0</a>, to avoid
+having the same position <a href="if_cscop.html#twice">twice</a>.  The result is that with &quot;<a href="motion.html#'0">'0</a>&quot;, you can jump
+back to the file and line where you exited Vim.  To <a href="diff.html#do">do</a> that right away, try
+using this command:
+
+<b>	vim -c "normal '0"</b>
+
+In a csh compatible shell you could make an alias for it:
+
+<b>	alias lvim vim -c '"'normal "'"0'"'</b>
+
+For a bash-like shell:
+
+<b>	alias lvim='vim -c "normal '\''0"'</b>
+
+Use the &quot;<a href="change.html#r">r</a>&quot; flag in <a href="options.html#'viminfo'">'viminfo'</a> to specify for which files no marks should be
+remembered.
+
+
+
+VIMINFO FILE NAME					*<a name="viminfo-file-name"></A><b>viminfo-file-name</b>*
+
+- The default name of the <a href="starting.html#viminfo">viminfo</a> file is &quot;$HOME/.viminfo&quot; for <a href="os_unix.html#Unix">Unix</a> and <a href="os_os2.html#OS/2">OS/2</a>,
+  &quot;s:.viminfo&quot; for <a href="os_amiga.html#Amiga">Amiga</a>, &quot;$HOME\_viminfo&quot; for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>.  For the last
+  two, when <a href="options.html#$HOME">$HOME</a> is not set, &quot;$VIM\_viminfo&quot; is used.  When <a href="starting.html#$VIM">$VIM</a> is also not
+  set, &quot;c:\_viminfo&quot; is used.  For <a href="os_os2.html#OS/2">OS/2</a> &quot;$VIM/.viminfo&quot; is used when <a href="options.html#$HOME">$HOME</a> is
+  not set and <a href="starting.html#$VIM">$VIM</a> is set.
+- The '<a href="pattern.html#n">n</a>' flag in the <a href="options.html#'viminfo'">'viminfo'</a> option can be used to specify another <a href="starting.html#viminfo">viminfo</a>
+  file name |<a href="options.html#'viminfo'">'viminfo'</a>|.
+- The &quot;-i&quot; Vim argument can be used to set another file name, |<a href="starting.html#-i">-i</a>|.  When the
+  file name given is &quot;NONE&quot; (all uppercase), no <a href="starting.html#viminfo">viminfo</a> file is ever read or
+  written.  Also not for the commands below!
+- For the commands below, another file name can be given, overriding the
+  default and the name given with <a href="options.html#'viminfo'">'viminfo'</a> or &quot;<a href="starting.html#-i">-i</a>&quot; (unless it's NONE).
+
+
+
+CHARACTER ENCODING					*<a name="viminfo-encoding"></A><b>viminfo-encoding</b>*
+
+The text in the <a href="starting.html#viminfo">viminfo</a> file is encoded <a href="motion.html#as">as</a> specified with the <a href="options.html#'encoding'">'encoding'</a>
+option.  Normally you will always work with the same <a href="options.html#'encoding'">'encoding'</a> value, and
+this works just fine.  However, if you read the <a href="starting.html#viminfo">viminfo</a> file with another
+value for <a href="options.html#'encoding'">'encoding'</a> than what it was written with, some of the text
+(non-ASCII characters) may be invalid.  If this is unacceptable, add the '<a href="change.html#c">c</a>'
+flag to the <a href="options.html#'viminfo'">'viminfo'</a> option:
+<b>	:set viminfo+=c</b>
+Vim will then attempt to convert the text in the <a href="starting.html#viminfo">viminfo</a> file from the
+<a href="options.html#'encoding'">'encoding'</a> value it was written with to the current <a href="options.html#'encoding'">'encoding'</a> value.  This
+requires Vim to be compiled with the |<a href="various.html#+iconv">+iconv</a>| feature.  Filenames are not
+converted.
+
+
+
+MANUALLY READING AND WRITING				*<a name="viminfo-read-write"></A><b>viminfo-read-write</b>*
+
+Two commands can be used to read and write the <a href="starting.html#viminfo">viminfo</a> file manually.  This
+can be used to exchange <a href="change.html#registers">registers</a> between two running Vim programs: First
+type &quot;<a href="starting.html#:wv">:wv</a>&quot; in one and then &quot;<a href="starting.html#:rv">:rv</a>&quot; in the other.  Note that if the <a href="sponsor.html#register">register</a>
+already contained something, then &quot;:rv!&quot; would be required.  Also note
+however that this means everything will be overwritten with information from
+the first Vim, including the command line <a href="cmdline.html#history">history</a>, etc.
+
+The <a href="starting.html#viminfo">viminfo</a> file itself can be edited by hand too, although we suggest you
+start with an existing one to get the format right.  It is reasonably
+self-explanatory once you're in there.  This can be useful in order to
+create a second file, say &quot;~/.my_viminfo&quot; which could contain certain
+settings that you always want when you first start Vim.  For example, you
+can preload <a href="change.html#registers">registers</a> with particular data, or put certain commands in the
+command line <a href="cmdline.html#history">history</a>.  A line in your <a href="starting.html#.vimrc">.vimrc</a> file like
+<b>	:rviminfo! ~/.my_viminfo</b>
+can be used to load this information.  You could even have different viminfos
+for different types of files (e.g., C code) and load them based on the file
+name, using the &quot;:autocmd&quot; command (see |<a href="autocmd.html#:autocmd">:autocmd</a>|).
+
+
+							*<a name="viminfo-errors"></A><b>viminfo-errors</b>*
+When Vim detects an error while reading a <a href="starting.html#viminfo">viminfo</a> file, it will not overwrite
+that file.  If there are more than 10 <a href="message.html#errors">errors</a>, Vim stops reading the <a href="starting.html#viminfo">viminfo</a>
+file.  This was done to avoid accidentally destroying a file when the file
+name of the <a href="starting.html#viminfo">viminfo</a> file is wrong.  This could happen when accidentally typing
+&quot;vim <a href="starting.html#-i">-i</a> file&quot; when you wanted &quot;vim <a href="starting.html#-R">-R</a> file&quot; (yes, somebody accidentally did
+that!).  If you want to overwrite a <a href="starting.html#viminfo">viminfo</a> file with an error in it, you will
+either have to fix the error, or delete the file (while Vim is running, so
+most of the information will be restored).
+
+
+						   *<a name=":rv"></A><b>:rv</b>* *<a name=":rviminfo"></A><b>:rviminfo</b>* *<a name="E195"></A><b>E195</b>*
+:rv[iminfo][!] [file]	Read from <a href="starting.html#viminfo">viminfo</a> file [file] (default: see above).
+			If [!] is given, then any information that is
+			already set (registers, marks, |<a href="eval.html#v:oldfiles">v:oldfiles</a>|, etc.)
+			will be overwritten   {not in Vi}
+
+
+					*<a name=":wv"></A><b>:wv</b>* *<a name=":wviminfo"></A><b>:wviminfo</b>* *<a name="E137"></A><b>E137</b>* *<a name="E138"></A><b>E138</b>* *<a name="E574"></A><b>E574</b>*
+:wv[iminfo][!] [file]	Write to <a href="starting.html#viminfo">viminfo</a> file [file] (default: see above).
+			The information in the file is first read in to make
+			a <a href="diff.html#merge">merge</a> between old and new info.  When [!] is used,
+			the old information is not read first, only the
+			internal info is written.  If <a href="options.html#'viminfo'">'viminfo'</a> is empty, marks
+			for up to 100 files will be written.
+			When you get error &quot;E138: Can't write <a href="starting.html#viminfo">viminfo</a> file&quot;
+			check that no old temp files were left behind (e.g.
+			~/.viminf*) and that you can write in the directory of
+			the .viminfo file.
+			{not in Vi}
+
+
+						*<a name=":ol"></A><b>:ol</b>* *<a name=":oldfiles"></A><b>:oldfiles</b>*
+:ol[dfiles]		<a href="eval.html#List">List</a> the files that have marks stored in the <a href="starting.html#viminfo">viminfo</a>
+			file.  This list is read on <a href="starting.html#startup">startup</a> and only changes
+			afterwards with &quot;:rviminfo!&quot;.  Also see |<a href="eval.html#v:oldfiles">v:oldfiles</a>|.
+			The number can be used with |<a href="cmdline.html#c_#&lt;">c_#&lt;</a>|.
+			{not in <a href="intro.html#Vi">Vi</a>, only when compiled with the |<a href="various.html#+eval">+eval</a>|
+			feature}
+
+:bro[wse] ol[dfiles][!]
+			<a href="eval.html#List">List</a> file names <a href="motion.html#as">as</a> with |<a href="starting.html#:oldfiles">:oldfiles</a>|, and then prompt
+			for a number.  When the number is valid that file from
+			the list is edited.
+			If you get the |<a href="message.html#press-enter">press-enter</a>| prompt you can press &quot;<a href="repeat.html#q">q</a>&quot;
+			and still get the prompt to enter a file number.
+			Use ! to abandon a modified buffer. |<a href="editing.html#abandon">abandon</a>|
+			{not when compiled with tiny or small features}
+
+<a href="starting.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

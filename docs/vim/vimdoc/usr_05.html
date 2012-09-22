@@ -1,0 +1,658 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_05</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_05</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_05.txt"></A><b>usr_05.txt</b>*	For Vim version 7.3.  Last change: 2009 Jun 04
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			      Set your settings
+
+
+Vim can be tuned to work like you want it to.  This chapter shows you how to
+make Vim start with <a href="options.html#options">options</a> set to different values.  Add plugins to extend
+Vim's capabilities.  Or define your own macros.
+
+|<a href="usr_05.html#05.1">05.1</a>|	The <a href="starting.html#vimrc">vimrc</a> file
+|<a href="usr_05.html#05.2">05.2</a>|	The example <a href="starting.html#vimrc">vimrc</a> file explained
+|<a href="usr_05.html#05.3">05.3</a>|	Simple mappings
+|<a href="usr_05.html#05.4">05.4</a>|	Adding a <a href="usr_05.html#plugin">plugin</a>
+|<a href="usr_05.html#05.5">05.5</a>|	Adding a help file
+|<a href="usr_05.html#05.6">05.6</a>|	The option <a href="windows.html#window">window</a>
+|<a href="usr_05.html#05.7">05.7</a>|	Often used <a href="options.html#options">options</a>
+
+     Next chapter: |<a href="usr_06.html">usr_06.txt</a>|  Using <a href="syntax.html#syntax">syntax</a> highlighting
+ Previous chapter: |<a href="usr_04.html">usr_04.txt</a>|  Making small changes
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="05.1"></A><b>05.1</b>*	The <a href="starting.html#vimrc">vimrc</a> file					*<a name="vimrc-intro"></A><b>vimrc-intro</b>*
+
+You probably got tired of typing commands that you use very often.  To start
+Vim with all your favorite option settings and mappings, you write them in
+what is called the <a href="starting.html#vimrc">vimrc</a> file.  Vim executes the commands in this file when it
+starts up.
+
+If you already have a <a href="starting.html#vimrc">vimrc</a> file (e.g., when your sysadmin has one setup for
+you), you can edit it this way:
+
+<b>	:edit $MYVIMRC</b>
+
+If you don't have a vimrc file yet, see |<a href="starting.html#vimrc">vimrc</a>| to find out where you can
+create a <a href="starting.html#vimrc">vimrc</a> file.  Also, the &quot;<a href="various.html#:version">:version</a>&quot; command mentions the name of the
+&quot;user <a href="starting.html#vimrc">vimrc</a> file&quot; Vim looks for.
+
+For <a href="os_unix.html#Unix">Unix</a> and <a href="os_mac.html#Macintosh">Macintosh</a> this file is always used and is recommended:
+
+<b><font color="purple">	~/.vimrc </font></b>
+
+For <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#MS-Windows">MS-Windows</a> you can use one of these:
+
+<b><font color="purple">	$HOME/_vimrc </font></b>
+<b><font color="purple">	$VIM/_vimrc </font></b>
+
+The <a href="starting.html#vimrc">vimrc</a> file can contain all the commands that you type after a colon.  The
+most simple ones are for setting <a href="options.html#options">options</a>.  For example, if you want Vim to
+always start with the <a href="options.html#'incsearch'">'incsearch'</a> option on, add this line you your <a href="starting.html#vimrc">vimrc</a>
+file:
+
+<b>	set incsearch</b>
+
+For this new line to take effect you need to exit Vim and start it again.
+Later you will learn how to <a href="diff.html#do">do</a> this without exiting Vim.
+
+This chapter only explains the most basic items.  For more information on how
+to write a Vim <a href="usr_41.html#script">script</a> file: |<a href="usr_41.html">usr_41.txt</a>|.
+
+==============================================================================
+
+*<a name="05.2"></A><b>05.2</b>*	The example <a href="starting.html#vimrc">vimrc</a> file explained		*<a name="vimrc_example.vim"></A><b>vimrc_example.vim</b>*
+
+In the first chapter was explained how the example <a href="starting.html#vimrc">vimrc</a> (included in the
+Vim <a href="intro.html#distribution">distribution</a>) file can be used to make Vim <a href="starting.html#startup">startup</a> in <a href="usr_01.html#not-compatible">not-compatible</a> mode
+(see |<a href="usr_01.html#not-compatible">not-compatible</a>|).  The file can be found here:
+
+<b><font color="purple">	$VIMRUNTIME/vimrc_example.vim </font></b>
+
+In this section we will explain the various commands used in this file.  This
+will give you hints about how to set up your own preferences.  Not everything
+will be explained though.  Use the &quot;<a href="helphelp.html#:help">:help</a>&quot; command to find out more.
+
+
+<b>	set nocompatible</b>
+
+As mentioned in the first chapter, these manuals explain Vim working in an
+improved way, thus not completely <a href="intro.html#Vi">Vi</a> compatible.  Setting the <a href="options.html#'compatible'">'compatible'</a>
+option off, thus <a href="options.html#'nocompatible'">'nocompatible'</a> takes care of this.
+
+
+<b>	set backspace=indent,eol,start</b>
+
+This specifies where in <a href="insert.html#Insert">Insert</a> mode the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> is allowed to delete the
+character in front of the cursor.  The three items, separated by commas, tell
+Vim to delete the white space at the start of the line, a line break and the
+character before where <a href="insert.html#Insert">Insert</a> mode started.
+
+
+<b>	set autoindent</b>
+
+This makes Vim use the indent of the previous line for a newly created line.
+Thus there is the same amount of white space before the new line.  For example
+when pressing <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> in <a href="insert.html#Insert">Insert</a> mode, and when using the &quot;<a href="insert.html#o">o</a>&quot; command to open a
+new line.
+
+
+<b>	if has("vms")</b>
+<b>	  set nobackup</b>
+<b>	else</b>
+<b>	  set backup</b>
+<b>	endif</b>
+
+This tells Vim to keep a <a href="editing.html#backup">backup</a> copy of a file when overwriting it.  But not
+on the <a href="os_vms.html#VMS">VMS</a> system, since it keeps old versions of files already.  The <a href="editing.html#backup">backup</a>
+file will have the same name <a href="motion.html#as">as</a> the original file with &quot;<a href="change.html#~">~</a>&quot; added.  See |<a href="usr_07.html#07.4">07.4</a>|
+
+
+<b>	set history=50</b>
+
+Keep 50 commands and 50 search patterns in the <a href="cmdline.html#history">history</a>.  Use another number if
+you want to remember fewer or more lines.
+
+
+<b>	set ruler</b>
+
+Always display the current cursor position in the lower right corner of the
+Vim <a href="windows.html#window">window</a>.
+
+
+<b>	set showcmd</b>
+
+Display an incomplete command in the lower right corner of the Vim <a href="windows.html#window">window</a>,
+left of the ruler.  For example, when you type &quot;2f&quot;, Vim is waiting for you to
+type the character to find and &quot;2f&quot; is displayed.  When you press &quot;<a href="motion.html#w">w</a>&quot; next,
+the &quot;2fw&quot; command is executed and the displayed &quot;2f&quot; is removed.
+
+	+-------------------------------------------------+
+	|text in the Vim <a href="windows.html#window">window</a>				  |
+	|~						  |
+	|~						  |
+	|-- VISUAL <a href="starting.html#--">--</a>			2f     43,8   17&#37; |
+	+-------------------------------------------------+
+	 ^^^^^^^^^^^		      ^^^^^^^^ ^^^^^^^^^^
+	  <a href="options.html#'showmode'">'showmode'</a>		     <a href="options.html#'showcmd'">'showcmd'</a>	<a href="options.html#'ruler'">'ruler'</a>
+
+
+<b>	set incsearch</b>
+
+Display the match for a search <a href="pattern.html#pattern">pattern</a> when halfway typing it.
+
+
+<b>	map Q gq</b>
+
+This defines a key <a href="map.html#mapping">mapping</a>.  More about that in the next section.  This
+defines the &quot;<a href="intro.html#Q">Q</a>&quot; command to <a href="diff.html#do">do</a> <a href="change.html#formatting">formatting</a> with the &quot;<a href="change.html#gq">gq</a>&quot; <a href="motion.html#operator">operator</a>.  This is how
+it worked before Vim 5.0.  Otherwise the &quot;<a href="intro.html#Q">Q</a>&quot; command starts <a href="intro.html#Ex">Ex</a> mode, but you
+will not need it.
+
+
+<b>	vnoremap _g y:exe "grep /" . escape(@", '\\/') . "/ *.c *.h"&lt;CR&gt;</b>
+
+This <a href="map.html#mapping">mapping</a> yanks the visually selected text and searches for it in C files.
+This is a complicated <a href="map.html#mapping">mapping</a>.  You can see that mappings can be used to <a href="diff.html#do">do</a>
+quite complicated things.  Still, it is just a sequence of commands that are
+executed like you typed them.
+
+
+<b>	if &amp;t_Co &gt; 2 || has("gui_running")</b>
+<b>	  syntax on</b>
+<b>	  set hlsearch</b>
+<b>	endif</b>
+
+This switches on <a href="syntax.html#syntax">syntax</a> highlighting, but only if colors are available.  And
+the <a href="options.html#'hlsearch'">'hlsearch'</a> option tells Vim to highlight matches with the last used search
+<a href="pattern.html#pattern">pattern</a>.  The &quot;if&quot; command is very useful to set <a href="options.html#options">options</a> only when some
+condition is met.  More about that in |<a href="usr_41.html">usr_41.txt</a>|.
+
+
+							*<a name="vimrc-filetype"></A><b>vimrc-filetype</b>* 
+<b>	filetype plugin indent on</b>
+
+This switches on three very clever mechanisms:
+1. Filetype detection.
+   Whenever you start editing a file, Vim will try to figure out what kind of
+   file this is.  When you edit &quot;main.c&quot;, Vim will see the &quot;.c&quot; extension and
+   recognize this <a href="motion.html#as">as</a> a &quot;<a href="change.html#c">c</a>&quot; <a href="filetype.html#filetype">filetype</a>.  When you edit a file that starts with
+   &quot;#!/bin/sh&quot;, Vim will recognize it <a href="motion.html#as">as</a> a &quot;sh&quot; <a href="filetype.html#filetype">filetype</a>.
+   The <a href="filetype.html#filetype">filetype</a> detection is used for <a href="syntax.html#syntax">syntax</a> highlighting and the other two
+   items below.
+   See |<a href="filetype.html#filetypes">filetypes</a>|.
+
+2. Using <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> files
+   Many different <a href="filetype.html#filetypes">filetypes</a> are edited with different <a href="options.html#options">options</a>.  For example,
+   when you edit a &quot;<a href="change.html#c">c</a>&quot; file, it's very useful to set the <a href="options.html#'cindent'">'cindent'</a> option to
+   automatically indent the lines.  These commonly useful option settings are
+   included with Vim in <a href="filetype.html#filetype">filetype</a> plugins.  You can also add your own, see
+   |<a href="usr_41.html#write-filetype-plugin">write-filetype-plugin</a>|.
+
+3. Using indent files
+   When editing programs, the indent of a line can often be computed
+   automatically.  Vim comes with these indent rules for a number of
+   <a href="filetype.html#filetypes">filetypes</a>.  See |<a href="filetype.html#:filetype-indent-on">:filetype-indent-on</a>| and <a href="options.html#'indentexpr'">'indentexpr'</a>.
+
+
+<b>	autocmd FileType text setlocal textwidth=78</b>
+
+This makes Vim break text to avoid lines getting longer than 78 characters.
+But only for files that have been detected to be plain text.  There are
+actually two parts here.  &quot;autocmd <a href="autocmd.html#FileType">FileType</a> text&quot; is an <a href="autocmd.html#autocommand">autocommand</a>.  This
+defines that when the file type is set to &quot;text&quot; the following command is
+automatically executed.  &quot;setlocal textwidth=78&quot; sets the <a href="options.html#'textwidth'">'textwidth'</a> option
+to 78, but only locally in one file.
+
+
+							*<a name="restore-cursor"></A><b>restore-cursor</b>* 
+<b>	autocmd BufReadPost *</b>
+<b>	    \ if line("'\"") &gt; 1 &amp;&amp; line("'\"") &lt;= line("$") |</b>
+<b>	    \   exe "normal! g`\"" |</b>
+<b>	    \ endif</b>
+
+Another <a href="autocmd.html#autocommand">autocommand</a>.  This time it is used after reading any file.  The
+complicated stuff after it checks if the &#39;&#34;' <a href="motion.html#mark">mark</a> is defined, and jumps to it
+if so.  The <a href="intro.html#backslash">backslash</a> at the start of a line is used to continue the command
+from the previous line.  That avoids a line getting very long.
+See |<a href="repeat.html#line-continuation">line-continuation</a>|.  This only works in a Vim <a href="usr_41.html#script">script</a> file, not when
+typing commands at the command-line.
+
+==============================================================================
+
+*<a name="05.3"></A><b>05.3</b>*	Simple mappings
+
+A <a href="map.html#mapping">mapping</a> enables you to bind a set of Vim commands to a single key.  Suppose,
+for example, that you need to surround certain words with curly braces.  In
+other words, you need to change a <a href="motion.html#word">word</a> such <a href="motion.html#as">as</a> &quot;amount&quot; into &quot;{amount}&quot;.  With
+the <a href="map.html#:map">:map</a> command, you can tell Vim that the F5 key does this job.  The command
+is <a href="motion.html#as">as</a> follows:
+
+<b>	:map &lt;F5&gt; i{&lt;Esc&gt;ea}&lt;Esc&gt;</b>
+ 
+	Note:
+	When entering this command, you must enter <a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a> by typing four
+	characters.  Similarly, <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> is not entered by pressing the <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>
+	key, but by typing five characters.  Watch out for this difference
+	when reading the manual!
+
+Let's break this down:
+    <a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a>	The F5 function key.  This is the trigger key that causes the
+		command to be executed <a href="motion.html#as">as</a> the key is pressed.
+
+    i{&lt;Esc&gt;	<a href="insert.html#Insert">Insert</a> the { character.  The <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> key ends <a href="insert.html#Insert">Insert</a> mode.
+
+    <a href="motion.html#e">e</a>		Move to the end of the <a href="motion.html#word">word</a>.
+
+    a}&lt;Esc&gt;	Append the } to the <a href="motion.html#word">word</a>.
+
+After you execute the &quot;<a href="map.html#:map">:map</a>&quot; command, all you have to <a href="diff.html#do">do</a> to put <a href="intro.html#{}">{}</a> around a
+<a href="motion.html#word">word</a> is to put the cursor on the first character and press F5.
+
+In this example, the trigger is a single key; it can be any string.  But when
+you use an existing Vim command, that command will no longer be available.
+You better avoid that.
+   One key that can be used with mappings is the <a href="intro.html#backslash">backslash</a>.  Since you
+probably want to define more than one <a href="map.html#mapping">mapping</a>, add another character.  You
+could map &quot;\p&quot; to add parentheses around a <a href="motion.html#word">word</a>, and &quot;\c&quot; to add curly braces,
+for example:
+
+<b>	:map \p i(&lt;Esc&gt;ea)&lt;Esc&gt;</b>
+<b>	:map \c i{&lt;Esc&gt;ea}&lt;Esc&gt;</b>
+
+You need to type the \ and the <a href="change.html#p">p</a> quickly after another, so that Vim knows they
+belong together.
+
+The &quot;<a href="map.html#:map">:map</a>&quot; command (with no arguments) lists your current mappings.  At
+least the ones for <a href="intro.html#Normal">Normal</a> mode.  More about mappings in section |<a href="usr_40.html#40.1">40.1</a>|.
+
+==============================================================================
+
+*<a name="05.4"></A><b>05.4</b>*	Adding a <a href="usr_05.html#plugin">plugin</a>					*<a name="add-plugin"></A><b>add-plugin</b>* *<a name="plugin"></A><b>plugin</b>*
+
+Vim's functionality can be extended by adding plugins.  A <a href="usr_05.html#plugin">plugin</a> is nothing
+more than a Vim <a href="usr_41.html#script">script</a> file that is loaded automatically when Vim starts.  You
+can add a <a href="usr_05.html#plugin">plugin</a> very easily by dropping it in your <a href="usr_05.html#plugin">plugin</a> directory.
+{not available when Vim was compiled without the |<a href="various.html#+eval">+eval</a>| feature}
+
+There are two types of plugins:
+
+    global <a href="usr_05.html#plugin">plugin</a>: Used for all kinds of files
+  <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a>: Only used for a specific type of file
+
+The global plugins will be discussed first, then the <a href="filetype.html#filetype">filetype</a> ones
+|<a href="usr_05.html#add-filetype-plugin">add-filetype-plugin</a>|.
+
+
+
+GLOBAL PLUGINS						*<a name="standard-plugin"></A><b>standard-plugin</b>*
+
+When you start Vim, it will automatically load a number of global plugins.
+You don't have to <a href="diff.html#do">do</a> anything for this.  They add functionality that most
+people will want to use, but which was implemented <a href="motion.html#as">as</a> a Vim <a href="usr_41.html#script">script</a> instead of
+being compiled into Vim.  You can find them listed in the help index
+|<a href="help.html#standard-plugin-list">standard-plugin-list</a>|.  Also see |<a href="starting.html#load-plugins">load-plugins</a>|.
+
+
+							*<a name="add-global-plugin"></A><b>add-global-plugin</b>*
+You can add a global <a href="usr_05.html#plugin">plugin</a> to add functionality that will always be present
+when you use Vim.  There are only two steps for adding a global <a href="usr_05.html#plugin">plugin</a>:
+1. Get a copy of the <a href="usr_05.html#plugin">plugin</a>.
+2. Drop it in the right directory.
+
+
+GETTING A GLOBAL PLUGIN
+
+Where can you find plugins?
+- Some come with Vim.  You can find them in the directory $VIMRUNTIME/macros
+  and its sub-directories.
+ - Download from the net. There is a large collection on	<a href="http://www.vim.org">http://www.vim.org</a>.
+- They are sometimes posted in a Vim |<a href="intro.html#maillist">maillist</a>|.
+- You could write one yourself, see |<a href="usr_41.html#write-plugin">write-plugin</a>|.
+
+Some plugins come <a href="motion.html#as">as</a> a vimball archive, see |<a href="pi_vimball.html#vimball">vimball</a>|.
+Some plugins can be updated automatically, see |<a href="pi_getscript.html#getscript">getscript</a>|.
+
+
+USING A GLOBAL PLUGIN
+
+First read the text in the <a href="usr_05.html#plugin">plugin</a> itself to check for any special conditions.
+Then copy the file to your <a href="usr_05.html#plugin">plugin</a> directory:
+
+<b><font color="purple">	system		plugin directory </font></b>
+	<a href="os_unix.html#Unix">Unix</a>		~/.vim/plugin/
+	PC and <a href="os_os2.html#OS/2">OS/2</a>	$HOME/vimfiles/plugin or $VIM/vimfiles/plugin
+	<a href="os_amiga.html#Amiga">Amiga</a>		s:vimfiles/plugin
+	<a href="os_mac.html#Macintosh">Macintosh</a>	$VIM:vimfiles:plugin
+	<a href="os_mac.html#Mac">Mac</a> OS X	~/.vim/plugin/
+	<a href="os_risc.html#RISC-OS">RISC-OS</a>		Choices:vimfiles.plugin
+
+Example for <a href="os_unix.html#Unix">Unix</a> (assuming you didn't have a <a href="usr_05.html#plugin">plugin</a> directory yet):
+
+<b>	mkdir ~/.vim</b>
+<b>	mkdir ~/.vim/plugin</b>
+<b>	cp /usr/local/share/vim/vim60/macros/justify.vim ~/.vim/plugin</b>
+
+That's all!  Now you can use the commands defined in this <a href="usr_05.html#plugin">plugin</a> to justify
+text.
+
+Instead of putting plugins directly into the plugin/ directory, you may
+better organize them by putting them into subdirectories under plugin/.
+As an example, consider using &quot;~/.vim/plugin/perl/*.vim&quot; for all your <a href="if_perl.html#Perl">Perl</a>
+plugins.
+
+
+
+FILETYPE PLUGINS			*<a name="add-filetype-plugin"></A><b>add-filetype-plugin</b>* *<a name="ftplugins"></A><b>ftplugins</b>*
+
+The Vim <a href="intro.html#distribution">distribution</a> comes with a set of plugins for different <a href="filetype.html#filetypes">filetypes</a> that
+you can start using with this command:
+
+<b>	:filetype plugin on</b>
+
+That's all!  See |<a href="usr_05.html#vimrc-filetype">vimrc-filetype</a>|.
+
+If you are missing a <a href="usr_05.html#plugin">plugin</a> for a <a href="filetype.html#filetype">filetype</a> you are using, or you found a
+better one, you can add it.  There are two steps for adding a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a>:
+1. Get a copy of the <a href="usr_05.html#plugin">plugin</a>.
+2. Drop it in the right directory.
+
+
+GETTING A FILETYPE PLUGIN
+
+You can find them in the same places <a href="motion.html#as">as</a> the global plugins.  Watch out if the
+type of file is mentioned, then you know if the <a href="usr_05.html#plugin">plugin</a> is a global or a
+<a href="filetype.html#filetype">filetype</a> one.  The scripts in $VIMRUNTIME/macros are global ones, the <a href="filetype.html#filetype">filetype</a>
+plugins are in $VIMRUNTIME/ftplugin.
+
+
+
+USING A FILETYPE PLUGIN					*<a name="ftplugin-name"></A><b>ftplugin-name</b>*
+
+You can add a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> by dropping it in the right directory.  The
+name of this directory is in the same directory mentioned above for global
+plugins, but the last part is &quot;<a href="usr_41.html#ftplugin">ftplugin</a>&quot;.  Suppose you have found a <a href="usr_05.html#plugin">plugin</a> for
+the &quot;stuff&quot; <a href="filetype.html#filetype">filetype</a>, and you are on <a href="os_unix.html#Unix">Unix</a>.  Then you can move this file to the
+<a href="usr_41.html#ftplugin">ftplugin</a> directory:
+
+<b>	mv thefile ~/.vim/ftplugin/stuff.vim</b>
+
+If that file already exists you already have a <a href="usr_05.html#plugin">plugin</a> for &quot;stuff&quot;.  You might
+want to check if the existing <a href="usr_05.html#plugin">plugin</a> doesn't conflict with the one you are
+adding.  If it's OK, you can give the new one another name:
+
+<b>	mv thefile ~/.vim/ftplugin/stuff_too.vim</b>
+
+The underscore is used to separate the name of the <a href="filetype.html#filetype">filetype</a> from the rest,
+which can be anything.  If you use &quot;otherstuff.vim&quot; it wouldn't work, it would
+be loaded for the &quot;otherstuff&quot; <a href="filetype.html#filetype">filetype</a>.
+
+On <a href="os_msdos.html#MS-DOS">MS-DOS</a> you cannot use long filenames.  You would run into trouble if you
+add a second <a href="usr_05.html#plugin">plugin</a> and the <a href="filetype.html#filetype">filetype</a> has more than six characters.  You can
+use an extra directory to get around this:
+
+<b>	mkdir $VIM/vimfiles/ftplugin/fortran</b>
+<b>	copy thefile $VIM/vimfiles/ftplugin/fortran/too.vim</b>
+
+The generic names for the <a href="filetype.html#filetype">filetype</a> plugins are:
+
+<b>	ftplugin/&lt;filetype&gt;.vim</b>
+<b>	ftplugin/&lt;filetype&gt;_&lt;name&gt;.vim</b>
+<b>	ftplugin/&lt;filetype&gt;/&lt;name&gt;.vim</b>
+
+Here &quot;&lt;name&gt;&quot; can be any name that you prefer.
+Examples for the &quot;stuff&quot; <a href="filetype.html#filetype">filetype</a> on <a href="os_unix.html#Unix">Unix</a>:
+
+<b>	~/.vim/ftplugin/stuff.vim</b>
+<b>	~/.vim/ftplugin/stuff_def.vim</b>
+<b>	~/.vim/ftplugin/stuff/header.vim</b>
+
+The &lt;filetype&gt; part is the name of the <a href="filetype.html#filetype">filetype</a> the <a href="usr_05.html#plugin">plugin</a> is to be used for.
+Only files of this <a href="filetype.html#filetype">filetype</a> will use the settings from the <a href="usr_05.html#plugin">plugin</a>.  The &lt;name&gt;
+part of the <a href="usr_05.html#plugin">plugin</a> file doesn't matter, you can use it to have several plugins
+for the same <a href="filetype.html#filetype">filetype</a>.  Note that it must end in &quot;.vim&quot;.
+
+
+Further reading:
+|<a href="filetype.html#filetype-plugins">filetype-plugins</a>|	Documentation for the filetype plugins and information
+			about how to avoid that mappings cause problems.
+|<a href="starting.html#load-plugins">load-plugins</a>|		When the global plugins are loaded during <a href="starting.html#startup">startup</a>.
+|<a href="filetype.html#ftplugin-overrule">ftplugin-overrule</a>|	Overruling the settings from a global plugin.
+|<a href="usr_41.html#write-plugin">write-plugin</a>|		How to write a plugin <a href="usr_41.html#script">script</a>.
+|<a href="filetype.html#plugin-details">plugin-details</a>|	For more information about using plugins or when your
+			<a href="usr_05.html#plugin">plugin</a> doesn't work.
+|<a href="filetype.html#new-filetype">new-filetype</a>|		How to detect a new file type.
+
+==============================================================================
+
+*<a name="05.5"></A><b>05.5</b>*	Adding a help file		*<a name="add-local-help"></A><b>add-local-help</b>* *<a name="matchit-install"></A><b>matchit-install</b>*
+
+If you are lucky, the <a href="usr_05.html#plugin">plugin</a> you installed also comes with a help file.  We
+will explain how to <a href="usr_90.html#install">install</a> the help file, so that you can easily find help
+for your new <a href="usr_05.html#plugin">plugin</a>.
+   Let us use the &quot;matchit.vim&quot; <a href="usr_05.html#plugin">plugin</a> <a href="motion.html#as">as</a> an example (it is included with
+Vim).  This <a href="usr_05.html#plugin">plugin</a> makes the &quot;<a href="motion.html#&#37;">&#37;</a>&quot; command jump to matching HTML <a href="tagsrch.html#tags">tags</a>,
+if/else/endif in Vim scripts, etc.  Very useful, although it's not backwards
+compatible (that's why it is not enabled by default).
+   This <a href="usr_05.html#plugin">plugin</a> comes with documentation: &quot;matchit.txt&quot;.  Let's first copy the
+<a href="usr_05.html#plugin">plugin</a> to the right directory.  This time we will <a href="diff.html#do">do</a> it from inside Vim, so
+that we can use <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>.  (You may skip some of the &quot;mkdir&quot; commands if
+you already have the directory.)
+
+<b>	:!mkdir ~/.vim</b>
+<b>	:!mkdir ~/.vim/plugin</b>
+<b>	:!cp $VIMRUNTIME/macros/matchit.vim ~/.vim/plugin</b>
+
+The &quot;cp&quot; command is for <a href="os_unix.html#Unix">Unix</a>, on <a href="os_msdos.html#MS-DOS">MS-DOS</a> you can use &quot;copy&quot;.
+
+Now create a &quot;doc&quot; directory in one of the directories in <a href="options.html#'runtimepath'">'runtimepath'</a>.
+
+<b>	:!mkdir ~/.vim/doc</b>
+
+Copy the help file to the &quot;doc&quot; directory.
+
+<b>	:!cp $VIMRUNTIME/macros/matchit.txt ~/.vim/doc</b>
+
+Now comes the trick, which allows you to jump to the subjects in the new help
+file: Generate the local tags file with the |<a href="helphelp.html#:helptags">:helptags</a>| command.
+
+<b>	:helptags ~/.vim/doc</b>
+
+Now you can use the
+
+<b>	:help g%</b>
+
+command to find help for &quot;g&#37;&quot; in the help file you just added.  You can see an
+entry for the local help file when you <a href="diff.html#do">do</a>:
+
+<b>	:help local-additions</b>
+
+The title lines from the local help files are automagically added to this
+section.  There you can see which local help files have been added and jump to
+them through the <a href="tagsrch.html#tag">tag</a>.
+
+For <a href="editing.html#writing">writing</a> a local help file, see |<a href="usr_41.html#write-local-help">write-local-help</a>|.
+
+==============================================================================
+
+*<a name="05.6"></A><b>05.6</b>*	The option <a href="windows.html#window">window</a>
+
+If you are looking for an option that does what you want, you can search in
+the help files here: |<a href="options.html#options">options</a>|.  Another way is by using this command:
+
+<b>	:options</b>
+
+This opens a new <a href="windows.html#window">window</a>, with a list of <a href="options.html#options">options</a> with a one-line explanation.
+The <a href="options.html#options">options</a> are grouped by subject.  Move the cursor to a subject and press
+<a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> to jump there.  Press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> again to jump back.  Or use <a href="motion.html#CTRL-O">CTRL-O</a>.
+
+You can change the value of an option.  For example, move to the &quot;displaying
+text&quot; subject.  Then move the cursor down to this line:
+
+<b><font color="purple">	set wrap	nowrap </font></b>
+
+When you hit <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a>, the line will change to:
+
+<b><font color="purple">	set nowrap	wrap </font></b>
+
+The option has now been switched off.
+
+Just above this line is a short description of the <a href="options.html#'wrap'">'wrap'</a> option.  Move the
+cursor one line up to place it in this line.  Now hit <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> and you jump to
+the full help on the <a href="options.html#'wrap'">'wrap'</a> option.
+
+For <a href="options.html#options">options</a> that take a number or string argument you can edit the value.
+Then press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> to apply the new value.  For example, move the cursor a few
+lines up to this line:
+
+<b><font color="purple">	set so=0 </font></b>
+
+Position the cursor on the zero with &quot;<a href="motion.html#$">$</a>&quot;.  Change it into a five with &quot;r5&quot;.
+Then press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> to apply the new value.  When you now move the cursor
+around you will notice that the text starts <a href="scroll.html#scrolling">scrolling</a> before you reach the
+border.  This is what the <a href="options.html#'scrolloff'">'scrolloff'</a> option does, it specifies an offset
+from the <a href="windows.html#window">window</a> border where <a href="scroll.html#scrolling">scrolling</a> starts.
+
+==============================================================================
+
+*<a name="05.7"></A><b>05.7</b>*	Often used <a href="options.html#options">options</a>
+
+There are an awful lot of <a href="options.html#options">options</a>.  Most of them you will hardly ever use.
+Some of the more useful ones will be mentioned here.  Don't forget you can
+find more help on these <a href="options.html#options">options</a> with the &quot;<a href="helphelp.html#:help">:help</a>&quot; command, with single <a href="quotes.html#quotes">quotes</a>
+before and after the option name.  For example:
+
+<b>	:help 'wrap'</b>
+
+In <a href="change.html#case">case</a> you have messed up an option value, you can set it back to the
+default by putting an ampersand (&amp;) after the option name.  Example:
+
+<b>	:set iskeyword&amp;</b>
+
+
+NOT WRAPPING LINES
+
+Vim normally wraps long lines, so that you can see all of the text.  Sometimes
+it's better to let the text continue right of the <a href="windows.html#window">window</a>.  Then you need to
+scroll the text left-right to see all of a long line.  Switch wrapping off
+with this command:
+
+<b>	:set nowrap</b>
+
+Vim will automatically scroll the text when you move to text that is not
+displayed.  To see a context of ten characters, <a href="diff.html#do">do</a> this:
+
+<b>	:set sidescroll=10</b>
+
+This doesn't change the text in the file, only the way it is displayed.
+
+
+WRAPPING MOVEMENT COMMANDS
+
+Most commands for moving around will stop moving at the start and end of a
+line.  You can change that with the <a href="options.html#'whichwrap'">'whichwrap'</a> option.  This sets it to the
+default value:
+
+<b>	:set whichwrap=b,s</b>
+
+This allows the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> key, when used in the first position of a line, to move
+the cursor to the end of the previous line.  And the <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> key moves from
+the end of a line to the start of the next one.
+
+To allow the cursor keys <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> and <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> to also wrap, use this command:
+
+<b>	:set whichwrap=b,s,&lt;,&gt;</b>
+
+This is still only for <a href="intro.html#Normal">Normal</a> mode.  To let <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> and <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> <a href="diff.html#do">do</a> this in
+<a href="insert.html#Insert">Insert</a> mode <a href="motion.html#as">as</a> well:
+
+<b>	:set whichwrap=b,s,&lt;,&gt;,[,]</b>
+
+There are a few other flags that can be added, see <a href="options.html#'whichwrap'">'whichwrap'</a>.
+
+
+VIEWING TABS
+
+When there are tabs in a file, you cannot see where they are.  To make them
+visible:
+
+<b>	:set list</b>
+
+Now every <a href="intro.html#tab">tab</a> is displayed <a href="motion.html#as">as</a> ^I.  And a $ is displayed at the end of each
+line, so that you can spot trailing spaces that would otherwise go unnoticed.
+   A disadvantage is that this looks ugly when there are many Tabs in a file.
+If you have a color terminal, or are using the <a href="gui.html#GUI">GUI</a>, Vim can show the spaces
+and tabs <a href="motion.html#as">as</a> highlighted characters.  Use the <a href="options.html#'listchars'">'listchars'</a> option:
+
+<b>	:set listchars=tab:&gt;-,trail:-</b>
+
+Now every <a href="intro.html#tab">tab</a> will be displayed <a href="motion.html#as">as</a> &quot;&gt;---&quot; (with more or <a href="various.html#less">less</a> &quot;<a href="motion.html#-">-</a>&quot;) and trailing
+white space <a href="motion.html#as">as</a> &quot;<a href="motion.html#-">-</a>&quot;.  Looks a lot better, doesn't it?
+
+
+KEYWORDS
+
+The <a href="options.html#'iskeyword'">'iskeyword'</a> option specifies which characters can appear in a <a href="motion.html#word">word</a>:
+
+<b>	:set iskeyword</b>
+<b><font color="purple"> 	  iskeyword=@,48-57,_,192-255 </font></b>
+
+The &quot;<a href="repeat.html#@">@</a>&quot; stands for all alphabetic letters.  &quot;48-57&quot; stands for ASCII
+characters 48 to 57, which are the numbers 0 to 9.  &quot;192-255&quot; are the
+printable latin characters.
+   Sometimes you will want to include a dash in keywords, so that commands
+like &quot;<a href="motion.html#w">w</a>&quot; consider &quot;upper-case&quot; to be one <a href="motion.html#word">word</a>.  You can <a href="diff.html#do">do</a> it like this:
+
+<b>	:set iskeyword+=-</b>
+<b>	:set iskeyword</b>
+<b><font color="purple"> 	  iskeyword=@,48-57,_,192-255,- </font></b>
+
+If you look at the new value, you will see that Vim has added a comma for you.
+   To remove a character use &quot;-=&quot;.  For example, to remove the underscore:
+
+<b>	:set iskeyword-=_</b>
+<b>	:set iskeyword</b>
+<b><font color="purple"> 	  iskeyword=@,48-57,192-255,- </font></b>
+
+This time a comma is automatically deleted.
+
+
+ROOM FOR MESSAGES
+
+When Vim starts there is one line at the bottom that is used for <a href="message.html#messages">messages</a>.
+When a message is long, it is either truncated, thus you can only see part of
+it, or the text scrolls and you have to press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> to continue.
+   You can set the <a href="options.html#'cmdheight'">'cmdheight'</a> option to the number of lines used for
+<a href="message.html#messages">messages</a>.  Example:
+
+<b>	:set cmdheight=3</b>
+
+This does mean there is <a href="various.html#less">less</a> room to edit text, thus it's a compromise.
+
+==============================================================================
+
+Next chapter: |<a href="usr_06.html">usr_06.txt</a>|  Using <a href="syntax.html#syntax">syntax</a> highlighting
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_05.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

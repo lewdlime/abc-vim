@@ -1,0 +1,670 @@
+% The music from Joseph Mitchell's ballad opera "The Highland Fair", 1731
+% =======================================================================
+
+% ABC transcriptions by Jack Campin, 1998-1999; edition 1.1
+
+% The complete music for an uninspiring ballad opera based on Scots tunes.
+% This is the earliest source for many of the tunes it contains, and often
+% the simplest and most folk-like of the 18th century printed versions.
+% Despite the title and setting, hardly any are of Highland origin, and
+% the text doesn't suggest that Mitchell knew any Gaelic or had ever
+% visited the Highlands.  If you really want the text, order a xerox from
+% one of the libraries (xv + 76pp); somehow I don't think a revival would
+% threaten to put Stephen Sondheim or Andrew Lloyd Webber out of business.
+
+% Copies I've used:
+% 1. Glasgow University Library, Special Collections Dept, Mu %6 - h.28(4)
+% 2. National Library of Scotland, Glen.164(3)
+
+% I haven't preserved the original beaming or line breaks but otherwise
+% this is as near as I can get to an exact copy of the score.  All of my
+% editing is described in the tune headers.
+
+% Mitchell's lyrics are all very short, only enough for one playing of
+% each tune.  They're printed after the tunes, rather than interleaved.
+% For the most part they don't accurately fit either the slurring or
+% beaming.  My guess is that they *did* fit the folk texts he parodied,
+% that he had the music notated as in the play before starting to write,
+% then sent his working copy to the engraver unchanged.
+
+% It looks to me as though there were two or three different engravers;
+% a master and his apprentices, perhaps.
+
+% Full text of the title page:
+
+% The/Highland Fair;/ or,/ Union of the Clans./ an/ Opera./ As it is
+% Perform'd at the/ Theatre-Royal,/ In Drury-Lane,/ By His Majesty's
+% Servants./ written by Mr. Mitchell./ With the Musick, which wholly
+% consists of/ Select Scots Tunes,/ Prefix'd to each Song./ London:/
+% Printed for J. Watts, at the Printing-Office in/ Wild-Court near
+% Lincolns-Inn Fields./ MDCCXXXI./ Price One Shilling and Six Pence.
+
+% The ABC fits the 1.6 standard except that I use T for trill (this
+% will certainly be in future standards).  Let me know of any problems.
+
+X:1
+T:AIR I. O'er Bogie with my Love.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:the anacruses for each part are written (GA) in the book
+M:C|
+L:1/8
+K:AMin
+(G/A/)|c>d (cA     c)GGA     | cc          (d/c/B/A/     A)Gz
+ G    |Addc        deg>a     |(g/a/)(g/e/) (g/e/d/c/)   (cA2) ||
+(G/A/)|c2  (e/f/)g c2 (e/f/)g| c2          (d/c/)(B/A/) (AG) z
+ G    |Addc        deg>a     |(g/a/)(g/e/) (g/e/d/c/)   (cA2) |]
+
+X:2
+T:AIR II. Logan Water.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:AMin
+GA|c2A2 A3c|GEDE   G2AB|c2A2 A3c|G>Ac>d e3e|f2ed e2dc|d>cB>A G3 B|A>Bc>d e3d|c2A2 A2||
+eg|a2A2 A3c|G>ED>E G2eg|a2A2 A3c|G>Ac>d e3e|f2ed e2dc|dcBA   GABG|ABcd   e3d|c2A2 A2|]
+
+X:3
+T:AIR III. Nanny-O.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:DMin
+(F>G)|A3 c (Ac)(AG)|F2(ED) D2C>D |(F3G) (AB)(cA)|(d2     G>A)G2
+(FG) |A2c2 (BA)(GF)|G2A2   f3  e | d3c   AcGA   | d2     DE  D2||
+ AB  |c3 d  c2 (BA)|f2c2   c2(fe)| d3e  (fe)(fg)|(f/g/a) d2  d2
+ cB  |A2f2 (cA)(GF)|G2A2   f3  e | d3c  (Ac)(GA)| d2    (D>E)D2|]
+
+X:4
+T:AIR IV. Bob of Dumblain.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/8
+L:1/8
+K:CMin
+G|c2c e2e|gfe d2B|cdc efg|BGG G2||
+B|GEE A2F|BGG c2B|GEE AFF|BGG c2
+B|GEE AFF|BGG eef|gfe dcB|Gcc c2|]
+
+X:5
+T:AIR V. Bush aboon Traquair.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:D
+D| F2  A2   d3    f|(ed)  (e/f/g) e3G| F2  A2  (d>e d)(c/B/)|(A3 B)    D3
+D|(GF) A2  (d2  e)f|(ed)  (e/f/g) e3A|(GF) A2  (d>e d)(c/B/)|(A3 B)    D3||
+d|(cB)(AB) (cd)(ef)|(ga/g/ f>)g   e3A|(de)(fg) (a>ba>)g     |(f3 g/e/) d3
+d|(cB)(AB) (cd)(ef)|(ga/g/ f>)g   e3G|(GF) A2  (f>e d)(c/B/)|(A3 B)    D3|]
+
+X:6
+T:AIR VI. Give me a Lass with a Lump of Land.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:No repeat marked in the music, but needed to fit the text.
+M:6/8
+L:1/8
+K:G
+g>ag fge|f2g a2f|g>ag f2e    |deg (dB)G:|
+ABd  e2d|g2d e2d|ABd  e>fe/f/|gfe  dBG :|
+
+X:7
+T:AIR VII. Bonny Broom.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C
+L:1/8
+K:Fmix
+E|E3     G  B3       c|(BG)(FG) E2 (eB)   |c2 (e>f) (e/f/g) f>e|c6 e2|
+ (B>c)(e>f) g2 (g/f/)e| e2  E>F G2 G/(F/E)|A2 (B>c) (B>c)(B>G) |F6  |]
+
+X:8
+T:AIR VIII. Jockey's fu, and Jenny's fain.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:D
+DDFD             cD          E2 |(D/E/D)       FD          dD A2 |\
+DDFD            (F/A/)(G/F/) E>F| DdAB                     Fd D2||
+Dd (d/c/)(B/A/) (B/A/)(G/F/) E>F| DdAB                     Fd A2 |\
+Dd (d/c/)(B/A/) (B/A/)(G/F/) E>F|(D/E/)(F/G/) (A/B/)(c/A/) dD D2||
+
+X:9
+T:AIR IX. Last time I came o'er the Muir.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:first anacrusis is a crotchet in the original
+M:C|
+L:1/8
+K:F
+ c    | A2  GF  f3  g |(f/g/a) (gf) e3  c | d3   c  (AG)(Ac)|(d3e) f3
+ c    | A2 (GF) f3  g |(f/g/a) (gf) e2(dc)|(de)(fg) (ag)(fe)|(d3e) f3
+(e/f/)| g2  c2  c3  a |(ge)(de)     c3  d |(cA)(GA) (FG)(AB)| c4   f3
+ c    |(dc)(df) d2(cA)|(GA)(cd)     f3  g |(ag)(fd) (fd)(cA)| G4   F3|]
+
+X:10
+T:AIR X. Bonnie Lassie, take a Man.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:F
+ F3   A   G2 (G/A/B)| G2 (FD) G2 z2|F2(F/G/A) G2  AB | G2F2  f2z2|\
+(ag)(fd) (cd)(fA)   |(BA)(GF) G2 z2|f2 ed    (cd)(fA)| G4    F2z2|
+ f3   a   g2 (ag)   | f2  d2  g2 z2|f2(f/g/a) g2  ag | f2d2  f2z2|\
+(ag)(fd) (cd)(fA)   |(BA)(GF) G2 z2|f2(ed)   (cd)(fA)|(G3 F) F4 |]
+
+X:11
+T:AIR XI. Fy gar rub her o'er with Strae.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:GDor
+A|B3 A G3  d |(cd)(Bc) A2 F2 |B3 A G3  d |(cB)(AB) G2z
+A|B3 A G3  d |(cd)(Bc) A2(GF)|B3 c d2 g2 |(dc)(BA) G3||
+e|f2d2 d2(cB)|(AB)(cB) A2(GF)|f2d2 d2(ef)|(gf)(df) g3
+a|f2d2 d2(cB)|(AB)(cB) A2(GF)|B3 c d2 g2 |(dc)(BA) G3|]
+
+X:12
+T:AIR XII. My Mother's ay glowrin o'er me.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/8
+L:1/8
+K:DMin
+D|D>ED     CB,A,| F3   E2G|A>BA GFE  |c3 A2
+z|F>GA/B/ (cBA) | GEc  C2C|D>ED CB,A,|F3 E2||
+d|ded      c2A  |(de)f e2d|cdc  AGF  |c3 d2
+d|cAF      cAF  | GEC  GEC|DED  CB,A,|F3 E2|]
+
+X:13
+T:AIR XIII. Katharine Ogie.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:AMin
+A| E2  A2  A2(GA)| B2   A2  A2(Bc)| d3   e  (dB)(AG)| G3A  B2(AG)|
+   E2  A2  A2(GA)| B2  (AG) g3  a |(ba)(ge) (ge)(dB)| A4   e3   ||
+d|(cd)(ef) g3  a |(ge) (dB) g3  d | B2  g2  (dB)(AG)|(G3A) B3  B |
+   c2 (Bc) d2(cd)| e2  (de) g3  a |(ba)(ge) (ge)(dB)| A4   e3   |]
+
+X:14
+T:AIR XIV. Sowr Plumbs of Gallashiels.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:G
+G2 | B3    c   B2 ge  |(dB)(AG)      A3  B | G3   A    (BA)(Bd)| e3   d   B2
+d>g|(e>dB>)e  (d>BA>)d|(B>A)(G>B)    A2(dB)| G3   d    (e>fg>)c| B2 (A>B) G3||\
+ d |(e>f)(g>a) g2 G2  | g2  (de/=f/) e2(dc)| B2 d>e    =f2 (gf)| e4       d2 z
+ d |(e>f)(g>a) g2 G2  |(g>b)(a>g)    e2(dc)| B2(d>e)  (=fa)(gf)| e4       d2 z
+ d |(e>f)(g>a) g2 G2  | g2  (de/=f/) e2(dc)|(BA) B2    (dB) d2 |(e>d e2) =f3
+ f |(ge)  g2  (ed)e2  |(dB)  d2     (BA)B2 | g3  (f/e/) d2 (cB)|(A3   G)  G3|]
+
+X:15
+T:AIR XV. Auld lang Syne.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:Cmix
+c2|f3g   (fg)a2 |c2A2 TG3F |f3g (f/g/a) (gf)|({f}d6)
+c2|f3g   (fg)a2 |c2A2 TG3F |f3g (f/g/a) (gf)|({f}d6)||
+f2|A2(GF) F2(GA)|B3A   G2A2|c3d  c2     (BA)|    f6
+c2|A2(GF) F2(GA)|B3B   G3A |c3d (cdcA)      |    c6 |]
+
+X:16
+T:AIR XVI. Wert thou but my ain Thing.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C
+L:1/8
+K:G
+D3 G G3 B|A2GF E4 | GFED   GAB2 | cBAG  Bcd2|\
+D3 G G3 B|A2GF E4 |(ded)B (cBAG)| G3 A  B4 :|
+d2D2 D3 B|A2GF E3F| D2 d2  d3  e|(ded)c B2BB|\
+cdec BcdB|ABcA D3e|(ded)B (cBA)G| G3  A B4 :|
+
+X:17
+T:AIR XVII. Maggy Lawder.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:third "c" in bar 4 might be a "d"
+M:C
+L:1/8
+K:A
+B|A>BA>A A>BA>A|B>cB>A G>AB>B|c>AA>A A>BA>A |c>de>d c>ce>e|
+  f>ed>c d>cB>c|d>cB>A G>AB>B|A>GF>E D>CB,>d|c>dB>c A2 A2|]
+
+X:18
+T:AIR XVIII. Peggy, I must love thee.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:G
+D|E2G2 G3B|(AB)(AG) E3D| E2 G2 (GA)(Bc)|  A4      G3
+D|E2G2 G3B|(cB)(AG) E3D| E2 G2 (GA)(Bc)|  A4      G3
+G|B2d2 d3e|(ed)(cB) A3G| B2 d2  d3   e |(=fe)(fg) e3
+d|e2g2 d3e| B2  g2  A3G|(DE)G2 (GA)(Bc)|  A4      G3|]
+
+X:19
+T:AIR XIX. Johny, Lad, cock up your Beaver.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/4
+L:1/4
+K:F
+d/d/|ccF          A>GF|GAG B2d|c2B A2G   |Ffc A>Bc     |
+     dcd          fcA |GAG B2f|c2B AAA/G/|Ffc A2 A     |
+     B/A/B/c/d/e/ fFA |GAG B2f|c2B A2G   |Ffc A2(G/F/)|]
+
+X:20
+T:AIR XX. The Lass of Patie's Mill.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:C
+ G2    | E2  C2  E2 G2 |(c3d c2)G2| A2 (GE) (cA)(GE)|D6
+(AG)   | E2  C2  E2 G2 |(c3d c2)G2|(AB)(cA) (Bc)(dB)|c6||
+(ef)   | d2 (cd) B2(AG)| c4  G4   |(AB)(cB) (AG)FE  |D6
+(e/f/g)|(fe)(dc) A2 f2 | d6     G2|(AB)(cA) (Bc)(dB)|c6|]
+
+X:21
+T:AIR XXI. Tweed-side.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:3/4
+L:1/8
+K:G
+ BA   |G2    D2    (E>F)|G3      A    G/A/B|TA4
+ B>A  |G2    D2    (E>F)|G3      A    G/A/B| G4
+ B>A  |G2    D2     E>F |G3      A    G/A/B|TA4
+(G>A) |B2   (dB)   (A>G)|A/B/c  B2   (AG)  | G6|\
+       B2   (B/c/d) cB  |AG     e2    c>B  |TA4
+(B>c) |B/c/d c>B   (A>G)|F2    (G>A) (Bc)  | d4
+ e/f/g|d2   (c>B)  (A>G)|c/d/e (d>c) (B>c) |TA4
+(G>A) |B2   (dB)   (AG) |A2    (AE)  (FD)  | G4|]
+
+X:22
+T:AIR XXII. Waes my Heart, that we shou'd sunder.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:bar 10 could be |(ed)(ef)  (e>f g)(f/e/)|
+M:C|
+L:1/8
+K:C
+c2|(GE)(DE)  G3     c    |(AGA)B     A2   (GA)   | c3   d   egde   |(c3d) e2g2  |
+   (GE)(DE)  G3     G    | A2GF      f3     a    | g3   e  (ge)dc  | A3G  A2c3/||
+f/|(fe)(fg) (f>g a)(g/f/)|(ed)(eg)  (e>f g)(f/e/)|(de)(ga) (ge)(de)| c3d  e2g>G |
+   (GE)(DE)  G2  G2      | A2 (GF)   f3     a    |(ga)(ge) (fe)(dc)| A3G  A2c2 |]
+
+X:23
+T:AIR XXIII. There's my Thumb.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:Cmix
+(FG)(AB)  c2  F2 |(GA)(Bc) d2 f2|(FG)(AB) c2BA|(de)(fA) c2 BA |
+(BA)(Bc) (de)(fA)| G3   A  d2 ef| F3   D  C3 D| F3   G  A2 c2|]
+
+X:24
+T:AIR XXIV. Be Valiant still.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+T:To Daunton Me
+M:C|
+L:1/8
+K:DMin
+ FG |A2D2 D2 GF | E2 (DC) C2FG    | A3   d  (cA)(GE)| A2  D2  D2||
+(cB)|A2c2 d2(ed)|(cd)(cA) G3 c    | A2  c2   d2  e2 |(ge)(dc) A2
+(cd)|e2g2 d2 e2 |(cd)(cA) G3(c/d/)|(ed)(cA) (cA)(GE)| A2  D2  D2|]
+
+X:25
+T:AIR XXV. Love is the Cause of my Mourning.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:the gracenotes are written as quavers in the book
+M:3/4
+L:1/8
+K:F
+CD| F2  (A>B) (A/B/c) |    A3    G   F2 | f3    g  (f/g/a)|({c}A4)
+Ac| d2  (fd)  (cA)    |   (cd) (cA) (GF)|(ag) (fd) (cA)   |   (GA   GF)
+D2| F2  (A>B)  A(B/c/)|    A3    G   F2 | f3    g  (f/g/)a|({c}A4)
+fc|(A2   cA)  (GF)    |({F}G3)   F  (GA)| c2  (A>d  G>d)  |    A4    ||\
+c2|(fe) (fg)  (ag)    |   (fg) (fd)  c2 |(dc) (da) (gf)   |   (df) (dc)
+A2|(cA) (cd)  (fd)    |   (cd) (cA) (GF)|(ag) (fd) (cA)   |   (GA) (GF)
+D2| f>g  a2    a2     |  (Ta3    g)  f2 | f3    g  (f/g/a)|({c}A4)
+f2| A2  (cA)  (GF)    |({F}G3)   F  (GA)| c2  (A>c  G>c)  |    A4    |]
+
+X:26
+T:AIR XXVI. The bonny Boatman.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:C
+(EF)| G2 (A/B/c) (AG)(FE)|(FE)(DC)     G3A|(AB)(cd) (e/f/g) (fe)       |(d3e) D2
+(EF)| G3   c     (AG)(FE)|(FE)(DC)     G3E| F2 (GA)  G2     (B3/A//B//)|(B3c) C2||
+(cB)|(AG)(AB)    (cd)(ec)|(d/e/f) (fe) d3D|(DE) G2  (c>d)   (e/f/g)    | d3e  D2
+(EF)| G2 (A/B/c) (AG)(FE)|(FE)(DC)     G3E|(F2  G)A (Gc)    (B/c/d)    | c4   C2|]
+
+X:27
+T:AIR XXVII Scornful Nancy.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:C
+  G | G3   A   G2 (FE)|(FE)(DC) A3  c | G3A       (GA)(GE)|(G3A)    c2
+(cd)|(ed)(cA) (cA)(GE)|(FE)(DC) A3  c | G3A       (GA)(cE)|(G3A)    c2||
+(GA)|c2   e2   e2 (de)|(fe)(dc) A2(GA)| c3      d (ed)(ec)|(f3g/a/) g3
+  a |(ga)(gf)  e2 (de)|(fe)(dc) A2 f2 |(e/f/g) G2 (GA)(GE)| G4      c2|]
+
+[X:28
+T:AIR XXVIII. Bessy Bell end Mary Grey.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/8
+L:1/8
+K:C
+ C    |(EF)G (GA)_B  |(AG)A F2F     |(EF)G (GA)G|e3 f2
+(e/f/)| g2G  (GA)_B  |(AG)F f2(e/f/)|(gf)e (dc)B|c3 e2||
+(e/f/)|(ge)c (e/f/g)e|(dB)d f2(e/f/)|(ge)c (eg)c|e3 f2
+(e/f/)|(ge)c (eg)e   |(dB)d f2(e/f/)|(gf)e  dcB |c3 e2|]
+
+X:29
+T:AIR XXIX. Corn Rigs are bonny.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/4
+K:Bb
+F|Bd d   (c/B/)|A>BcF|Bd  d>c      |Bf2F   |Bd  d(c/B/)|A>BcA|BGA>G|FB2||
+F|Bf d/e/ f    |A>BcF|Bf (d/e/f/e/)|df2d/c/|Bf (d/e/)f |A>BcA|BGA>G|FB2|]
+
+X:30
+T:AIR XXX. Muirland Willy.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/4
+L:1/4
+K:Dmin
+FFD  F2 G|(AG)A  c2    A| F2  F c2 B/A/  |G2F  E2(D/^C/)|\
+D2D  F2 G|(AG)A  f2    e|(d^c)d A2(d/^c/)|d3 - d2 A     |
+d2d (de)f| A2 A (A/B/)c2| F G F c2(B/A/) |G2F  E2 D/^C/ |\
+D2D  F2 G| A>BA  f2    e| d^cd  A2(d/^c/)|d3 - d2      |]
+
+X:31
+T:AIR XXXI. An the Kirk wad let me be.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:9/4
+L:1/4
+K:Gdor
+C|F>GF Acd cAF|G>AF GAc  d2f|F>GF fed cAF| GAB     AGF D2:|
+c|fcf  fgf edc|dcd  f>ga g2f|fcf  fgf edc|(d/e/f)d cAF G2:|
+
+X:32
+T:AIR XXXII. Pinky House.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C
+L:1/8
+K:G
+ G>A   |B>A B>d B2 AG |d>B     d>e  d2 (e/f/g)|e>d eg  dB     AG |(A3B A2)
+ G>A   |B>A B>d B2 AG |d>B     de   d2 (e/f/g)|e>d eg (e/f/g) a>g|(g3a g2)||
+ f>g   |a>g a>b a2 g>a|(ba/g/) f>e ^d2  e>f   |g>f g>a f3       e|(e3f e2)
+(e/f/g)|dB  AG  Bd eg | dB     A>G  E2  b>a   |g>e g>B A3       G| G6     |]
+
+X:33
+T:AIR XXXIII. I'll gar you be fain to follow me.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/4
+L:1/4
+K:F
+F|(A/B/)cc  f2a          |g2G  G2F|(A/B/)cc  ffg    | e>dc         f2
+A| B>cd     cdf          |g2G  G2F|(A/B/)cc (d/e/)fc| AFF          F2||
+c|(A/B/)cd (cA)F         |B>cA G2F|(A/B/)cd  cAF    |(B/A/)(B/c/)d c2
+F| B>cd     c(d/c/)(B/A/)|BGG  G2F|(A/B/)cc (d/e/)fc| AFF          F2|]
+
+X:34
+T:AIR XXXIV. With tuneful Pipe.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:sic!
+M:C|
+L:1/8
+K:C
+G2|(c>de)c     (gd)(cB)| c2(fe)        d3c|(cG)(GA) (GFE)F       |
+   E3G (c>de)c|(gd)(cB) c2(fe)|d3(g/^f/) (g^fg)d     |(cB)(AG) G3||
+ G|(c>de) (d/c/) A3   A |(B>cd) (c/B/) ^G3f|(ed)(cB) (B>dc) (B/A/)|
+   A3G (c>de)(d/c/)|A3A (d>ef) (e/d/)|B3g (g/f/e) (e/d/c)|
+   A3a (a/g/f) (f/e/d)|B3g (gc)(cd)|(d>fe) (d/c/) c3|]
+
+X:35
+T:AIR XXXV. Bonny Dundee.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:The repeat sign is marked two-sided; the words
+N:require only the first strain to be repeated.
+N:Last bar is printed as |dc/B/A/ G2|]
+M:6/4
+L:1/4
+K:GMin
+ D|DGG G2B|AGF ABc |d2d d2g|d>cB/A/  G2:|
+=e|fag fag|fFF ABc |ded d2g|a>g^f/e/ d2
+=e|fag fag|fFF A>Bc|d2d d2g|d>cB/A/  G2|]
+
+X:36
+T:AIR XXXVI. Bonniest Lass in all the World.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:G
+GA|B2D2 E2GA|A3G   E2DE|G2G2 g2d2  |e4  d2
+ga|bage degB|cBA>G E2DE|G2g2 d>ec>d|B3A G2||
+ef|g2d2 e2g2|abag  egae|dega bage  |g4  d2
+ga|bage degB|cBAG  EGDE|GABc degd  |B3A G2|]
+
+X:37
+T:AIR XXXVII. Rock and a wi Pickle-Tow.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:The repeat isn't marked but the words require it.
+M:6/8
+L:1/8
+K:Eb
+B,|(B,/C/E)F G2B|(c/d/e)G F2G |E>FE G2F|GEE      E2 :|
+e | cce      cce| cce     c>BA|BBc  BBc|B(c/d/)e B>AG|
+    A2B      c2B |c/d/eG  F2G |E>FE G2F|GEE      E2 ||
+
+X:38
+T:AIR XXXVIII. Jocky and Jenny.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:3/4
+L:1/8
+K:F
+ A2   c2   f2 |(dc) (BA) (GF)   |(EF)  G2  (AB)|G6    |\
+ B2   d2   f2 |(dc) (BA) (B/c/d)|(cA) (GF) (GA)|F4 F2 |
+ A2   c2   f2 |(dc) (BA) (GF)   |(EF)  G2  (AB)|G4 G2 |\
+ B2   d2   f2 |(dc) (BA) (B/c/d)|(cA) (GF) (GA)|F6    |
+(ef)  g2   a2 | g2  (fe) (dc)   | f2   f2   e2 |d4 f2 |\
+(ef) (ge) (af)|(ge) (fd) (ec)   |(d=B) G2   B2 |c4(fe)|
+ f2   A2   d2 | c2   F2   A2    | B3    c  (BA)|G4 c2 |\
+(df)  e2   f2 |(ga) (ba) (gf)   |(ge)  c2  (fe)|f6   |]
+
+X:39
+T:AIR XXXIX. Dainty Davy.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:AMin
+c2|G3F  E2D2|C2A,2 C4 | C2  G2   EF  G2  |C2G2 E2
+c2|G3F  E2D2|C2A,2 C3B|(cB)(cA) (cB)(A^G)|A4   c4||
+   c2e2 c2e2|c2e2 e2dc| B2  d2   B2  d2  |B2d2 d2
+cB|c2e2 c2e2|c2e2 e2dc|(dc)(BA) (cB)(A^G)|A6     |]
+
+X:40
+T:AIR XL. Wat ye wha I met ystreen.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:EMin
+EEFE  FAB2|ABdF  EDB,2|D>EFE DEF2|A,B,DE FEE2||
+e>feE GBd2|d>efe dBAB |d>edD FAd2|B2AF   GEE2|]
+
+X:41
+T:AIR XLI. My Wife's a wanton Wi Thing.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:there's no natural sign in bar 4 in the book, but there is a
+N:sharp - presumably the previous natural was meant to persist
+M:6/4
+L:1/4
+K:D
+      d2A (B/c/)dA|d3 A2B   |=c>dc cGE|=c3 C2
+^c   |d2A  B/c/ dA|d3 A2G   | FDF  ECE| D3-D2||
+ F/G/|A>BA FDF    |A3 F2E/F/| G>AG ECE| G3 E2
+ F/G/|A>BA FDF    |A3 a2g   | fdf  ece| d3-d2|]
+
+% At this point in the action a drunk sings fragments of songs with
+% their original words.  The words quoted are (in full):
+
+% Oe'r the Hills and far away...
+
+% Wou'd they had not been,
+% Or we had never seen
+% Such a parcel of Rogues in the Nation...
+
+% Saw you not my Maggy?
+% Saw you not my Maggy?
+% Saw you not my Maggy?
+% Coming over the Lee?...
+
+X:42
+T:AIR XLII. I wish my Love were in a Mire.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:AMin
+(GA)| c2 (c/d/e) c3 E    |(DC)      (DE)     A3      G |c2  G2  (cd)(ed)|(d/c/B/d/ c)(B/A/) A2
+(ed)| c2 (c/d/e) c3 E    |(DC)      (DE)     A3      c |G3   A  (GE)(DC)|(AB/c/)  (BA)      A2||\
+(ed)| c2 (GA)    G3(e/d/)|(c/B/c/d/) c(B/A/) G2 (c/d/e)|f2 (ga) (ge)(dc)| f2      (ed)      d2
+(ef)|(ge)(ce)    g3 E    |(DC)      (DE)     A2 (A/B/c)|G3   A  (GE)(DC)| A/B/c    BA       A2|]
+
+X:43
+T:AIR XLIII. Hap me in thy Peticoats.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:DMin
+f| cAGF                     D>CDF    |c>d (c/d/)(c/A/) c3
+f|(c/d/)(c/A/) (B/A/)(G/F/) D>CDF    |d>f (d/f/)(d/c/) d3||
+f| cdf>g                   (f/g/)a gf|c>d (c/d/)(c/A/) c3
+d| cdfg                     fagf     |da  (b/a/)(g/f/) d3|]
+
+X:43
+T:AIR XLIV. The Lass of Livingstone.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:DMin
+(CD)| F3   G   A3   f |(cA)(cd) (cA)(GF)|A2 G2   G2 (FG)|(F/G/A)  G2 G2
+(FD)|(CD)(FG) (Ac)(GA)|(FE)(FG) (AB)(cA)|d2 D2  (DF)(CD)| F2     (ED)D2||\
+ c2 | f3   g  (fg)(ag)|(fc)(df) (cA)(GF)|A2 G2   G2 (FG)|(FG/A/)  G2 G2
+ zc | f3   g  (fg)(ag)|(fc)(df) (cA)(GA)|F2(ED) (DF)(CD)| F2     (ED)D2|]
+
+X:45
+T:AIR XLV. Polworth on the Green.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:C
+ G2 | E2 (DC) G2(FE)| G3  (A  G2)cd |e2(de) (fe)(dc)|d6
+ G2 | E2 (DC) G2(FE)| F3   G  A2(GF)|G2 e2  (fe)(de)|c6 ||
+(cd)|(ef)(ga) g2 fe |(de)(fg) f2(ed)|c3  d  (cd)(ef)|d4 z2
+ G2 |(FE)(DC) G2(FE)| F3   G  A2(GF)|G2 e2  (fe)(de)|d6 |]
+
+X:46
+T:AIR XLVI. Wap at the Widow, my Laddie.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/8
+L:1/8
+K:Amix
+D|F>EF (D/E/F)D|(EA,)F E2D|F>EF (DFD)|(EF)G d2e|c>BA  BAF    |dAF E2D|F>EF DFD|F3 A2||
+A|d>ef  efd    | eBf   e2d|d>ef (ef)d| c>BA d2e|c>BA (F/G/A)B|AFd E2D|d>cd AdD|F3 A2|]
+
+X:47
+T:AIR XLVII. Bessy's Haggice.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:C|
+L:1/8
+K:AMix
+ A,2 D2   D2 (FA)|(BA)(GF) E3 F| D2  F2   D2  A2 |(Bc)(dA) F2A2 |\
+ B2  d2  (FG)(AF)|(BA)(GF) E3 F| D2  F2   A2  de | f2  D2  F2A2||
+ D2  A2   d2  cB | e2  E2  E2FE| D2  A2   d2  cB | c2  BA  d3 e |\
+(fd)(ec) (dB)(cA)|(BF)(GA) E3 F|(DE)(FG) (AB)(cA)| d2  D2  F2A2|]
+
+X:48
+T:AIR XLVIII. Auld Rob Morrice.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/jack.html>
+M:3/4
+L:1/8
+K:G
+(GA/B/)|(G3 E) D2 |E2 G2  g2 | d3 B  (AG)|A3 (cB) A|(GA) (GE) D2|E2 G2 g2  |d3B (AG)|G4||
+G(A/B/)| A2A2 (Bd)|e2 e2 (ga)|(bage) (dB)|A3 (cBA) |(GAGE)    D2|E2 G2 g> e|d3B  A>G|G4|]
+
+X:49
+T:AIR XLIX. How can I be sad on my Wedding-Day?
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:6/8
+L:1/8
+K:C
+E/F/|G>AG E2C |E2G c2G |A>BA F2D|EFG c>dc|
+     C>DC c>de|edc B>AG|ABA  F2D|GAB c2 |]
+
+X:50
+T:AIR L. Winchester Wedding.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+M:9/8
+L:1/8
+K:Bb
+B,|DEF GFE DCB,|DEF BG2 c2F|DEF GFE DEF|GAB cAF B2:|
+g |fdB f2B c2G |cde GcB A2F|BGE GBG cAF|Ged c2B B2:|
+
+X:51
+T:AIR LI. Good Night, and God be wi ye.
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin <http://www.campin.me.uk/>
+N:the ending (including this tune) is missing from the NLS copy
+M:C|
+L:1/8
+K:G
+BA| G2  G2   D3   G |E2G2 e3  d |(Bd)(ed) (Bd)(ed)|B2(AG) G3
+e |(dB)(AG) (DE)(GD)|E2G2 e3  d |(Bd)(ed) (Bc)(ed)|B2(AG) G3||
+B | A2  A2   A2 (GE)|G2GA B2 AG |(AG)(AB) (cB)(cd)|e2 A2  A2
+Bd| e3   d   B3   A |G3 A B2(AG)| A2  E2   G3   A |B2 G2  G2|]

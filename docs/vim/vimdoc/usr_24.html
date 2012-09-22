@@ -1,0 +1,636 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_24</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_24</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_24.txt"></A><b>usr_24.txt</b>*	For Vim version 7.3.  Last change: 2006 Jul 23
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			     Inserting quickly
+
+
+When entering text, Vim offers various ways to reduce the number of keystrokes
+and avoid typing mistakes.  Use <a href="insert.html#Insert">Insert</a> mode completion to repeat previously
+typed words.  Abbreviate long words to short ones.  Type characters that
+aren't on your keyboard.
+
+|<a href="usr_24.html#24.1">24.1</a>|	Making corrections
+|<a href="usr_24.html#24.2">24.2</a>|	Showing matches
+|<a href="usr_24.html#24.3">24.3</a>|	Completion
+|<a href="usr_24.html#24.4">24.4</a>|	Repeating an insert
+|<a href="usr_24.html#24.5">24.5</a>|	Copying from another line
+|<a href="usr_24.html#24.6">24.6</a>|	Inserting a <a href="sponsor.html#register">register</a>
+|<a href="usr_24.html#24.7">24.7</a>|	<a href="map.html#Abbreviations">Abbreviations</a>
+|<a href="usr_24.html#24.8">24.8</a>|	Entering special characters
+|<a href="usr_24.html#24.9">24.9</a>|	<a href="digraph.html#Digraphs">Digraphs</a>
+|<a href="usr_24.html#24.10">24.10</a>|	<a href="intro.html#Normal">Normal</a> mode commands
+
+     Next chapter: |<a href="usr_25.html">usr_25.txt</a>|  Editing formatted text
+ Previous chapter: |<a href="usr_23.html">usr_23.txt</a>|  Editing other files
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="24.1"></A><b>24.1</b>*	Making corrections
+
+The <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> key was already mentioned.  It deletes the character just before the
+cursor.  The <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a> key does the same for the character under (after) the
+cursor.
+   When you typed a whole <a href="motion.html#word">word</a> wrong, use <a href="index.html#CTRL-W">CTRL-W</a>:
+
+<b><font color="purple">	The horse had fallen to the sky </font></b>
+				       <a href="index.html#CTRL-W">CTRL-W</a>
+<b><font color="purple">	The horse had fallen to the </font></b>
+
+If you really messed up a line and want to start over, use <a href="scroll.html#CTRL-U">CTRL-U</a> to delete
+it.  This keeps the text after the cursor and the indent.  Only the text from
+the first non-blank to the cursor is deleted.  With the cursor on the &quot;<a href="motion.html#f">f</a>&quot; of
+&quot;fallen&quot; in the next line pressing <a href="scroll.html#CTRL-U">CTRL-U</a> does this:
+
+<b><font color="purple">	The horse had fallen to the </font></b>
+		      <a href="scroll.html#CTRL-U">CTRL-U</a>
+<b><font color="purple">	fallen to the </font></b>
+
+When you spot a mistake a few words back, you need to move the cursor there to
+correct it.  For example, you typed this:
+
+<b><font color="purple">	The horse had follen to the ground </font></b>
+
+You need to change &quot;follen&quot; to &quot;fallen&quot;.  With the cursor at the end, you
+would type this to correct it:
+
+<b>					&lt;Esc&gt;4blraA</b>
+
+ 	get out of <a href="insert.html#Insert">Insert</a> mode		<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>
+	four words back			     4b
+	move on top of the &quot;<a href="insert.html#o">o</a>&quot;		       <a href="motion.html#l">l</a>
+	replace with &quot;<a href="insert.html#a">a</a>&quot;			ra
+	restart <a href="insert.html#Insert">Insert</a> mode			  A
+
+Another way to <a href="diff.html#do">do</a> this:
+
+<b>		&lt;C-Left&gt;&lt;C-Left&gt;&lt;C-Left&gt;&lt;C-Left&gt;&lt;Right&gt;&lt;Del&gt;a&lt;End&gt;</b>
+
+ 	four words back		     &lt;C-Left&gt;&lt;C-Left&gt;&lt;C-Left&gt;&lt;C-Left&gt;
+	move on top of the &quot;<a href="insert.html#o">o</a>&quot;			<a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>
+	delete the &quot;<a href="insert.html#o">o</a>&quot;				       <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>
+	insert an &quot;<a href="insert.html#a">a</a>&quot;					    a
+	go to end of the line				     <a href="motion.html#&lt;End&gt;">&lt;End&gt;</a>
+
+This uses special keys to move around, while remaining in <a href="insert.html#Insert">Insert</a> mode.  This
+resembles what you would <a href="diff.html#do">do</a> in a modeless editor.  It's easier to remember,
+but takes more time (you have to move your hand from the letters to the cursor
+keys, and the <a href="motion.html#&lt;End&gt;">&lt;End&gt;</a> key is hard to press without looking at the keyboard).
+   These special keys are most useful when <a href="editing.html#writing">writing</a> a <a href="map.html#mapping">mapping</a> that doesn't
+leave <a href="insert.html#Insert">Insert</a> mode.  The extra typing doesn't matter then.
+   An overview of the keys you can use in <a href="insert.html#Insert">Insert</a> mode:
+
+	<a href="motion.html#&lt;C-Home&gt;">&lt;C-Home&gt;</a>	to start of the file
+	<a href="scroll.html#&lt;PageUp&gt;">&lt;PageUp&gt;</a>	a whole screenful up
+	<a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>		to start of line
+	<a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a>	one <a href="motion.html#word">word</a> left
+	<a href="motion.html#&lt;C-Left&gt;">&lt;C-Left&gt;</a>	one <a href="motion.html#word">word</a> left
+	<a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a>	one <a href="motion.html#word">word</a> right
+	<a href="motion.html#&lt;C-Right&gt;">&lt;C-Right&gt;</a>	one <a href="motion.html#word">word</a> right
+	<a href="motion.html#&lt;End&gt;">&lt;End&gt;</a>		to end of the line
+	<a href="scroll.html#&lt;PageDown&gt;">&lt;PageDown&gt;</a>	a whole screenful down
+	<a href="motion.html#&lt;C-End&gt;">&lt;C-End&gt;</a>		to end of the file
+
+There are a few more, see |<a href="insert.html#ins-special-special">ins-special-special</a>|.
+
+==============================================================================
+
+*<a name="24.2"></A><b>24.2</b>*	Showing matches
+
+When you type a ) it would be <a href="todo.html#nice">nice</a> to see with which ( it matches.  To make
+Vim <a href="diff.html#do">do</a> that use this command:
+
+<b>	:set showmatch</b>
+
+When you now type a text like &quot;(example)&quot;, <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> you type the ) Vim will
+briefly move the cursor to the matching (, keep it there for half a second,
+and move back to where you were typing.
+   In <a href="change.html#case">case</a> there is no matching (, Vim will beep.  Then you know that you
+might have forgotten the ( somewhere, or typed a ) too many.
+   The match will also be shown for <a href="motion.html#[]">[]</a> and <a href="intro.html#{}">{}</a> pairs.  You don't have to wait
+with typing the next character, <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> Vim sees it the cursor will move
+back and <a href="insert.html#inserting">inserting</a> continues <a href="motion.html#as">as</a> before.
+   You can change the time Vim waits with the <a href="options.html#'matchtime'">'matchtime'</a> option.  For
+example, to make Vim wait one and a half second:
+
+<b>	:set matchtime=15</b>
+
+The time is specified in tenths of a second.
+
+==============================================================================
+
+*<a name="24.3"></A><b>24.3</b>*	Completion
+
+Vim can automatically complete words on insertion.  You type the first part of
+a <a href="motion.html#word">word</a>, press <a href="motion.html#CTRL-P">CTRL-P</a>, and Vim guesses the rest.
+   Suppose, for example, that you are creating a C program and want to type in
+the following:
+
+<b><font color="purple">	total = ch_array[0] + ch_array[1] + ch_array[2]; </font></b>
+
+You start by entering the following:
+
+<b><font color="purple">	total = ch_array[0] + ch_ </font></b>
+
+At this point, you tell Vim to complete the <a href="motion.html#word">word</a> using the command <a href="motion.html#CTRL-P">CTRL-P</a>.
+Vim searches for a <a href="motion.html#word">word</a> that starts with what's in front of the cursor.  In
+this <a href="change.html#case">case</a>, it is &quot;ch_&quot;, which matches with the <a href="motion.html#word">word</a> ch_array.  So typing
+<a href="motion.html#CTRL-P">CTRL-P</a> gives you the following:
+
+<b><font color="purple">	total = ch_array[0] + ch_array </font></b>
+
+After a little more typing, you get this (ending in a space):
+
+<b><font color="purple">	total = ch_array[0] + ch_array[1] +  </font></b>
+
+If you now type <a href="motion.html#CTRL-P">CTRL-P</a> Vim will search again for a <a href="motion.html#word">word</a> that completes the
+<a href="motion.html#word">word</a> before the cursor.  Since there is nothing in front of the cursor, it
+finds the first <a href="motion.html#word">word</a> backwards, which is &quot;ch_array&quot;.  Typing <a href="motion.html#CTRL-P">CTRL-P</a> again
+gives you the next <a href="motion.html#word">word</a> that matches, in this <a href="change.html#case">case</a> &quot;total&quot;.  A third <a href="motion.html#CTRL-P">CTRL-P</a>
+searches further back.  If there is nothing else, it causes the editor to run
+out of words, so it returns to the original text, which is nothing.  A fourth
+<a href="motion.html#CTRL-P">CTRL-P</a> causes the editor to start over again with &quot;ch_array&quot;.
+
+To search forward, use <a href="motion.html#CTRL-N">CTRL-N</a>.  Since the search wraps around the end of the
+file, <a href="motion.html#CTRL-N">CTRL-N</a> and <a href="motion.html#CTRL-P">CTRL-P</a> will find the same matches, but in a different
+sequence.  Hint: <a href="motion.html#CTRL-N">CTRL-N</a> is Next-match and <a href="motion.html#CTRL-P">CTRL-P</a> is Previous-match.
+
+The Vim editor goes through a lot of effort to find words to complete.  By
+default, it searches the following places:
+
+	1. Current file
+	2. Files in other <a href="windows.html#windows">windows</a>
+	3. Other loaded files (hidden <a href="windows.html#buffers">buffers</a>)
+	4. Files which are not loaded (inactive <a href="windows.html#buffers">buffers</a>)
+	5. Tag files
+	6. All files #included by the current file
+
+
+OPTIONS
+
+You can customize the search order with the <a href="options.html#'complete'">'complete'</a> option.
+
+The <a href="options.html#'ignorecase'">'ignorecase'</a> option is used.  When it is set, <a href="change.html#case">case</a> differences are ignored
+when searching for matches.
+
+A special option for completion is <a href="options.html#'infercase'">'infercase'</a>.  This is useful to find
+matches while ignoring <a href="change.html#case">case</a> ('ignorecase' must be set) but still using the
+<a href="change.html#case">case</a> of the <a href="motion.html#word">word</a> typed so far.  Thus if you type &quot;For&quot; and Vim finds a match
+&quot;fortunately&quot;, it will result in &quot;Fortunately&quot;.
+
+
+COMPLETING SPECIFIC ITEMS
+
+If you know what you are looking for, you can use these commands to complete
+with a certain type of item:
+
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-F">CTRL-F</a>		file names
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="various.html#CTRL-L">CTRL-L</a>		whole lines
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-D">CTRL-D</a>		<a href="map.html#macro">macro</a> <a href="intro.html#definitions">definitions</a> (also in included files)
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="motion.html#CTRL-I">CTRL-I</a>		current and included files
+	<a href="change.html#CTRL-X">CTRL-X</a> CTRL-K		words from a dictionary
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="tagsrch.html#CTRL-T">CTRL-T</a>		words from a thesaurus
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="tagsrch.html#CTRL-]">CTRL-]</a>		<a href="tagsrch.html#tags">tags</a>
+	<a href="change.html#CTRL-X">CTRL-X</a> <a href="visual.html#CTRL-V">CTRL-V</a>		Vim command line
+
+After each of them <a href="motion.html#CTRL-N">CTRL-N</a> can be used to find the next match, <a href="motion.html#CTRL-P">CTRL-P</a> to find
+the previous match.
+   More information for each of these commands here: |<a href="insert.html#ins-completion">ins-completion</a>|.
+
+
+COMPLETING FILE NAMES
+
+Let's take <a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-F">CTRL-F</a> <a href="motion.html#as">as</a> an example.  This will find file names.  It scans
+the current directory for files and displays each one that matches the <a href="motion.html#word">word</a> in
+front of the cursor.
+   Suppose, for example, that you have the following files in the current
+directory:
+
+	main.c  sub_count.c  sub_done.c  sub_exit.c
+
+Now enter <a href="insert.html#Insert">Insert</a> mode and start typing:
+
+<b><font color="purple">	The exit code is in the file sub </font></b>
+
+At this point, you enter the command <a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-F">CTRL-F</a>.  Vim now completes the
+current <a href="motion.html#word">word</a> &quot;sub&quot; by looking at the files in the current directory.  The
+first match is sub_count.c.  This is not the one you want, so you match the
+next file by typing <a href="motion.html#CTRL-N">CTRL-N</a>.  This match is sub_done.c.  Typing <a href="motion.html#CTRL-N">CTRL-N</a> again
+takes you to sub_exit.c.  The results:
+
+<b><font color="purple">	The exit code is in the file sub_exit.c </font></b>
+
+If the file name starts with / (Unix) or C:\ (MS-Windows) you can find all
+files in the file system.  For example, type &quot;/u&quot; and <a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-F">CTRL-F</a>.  This
+will match &quot;/usr&quot; (this is on Unix):
+
+<b><font color="purple">	the file is found in /usr/ </font></b>
+
+If you now press <a href="motion.html#CTRL-N">CTRL-N</a> you go back to &quot;/u&quot;.  Instead, to accept the &quot;/usr/&quot;
+and go one directory level deeper, use <a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-F">CTRL-F</a> again:
+
+<b><font color="purple">	the file is found in /usr/X11R6/ </font></b>
+
+The results depend on what is found in your file system, of course.  The
+matches are sorted alphabetically.
+
+
+COMPLETING IN SOURCE CODE
+
+Source code files are well structured.  That makes it possible to <a href="diff.html#do">do</a>
+completion in an intelligent way.  In Vim this is called Omni completion.  In
+some other editors it's called intellisense, but that is a trademark.
+
+The key to Omni completion is <a href="change.html#CTRL-X">CTRL-X</a> <a href="motion.html#CTRL-O">CTRL-O</a>.  Obviously the <a href="insert.html#O">O</a> stands for Omni
+here, so that you can remember it easier.  Let's use an example for editing C
+source:
+
+<b><font color="purple">	{ </font></b>
+<b><font color="purple">	    struct foo *p; </font></b>
+<b><font color="purple">	    p-&gt; </font></b>
+
+The cursor is after &quot;p-&gt;&quot;.  Now type <a href="change.html#CTRL-X">CTRL-X</a> <a href="motion.html#CTRL-O">CTRL-O</a>.  Vim will offer you a list
+of alternatives, which are the items that &quot;struct foo&quot; contains.  That is
+quite different from using <a href="motion.html#CTRL-P">CTRL-P</a>, which would complete any <a href="motion.html#word">word</a>, while only
+members of &quot;struct foo&quot; are valid here.
+
+For Omni completion to work you may need to <a href="diff.html#do">do</a> some setup.  At least make sure
+<a href="filetype.html#filetype">filetype</a> plugins are enabled.  Your <a href="starting.html#vimrc">vimrc</a> file should contain a line like
+this:
+<b>	filetype plugin on</b>
+Or:
+<b>	filetype plugin indent on</b>
+
+For C code you need to create a <a href="tagsrch.html#tags">tags</a> file and set the <a href="options.html#'tags'">'tags'</a> option.  That is
+explained |<a href="insert.html#ft-c-omni">ft-c-omni</a>|.  For other <a href="filetype.html#filetypes">filetypes</a> you may need to <a href="diff.html#do">do</a> something
+similar, look below |<a href="insert.html#compl-omni-filetypes">compl-omni-filetypes</a>|.  It only works for specific
+<a href="filetype.html#filetypes">filetypes</a>.  Check the value of the <a href="options.html#'omnifunc'">'omnifunc'</a> option to find out if it would
+work.
+
+==============================================================================
+
+*<a name="24.4"></A><b>24.4</b>*	Repeating an insert
+
+If you press <a href="change.html#CTRL-A">CTRL-A</a>, the editor inserts the text you typed the last time you
+were in <a href="insert.html#Insert">Insert</a> mode.
+   Assume, for example, that you have a file that begins with the following:
+
+<b><font color="purple">	"file.h" </font></b>
+<b><font color="purple">	/* Main program begins */ </font></b>
+
+You edit this file by <a href="insert.html#inserting">inserting</a> &quot;#include &quot; at the beginning of the first
+line:
+
+<b><font color="purple">	#include "file.h" </font></b>
+<b><font color="purple">	/* Main program begins */ </font></b>
+
+You go down to the beginning of the next line using the commands &quot;j^&quot;.  You
+now start to insert a new &quot;#include&quot; line.  So you type:
+
+<b>	i CTRL-A</b>
+
+The result is <a href="motion.html#as">as</a> follows:
+
+<b><font color="purple">	#include "file.h" </font></b>
+<b><font color="purple">	#include /* Main program begins */ </font></b>
+
+The &quot;#include &quot; was inserted because <a href="change.html#CTRL-A">CTRL-A</a> inserts the text of the previous
+insert.  Now you type  &quot;main.h&quot;&lt;Enter&gt;  to finish the line:
+
+
+<b><font color="purple">	#include "file.h" </font></b>
+<b><font color="purple">	#include "main.h" </font></b>
+<b><font color="purple">	/* Main program begins */ </font></b>
+
+The CTRL-@ command does a <a href="change.html#CTRL-A">CTRL-A</a> and then exits <a href="insert.html#Insert">Insert</a> mode.  That's a quick
+way of doing exactly the same insertion again.
+
+==============================================================================
+
+*<a name="24.5"></A><b>24.5</b>*	Copying from another line
+
+The <a href="scroll.html#CTRL-Y">CTRL-Y</a> command inserts the character above the cursor.  This is useful
+when you are duplicating a previous line.  For example, you have this line of
+C code:
+
+<b><font color="purple">	b_array[i]-&gt;s_next = a_array[i]-&gt;s_next; </font></b>
+
+Now you need to type the same line, but with &quot;s_prev&quot; instead of &quot;s_next&quot;.
+Start the new line, and press <a href="scroll.html#CTRL-Y">CTRL-Y</a> 14 times, until you are at the &quot;<a href="pattern.html#n">n</a>&quot; of
+&quot;next&quot;:
+
+<b><font color="purple">	b_array[i]-&gt;s_next = a_array[i]-&gt;s_next; </font></b>
+<b><font color="purple">	b_array[i]-&gt;s_ </font></b>
+
+Now you type &quot;prev&quot;:
+
+<b><font color="purple">	b_array[i]-&gt;s_next = a_array[i]-&gt;s_next; </font></b>
+<b><font color="purple">	b_array[i]-&gt;s_prev </font></b>
+
+Continue pressing <a href="scroll.html#CTRL-Y">CTRL-Y</a> until the following &quot;next&quot;:
+
+<b><font color="purple">	b_array[i]-&gt;s_next = a_array[i]-&gt;s_next; </font></b>
+<b><font color="purple">	b_array[i]-&gt;s_prev = a_array[i]-&gt;s_ </font></b>
+
+Now type &quot;prev;&quot; to finish it off.
+
+The <a href="scroll.html#CTRL-E">CTRL-E</a> command acts like <a href="scroll.html#CTRL-Y">CTRL-Y</a> except it inserts the character below the
+cursor.
+
+==============================================================================
+
+*<a name="24.6"></A><b>24.6</b>*	Inserting a <a href="sponsor.html#register">register</a>
+
+The command <a href="undo.html#CTRL-R">CTRL-R</a> {register} inserts the contents of the <a href="sponsor.html#register">register</a>.  This is
+useful to avoid having to type a long <a href="motion.html#word">word</a>.  For example, you need to type
+this:
+
+<b><font color="purple">	r = VeryLongFunction(a) + VeryLongFunction(b) + VeryLongFunction(c) </font></b>
+
+The function name is defined in a different file.  Edit that file and move the
+cursor on top of the function name there, and <a href="change.html#yank">yank</a> it into <a href="sponsor.html#register">register</a> <a href="visual.html#v">v</a>:
+
+<b>	"vyiw</b>
+
+&quot;<a href="visual.html#v">v</a> is the <a href="sponsor.html#register">register</a> specification, &quot;yiw&quot; is yank-inner-word.  Now edit the file
+where the new line is to be inserted, and type the first letters:
+
+<b><font color="purple">	r = </font></b>
+
+Now use <a href="undo.html#CTRL-R">CTRL-R</a> <a href="visual.html#v">v</a> to insert the function name:
+
+<b><font color="purple">	r = VeryLongFunction </font></b>
+
+You continue to type the characters in between the function name, and use
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="visual.html#v">v</a> two times more.
+   You could have done the same with completion.  Using a <a href="sponsor.html#register">register</a> is useful
+when there are many words that start with the same characters.
+
+If the <a href="sponsor.html#register">register</a> contains characters such <a href="motion.html#as">as</a> <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> or other special characters,
+they are interpreted <a href="motion.html#as">as</a> if they had been typed from the keyboard.  If you <a href="diff.html#do">do</a>
+not want this to happen (you really want the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> to be inserted in the text),
+use the command <a href="undo.html#CTRL-R">CTRL-R</a> <a href="undo.html#CTRL-R">CTRL-R</a> {register}.
+
+==============================================================================
+
+*<a name="24.7"></A><b>24.7</b>*	<a href="map.html#Abbreviations">Abbreviations</a>
+
+An abbreviation is a short <a href="motion.html#word">word</a> that takes the place of a long one.  For
+example, &quot;ad&quot; stands for &quot;advertisement&quot;.  Vim enables you to type an
+abbreviation and then will automatically expand it for you.
+   To tell Vim to expand &quot;ad&quot; into &quot;advertisement&quot; every time you insert it,
+use the following command:
+
+<b>	:iabbrev ad advertisement</b>
+
+Now, when you type &quot;ad&quot;, the whole <a href="motion.html#word">word</a> &quot;advertisement&quot; will be inserted into
+the text.  This is triggered by typing a character that can't be part of a
+<a href="motion.html#word">word</a>, for example a space:
+
+	What Is Entered		What You See
+<b><font color="purple">	I saw the a		I saw the a </font></b>
+<b><font color="purple">	I saw the ad		I saw the ad </font></b>
+<b><font color="purple">	I saw the ad&lt;Space&gt;	I saw the advertisement&lt;Space&gt; </font></b>
+
+The expansion doesn't happen when typing just &quot;ad&quot;.  That allows you to type a
+<a href="motion.html#word">word</a> like &quot;add&quot;, which will not get expanded.  Only whole words are checked
+for <a href="map.html#abbreviations">abbreviations</a>.
+
+
+ABBREVIATING SEVERAL WORDS
+
+It is possible to define an abbreviation that results in multiple words.  For
+example, to define &quot;JB&quot; <a href="motion.html#as">as</a> &quot;Jack Benny&quot;, use the following command:
+
+<b>	:iabbrev JB Jack Benny</b>
+
+As a programmer, I use two rather unusual <a href="map.html#abbreviations">abbreviations</a>:
+
+<b>	:iabbrev #b /****************************************</b>
+<b>	:iabbrev #e &lt;Space&gt;****************************************/</b>
+
+These are used for creating boxed comments.  The comment starts with #b, which
+draws the top line.  I then type the comment text and use #e to draw the
+bottom line.
+   Notice that the #e abbreviation begins with a space.  In other words, the
+first two characters are space-star.  Usually Vim ignores spaces between the
+abbreviation and the expansion.  To avoid that problem, I <a href="spell.html#spell">spell</a> space <a href="motion.html#as">as</a> seven
+characters: <a href="change.html#&lt;">&lt;</a>, <a href="change.html#S">S</a>, <a href="change.html#p">p</a>, a, <a href="change.html#c">c</a>, <a href="motion.html#e">e</a>, <a href="change.html#&gt;">&gt;</a>.
+
+	Note:
+	&quot;<a href="map.html#:iabbrev">:iabbrev</a>&quot; is a long <a href="motion.html#word">word</a> to type.  &quot;:iab&quot; works just <a href="motion.html#as">as</a> well.
+	That's abbreviating the abbreviate command!
+
+
+FIXING TYPING MISTAKES
+
+It's very common to make the same typing mistake every time.  For example,
+typing &quot;teh&quot; instead of &quot;the&quot;.  You can fix this with an abbreviation:
+
+<b>	:abbreviate teh the</b>
+
+You can add a whole list of these.  Add one each time you discover a common
+mistake.
+
+
+LISTING ABBREVIATIONS
+
+The &quot;<a href="map.html#:abbreviate">:abbreviate</a>&quot; command lists the <a href="map.html#abbreviations">abbreviations</a>:
+
+	<a href="map.html#:abbreviate">:abbreviate</a>
+	<a href="insert.html#i">i</a>  #e		  ****************************************/
+	<a href="insert.html#i">i</a>  #b		 /****************************************
+	<a href="insert.html#i">i</a>  JB		 Jack Benny
+	<a href="insert.html#i">i</a>  ad		 advertisement
+	!  teh		 the
+
+The &quot;<a href="insert.html#i">i</a>&quot; in the first column indicates <a href="insert.html#Insert">Insert</a> mode.  These <a href="map.html#abbreviations">abbreviations</a> are
+only active in <a href="insert.html#Insert">Insert</a> mode.  Other possible characters are:
+
+	<a href="change.html#c">c</a>	<a href="cmdline.html#Command-line">Command-line</a> mode			<a href="map.html#:cabbrev">:cabbrev</a>
+	!	both <a href="insert.html#Insert">Insert</a> and <a href="cmdline.html#Command-line">Command-line</a> mode	<a href="map.html#:abbreviate">:abbreviate</a>
+
+Since <a href="map.html#abbreviations">abbreviations</a> are not often useful in <a href="cmdline.html#Command-line">Command-line</a> mode, you will mostly
+use the &quot;<a href="map.html#:iabbrev">:iabbrev</a>&quot; command.  That avoids, for example, that &quot;ad&quot; gets expanded
+when typing a command like:
+
+<b>	:edit ad</b>
+
+
+DELETING ABBREVIATIONS
+
+To get rid of an abbreviation, use the &quot;<a href="map.html#:unabbreviate">:unabbreviate</a>&quot; command.  Suppose you
+have the following abbreviation:
+
+<b>	:abbreviate @f fresh</b>
+
+You can remove it with this command:
+
+<b>	:unabbreviate @f</b>
+
+While you type this, you will notice that @f is expanded to &quot;fresh&quot;.  Don't
+worry about this, Vim understands it anyway (except when you have an
+abbreviation for &quot;fresh&quot;, but that's very unlikely).
+   To remove all the <a href="map.html#abbreviations">abbreviations</a>:
+
+<b>	:abclear</b>
+
+&quot;<a href="map.html#:unabbreviate">:unabbreviate</a>&quot; and &quot;<a href="map.html#:abclear">:abclear</a>&quot; also come in the variants for <a href="insert.html#Insert">Insert</a> mode
+(&quot;:iunabbreviate and &quot;<a href="map.html#:iabclear">:iabclear</a>&quot;) and <a href="cmdline.html#Command-line">Command-line</a> mode (&quot;:cunabbreviate&quot; and
+&quot;:cabclear&quot;).
+
+
+REMAPPING ABBREVIATIONS
+
+There is one thing to watch out for when defining an abbreviation: The
+resulting string should not be mapped.  For example:
+
+<b>	:abbreviate @a adder</b>
+<b>	:imap dd disk-door</b>
+
+When you now type @a, you will get &quot;adisk-doorer&quot;.  That's not what you want.
+To avoid this, use the &quot;<a href="map.html#:noreabbrev">:noreabbrev</a>&quot; command.  It does the same <a href="motion.html#as">as</a>
+&quot;<a href="map.html#:abbreviate">:abbreviate</a>&quot;, but avoids that the resulting string is used for mappings:
+
+<b>	:noreabbrev @a adder</b>
+
+Fortunately, it's unlikely that the result of an abbreviation is mapped.
+
+==============================================================================
+
+*<a name="24.8"></A><b>24.8</b>*	Entering special characters
+
+The <a href="visual.html#CTRL-V">CTRL-V</a> command is used to insert the next character literally.  In other
+words, any special meaning the character has, it will be ignored.  For
+example:
+
+<b>	CTRL-V &lt;Esc&gt;</b>
+
+Inserts an <a href="intro.html#escape">escape</a> character.  Thus you don't leave <a href="insert.html#Insert">Insert</a> mode.  (Don't type
+the space after <a href="visual.html#CTRL-V">CTRL-V</a>, it's only to make this easier to read).
+
+	Note:
+	On <a href="os_win32.html#MS-Windows">MS-Windows</a> <a href="visual.html#CTRL-V">CTRL-V</a> is used to paste text.  Use <a href="gui_w32.html#CTRL-Q">CTRL-Q</a> instead of
+	<a href="visual.html#CTRL-V">CTRL-V</a>.  On <a href="os_unix.html#Unix">Unix</a>, on the other hand, <a href="gui_w32.html#CTRL-Q">CTRL-Q</a> does not work on some
+	terminals, because it has a special meaning.
+
+You can also use the command <a href="visual.html#CTRL-V">CTRL-V</a> {digits} to insert a character with the
+decimal number {digits}.  For example, the character number 127 is the <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>
+character (but not necessarily the <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a> key!).  To insert <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a> type:
+
+<b>	CTRL-V 127</b>
+
+You can enter characters up to 255 this way.  When you type fewer than two
+digits, a non-digit will terminate the command.  To avoid the need of typing a
+non-digit, prepend one or two zeros to make three digits.
+   All the next commands insert a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> and then a dot:
+
+	<a href="visual.html#CTRL-V">CTRL-V</a> 9.
+	<a href="visual.html#CTRL-V">CTRL-V</a> 09.
+	<a href="visual.html#CTRL-V">CTRL-V</a> 009.
+
+To enter a character in hexadecimal, use an &quot;<a href="change.html#x">x</a>&quot; after the <a href="visual.html#CTRL-V">CTRL-V</a>:
+
+<b>	CTRL-V x7f</b>
+
+This also goes up to character 255 (CTRL-V xff).  You can use &quot;<a href="insert.html#o">o</a>&quot; to type a
+character <a href="motion.html#as">as</a> an <a href="eval.html#octal">octal</a> number and two more methods allow you to type up to
+a 16 bit and a 32 bit number (e.g., for a <a href="mbyte.html#Unicode">Unicode</a> character):
+
+<b>	CTRL-V o123</b>
+<b>	CTRL-V u1234</b>
+<b>	CTRL-V U12345678</b>
+
+==============================================================================
+
+*<a name="24.9"></A><b>24.9</b>*	<a href="digraph.html#Digraphs">Digraphs</a>
+
+Some characters are not on the keyboard.  For example, the <a href="uganda.html#copyright">copyright</a> character
+(©).  To type these characters in Vim, you use <a href="digraph.html#digraphs">digraphs</a>, where two characters
+represent one.  To enter a ©, for example, you press three keys:
+
+<b>	CTRL-K Co</b>
+
+To find out what <a href="digraph.html#digraphs">digraphs</a> are available, use the following command:
+
+<b>	:digraphs</b>
+
+Vim will display the <a href="digraph.html#digraph">digraph</a> table.  Here are three lines of it:
+
+<b><font color="purple">  AC ~_ 159  NS |  160  !I ¡  161  Ct ¢  162  Pd £  163  Cu ¤  164  Ye ¥  165 </font></b>
+<b><font color="purple">  BB ¦  166  SE §  167  ': ¨  168  Co ©  169  -a ª  170  &lt;&lt; «  171  NO ¬  172 </font></b>
+<b><font color="purple">  -- ­  173  Rg ®  174  'm ¯  175  DG °  176  +- ±  177  2S ²  178  3S ³  179 </font></b>
+
+This shows, for example, that the <a href="digraph.html#digraph">digraph</a> you get by typing CTRL-K Pd is the
+character (£).  This is character number 163 (decimal).
+   Pd is short for Pound.  Most <a href="digraph.html#digraphs">digraphs</a> are selected to give you a hint about
+the character they will produce.  If you look through the list you will
+understand the logic.
+   You can exchange the first and second character, if there is no <a href="digraph.html#digraph">digraph</a> for
+that combination.  Thus CTRL-K dP also works.  Since there is no <a href="digraph.html#digraph">digraph</a> for
+&quot;dP&quot; Vim will also search for a &quot;Pd&quot; <a href="digraph.html#digraph">digraph</a>.
+
+	Note:
+	The <a href="digraph.html#digraphs">digraphs</a> depend on the character set that Vim assumes you are
+	using.  On <a href="os_msdos.html#MS-DOS">MS-DOS</a> they are different from <a href="os_win32.html#MS-Windows">MS-Windows</a>.  Always use
+	&quot;<a href="digraph.html#:digraphs">:digraphs</a>&quot; to find out which <a href="digraph.html#digraphs">digraphs</a> are currently available.
+
+You can define your own <a href="digraph.html#digraphs">digraphs</a>.  Example:
+
+<b>	:digraph a" ä</b>
+
+This defines that CTRL-K a&quot; inserts an ä character.  You can also specify the
+character with a decimal number.  This defines the same <a href="digraph.html#digraph">digraph</a>:
+
+<b>	:digraph a" 228</b>
+
+More information about digraphs here: |<a href="digraph.html#digraphs">digraphs</a>|
+   Another way to insert special characters is with a keymap.  More about that
+here: |<a href="usr_45.html#45.5">45.5</a>|
+
+==============================================================================
+
+*<a name="24.10"></A><b>24.10</b>*	<a href="intro.html#Normal">Normal</a> mode commands
+
+<a href="insert.html#Insert">Insert</a> mode offers a limited number of commands.  In <a href="intro.html#Normal">Normal</a> mode you have many
+more.  When you want to use one, you usually leave <a href="insert.html#Insert">Insert</a> mode with <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>,
+execute the <a href="intro.html#Normal">Normal</a> mode command, and re-enter <a href="insert.html#Insert">Insert</a> mode with &quot;<a href="insert.html#i">i</a>&quot; or &quot;<a href="insert.html#a">a</a>&quot;.
+   There is a quicker way.  With <a href="motion.html#CTRL-O">CTRL-O</a> {command} you can execute any <a href="intro.html#Normal">Normal</a>
+mode command from <a href="insert.html#Insert">Insert</a> mode.  For example, to delete from the cursor to the
+end of the line:
+
+<b>	CTRL-O D</b>
+
+You can execute only one <a href="intro.html#Normal">Normal</a> mode command this way.  But you can specify a
+<a href="sponsor.html#register">register</a> or a <a href="intro.html#count">count</a>.  A more complicated example:
+
+<b>	CTRL-O "g3dw</b>
+
+This deletes up to the third <a href="motion.html#word">word</a> into <a href="sponsor.html#register">register</a> <a href="index.html#g">g</a>.
+
+==============================================================================
+
+Next chapter: |<a href="usr_25.html">usr_25.txt</a>|  Editing formatted text
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_24.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

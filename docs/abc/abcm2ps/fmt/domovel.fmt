@@ -1,0 +1,1014 @@
+% domovel.fmt           -*- abc -*-
+% Coloca letra inicial de dó movel no lugar da cabeça da nota
+% Replace note heads with note names
+
+% (29-05-2007 -- ajusta tamanho da letra 'f' - adjust height of letter 'l')
+% (02-05-2007 -- Added English instructions -- find #$# )
+
+% ATENÇÃO: Para abcm2ps < 4.8.6 adaptar operador /staff (localizar #@# )
+% WARNING: For abcm2ps < 4.8.6 adapt the operator /staff (find #@# )
+
+% Copyright (C) 2004-2007 Hudson Lacerda
+%   Parts of this code were based on abcm2ps:
+%      Copyright (C) Jean-François Moine (1998-2005)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+--- A FAZER: | TO DO:
+
+--- pos_origem does not work with dm_multi (what about pos_clavedomovel?)
+--- maybe set dm_multi as default? stable version of abcm2ps is new enough.
+
+---   *indicação de registro (vírgulas e apóstrofos) automática
+---   *exemplos comentados em inglês (para release)
+---   *testar espessuras das linhas
+---   *testar com abcm2ps-3.7.17
+---      (idéia para mudanças de estilo: peças `virtuais' pra
+---      suportar decorações especiais.)
+---   *identificação automática da clave
+
+% %%%%%%%%%%%%%%%%%%%%
+
+% ! abcm2ps-4.9.4+ !
+setdefl true
+postscript /defl 0 def
+
+% %%%%%%%%%%%%%%%%%%%%
+%   ! DOCUMENTAÇÃO !
+% %%%%%%%%%%%%%%%%%%%%
+
+% Lista das decorações definidas neste arquivo:
+%
+%   !domovel_d! !domovel_r! !domovel_m! !domovel_f!
+%   !domovel_s! !domovel_l! !domovel_t! !domovel_fim!
+%   !domovel_normal! (cabecas normais, mas mantém outras adaptacoes)
+%   !/3! (indicador de frases de três compassos)
+%
+% OBSERVAÇÕES:
+% - Os comandos estão configurados para uso em uma única pauta/voz.
+% - Para usar mais pautas (até 6), use o comando:
+%   %%postscript dm_multi
+%   (Esse comando só funciona com abcm2ps-4.?.? ou superior, e não
+%   está preparado para uso com as claves de dó movel. pos_origem não funciona)
+% - As decorações só funcionam em uma nota entre colchetes.
+% - Sílabas como `ta' e `fi' devem ser decorações definidas pelo usuário.
+%   Os nomes dessas decorações (cabeças de notas) devem começar com `head-'.
+%   EXEMPLOS:
+%   %%deco head-ta 3 dms 0 0 0 ta
+%   %%deco head-fi 3 dms 0 0 0 fi
+%
+% MODO DE USO (exemplos):
+%
+%   [!domovel_d!c]defg % inicia C maior (associa `do' à classe `c')
+%   [!domovel_f!c]defg % inicia G maior (associa `fa' à classe `c')
+%   [!domovel_fim!g]   % cabeça de nota normal
+%
+% ! Essas decorações só funcionam plenamente com abcm2ps-4.3.2 ou posterior.    !
+% ! À exceção de head-xxx, todos os recursos estão disponíveis como PostScript: !
+
+% Operadores PostScript
+%
+% Pode-se usar o comando domovel_inicio para ativar a substituição
+% das cabeças de notas. Nesse caso, assume-se tom de Dó Maior e
+% clave de sol, ou então alturas absolutas (em clave de sol) no
+% modo `domovel_alfa' (ver abaixo).
+%
+% Exemplo:
+%
+%   %%postscript domovel_inicio
+%
+% A posição da nota dó (origem) também pode ser determinada com um
+% comando ao invés de uma decoração. Esse comando deve ser usado *APÓS*
+% o comando `domovel_inicio'. O argumento é a linha da pauta onde a
+% nota de origem deve ficar (adicione/subtraia .5 para espaço).
+% Uma oitava corresponde a 3.5 entre-linhas. Isso não funciona com dm_multi.
+%
+% O exemplo seguinte coloca o `dó' (origem) na 3a. linha:
+%
+%   %%postscript domovel_inicio
+%   %%postscript 3 pos_origem
+%
+% domovel_fim pode ser usado como um comando postscript:
+%
+%   %%postscript domovel_fim
+%
+
+% ÂMBITO
+%
+% O âmbito pode ser impresso com um comando como:
+%   %%postscript 0 0 M (r d l, s,) domovel_ambito
+%
+
+
+% OPÇÕES:
+%
+% FONTE DE CARACTERES (nome da fonte e tamanho):
+%
+% %%postscript /domovel_font{/Bookman-Demi 9}def
+%
+% TEXTO PARA AS CABEÇAS DAS NOTAS
+%
+% domovel_iniciais  :  d, r, m, f, s, l, t, d r m f s l t d' r' m' f' s' l' t'
+% domovel_nomes     :  do re mi fa so la ti
+% domovel_numeros   :  1  2  3  4  5  6  7
+% domovel_alfa      :  C  D  E  F  G  A  B
+% domovel_abc       :  C,, D,, E,, (...) F (...) g (...)  a'' b''
+%
+% MODO DE USO (exemplo):
+%
+%   %%postscript domovel_nomes
+%
+% TEXTO PERSONALIZADO (use normalmente um array com 7 strings):
+%
+%   %%postscript [(Do)(Re)(Mi)(Fa)(Sol)(La)(Si)] domovel_def_vetor
+%
+% ! EXEMPLO COM DISTINÇÃO DE OITAVAS !
+%   %%postscript [ (do) (re) (mi) (fa) (so) (la) (ti) % central
+%   %%postscript  (do')(re')(mi')(fa')(so')(la')(ti') % aguda
+%   %%postscript  (do,)(re,)(mi,)(fa,)(so,)(la,)(ti,) % grave
+%   %%postscript ] domovel_def_vetor
+%
+% OBS.: Não há suporte para caracteres especiais (acentuados,etc.)
+%
+% AJUSTE DO TAMANHO DA LETRA `l':
+%
+% Para ativar redução de altura das letras `l':
+%   %%postscript true domovel_ajusta_letras
+%
+% Para desativar redução de altura das letras `l':
+%   %%postscript false domovel_ajusta_letras
+%
+
+% CLAVES DE DÓ MOVEL:
+%
+% Para definir a posição (2a. linha):
+%   %%postscript 2 pos_clavedomovel
+%
+% Para colocar a clave no 1o. espaço:
+%   %%postscript 1.5 pos_clavedomovel
+%
+% Para restaurar a clave normal (só tem efeito no sistema de pautas seguinte):
+%   %%postscript restaureclaves
+%
+% !O suporte a claves é restrito.!
+% !Mudanças de claves não são previstas!
+
+% ! alguns nomes de funcoes podem ser revistos !
+
+% !ESTE ARQUIVO DE FORMATO É POTENCIALMENTE INCOMPATÍVEL COM OUTROS!
+% ! Notas longas (mínimas, semibreves, etc.) pontuadas não são bem suportadas !
+
+
+%--------------------------------------------------
+
+% #$#
+% %%%%%%%%%%%%%%%%%%%%%
+%   ! DOCUMENTATION !
+% %%%%%%%%%%%%%%%%%%%%%
+
+% Decorations definded in this file:
+%
+%   !domovel_d!      start domovel at do (doh)
+%   !domovel_r!      start domovel at re (ray)
+%   !domovel_m!      start domovel at mi (mee)
+%   !domovel_f!      start domovel at fa (fah)
+%   !domovel_s!      start domovel at sol (soh)
+%   !domovel_l!      start domovel at la (lah)
+%   !domovel_t!      start domovel at ti (tee)
+%   !domovel_fim!    stop domovel -- prefer use: %%postscript domovel_fim
+%   !domovel_normal! single normal note head
+%   !/3! (mark for three-bars phrase)
+%
+% NOTES:
+% - By default, `domovel' only works for one single staff.
+% - For multiple staves (up to 6), use this command:
+%   %%postscript dm_multi
+%   (This command only works with abcm2ps-4.?.? or later, and it is not
+%   able to handle `domovel' special clefs. "pos_origem" doesn't work.)
+% - Decorations !domovel_*! only work with a note inside brackets.
+% - Additional decorations for other note names should be
+%   created by the user. Such decorations must have names starting
+%   with "head-".
+%
+%   EXAMPLES:
+%   %%deco head-ta 3 dms 0 0 0 ta
+%   %%deco head-fi 3 dms 0 0 0 fi
+%
+% USAGE (examples):
+%
+%   [!domovel_d!c]defg % start at C major (link `doh' to pitch `c')
+%   [!domovel_f!c]defg % start at G major (link `fah' to pitch `c')
+%   [!domovel_fim!g]   % normal note heads from here
+%
+% ! The decorations above only work fully with abcm2ps-4.3.2 or newer !
+% ! All features are available as PostScript, except for head-xxx.    !
+
+% PostScript Operators
+%
+% It is recommended to use call the operator "domovel_inicio" before
+% a music piece, to activate the style (there are chances of line width,
+% time-signature font and more).
+%
+%   %%postscript domovel_inicio
+%
+% The position of pitch "doh" may be set by a command rather than
+% by a decoration. The command "pos_origem" should be used *AFTER*
+% "domovel_inicio". Its argument is the number of the staff line
+% where the pitch "doh" should be placed. Spaces (interlines) are
+% represented with decimal value .5 . One octave corresponds to
+% 3.5 interlines.
+%
+% In this example, `doh' is set to the 3rd staff line:
+%
+%   %%postscript domovel_inicio
+%   %%postscript 3 pos_origem
+%
+% "domovel_fim" may be used as a PostScript command (recommended):
+%
+%   %%postscript domovel_fim
+%
+
+% PITCH RANGE
+%
+% The pitch range can be printed as in this example:
+%   %%postscript 0 0 M (r d l, s,) domovel_ambito
+%
+
+
+% OPTIONS:
+%
+% CHARACTERS FONT (type and size):
+%
+% %%postscript /domovel_font{ /Bookman-Demi 9 }def
+%
+% NOTE NAMES STYLES:
+%
+% domovel_iniciais  :  d, r, m, f, s, l, t, d r m f s l t d' r' m' f' s' l' t'
+% domovel_nomes     :  do re mi fa so la ti
+% domovel_numeros   :  1  2  3  4  5  6  7
+% domovel_alfa      :  C  D  E  F  G  A  B
+% domovel_abc       :  C,, D,, E,, (...) F (...) g (...)  a'' b''
+%
+% USAGE (example):
+%
+%   %%postscript domovel_nomes
+%
+% USER-DEFINED NOTE NAMES (a PostScrpit array with 7 strings):
+%
+%   %%postscript [(Do)(Re)(Mi)(Fa)(Sol)(La)(Si)] domovel_def_vetor
+%
+% ! EXAMPLE WITH OCTAVE INDICATIONS !
+%   %%postscript [ (do) (re) (mi) (fa) (so) (la) (ti) % center octave
+%   %%postscript  (do')(re')(mi')(fa')(so')(la')(ti') % higher octave
+%   %%postscript  (do,)(re,)(mi,)(fa,)(so,)(la,)(ti,) % lower octave
+%   %%postscript ] domovel_def_vetor
+%
+% OBS.: There is no support for characters with accents.
+%
+% ADJUSTING THE `l' SIZE:
+%
+% The height of the letter `l' can be reduced with:
+%   %%postscript true domovel_ajusta_letras
+%
+% The previous command is cancelled with:
+%   %%postscript false domovel_ajusta_letras
+%
+
+% SPECIAL MOVEABLE-DOH CLEF:
+%
+% Doh-clef at 2nd staff line:
+%   %%postscript 2 pos_clavedomovel
+%
+% Doh-clef 1st staff space:
+%   %%postscript 1.5 pos_clavedomovel
+%
+% Reset normal clefs (effective only at the next staff):
+%   %%postscript restaureclaves
+%
+% ! Currently, doh-clef support is limited. !
+% ! There is no support for clefs changing in a music line !
+
+% ! THIS FORMAT FILE IS POTENTIALLY INCOMPATIBLE WITH OTHERS !
+
+%--------------------------------------------------
+
+
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %           IMPLEMENTAÇÃO              %
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Tratamento da posição vertical em relação à pauta
+% Handle vertical position relative to staff
+% !para abcm2ps anterior a 4.11.? -- abcm2ps-4.11.? or older !
+%postscript /Ystaff 0 def
+% !para abcm2ps a partir de 4.11.? (4.8.6?) -- abcm2ps-4.8.6 or newer !
+postscript /Ystaff {0 y0} def
+postscript /Ypos_vdefault {0 y0} def
+postscript /Xpos 0 def % init
+postscript /Ypos {Ypos_vdefault} def
+postscript /dm_old_staff /staff load def
+
+% #@#
+% ! ``staff'' É REDEFINIDA INCONDICIONALMENTE E SEM RETORNO !
+% ! ``staff'' DEFINITION IS REPLACED !
+% ! Para versões anteriores a abcm2ps-4.8.6 (older) !
+% postscript /staff {dup /Ystaff exch def dm_old_staff} !
+% ! Para abcm2ps-4.8.6 e posteriores (newer) !
+% postscript /staff {/Ystaff 2 index def dm_old_staff} !
+% postscript /staff {exch dup /Ystaff exch def exch dm_old_staff} !
+% ! Para versão 4.11.? e posteriores: (NAO PRECISA REDEFINIR 'staff') !
+% ! abcm2ps 4.11.? or newer does not need  redefining ``staff'' !
+% ????
+
+
+% ! COMPATIBILIDADE: -- abcm2ps antigo não tem /hl2 nem /showc!
+postscript currentdict /hl2   known false eq {/hl2{}def} if
+postscript /oldversion false def
+postscript currentdict /showc known false eq {
+postscript    /oldversion true def % !compatibility - See sfd!
+postscript    /showc{dup stringwidth pop 0.5 mul neg 0 RM show}!
+postscript } if
+
+% !mudanças aqui devem ser paralelas a mudanças em restaura_espessura!
+% !If you change this, you must also change ``restaura_espessura''!
+postscript /dm_old_dlw /dlw load bind def
+postscript /dm_old_hl /hl load bind def
+postscript /dm_old_hl1 /hl1 load bind def
+postscript /dm_old_hl2 /hl2 load bind def
+postscript /dm_old_bar /bar load bind def
+postscript /dm_old_tsig /tsig load bind def
+postscript /dm_old_stsig /stsig load bind def
+postscript /dm_old_ctsig /ctsig load bind def
+postscript /dm_old_bm /bm load bind def
+postscript /dm_sfu_old /sfu load bind def
+postscript /dm_sfd_old /sfd load bind def
+postscript /dm_su_old /su load bind def
+postscript /dm_sd_old /sd load bind def
+postscript /dm_rdots_old /rdots load bind def
+postscript /dm_old_r4/r4 load bind def
+postscript /dm_old_r8/r8 load bind def
+postscript /dm_old_r16/r16 load bind def
+postscript /dm_old_dt/dt load bind def
+%
+postscript /restaura_espessura {
+postscript      /dlw /dm_old_dlw load bind def
+postscript      /hl /dm_old_hl load bind def
+postscript      /hl1 /dm_old_hl1 load bind def
+postscript      /hl2 /dm_old_hl2 load bind def
+postscript      /bar /dm_old_bar load bind def
+postscript      /ctsig /dm_old_ctsig load bind def
+postscript      /tsig /dm_old_tsig load bind def
+postscript      /stsig /dm_old_stsig load bind def
+postscript      /bm /dm_old_bm load bind def
+postscript      /sfu /dm_sfu_old load bind def
+postscript      /sfd /dm_sfd_old load bind def
+postscript      /su /dm_su_old load bind def
+postscript      /sd /dm_sd_old load bind def
+postscript      /rdots /dm_rdots_old load bind def
+postscript      /r4/dm_old_r4 load bind def
+postscript      /r8/dm_old_r8 load bind def
+postscript      /r16/dm_old_r16 load bind def
+postscript      /dt/dm_old_dt load bind def
+postscript } bind def
+
+% !COMPATIBILIDADE!
+% hl, hl1 e hl2 requerem x y (não apenas y) desde abcm2ps-5.7.3
+postscript /dm_HLx {currentdict /creator known {
+postscript    creator 1 get 5 gt
+postscript    creator 1 get 5 eq creator 2 get 7 gt and or
+postscript    creator 1 get 5 eq creator 2 get 7 eq and creator 3 get 3 ge and or
+postscript    {exch} {x} ifelse
+postscript } {x} ifelse } !
+
+% % !% INICIO (START) %! % % (adaptacoes|adaptations)
+postscript /adapta_espessura {
+   % Usa linhas mais finas para não embolar com as letras
+   % Thin staff lines for easy reading of note names
+postscript      /dlw {0.3 setlinewidth} !
+postscript      /dm_slw 0.35 def
+postscript      /hl{dm_slw setlinewidth
+postscript           dm_HLx -6 add dm_horizontal_offset add exch M 12 0 RL stroke dlw}!
+postscript      /hl1{dm_slw setlinewidth
+postscript           dm_HLx -7 add dm_horizontal_offset add exch M 14 0 RL stroke dlw}!
+postscript      /hl2{dm_slw setlinewidth
+postscript           dm_HLx -8 add dm_horizontal_offset add exch M 16 0 RL stroke dlw}!
+   % Porém as barras de compasso mantém-se bem visíveis
+   % However, measure bars stay strong
+postscript      /bar{M .8 setlinewidth 0 exch RL stroke dlw}!
+   % O mesmo para o corte do metro C|
+   % Similarly for the stroke of C| meter
+postscript      /ctsig{.8 setlinewidth 2 copy csig 4 add M 0 16 RL stroke dlw}!
+   % Números da indicação de compasso mais `leves'
+   % Change time-signature font (lighter looking)
+postscript      /tsig{M gsave/Times-Roman 16 selectfont 1.2 1 scale
+postscript            0 1 RM currentpoint 3 -1 roll showc
+postscript            M 0 12 RM showc grestore}!
+postscript      /stsig{M gsave/Times-Roman 18 selectfont 1.2 1 scale
+postscript            0 6 RM showc grestore}!
+   % Pausas menores
+   % Smaller rests
+postscript      /r4 {gsave T .75 dup scale 0 0 dm_old_r4 grestore} !
+postscript      /r8 {gsave T .75 dup scale 0 0 dm_old_r8 grestore} !
+postscript      /r16 {gsave T .75 dup scale 0 0 dm_old_r16 grestore} !
+   % Pontos de ritornello maiores
+   % Bigger repeat dots |:  :|
+postscript      /rdots{ 9 add M currentpoint 2 copy 1.5 0 360 arc
+postscript          6 add M currentpoint 1.5 0 360 arc fill}!
+   % Colchetes (travessões) mais finos:
+   % Thin beams:
+postscript      /bm_fator .45 def
+   % Redefinição dos travessões:
+   % Redefine the beams:
+postscript      /bm{5 4 roll bm_fator mul 5 1 roll M 3 copy RL neg 0 exch RL
+postscript 	    neg exch neg exch RL 0 exch RL fill}!
+   % Bandeirolas redimensionadas segundo o fator:
+   % Stem flags rescaling for this factor:
+postscript      /sf_fator 0.7 def
+   % distância da cabeça da nota à haste:
+   % notehead to stem distance:
+postscript      /dm_adj 3.75 def
+postscript      /dm_minima? false def
+   % Redefinição das hastes/bandeirolas:
+   % Redefine stem flags:
+postscript      /sd{dlw x y M -3.5 -1.0 RM
+postscript         dup dm_adj neg lt dm_minima? not and{
+postscript         dm_adj add 0 dm_adj neg RM}if % !ajusta haste e posição!
+                                                 % !adjust stem and position !
+postscript         1.0 add 0 exch RL stroke
+postscript         /dm_minima? false def}!
+postscript      /su{dlw x y M 3.5 1.0 RM
+postscript         dup dm_adj gt dm_minima? not and{
+postscript         dm_adj sub 0 dm_adj RM}if % !haste menor, ajusta posição!
+                                             % !shorter stem, adjust position!
+postscript         1.0 sub 0 exch RL stroke
+postscript         /dm_minima? false def}!
+postscript    /sfu{	gsave    dlw x y M 3.5 1.0 RM
+postscript      dup dm_adj gt{0 dm_adj RM}if % !ajusta posição!
+postscript 	1.0 sub 0 exch RL currentpoint stroke
+postscript 	M dup 1 eq                             sf_fator dup scale % !!
+postscript 	  {
+postscript 		pop
+postscript 		0.6 -5.6 9.6 -9 5.6 -18.4 RC
+postscript 		1.6 6 -1.3 11.6 -5.6 12.8 RC
+postscript 		fill
+postscript 	  }{
+postscript 		2 1 3 -1 roll{
+postscript 			pop currentpoint
+postscript 			0.9 -3.7 9.1 -6.4 6 -12.4 RC
+postscript 			1 5.4 -4.2 8.4 -6 8.4 RC
+postscript 			fill -5.4 add M
+postscript 		}for
+postscript 		1.2 -3.2 9.6 -5.7 5.6 -14.6 RC
+postscript 		1.6 5.4 -1 10.2 -5.6 11.4 RC
+postscript 		fill
+postscript 	  }
+postscript 	ifelse grestore}!
+postscript   /sfd{	gsave  dlw x y M -3.5 -1.0 RM
+postscript      dup dm_adj neg lt{0 dm_adj neg RM}if % !ajusta posição!
+%
+postscript      oldversion true eq {neg} if % !compatibility!
+%
+postscript 	1.0 add 0 exch RL currentpoint stroke
+postscript 	M dup 1 eq                              sf_fator dup scale
+postscript 	  {
+postscript 		pop
+postscript 		0.6 5.6 9.6 9 5.6 18.4 RC
+postscript 		1.6 -6 -1.3 -11.6 -5.6 -12.8 RC
+postscript 		fill
+postscript 	  }{
+postscript 		2 1 3 -1 roll{
+postscript 			pop currentpoint
+postscript 			0.9 3.7 9.1 6.4 6 12.4 RC
+postscript 			1 -5.4 -4.2 -8.4 -6 -8.4 RC
+postscript 			fill 5.4 add M
+postscript 		}for
+postscript 		1.2 3.2 9.6 5.7 5.6 14.6 RC
+postscript 		1.6 -5.4 -1 -10.2 -5.6 -11.4 RC
+postscript 		fill
+postscript 	  }
+postscript 	ifelse  grestore }!
+                   % augmentation dot adjusted when centering note heads
+postscript   /dt { % ajusta ponto de aumento quando cabeca centralizada
+postscript      dm_defl? {defl 4 and 0 ne
+postscript                 {exch 3.5 add exch}
+postscript                 {exch 3.5 sub exch}ifelse
+postscript         }if
+postscript      dm_old_dt}!
+postscript } bind def
+% % !% FIM (END) %! % %  (adaptacoes|adaptations)
+
+
+% Guarda as cabeças de notas originais (não mexe com grace notes)
+% Store original noteheads (but not grace notes)
+postscript /dm_old_hd /hd load bind def
+postscript /dm_old_Hd /Hd load bind def
+postscript /dm_old_HD /HD load bind def
+postscript /dm_old_HDD /HDD load bind def
+postscript /dm_old_breve /breve load bind def
+postscript /dm_old_longa /longa load bind def
+postscript /new_HDD{	dlw dm_old_HD
+postscript 	x y M -6 -4 RM 0 8 RL
+postscript 	x y M 6 -4 RM 0 8 RL stroke}!
+
+% Para ocultar acidentes
+% Operators to hide/show accidentals
+postscript /dm_old_sh0/sh0 load !
+postscript /dm_old_dsh0/dsh0 load !
+postscript /dm_old_ft0/ft0 load !
+postscript /dm_old_dft0/dft0 load !
+postscript /dm_old_nt0/nt0 load !
+postscript /domovel_oculta_acidentes { % hide accidentals
+postscript     /sh0{pop pop}!
+postscript     /dsh0{pop pop}!
+postscript     /ft0{pop pop}!
+postscript     /dft0{pop pop}!
+postscript     /nt0{pop pop}!
+postscript }!
+postscript /domovel_mostra_acidentes { % show accidentals
+postscript     /sh0/dm_old_sh0 load !
+postscript     /dsh0/dm_old_dsh0 load !
+postscript     /nt0/dm_old_nt0 load !
+postscript     /ft0/dm_old_ft0 load !
+postscript     /dft0/dm_old_dft0 load !
+postscript }!
+
+
+% Obtém e salva a posição da primeira nota (Xpos não é usado...)
+% Get and store the position of the first note (Xpos not used...)
+%postscript /getpos {/Ypos exch def /Xpos exch def} !
+postscript /getpos {/Ypos exch Ystaff sub neg  def /Xpos exch def} !
+
+
+
+% !SELECIONA A FONTE A SER USADA!
+% !SELECT FONT FOR NOTE NAMES!
+%postscript /domovel_font {/Helvetica-Bold 8} def
+%postscript /dm_vertical_offset -2.6 def     % 2.65 é bom também
+%postscript /domovel_font {/Courier-Bold 9.5} def
+postscript /domovel_font {/Helvetica-Bold 9.5} def
+%postscript /domovel_font{/AvantGarde-Demi 8.5}def
+%postscript /domovel_font{/Courier-Bold 10.5}def
+
+% font for displaying the pitch range
+postscript /domovel_ambito_font{/AvantGard 12}def
+
+% Imprime âmbito em uma caixa (adaptado de showb - abcm2ps-4.7.6)
+% Print pitch range in a box
+postscript /domovel_ambito{dup
+postscript 	domovel_ambito_font dup
+postscript      /fh exch .8 mul def selectfont 2 fh 2 div neg RM
+postscript      currentpoint 3 -1 roll show
+postscript 	0.6 setlinewidth
+postscript 	exch 1.7 sub exch 3 sub 3 -1 roll
+postscript 	stringwidth pop 4 add fh 4 add rectstroke}def
+
+
+% !Ajustes de posição da cabeça da nota:!
+% !Adjusting note head position:!
+postscript /dm_horizontal_offset 0 def % use 3 e V:1 up para centralizar
+postscript /dm_vertical_offset -2.72 def
+
+%   postscript /domovel_makefont {domovel_font selectfont} def
+
+% Mostra o nome da nota ("dó movel show")
+% Print note name
+postscript /dms {
+postscript
+postscript    dm_defl? dm_minima? false eq and {
+postscript       defl 4 and 0 eq{exch 3.5 sub exch}       % centraliza a
+postscript                      {exch 3.5 add exch}ifelse % cabeça com a haste
+postscript    } if
+postscript
+postscript    dm_minima? not {exch dm_horizontal_offset add exch}if
+postscript    dm_vertical_offset add M
+postscript    domovel_font selectfont
+postscript    dup stringwidth pop -2 div 0 RM
+postscript    (l) search { % reduzir altura da letra `l'
+postscript       currentpoint gsave
+postscript       T 0 0 M show 1 dm_L_scale scale show show
+postscript       grestore
+postscript    } {
+postscript    (f) search { % reduzir altura da letra `f'
+postscript       currentpoint gsave
+postscript       T 0 0 M show 1 dm_L_scale scale show show
+postscript       grestore
+postscript    } {
+postscript       show
+postscript    } ifelse } ifelse
+postscript } def
+
+% Proporção (altura) para as letras `l'
+% Height factor for letter `l'
+postscript /dm_L_scale 1 def % default
+% Operador para controlar proporção
+% Operator to control letter-height adjusts
+postscript /domovel_ajusta_letras{true eq{.8}{1}ifelse
+postscript        /dm_L_scale exch def}!
+
+postscript /contem? { % str1 str2 contem? => true|false
+postscript    search {pop pop pop true}{pop false}ifelse
+postscript } def
+
+% Intervalo de oitava (em pontos)
+% One octave in points
+postscript /dm_oitava 21 def
+postscript /dm_modulo dm_oitava def
+
+% Define o "modo"
+% Set the "mode" (alpha, numbers, names, initials...)
+postscript /domovel_numeros_ [(1) (2) (3) (4) (5) (6) (7)] def
+postscript /domovel_iniciais_ [(d) (r) (m) (f) (s) (l) (t)] def
+postscript /domovel_iniciais_ [
+postscript    (d) (r) (m) (f) (s) (l) (t)
+postscript    ( d') ( r') ( m') ( f') ( s') ( l') ( t')
+postscript    ( d,) ( r,) ( m,) ( f,) ( s,) ( l,) ( t,)
+postscript ] def
+postscript /domovel_nomes_ [(do) (re) (mi) (fa) (so) (la) (ti)] def
+postscript /domovel_alfa_ [(C) (D) (E) (F) (G) (A) (B)] def
+%
+postscript /domovel_abc { % modo abc (tal e qual a notação ABC)
+postscript    [
+postscript      (C)(D)(E)(F)(G)(A)(B) % oitava central
+postscript      (c)(d)(e)(f)(g)(a)(b) % aguda
+postscript      (c')(d')(e')(f')(g')(a')(b') % mais aguda
+postscript      (c'')(d'')(e'')(f'')(g'')(a'')(b'') % a mais aguda de todas
+postscript      (C,,)(D,,)(E,,)(F,,)(G,,)(A,,)(B,,) % a mais grave de todas
+postscript      (C,)(D,)(E,)(F,)(G,)(A,)(B,) % grave
+postscript    ]
+postscript    domovel_def_vetor
+postscript    /dm_offset 9 def % deslocamento para notas longas
+postscript } bind def
+
+% Muda o vetor para um vetor dado
+% Set the note-names array
+%postscript /domovel_def_vetor {/domovel_vetor exch def}!
+% O módulo (dm_modulo) é ajustado de acordo com o tamanho do vetor
+% Note: "dm_modulo" is adjusted according to the array size
+postscript /domovel_def_vetor{dup/domovel_vetor exch def length/dm_modulo exch 3 mul def}!
+%
+postscript /domovel_numeros{domovel_numeros_ domovel_def_vetor/dm_offset 8 def}!
+postscript /domovel_iniciais{domovel_iniciais_ domovel_def_vetor/dm_offset 9 def/dm_defl? true def}!
+postscript /domovel_nomes{domovel_nomes_ domovel_def_vetor/dm_offset 11 def/dm_defl? true def}!
+postscript /domovel_alfa{domovel_alfa_ domovel_def_vetor/dm_offset 8 def}!
+% dm_offset é o desvio do texto em figuras longas (mínimas, semibreves etc.)
+% "dm_offset" is the horizontal offset for long note-lengths (1/2, 1/1 etc.)
+
+postscript /dm_defl? false def  % usado para centralizar (centering heads/stem)
+
+% !Define o modo default!
+% !Default mode!
+postscript domovel_abc
+
+
+% Obtém um elemento do "modo" (vetor)
+% Get an element from the note-names array
+postscript /dmn {domovel_vetor exch get} !
+
+% Quando o modo não é iniciado em uma nota (como uma decoração), usa
+% notas da clave de sol, em Dó Maior.
+% When domovel is not started by a decoration, but by "domovel_inicio",
+% try to set the default pitch positions as C Major, treble clef. (fragile)
+postscript /posicao_default? true def 
+
+% Operador para definir a posição da nota dó (origem)
+% Operator to set the position of the pitch doh (origin)
+postscript /pos_origem{/Ypos exch 1 sub -6 mul def/posicao_default? false def}!
+
+postscript /indice 0 def
+% Cabeça de nota de dó móvel: imprime texto de acordo com a altura
+% Note head: print the name according to the pitch
+postscript /hd_domovel {
+%
+postscript    posicao_default? true eq {
+postscript       /Ypos Ypos_vdefault def % default para notas em clave de sol
+postscript       /posicao_default? false def
+postscript    }if
+%
+postscript    dm_multi_pautas? true eq {
+postscript       dup
+postscript       %2 dict begin
+postscript          /yp exch def yp dm_guess_staff /indice exch def
+postscript          indice dm_y_offset
+postscript          dm_stave_offsets indice get sub
+postscript       %end
+postscript       /Ypos2 exch def xymove
+%
+postscript    }{
+postscript       xymove /Ypos2 Ystaff Ypos sub def
+postscript    } ifelse
+%
+postscript    /dm_vl domovel_vetor length def
+postscript    /dm_K dm_modulo dm_vl div def
+postscript    y Ypos2 sub round dm_K div cvi dm_vl mod
+postscript    {dup 0 lt{dm_vl add}{exit}ifelse}loop dm_vl mod %poe negativo no módulo
+postscript    dmn x y dms
+% postscript    x y M indice 3 string cvs show % !teste de qual pauta!
+postscript }!
+
+
+
+% ! RECURSOS PARA ADIVINHAR PENTAGRAMA (GUESS STAFF RESOURCES) !
+% ! RESOURCES TO GUESS WHICH IS THE CURRENT STAFF !
+% (ONLY WORK IF "dm_multi" IS SET)
+% Suporta até seis pautas (up 6 staves support)
+postscript /dm_bignum 32767 def % just a big number
+postscript /y0 {dm_bignum sub} bind def
+postscript /y1 {dm_bignum sub} bind def
+postscript /y2 {dm_bignum sub} bind def
+postscript /y3 {dm_bignum sub} bind def
+postscript /y4 {dm_bignum sub} bind def
+postscript /y5 {dm_bignum sub} bind def
+
+% Retorna altura da primeira linha da pauta mais próxima
+% Return vertical offset of the nearest staff
+postscript /dm_y_staff { % stack:  y  ->  y'
+postscript     dm_guess_staff dm_y_offset} !
+
+% Encontra pauta mais próxima e retorna indice da pauta
+% Find nearest staff
+
+postscript /dm_guess_staff{ % stack: y -> index
+postscript     dup 12 sub neg y0 abs exch % y y0-midstaff y
+postscript     dup 12 sub neg y1 abs exch % y y0-midstaff y1-midstaff y
+postscript     dup 12 sub neg y2 abs exch
+postscript     dup 12 sub neg y3 abs exch
+postscript     dup 12 sub neg y4 abs exch
+postscript         12 sub neg y5 abs      % y0..y5-midstaff
+postscript     6 dict begin
+postscript         /dm_i 6 def % max number of staves
+postscript         /dm_min 32767 def
+postscript         /min_ {2 copy gt {exch} if pop}!
+postscript         dm_i {
+postscript            /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+postscript               /dm_i dm_i 1 sub def/dm_min dm_temp def}if
+postscript         } repeat
+postscript         dm_i
+postscript     end
+postscript }bind def
+
+
+% postscript /dm_guess_staff{ % stack: y -> index
+% postscript     dup 12 sub neg y0 abs exch % y y0-midstaff y
+% postscript     dup 12 sub neg y1 abs exch % y y0-midstaff y1-midstaff y
+% postscript     dup 12 sub neg y2 abs exch
+% postscript     dup 12 sub neg y3 abs exch
+% postscript     dup 12 sub neg y4 abs exch
+% postscript     12 sub neg y5 abs  % y0..y5-midstaff
+% postscript     4 dict begin
+% postscript          /dm_min 10000 def /dm_i 0 def % !TODO: otimize!
+% postscript         /min_ {2 copy gt {exch} if pop}!
+% postscript         /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+% postscript               /dm_i 5 def/dm_min dm_temp def}if
+% postscript         /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+% postscript               /dm_i 4 def/dm_min dm_temp def}if
+% postscript         /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+% postscript               /dm_i 3 def/dm_min dm_temp def}if
+% postscript         /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+% postscript               /dm_i 2 def/dm_min dm_temp def}if
+% postscript         /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+% postscript               /dm_i 1 def/dm_min dm_temp def}if
+% postscript         /dm_temp exch def dm_min dm_temp min_ dm_temp eq{
+% postscript               /dm_i 0 def/dm_min dm_temp def}if
+% postscript         dm_i
+% postscript      end
+% postscript }bind def
+% 
+
+% Obtém offset de y<N>
+% Get offset of y<N>
+postscript /dm_y_offset { % stack:  staff-index  ->  y-offset
+postscript     dup 0 eq {pop 0 y0} {
+postscript        dup 1 eq {pop 0 y1} {
+postscript           dup 2 eq {pop 0 y2} {
+postscript              dup 3 eq {pop 0 y3} {
+postscript                  dup 4 eq {pop 0 y4} {
+postscript                      5 eq {0 y5} {0} ifelse
+postscript                  } ifelse
+postscript              } ifelse
+postscript           } ifelse
+postscript        } ifelse
+postscript     } ifelse
+postscript }bind def
+
+% ! INIT !
+% Vetor com um offset para cada pauta
+% Offsets array - one entry for each staff
+postscript /dm_stave_offsets [0 0 0 0 0 0] def
+% Multipautas desabilitado por default
+% Multistave disable by default
+postscript /dm_multi_pautas? false def
+% ! MULTI/MONO INTERFACE !
+postscript /dm_multi{/dm_multi_pautas? true def}!
+postscript /dm_mono{/dm_multi_pautas? false def}!
+
+
+%%
+% ! TESTE !% ! TESTE !% ! TESTE !% ! TESTE !% ! TESTE !% ! TESTE !
+postscript /guess{exch 5 add exch xymove y dm_guess_staff 3 string cvs 9 F0 show}!
+deco guess 0 guess 0 0 0
+postscript /rotacao{xymove y dm_guess_staff /dm_i exch def
+postscript     dm_stave_offsets dm_i
+postscript     dm_stave_offsets dm_i get 21 add
+postscript     put
+postscript         }!
+postscript /rota-n{xymove cvr -1 0{pop x y rotacao}for}!
+deco rotacao 0 rotacao 0 0 0
+deco rota1 3 rota-n 0 0 0 1
+deco rota2 3 rota-n 0 0 0 2
+deco rota3 3 rota-n 0 0 0 3
+% ! TESTE !% ! TESTE !% ! TESTE !% ! TESTE !% ! TESTE !% ! TESTE !
+%%
+
+
+
+% Inicia escrita em dó móvel
+% This operator starts domovel music
+postscript /domovel_inicio_ {
+%
+% !multi-stave! (multipautas)
+postscript    dm_multi_pautas? true eq {
+postscript      %3 dict begin
+postscript        dup /dm_yp exch def dm_yp dm_guess_staff /dm_i exch def
+postscript        dm_yp neg dm_i dm_y_offset add
+postscript        /dm_ypis exch def
+postscript        dm_stave_offsets dm_i dm_ypis put
+postscript      %end
+postscript    pop pop
+postscript    } {
+postscript    getpos } ifelse      /posicao_default? false def
+%
+postscript   adapta_espessura
+% postscript   /hd/hd_domovel load def
+postscript   /hd{/dm_minima? false def hd_domovel}def
+postscript   /Hd{/dm_minima? true def % mantém dm_minima? para haste (for stem)
+postscript         2 copy dm_old_Hd x y exch dm_offset add exch hd_domovel xymove}def
+postscript   /HD{/dm_minima? true def
+postscript         2 copy dm_old_HD x y exch dm_offset add exch hd_domovel xymove
+postscript         /dm_minima? false def
+postscript      }def
+postscript   /HDD{/dm_minima? true def
+postscript         2 copy new_HDD x y exch dm_offset add 2 add exch hd_domovel xymove
+postscript         /dm_minima? false def
+postscript       }def
+postscript   /breve{/dm_minima? true def
+postscript         2 copy dm_old_breve x y exch dm_offset add 2 add exch hd_domovel xymove
+postscript         /dm_minima? false def
+postscript       }def
+postscript   /longa{/dm_minima? true def
+postscript         2 copy dm_old_longa x y exch dm_offset add 2 add exch hd_domovel xymove
+postscript         /dm_minima? false def
+postscript       }def
+postscript } !
+
+% ACIONA O ESTILO
+% START domovel STYLE BY HAND (``low level'' operator)
+% postscript 0 0 domovel_inicio_
+% OPERADOR PARA ACIONAR O MODO MANUALMENTE
+% OPERATOR TO START domovel (``high level'')
+postscript /domovel_inicio {0 0 domovel_inicio_ /posicao_default? true def} !
+
+% Restaura apenas cabeças de notas normais
+% Reset note heads to original ones (only changes note heads)
+postscript /domovel_cabeca_normal {
+postscript	/hd /dm_old_hd load bind def
+postscript	/Hd /dm_old_Hd load bind def
+postscript	/HD /dm_old_HD load bind def
+postscript	/HDD /dm_old_HDD load bind def
+postscript	/breve /dm_old_breve load bind def
+postscript	/longa /dm_old_longa load bind def
+postscript      /dm_adj 0 def
+postscript }!
+
+% Restaura toda a escrita normal
+% Reset all music writting to the original (normal) style
+postscript /domovel_fim_ { pop pop
+postscript      restaura_espessura
+postscript	/hd /dm_old_hd load bind def
+postscript	/Hd /dm_old_Hd load bind def
+postscript	/HD /dm_old_HD load bind def
+postscript	/HDD /dm_old_HDD load bind def
+postscript	/breve /dm_old_breve load bind def
+postscript	/longa /dm_old_longa load bind def
+postscript      /posicao_default? true def %/Ypos 6 def
+postscript } !
+% OPERADOR PARA TERMINAR O MODO MANUALMENTE
+% OPERATOR TO END (STOP) domovel (``high level'')
+postscript /domovel_fim{0 0 domovel_fim_ }!
+
+
+% ! % SUPORTE A DECORAÇÕES % -- DECORATIONS SUPPORT !
+%
+% Define a primeira nota em dó movel
+% Define the first next note as ... (doh, ray, mee...)
+postscript /domovel_d {domovel_inicio_ }!
+postscript /domovel_r {-3 add domovel_inicio_ }!
+postscript /domovel_m {-6 add domovel_inicio_ }!
+postscript /domovel_f {-9 add domovel_inicio_ }!
+postscript /domovel_s {-12 add domovel_inicio_ }!
+postscript /domovel_l {-15 add domovel_inicio_ }!
+postscript /domovel_t {-18 add domovel_inicio_ }!
+% A mark for three-bars phrase
+postscript /dm_frase3{6 add 2 copy M % indicador de frase de três compassos
+postscript     domovel_font dup/fh exch .8 mul def selectfont( 3)show
+postscript     0.8 setlinewidth M 0 fh 2 add RL 8 0 RL stroke dlw}!
+postscript /dm_normal_ {pop pop domovel_cabeca_normal} !
+%
+% Decorações (usar em um "acorde" para que tenham efeito)
+% Decorations (must be used between brackets with the note ("ABC-chord like"))
+deco domovel_d 0 domovel_d 0 0 0
+deco domovel_r 0 domovel_r 0 0 0
+deco domovel_m 0 domovel_m 0 0 0
+deco domovel_f 0 domovel_f 0 0 0
+deco domovel_s 0 domovel_s 0 0 0
+deco domovel_l 0 domovel_l 0 0 0
+deco domovel_t 0 domovel_t 0 0 0
+%
+deco domovel_normal 0 dm_normal_ 0 0 0
+deco domovel_fim 0 domovel_fim_ 0 0 0
+deco /3 3 dm_frase3 18 0 0
+%
+
+% 
+%  CLAVES DE DÓ MOVEL | MOVEABLE-DOH CLEFS
+% 
+
+postscript /dm_old_cclef /cclef load bind def
+postscript /dm_old_tclef /tclef load bind def
+postscript /dm_old_bclef /bclef load bind def
+postscript /dm_old_octu /octu load bind def
+postscript /dm_old_octl /octl load bind def
+
+postscript /dm_old_sh0 /sh0 load bind def
+postscript /dm_old_ft0 /ft0 load bind def
+postscript /dm_old_nt0 /nt0 load bind def
+postscript /dm_old_dsh0 /dsh0 load bind def
+postscript /dm_old_dft0 /dft0 load bind def
+
+% !mudanças aqui devem ser paralelas a mudanças em restaureclaves!
+% !If you change this, you must change "restaureclaves" too!
+postscript /forceclaves {
+postscript                /cclef {pop dm_POScdm exch 0 clavedomovel} def
+postscript                /tclef {pop dm_POScdm exch 0 clavedomovel} def
+postscript                /bclef {pop dm_POScdm exch 0 clavedomovel} def
+postscript                /octu {pop pop} def
+postscript                /octl {pop pop} def
+%postscript 		  /sh0 {pop pop} def
+%postscript 		  /ft0 {pop pop} def
+%postscript                /nt0 {pop pop} def
+%postscript                /dsh0 {pop pop} def
+%postscript                /dft0 {pop pop} def
+postscript } def
+
+postscript /restaureclaves {
+postscript                /cclef /dm_old_cclef load def
+postscript                /tclef /dm_old_tclef load def
+postscript                /bclef /dm_old_bclef load def
+postscript                /octu /dm_old_octu load def
+postscript                /octl /dm_old_octl load def
+%postscript 		  /sh0 /dm_old_sh0 load def
+%postscript 		  /ft0 /dm_old_ft0 load def
+%postscript                /nt0 /dm_old_nt0 load def
+%postscript                /dsh0 /dm_old_dsh0 load def
+%postscript                /dft0 /dm_old_dft0 load def
+postscript } def
+
+postscript /showclavedomovel { exch -3 add exch 2 copy M 18 currentpoint thbar
+postscript          exch 6 add exch M currentpoint 2 copy M 0 18 RL
+postscript          1.2 setlinewidth stroke 2 setlinewidth
+postscript          M 0 6 RM 6 0 RL 0 6 RM -6 0 RL stroke dlw} !
+
+postscript /clavedomovel{
+postscript          pop -5 add Ystaff -15 add M cvr dup
+postscript          /dm_POScdm exch def 6 mul 0 exch RM currentpoint
+%
+% clave de dó na 1a. linha e 2o. espaço suplementar inferior
+% adjustments for clef below staff
+postscript          dup 15 add Ystaff sub round 0 le
+postscript          {  2 copy
+postscript             dup 15 add Ystaff sub round -.5 le {3 add}if
+postscript             M -7 9 RM 20 0 RL
+postscript             dlw currentlinewidth 1.1429 mul setlinewidth
+postscript             stroke
+postscript          } if
+%
+postscript          showclavedomovel forceclaves}!
+
+% operator to set a doh-clef (argument is the position)
+postscript /pos_clavedomovel {/dm_POScdm exch def forceclaves} def
+
+% operator to reset to normal clefs
+postscript /clavesorig {pop pop restaureclaves} def

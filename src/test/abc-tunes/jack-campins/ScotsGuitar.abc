@@ -1,0 +1,172 @@
+% ===========================================================================
+% =======================  Scots Guitar Music in ABC  =======================
+% ===========================================================================
+
+% Some 18th century Scottish music intended for the guitar of the time,
+% tuned CEGceg.  Bremner's collection of the 1760s and Neil Stewart's
+% (mostly plagiarized from Bremner) of maybe 20 years later were both
+% published.  The unpublished manuscript I've taken the last two tunes
+% from is mostly copied from Bremner, but those two pieces aren't.
+
+X:1
+T:A Strathspey Reel.
+B:Bremner: Instructions for the Guitar, London, c.1765, NLS MH.s.252(1)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+M:C
+L:1/8
+Q:1/4=108
+K:GMix
+c>dec     d<d[d2B2]|c>dec     AA  A2|c>dec     dd [d2G2]|c>dcA    GGG2||
+g>fge     d>cde    |g>c'ge    d>c A2|g<ec'e    d>cde    |c>dcA {c}G2G2||
+c'>d'e'c' d'd' d'2 |c'>d'e'c' e'<aa2|c'>d'e'c' d'd'd'2  |c'>d'c'a ggg2||
+g>c'e>c'  d>cde    |g<ec'>e   d>c A2|g>ac'e    d>cde    |c>ecA {c}G2G2|]
+
+X:2
+T:Up we't Eli Eli.
+B:Bremner: Instructions for the Guitar, London, c.1765, NLS MH.s.252(1)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+N:B's written as accidentals in a C key sig
+M:9/8
+L:1/8
+K:CMix
+C2c' g2e      g2e     | c2c'     g2e      f2d|c2c' g2e  g2a|bab [d2G2]e fed:|
+c2c  ede      gfe     | c2c      d2e      fed|c2c  ede  gfe|gfg [d2G2]e fed:|
+c2C (g2{e})C (c'2{e})C|(g2{e})C (c'2{e})C fed|c2C  c'2C g2C|f2G  d2   e fed:|
+c2G  E2G      C2G     | c2G      C2e      fed|c2G  E2G  F2A|BAB  D2   E FED:|
+
+X:3
+T:Mill Millo.
+B:Bremner: Instructions for the Guitar, London, c.1765, NLS MH.s.252(1)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+M:C
+L:1/8
+K:C
+c>d|e2 G2         G3    c  |{c}TA>GAc           [d2G2]cd |e2G2 fedc   |{c}TA3B        c2       :|
+G2 |c>def        [g3e3][ge]|    agfe            [d3G3]G  |cdef g>agf  |  [Te3c3][fd] [g3e3]G    |
+    c[dG][ec][fd] gceg     |   [af][ge][fd][ec] [d2G2]c>d|e2G2 G2e/d/c|   TA3B       [C2E2G2c2]:|
+
+X:4
+T:Allen a Roon
+B:Bremner: Instructions for the Guitar, London, c.1765, NLS MH.s.252(1)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+N:C6 held through bar 17; 4- and 6-note chords arpeggiated
+N:last chord printed as minims in the book
+M:3/4
+L:1/8
+K:C
+ G2           A2B2|Tc3  d e2   | G2     A2     B2   |([C6E6G6c6]) |\
+ G2           AGAc| d3  c c/d/e| G2     A2     B2   |([C6E6G6c6]):|\
+ f>ef>gf>g        | f2 A2 A2   |Te>defed            |  c2 A2 G2   |\
+ f>efg          f2|Te>def e2   | d>cdfed            |  c2 A2 G2   |\
+[C3E3G3c3e3g3] fed|Tc3  d e2   |[E2G2] [F2A2] [G2B2]|[C6E6G6c6]  :|
+
+X:5
+T:Hooly and Fairly
+B:Bremner: Instructions for the Guitar, London, c.1765, NLS MH.s.252(1)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+M:6/4
+L:1/4
+K:C
+[Cc]>dc efg|[Gd]>ed fga|c>dc  geg|c'>ba gfe    |\
+ faf    ege| d>ed   f2a|c'>ba geg|c>dc [c2e2]g||\
+ c>dc   e2g| d>ed   f2a|c'>ba geg|a<c'g Te2g  |]
+
+X:6
+T:Gill Morice
+S:Neil Stewart: A New Collection of Scots & English Tunes Adapted to the Guittar
+B:NLS MH.s.252(3)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+M:C
+L:1/4
+Q:1/4=100
+K:C
+c               |e e d   e|a g     ed/c/|ggab|[C3E3G3C3e3c'3]
+b               |a g e   g|a c'/e/ dc/A/|ccde|[c3e3g3]
+c'//d'//e'//d'//|c'a g/e/g|a c'/e/ dc/A/|ccde|[c3g3e3]       |]
+
+X:7
+T:Sour Plums
+S:Neil Stewart: A New Collection of Scots & English Tunes Adapted to the Guittar
+B:NLS MH.s.252(3)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+M:C
+L:1/8
+K:C
+[C3E3G3c3e3]g [c3e3]c'|gedc       [G3d3]e| c3  d              edeg      | a3g    e2   c'2|
+ a>gea         gedg   |e>dce       d3   e| c>def              gec'e     |[G4d4] [C2c2]z2:|
+ a>bc'>d'      c'2c2  |c'2 g/a/_b  a3   g| e2 ga             _b2(a/b/c')|Ta4     g2   z2 |
+ abc'd'        c'2c2  |c'e'd'c'    a3   f| e2 ga             _bd'c'b    |Ta4     g2   z2 |
+ a>bc'>d'      c'2c2  |c'2(g/a/_b) a3   g| ed e2              ge g2     | aga2  _b3    d'|
+ c'ac'2        ag a2  |ge  g2      ed  e2|[C3E3G3c3e3c'3]b/a/ gage      |[G4d4]  c2   z2:|
+
+X:8
+T:A Strathspey Reel
+S:Neil Stewart: A New Collection of Scots & English Tunes Adapted to the Guittar
+B:NLS MH.s.252(3)
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+M:C
+L:1/8
+K:GMix
+c>dec     d<d[d2G2]|c>dec     AA A2|c>dec     dd[d2G2]|c>dcA      GG G2||
+d>age     d>cde    |g>c'ge    d>cA2|g<ec'e    d>cde   |c>dcA  ({c}G2)G2||
+c'>d'e'c' d'd'd'2  |c'>d'e'c' d'aa2|c'>d'e'c' d'd'd'2 |c'>d'c'a   gg g2||
+g>c'e>c'  d>cde    |g<ec'>e   d>cA2|g>ac'e    d>cde   |c>ecA  ({c}G2)G2|]
+
+X:9
+T:McGlashan's Croanick
+B:NLS MS.5449 (Guittar/keyboard music, Scots tunes and minuets) c.1765
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+N:"Croanick" must be Gaelic "coronach", lament.
+N:Not published by McGlashan himself.  Presumably it was originally in
+N:D for the fiddle.  The most similar codes in Gore's Scottish Fiddle
+N:Music Index are for "Caidil gu Lo" (Patrick McDonald, 1784) and "Sleep
+N:on Till Day" (Beauties of Niel Gow volume 2).  It seems vaguely related
+N:to "Lochaber No More".
+N:The six-quaver groups are beamed together in the MS.
+M:3/4
+L:1/8
+Q:1/4=100
+K:F
+ c>A      G2  F2  |   f>g    [F2c2f2] [F2A2]|   c>A   G2  [C2F2]|    f>g  (f>a) c>d   |
+_e>f ({_e}d2) c2  |   a>b ({a}g2)      c2   |   c'>b  a2   g2   |    f>a   d2  (c<f) :|
+ c>A      G2  F2  |(3(fga)    A2       B>d  |   c>A   G2   F2   | (3(fga)  c2   d2    |
+_e>f   {e}d2  c2  |   a>b ({a}g2)      c2   |(3(abc') c2   f2   |   (c<A)  G2  [C2F2]:|
+ cB       AG  AF  |   fe      fg       aA   |   cB    AG   AF   |    fe    f>a  c>d   |
+_e>f      d>f c>g |   a>b     ac       gc   |  (c'b) (ba) (ag)  |[1  gf    ed   ec   :|\
+                                                                 [2  gf    ed   c2   ||
+ cA       GF  GA  |   f>e     f>g      fA   |   cA    G>F  GA   |    f>e   f>a  c2    |
+ d>c      d>f c>_e|   d>c     da       gc   |   db    ag   fe   |[1  fe/d/ cB   AG   :|\
+                                                                 [2 [F6c6f6]         |]
+
+X:10
+T:Faild na Miosg
+T:The Musket Salute
+B:NLS MS.5449 (Guittar/keyboard music, Scots tunes and minuets) c.1765
+Z:Jack Campin, <http://www.campin.me.uk/> April 2001
+N:There are innumerable wonky spellings of that Gaelic title in
+N:18th century sources; I'm leaving this the way it is in the MS.
+N:I think this is a version of Oswald's flute/violin setting from
+N:the Caledonian Pocket Companion but haven't checked.  Transposed
+N:into D it works fine on the flute.
+M:3/4
+L:1/8
+Q:1/4=100
+K:F
+c2|f3 agf |d4   f2|c3 fdc|{B}A3 G    F2  |(G2A2) f2|({d}c3)  BAG |F2 f2 (fg)|f4 f>g|
+  Ta>gabag|f3 e d2|c3 fdc|   A3 G (3(AGF)|(G2A2) f2|    c>dA>cG>A|F2 f2  f>g|f4   :|
+c2|fg a2 (3(abc')|  "="a3 g (3(agf)|(d2  c2)   d2  | d'3 c'    a2 |\
+   c'>d'c'bag    |     abagfe      | d2  g2 (3(gab)|Tg3  f     d2 |
+   fefgab        |({ab}c'3)d'   c'2| d'c'bagf      | f3  agf      |\
+  Td3     cdf    |     c2bagf      | d2  cdfA      | A2 [C2G2] F2:|
+   f2 (.F.F.F.F)|    f2    (.F.F.F.F)    | B3  fdc|({B}A3) G (3(AGF)|\
+  (G2   A2) f2  |({d}c3)      BAG        | F2f2 fg|    f4       ag  |
+   f2 (.F.F.F.F)|    f2      FGAF        |(BAB)fdc|({B}A3) G    F2  |\
+  (G2   A2) f2  | (3(cdc) (3(AcA) (3(GAG)| F2f2 fg|    f4          :|
+c2|fg     a2     (3(abc')| ({b}a3) g  f2 |   d2        d'2      c'2|  d'3   c'  a2 |\
+   c'2 (3(d'c'a) (3(c'ag)|     a2 bagf   |   d2        g2    (3(gab)|Tg3    f   d2 |
+   f3      gab           |({ab}c'3)d' c'2|(3(d'c'b) (3(c'ba) (3(bag)| f3    agf    |\
+  _e4     d2             |     c2 bagf   |   d2        cdfA         | A2 [C2G2] F2:|
+
+
+% Jack Campin:   11 Third Street, Newtongrange, Midlothian EH22 4PU, Scotland
+% mobile 07800 739 557                                http://www.campin.me.uk

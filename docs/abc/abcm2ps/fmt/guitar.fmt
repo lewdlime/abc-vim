@@ -1,0 +1,348 @@
+% -*- ps -*-
+format annotation
+format translate
+
+% Copyright 2009 by Hudson F. M. Lacerda
+% E-mail: hfmlacerda (at) yahoo (dot) com (dot) br
+% Released under GNU General Public License Version 3.0
+% http://www.gnu.org/licenses/gpl-3.0.html
+
+% begips
+%   /CP /currentpoint load bind def
+%   /GS /gsave load bind def
+%   /GR /grestore load bind def
+% endps
+
+beginps
+  /fermata /hld load bind def
+  /ocultafermata {/hld {pop pop} bind def} !
+  /mostrafermata {/hld /fermata load bind def} !
+endps
+
+deco ocultafermata 3 ocultafermata 0 0 0
+deco mostrafermata 3 mostrafermata 0 0 0
+deco ferm 3 hld 13 0 0
+
+
+beginps
+  /pestana{ gsave %% barring
+ 	exch -2 add exch 20 add 2 copy 2 copy M
+     %-0.675 -8 RM  0 17 RL .9 setlinewidth  stroke dlw  %% semi-pestana
+ 	M -8 -5 RM /Times-Bold 16 selectfont (C.) show 1 0 RM
+     TEXTO show
+ 	0 6 RM
+	/Times-Roman 10 selectfont (a) dup
+	show
+	gsave
+	0 -1.5 RM
+	stringwidth exch neg 0.4 add exch RL stroke
+	grestore
+ 	M 21 -0.5 RM
+	4 0 RM
+	[4] 0 setdash
+	0 add 0 RL
+	currentpoint stroke M
+ 	[] 0 setdash 0 -4 RL stroke
+  grestore }!
+  /casa1{/TEXTO (1) def pestana}!
+  /casa2{/TEXTO (2) def pestana}!
+  /casa3{/TEXTO (3) def pestana}!
+  /casa4{/TEXTO (4) def pestana}!
+  /casa5{/TEXTO (5) def pestana}!
+  /casa6{/TEXTO (6) def pestana}!
+  /casa7{/TEXTO (7) def pestana}!
+  /casa8{/TEXTO (8) def pestana}!
+  /casa9{/TEXTO (9) def pestana}!
+  /casa10{/TEXTO (10) def pestana}!
+  /casa12{/TEXTO (12) def pestana}!
+  /casa13{/TEXTO (13) def pestana}!
+  /casa14{/TEXTO (14) def pestana}!
+endps
+
+deco 1( 5 - 24 0 0
+deco 1) 5 casa1 27 0 0
+deco 2( 5 - 24 0 0
+deco 2) 5 casa2 27 0 0
+deco 3( 5 - 24 0 0
+deco 3) 5 casa3 27 0 0
+deco 4( 5 - 24 0 0
+deco 4) 5 casa4 27 0 0
+deco 5( 5 - 24 0 0
+deco 5) 5 casa5 27 0 0
+deco 6( 5 - 24 0 0
+deco 6) 5 casa6 27 0 0
+deco 7( 5 - 24 0 0
+deco 7) 5 casa7 27 0 0
+deco 8( 5 - 24 0 0
+deco 8) 5 casa8 27 0 0
+deco 9( 5 - 24 0 0
+deco 9) 5 casa9 27 0 0
+deco 10( 5 - 24 0 0
+deco 10) 5 casa10 27 0 0
+deco 11( 5 - 24 0 0
+deco 11) 5 casa11 27 0 0
+deco 12( 5 - 24 0 0
+deco 12) 5 casa12 27 0 0
+deco 13( 5 - 24 0 0
+deco 13) 5 casa13 27 0 0
+deco 14( 5 - 24 0 0
+deco 14) 5 casa14 27 0 0
+
+deco head-Hd 0 Hd 0 0 0 
+
+
+deco coda_ 4 coda 26 0 0
+deco D.S._ 4 dacs 16 0 0 D.S.
+deco segno_ 4 sgno 20 0 0
+
+beginps
+  /longdyn {
+       3 1 roll moveto -6 5  rmoveto
+       /Times-BoldItalic 12 selectfont show
+       gsave
+          2 2 rmoveto dlw
+          [3 10] 0 setdash 22 sub 0 rlineto
+          currentpoint stroke
+          moveto [] 0 setdash
+          % 0 3 rlineto
+          stroke
+       grestore
+  } def
+  /cresc. { (cresc.)longdyn }!
+  /dim. { (dim.)longdyn }!
+endps
+
+deco cresc-( 7 - 20 0 0
+deco cresc-) 7 cresc. 20 0 0
+deco dim-( 7 - 20 0 0
+deco dim-) 7 dim. 20 0 0
+
+setdefl
+
+
+
+beginps
+  /xx 0 def /yy 0 def
+  /xx2 0 def /yy2 0 def
+  /xx3 0 def /yy3 0 def
+  /xx4 0 def /yy4 0 def
+  /gliss-str () def
+  % /gliss-str (gl.) def
+  
+  
+  /setmark{/yy exch def /xx exch def}!
+  /setmark1{setmark}!
+  /setmark2{/yy2 exch def /xx2 exch def}!
+  /setmark3{/yy3 exch def /xx3 exch def}!
+  /setmark4{/yy4 exch def /xx4 exch def}!
+  
+  % Adapted from J.-F. Moine, abcm2ps sample file "deco.abc" - /gliss
+  /glissando{	% usage: x1 y1 x2 y2 glissando
+  	gsave exch 9 add exch 2 copy T 0 0 M
+  	% .3 setlinewidth
+  	.7 setlinewidth
+  	exch 4 -1 roll exch sub 3 1 roll sub	% dx dy
+  	2 copy exch atan dup rotate	% dx dy alpha
+  	exch pop cos div		% len
+  	gsave 0 0 M
+  	   dup 2 div 3.5 sub 2 RM %-1 -1 scale
+  	   /Helvetica 8 selectfont gliss-str showc
+  	grestore
+   	9 sub 0 RL			% simple line
+  	stroke grestore}!
+
+  /markcp{currentpoint setmark}!
+  /markcp1{markcp}!
+  /markcp2{currentpoint setmark2}!
+  /markcp3{currentpoint setmark3}!
+  /markcp4{currentpoint setmark4}!
+	
+  /gl {xx yy glissando} !
+  /gl1 {gl} !
+  /gl2 {xx2 yy2 glissando} !
+  /gl3 {xx3 yy3 glissando} !
+  /gl4 {xx4 yy4 glissando} !
+
+  /line {xx yy lineto stroke}!
+  /line1 {line}!
+  /line2 {xx2 yy2 lineto stroke}!
+  /line3 {xx3 yy3 lineto stroke}!
+  /line4 {xx4 yy4 lineto stroke}!
+
+  /dashedline {gsave [3 6] 0 setdash lineto stroke grestore}!
+  /dline {xx yy dashedline}!
+  /dline1 {dline}!
+  /dline2 {xx2 yy2 dashedline}!
+  /dline3 {xx3 yy3 dashedline}!
+  /dline4 {xx4 yy4 dashedline}!
+  
+  /tie_ {gsave T 10 -6 M 90 rotate /Times-Roman 10 selectfont (\() show
+  	grestore} !
+  /tie^ {gsave T 10 3 M 90 rotate /Times-Roman 10 selectfont (\)) show
+  	grestore} !
+
+	% short fermata
+  /fermatacurta {1.5 add 2 copy 1.5 add M currentpoint 1.3 0 360 arc fill
+  	M -6 0 RM 6 7 RL 6 -7 RL .9 SLW stroke dlw} !
+
+	% long fermata
+  /fermatalonga {1.5 add 2 copy 1.5 add M currentpoint 1.3 0 360 arc fill
+  	M -7 0 RM 0 6 RL 14 0 RL 0 -6 RL 1.2 SLW stroke dlw} !
+  
+  /showerror{     gsave 1 0.7 0.7 setrgbcolor 2.5 SLW 2 copy newpath
+          30 0 360 arc stroke grestore}!
+  
+  /hyph{  .8 SLW 3 add M
+          dup cvi 70 idiv 1 add 1 index exch div
+          dup 3 sub 3 1 roll
+          dup .5 mul dup 1.5 sub 0 RM
+          exch 3 -1 roll
+          {pop 3 0 RL dup 0 RM} for stroke pop}!
+endps
+
+deco mark 0 setmark 0 0 0
+deco gliss 0 gl 0 0 0
+deco mark2 0 setmark2 0 0 0
+deco gliss2 0 gl2 0 0 0
+deco mark3 0 setmark3 0 0 0
+deco gliss3 0 gl3 0 0 0
+deco mark4 0 setmark4 0 0 0
+deco gliss4 0 gl4 0 0 0
+
+deco tie_ 0 tie_ 0 0 0
+deco tie^ 0 tie^ 0 0 0
+deco fermata^ 3 fermatacurta 20 0 0
+deco fermata0 3 fermatalonga 20 0 0
+deco fermatam 3 hld 20 0 0
+
+postscript /harmstroke{M -3 0 RM 3 3 RL 3 -3 RL -3 -3 RL closepath stroke}!
+postscript /harmfill{M -3 0 RM 3 3 RL 3 -3 RL -3 -3 RL closepath fill}!
+postscript /sharp{gsave 8 add T .8 dup scale 0 0 sh0 grestore}!
+postscript /flat{gsave 6 add T .8 dup scale 0 0 ft0 grestore}!
+postscript /natural{gsave 8 add T .8 dup scale 0 0 nt0 grestore}!
+
+postscript /arrow{M 3 -9 RL -6 0 RL closepath fill}!
+postscript /arrowup{3 -1 roll add 7 add exch -4 add exch arrow}!
+postscript /arrowdn{3 -1 roll pop gsave T 1 -1 scale -4 4 arrow grestore}!
+
+deco arrowup 2 arrowup 0 0 0
+deco arrowdown 2 arrowdn 0 0 0
+
+
+beginps
+  /arpupdn{8 add M 20 currentpoint 3 copy arp 3 copy arrowup
+           exch 8 add exch 3 copy arp arrowdn}!
+  /arps{		% arpeggio start - stack: h x ylow
+  	exch /x exch def	% memorize 'x'
+  	add /y exch def}!	% memorize the upper vert offset
+  /arpe{		% arpeggio end - stack: h x ylow
+  	3 -1 roll pop		% discard 'h'
+  	exch dup x gt {pop x} if exch	% have room for accidentals
+  	y 1 index sub 3 1 roll	% new height
+  	arp}!
+  /noarp{gsave 90 rotate
+  	exch neg 4 add M 0 RL 1.1 setlinewidth stroke grestore}!
+  /noarps{		% arpeggio start - stack: h x ylow
+  	exch /x exch def	% memorize 'x'
+  	add /y exch def}!	% memorize the upper vert offset
+  /noarpe{		% arpeggio end - stack: h x ylow
+  	3 -1 roll pop		% discard 'h'
+  	exch dup x gt {pop x} if exch	% have room for accidentals
+  	y 1 index sub 3 1 roll	% new height
+  	noarp}!
+  % small note heads
+  /shd{		% usage: x y shd
+  	M 3 1.3 RM
+  	-1 2.5 -6.5 0 -5.5 -2.5 RC
+  	1 -2.5 6.5 0 5.5 2.5 RC fill}!
+  /sHd{		% usage: x y sHd
+  	gsave M 3 1.3 RM
+  	-1 2.5 -6.5 0 -5.5 -2.5 RC
+  	1 -2.5 6.5 0 5.5 2.5 RC dlw stroke grestore}!
+endps
+
+deco arpupdn 3 arpupdn 30 0 0
+deco arps 2 arps 0 0 0
+deco noarp 2 noarp 0 0 0
+deco arpe 2 arpe 0 0 0
+deco noarps 2 noarps 0 0 0
+deco noarpe 2 noarpe 0 0 0
+deco head-x 0 dsh0 0 0 0	% X head
+deco head-shd 0 shd 0 0 0	% small head
+deco head-sHd 0 sHd 0 0 0	% small head minima
+
+
+
+postscript /mshowb{5 add M 16 F2 dup stringwidth pop -2 div 0 RM showb}!
+deco S 3 mshowb 20 0 0 S
+
+
+
+postscript /showit{5 add M /Times-Italic 16 selectfont show}!
+deco sub. 6 showit 18 8 16 sub.
+
+
+
+postscript /hdq {exch 2.7 sub exch 10 sub 5.4 20 1.4 SLW rectstroke} !
+postscript /pop2{pop pop}!
+
+deco head-i 0 pop2 0 0 0
+deco head-x 0 dsh0 0 0 0
+deco head-h 0 harmfill 0 0 0
+deco head-H 0 harmstroke 0 0 0
+deco head-q 0 hdq 0 0 0
+deco b 3 flat 11 0 0
+deco = 3 natural 11 0 0
+deco # 3 sharp 11 0 0
+
+beginps % tremolo /// on stem
+  /strem{M defl 4 and 0 eq{-6.5 -14}{0.5 5}ifelse RM
+         6 3 RL
+         0 3 RM -6 -3 RL
+         0 3 RM 6 3 RL
+         1 setlinewidth stroke dlw}!
+  /hrmes{		% usage: x y hrmes
+  	12 sub 2 copy 2 copy
+  	M -5 16 RM currentpoint 1.4 0 360 arc
+  	M 5 8 RM currentpoint 1.4 0 360 arc
+  	M -7 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+  	fill}!
+endps
+
+deco strem 0 strem 0 0 0
+deco head-rmes 0 hrmes 0 0 0
+
+
+beginps
+  /dyn1{currentpoint /dmarky1 exch def /dmarkx1 exch def}!
+  /dyn2{currentpoint /dmarky2 exch def /dmarkx2 exch def}!
+  /dyn3{currentpoint /dmarky3 exch def /dmarkx3 exch def}!
+  /dyn4{currentpoint /dmarky4 exch def /dmarkx4 exch def}!
+  /crescXY{gsave currentpoint 1 SLW
+      %7.5 0 translate 1 0 0 setrgbcolor
+      /dmarkY exch def  /dmarkX exch def
+      1 setlinecap 1 setlinejoin
+      dmarkX dmarkY 4 add M
+      lineto
+      dmarkX dmarkY 4 sub lineto
+      stroke grestore }!
+  /dimXY{gsave 1 SLW
+      %7.5 0 translate 1 0 0 setrgbcolor
+      /dmarkY exch def  /dmarkX exch def
+      1 setlinecap 1 setlinejoin
+      currentpoint
+      dmarkX dmarkY 4 add M
+      lineto
+      dmarkX dmarkY 4 sub lineto
+      stroke grestore }!
+  /cresc1{dmarkx1 dmarky1 crescXY}!
+  /cresc2{dmarkx2 dmarky2 crescXY}!
+  /cresc3{dmarkx3 dmarky3 crescXY}!
+  /cresc4{dmarkx4 dmarky4 crescXY}!
+  /dim1{dmarkx1 dmarky1 dimXY}!
+  /dim2{dmarkx2 dmarky2 dimXY}!
+  /dim3{dmarkx3 dmarky3 dimXY}!
+  /dim4{dmarkx4 dmarky4 dimXY}!
+endps
+
+

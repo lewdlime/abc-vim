@@ -1,0 +1,94 @@
+% Example for recorder.fmt -- Tablature for recorder
+% Hudson Lacerda (2007)
+% http://br.geocities.com/hfmlacerda/
+%---------------------------------------------------
+%%format recorder.fmt
+
+% %format microtonal.fmt
+% %postscript true usearrows
+
+%%setfont-1 Courier 14
+%%text Para ocultar os números dos furos, use $1\%\%postscript false rec_printnumbers
+%%text To hide the hole numbers, use $1\%\%postscript false rec_printnumbers
+
+
+%%postscript false rec_printnumbers
+
+X:11
+T:Sample file for `recorder.fmt'
+%%scale 1.1
+%%continueall
+%%maxshrink .1
+L:1/4
+%%gchordfont Times-Bold 15
+M:none
+K:C
+%%tablature 105 rec_tabh rec_tabn rec_tabbar
+"^Thumb;Polegar" "P"c "p"c |\
+w: P p
+"^Closed;Fechado" "x"c "1"c "1234567"cy|\
+w: x 1 1234567
+"^1/4""'"c "^1/2""/"c "^3/4""\;"c|\
+w: ' / ;
+"^Open;Aberto" "0"c "00x"c|\
+w: 0 00x
+"^Trill;Trinado" "T"c "t"c "f"c "Px0fx"cy |\
+w: T t f Px0fx
+"^Separator;Separador" "."c "...x"c |
+w: . ...x
+
+%%postscript true rec_printnumbers
+
+% PpTtf'/;.K
+
+X:0
+%%scale 1
+%%continueall
+T:Tablatura de flauta doce
+T:Recorder tablature
+M:none
+K:C
+V:1
+%%tablature 115 rec_tabh rec_tabn rec_tabbar
+L:1/1
+F ^/F ^F _/G =G |
+w: P123.4567 P123.456; Pxxx.xxx/ Pxxx.xxx' Pxxx.xxx
+^/G ^G _/A =A |
+w: Pxxx.xx; Pxxx.xx/ Pxxx.xxox Pxxx.xx
+_3/B _B _/B =B | _/c y=c |
+w: Pxxx.x/xx Pxxx.xoxx Pxxx.x Pxxx.oxxx Pxxx.ox Pxxx
+V:2
+L:1/1
+C ^/C ^C _/D =D |
+^/D ^D _/E =E |
+_/F =F ^/F ^F | _/G y=G |
+
+X:10
+%%indent 36
+T:Más vale trocar
+C:Juan del Encina (1469-1530)
+M:3/4
+L:1/4
+K:F treble+8
+%
+V:1 name="Flauta\ndoce"
+%%tablature 110 rec_tabh rec_tabn rec_tabbar
+%%staffsep 80
+% %musiconly
+%
+D|EEF|G2G|AAB|cA2|
+w: P123456 P12345 P12345 P1234o67 P123 P123 P12 P12 P1o34 Po2 P12
+(d>c B/A/)|GFG|(A>G F/E/)|DE2|
+w: o2 Po2 P1o34 P12 P123 P1234o67 P123 P12 P123 P1234o67 P12345 P123456 P12345
+D3-|D2A|AAA|BGd|ddc|
+w: 1T2t3f|||||
+A2A|AAA|BGd|ddc|A2D|
+EEF|G2G|AAB|cA2|(d>c B/A/)|
+GFG|(A>G F/E/)|DE2|D3|]
+%%text http://averroes.cec.junta-andalucia.es/recursos_informaticos/concurso01/premio_2/index.html
+
+% %newpage
+%%vskip 40
+%%postscript 0 -30 M 36 F0 count 3 string cvs show
+
+

@@ -1,0 +1,142 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: rileft</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: rileft</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="rileft.txt"></A><b>rileft.txt</b>*    For Vim version 7.3.  Last change: 2006 Apr 24
+
+
+		  VIM REFERENCE MANUAL    by Avner Lottem
+					  updated by Nadim Shaikli
+
+
+
+Right to Left display mode for Vim				*<a name="rileft"></A><b>rileft</b>*
+
+
+These <a href="eval.html#functions">functions</a> were originally created by Avner Lottem:
+E-mail: <a href="mailto:alottem@iil.intel.com">alottem@iil.intel.com</a> 
+   Phone:  +972-4-8307322
+
+{Vi does not have any of these commands}
+
+
+								*<a name="E26"></A><b>E26</b>*
+{only available when compiled with the |<a href="various.html#+rightleft">+rightleft</a>| feature}
+
+
+Introduction
+Some languages such <a href="motion.html#as">as</a> <a href="arabic.html#Arabic">Arabic</a>, <a href="farsi.html#Farsi">Farsi</a>, Hebrew (among others) require the
+ability to display their text from right-to-left.  Files in those languages
+are stored conventionally and the right-to-left requirement is only a
+function of the display engine (per the <a href="mbyte.html#Unicode">Unicode</a> specification).  In
+right-to-left oriented files the characters appear on the screen from
+right to left.
+
+Bidirectionality (or bidi for short) is what <a href="mbyte.html#Unicode">Unicode</a> offers <a href="motion.html#as">as</a> a full
+solution to these languages.  Bidi offers the user the ability to <a href="starting.html#view">view</a>
+both right-to-left <a href="motion.html#as">as</a> well <a href="motion.html#as">as</a> left-to-right text properly at the same time
+within the same <a href="windows.html#window">window</a>.  Vim currently, due to simplicity, does not offer
+bidi and is merely opting to present a functional means to display/enter/use
+right-to-left languages.  An older hybrid solution in which direction is
+encoded for every character (or group of characters) are not supported either
+<a href="motion.html#as">as</a> this kind of support is out of the scope of a simple addition to an
+existing editor (and it's not sanctioned by <a href="mbyte.html#Unicode">Unicode</a> either).
+
+
+Highlights
+<a href="insert.html#o">o</a>  Editing left-to-right files <a href="motion.html#as">as</a> in the original Vim, no change.
+
+<a href="insert.html#o">o</a>  Viewing and editing files in right-to-left <a href="windows.html#windows">windows</a>.  File orientation
+   is per <a href="windows.html#window">window</a>, so it is possible to <a href="starting.html#view">view</a> the same file in right-to-left
+   and left-to-right modes, simultaneously.  (Useful for editing mixed files
+   in which both right-to-left and left-to-right text exist).
+
+<a href="insert.html#o">o</a>  Compatibility to the original Vim.  Almost all features work in
+   right-to-left mode (see Bugs below).
+
+<a href="insert.html#o">o</a>  Backing from reverse insert mode to the correct place in the file
+   (if possible).
+
+<a href="insert.html#o">o</a>  No special terminal with right-to-left capabilities is required.  The
+   right-to-left changes are completely hardware independent.
+
+<a href="insert.html#o">o</a>  Many languages use and require right-to-left support.  These languages
+   can quite easily be supported given the inclusion of their required
+   keyboard mappings and some possible minor code change.  Some of the
+   current supported languages include - |<a href="arabic.html">arabic.txt</a>|, |<a href="farsi.html">farsi.txt</a>| and
+   |<a href="hebrew.html">hebrew.txt</a>|.
+
+
+Of Interest...
+
+<a href="insert.html#o">o</a>  Invocations
+   -----------
+   + <a href="options.html#'rightleft'">'rightleft'</a> ('rl') sets <a href="windows.html#window">window</a> orientation to right-to-left.
+   + <a href="options.html#'delcombine'">'delcombine'</a> ('deco'), <a href="options.html#boolean">boolean</a>, if editing <a href="mbyte.html#UTF-8">UTF-8</a> encoded languages,
+     allows one to remove a composing character which gets superimposed
+     on those that proceeded them (some languages require this).
+   + <a href="options.html#'rightleftcmd'">'rightleftcmd'</a> ('rlc') sets the command-line within certain modes
+     (such <a href="motion.html#as">as</a> search) to be utilized in right-to-left orientation <a href="motion.html#as">as</a> well.
+
+
+<a href="insert.html#o">o</a>  Typing backwards					*<a name="ins-reverse"></A><b>ins-reverse</b>*
+   ----------------
+   In lieu of using full-fledged the <a href="options.html#'rightleft'">'rightleft'</a> option, one can opt for
+   reverse insertion.  When the <a href="options.html#'revins'">'revins'</a> (reverse insert) option is set,
+   <a href="insert.html#inserting">inserting</a> happens backwards.  This can be used to type right-to-left
+   text.  When <a href="insert.html#inserting">inserting</a> characters the cursor is not moved and the text
+   moves rightwards.  A <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> deletes the character under the cursor.
+   <a href="index.html#CTRL-W">CTRL-W</a> and <a href="scroll.html#CTRL-U">CTRL-U</a> also work in the opposite direction.  <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>, <a href="index.html#CTRL-W">CTRL-W</a>
+   and <a href="scroll.html#CTRL-U">CTRL-U</a> <a href="diff.html#do">do</a> not stop at the start of insert or end of line, no matter
+   how the <a href="options.html#'backspace'">'backspace'</a> option is set.
+
+   There is no reverse replace mode (yet).
+
+   If the <a href="options.html#'showmode'">'showmode'</a> option is set, &quot;<a href="starting.html#--">--</a> REVERSE INSERT --&quot; will be shown
+   in the status line when reverse <a href="insert.html#Insert">Insert</a> mode is active.
+
+<a href="insert.html#o">o</a>  Pasting when in a rightleft <a href="windows.html#window">window</a>
+   ----------------------------------
+   When cutting text with the mouse and pasting it in a rightleft <a href="windows.html#window">window</a>
+   the text will be reversed, because the characters come from the cut buffer
+   from the left to the right, while inserted in the file from the right to
+   the left.   In order to avoid it, toggle <a href="options.html#'revins'">'revins'</a> before pasting.
+
+
+Bugs
+<a href="insert.html#o">o</a>  Does not handle <a href="change.html#CTRL-A">CTRL-A</a> and <a href="change.html#CTRL-X">CTRL-X</a> commands (add and subtract) correctly
+   when in rightleft <a href="windows.html#window">window</a>.
+
+<a href="insert.html#o">o</a>  Does not support reverse insert and rightleft modes on the command-line.
+   However, functionality of the editor is not reduced, because it is
+   possible to enter mappings, <a href="map.html#abbreviations">abbreviations</a> and searches typed from the
+   left to the right on the command-line.
+
+<a href="insert.html#o">o</a>  Somewhat slower in right-to-left mode, because right-to-left motion is
+   emulated inside Vim, not by the controlling terminal.
+
+<a href="insert.html#o">o</a>  When the <a href="gui_x11.html#Athena">Athena</a> <a href="gui.html#GUI">GUI</a> is used, the bottom scrollbar works in the wrong
+   direction.  This is difficult to fix.
+
+<a href="insert.html#o">o</a>  When both <a href="options.html#'rightleft'">'rightleft'</a> and <a href="options.html#'revins'">'revins'</a> are on: <a href="options.html#'textwidth'">'textwidth'</a> does not work.
+   Lines <a href="diff.html#do">do</a> not wrap at all; you just get a single, long line.
+
+<a href="insert.html#o">o</a>  There is no full bidirectionality (bidi) support.
+
+
+<a href="rileft.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

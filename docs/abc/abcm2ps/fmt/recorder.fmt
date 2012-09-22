@@ -1,0 +1,105 @@
+% recorder.fmt - Create a tablature for recorder fingerings
+% Hudson Lacerda (2007)
+% http://br.geocities.com/hfmlacerda/
+
+% Sample of usage:
+% X:11
+% L:1/4
+% %%gchordfont Times-Bold 15
+% K:C
+% %%tablature 105 rec_tabh rec_tabn rec_tabbar
+% ccccccccccccccc
+% w: x 1 P p T t f ' / ; . K 
+% d: "x" "1" "P" "p" "T" "t" "f" "'" "/" "\;" "." "K"
+
+
+%------
+beginps
+%------
+
+/rec_printnumbers? true def
+/rec_printnumbers {/rec_printnumbers? exch def}!
+
+/rec_SLW1{.18 SLW}!
+/rec_SLW2{.23 SLW}!
+
+/rec_fld{ 8 0 RM currentpoint pop -84 y0 rec_tabn }!
+/rec_tabh{pop 4 add gsave 1 .7 .7 setrgbcolor 3 -1 roll 100 rectfill grestore}!
+/rec_tabh{pop pop pop pop}!
+/rec_tab0{gsave 51 add T -3 0 moveto rec_SLW1
+	0 -36 RL 6 0 RL 0 36 RL closepath
+	-3 -18 M 6 0 RL
+	-3 -36 M -1 -1 RL 0 -5 RL 8 0 RL 0 5 RL -1 1 RL
+	-2 -42 M -2 -4 RL 8 0 RL -2 4  RL
+	stroke
+	rec_SLW2
+	newpath -6 -3 1.75 0 360 arc stroke
+	newpath 0 -3 1.75 0 360 arc stroke
+	newpath 0 -9 1.75 0 360 arc stroke
+	newpath 0 -15 1.75 0 360 arc stroke
+	newpath 0 -21 1.75 0 360 arc stroke
+	newpath 0 -27 1.75 0 360 arc stroke
+	newpath 0 -33 1.75 0 360 arc stroke
+	newpath 0 -39 1.75 0 360 arc stroke
+	rec_printnumbers? { /Helvetica 4.5  selectfont
+	  4.5 -4.5 M (1)show
+	  4.5 -10.5 M (2)show
+	  4.5 -16.5 M (3)show
+	  4.5 -22.5 M (4)show
+	  4.5 -28.5 M (5)show
+	  4.5 -34.5 M (6)show
+	  5.25 -40.5 M (7)show
+	} if
+	stroke
+	grestore}!
+/rec_tabn0 {gsave
+	T 1.5 dup scale
+	0 0 rec_tab0
+	0 48 T 0 0 M
+	/rec_K? false def
+	gsave %% --- 2 ---
+	{ rec_SLW2
+		dup (x) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (1) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (2) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (3) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (4) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (5) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (6) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (7) 0 get eq{0 0 newpath 1.75 0 360 arc fill pop}
+		{dup (P) 0 get eq {-6 0 newpath 1.75 0 360 arc
+				   gsave fill grestore rec_SLW2 stroke pop
+				   0 6 T}
+		{dup (p) 0 get eq {-6 0 newpath 1.75 90 270 arc fill
+				   -6 0 newpath 1.75 0 360 arc rec_SLW2 stroke
+				    0 6 T pop}
+		{dup (T) 0 get eq {6 0 newpath 1.75 0 360 arc
+				   gsave fill grestore rec_SLW2 stroke pop
+				   0 6 T}
+		{dup (t) 0 get eq {6 0 newpath 1.75 90 270 arc fill
+				   6 0 newpath 1.75 0 360 arc rec_SLW2 stroke
+				   0 6 T pop}
+		{dup (f) 0 get eq {6 0 newpath 1.75 0 360 arc rec_SLW2 stroke
+				   0 6 T pop}
+		{dup (') 0 get eq {0 0 M 0 0 1.75 90 180 arc fill pop}
+		{dup (/) 0 get eq {0 0 newpath 1.75 90 270 arc fill pop}
+		{dup (;) 0 get eq {0 0 M 0 0 1.75 90 360 arc fill pop}
+		{dup (.) 0 get eq {pop 0 6 T} %%%%%%%%
+		{dup (K) 0 get eq {pop /rec_K? true def}
+		{pop}
+		ifelse}ifelse}ifelse}ifelse}ifelse}ifelse}
+		ifelse}ifelse}ifelse}ifelse}ifelse
+		}ifelse}ifelse}ifelse}ifelse}ifelse}ifelse}ifelse
+		0 -6 T
+	}forall
+	grestore %% ---- 2 ---
+	rec_K? {-3.5 -44 M 7 0 RL 2 SLW stroke} if
+	grestore}!
+/rec_tabn{pop gsave T 1.25 dup scale 0 0 rec_tabn0 grestore}!
+/rec_tabbar{pop pop pop pop}!
+
+%----
+endps
+%----
+
+

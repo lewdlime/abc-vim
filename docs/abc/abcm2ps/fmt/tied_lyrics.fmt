@@ -1,0 +1,100 @@
+% tied_lyrics                -*- abc -*-
+% Coloca ligaduras em sílabas cantadas numa mesma nota (na letra de uma música).
+% Algarismos, espaços e pontos não são ligados.
+
+% Copyright (C) 2004-2005 Hudson Lacerda
+%   This file is based on code by Jean-François Moine:
+%      Copyright (C) Jean-François Moine (2004)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+postscript /lyshow{
+postscript	ly_filter
+postscript 	% Put below the operator of your choice:
+postscript 	% Coloque aqui embaixo o operador de sua preferência:
+postscript 	/lycshow2
+postscript load cshow}!
+postscript 
+postscript 
+postscript /ly_filter{ % filter the string (don't put tie after stanza numbers)
+postscript	2 dict begin
+postscript		dup /tmp exch def
+postscript		length 1 sub -1 1 {
+postscript			dup /ind exch def
+postscript			tmp exch get ( )0 get eq{
+postscript				tmp ind 1 sub get
+postscript				dup( )0 get eq exch
+postscript				dup(.)0 get eq exch
+postscript				dup(1)0 get eq exch
+postscript				dup(2)0 get eq exch
+postscript				dup(3)0 get eq exch
+postscript				dup(4)0 get eq exch
+postscript				dup(5)0 get eq exch
+postscript				dup(6)0 get eq exch
+postscript				dup(7)0 get eq exch
+postscript				dup(8)0 get eq exch
+postscript				dup(9)0 get eq exch
+postscript				(0)0 get eq
+postscript				or or or or or
+postscript				or or or or or
+postscript				or {
+postscript					tmp ind 1 put
+postscript				}if
+postscript			}if
+postscript		}for
+postscript              % filter spaces at the ends
+postscript              tmp 0 get ( )0 get eq {tmp 0 1 put} if
+postscript              tmp dup length 1 sub get ( )0 get eq {tmp dup length 1 sub 1 put} if
+postscript		tmp % output
+postscript	end
+postscript }!
+postscript 
+postscript % ! VERSÃO 2 !
+postscript /lycshow2{
+postscript 	pop			% discard height
+postscript 	1 index 32 eq {	% ' '
+postscript 		2 div dup gsave
+postscript 		dup neg 2 div -.5 RM
+postscript 		dup -2.5 1 index 2 mul -2.5 3 index 3 mul 0 RC
+postscript 		neg -4 1 index 2 mul -4 3 index 3 mul 0 RC
+postscript 		fill grestore
+postscript 		2 mul 0 RM pop
+postscript 	    } {
+postscript 		pop currentfont /Encoding get exch get glyphshow
+postscript 	    } ifelse}!
+postscript 
+postscript % ! VERSÃO 1 !
+postscript /lycshow1{
+postscript 	pop			% discard height
+postscript 	1 index 32 eq {	% ' '
+postscript 		dup gsave 0.9 setlinewidth
+postscript 		dup neg -3 RM -5 1 index 2 mul -5 3 index 3 mul 0 RC
+postscript 		stroke grestore 0 RM pop
+postscript 	    } {
+postscript 		pop currentfont /Encoding get exch get glyphshow
+postscript 	    } ifelse}!
+postscript 
+postscript % ! VERSÃO 0 !
+postscript /lycshow{ % Jean-François Moine's code
+postscript 	pop			% discard height
+postscript 	1 index 126 eq {	% '~'
+postscript 		dup gsave 0.9 setlinewidth
+postscript 		dup neg -3 RM -5 1 index 2 mul -5 3 index 3 mul 0 RC
+postscript 		stroke grestore 0 RM pop
+postscript 	    } {
+postscript 		pop currentfont /Encoding get exch get glyphshow
+postscript 	    } ifelse}!
+postscript %then use '\~' instead of '~' in the lyrics. Is it OK for you?
+

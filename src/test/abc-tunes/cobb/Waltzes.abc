@@ -1,0 +1,144 @@
+X:1
+T:Bell Table
+Z: id:dc-waltz-1
+M:3/4
+L:1/8
+K:D Major
+Bc|d3 e d2|d2 c2 B2|A3 B A2|A2 G2 F2|!
+G2 GA BG|A2 AB cA|G2 GA BG|A4 Bc|!
+d3 e d2|d2 c2 B2|A3 B A2|A2 G2 F2|!
+G2 GA BG|A2 AB cA|G2 F2 E2|D4:|!
+fg|a3 b a2|a4 g2|f3 g f2|f2 e2 f2|!
+g3 a g2|g2 f2 g2|a3 b a2|a4 fg|!
+a3 b a2|a4 g2|f3 g f2|f2 e2 d2|!
+B3 d g2|fa3 c2|ed3 c2|d4:|!
+
+X:2
+T:Boolavogue
+Z: id:dc-waltz-2
+M:3/4
+L:1/8
+K:G Major
+D2|G4 D2|G4 Bd|g4 f2|eg3 e2|d4 e2|B4 AG|A3 B AG|E4 D2|!
+G4 D2|G4 Bd|g4 f2|eg3 e2|d4 e2|B4 AG|A3 B AF|G4|]!
+B2|d4 B2|d4 ef|g4 f2|eg3 e2|d4 e2|B4 AG|A3 B AG|E4 D2|!
+G4 D2|G4 Bd|g4 f2|eg3 e2|d4 e2|B4 AG|A3 B AF|G4|]!
+
+X:3
+T:Gan Ainm
+Z: id:dc-waltz-9
+M:3/4
+L:1/8
+K:G Major
+d ^cd|ed Bd GB|D2 G3F|E3 C E2|D4 G2|!
+F3E F2|d4 c2|B3_B =Bc|B3 d ^cd|!
+ed Bd GB|D2 G3F|E3 C E2|D4 G2|!
+F3 E F2|B4 A2|G3 F GA|G3:|!
+A Bc|d2 e2 f2|g2 fg af|g2 f2 e2|B3 A Bc|!
+d2 de dB|c2 B2 A2|G2 GF GA|B3 A Bc|!
+d2 d^c d2|g2 fg af|g2 f2 e2|B3 A Bc|!
+d2 de dB|c2 B2 A2|GD (3EFG Bd|g3:|!
+
+X:4
+T:Gentle Maiden
+Z: id:dc-waltz-10
+M:3/4
+L:1/8
+K:G Major
+D2|G3 A G2|F2 E2 D2|d4 d2|e3 f g2|d3 c B2|A4 G2|E6|F3 E D2|!
+G3 A G2|F2 E2 D2|d4 d2|e3 f g2|d3 c B2|A4-A G|G6-|G4:|!
+B2|d2 e2 f2|g3 g g2|g3 a a2|g3 f e2|d3 c B2|A4 G2|E6|F3 E D2|!
+G3 A G2|F2 E2 D2|d4 d2|e3 f g2|d3 c B2|A4-A G|G6-|G4:|!
+
+X:5
+T:Give Me Your Hand
+Z: id:dc-waltz-3
+M:3/4
+L:1/8
+K:G Major
+D2|E2 G2 G2|G4 D2|E2 G2 G2|G4 D2|E2 G2 G2|G2 A2 B2|B2 e2 d2|B4 AG|!
+A2 A2 ed|B2 B2 dB|A3 B AG|E4 D2|E2 G2 G2|G4 D2|E2 G2 G2|G4 D2|!
+E2 G2 G2|G2 A2 B2|D3 B AB|G4 D2|E2 G2 G2|G2 A2 B2|B2 e2 d2|B4 AG|!
+A2 A2 ed|B2 B2 dB|A2 A2 Bd|e4 dB|d2 d2 e2|g4 ed|e2 e2 g2|a4 ge|!
+g2 g2 de|g2 g2 de|g2 g2 a2|b6|b2 b2 b2|b4 ag|ag ab ab|a4 gf|!
+e2 e2 ge|d2 d2 gd|B2 B2 dB|A4 BA|G2 G2 Bd|=f4 ed|e2 e2 g2|e4 dB|!
+d2 d2 gd|B2 B2 dB|A3 c BA|G4|]!
+
+X:6
+T:Inisheer
+Z: id:dc-waltz-4
+M:3/4
+L:1/8
+K:G Major
+D2|B3 A Bd|B3 A Bd|E3 B AB|D3 E GA|!
+B3 A Bd|B3 A Bd|G3 B AF|G4:|!
+Bd|e3 f ed|B3 A Bd|gf ed Bd|e3 f gf|!
+e3 f ed|B3 A Bd|G3 B AF|G4:|!
+
+X:7
+T:Mrs. Kenny's
+Z: id:dc-waltz-7
+M:3/4
+L:1/8
+K:D Major
+A2|f2 fe dc|d4 FG|A2 G3B,|A,2 C2 E2|!
+[1 g2 f2 e2|d2 c2 B2|A2 AB AG|F2 G2:|!
+[2 g2 f2 e2|d2 c2 B2|A2 ^GA Bc|d4|]!
+cB|A2 f2 f2|A2 f2 f2|A2 f2 f2|a^g ba fd|!
+A2 e2 e2|A2 e2 e2|A2 e2 e2|a^g ba fd|!
+A2 f2 f2|A2 f2 f2|A2 f2 f2|a^g ba fd|!
+A2 e2 e2|A2 e2 e2|ab ag fe|d4|]!
+FA|d4 ed|c4 dc|B2 G3 B|A2 F2 F2|!
+d4 ed|c4 B2|A2 G2 E2|D4:|!
+
+X:8
+T:South Wind
+Z: id:dc-waltz-5
+M:3/4
+L:1/8
+K:G Major
+c2|B3 A G2|B3 c d2|A6|A4 c2|B3 A G2|E3 D E2|G6|G4:|!
+d2|g4 g2|g3 f e2|d4 d2|d4 c2|B3 A G2|B3 c d2|A6|A4 d2|!
+g4 g2|g3 f e2|d4 d2|d4 c2|B3 A G2|Ac3 F2|G6|G4|]!
+
+X:9
+T:Spinning Wheel
+Z: id:dc-waltz-11
+M:3/4
+L:1/8
+K:G Major
+D|G2 B3 D|G2 B2 D2|G2 B2 d2|d2 c2 AG|F2 A2 D2|F2 A2 D2|F2 A3 c|c2 B4|!
+d3 B2 c|d6|e2 c3 e|d2 B4|c3 B c2|A3 G FG|A2 d3 c|[1 B2 G3:|[2 B2 G4|]!
+B3 A B2|G3 F G2|D2 G3 B|d2 c3 B|A3 G A2|F3 E F2|D2 F2 A2|c2 B4|!
+d3 B2 c|d6|e2 c3 e|d2 B4|c3 B c2|A3 G FG|A2 d3 c|B2 G3:|!
+
+X:10
+T:Tommy Bhetty's
+Z: id:dc-waltz-6
+M:3/4
+L:1/8
+K:G Major
+z D2|G3 B dB|G3 B dB|d2 b3 a|ga fg ef|!
+G3 B dB|G3 B dB|D2 F2 A2|c2 B2 A2|!
+G3 B dB|G3 B dB|d2 b3 a|ga fg ef|!
+dg3 Bc|d3 c AF|G2 B3 A|G3:|!
+g fg|a2 f2 d2|A2 F2 D2|C2 b3 a|ga fg ef|!
+d3 e d2|B3 A B2|D2 F2 A2|c2 B2 A2|!
+d2 Bc dB|d b3 af|g2 b3 a|ga fg ef|!
+dg3 Bc|d3 c AF|G2 B3 A|G3:|!
+
+X:11
+T:Waterford
+Z: id:dc-waltz-8
+M:3/4
+L:1/8
+K:D Major
+FG|A2 A2 d2|B4 e2|cB AB cA|d2 f2 a2|!
+A2 A2 d2|B4 e2|cB AB cA|d4:|!
+ef|ge Ac eg|fd Ad Fd|ce ge dc|d2 f2 af|!
+ge Ac eg|fd Ad Fd|ce ge dc|d4:|!
+FG|Ad Fd Ad|cd Gd Bd|ce ge dc|df af d2|!
+Ad Fd Ad|cd Gd Bd|ce ge dc|e2 d2:|!
+FG|A2 AB cd|B2 Gf ag|fd ge dc|ed cB AF|!
+A2 AB cd|B2 Gf ag|fd ge dc|e2 d2:|!
+

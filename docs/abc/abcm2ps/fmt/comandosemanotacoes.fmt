@@ -1,0 +1,88 @@
+% comandosemanotacoes.fmt     -*- abc -*-
+% Hudson Lacerda (2004-2005)
+%
+% (Re)define o operador postscript `anshow' de modo
+% que comandos PostScript possam ser escritos dentro
+% de um campo de anotação (i.e., "@<x>,<y>:<comando>"CEG).
+%
+% Para funcionar como um comando, a anotação deve 
+% começar com o caracter `:' (dois pontos).
+%
+%
+% Exemplo 1 (mordente):
+%   C G "@-13,-4:cp lmrd"C2 |
+%
+% Notas sobre o exemplo:
+%   `cp' (definido neste arquivo) retorna as coordenadas do ponto atual.
+%   `lmrd' (gerado por abcm2ps) desenha um mordente no ponto dado.
+%
+%
+% Exemplo 2 (digitação):
+%   Uma boa aplicação deste arquivo de formato é para inserir
+%   símbolos de digitação:
+%
+%   "@13,0:((0))cp fng"e d B c "@0,-15:(4)cp fng"_A,
+%
+% Nota: `fng' imprime a string no estilo `digitação' (fingering).
+
+A fazeres:
+
+- Renomear o arquivo (ou criar outro)
+- Texto circulado e dentro de retângulo
+- Números de dedilhado e cordas (com estilos próprios)
+
+[Esses recursos devem ser em `alto nível' como o posicionamento com @,
+e não comandos PS como no arquivo comandosemanotacoes.fmt original.]
+
+
+% ! LIMITAÇÃO: Parênteses não balanceados (strings) não funcionam !
+
+% Copyright (C) Hudson Lacerda (2004)
+%   Based on code from abcm2ps:
+%      Copyright (C) Jean-François Moine (1998-2004)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+postscript /cp {currentpoint}!
+postscript /xy {cp xymove cp}!
+
+
+% Verifica a existência de `anshow' ...
+postscript currentdict /anshow known true eq
+% ... e então age de acordo com as circunstâncias :
+postscript { % !***********************************!
+
+%             ! NEW VERSIONS      !
+%             PARA VERSÕES NOVAS (ex. abcm2ps-4.4.5)
+% PS commands in annotations (first char must be a colon :)
+postscript	/anshow{dup 0 get (:) 0 get ne
+postscript		{/gchshow load cshow}
+postscript		{dup length 1 sub 1 exch getinterval cvx exec}
+postscript		ifelse}!
+
+postscript } { % !*********************************!
+
+%             ! OLD VERSIONS      !
+%             PARA VERSÕES ANTIGAS (ex. 3.7.17):
+postscript        /gcshowld /gcshow load bind def
+postscript        /anshow {dup length exch dup 0 get (:) 0 get ne
+postscript           {gcshowld pop}
+postscript           {exch -1 add 1 exch getinterval cvx exec} ifelse}!
+postscript        /gcshow {anshow} def
+
+postscript } ifelse % !****************************!
+
+

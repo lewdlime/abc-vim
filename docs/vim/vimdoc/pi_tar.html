@@ -1,0 +1,157 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: pi_tar</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: pi_tar</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="pi_tar.txt"></A><b>pi_tar.txt</b>*	For Vim version 7.3.  Last change: 2010 Nov 03
+
+		       +====================+
+		       &#124; Tar File Interface |
+		       +====================+
+
+Author:  Charles <a href="motion.html#E">E</a>. Campbell, Jr.  &lt;NdrOchip@ScampbellPfamily.AbizM&gt;
+	  (remove NOSPAM from Campbell's email first)
+
+Copyright 2005-2010: The GPL (gnu public <a href="uganda.html#license">license</a>) applies to	*<a name="tar-copyright"></A><b>tar-copyright</b>*
+	   tar.vim, tarPlugin.vim, and <a href="pi_tar.html#pi_tar.txt">pi_tar.txt</a>.
+	   No warranty, express or implied.  Use At-Your-Own-Risk.
+
+==============================================================================
+
+1. <a href="quickref.html#Contents">Contents</a>					*<a name="tar"></A><b>tar</b>* *<a name="tar-contents"></A><b>tar-contents</b>*
+   1. Contents..................................................|tar-contentsYXXY
+   2. Usage.....................................................|tar-usageYXXY
+   3. Options...................................................|tar-optionsYXXY
+   4. History...................................................|tar-historyYXXY
+
+==============================================================================
+
+2. Usage					*<a name="tar-usage"></A><b>tar-usage</b>* *<a name="tar-manual"></A><b>tar-manual</b>*
+
+   When one edits a *.tar file, this <a href="usr_05.html#plugin">plugin</a> will handle displaying a
+   contents page.  <a href="visual.html#Select">Select</a> a file to edit by moving the cursor atop
+   the desired file, then hit the &lt;return&gt; key.  After editing, one may
+   also write to the file.  Currently, one may not make a new file in
+   <a href="pi_tar.html#tar">tar</a> archives via the <a href="usr_05.html#plugin">plugin</a>.
+
+
+						*<a name=":Vimuntar"></A><b>:Vimuntar</b>*
+<b><font color="purple">   VIMUNTAR</font></b>
+
+   <a href="pi_tar.html#:Vimuntar">:Vimuntar</a> [vimhome]
+
+	This command copies, if necessary, the tarball to the .vim or <a href="options.html#vimfiles">vimfiles</a>
+	directory using the first writable directory in the |<a href="options.html#'runtimepath'">'runtimepath'</a>|
+	when no [vimhome] is specified.  Otherwise, the [vimhome] argument
+	allows the user to specify that directory, instead.
+
+
+	The copy is done using the command in *<a name="g:tar_copycmd"></A><b>g:tar_copycmd</b>* , which is
+<b>		cp   for cygwin, unix, macunix</b>
+<b>		copy for windows (32, 95, 64, 16)</b>
+ 	The extraction is done with the command specified with
+
+	*<a name="g:tar_extractcmd"></A><b>g:tar_extractcmd</b>* , which by default is
+<b>		"tar -xf"</b>
+ 
+<b><font color="purple">   PREVENTING LOADING</font></b>
+
+   If for some reason you <a href="diff.html#do">do</a> not wish to use vim to examine tar'd files,
+   you may put the following two <a href="eval.html#variables">variables</a> into your &lt;.vimrc&gt; to prevent
+   the <a href="pi_tar.html#tar">tar</a> <a href="usr_05.html#plugin">plugin</a> from loading:
+
+<b>	let g:loaded_tarPlugin= 1</b>
+<b>	let g:loaded_tar      = 1</b>
+ 
+
+==============================================================================
+
+3. Options						*<a name="tar-options"></A><b>tar-options</b>*
+
+   These <a href="options.html#options">options</a> are <a href="eval.html#variables">variables</a> that one may change, typically in one's
+   &lt;.vimrc&gt; file.
+                         Default
+   Variable               Value   Explanation
+
+   *<a name="g:tar_browseoptions"></A><b>g:tar_browseoptions</b>*    &quot;Ptf&quot;   used to get a list of contents
+
+   *<a name="g:tar_readoptions"></A><b>g:tar_readoptions</b>*      &quot;OPxf&quot;  used to extract a file from a tarball
+
+   *<a name="g:tar_cmd"></A><b>g:tar_cmd</b>*              &quot;<a href="pi_tar.html#tar">tar</a>&quot;   the name of the <a href="pi_tar.html#tar">tar</a> program
+
+   *<a name="g:tar_nomax"></A><b>g:tar_nomax</b>*              0     if true, file <a href="windows.html#window">window</a> will not be maximized
+
+   *<a name="g:tar_secure"></A><b>g:tar_secure</b>*           undef   if exists:
+					&quot;<a href="starting.html#--">--</a>&quot;s will be used to prevent unwanted
+					option expansion in <a href="pi_tar.html#tar">tar</a> commands.
+					Please be sure that your <a href="pi_tar.html#tar">tar</a> command
+					accepts &quot;<a href="starting.html#--">--</a>&quot;; <a href="intro.html#Posix">Posix</a> compliant <a href="pi_tar.html#tar">tar</a>
+					utilities <a href="diff.html#do">do</a> accept them.
+				  if not exists:
+				  	The <a href="pi_tar.html#tar">tar</a> <a href="usr_05.html#plugin">plugin</a> will reject any <a href="pi_tar.html#tar">tar</a>
+					files or member files that begin with
+					&quot;<a href="motion.html#-">-</a>&quot;
+				  Not all tar's support the &quot;<a href="starting.html#--">--</a>&quot; which is why
+				  it isn't default.
+
+   *<a name="g:tar_writeoptions"></A><b>g:tar_writeoptions</b>*     &quot;uf&quot;    used to update/replace a file
+
+
+==============================================================================
+
+4. History						*<a name="tar-history"></A><b>tar-history</b>*
+
+
+   v26 Aug 09, 2010 &#42; uses buffer-local instead of <a href="windows.html#window">window</a> <a href="eval.html#variables">variables</a> to hold
+		      tarfile name
+   v25 Jun 19, 2010 &#42; (Jan Steffens) added support for xz compression
+   v24 Apr 07, 2009 &#42; :Untarvim command implemented
+       Sep 28, 2009 &#42; Added lzma support
+   v22 Aug 08, 2008 &#42; security fixes
+   v16 Jun 06, 2008 &#42; tarfile:: used instead of tarfile: when editing files
+		      inside tarballs.  Fixes a problem with tarballs called
+		      things like c:\abc.tar. (tnx to Bill McCarthy)
+   v14 May 09, 2008 &#42; arno caught a security bug
+       May 28, 2008 &#42; various security improvements.  Now requires patch 299
+		      which provides the <a href="eval.html#fnameescape()">fnameescape()</a> function
+       May 30, 2008 &#42; allows one to <a href="starting.html#view">view</a> *.gz and *.bz2 files that are in
+		    *.tar files.
+   v12 Sep 07, 2007 &#42; &amp;shq now used if not the empty string for g:tar_shq
+   v10 May 02, 2006 &#42; now using &quot;redraw then echo&quot; to show <a href="message.html#messages">messages</a>, instead
+		      of &quot;echo and prompt user&quot;
+   v9 May 02, 2006 &#42; improved detection of masquerading <a href="motion.html#as">as</a> <a href="pi_tar.html#tar">tar</a> file
+   v8 May 02, 2006 &#42; allows editing of files that merely masquerade <a href="motion.html#as">as</a> <a href="pi_tar.html#tar">tar</a>
+		     files
+   v7 Mar 22, 2006 &#42; work on making <a href="pi_tar.html#tar">tar</a> <a href="usr_05.html#plugin">plugin</a> work across <a href="pi_netrw.html#network">network</a>
+      Mar 27, 2006 &#42; <a href="pi_tar.html#g:tar_cmd">g:tar_cmd</a> now available for users to change the name
+		     of the <a href="pi_tar.html#tar">tar</a> program to be used.  By default, of course,
+		     it's &quot;<a href="pi_tar.html#tar">tar</a>&quot;.
+   v6 Dec 21, 2005 &#42; <a href="editing.html#writing">writing</a> to files not in directories caused problems -
+		     fixed (pointed out by Christian Robinson)
+   v5 Nov 22, 2005 &#42; report option workaround installed
+   v3 Sep 16, 2005 &#42; handles <a href="editing.html#writing">writing</a> files in an archive back to the
+		     archive
+      Oct 18, 2005 &#42; <a href="cmdline.html#&lt;amatch&gt;">&lt;amatch&gt;</a> used instead of <a href="cmdline.html#&lt;afile&gt;">&lt;afile&gt;</a> in autocmds
+      Oct 18, 2005 &#42; handles <a href="editing.html#writing">writing</a> to compressed archives
+      Nov 03, 2005 &#42; handles <a href="editing.html#writing">writing</a> tarfiles across a <a href="pi_netrw.html#network">network</a> using
+		     netrw#NetWrite()
+   v2              &#42; converted to use Vim7's new <a href="eval.html#autoload">autoload</a> feature by
+		     <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+ v1 original &#42; Michael Toren see	<a href="http://michael.toren.net/code/">http://michael.toren.net/code/</a>
+
+==============================================================================
+<a href="pi_tar.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

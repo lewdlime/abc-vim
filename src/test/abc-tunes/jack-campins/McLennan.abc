@@ -1,0 +1,2190 @@
+% ======================================================================
+%   The Compositions of Pipe Major George Stewart McLennan (1883-1927)
+% ======================================================================
+
+% This contains all the tunes composed by McLennan that were printed in
+% his own book (shortly after his death), bibliographic references for
+% all the others I know of, and selected tunes published posthumously.
+
+% I haven't included all the tunes taken from his manuscripts; most of
+% these were first published in the 1980s in the Gordon Highlanders
+% collections and are still under copyright (the holder being either
+% GS's family, the regiment or Paterson's Publications).  These books
+% are expensive but still in print and widely available in libraries.
+% Where a manuscript tune had already been printed in a book predating
+% the Gordons' collection I've considered it fair game.  I've included
+% a few tunes from the Gordons books, some I particularly like and some
+% which are very different types of tune from the others here; if the
+% copyright holder objects I'll remove these.  I'd like to be told of
+% tunes not listed here, especially if unpublished or only published in
+% magazines.
+
+% All these tunes have been entered using BarFly for the Mac.  They're
+% standard ABC 1.6 except for the tunes with seconds (where I've used
+% BarFly's syntax for multiple voices) and "The Lament for Lieutenant
+% John McLennan" (where I've used BarFly's macros to abbreviate the
+% notation, but I've given an expanded version too, at the end of this
+% file).
+
+% They should all print at a readable density in portrait format on A4
+% or US-letter paper, though "The Lament for Lieutenant John McLennan"
+% needs several pages (the layout in GS's book uses foldout sheets making
+% an ingenious extra-wide score), and the tunes with seconds may need to
+% be split across two pages.  Pipe music is usually printed in landscape
+% and that may produce a better result with some tunes here.
+
+% In some places the ABC is less concise than the original; ABC can't
+% reflect the common trick of pipe music notation where a few variant
+% bars in the middle of a repeated section are marked without writing
+% the ending of the section out twice.
+
+% The bibliography is represented as ABC headers without tune bodies.
+% Which will most likely make tune search engines and formatters that
+% convert whole files into tunebooks throw a fit.  Tough titty.  I may
+% later add theme codes for tunes not given in full; let me know if you
+% would find this useful.
+
+% I've put his name in the C: lines the way it appears in the books,
+% which means that to exact string matchers he will appear to be at
+% least five different people.
+
+% I use the S: field to indicate which edition of a book I've used and
+% the B: field to indicate which specific copy - as Cannon's pipe music
+% bibliography points out, tunebooks are often reprinted in modified
+% versions with nothing on the cover to indicate the fact.
+
+% The source layout of the ABC is meant to align the major beats
+% vertically, as in modern pipe music scores, to aid readability
+% (e.g. for blind users who will be using the ABC directly).  This
+% isn't always possible while keeping the beams right, but I've
+% done what I can.
+
+% There are no tempi in the original scores.  Most of the tempi used
+% here were suggested to me by George Current; they're meant for solo
+% rather than band playing.  George also cleared up some aspects of
+% the Lament for me.
+
+% A small warning when using player software: if it permits "stress
+% programming" or some other means of automatically bending the rhythm
+% in a hopefully-idiomatic way, turn that feature off.  Many of these
+% tunes ("Dancing Feet" being an example) already have the pointing
+% written in, and additional note inequality will produce gibberish.
+
+% This transcription (c) Jack Campin 2001.  It may be freely copied in
+% full but not excerpted, and this file must accompany any computer-
+% transformed versions (like collections of GIF or MIDI files).  All
+% the X: fields are set to zero in the hope that this will prevent
+% anyone from using John Chambers' Tune Finder to extract tunes from
+% it in isolation; renumber your own copy if you like, but don't pass
+% such changed versions on to anyone else.
+
+% ======================================================================
+% Jack Campin       *     http://www.campin.me.uk/     *     August 2001
+% ======================================================================
+
+
+X:0
+T:Captain C.R. Lumsden
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:6/8
+L:1/8
+Q:3/8=86
+K:Hp
+     e|  {g}A2{GdGe}A {gcd}c{e}B{d}c |  {g}A{d}ce       {ag}a2e     |\
+         {g}f<af      {gef}eca       |{dcd}cB{G}A      {gBd}B2e     |
+         {g}A2{GdGe}A {gcd}c{e}B{d}c |  {g}A{d}ce       {ag}a2e     |\
+       {gfg}fec         {g}B<{d}G{d}B|  {g}A2{GdGe}A {gAGAG}A2     :|
+     e|  {g}f<ae        {g}f<ac      |{gBd}B{e}A{d}B   {gcd}c2e     |\
+         {g}fga        {fg}fec       |{gef}ec{G}A      {gBd}B2e     |
+         {g}f<ae        {g}f<ac      |{gBd}B{e}A{d}B   {gcd}c2e     |\
+       {gfg}fec         {g}B<{d}G{d}B|  {g}A2{GdGe}A {gAGAG}A2     :|
+     e|  {g}A2{GdGe}A   {g}A2{GdGe}A |{gcd}c{g}B{d}A     {g}B{d}ce  |\
+         {g}f2{GdG}f  {gef}eca       |{dcd}cB{G}A      {gBd}B2e     |
+         {g}A2{GdGe}A   {g}A2{GdGe}A |{gcd}c{g}B{d}A     {g}B{d}ce  |\
+       {gfg}fec         {g}B<{d}G{d}B|  {g}A2{GdGe}A {gAGAG}A2     :|
+{Gdc}d|  {g}c<ea           d<fa      |{dcd}cBc           {G}A{d}ce  |\
+        {ag}agf       {gef}e2c       |{gef}ec{G}A      {gBd}B2{Gdc}d|
+         {g}c<ea           d<fa      |{dcd}cBc           {G}A{d}ce  |\
+       {gfg}fec         {g}B<{d}G{d}B|  {g}A2{GdGe}A {gAGAG}A2     :|
+
+
+X:0
+T:The Braes of Castle Grant
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Duncan MacDonald, Castle Grant 1863
+C:3rd & 4th parts by Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:2/4
+L:1/16
+Q:1/4=72
+K:Hp
+{g}ed|{gcd}c2{g}B{d}A {gef}eA{d}ce   |     a2{GdG}ag     {afg}fe{g}fa |\
+           c2{GdGe}cf   {g}eA{d}ca   |     B2{GdGe}Bc    {gBG}B2{g}ed |
+      {gcd}c2{g}B{d}A {gef}eA{d}ce   |     a2{GdG}ag     {afg}fe{g}fa |\
+           AB{GdG}ca       ce{g}B{d}c|  {g}A3{GdGe}A   {gAGAG}A2     :|
+{d}ce| {ag}a3e        {gfg}fe{g}ce   |{Gdc}df{g}fa        {eg}eA{d}ca |\
+           Aaga        {eg}eA{d}ca   |     B2{GdGe}Bc [1 {gBG}B2{d}ce |
+       {ag}a3e        {gfg}fe{g}ce   |{Gdc}df{g}fa        {eg}eA{d}ca |\
+           AB{GdG}ca       ce{g}B{d}c|  {g}A3{GdGe}A   {gAGAG}A2     :|
+                                                      [2 {gBG}Ba{eg}ed|\
+      {gcd}c2{g}B{d}A {gef}eA{d}ce   |     a2{GdG}ag     {afg}fe{g}fa |\
+           AB{GdG}ca       ce{g}B{d}c|  {g}A3{GdGe}A   {gAGAG}A2     ||
+{g}ed|  {g}c2{GdGe}cB   {g}AB{d}ce   |  {g}fgag          {afg}fe{g}fa |\
+           c2{GdGe}cB   {g}Ae{g}c{d}A|  {g}B2{GdGe}Bc    {gBG}B2{g}ed |
+        {g}c2{GdGe}cB   {g}AB{d}ce   |  {g}fgag          {afg}fe{g}fa |\
+           AB{GdG}ca       ce{g}B{d}c|  {g}A3{GdGe}A   {gAGAG}A2     :|
+{d}ce|     a2{GdG}ae    {g}fe{g}ce   |{gfg}fe{g}fd         {g}ceac    |\
+        {g}Ad{g}fd      {g}cd{gef}ec |  {g}B2{GdGe}Bc [1 {gBG}B2{d}ce |
+           a2{GdG}ae    {g}fe{g}ce   |{gfg}fe{g}fd         {g}ceac    |\
+        {g}AB{GdG}ca       ce{g}B{d}c|  {g}A3{GdGe}A   {gAGAG}A2     :|
+                                                      [2 {gBG}B2{g}ed |\
+        {g}c2{GdGe}cB   {g}AB{d}ce   |  {g}fgag          {afg}fe{g}fa |\
+           AB{GdG}ca       ce{g}B{d}c|  {g}A3{GdGe}A   {gAGAG}A2     |]
+
+
+X:0
+T:The Iron Division
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:2/4
+L:1/16
+Q:1/4=80
+N:upbeat for part 4 is a semiquaver in the book
+K:Hp
+     af|{gef}e2c2     {gcd}c2{g}B{d}A|{gcd}c2e2        {A}e2fg      |\
+             ag{afg}fe {ag}a2c2      |{gcd}c2{g}B2  {GdGe}B2af      |
+        {gef}e2c2     {gcd}c2{g}B{d}A|{gcd}c2e2        {A}e2fg      |\
+             ag{afg}fe {ag}a2A2      |{gcd}c2{e}A2 {gAGAG}A2       :|
+  {g}cd|{gef}e2a2      {fg}f2a2      | {eg}e2c2      {gcd}c2{f}B{d}A|\
+        {Gdc}d3f      {gef}ec{g}B{d}A|{gcd}c2{g}B2  {GdGe}B2{g}cd   |
+        {gef}e2a2      {fg}f2a2      | {eg}e2c2      {gef}e2fg      |\
+             ag{afg}fe {ag}a2A2      |{gcd}c2{e}A2 {gAGAG}A2       :|
+{gcd}cB|  {G}A3{d}c   {gef}e3f       |  {g}e2c2        {g}e2a2      |\
+          {g}a2gf     {gef}e2c2      |{gcd}c2{g}B2  {GdGe}B2{gcd}cB |
+          {G}A3c        {g}e3f       |{gef}e2c2      {gef}e2fg      |\
+             ag{afg}fe {ag}a2A2      |{gcd}c2{e}A2 {gAGAG}A2       :|
+     e2|     ag{afg}fe {ag}a3f       |  {g}ef{g}ed   {gcd}c2e2      |\
+             ag{afg}fe {ag}a2c2      |{gcd}c2{g}B2  {GdGe}B3e       |
+             ag{afg}fe {ag}a3f       |  {g}ef{g}ed   {gcd}c2e2      |\
+             ag{afg}fe {ag}a2A2      |{gcd}c2{e}A2 {gAGAG}A2       :|
+
+
+X:0
+T:Captain J.F. Johnston Watson
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:6/8
+L:1/8
+Q:3/8=86
+K:Hp
+ {g}e/d/|{gcd}cB{G}A    {gef}efg   |  {a}f<af   {gef}e2d            |\
+         {gcd}cB{G}A      {d}c<ef  |  {g}B3     {gBG}B2    {gef}e/d/|
+         {gcd}cB{G}A    {gef}efg   |  {a}f<af   {gef}e2d            |\
+           {g}c<ac        {g}Bfe   |  {g}A3   {gAGAG}A2            :|
+ {d}c/e/|{gfg}fea        {fg}fe{g}c|  {g}f<af   {gfg}fec            |\
+         {gcd}cB{G}A      {d}c<ef  |  {g}B3     {gBG}B2   [1 {d}c/e/|
+         {gfg}fea        {fg}fe{g}c| {ag}a2f    {gfg}fec            |\
+           {g}cac         {g}Bfe   |  {g}A3   {gAGAG}A2:| [2 {g}e/d/|
+         {gcd}d{e}B{d}c {gef}ed{e}c|{Gdc}def     {ag}ag{a}f         |\
+           {g}eac         {g}Bfe   |  {g}A3   {gAGAG}A2            ||
+    e   |  {g}AB{GdG}c  {gcd}cBc   |  {g}c<ef   {gef}ec{ag}a        |\
+              AB{GdG}c    {g}c<ef  |  {g}B3     {gBG}B2e            |
+           {g}AB{GdG}c  {gcd}cBc   |  {g}cef    {gef}ec{ag}a        |\
+              c<ac        {g}Bfe   |  {g}A3   {gAGAG}A2            :|
+{gf}g   | {ag}a2{GdG}a   {eg}ece   |{gfg}fdf    {gef}e2c            |\
+           {g}A2{GdGe}A   {d}c<ec  |  {g}B3     {gBG}B2{gf}g        |
+          {ag}a2{GdG}a   {eg}ece   |{gfg}fdf    {gef}e2d            |\
+           {g}c<ac        {g}Bfe   |  {g}A3   {gAGAG}A2{gf}g        |
+          {ag}a2{GdG}a   {eg}ece   |{gfg}fdf    {gef}e2c            |\
+           {g}A2{GdGe}A   {d}c<ec  |  {g}B3     {gBG}B2{g}e/d/      |
+         {gcd}cBc       {gef}edc   |{Gdc}def     {ag}ag{a}f         |\
+           {g}e<ac        {g}Bfe   |  {g}A3   {gAGAG}A2            |]
+
+
+X:0
+T:Colonel H.H. Burney's Farewell to the Gordon Highlanders
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:2/4
+L:1/16
+Q:1/4=74
+N:errors in the book:
+N: bar 1 is |{GbG}A2{Adc}de {gfg}f4| (impossible gracenote)
+N: last note of part 1 is d4, doesn't match upbeat of part 2 (my variant repeat added)
+N: last note of part 2 is d3, doesn't match no-upbeat part 3 (my variant repeat added)
+K:Hp
+d|: {GBG}A2{Gdc}de  {gfg}f4     |  {g}fade       {gfg}f2{g}A2   |\
+  {gAGAG}A2{d}cd    {gef}e3f    |  {a}ge{g}Bc    {Gdc}d2{e}A2   |
+  {gAGAG}A2{Gdc}de  {gfg}f4     |  {g}fa{dc}de   {gfg}f2{g}A2   |\
+  {gAGAG}A2{d}cd    {gef}e3f    |  {a}ge{g}Bc [1 {Gdc}d4       :|\
+                                              [2 {Gdc}d3       ||
+A|  {Gdc}de{g}fg     {ag}a4     |{Gdc}da{fg}fd     {g}Aa{fg}fd  |\
+      {g}c2{GdG}ef   {gf}g4     |  {a}cg{a}ec      {g}Ag{a}ec   |
+    {Gdc}de{g}fg     {ag}a4     |{Gdc}da{fg}fd     {g}Aa{fg}fd  |\
+      {g}c2{GdG}ef    {a}ge{g}ce|{gfg}f2d2    [1 {gdc}d3       :|\
+                                              [2 {gdc}d4       ||
+    {GBG}A2{g}df      {g}fadf   |{gAGAG}A2{g}df       af{g}dA   |\
+  {gAGAG}A2{d}ce      {g}eg{a}ce|{gAGAG}A2{d}ce    {a}ge{g}c{d}A|
+  {gAGAG}A2{g}df      {g}fadf   |{gAGAG}A2{g}df       af{g}dA   |\
+  {gAGAG}A2{d}ce      {g}eg{a}ce|  {gfg}f2d2     {gdc}d4       :|
+    {GBG}Ad{c}df    {gfg}fe{g}fg|       af{g}da       fa{fg}fd  |\
+      {g}A{d}c{g}ce {gef}ec{g}ef|    {a}ge{g}cg    {a}eg{a}ce   |
+      {g}Ad{c}df    {gfg}fe{g}fg|       af{g}da       fa{fg}fd  |\
+      {g}Ac{g}ce      {g}eg{a}ce|  {gfg}f2d2     {gdc}d4       :|
+
+
+X:0
+T:Dornkop
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:6/8
+L:1/8
+Q:3/8=88
+K:Hp
+    A|{Gdc}ded        {gdc}def     |     af{g}d   {gBd}B2g         |\
+      {afg}fed        {gde}dcd     |{gef}ec{G}A {gAGAG}ABc         |
+      {Gdc}ded        {gdc}def     |     af{g}d   {gBd}B2{gf}g     |\
+      {afg}fed        {gef}ec{G}A  |{Gdc}d3       {gdc}d2         :|
+{gf}g|     af{g}d     {gdc}def     | {gf}ged        {g}c2{GdG}e    |\
+        {g}fed        {gdc}def     |{gef}ec{G}A {gAGAG}A2  [1 {gf}g|
+           af{g}d     {gdc}def     | {gf}ged        {g}c2{GdG}e    |\
+      {afg}fed        {gef}ec{G}A  |{Gdc}d3       {gdc}d2:|[2  {d}c|
+      {gde}dcB          {g}c2{GdG}e|{gfg}fed        {g}efg         |\
+      {afg}fed        {gef}ec{G}A  |{Gdc}d3       {gdc}c2         ||
+    A|  {g}d<Af         {g}faf     |{gef}edc      {Gdc}d2e         |\
+      {gfg}f2d        {gdc}dfd     |{gef}ec{G}A     {g}ABc         |
+        {g}d<Af         {g}faf     |{gef}edc      {Gdc}d2e         |\
+      {gfg}fed        {gef}ec{G}A  |{Gdc}d3       {gdc}d2         :|
+{gf}g|     af{g}d      {ag}ag{a}f  |  {g}efg      {afg}f2e         |\
+      {Gdc}ded          {g}Bcd     |{gef}ec{G}A {gAGAG}A2  [1 {gf}g|
+           af{g}d      {ag}ag{a}f  |  {g}efg      {afg}f2e         |\
+      {afg}fed        {gef}ec{G}A  |{Gdc}d3       {gdc}d2:|[2  {d}c|
+        {g}B<{d}G{d}B {gde}dcB     |  {g}c<{d}A{d}c {g}efg         |\
+      {afg}fed        {gef}ec{G}A  |{Gdc}d3       {gdc}d2         :|
+
+
+X:0
+T:Trooping the Colours
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Slow March
+M:2/4
+L:1/16
+Q:1/4=56
+N:part 3 ends with a quaver in the book, variant repeat is mine
+K:Hp
+   af|{gef}e4         {A}ef{gef}eA  |  {d}c4         {gcG}c2{ag}af |\
+        {g}ef{gef}ec  {g}AB{g}c{d}A |  {g}GA{g}B{d}c {gBG}B2af     |
+      {gef}e4         {A}ef{gef}eA  |  {d}c4         {gcG}ceaf     |\
+      {gef}ec{g}B{d}c {g}GA{g}B{d}c |  {e}A4       {gAGAG}A2      :|
+{d}ce|  {g}f4          {g}fa{f}gf   |  {g}e4         {geA}e2{g}AB  |\
+      {GdG}c4        {gef}ec{g}B{d}A|  {g}GA{g}B{d}c {gBG}B2{d}ce  |
+      {GdG}f4          {g}fd{e}Af   |{gef}e4           {A}e2{g}AB  |\
+      {GdG}c2{gef}ec {gBd}BA{g}B{d}c|  {e}A4    [1 {gAGAG}A2      :|\
+                                                [2 {gAGAG}A3      ||
+    B|{GdG}c4        {gef}ec{g}B{d}A|  {g}f4          {ag}af{gef}ec|\
+      {Gdc}d4        {gfg}fe{g}c{d}A|  {g}GA{g}B{d}c {gBG}B2{g}AB  |
+      {GdG}c4        {gef}ec{g}B{d}A|  {g}f4          {ag}af{gef}ec|\
+      {Gdc}d3f       {gef}ec{g}B{d}A|  {g}GA{g}B{d}c   {e}A3      :|
+
+
+X:0
+T:The Cairns of Drumderfit
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Slow March
+M:4/2
+L:1/8
+Q:1/2=48
+K:Hp
+{d}B|{gef}e4   {A}e3f  {gf}g4  {ag}a3g   |{afg}f4   {g}e3d       {gBd}B4 {G}A3{d}B|\
+     {gef}e4   {A}e3f  {gf}g4 {afg}f3e   |{Gdc}d4 {gBd}B3{G}A    {gAd}A4 {e}G3B   |
+     {Gdc}d4   {g}e3d {gBd}B4 {Gdc}d3e   | {gf}g4 {afg}f3d       {gef}e4 {A}e3f   |\
+      {gf}g4  {ag}a3g {afg}f4   {g}e3d   |{gBd}B4   {g}e3f       {gBd}B4 {G}A3   ||
+{d}B|{gef}e4 {gde}d3B {Gdc}d4 {gBd}B3{G}A|  {e}G4 {gBd}B3{G}A    {gAd}A4 {e}G3B   |\
+     {Gdc}d4 {gdc}d3e  {gf}g4   {a}f3g   | {ag}a4   {f}g3f       {gef}e4 {g}A3{d}B|
+     {gef}e4 {gde}d3B {Gdc}d4 {gBd}B3{G}A|  {g}B4 {GdG}B2{Gdc}d2 {gef}e4 {A}e3f   |\
+      {gf}g4  {ag}a3g {afg}f4   {g}e3d   |{gBd}B4   {g}e3d       {gBd}B4 {G}A3   |]
+
+
+X:0
+T:Echo Bank
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Slow March
+M:4/2
+L:1/8
+Q:1/2=44
+N:in the book bar 8 ends with A4 and bar 12 has c3 for c2 (both too long)
+K:Hp
+      {d}ce2c        {g}B2{d}c{e}B   {G}A2B{GdG}c     {g}e4     |\
+      {g}f3{GdG}f    {g}f2cf         {g}e6                 {g}AB|
+      {d}ce2c        {g}B2{d}c{e}B   {g}A3{GdGe}A   {GdG}B4     |\
+      {g}c3{GdGe}c {gcd}c3{GBG}A   {GdG}B4>>             c4     |
+    {Gdc}d2ed      {gde}d2cB         {g}c3{GdG}e      {A}e4     |\
+      {g}f3{GdG}f    {g}e2fg        {ag}a6                    AB|
+      {d}ce2c        {g}B2{d}c{e}B   {g}A2B{GdG}c     {g}e2{g}AB|\
+      {d}ce2c        {g}B2{d}c{e}B   {G}A4        {gAGAG}A2    ||
+{d}ce|{g}f2gf       {gf}e3c          {g}e2fg         {ag}a3e    |\
+      {g}c3{GdGe}c   {g}e2f{g}c    {GdG}e6                 {g}ce|
+      {g}f2gf       {gf}e3f          {g}c3{GdGe}A {gAGAG}A3B    |\
+      {g}c3{GdGe}c   {g}B{d}c2{G}A {GdG}B4>>          {d}c4     |
+      {g}B3{GdGe}A   {d}A2{d}c{e}B   {G}A2B{GdG}c     {g}e4     |\
+      {gfg}f2e{g}c  {ag}a2g{a}f      {g}e2f{g}c       {g}e2{g}AB|
+      {d}ce2c        {g}B2{d}c{e}B   {G}A2B{GdG}c     {g}e2{g}AB|\
+      {d}ce2c        {g}B2{d}c{e}B   {G}A4        {gAGAG}A3    |]
+
+
+X:0
+T:G.F. Rose of Auchernach
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:6/8
+L:1/8
+Q:3/8=88
+N:book doesn't indicate a repeat for parts 1 and 4
+N:upbeats of parts 2 and 3 printed as quavers in the book
+K:Hp
+   e   |  {g}A2{GdGe}A {gcd}c2d     |{gef}efg   {ag}a2g    |\
+        {afg}f2a        {eg}e2f     |{gef}edc  {gBd}B2e    |
+          {g}A2{GdGe}A {gcd}c2d     |{gef}efg   {ag}a2e    |\
+          {g}f2{GdG}f  {gef}e2c     |{gef}edB    {G}A2    :|
+{g}c/d/|{gef}e2f         {g}e2{GdG}e|  {g}faf  {gef}e>{g}cd|\
+          {g}efe       {Gdc}ded     |  {g}c<ec {gBd}B>{g}cd|
+        {gef}e2f         {g}e2{GdG}e|  {g}faf  {gef}e>ce   |\
+          {g}f2{GdG}f  {gef}e2c     |{gef}edB    {G}A2    :|
+{g}e/d/|{gcd}c2{e}A      {g}e2f     |  {g}efg   {ag}a2f    |\
+        {gef}e2f       {gcd}c2e     |{gef}edc  {gBd}B{g}ed |
+        {gcd}c2{e}A      {g}e2f     |  {g}efg   {ag}a2e    |\
+          {g}f2{GdG}f  {gef}e2c     |{gef}edB    {G}A2    :|
+{af}g  | {ag}a2e         {g}fae     |{gfg}f2a   {eg}e2a    |\
+         {fg}fdf       {gef}ece     |{gde}dcd  {gBd}B2{gf}g|
+         {ag}a2e         {g}fae     |{gfg}f2a   {eg}e2a    |\
+         {fg}f2{GdG}f  {gef}e2c     |{gef}edB    {G}A2    :|
+
+
+X:0
+T:Alfred E. Milne
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, pub R.G. Hardie, 1956 reprint
+B:NLS Mus.D.s.33(6)
+R:March
+M:2/4
+L:1/16
+Q:1/4=86
+N:The upbeats in parts 2,3, and 4 have been halved to fit the length
+N:of the last note in each part.  Part 1 ends with A6 in the book.
+K:Hp
+    e   |  {g}A3{GdGe}A {gcd}c2{g}B{d}A|  {g}c2{GdGe}A{d}c  {gef}e2{g}dc  |\
+           {g}B3{GdGe}B {Gdc}d2{gcd}cB |  {g}df{g}eg        {afg}f2{g}ec  |
+           {g}A3{GdGe}A {gcd}c2{g}B{d}A|  {g}c2{GdGe}A{d}c  {gef}e2{gde}dc|\
+         {Gdc}d2{gfg}fd {gef}ec{gde}dB |{gcd}c2{e}A2      {gAGAG}A3      :|
+ {g}c/d/|{gef}e2{ag}a2       fgaf      |{gef}eA{d}ce          {g}fe{gde}dc|\
+         {Gdc}d2{e}dB     {d}ce{g}A{d}c|{g}Bd{g}ce            {g}df{gef}ec|
+         {gef}e2{ag}a2       fgaf      |{gef}eA{d}ce          {g}fe{gde}dc|\
+         {Gdc}d2{gfg}fd {gef}ec{gde}dB |{gcd}c2{e}A2      {gAGAG}A3      :|
+{ag}a   |     c2{GBG}Ae {gcd}c3{GBG}A  |  {g}c2{GdG}ef      {gef}e2{gde}dc|\
+           {g}d2{GcG}Bf {gde}d3{GcG}B  |{Gdc}de{g}fg             af{gef}ed|
+         {gcd}c2{GBG}Ae {gcd}c3{GBG}A  |  {g}c2{GdG}ef      {gef}e2{gde}dc|\
+         {Gdc}d2{gfg}fd {gef}ec{gde}dB |{gcd}c2{e}A2      {gAGAG}A3      :|
+    e   |  {g}ceag        {a}fgaf      |  {g}eace           {gfg}fe{gde}dc|\
+           {g}Bd{a}gf     {g}efge      |{gde}dG{g}Bd        {gef}ed{gcd}cB|
+           {d}ceag        {g}fgaf      |  {g}eace           {gfg}fe{gde}dc|\
+         {Gdc}d2{gfg}fd {gef}ec{gde}dB |{gcd}c2{e}A2      {gAGAG}A3      :|
+
+
+X:0
+T:Loch Maree
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Retreat March
+V:1
+V:2
+M:3/4
+L:1/8
+Q:1/4=86
+K:Hp
+V:1
+{gcd}ce|  {g}A2 {GdGe}A>{d}c   {e}A{d}c  |{gef}e2   {A}e2 {gcd}ce   |\
+        {gfg}f2    {g}A>d      {g}fa     | {fg}f2   {g}e2 {gcd}ce   |
+[1        {g}A2 {GdGe}A>{d}c   {e}A{d}c  |{gef}e2   {A}e2 {gcd}ce   |\
+        {gfg}f2    {g}A>{d}c {gef}e>c    |{gcd}c2   {e}B2          :|
+[2      {gfg}f2    {g}A2       {g}B{GdG}c|{gef}e2   {g}A2   {g}A>B  |\
+        {GdG}c2    {e}A>{d}c {gef}e>c    |{gBd}B2   {G}A2          ||
+{gcd}ce| {ag}a2    {g}af      {ag}a>f    | {gf}e2   {A}e2 {gcd}ce   |\
+        {gfg}f2  {gef}ec      {ag}a>f    |{gfg}f2   {g}e2 {gcd}ce   |
+[1       {ag}a2    {g}af      {ag}a>f    | {gf}e2   {A}e2 {gcd}ce   |\
+        {gfg}f2    {g}A>{d}c {gef}e>c    |{gcd}c2   {e}B2          :|
+[2      {gfg}f2    {g}A2       {g}B{GdG}c|{gef}e2   {g}A2   {g}A>B  |\
+        {GdG}c2    {e}A>{d}c {gef}e>c    |{gBd}B2   {G}A2          ||
+V:2
+{gcd}ce|  {g}A2 {GdGe}A>c    {gcd}c{e}A  |  {d}c2 {GdG}c2   {e}A{d}c|\
+        {Gdc}d2    {e}A>B    {Gdc}df     |{Gdc}d2   {e}c2 {gcd}ce   |
+[1        {g}A2 {GdGe}A>{d}c {gcd}c{e}A  |  {d}c2 {GdG}c2   {e}A{d}c|\
+        {Gdc}d2    {e}c2     {gcd}cA     |{gcd}c2   {e}B2          :|
+[2      {Gdc}d2  {gcd}c2     {gBd}B{G}A  |{gcd}c2   {g}e2 {gcd}c>B  |\
+          {g}A2    {d}c2     {gcd}c>{e}A |{gBd}B2   {G}A2          |]
+{gcd}ce|  {g}f2    {g}fd       {g}f>d    | {gd}c2 {GdG}c2   {e}A{d}c|\
+        {Gdc}d2  {gcd}c{e}A    {g}f>d    |{gde}d2   {e}c2 {gcd}ce   |
+[1        {g}f2    {g}fd       {g}f>d    | {gd}c2 {GdG}c2   {e}A{d}c|\
+        {Gdc}d2    {e}c2     {gcd}cA     |{gcd}c2   {e}B2          :|
+[2      {Gdc}d2  {gcd}c2     {gBd}B{G}A  |{gcd}c2   {g}e2 {gcd}c>B  |\
+          {g}A2    {d}c2     {gcd}c>{e}A |{gBd}B2   {G}A2          |]
+
+
+X:0
+T:Kilworth Hills
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S.MacLennan, Highland Bagpipe Music book 1
+B:NLS MH.s.234
+R:Retreat March
+M:3/4
+L:1/8
+Q:1/4=86
+V:1
+V:2
+N:voice 2 bar 3 is |{gAGAG}A4 {gcd}c{e}A| in the book (undotted) - sounds wrong to me
+K:Hp
+V:1   {g}A>{d}c|  {gef}e2   {A}e2 {gfg}f>d   |  {gef}e2 {d}c2   {gde}d>c   |\
+                    {G}A3{d}c     {gef}e>c   |  {gBd}B4           {g}A>{d}c|
+V:2   {g}A>{d}c|    {g}c2 {GdG}c2 {Gdc}d>{e}B|  {gcd}c2 {e}A2   {gBd}B>A   |\
+                {gAGAG}A4         {gcd}c>{e}A|  {gBd}B4           {g}A>{d}c|
+%
+V:1               {gef}e2   {A}e2 {gfg}f>d   |  {gef}e2 {d}c2     {g}A>{d}c|\
+                  {gef}e3B        {gde}d<c   |    {G}A4                   :|
+V:2                 {g}c2 {GdG}c2 {Gdc}d>{e}B|  {gcd}c2 {e}A2 {gAGAG}A2    |\
+                  {gcd}c3B        {gBd}B<{e}A|{gAGAG}A4                   :|
+%
+V:1   {g}f>e   |    {g}f3{gf}g     {ag}a>f   |  {gef}e2 {d}c2   {gde}d>c   |\
+                    {G}A3{d}c     {gef}e>c   |  {gBd}B4         {gef}e>d   |
+V:2 {Gdc}d>c   |  {Gdc}d3e          {g}f>d   |  {gcd}c2 {e}A2   {gBd}B>A   |\
+                {gAGAG}A4         {gcd}c2    |  {gBd}B4         {gcd}c>B   |
+%
+V:1               {gcd}c3d          {g}e>f   |  {gef}e2 {d}c2     {g}A>{d}c|\
+                  {gef}e3B        {gde}d<c   |    {G}A4                   :|
+V:2                 {g}A3B        {GdG}c>d   |  {gcd}c2 {e}A2 {gAGAG}A2    |\
+                  {gcd}c3B        {gBd}B<{e}A|{gAGAG}A4                   :|
+%
+V:1   {g}B>c   |  {Gdc}d2 {gdc}d2 {gef}e>d   |    {c}d2 {e}c2   {gcd}c2    |\
+                  {GBG}A3{d}c     {gef}e>c   |  {gBd}B4         {Gdc}d>e   |
+V:2   {g}B>c   |    {g}B2 {gBG}B2 {gcd}c>B   |  {gBd}B2 {G}A2     {g}A>B   |\
+                  {GdG}c3{e}A     {gcd}c2    |  {gBd}B4           {g}B>c   |
+%
+V:1                 {g}f2   {e}f2 {gef}e2    |   {dc}d2 {e}c2     {g}A>{d}c|\
+                  {gef}e3B        {gde}d<c   |    {G}A4                   :|
+V:2               {Gdc}d2   {c}d2   {e}c2    |  {gBd}B2 {G}A2 {gAGAG}A2    |\
+                  {gcd}c3B        {gBd}B<{e}A|{gAGAG}A4                   :|
+%
+V:1  {ag}a>g  |     {a}f3{gf}g     {ag}a>f   |  {gef}e2 {d}c2     {g}f>e   |\
+                    {g}c3f        {gef}e>c   |  {gBd}B4         {gcd}c2    |
+V:2   {g}f>e  |   {Gdc}d3e          {g}f>d   |  {gcd}c2 {e}A2   {gde}d>c   |\
+                    {G}A3d        {gcd}c>{e}A|  {gBd}B4           {g}A>B   |
+%
+V:1               {GBG}A3{d}c       {g}e>f   |  {gef}e2 {d}c2     {g}A>{d}c|\
+                  {gef}e3B        {gde}d<c   |    {G}A4                   :|
+V:2               {GdG}c3{e}A       {g}c>d   |  {gcd}c2 {e}A2 {gAGAG}A2    |\
+                  {gcd}c3B        {gBd}B<A   |{gAGAG}A4                   :|
+
+
+X:0
+T:The Lament for Lieutenant John McLennan
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Piobaireachd
+m:kc  =   {ged}c
+m:pA  =   {GBG}A
+m:pc  =   {GdG}c
+m:pB  =   {GdG}B
+m:qf  =  {fege}f
+m:rA  =  {AGdG}A
+m:rc  =  {cGdG}c
+m:re  =  {eAfA}e
+m:rB  =  {BGdG}B
+m:~f  =   {gfe}f
+m:sn2 =   {geA}n2
+m:uB4 = {GdGcG}B4
+m:vB3 = {gBGdG}B3
+m:wd4 =     {g}Ad2{edfd}e
+m:wc4 =     {g}A{d}c2{ecfc}e
+m:wB4 =     {g}G{d}B2{eBfB}e
+m:xa4 =        a3{GdGeAfA}e
+m:xf4 =     {g}f3{GdGeAfA}e
+m:xe4 =     {g}e3{GdGeAfA}e
+M:4/2
+L:1/8
+N:Bar 5 of the ground is |:kc3 pA {d}c4 se2{d}c{g}e f4| in the book.
+N:GS didn't title the sections himself.
+N:The book doesn't indicate that you repeat the ground at the end; it also
+N:doesn't indicate that the e in the {ged} group is held as a cadence note.
+N:Don't take the way the computer plays this too seriously!
+K:Hp
+P:Ground
+Q:1/2=30
+|:   kc3  pA {d}c4 se2   c{g}e    f4|   a2 f{g}e {ag}a4 qf2 e{g}B   pc4 |
+     kc3  pA {d}c4 ~f2   e{g}c    e4|{g}d3    pA  {d}c4 kc4         uB4:|
+|:   kc3  pA {d}c4 se2{d}c{g}e    f4|   a3    qf     a4  e3    rB {d}c4 |
+[1 {g}e3  rc    e4 kc3      pA {d}c4|{g}d3    pA  {d}c4 kc4         uB4:|
+[2   kc2 Bpc    f4 se2   c{g}B   pc4|  ~f2 e{g}c     e4 kc4         uB4||
+P:First Variation
+M:2/2
+Q:1/2=18
+|: {g}c>rA{g}c>rB {g}e>rc{g}f>re|   a>rea>rf    {g}f>re{g}c>rB |
+   {g}c>rA{g}c>rB {g}f>re{g}e>rc|{g}d>rc{g}c>rB {g}c>rB{g}B>rA:|
+|: {g}c>rA{g}c>rB {g}e>rc{g}f>re|   a>rea>rf    {g}e>rB{g}c>rB |
+[1 {g}e>rc{g}e>rc {g}c>rA{g}c>rB|{g}d>rc{g}c>rB {g}c>rB{g}B>rA:| 
+[2 {g}c>rA{g}f>re {g}e>rc{g}c>rB|{g}f>re{g}e>rc {g}c>rB{g}B>rA||
+P:Second Variation
+M:4/2
+Q:1/2=30
+|: {g}Ac2{G}A   vB3{G}A {g}ce2c {g}ef2   e|{g}fa2f {g}ea2f {g}ef2e {g}Bc2   B |
+   {g}Ac2{G}A   vB3{G}A {g}ef2e {g}ce2   c|{g}Bd2c {g}Ac2B {g}Bc2B {g}AB2{G}A:|
+|: {g}Ac2{G}A   vB3{G}A {g}ce2c {g}ef2   e|{g}fa2f {g}ea2f {g}ce2c {g}Bc2   B |
+[1 {g}ce2   B {g}ce2  c {g}Ac2B {g}Ac2   B|{g}Bd2c {g}Ac2B {g}Bc2B {g}AB2{G}A:|
+[2 {g}Ac2{G}A {g}cf2  c {g}Ae2c {g}Bc2{G}A|{g}Bf2e {g}ce2c {g}Bc2B {g}AB2{G}A||
+P:Second Variation Doubling
+Q:1/2=40
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A f4|{g}Aa2   A    a4    A   f2c pc4 |
+   {g}A{d}c2{g}A {d}c4 {g}Af2{g}A e4|{g}Ad2{g}A {d}c4 {g}A   c2B pB4:|
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A f4|{g}Aa2   A    a4    A   e2c pc4 |
+[1 {g}A   e2{g}A    e4 {g}Ad2c   pc4|{g}Ad2{g}A {d}c4 {g}A{d}c2B pB4:|
+[2 {g}A{d}c2{g}A    f4 {g}Ae2c   pc4|{g}Af2{g}A    e4 {g}A   c2B pB4||
+P:Second Variation Trebling
+M:2/2
+L:1/16
+Q:1/2=30
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A    f4|{g}Aa2A       a4    Af2{g}A    {d}c4 |
+   {g}A{d}c2{g}A {d}c4 {g}Af2{g}A    e4|{g}Ad2{g}A {d}c4 {g}A{d}c2{g}G {d}B4:|
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A    f4|{g}Aa2A       a4    Ae2{g}A    {d}c4 |
+[1 {g}Ae2{g}A       e4 {g}Ad2{g}A {d}c4|{g}Ad2{g}A {d}c4 {g}A{d}c2{g}G {d}B4:|
+[2 {g}A{d}c2{g}A    f4 {g}Ae2{g}A {d}c4|{g}Af2{g}A    e4 {g}A{d}c2{g}G {d}B4||
+P:Crunluath
+M:4/2
+L:1/8
+Q:1/2=40
+|: wc4 wc4    xe4  xf4|xa4 xa4 {g}Af2c    pc4 |
+   wc4 wc4    xf4  xe4|wd4 wc4 {g}A{d}c2B pB4:|
+|: wc4 wc4    xe4  xf4|xa4 xa4 {g}Ae2c    pc4 |
+[1 xe4 xe4 {g}Ad2c pc4|wd4 wc4 {g}A{d}c2B pc4:|
+[2 wc4 xf4 {g}Ae2c pc4|xf4 xe4 {g}A{d}c2B pB4||
+P:Crunluath Doubling
+M:2/2
+L:1/16
+Q:1/2=24
+|: wc4wc4 xe4xf4|xa4xa4 xf4wc4 |
+   wc4wc4 xf4xe4|wd4wc4 wc4wB4:|
+|: wc4wc4 xe4xf4|xa4xa4 xe4wc4 |
+[1 xe4xe4 wd4wc4|wd4wc4 wc4wB4:|
+[2 wc4xf4 xe4wc4|xf4xe4 wc4wB4|]
+
+
+X:0
+T:Gairnside
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Strathspey
+M:C
+L:1/8
+Q:1/4=120
+K:Hp
+   a/|       A2 {GdGe}A>{d}B {gef}e>A {gBd}B>A|  {g}G2  {dGe}G>{d}A {e}G>A      {gBd}B>{e}G|
+          {g}A2 {GdGe}A>{d}B {gef}e>d {g}(3Bcd|{gef}e>g {Gdc}d>g  {aBd}B>{e}A {gAGAG}A3/  :|
+{d}B/|{gAGAG}Aa    {g}a>g    {g}(3efg  {ag}a>e| {gf}g>a   {f}g>e  {Gdc}d>e       {gf}g>f   |
+   [1     {g}ea    {g}a>g    {a}(3efg  {ag}a>g|{aeg}e>g {Gdc}d>g  {aBd}B>{e}A {gAGAG}A3/  :|
+   [2   {g}(3efg  {ag}a>f     {gf}g>f {gef}e>d|{g}(3efg {Gdc}d>g  {aBd}B>{e}A {gAGAG}A3/  |]
+
+
+X:0
+T:The Jig of Slurs
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Jig
+M:6/8
+L:1/8
+Q:3/8=116
+N:upbeats in parts 1 and 4 added
+K:Hp
+B   |{g}A>d{c}d  {gde}dcd    |  {g}B>d{c}d   {g}A>d{c}d  |\
+     {g}B>d{c}d    {g}A>d{c}d|  {g}B>e{A}e {gef}ede      |
+     {g}A>d{c}d  {gde}dcd    |  {g}B>d{c}d   {g}A>d{c}d  |\
+     {g}B>d{c}d    {g}c>e{A}e|  {g}f>d{c}d {gdc}d2      :|
+B   |{g}A>f{e}f  {gfg}fef    |     a>f{e}f {gfg}fed      |\
+     {g}c>e{A}e  {gef}ede    |  {g}f>e{A}e {gef}ed{e}B   |
+     {g}A>f{e}f  {gfg}fef    |     a>f{e}f {gfg}fed      |\
+     {g}B>d{c}d    {g}c>e{A}e|  {g}f>d{c}d {gdc}d2      :|
+B/A/|{g}G>g{f}g    {a}gfg    |     a>g{a}e      g{a}d{e}B|\
+     {g}G>g{f}g    {a}gfg    |     a>g{a}e  {gf}g2{a}G   |
+     {d}B>g{f}g    {a}gfg    |     a>e{A}e   {a}g>d{c}d  |\
+     {g}B>e{A}e    {g}e>g{f}g|{afg}f>d{c}d {gef}e2      :|
+B   |{g}G>{d}B{G}B {g}B>d{c}d|  {g}d>e{A}e {gef}ed{e}B   |\
+     {g}G>{d}B{G}B {g}B>d{c}d|  {g}d>e{A}e   {g}e>g{f}g  |
+     {a}G{d}>B{G}B {g}B>d{c}d|  {g}d>e{A}e {gef}ed{e}B   |\
+     {g}B>e{A}e    {g}e>g{f}g|{afg}f>d{c}d {gef}e2      :|
+
+
+X:0
+T:The Strathspey King (J. Scott Skinner)
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Strathspey
+M:C
+L:1/8
+Q:1/4=112
+K:Hp
+   {Gdc}d2  {gfg}f>d {g}A2  {GdGe}A>{d}B|  {e}G>{d}B    {e}A>d   {gcd}c>e {a}(3gfe |\
+   {Gdc}d2  {gfg}f>d {g}A2  {GdGe}A>d   |{gcd}c>e   {gAGAG}A>g   {afg}f>a    (3gfe:|\
+   {Gdc}d2  {gfg}f>d {g}f<a       d<f   |  {g}c<e       {g}A>{d}c  {g}e>f {a}(3gfe |\
+[1 {Gdc}d2  {gfg}f>d {g}f<a       d<f   |  {g}c<e   {gAGAG}A>g   {afg}f>a    (3gfe:|\
+[2 {Gdc}d>f {gBG}B>d {e}A>{d}B {e}G>{d}B|  {e}A>{d}c  {gBG}B>d   {gcd}c>e {a}(3gfe|]
+
+
+X:0
+T:The Braes o' Forbes
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Strathspey
+M:C
+L:1/8
+Q:1/4=112
+N:upbeats before each second repeat have been halved (printed as quavers in the book)
+K:Hp
+   a/| {AGAG}A2  {gcd}c>B {gBd}B{e}A {gAGAG}A>{d}c|  {g}e>f {gef}e>d {gde}d<c {GdG}c3/ |\
+[1 a/| {AGAG}A2  {gcd}c>B {gBd}B{e}A {gAGAG}A>{d}c|
+                                                   {gef}e>d {gde}d<c {gcd}c<B {GdG}B3/:|\
+[2 d/|    {g}e>f {gef}e>c   {g}A>{d}c  {gef}e>c   |{gfg}f>d {gef}e>c {gcd}c<B {GdG}B3/||
+{d}c/|{gAGAG}A>a  {eg}e>d {gcd}c{e}A   {gef}e>d   |  {g}c<e {gfg}f>e {gef}e>c {GdG}c3/ |\
+[1 B/|{gAGAG}A>a  {eg}e>d {gcd}c{e}A   {gef}e>f   |
+                                                   {gef}e>d {gde}d<c {gcd}c<B {GdG}B3/:|\
+[2 d/|    {g}e>f {gef}e>c   {g}A>{d}c  {gef}e>c   |{gfg}f>d {gef}e>c {gcd}c<B {GdG}B3/|]
+
+
+X:0
+T:Strathconnon
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S.MacLennan, Highland Bagpipe Music book 1, pub R.G. Hardie, 1956 reprint
+B:NLS Mus.D.s.33(6)
+R:Strathspey
+M:C
+L:1/8
+Q:1/4=112
+K:Hp
+   {gAGAG}A2 {gef}e>c  {g}e>f {ag}a2 |   e>f     {ag}a>e   {g}f<a      (3fed|
+   {gAGAG}A2 {gef}e>c  {g}e>f {ag}a>e|{g}f<a         e>f {gef}e>c {GdGcG}B2:|
+   {gAGAG}A2 {gef}e>A  {g}c<e  {A}e>c|{g}A>{d}c {gef}e>A   {d}c<e      (3fec|
+[1 {gAGAG}A2 {gef}e>A  {d}c<e  {A}e>d|{g}ca          e>f {gef}e>c {GdGcG}B2:|
+[2 {ag}a>e     {g}f<a {eg}e>a   (3fec|{g}A>{d}c   {g}e>f {gef}e>c {GdGcG}B2|]
+
+
+X:0
+T:Inveran
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:March
+M:2/4
+L:1/16
+Q:1/4=72
+N:the final notes of all parts are written A3 in the book; I've
+N:shortened some of them to match the corresponding upbeats
+K:Hp
+      e|  {g}A2{GdGe}A{d}c {g}B{d}A{g}B{d}c|  {g}efae         {gfg}f2ec         |\
+          {g}A2{GdGe}A{d}c {e}B{d}c{g}ef   |{gef}e2{g}B2     {GdGe}B3{gef}e     |
+          {g}A2{GdGe}A{d}c {g}B{d}A{g}B{d}c|  {g}efae         {gfg}f2ec         |\
+          {g}A{d}cae       {g}fc{g}B{d}c   |{gef}e2{g}A2    {gAGAG}A3          :|
+      a| {fg}fe{g}fa      {fg}f2e{g}c      |{gef}e2af           {g}fe{g}ce      |\
+        {gfg}fe{g}fa      {fg}fe{gde}dc    |{gef}e2{g}B2     {GdGe}B3{ag}a      |
+         {fg}fe{g}fa      {fg}f2e{g}c      |{gef}e2af         {gef}ec{g}B{d}c   |\
+          {g}A{d}cae       {g}fc{g}B{d}c   |{gef}e2{g}A2 [1 {gAGAG}A3          :|\
+                                                         [2 {gAGAG}A2          ||
+{gcd}cB|  {g}A{d}c{e}B{d}c {g}efae         |  {g}faef         {gfg}ec{e}B{d}c   |\
+          {g}A{d}c{e}B{d}c {g}ce{A}ef      |{gef}e2{g}B2     {GdGe}B2{gcd}cB    |
+          {g}A{d}c{e}B{d}c {g}efae         |  {g}faef         {gfg}ec{e}B{d}c   |\
+          {g}A{d}cae       {g}fc{g}B{d}c   |{gef}e2{g}A2    {gAGAG}A2          :|
+  {g}cd|  {g}ef{gef}ec     {g}fg{afg}fd    |  {g}ef{gef}ed    {gcd}cB{d}ce      |\
+        {gfg}fd{gef}ec   {gde}d2{cG}cd     |{gef}e2{g}B2     {GdGe}B2 [1   {g}cd|
+          {g}ef{gef}ec     {g}fg{afg}fd    |  {g}ef{gef}ed      {g}cd{e}B{d}c   |\
+          {g}A{d}cae       {g}fc{g}B{d}c   |{gef}e2{g}A2    {gAGAG}A2          :|
+                                                                      [2 {gcd}cB|\
+          {G}A{d}c{e}B{G}A {d}ceae         |  {g}fagf         {gef}e2{cG}cB     |\
+          {g}A{d}cae       {g}fc{g}B{d}c   |{gef}e2{g}A2    {gAGAG}A3          :|
+
+
+X:0
+T:Alick C. McGregor
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+M:1/2=88 % can be played much faster, this used as a competition speed by Fred Morrison
+K:Hp
+a|    ec{g}B{d}c    {g}A2{dAe}A>a   | {eg}ec{g}B{d}A {g}c2{dce}c>a |\
+      ec{g}B{d}c    {g}A2{dAe}A>f   | {gef}ecac      {g}B2{dBe}B>a |
+      ec{g}B{d}c    {g}A2{dAe}A>a   | {eg}ec{g}B{d}A {g}c2{dce}c>f |\
+   {g}efae          {g}faef         |  {g}ce{g}B{d}c {g}A2{dAe}A3/||
+a|{fg}f2ef          {g}ecae         |{gfg}f2ef       {g}c2{dce}c>a |\
+  {fg}f2{g}ef     {gef}ecae         |{gfg}f2{g}ec    {g}B2{dBe}B>a |
+  {fg}f2ef          {g}ecae         |{gfg}f2ef       {g}c2{dce}c>f |\
+   {g}efae          {g}faef         |  {g}ce{g}B{d}c {g}A2{dAe}A3/||
+a|    A2{dAe}A>{d}c {g}A2{dAe}A>{d}c|  {g}A{d}c{e}Bd {g}ce{g}ca    |\
+      A2{dAe}A>{d}c {g}A2{dAe}A>{d}f|{gef}ecac       {g}B2{dBe}B>a |
+      A2{dAe}A>{d}c {g}A2{dAe}A>{d}c|  {g}A{d}c{e}Bd {g}ce{g}ca    |\
+      faef          {g}efce         |  {g}ce{g}B{d}c {g}A2{dAe}A3/||
+a|{eg}e2{cG}c>e   {gfg}f2{dc}d>f    |{gef}ecae       {g}c2{dce}c>a |\
+  {eg}e2{cG}c>e   {gfg}f2{dc}d>f    |{gef}ecac       {g}B2{dBe}B>a |
+  {eg}e2{cG}c>e   {gfg}f2{dc}d>f    |{gef}ecae       {g}c2{dce}c>f |\
+   {g}efae          {g}faef         |  {g}ce{g}B{d}c {g}A2{dAe}A3/|]
+
+
+X:0
+T:The Little Cascade
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+N:anacruses fixed from the original score
+K:Hp
+        {d}Be{A}eg   {a}ge{g}Bg  |  {a}gf{gef}eB {a}gB{g}eg    |\
+   [1   {a}Be{A}eg   {a}ge{g}Bg  |
+                                  {afg}fd{e}Ad   {g}fagf      :|\
+   [2   {a}Be{A}eg   {a}ge{g}Bg  |  {a}fagf    {gfg}f2{eA}e3/ ||
+g/|   {afg}fB{a}gf   {g}eg{a}Bg  |{afg}fBag      {a}g2{fe}f>g  |\
+      {afg}fB{a}gf   {g}eg{a}Bg  |
+                                    {a}fagf    {gfg}f2{eA}e3/ :|\
+g/|:  {aGd}G2{d}Be   {g}Be{a}ge  | {gf}g2{a}fg   {a}eg{a}Be    |
+   [1 {gGd}G2{d}Be   {g}Be{a}ge  |{gfg}fd{e}Ad   {g}fagf      :|\
+   [2 {gGd}G2{d}Be   {a}ge{g}Bg  |
+                                    {a}fagf    {gfg}f2{eA}e3/ ||\
+f/|        g{a}efg   {a}efg{a}e  |     f{g}def   {g}def{g}d    |
+           g{a}efg   {a}efg{a}e  |     fag{a}f {gfg}f2{eA}e3/ :|\
+g/|     {a}Be{a}gf {GdG}e2{g}fd  |
+                                    {g}Be{g}df {gef}ed{g}B{d}A |\
+        {d}Be{a}gf {GdG}e2{g}fd  |  {g}Be{g}df {gfg}f2{eA}e3/ :|
+g/|     {a}Gd{g}Be   {g}df{gef}e2|  {a}gfge      {g}Bega       |\
+   [1      Gd{g}Be   {g}df{gef}e2|
+                                    {g}Be{g}df {gfg}f2{eA}e3/ :|\
+   [2  {ga}gfge      {g}fd{g}ed  |  {g}Be{g}df {gfg}f2{eA}e2  |]
+
+
+X:0
+T:Dancing Feet
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=96
+K:Hp
+{d}c/| {ag}a3 e/a/        ce{g}A>{d}c| {ag}a3        e/a/  ce{g}B>{d}c|\
+       {ag}a3 e/a/        ce{g}A>{d}c|  {g}faef         {g}ce{g}B3/  :|
+{d}c/|{gef}eA{gAGAG}A2 {d}ce{g}A>{d}c|{gef}eA {gAGAG}A2 {d}ce{g}B>{d}c|\
+      {gef}eA{gAGAG}A2 {d}ce{g}A>{d}c|  {g}faef         {g}ce{g}B3/  :|
+
+
+X:0
+T:Mrs A. MacPherson of Inveran
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+N:according to George MacPherson (Angus's grandson), co-authored with Angus
+N:MacPherson one night when GS was staying with the MacPhersons at Inveran
+K:Hp
+g/|{afg}f3       a/f/      {g}df{g}Ad   |{gfg}f3      a/f/      {g}f2{eA}e>f |\
+   {gef}e3    {a}g/f/      {g}ce{g}A{d}c|
+                                         {gef}e3      f/g/    {afg}f2{dc}d3/:|\
+A/|{Gdc}d3    {e}A/d/      {g}df{g}Ad   |{gdc}d2{e}Ad         {gde}d2{cG}c>d |
+[1 {gcd}c2   {f}A{d}c      {g}ce{g}A{d}c|{gcd}c2{e}A{d}c      {gef}e2{dc}d3/:|\
+[2   {g}c2{GdGe}Ac         {g}cd{g}ef   |
+                                           {a}gf{g}ea          {fg}f2{dc}d3/||\
+g/|{afg}f3    {a}g/f/         a2{fe}f>g |     a2{fe}fg        {afg}f2{eA}e>f |
+   {gef}e3    {g}f/e/      {a}g2{eA}e>f |  {a}g2{eA}e>f       {gef}e2{dc}d3/:|\
+A/|{Gdc}d3    {e}A/c/      {g}faef      |
+                                           {g}df{g}ed         {gde}d2{cG}c>d |\
+[1 {gcd}c3    {e}A/{d}c/   {g}eg{a}df   |  {g}ce{g}B{d}c      {gef}e2{dc}d3/:|
+[2 {gcd}c3    {e}B/{d}c/   {g}A{d}c{g}eg|  {a}face            {gef}e2{dc}d3/||\
+g/|{afg}f3    {g}e/d/         a2{fe}f>g |
+                                          {ag}a3      g/{a}f/ {gfg}f2{eA}e>f |\
+   {gef}e3  {gde}d/c/      {a}g2{eA}e>f | {gf}g3 {afg}f/e/    {gef}e2{dc}d3/:|
+A/|{Gdc}d3    {e}A/d/    {gfg}f3 {g}d/f/|  {a}gf{gef}ed       {gde}d2{eG}c>d |\
+[1 {gcd}c3    {e}A/{d}c/ {gef}e3 {g}c/e/|
+                                           {a}ge{gde}dc       {gef}e2{dc}d3/:|\
+[2   {g}c{d}A{gde}dB     {gef}ec{g}fd   |  {a}ge{gde}dc       {gef}e2{dc}d3/|]
+
+
+X:0
+T:The Bridge of Perth
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:set by Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+N:initial repeat sign printed at the start of the first part
+N:bar 5 in last part printed as |{gAGAG}Aeag {a}gg{eg}ec|
+K:Hp
+{gAGAG}A2 {gef}eA     {d}c{e}A{g}fe   |  {g}ce{gAGAG}Ae    a>e {gcd}c2 |\
+{gAGAG}A2 {gef}eA     {d}c{e}A{gef}ec |  {g}Bd{e}G{d}B  {a}g>d {gBd}B2 |
+{gAGAG}A2 {gef}eA     {d}c{e}A{g}fe   |  {g}ce{gAGAG}Ae    a>e {gcd}c2 |\
+    {g}A{d}c{gef}ed   {g}ce{g}A{d}c   |  {g}Bd{e}G{d}B  {a}g>d {gBd}B2||
+{gAGAG}Aaea          {cA}caea         | {cA}ca{eg}ef  {gef}e>A {gcd}c2 |\
+{gAGAG}Aaea              c2{GdG}e>f   | {gf}gaeg      {ade}d>G {gBd}B2 |
+{gAGAG}Aaea          {cA}caea         | {cA}caef      {gef}eA{d}ce     |\
+       af{a}ge        {g}fd{gef}ec    |  {g}Bd{e}G{d}B  {a}g>d {gBd}B2||
+    {g}A2 {dAe}A>{d}c {g}A2{dAe}A>{d}c|{gef}e3{g}A/a/  {eg}eA  {gcd}c2 |\
+    {g}A2 {dAe}A>{d}c {g}A2{dAe}A>{d}c|{gBd}B2{e}G>g  {ade}d>G {gBd}B2 |
+    {g}A2 {dAe}A>{d}c {g}A2{dAe}A>{d}c|{gef}e3{g}c/e/      ae  {gcd}c2 |\
+    {g}A2 {dAe}A>{d}c {g}Ae{g}A{d}c   |{gBd}B2{e}G>g  {ade}d>G {gBd}B2||
+{gAGAG}Aeag           {a}fa{eg}ec     |{gef}e2{AGAG}Aa {eg}eA  {gcd}c2 |\
+{gAGAG}Aeag           {a}fa{eg}ec     |  {g}Bd{a}ge   {gde}d>G {gBd}B2 |
+{gAGAG}Aeag           {a}fa{eg}ec     |{gef}e2{AGAG}Aa {eg}eA{d}ce     |\
+    {g}faef           {g}de{g}cd      |  {e}Bg{a}fg   {ade}d>G {gBd}B2|]
+
+
+X:0
+T:Lochiel's Away to France
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:set by Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=84
+N:bar 5 in last part printed as |{Gdc}defg {gg}a3g/{a}f/|
+K:Hp
+ a|     eA {gAGAG}A2 {gef}e3{g}d/g/|{a}B{d}G   {dGe}G2   {g}B<d{c}d>f  |\
+     {g}eA {gAGAG}A2 {gef}e3{g}d/g/|{a}B{d}A {gAGAG}A2      a2{eA}e>a  |
+        eA {gAGAG}A2 {gef}e3{g}d/g/|{a}B{d}G   {dGe}G2   {g}B<d{c}d>f  |\
+     {g}egag         {aeg}e3{g}d/g/|{a}B{d}A {gAGAG}A2      a2{eA}e3/ ||
+f/|{Gdc}defg          {ag}a3g/{a}f/|   gd      {gdc}d2   {a}g2{dc}d>e  |\
+   {Gdc}defg          {ag}a3g/{a}f/|{a}ge{g}ce              a2{eA}e>f  |
+   {Gdc}defg          {ag}a3g/{a}f/|{a}ge{gde}dc       {Gdc}de{g}fg    |\
+        ag{afg}fd    {gef}e3{g}d/g/|{a}B{d}A {gAGAG}A2      a2{eA}e3/ ||
+f/|{gef}eA {gAGAG}A2 {gef}eA{gde}dA|{d}B{e}G   {dGe}G2   {g}B<d{c}d>f  |\
+   {gef}eA {gAGAG}A2 {gef}eA{gde}dA|{g}B{d}A {gAGAG}A2      a2{eA}e>f  |
+   {gef}eA {gAGAG}A2 {gef}eA{gde}dA|{d}B{e}G   {dGe}G2   {g}B<d{c}d>f  |\
+     {g}egag           {a}eg{a}dg  |{a}B{d}A {gAGAG}A2      a2{eA}e3/ ||
+f/|{Gdc}defg              af{a}ge  |{g}fd      {gdc}d2 {gfg}f2{dc}d>e  |\
+   {Gdc}defg              ag{a}fa  |   ge{gfg}fe             a2{eA}e>f |
+   {Gdc}defg          {ag}a3g/{a}f/|{a}ge{gde}dc        {Gdc}de{g}fg   |\
+        ag{a}fg        {a}ef{g}de  |{g}B{d}A {gAGAG}A2       a2{eA}e3/|]
+
+
+X:0
+T:Bogallan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+K:Hp
+ {gcd}c3       e/f/ {gef}ecea        |{Gdc}d3 {g}f/a/  {dc}da{fg}fd  |
+ {gcd}c3       e/f/ {gef}ecea        |     ceaf       {gef}ec{gBd}B2:|
+   {d}c{e}A{d}ce      {g}A{d}c{g}eA  |  {d}ce{g}fe      {g}fa{fg}fe  |
+[1 {g}c{d}A{d}ce      {g}A{d}c{gef}eA|  {d}ceaf       {gef}ec{gBd}B2:|
+[2 {g}ce{g}B{d}c      {e}A{d}c{g}fe  |  {g}faef       {gef}ec{gBd}B2|]
+
+
+X:0
+T:J. Scott Skinner
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+N:first melody note printed as a quaver in the book
+K:Hp
+  {d}B/|{gAGAG}A3 a/e/   {g}c<e{A}ec |  {g}Bd{g}c{d}A    {g}B2{GdGe}G>B    |
+        {gAGAG}A3 a/e/   {g}c<e{A}ec |  {g}df{g}eg          a2{AGAG}A3/   :|
+     g/|       a2{AGAG}Aa   gf{gef}ec|  {g}Bd{g}c{d}A    {g}B2{GdGe}G3/[1g/|
+               a2{AGAG}Aa   gf{gef}ec|  {g}df{g}eg          a2{AGAG}A3/   :|
+[2{d}B/|{gAGAG}Aa{eg}ed  {g}cd{gef}ec|{Gdc}de{g}fg          a2{AGAG}A3/   |]
+
+
+X:0
+T:Sunset on the Somme
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Retreat March
+M:3/4
+L:1/8
+Q:1/4=56
+K:Hp
+{g}B<d {gef}e2 {A}e2|{Gdc}d>e  {gf}g2   {f}g2|{a}B<d {gef}e2 {A}e2|  {g}d>B     {GdG}B4 |
+{g}A>B {gef}e2 {A}e2|{Gdc}d>e  {gf}g2  {ag}a2|{f}ge   {gf}g2-   gB|{gBd}B{e}A {gAGAG}A4:|
+{g}B<d {gef}e2 {A}e2|  {g}d>B {GdG}B2   {G}A2|{g}G>B {Gdc}d2-   de|{gde}dB      {Gdc}d4 |
+{g}e>f {gf} g2 {f}g2| {ag}a>g   {a}e2 {Gdc}d2|{g}e>f  {gf}g2-   gB|{gBd}B{e}A {gAGAG}A4:|
+
+
+X:0
+T:The Piper's Prelude
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe-Major G.S. MacLennan (1911)
+S:Pipe Major Donald Macleod's Collection of Music for the Highland Bagpipe Book 3
+B:my copy, formerly Jimmy Greenan's
+R:March
+M:2/4
+L:1/16
+Q:1/4=86
+K:Hp
+{ag}a2| {cd}c2e2      {g}A2{d}c2      |{gfg}f2ed     {gcd}c4      |\
+       {gef}e2dc    {Gdc}d2{e}B2      |{gfg}f2{g}ec    {g}e2{ag}a2|
+        {cd}c2e2      {g}A2{d}c2      |{gfg}f2ed     {gcd}c4      |\
+         {g}ed{e}dc      d{e}G{d}c{e}B|  {G}A4     {gAGAG}A2     :|
+    e2|  {g}f2{ag}a2 {dG}d2f2         |  {g}e2{ag}a2  {cd}c3e     |\
+       {Gdc}d2f2      {g}B2{Gdc}d2    |{gfg}f2ed  [1 {gcd}c3e     |
+         {g}f2{ag}a2 {dG}d2f2         |  {g}e2{ag}a2  {cd}c4      |\
+         {g}ed{e}dc      d{e}G{d}c{e}B|  {G}A4     {gAGAG}A2     :|\
+                                                  [2 {gcd}c3B     |
+         {g}A3{d}c    {g}e2{ag}a2     | {fg}f3e      {gcd}c2e2    |\
+         {g}ed{e}dc      d{e}G{d}c{e}B|  {G}A4     {gAGAG}A2     |]
+
+
+X:0
+T:Dalnahassaig
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe-Major G.S. MacLennan
+S:Pipe Major Donald Macleod's Collection of Music for the Highland Bagpipe Book 3
+B:my copy, formerly Jimmy Greenan's
+R:Strathspey
+M:C
+L:1/8
+Q:1/4=122
+N:when repeating play thumb gracenote instead of initial {g}
+K:Hp
+ {g}f2  {g}e>d  {g}d<f {g}A2 |{gfg}f2   {g}e>f {Gdc}d>f  {ag}a>g |\
+ {g}f2  {g}e>d  {g}d<f {g}A>f| {gf}g2 {aef}e>g {acd}c>g {a}(3efg:|
+{ag}a2 {fg}f>a {dG}d>f {g}A>f| {ag}a2  {fg}f>a  {dG}d>a    (3efg |\
+{ag}a2 {fg}f>a {dG}d>f {g}A>f| {gf}g2 {aef}e>g {acd}c>g {a}(3efg:|
+
+
+X:0
+T:Miss Ada MacDougall
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe-Major G.S. MacLennan
+S:Pipe Major Donald Macleod's Collection of Music for the Highland Bagpipe Book 3
+B:my copy, formerly Jimmy Greenan's
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+K:Hp
+a|:{cd}c2 {g}B<{d}A {gcd}c>B{G}B>a|     e>f{g}e>B      {d}c<e{g}f2  |\
+  {gcd}c2 {g}B<{d}A {gcd}c>B{G}B>a| {fg}f2 {g}eB       {d}c<e{g}f<a:|
+   {fg}f2 {g}ec          a>e{g}c<e|{gcd}c2 {g}B<{d}A {gcd}c>B{G}B>a |\
+   {fg}f2 {g}ec          a>e{g}c<e|{GdG}f2 {g}eB       {d}c<e{A}e>a |
+   {fg}f2 {g}ec          a>e{g}c<e|{gcd}c2 {g}B<{d}A {gcd}c>B{G}B>a |\
+       f<aef          {g}ef{g}ce  |{GdG}f2 {g}eB       {d}c<e{A}e2 |]
+
+
+X:0
+T:King George V's Army
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major G.S. McLennan
+S:Scots Guards Standard Settings of Pipe Tunes, 4th edition, 1960
+N:now in print as "Book 1"
+B:my copy
+R:March
+M:2/4
+L:1/16
+Q:1/4=80
+K:Hp
+{g}ed|{gcd}c2{e}A2 {gAGAG}A3B    |  {d}c{e}A{d}ce {g}fe{g}dc |\
+      {Gdc}d2{e}B2  {GdGe}B3c    |{Gdc}de{g}fa   {fg}f2{g}ed |
+      {gcd}c2{e}A2 {gAGAG}A3B    |  {d}c{e}A{d}ce {g}fe{g}dc |\
+      {Gdc}d2{g}fd   {gcd}c2{g}ec|{gcd}B4         {G}A2     :|
+{g}cd|{gef}e2a2        {g}a2gf   |{gef}e2c2     {gcA}c2{g}ec |\
+      {Gdc}d2{e}B2  {GdGe}B2{g}cd|{gcd}c2A2   {gAGAG}A2{g}cd |
+      {gef}e2a2        {g}a2gf   |{gef}e2c2     {gcA}c2{g}ec |\
+      {Adc}d2{g}fd   {gcd}c2{g}ec|{gcd}B4         {G}A2     :|
+{g}ed|{gcd}c2e2       {ag}a3e    |  {g}ceae       {g}faec    |\
+      {Gdc}d2{g}f2    {ag}a3f    |  {g}dfad       {g}fa{fg}fd|
+      {gcd}c2e2       {ag}a3e    |  {g}ceae       {g}faec    |\
+        {g}dfad       {g}ceac    |{gcd}B4         {G}A2     :|
+{g}ed|{gcd}c2e2       {A}e3d     |  {g}ce{A}ea   {fg}fe{g}dc |\
+      {Gdc}d3{g}f     {e}f3e     |  {g}df{e}fa       gf{g}ed |
+      {gcd}c2e2       {A}e3d     |  {g}ce{A}ea   {fg}fe{g}dc |\
+        {g}dfad       {g}ceac    |{gcd}B4         {G}A2     :|
+
+
+X:0
+T:The Unknown Warrior
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Slow Air
+M:6/8
+L:1/8
+Q:3/8=32
+N:uses a nonstandard ABC feature to represent the cadence gracenote in bar 16
+K:Hp
+{g}e|  {d}c>Bc {GdG}e2c      |     {g}B>{d}c{e}B   {G}A2{d}c|\
+       {g}e>ce      f2e      |     {g}e>c{e}B    {GdG}c2e   |
+     {gfg}f>ef  {ag}a2c      |     {g}e>ce            f2A   |\
+     {gcd}c>Bc {GdG}e2c      |[1 {gcd}d>c{G}A    {GdG}B2   :|\
+                              [2   {g}B>{d}c{e}B   {G}A2   ||
+{d}c|  {g}e>c{e}B {GdG}c2{g}e|     {d}c>Bc         {G}A3    |\
+      {ag}a2e       {g}f2c   |     {g}e>B{GdG}c       e3    |
+    {fege}f>ef      {g}e2c   |     {g}B>{G}A{g}B {GdG}c3    |\
+    {ge4d}c>Bc    {GdG}e2c   |[1 {gcd}c>B{G}A    {GdG}B2   :|\
+                              [2   {g}B>{d}c{e}B   {G}A2   |]
+
+
+X:0
+T:The Inverness Fiddler
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan; possibly derived
+N:from a tune played by A.A. Cameron on the fiddle
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+L:1/8
+Q:1/4=112
+K:Hp
+{g}B2 {GdGe}B>c {Gdc}d>e   {g}f>g| {ag}a>f {gef}e>d {gcd}c>B   {g}A>{d}c|\
+{g}B2 {GdGe}B>c {Gdc}d>e   {g}f>g| {ag}a>f {gef}e>c {gBG}B2  {gfg}f2   :|
+{g}B2 {GdGe}B>c {Gdc}d>e {gfg}f>d|{gcd}c>B   {g}A>B {gcd}c>d {gef}e>c   |\
+{g}B2 {GdGe}B>c {Gdc}d>e   {g}f>g| {ag}a>f {gef}e>c {gBG}B2  {gfg}f2   :|
+
+
+X:0
+T:Hunters Bog
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Where GS played as a child
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+L:1/8
+Q:1/2=88
+K:Hp
+ {ag}a2 {ef}ec   {gde}dB{G}B{d}c|{gAGAG}A2 {g}c{d}A  {g}B{d}G{e}G{d}B|\
+ {ag}a2 {ef}ec   {gde}dB{G}B{d}c|{gAGAG}A2 {d}c{e}B  {g}ce{g}fg      |
+ {ag}a2 {ef}ec   {gde}dB{g}fd   |    {g}c{d}A{gef}ec {g}B{d}G{gde}dB |\
+ {ag}a2 {ef}ec     {g}df{g}Bd   |    {g}ce{gde}dB    {g}ce{ag}a2    ||
+     ef{g}de   {gAGAG}A2{d}ce   |  {gde}dc{g}B{d}A   {g}B{d}G{e}G{d}B|\
+{gef}ec{gde}dB {gAGAG}A2{d}ce   |    {g}de{g}c{d}B   {g}ce{ag}a2     |
+     ef{g}de   {gAGAG}A2{d}ce   |    {g}de{g}cd      {g}B{d}G{gde}dB |\
+  {g}ef{g}de       {g}ceaf      |    {g}ef{gde}dB    {g}ce{ag}a2    |]
+
+
+X:0
+T:The Thrush and the Blackbird
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+L:1/8
+Q:1/2=96
+K:Hp
+g|  {a}ef{gef}ed {gef}ed{g}B{d}A|{g}BG{gde}dG     {g}BG{gde}dB|\
+    {g}ef{g}ed   {gef}ed{g}B{d}A|{g}G{d}A{e}A{d}B {g}Be{A}e  :|
+g|{Gdc}de{gf}ga       ge{gde}dB |{a}gB{g}dB       {a}gB{g}de  |\
+       ag{a}eg     {a}ed{g}B{d}A|{g}G{d}A{e}A{d}B {g}Be{A}e  :|
+
+
+X:0
+T:Curlews on the Pentlands
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+L:1/8
+Q:1/2=96
+K:Hp
+a|{fg}fd{g}Ad     {e}G{d}A{g}df|   af{gef}ed  {gfg}fe{A}ea|\
+  {fg}fd{g}Ad     {e}G{d}A{g}df|   af{gef}ed  {gfg}fd{c}d:|
+g|{ag}af{gef}ed {gfg}fd{g}Ad   |{g}efgf       {gef}eB{G}Bg|\
+  {ag}af{gef}ed {gfg}fd{g}Ad   |{g}c{d}A{a}ge {gfg}fd{c}d:|
+
+
+X:0
+T:Falls of Shin
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+L:1/8
+Q:1/2=96
+K:Hp
+g|{a}BG    {gf}g2 {ade}dB{G}Be   |{gde}dB{a}gB   {ag}aB{G}Bg   |\
+  {a}B{d}G {gf}g2 {ade}dB{G}Bd   |{aef}eG{gde}dB  {g}A{d}A{e}A:|
+g|{a}G{d}G{g}B{d}G  {g}Bd{e}G{d}B|  {g}eg{a}dg  {ade}dB{G}Bg   |\
+  {a}G{d}G{g}B{d}G  {g}Bd{e}G{d}B|{gef}eG{gde}dB  {g}A{d}A{e}A:|
+
+
+X:0
+T:The Back Grace Note Jig
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Jig
+M:6/8
+L:1/8
+Q:3/8=124
+K:Hp
+e|f{g}ef B{d}c{e}B|f{g}ef B{d}c{e}B|e{g}ce A{d}B{e}A|e{g}ce         A{d}B{e}A|
+  f{g}ef B{d}c{e}B|f{g}ef B{d}c{e}B|c{e}Bc AB{d}c   |d{e}B{G}B {gBG}B2      :|
+c|d{e}cd B{d}c{e}B|d{e}cd B{d}c{e}B|c{e}Bc A{d}B{e}A|c{e}Bc         A{d}B{e}A|
+  d{e}cd B{d}c{e}B|d{e}cd B{d}c{e}B|c{e}Bc f{g}ef   |d{e}B{G}B {gBG}B2      :|
+
+
+X:0
+T:The Kyle of Sutherland
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Slow Air
+M:6/8
+L:1/8
+Q:3/8=36
+K:Hp
+{gBd}B>A{e}G      d<{e}Bd|{g}e<gf {gef}e2d|{gBd}B>A{e}G      d<{e}Bd|  {g}e2d {GBG}A3 |
+{gBd}B>A{e}G      d<{e}Bd|{g}e<gf {gef}e2d|{gef}e>Bd    {gef}e2d    |{GBG}A>BA  {e}G3:|
+     e<{g}Bd {gef}e2d    |{g}e<gf {gef}e2d|     e<{g}Bd {gef}e2d    |  {g}e2d {GBG}A3 |
+     e<{g}Bd {gef}e2d    |{g}e<gf {gef}e2d|     e>{g}Bd {gef}e2d    |{GBG}A>BA  {e}G3:|
+
+
+% == Bibliographic Entries (no tune bodies) ============================
+
+X:0
+T:Jean MacLennan
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Inverlochy Castle
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Boy Chapman
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Captain E.B.B. Towse, VC
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Conon Bridge
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Colonel H.H. Burney's Farewell to the Gordon Highlanders
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Alfred E. Milne
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Willie MacLeod - Reedmaker
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:named by D.R. MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Edinburgh Castle
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:King George V's Army
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Major C.M. Usher, OBE
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+N:probably the last tune GS composed (Gordon Highlanders editor's note)
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Dornkop
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Braemar Gathering
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:title is D.R. MacLennan's, tune composed in France in 1918 and untitled by GS
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Kitchener's Army
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Mons Meg
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:D.R. MacLennan's title
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+X:0
+T:Dalnahassaig
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Artafallie
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Mrs MacPherson of Inveran
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Kilcoy Mill
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:named by D.R. MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Loch Lochy
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:named by D.R. MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Anon
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:named after GS's wife ("Nona" backwards)
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Donald MacLennan's Exercise
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Jig
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Biddy from Sligo
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:3rd and 4th parts by Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Jig
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Black Isle
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Retreat March
+M:3/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Nona
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:In memory of GS's grand-daughter, died aged 4
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume I
+B:NLS Mus.D.s.19
+R:Retreat March
+M:3/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:J.A. Center's Farewell to Scotland
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Skook
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+N:first part written when GS was returning to Edinburgh from strike
+N:duty in Sheffield, 21.8.1911; title is Willie Ross's nickname
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Abbeyfields
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Captain C.R. Lumsden
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:John Wayland
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Muir of Ord
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by D.R. MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Battle of Harlaw (1411)
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Captain J.F. Johnson-Watson
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Colchester Castle
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Armistice of 1918
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:4/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Pipers's Prelude
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Longueville to Kierdorf
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Cottage
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:G.F. Rose of Auchernach
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Paisley Pipers Club
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Hamelincourt
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:John MacDonald, Cameron Highlanders
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Major John MacLennan, The Gordon Highlanders
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Pipe Major J. Lawrie
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Queen's Army
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Not clear from the note if GS or George MacLennan named this
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Thistles and the Roses
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:March
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Glen Nevis
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Elizabeth Stewart
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Jeannie Dean's Tryste
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:MacLennans of Croy
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Cutting the Caber
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Strathspey
+M:C
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:William H. Craig
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Brown Haired Maid
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:D.A. Campbell(?) [parts 1 & 2]
+C:G.S. McLennan [parts 3 & 4]
+N:GS wasn't sure this was the right title
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Little Cascade
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Jessie McLennan
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Miss Ada MacDougall
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Shanbally Castle
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Redwing
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Jig of Slurs
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Jig
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Mullbuie
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Jig
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Delgaty Castle
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Slow Air
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Glenfeshie Bridge
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+N:Named by GS's son George MacLennan
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Slow Air
+M:2/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Johnnie's Tune
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Retreat March
+M:3/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Piper of Dunnyveig
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major George S. McLennan
+S:Gordon Highlanders Pipe Music Collection volume II
+B:NLS Mus.D.s.19
+R:Retreat March
+M:3/4
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Dancing Feet
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major G.S. McLennan
+S:Scots Guards Standard Settings of Pipe Tunes, 4th edition, 1960
+N:now in print as "Book 1"
+B:my copy
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Mrs MacPherson of Inveran
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major G.S. McLennan
+S:Scots Guards Standard Settings of Pipe Tunes, 4th edition, 1960
+N:now in print as "Book 1"
+B:my copy
+R:Reel
+M:C|
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Kilworth Hills
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major G.S. McLennan
+S:Scots Guards Standard Settings of Pipe Tunes, 4th edition, 1960
+N:now in print as "Book 1"
+B:my copy
+R:Retreat
+M:3/4
+N:with seconds
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:Loch Maree
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major G.S. McLennan
+S:Scots Guards Standard Settings of Pipe Tunes, 4th edition, 1960
+N:now in print as "Book 1"
+B:my copy
+R:Retreat
+M:3/4
+N:seconds omitted
+K:Hp
+% No tune body - index entry
+
+
+X:0
+T:The Jig of Slurs
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Pipe Major G.S. McLennan
+S:Scots Guards Standard Settings of Pipe Tunes, 4th edition, 1960
+N:now in print as "Book 1"
+B:my copy
+R:Jig
+M:6/8
+K:Hp
+% No tune body - index entry
+
+
+% == Macro-expanded version of the piobaireachd ========================
+
+X:0
+T:The Lament for Lieutenant John McLennan
+N:macros expanded with some manual editing
+Z:Jack Campin <http://www.campin.me.uk/> version 1.0 September 2001
+C:Geo. S. McLennan
+S:G.S. McLennan, Highland Bagpipe Music book 1, 1929
+B:NLS MH.s.234
+R:Piobaireachd
+M:4/2
+L:1/8
+N:Bar 5 of the ground is |:{ged}c3 {GBG}A {d}c4 {geA}c2 c{g}e f4| in the book.
+N:GS didn't title the sections himself.
+N:The book doesn't indicate that you repeat the ground at the end; it also
+N:doesn't indicate that the e in the {ged} group is held as a cadence note.
+N:Don't take the way the computer plays this too seriously!
+K:Hp
+P:Ground
+Q:1/2=30
+|: {ged}c3  {GBG}A {d}c4 {geA}e2   c{g}e      f4|     a2  f{g}e {ag}a4 {fege}f2  e{g}B {GdG}c4 |
+   {ged}c3  {GBG}A {d}c4 {gfe}f2   e{g}c      e4|  {g}d3 {GBG}A  {d}c4  {ged}c4      {GdGcG}B4:|
+|: {ged}c3  {GBG}A {d}c4 {geA}e2{d}c{g}e      f4|     a3{fege}f     a4       e3{BGdG}B   {d}c4 |
+[1   {g}e3 {cGdG}c    e4 {ged}c3  {GBG}A   {d}c4|  {g}d3 {GBG}A  {d}c4  {ged}c4      {GdGcG}B4:|
+[2 {ged}c2 B{GdG}c    f4 {geA}e2   c{g}B {GdG}c4|{gfe}f2  e{g}c     e4  {ged}c4      {GdGcG}B4||
+P:First Variation
+M:2/2
+Q:1/2=18
+|: {g}c>{AGdG}A{g}c>{BGdG}B {g}e>{cGdG}c{g}f>{eAfA}e |\
+      a>{eAfA}ea>rf         {g}f>{eAfA}e{g}c>{BGdG}B |
+   {g}c>{AGdG}A{g}c>{BGdG}B {g}f>{eAfA}e{g}e>{cGdG}c |\
+   {g}d>{cGdG}c{g}c>{BGdG}B {g}c>{BGdG}B{g}B>{AGdG}A:|
+|: {g}c>{AGdG}A{g}c>{BGdG}B {g}e>{cGdG}c{g}f>{eAfA}e |\
+      a>{eAfA}ea>rf         {g}e>{BGdG}B{g}c>{BGdG}B |
+[1 {g}e>{cGdG}c{g}e>{cGdG}c {g}c>{AGdG}A{g}c>{BGdG}B |\
+   {g}d>{cGdG}c{g}c>{BGdG}B {g}c>{BGdG}B{g}B>{AGdG}A:| 
+[2 {g}c>{AGdG}A{g}f>{eAfA}e {g}e>{cGdG}c{g}c>{BGdG}B |\
+   {g}f>{eAfA}e{g}e>{cGdG}c {g}c>{BGdG}B{g}B>{AGdG}A||
+P:Second Variation
+M:4/2
+Q:1/2=30
+|: {g}Ac2{G}A   {gBGdG}B3{G}A {g}ce2c {g}ef2   e|{g}fa2f {g}ea2f {g}ef2e {g}Bc2   B |
+   {g}Ac2{G}A   {gBGdG}B3{G}A {g}ef2e {g}ce2   c|{g}Bd2c {g}Ac2B {g}Bc2B {g}AB2{G}A:|
+|: {g}Ac2{G}A   {gBGdG}B3{G}A {g}ce2c {g}ef2   e|{g}fa2f {g}ea2f {g}ce2c {g}Bc2   B |
+[1 {g}ce2   B       {g}ce2  c {g}Ac2B {g}Ac2   B|{g}Bd2c {g}Ac2B {g}Bc2B {g}AB2{G}A:|
+[2 {g}Ac2{G}A       {g}cf2  c {g}Ae2c {g}Bc2{G}A|{g}Bf2e {g}ce2c {g}Bc2B {g}AB2{G}A||
+P:Second Variation Doubling
+Q:1/2=40
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A      f4|{g}Aa2   A    a4    A   f2c {GdG}c4 |
+   {g}A{d}c2{g}A {d}c4 {g}Af2{g}A      e4|{g}Ad2{g}A {d}c4 {g}A   c2B {GdG}B4:|
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A      f4|{g}Aa2   A    a4    A   e2c {GdG}c4 |
+[1 {g}A   e2{g}A    e4 {g}Ad2   c {GdG}c4|{g}Ad2{g}A {d}c4 {g}A{d}c2B {GdG}B4:|
+[2 {g}A{d}c2{g}A    f4 {g}Ae2   c {GdG}c4|{g}Af2{g}A    e4 {g}A   c2B {GdG}B4||
+P:Second Variation Trebling
+M:2/2
+L:1/16
+Q:1/2=30
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A    f4|{g}Aa2A       a4    Af2{g}A    {d}c4 |
+   {g}A{d}c2{g}A {d}c4 {g}Af2{g}A    e4|{g}Ad2{g}A {d}c4 {g}A{d}c2{g}G {d}B4:|
+|: {g}A{d}c2{g}A {d}c4 {g}Ae2{g}A    f4|{g}Aa2A       a4    Ae2{g}A    {d}c4 |
+[1 {g}Ae2{g}A       e4 {g}Ad2{g}A {d}c4|{g}Ad2{g}A {d}c4 {g}A{d}c2{g}G {d}B4:|
+[2 {g}A{d}c2{g}A    f4 {g}Ae2{g}A {d}c4|{g}Af2{g}A    e4 {g}A{d}c2{g}G {d}B4||
+P:Crunluath
+M:4/2
+L:1/8
+Q:1/2=40
+|: {g}A  {d}c2    {ecfc}e {g}A  {d}c2    {ecfc}e {g}e3       {GdGeAfA}e   {g}f3 {GdGeAfA}e|\
+      a3       {GdGeAfA}e    a3       {GdGeAfA}e {g}A     f2          c {GdG}c4           |
+   {g}A  {d}c2    {ecfc}e {g}A  {d}c2    {ecfc}e {g}f3       {GdGeAfA}e   {g}e3 {GdGeAfA}e|\
+   {g}A     d2    {edfd}e {g}A  {d}c2    {ecfc}e {g}A  {d}c2          B {GdG}B4          :|
+|: {g}A  {d}c2    {ecfc}e {g}A  {d}c2    {ecfc}e {g}e3       {GdGeAfA}e   {g}f3 {GdGeAfA}e|\
+      a3       {GdGeAfA}e    a3       {GdGeAfA}e {g}A     e2          c {GdG}c4           |
+[1 {g}e3       {GdGeAfA}e {g}e3       {GdGeAfA}e {g}A     d2          c {GdG}c4           |\
+   {g}A     d2    {edfd}e {g}A  {d}c2    {ecfc}e {g}A  {d}c2          B {GdG}c4          :|
+[2 {g}A  {d}c2    {ecfc}e {g}f3       {GdGeAfA}e {g}A     e2          c {GdG}c4           |\
+   {g}f3       {GdGeAfA}e {g}e3       {GdGeAfA}e {g}A  {d}c2          B {GdG}B4          ||
+P:Crunluath Doubling
+M:2/2
+L:1/16
+Q:1/2=24
+|: {g}A{d}c2{ecfc}e{g}A{d}c2{ecfc}e {g}e3{GdGeAfA}e{g}f3{GdGeAfA}e   |\
+      a3{GdGeAfA}ea3{GdGeAfA}e      {g}f3{GdGeAfA}e{g}A{d}c2{ecfc}e  |
+   {g}A{d}c2{ecfc}e{g}A{d}c2{ecfc}e {g}f3{GdGeAfA}e{g}e3{GdGeAfA}e   |\
+   {g}Ad2{edfd}e{g}A{d}c2{ecfc}e    {g}A{d}c2{ecfc}e{g}G{d}B2{eBfB}e:|
+|: {g}A{d}c2{ecfc}e{g}A{d}c2{ecfc}e {g}e3{GdGeAfA}e{g}f3{GdGeAfA}e   |\
+      a3{GdGeAfA}ea3{GdGeAfA}e      {g}e3{GdGeAfA}e{g}A{d}c2{ecfc}e  |
+[1 {g}e3{GdGeAfA}e{g}e3{GdGeAfA}e   {g}Ad2{edfd}e{g}A{d}c2{ecfc}e    |\
+   {g}Ad2{edfd}e{g}A{d}c2{ecfc}e    {g}A{d}c2{ecfc}e{g}G{d}B2{eBfB}e:|
+[2 {g}A{d}c2{ecfc}e{g}f3{GdGeAfA}e  {g}e3{GdGeAfA}e{g}A{d}c2{ecfc}e  |\
+   {g}f3{GdGeAfA}e{g}e3{GdGeAfA}e   {g}A{d}c2{ecfc}e{g}G{d}B2{eBfB}e|]
+
+% == End of File =======================================================

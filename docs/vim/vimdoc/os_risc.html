@@ -1,0 +1,353 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: os_risc</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: os_risc</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="os_risc.txt"></A><b>os_risc.txt</b>*   For Vim version 7.3.  Last change: 2010 Aug 07
+
+
+		  VIM REFERENCE MANUAL    by Thomas Leonard
+
+
+
+						*<a name="riscos"></A><b>riscos</b>* *<a name="RISCOS"></A><b>RISCOS</b>* *<a name="RISC-OS"></A><b>RISC-OS</b>*
+This file contains the particularities for the RISC OS version of Vim.
+
+The RISC OS port is a completely new port and is not based on the old &quot;archi&quot;
+port.
+
+1.  File locations		|<a href="os_risc.html#riscos-locations">riscos-locations</a>|
+2.  Filename munging		|<a href="os_risc.html#riscos-munging">riscos-munging</a>|
+3.  <a href="cmdline.html#Command-line">Command-line</a> use		|<a href="os_risc.html#riscos-commandline">riscos-commandline</a>|
+4.  Desktop (GUI) use		|<a href="os_risc.html#riscos-gui">riscos-gui</a>|
+5.  Remote use (telnet)		|<a href="os_risc.html#riscos-remote">riscos-remote</a>|
+6.  Temporary files		|<a href="os_risc.html#riscos-temp-files">riscos-temp-files</a>|
+7.  Interrupting		|<a href="os_risc.html#riscos-interrupt">riscos-interrupt</a>|
+8.  Memory usage		|<a href="os_risc.html#riscos-memory">riscos-memory</a>|
+9.  Filetypes			|<a href="os_risc.html#riscos-filetypes">riscos-filetypes</a>|
+10. The shell			|<a href="os_risc.html#riscos-shell">riscos-shell</a>|
+11. Porting new releases	|<a href="os_risc.html#riscos-porting">riscos-porting</a>|
+
+If I've missed anything, email me and I'll try to fix it.  In fact, even if I
+haven't missed anything then email me anyway to give me some confidence that it
+actually works!
+
+Thomas Leonard <a href="mailto:tal197@ecs.soton.ac.uk">&lt;tal197@ecs.soton.ac.uk&gt;</a> 
+
+	[these URLs no longer work...]
+ Port homepage:	<a href="http://www.ecs.soton.ac.uk/~tal197/">http://www.ecs.soton.ac.uk/~tal197/</a>
+ or try:	<a href="http://www.soton.ac.uk/~tal197/">http://www.soton.ac.uk/~tal197/</a>
+
+==============================================================================
+
+							*<a name="riscos-locations"></A><b>riscos-locations</b>*
+1. File locations
+
+The Vim executable and shared resource files are all stored inside the !Vim
+application directory.
+
+When !Vim is first seen by the filer, it aliases the *vi and *ex commands to
+run the command-line versions of Vim (see |<a href="os_risc.html#riscos-commandline">riscos-commandline</a>|).
+
+!Vim.Resources and !Vim.Resources2 contain the files from the standard Vim
+<a href="intro.html#distribution">distribution</a>, but modified slightly to work within the <a href="vi_diff.html#limits">limits</a> of ADFS, plus
+some extra files such <a href="motion.html#as">as</a> the <a href="windows.html#window">window</a> templates.
+
+<a href="autocmd.html#User">User</a> choices are read from &quot;Choices:*&quot; and are saved to &quot;&lt;Choices$Write&gt;.*&quot;.
+If you have the new !Boot structure then these should be set up already.  If
+not, set Choices$Path to a list of directories to search when looking for
+user configuration files.  Set Choices$Write to the directory you want files
+to be saved into (so your search patterns and marks can be remembered between
+sessions).
+
+==============================================================================
+
+							*<a name="riscos-munging"></A><b>riscos-munging</b>*
+2. Filename munging
+
+All pathname munging is disabled by default, so Vim should behave like a
+normal RISC OS application now.  So, if you want to edit &quot;doc/html&quot; then you
+actually type &quot;*vi doc/html&quot;.
+
+The only times munging is done is when:
+
+- Searching included files from C programs, since these are always munged.
+  See |<a href="tagsrch.html#[I">[I</a>|.
+  Note: make sure you are in the right directory when you use this
+	command (i.e. the one with subdirectories &quot;<a href="change.html#c">c</a>&quot; and &quot;h&quot;).
+
+- Sourcing files using |<a href="repeat.html#:so">:so</a>|.
+  Paths starting &quot;$VIM/&quot; are munged like this:
+
+  $VIM/syntax/help.vim  -&gt;  Vim:syntax.help
+
+  Also, files ending in &quot;.vim&quot; have their extensions removed, and slashes
+  replaced with dots.
+
+Some <a href="tagsrch.html#tag">tag</a> files and <a href="usr_41.html#script">script</a> files may have to be edited to work under this port.
+
+==============================================================================
+
+							*<a name="riscos-commandline"></A><b>riscos-commandline</b>*
+3. <a href="cmdline.html#Command-line">Command-line</a> use
+
+To use Vim from the command-line use the &quot;*vi&quot; command (or &quot;*ex&quot; for
+|<a href="intro.html#Ex-mode">Ex-mode</a>|).
+
+Type &quot;*vi -h&quot; for a list of <a href="options.html#options">options</a>.
+
+Running the command-line version of Vim in a large high-color mode may cause
+the <a href="scroll.html#scrolling">scrolling</a> to be very slow.  Either change to a mode with fewer colors or
+use the <a href="gui.html#GUI">GUI</a> version.
+
+Also, holding down Ctrl will slow it down even more, and Ctrl-Shift will
+freeze it, <a href="motion.html#as">as</a> usual for text programs.
+
+==============================================================================
+
+							*<a name="riscos-gui"></A><b>riscos-gui</b>*
+4. Desktop use
+
+Limitations:
+
+- Left scrollbars don't work properly (right and bottom are fine).
+- Doesn't increase scroll speed if it gets behind.
+
+You can resize the <a href="windows.html#window">window</a> by dragging the lower-right corner, even though
+there is no icon shown there.
+
+You can use the --rows and --columns arguments to specify the initial size of
+the Vim <a href="windows.html#window">window</a>, like this:
+
+<b>  *Vi -g --rows 20 --columns 80</b>
+
+The global <a href="gui.html#clipboard">clipboard</a> is supported, so you can select some text and then
+paste it directly into another application (provided it supports the
+<a href="gui.html#clipboard">clipboard</a> too).
+
+Clicking Menu now opens a menu like a normal RISC OS program.  Hold down Shift
+when clicking Menu to paste (from the global <a href="gui.html#clipboard">clipboard</a>).
+
+Dragging a file to the <a href="windows.html#window">window</a> replaces the CURRENT buffer (the one with the
+cursor, NOT the one you dragged to) with the file.
+
+Dragging with Ctrl held down causes a new Vim <a href="windows.html#window">window</a> to be opened for the
+file (see |<a href="windows.html#:sp">:sp</a>|).
+
+Dragging a file in with Shift held down in insert mode inserts the pathname of
+the file.
+
+<a href="editing.html#:browse">:browse</a> <a href="editing.html#:w">:w</a> opens a standard RISC OS save box.
+<a href="editing.html#:browse">:browse</a> <a href="editing.html#:e">:e</a> opens a directory viewer.
+
+For fonts, you have the choice of the system font, an outline font, the system
+font via ZapRedraw and any of the Zap fonts via ZapRedraw:
+
+<b>  :set guifont=</b>
+ 			To use the system font via the VDU drivers.  Supports
+			<a href="syntax.html#bold">bold</a> and <a href="syntax.html#underline">underline</a>.
+
+<b>  :set guifont=Corpus.Medium</b>
+ 			Use the named outline font.  You can use any font, but
+			only monospaced ones like Corpus look right.
+
+<b>  :set guifont=Corpus.Medium:w8:h12:b:i</b>
+ 			As before, but with size of 8 point by 12 point, and
+			in <a href="syntax.html#bold">bold</a> <a href="syntax.html#italic">italic</a>.
+			If only one of width and height is given then that
+			value is used for both.  If neither is given then 10
+			point is used.
+
+Thanks to John Kortink, Vim can use the ZapRedraw module.  Start the font name
+with &quot;<a href="change.html#!">!</a>&quot; (or &quot;<a href="change.html#!!">!!</a>&quot; for double height), like this:
+
+<b>  :set guifont=!!</b>
+ 			Use the system font, but via ZapRedraw.  This gives a
+			faster redraw on StrongARM processors, but you can't
+			get <a href="syntax.html#bold">bold</a> or <a href="syntax.html#italic">italic</a> text.  Double height.
+
+<b>  :set guifont=!script</b>
+ 			Uses the named Zap font (a directory in VimFont$Path).
+			The redraw is the same speed <a href="motion.html#as">as</a> for &quot;<a href="change.html#!!">!!</a>&quot;, but you get
+			a nicer looking font.
+			Only the &quot;man+&quot; and &quot;<a href="usr_41.html#script">script</a>&quot; fonts are supplied
+			currently, but you can use any of the Zap fonts if
+			they are in VimFont$Path.
+			Vim will try to load font files &quot;<a href="motion.html#0">0</a>&quot;, &quot;<a href="motion.html#B">B</a>&quot;, &quot;<a href="insert.html#I">I</a>&quot; and &quot;IB&quot;
+			from the named directory.  Only &quot;<a href="motion.html#0">0</a>&quot; (normal style) MUST
+			be present.  Link files are not currently supported.
+
+Note that when using ZapRedraw the edit <a href="motion.html#bar">bar</a> is drawn in front of the character
+you are on rather than behind it.  Also redraw is incorrect for screen modes
+with eigen values of 0.  If the font includes <a href="intro.html#control">control</a> characters then you can
+get Vim to display them by <a href="change.html#changing">changing</a> the <a href="options.html#'isprint'">'isprint'</a> option.
+
+If you find the <a href="scroll.html#scrolling">scrolling</a> is too slow on your machine, try experimenting
+with the <a href="options.html#'scrolljump'">'scrolljump'</a> and <a href="options.html#'ttyscroll'">'ttyscroll'</a> <a href="options.html#options">options</a>.
+
+In particular, StrongARM users may find that:
+
+<b>  :set ttyscroll=0</b>
+
+makes <a href="scroll.html#scrolling">scrolling</a> faster in high-color modes.
+
+=============================================================================
+
+							*<a name="riscos-remote"></A><b>riscos-remote</b>*
+5. Remote use (telnet)
+
+I have included a built-in <a href="term.html#termcap">termcap</a> entry, but you can edit the <a href="term.html#termcap">termcap</a> file to
+allow other codes to be used if you want to use Vim from a remote terminal.
+
+Although I <a href="diff.html#do">do</a> not have an <a href="intro.html#internet">internet</a> connection to my Acorn, I have managed to
+run Vim in a FreeTerm <a href="windows.html#window">window</a> using the loopback connection.
+
+It seems to work pretty well now, using &quot;*vi <a href="starting.html#-T">-T</a> ansi&quot;.
+
+==============================================================================
+
+							*<a name="riscos-temp-files"></A><b>riscos-temp-files</b>*
+6. Temporary files
+
+If Vim crashes then the swap and <a href="editing.html#backup">backup</a> files (if any) will be in the
+directories set with the <a href="options.html#'directory'">'directory'</a> and <a href="options.html#'bdir'">'bdir'</a> <a href="options.html#options">options</a>.  By default the swap
+files are in &lt;Wimp$ScrapDir&gt; (i.e. inside !Scrap) and backups are in the
+directory you were saving to.  Vim will allow you to try and recover the file
+when you next try to edit it.
+
+To see a list of swap files, press <a href="term.html#&lt;F12&gt;">&lt;F12&gt;</a> and type &quot;*vi -r&quot;.
+
+Vim no longer brings up <a href="usr_11.html#ATTENTION">ATTENTION</a> warnings if you try to edit two files with
+the same name in different directories.
+
+However, it also no longer warns if you try to edit the same file <a href="if_cscop.html#twice">twice</a> (with
+two copies of Vim), though you will still be warned when you save that the
+datestamp has changed.
+
+==============================================================================
+
+							*<a name="riscos-interrupt"></A><b>riscos-interrupt</b>*
+7. Interrupting
+
+To break out of a looping <a href="map.html#macro">macro</a>, or similar, hold down Escape in the
+command-line version, or press <a href="pattern.html#CTRL-C">CTRL-C</a> in the <a href="gui.html#GUI">GUI</a> version.
+
+==============================================================================
+
+							*<a name="riscos-memory"></A><b>riscos-memory</b>*
+8. Memory usage
+
+Vim will use dynamic areas on RISC OS 3.5 or later.  If you can use them on
+older machines then edit the !RunTxt and GVim files.  I don't know what UnixLib
+does by default on these machines so I'm playing safe.
+
+It doesn't work at all well without dynamic areas, since it can't change its
+memory allocation once running.  Hence you should edit &quot;!Vim.GVim&quot; and
+&quot;!Vim.!RunTxt&quot; to choose the best size for you.  You probably need at least
+about 1400K.
+
+==============================================================================
+
+							*<a name="riscos-filetypes"></A><b>riscos-filetypes</b>*
+9. Filetypes
+
+You can now specify that autocommands are only executed for files of certain
+types.  The <a href="filetype.html#filetype">filetype</a> is given in the form &amp;xxx, when xxx is the <a href="filetype.html#filetype">filetype</a>.
+
+Filetypes must be specified by number (e.g. &amp;fff for Text).
+
+The system has changed from version 5.3.  The new sequence of events is:
+
+- A file is loaded. |<a href="options.html#'osfiletype'">'osfiletype'</a>| is set to the RISC OS filetype.
+- Based on the filetype and pathname, Vim will try to set |<a href="options.html#'filetype'">'filetype'</a>| to the
+  Vim-type of the file.
+- Setting this option may load <a href="syntax.html#syntax">syntax</a> files and perform other actions.
+- Saving the file will give it a filetype of |<a href="options.html#'osfiletype'">'osfiletype'</a>|.
+
+Some examples may make this clearer:
+
+<b><font color="purple">  Kind of file loaded	osfiletype	filetype </font></b>
+  C code &quot;c.hellow&quot;	Text (&amp;fff)	C
+  LaTeX document	LaTeX (&amp;2a8)	TeX
+  Draw document		DrawFile (&amp;aff)	(not changed)
+
+==============================================================================
+
+							*<a name="riscos-shell"></A><b>riscos-shell</b>*
+10. The shell
+
+- Bangs (!s) are only replaced if they are followed by a space or end-of-line,
+  since many pathnames contain them.
+
+- You can prefix the command with &quot;<a href="change.html#~">~</a>&quot;, which stops any output from being
+  displayed.  This also means that you don't have to press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> afterwards,
+  and stops the screen from being redrawn. {only in the <a href="gui.html#GUI">GUI</a> version}
+
+==============================================================================
+
+							*<a name="riscos-porting"></A><b>riscos-porting</b>*
+11. Porting new releases to RISC OS
+
+Downloading everything you need:
+
+- Get the latest source <a href="intro.html#distribution">distribution</a> (see www.vim.org)
+- Get the runtime environment files (e.g. these help files)
+- Get the RISC OS binary <a href="intro.html#distribution">distribution</a> (if possible)
+
+
+Unarchiving:
+
+- Create a raFS disk and put the archives on it
+- Un-gzip them
+- Un-tar them   (*tar xELf 50 archive/tar)
+
+
+Recompiling the sources:
+
+- Create <a href="change.html#c">c</a>, <a href="change.html#s">s</a>, and <a href="motion.html#h">h</a> directories.
+- Put all the header files in &quot;<a href="motion.html#h">h</a>&quot;.	     \
+- Put all the C files in &quot;<a href="change.html#c">c</a>&quot;.		     &#124; And lose the extensions
+- Put the assembler file (&quot;swis/s&quot;) in &quot;<a href="change.html#s">s</a>&quot;.  /
+- Rename all the files in &quot;proto&quot; to &quot;<a href="motion.html#h">h</a>&quot;, like this:
+    raFS::VimSrc.source.proto.file/pro
+	  becomes
+    raFS::VimSrc.source.h.file_pro
+- In the files &quot;h.proto&quot; and &quot;c.termlib&quot;, search and replace
+    .pro&quot;
+       with
+    _pro.h&quot;
+- Create a simple Makefile if desired and <a href="diff.html#do">do</a> &quot;*make -k&quot;.
+  Use &quot;CC = gcc -DRISCOS -DUSE_GUI -O2 <a href="starting.html#-x">-x</a> c&quot; in the Makefile.
+- Save the binary <a href="motion.html#as">as</a> !Vim.Vim in the binary <a href="intro.html#distribution">distribution</a>.
+
+
+Updating the run-time environment:
+
+- <a href="insert.html#Replace">Replace</a> old or missing files inside !Vim.Resources with the
+  new files.
+- Remove files in &quot;doc&quot; not ending in &quot;/txt&quot;, except for &quot;<a href="tagsrch.html#tags">tags</a>&quot;.
+- Lose the extensions from the files in &quot;doc&quot;.
+- Edit the &quot;doc.tags&quot; file.  Remove extensions from the second column:
+<b>	:%s/^\(.[^\t]*\t.*\)\.txt\t/\1\t/</b>
+- Remove extensions from the <a href="syntax.html#syntax">syntax</a> files.  Split them into two directories
+  to avoid the 77 entry limit on old ADFS filesystems.
+- Edit &quot;Vim:FileType&quot; to match &quot;*.c.*&quot; <a href="motion.html#as">as</a> well <a href="motion.html#as">as</a> &quot;*/c&quot; and so on.
+  Add <a href="filetype.html#filetype">filetype</a> checking too.
+- Edit &quot;Vim:Menu&quot; and remove all the keys from the <a href="gui.html#menus">menus</a>:
+<b>	:%s/&lt;Tab&gt;[^ \t]*//</b>
+ 
+<a href="os_risc.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

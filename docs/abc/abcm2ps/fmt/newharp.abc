@@ -1,0 +1,29 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%format shapednotes
+%%postscript shapednotes_newharp % start_newharp_style
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%abc2pscompat
+
+X:1
+T:New Harp test
+%%scale 1
+%%bstemdown 0
+K:C
+%
+L:1/16
+[!shape_d!C] DEFGAB c defgabc'z
+L:1/8
+[!shape_d!C] DEFGAB c defgabc'z
+L:1/4
+[!shape_d!C] DEFGAB c defgabc'z
+L:1/2
+K:clef=bass
+[!shape_d!C] DEFGAB c defgabc'z
+%%postscript end_newharp_style
+L:1/16
+[!shape_d!C] DEFGAB c defgabc'z
+L:1/8
+[!shape_d!C] DEFGAB c defgabc'z
+
+% check ps stack
+%%postscript count 3 string cvs 0 0 M show

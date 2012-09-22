@@ -1,0 +1,842 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: indent</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: indent</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="indent.txt"></A><b>indent.txt</b>*    For Vim version 7.3.  Last change: 2011 Mar 18
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+This file is about indenting C programs and other files.
+
+1. Indenting C style programs	|<a href="indent.html#C-indenting">C-indenting</a>|
+2. Indenting by expression	|<a href="indent.html#indent-expression">indent-expression</a>|
+
+==============================================================================
+
+1. Indenting C style programs				*<a name="C-indenting"></A><b>C-indenting</b>*
+
+The basics for C style indenting are explained in section |<a href="usr_30.html#30.2">30.2</a>| of the user
+manual.
+
+Vim has <a href="options.html#options">options</a> for automatically indenting C style program files. Many
+programming languages including Java and C++ follow very closely the
+<a href="change.html#formatting">formatting</a> conventions established with C.  These <a href="options.html#options">options</a> affect only the
+indent and <a href="diff.html#do">do</a> not perform other <a href="change.html#formatting">formatting</a>.  There are additional <a href="options.html#options">options</a> that
+affect other kinds of <a href="change.html#formatting">formatting</a> <a href="motion.html#as">as</a> well <a href="motion.html#as">as</a> indenting, see |<a href="change.html#format-comments">format-comments</a>|,
+|<a href="change.html#fo-table">fo-table</a>|, |<a href="change.html#gq">gq</a>| and |<a href="change.html#formatting">formatting</a>| for the main ones.
+
+Note that this will not work when the |<a href="various.html#+smartindent">+smartindent</a>| or |<a href="various.html#+cindent">+cindent</a>| features
+have been disabled at compile time.
+
+There are in fact four main methods available for indentation, each one
+overrides the previous if it is enabled, or non-empty for <a href="options.html#'indentexpr'">'indentexpr'</a>:
+<a href="options.html#'autoindent'">'autoindent'</a>	uses the indent from the previous line.
+<a href="options.html#'smartindent'">'smartindent'</a>	is like <a href="options.html#'autoindent'">'autoindent'</a> but also recognizes some C <a href="syntax.html#syntax">syntax</a> to
+		increase/reduce the indent where appropriate.
+<a href="options.html#'cindent'">'cindent'</a>	Works more cleverly than the other two and is configurable to
+		different indenting styles.
+<a href="options.html#'indentexpr'">'indentexpr'</a>	The most flexible of all: Evaluates an <a href="eval.html#expression">expression</a> to compute
+		the indent of a line.  When non-empty this method overrides
+		the other ones.  See |<a href="indent.html#indent-expression">indent-expression</a>|.
+The rest of this section describes the <a href="options.html#'cindent'">'cindent'</a> option.
+
+Note that <a href="options.html#'cindent'">'cindent'</a> indenting does not work for every code scenario.  Vim
+is not a C compiler: it does not recognize all <a href="syntax.html#syntax">syntax</a>.  One requirement is
+that toplevel <a href="eval.html#functions">functions</a> have a '<a href="motion.html#{">{</a>' in the first column.  Otherwise they are
+easily confused with declarations.
+
+These four <a href="options.html#options">options</a> <a href="intro.html#control">control</a> C program indenting:
+<a href="options.html#'cindent'">'cindent'</a>	Enables Vim to perform C program indenting automatically.
+<a href="options.html#'cinkeys'">'cinkeys'</a>	Specifies which keys trigger reindenting in insert mode.
+<a href="options.html#'cinoptions'">'cinoptions'</a>	Sets your preferred indent style.
+<a href="options.html#'cinwords'">'cinwords'</a>	Defines keywords that start an extra indent in the next line.
+
+If <a href="options.html#'lisp'">'lisp'</a> is not on and <a href="options.html#'equalprg'">'equalprg'</a> is empty, the &quot;<a href="change.html#=">=</a>&quot; <a href="motion.html#operator">operator</a> indents using
+Vim's built-in algorithm rather than calling an external program.
+
+See |<a href="autocmd.html#autocommand">autocommand</a>| for how to set the <a href="options.html#'cindent'">'cindent'</a> option automatically for C code
+files and reset it for others.
+
+
+					*<a name="cinkeys-format"></A><b>cinkeys-format</b>* *<a name="indentkeys-format"></A><b>indentkeys-format</b>*
+The <a href="options.html#'cinkeys'">'cinkeys'</a> option is a string that controls Vim's indenting in response to
+typing certain characters or commands in certain contexts.  Note that this not
+only triggers <a href="indent.html#C-indenting">C-indenting</a>.  When <a href="options.html#'indentexpr'">'indentexpr'</a> is not empty <a href="options.html#'indentkeys'">'indentkeys'</a> is
+used instead.  The format of <a href="options.html#'cinkeys'">'cinkeys'</a> and <a href="options.html#'indentkeys'">'indentkeys'</a> is equal.
+
+The default is &quot;0{,0},0),:,0#,!^F,o,O,e&quot; which specifies that indenting occurs
+<a href="motion.html#as">as</a> follows:
+
+	&quot;0{&quot;	if you type '<a href="motion.html#{">{</a>' <a href="motion.html#as">as</a> the first character in a line
+	&quot;0}&quot;	if you type '<a href="motion.html#}">}</a>' <a href="motion.html#as">as</a> the first character in a line
+	&quot;0)&quot;	if you type '<a href="motion.html#)">)</a>' <a href="motion.html#as">as</a> the first character in a line
+	&quot;<a href="cmdline.html#:">:</a>&quot;	if you type '<a href="cmdline.html#:">:</a>' after a label or <a href="change.html#case">case</a> statement
+	&quot;0#&quot;	if you type '<a href="pattern.html##">#</a>' <a href="motion.html#as">as</a> the first character in a line
+	&quot;!^F&quot;	if you type <a href="scroll.html#CTRL-F">CTRL-F</a> (which is not inserted)
+	&quot;<a href="insert.html#o">o</a>&quot;	if you type a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> anywhere or use the &quot;<a href="insert.html#o">o</a>&quot; command (not in
+		insert mode!)
+	&quot;<a href="insert.html#O">O</a>&quot;	if you use the &quot;<a href="insert.html#O">O</a>&quot; command (not in insert mode!)
+	&quot;<a href="motion.html#e">e</a>&quot;	if you type the second '<a href="motion.html#e">e</a>' for an &quot;else&quot; at the start of a
+		line
+
+
+Characters that can precede each key:				*<a name="i_CTRL-F"></A><b>i_CTRL-F</b>*
+!	When a '<a href="change.html#!">!</a>' precedes the key, Vim will not insert the key but will
+	instead reindent the current line.  This allows you to define a
+	command key for reindenting the current line.  <a href="scroll.html#CTRL-F">CTRL-F</a> is the default
+	key for this.  Be careful if you define <a href="motion.html#CTRL-I">CTRL-I</a> for this because <a href="motion.html#CTRL-I">CTRL-I</a>
+	is the ASCII code for <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>.
+*	When a '*' precedes the key, Vim will reindent the line before
+	<a href="insert.html#inserting">inserting</a> the key.  If <a href="options.html#'cinkeys'">'cinkeys'</a> contains &quot;*&lt;Return&gt;&quot;, Vim reindents
+	the current line before opening a new line.
+0	When a zero precedes the key (but appears after '<a href="change.html#!">!</a>' or '*') Vim will
+	reindent the line only if the key is the first character you type in
+	the line.  When used before &quot;<a href="change.html#=">=</a>&quot; Vim will only reindent the line if
+	there is only white space before the <a href="motion.html#word">word</a>.
+
+When neither '<a href="change.html#!">!</a>' nor '*' precedes the key, Vim reindents the line after you
+type the key.  So '<a href="motion.html#;">;</a>' sets the indentation of a line which includes the '<a href="motion.html#;">;</a>'.
+
+Special key names:
+<a href="intro.html#&lt;&gt;">&lt;&gt;</a>	Angle brackets mean spelled-out names of keys.  For example: &quot;<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>&quot;,
+	&quot;&lt;Ins&gt;&quot; (see |<a href="intro.html#key-notation">key-notation</a>|).
+^	Letters preceded by a caret (^) are <a href="intro.html#control">control</a> characters.  For example:
+	&quot;^F&quot; is <a href="scroll.html#CTRL-F">CTRL-F</a>.
+<a href="insert.html#o">o</a>	Reindent a line when you use the &quot;<a href="insert.html#o">o</a>&quot; command or when Vim opens a new
+	line below the current one (e.g., when you type <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> in insert
+	mode).
+<a href="insert.html#O">O</a>	Reindent a line when you use the &quot;<a href="insert.html#O">O</a>&quot; command.
+<a href="motion.html#e">e</a>	Reindent a line that starts with &quot;else&quot; when you type the second '<a href="motion.html#e">e</a>'.
+:	Reindent a line when a '<a href="cmdline.html#:">:</a>' is typed which is after a label or <a href="change.html#case">case</a>
+	statement.  Don't reindent for a &quot;<a href="cmdline.html#:">:</a>&quot; in &quot;class::method&quot; for C++.  To
+	Reindent for any &quot;<a href="cmdline.html#:">:</a>&quot;, use &quot;&lt;:&gt;&quot;.
+=word	Reindent when typing the last character of &quot;<a href="motion.html#word">word</a>&quot;.  &quot;<a href="motion.html#word">word</a>&quot; may
+	actually be part of another <a href="motion.html#word">word</a>.  Thus &quot;=end&quot; would cause reindenting
+	when typing the &quot;<a href="change.html#d">d</a>&quot; in &quot;endif&quot; or &quot;endwhile&quot;.  But not when typing
+	&quot;bend&quot;.  Also reindent when completion produces a <a href="motion.html#word">word</a> that starts
+	with &quot;<a href="motion.html#word">word</a>&quot;.  &quot;0=word&quot; reindents when there is only white space before
+	the <a href="motion.html#word">word</a>.
+=~word	Like =word, but ignore <a href="change.html#case">case</a>.
+
+If you really want to reindent when you type '<a href="insert.html#o">o</a>', '<a href="insert.html#O">O</a>', '<a href="motion.html#e">e</a>', '<a href="motion.html#0">0</a>', '<a href="change.html#&lt;">&lt;</a>', '<a href="change.html#&gt;">&gt;</a>',
+'*', '<a href="cmdline.html#:">:</a>' or '<a href="change.html#!">!</a>', use &quot;&lt;o&gt;&quot;, &quot;&lt;O&gt;&quot;, &quot;&lt;e&gt;&quot;, &quot;&lt;0&gt;&quot;, &quot;&lt;&lt;&gt;&quot;, &quot;&lt;&gt;&gt;&quot;, &quot;&lt;*&gt;&quot;, &quot;&lt;:&gt;&quot; or
+&quot;&lt;!&gt;&quot;, respectively, for those keys.
+
+For an emacs-style indent mode where lines aren't indented every time you
+press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> but only if you press <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>, I suggest:
+	<a href="options.html#:set">:set</a> <a href="options.html#'cinkeys'">cinkeys</a>=0{,0},:,0#,!&lt;Tab&gt;,!^F
+You might also want to switch off <a href="options.html#'autoindent'">'autoindent'</a> then.
+
+Note: If you change the current line's indentation manually, Vim ignores the
+cindent settings for that line.  This prevents vim from reindenting after you
+have changed the indent by typing <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>, <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>, or <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> in the indent or
+used <a href="tagsrch.html#CTRL-T">CTRL-T</a> or <a href="scroll.html#CTRL-D">CTRL-D</a>.
+
+
+						*<a name="cinoptions-values"></A><b>cinoptions-values</b>*
+The <a href="options.html#'cinoptions'">'cinoptions'</a> option sets how Vim performs indentation.  In the list below,
+&quot;<a href="pattern.html#N">N</a>&quot; represents a number of your choice (the number can be negative).  When
+there is an '<a href="change.html#s">s</a>' after the number, Vim multiplies the number by <a href="options.html#'shiftwidth'">'shiftwidth'</a>:
+&quot;1s&quot; is <a href="options.html#'shiftwidth'">'shiftwidth'</a>, &quot;2s&quot; is two times <a href="options.html#'shiftwidth'">'shiftwidth'</a>, etc.  You can use a
+decimal point, too: &quot;-0.5s&quot; is minus half a <a href="options.html#'shiftwidth'">'shiftwidth'</a>.  The examples below
+assume a <a href="options.html#'shiftwidth'">'shiftwidth'</a> of 4.
+
+	&gt;N    Amount added for &quot;normal&quot; indent.  Used after a line that should
+	      increase the indent (lines starting with &quot;if&quot;, an opening brace,
+	      etc.).  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=		    cino=&gt;2		cino=&gt;2s
+<b>		  if (cond)	      if (cond)		  if (cond)</b>
+<b>		  {		      {			  {</b>
+<b>		      foo;		foo;			  foo;</b>
+<b>		  }		      }			  }</b>
+ 
+	eN    Add N to the prevailing indent inside a set of braces if the
+	      opening brace at the End of the line (more precise: is not the
+	      first character in a line).  This is useful if you want a
+	      different indent when the '<a href="motion.html#{">{</a>' is at the start of the line from
+	      when '<a href="motion.html#{">{</a>' is at the end of the line.  (default 0).
+
+		cino=		    cino=e2		cino=e-2
+<b>		  if (cond) {	      if (cond) {	  if (cond) {</b>
+<b>		      foo;		    foo;	    foo;</b>
+<b>		  }		      }			  }</b>
+<b>		  else		      else		  else</b>
+<b>		  {		      {			  {</b>
+<b>		      bar;		  bar;		      bar;</b>
+<b>		  }		      }			  }</b>
+ 
+	nN    Add N to the prevailing indent for a statement after an &quot;if&quot;,
+	      &quot;while&quot;, etc., if it is NOT inside a set of braces.  This is
+	      useful if you want a different indent when there is no '<a href="motion.html#{">{</a>'
+	      before the statement from when there is a '<a href="motion.html#{">{</a>' before it.
+	      (default 0).
+
+		cino=		    cino=n2		cino=n-2
+<b>		  if (cond)	      if (cond)		  if (cond)</b>
+<b>		      foo;		    foo;	    foo;</b>
+<b>		  else		      else		  else</b>
+<b>		  {		      {			  {</b>
+<b>		      bar;		  bar;		      bar;</b>
+<b>		  }		      }			  }</b>
+ 
+	fN    Place the first opening brace of a function or other block in
+	      column N.  This applies only for an opening brace that is not
+	      inside other braces and is at the start of the line.  What comes
+	      after the brace is put relative to this brace.  (default 0).
+
+		cino=		    cino=f.5s		cino=f1s
+<b>		  func()	      func()		  func()</b>
+<b>		  {			{		      {</b>
+<b>		      int foo;		    int foo;		  int foo;</b>
+ 
+	{N    Place opening braces N characters from the prevailing indent.
+	      This applies only for opening braces that are inside other
+	      braces.  (default 0).
+
+		cino=		    cino={.5s		cino={1s
+<b>		  if (cond)	      if (cond)		  if (cond)</b>
+<b>		  {			{		      {</b>
+<b>		      foo;		  foo;		      foo;</b>
+ 
+	}N    Place closing braces N characters from the matching opening
+	      brace.  (default 0).
+
+		cino=		    cino={2,}-0.5s	cino=}2
+<b>		  if (cond)	      if (cond)		  if (cond)</b>
+<b>		  {			{		  {</b>
+<b>		      foo;		  foo;		      foo;</b>
+<b>		  }		      }			    }</b>
+ 
+	^N    Add N to the prevailing indent inside a set of braces if the
+	      opening brace is in column 0.  This can specify a different
+	      indent for whole of a function (some may like to set it to a
+	      negative number).  (default 0).
+
+		cino=		    cino=^-2		cino=^-s
+<b>		  func()	      func()		  func()</b>
+<b>		  {		      {			  {</b>
+<b>		      if (cond)		if (cond)	  if (cond)</b>
+<b>		      {			{		  {</b>
+<b>			  a = b;	    a = b;	      a = b;</b>
+<b>		      }			}		  }</b>
+<b>		  }		      }			  }</b>
+ 
+	LN    Controls placement of jump labels. If N is negative, the label
+	      will be placed at column 1. If N is non-negative, the indent of
+	      the label will be the prevailing indent minus N.  (default -1).
+
+		cino=               cino=L2             cino=Ls
+<b>		  func()              func()              func()</b>
+<b>		  {                   {                   {</b>
+<b>		      {                   {                   {</b>
+<b>		          stmt;               stmt;               stmt;</b>
+<b>		  LABEL:                    LABEL:            LABEL:</b>
+<b>		      }                   }                   }</b>
+<b>		  }                   }                   }</b>
+ 
+	<a href="editing.html#:N">:N</a>    Place <a href="change.html#case">case</a> labels N characters from the indent of the switch().
+	      (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=		    cino=:0
+<b>		  switch (x)	      switch(x)</b>
+<b>		  {		      {</b>
+<b>		      case 1:	      case 1:</b>
+<b>			  a = b;	  a = b;</b>
+<b>		      default:	      default:</b>
+<b>		  }		      }</b>
+ 
+	=N    Place statements occurring after a <a href="change.html#case">case</a> label N characters from
+	      the indent of the label.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=		    cino==10
+<b>		   case 11:		case 11:  a = a + 1;</b>
+<b>		       a = a + 1;		  b = b + 1;</b>
+ 
+	lN    If N != 0 Vim will align with a <a href="change.html#case">case</a> label instead of the
+	      statement after it in the same line.
+
+		cino=			    cino=l1
+<b>		    switch (a) {	      switch (a) {</b>
+<b>			case 1: {		  case 1: {</b>
+<b>				    break;	      break;</b>
+<b>				}		  }</b>
+ 
+	bN    If N != 0 Vim will align a final &quot;break&quot; with the <a href="change.html#case">case</a> label,
+	      so that case..break looks like a sort of block.  (default: 0).
+	      When using 1, consider adding &quot;0=break&quot; to <a href="options.html#'cinkeys'">'cinkeys'</a>.
+
+		cino=		    cino=b1
+<b>		  switch (x)	      switch(x)</b>
+<b>		  {		      {</b>
+<b>		      case 1:		  case 1:</b>
+<b>			  a = b;	      a = b;</b>
+<b>			  break;	  break;</b>
+
+<b>		      default:		  default:</b>
+<b>			  a = 0;	      a = 0;</b>
+<b>			  break;	  break;</b>
+<b>		  }		      }</b>
+ 
+	gN    Place C++ scope declarations N characters from the indent of the
+	      block they are in.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).  A scope declaration
+	      can be &quot;public:&quot;, &quot;protected:&quot; or &quot;private:&quot;.
+
+		cino=		    cino=g0
+<b>		  {		      {</b>
+<b>		      public:	      public:</b>
+<b>			  a = b;	  a = b;</b>
+<b>		      private:	      private:</b>
+<b>		  }		      }</b>
+ 
+	hN    Place statements occurring after a C++ scope declaration N
+	      characters from the indent of the label.  (default
+	      <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=		    cino=h10
+<b>		   public:		public:   a = a + 1;</b>
+<b>		       a = a + 1;		  b = b + 1;</b>
+ 
+	pN    Parameter declarations for K&amp;R-style function declarations will
+	      be indented N characters from the margin.  (default
+	      <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=		    cino=p0		cino=p2s
+<b>		  func(a, b)	      func(a, b)	  func(a, b)</b>
+<b>		      int a;	      int a;			  int a;</b>
+<b>		      char b;	      char b;			  char b;</b>
+ 
+	tN    Indent a function return type declaration N characters from the
+	      margin.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=		    cino=t0		cino=t7
+<b>		      int	      int			 int</b>
+<b>		  func()	      func()		  func()</b>
+ 
+	iN    Indent C++ base class declarations and constructor
+	      initializations, if they start in a new line (otherwise they
+	      are aligned at the right side of the ':').
+	      (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=			  cino=i0
+<b>		  class MyClass :	    class MyClass :</b>
+<b>		      public BaseClass      public BaseClass</b>
+<b>		  {}			    {}</b>
+<b>		  MyClass::MyClass() :	    MyClass::MyClass() :</b>
+<b>		      BaseClass(3)	    BaseClass(3)</b>
+<b>		  {}			    {}</b>
+ 
+	+N    Indent a continuation line (a line that spills onto the next)
+              inside a function N additional characters.  (default
+              <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+              Outside of a function, when the previous line ended in a
+              <a href="intro.html#backslash">backslash</a>, the 2 &#42; N is used.
+
+		cino=			  cino=+10
+<b>		  a = b + 9 *		    a = b + 9 *</b>
+<b>		      c;			      c;</b>
+ 
+	cN    Indent comment lines after the comment opener, when there is no
+	      other text with which to align, N characters from the comment
+	      opener.  (default 3).  See also |<a href="change.html#format-comments">format-comments</a>|.
+
+		cino=			  cino=c5
+<b>		  /*			    /*</b>
+<b>		     text.			 text.</b>
+<b>		   */			     */</b>
+ 
+	CN    When N is non-zero, indent comment lines by the amount specified
+	      with the <a href="change.html#c">c</a> flag above even if there is other text behind the
+	      comment opener.  (default 0).
+
+		cino=c0			  cino=c0,C1
+<b>		  /********		    /********</b>
+<b>		    text.		    text.</b>
+<b>		  ********/		    ********/</b>
+ 	      (Example uses &quot;<a href="options.html#:set">:set</a> comments&amp; comments-=s1:/* comments^=s0:/*&quot;)
+
+	/N    Indent comment lines N characters extra.  (default 0).
+		cino=			  cino=/4
+<b>		  a = b;		    a = b;</b>
+<b>		  /* comment */			/* comment */</b>
+<b>		  c = d;		    c = d;</b>
+ 
+	(N    When in unclosed parentheses, indent N characters from the line
+	      with the unclosed parentheses.  Add a <a href="options.html#'shiftwidth'">'shiftwidth'</a> for every
+	      unclosed parentheses.  When N is 0 or the unclosed parentheses
+	      is the first non-white character in its line, line up with the
+	      next non-white character after the unclosed parentheses.
+	      (default <a href="options.html#'shiftwidth'">'shiftwidth'</a> &#42; 2).
+
+		cino=			  cino=(0
+<b>		  if (c1 &amp;&amp; (c2 ||	    if (c1 &amp;&amp; (c2 ||</b>
+<b>			      c3))		       c3))</b>
+<b>		      foo;			foo;</b>
+<b>		  if (c1 &amp;&amp;		    if (c1 &amp;&amp;</b>
+<b>			  (c2 || c3))		(c2 || c3))</b>
+<b>		     {			       {</b>
+ 
+	uN    Same <a href="motion.html#as">as</a> (N, but for one level deeper.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+
+		cino=			  cino=u2
+<b>		  if (c123456789	    if (c123456789</b>
+<b>			  &amp;&amp; (c22345		    &amp;&amp; (c22345</b>
+<b>			      || c3))		      || c3))</b>
+ 
+	UN    When N is non-zero, <a href="diff.html#do">do</a> not ignore the indenting specified by
+	      ( or <a href="undo.html#u">u</a> in <a href="change.html#case">case</a> that the unclosed parentheses is the first
+	      non-white character in its line.  (default 0).
+
+		cino= or cino=(s	  cino=(s,U1
+<b>		  c = c1 &amp;&amp;		    c = c1 &amp;&amp;</b>
+<b>		      (				(</b>
+<b>		       c2 ||			    c2 ||</b>
+<b>		       c3			    c3</b>
+<b>		      ) &amp;&amp; c4;			) &amp;&amp; c4;</b>
+ 
+	wN    When in unclosed parentheses and N is non-zero and either
+	      using &quot;(0&quot; or &quot;u0&quot;, respectively, or using &quot;U0&quot; and the unclosed
+	      parentheses is the first non-white character in its line, line
+	      up with the character immediately after the unclosed parentheses
+	      rather than the first non-white character.  (default 0).
+
+		cino=(0			  cino=(0,w1
+<b>		  if (   c1		    if (   c1</b>
+<b>			 &amp;&amp; (   c2		&amp;&amp; (   c2</b>
+<b>				|| c3))		    || c3))</b>
+<b>		      foo;			foo;</b>
+ 
+	WN    When in unclosed parentheses and N is non-zero and either
+	      using &quot;(0&quot; or &quot;u0&quot;, respectively and the unclosed parentheses is
+	      the last non-white character in its line and it is not the
+	      closing parentheses, indent the following line N characters
+	      relative to the outer context (i.e. start of the line or the
+	      next unclosed parentheses).  (default: 0).
+
+		cino=(0			   cino=(0,W4
+<b>		  a_long_line(		    a_long_line(</b>
+<b>			      argument,		argument,</b>
+<b>			      argument);	argument);</b>
+<b>		  a_short_line(argument,    a_short_line(argument,</b>
+<b>			       argument);		 argument);</b>
+ 
+	mN    When N is non-zero, line up a line starting with a closing
+	      parentheses with the first character of the line with the
+	      matching opening parentheses.  (default 0).
+
+		cino=(s			  cino=(s,m1
+<b>		  c = c1 &amp;&amp; (		    c = c1 &amp;&amp; (</b>
+<b>		      c2 ||			c2 ||</b>
+<b>		      c3			c3</b>
+<b>		      ) &amp;&amp; c4;		    ) &amp;&amp; c4;</b>
+<b>		  if (			    if (</b>
+<b>		      c1 &amp;&amp; c2			c1 &amp;&amp; c2</b>
+<b>		     )			    )</b>
+<b>		      foo;			foo;</b>
+ 
+	MN    When N is non-zero, line up a line starting with a closing
+	      parentheses with the first character of the previous line.
+	      (default 0).
+
+		cino=			  cino=M1
+<b>		  if (cond1 &amp;&amp;		    if (cond1 &amp;&amp;</b>
+<b>			 cond2			   cond2</b>
+<b>		     )				   )</b>
+ 
+
+					*<a name="java-cinoptions"></A><b>java-cinoptions</b>* *<a name="java-indenting"></A><b>java-indenting</b>*
+	jN    Indent java anonymous classes correctly.  The value '<a href="pattern.html#N">N</a>' is
+	      currently unused but must be non-zero (e.g. 'j1').  'j1' will
+	      indent for example the following code snippet correctly:
+
+<b>		object.add(new ChangeListener() {</b>
+<b>		    public void stateChanged(ChangeEvent e) {</b>
+<b>			do_something();</b>
+<b>		    }</b>
+<b>		});</b>
+ 
+
+				*<a name="javascript-cinoptions"></A><b>javascript-cinoptions</b>* *<a name="javascript-indenting"></A><b>javascript-indenting</b>*
+	JN    Indent JavaScript object declarations correctly by not confusing
+	      them with labels.  The value '<a href="pattern.html#N">N</a>' is currently unused but must be 
+	      non-zero (e.g. 'J1').
+
+<b>		var bar = {</b>
+<b>		    foo: {</b>
+<b>			that: this,</b>
+<b>			some: ok,</b>
+<b>		    },</b>
+<b>		    "bar":{ </b>
+<b>			a : 2,</b>
+<b>			b: "123abc",</b>
+<b>			x: 4,</b>
+<b>			"y": 5</b>
+<b>		    }</b>
+<b>		}</b>
+ 
+	)N    Vim searches for unclosed parentheses at most N lines away.
+	      This <a href="vi_diff.html#limits">limits</a> the time needed to search for parentheses.  (default
+	      20 lines).
+
+	*N    Vim searches for unclosed comments at most N lines away.  This
+	      <a href="vi_diff.html#limits">limits</a> the time needed to search for the start of a comment.
+	      (default 70 lines).
+
+	#N    When N is non-zero recognize shell/Perl comments, starting with
+	      '<a href="pattern.html##">#</a>'.  Default N is zero: don't recognizes '<a href="pattern.html##">#</a>' comments.  Note
+	      that lines starting with # will still be seen <a href="motion.html#as">as</a> preprocessor
+	      lines.
+
+
+The defaults, spelled out in full, are:
+	cinoptions=&gt;s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,gs,hs,ps,ts,is,+s,
+			c3,C0,/0,(2s,us,U0,w0,W0,m0,j0,J0,)20,*70,#0
+
+Vim puts a line in column 1 if:
+- It starts with '<a href="pattern.html##">#</a>' (preprocessor directives), if <a href="options.html#'cinkeys'">'cinkeys'</a> contains '<a href="pattern.html##">#</a>'.
+- It starts with a label (a keyword followed by '<a href="cmdline.html#:">:</a>', other than &quot;<a href="change.html#case">case</a>&quot; and
+  &quot;default&quot;) and <a href="options.html#'cinoptions'">'cinoptions'</a> does not contain an '<a href="motion.html#L">L</a>' entry with a positive
+  value.
+- Any combination of indentations causes the line to have <a href="various.html#less">less</a> than 0
+  indentation.
+
+==============================================================================
+
+2. Indenting by <a href="eval.html#expression">expression</a>				*<a name="indent-expression"></A><b>indent-expression</b>*
+
+The basics for using flexible indenting are explained in section |<a href="usr_30.html#30.3">30.3</a>| of the
+user manual.
+
+If you want to write your own indent file, it must set the <a href="options.html#'indentexpr'">'indentexpr'</a>
+option.  Setting the <a href="options.html#'indentkeys'">'indentkeys'</a> option is often useful.  See the
+$VIMRUNTIME/indent directory for examples.
+
+
+<b><font color="purple">REMARKS ABOUT SPECIFIC INDENT FILES </font></b>
+
+
+
+FORTRAN							*<a name="ft-fortran-indent"></A><b>ft-fortran-indent</b>*
+
+Block if, select <a href="change.html#case">case</a>, and where constructs are indented.  Comments, labelled
+statements and continuation lines are indented if the Fortran is in free
+source form, whereas they are not indented if the Fortran is in fixed source
+form because of the left margin requirements.  Hence manual indent corrections
+will be necessary for labelled statements and continuation lines when fixed
+source form is being used.  For further discussion of the method used for the
+detection of source format see |<a href="syntax.html#ft-fortran-syntax">ft-fortran-syntax</a>|.
+
+<b><font color="purple">Do loops </font></b>
+All <a href="diff.html#do">do</a> loops are left unindented by default.  Do loops can be unstructured in
+Fortran with (possibly multiple) loops ending on a labelled executable
+statement of almost arbitrary type.  Correct indentation requires
+compiler-quality parsing.  Old code with <a href="diff.html#do">do</a> loops ending on labelled statements
+of arbitrary type can be indented with elaborate programs such <a href="motion.html#as">as</a> Tidy
+	<a href="http://www.unb.ca/chem/ajit/f_tidy.htm">http://www.unb.ca/chem/ajit/f_tidy.htm</a>. Structured do/continue loops are
+also left unindented because continue statements are also used for purposes
+other than ending a <a href="diff.html#do">do</a> loop.  Programs such <a href="motion.html#as">as</a> Tidy can convert structured
+do/continue loops to the do/enddo form.  Do loops of the do/enddo variety can
+be indented.  If you use only structured loops of the do/enddo form, you should
+declare this by setting the fortran_do_enddo variable in your <a href="starting.html#.vimrc">.vimrc</a> <a href="motion.html#as">as</a>
+follows
+
+<b>   let fortran_do_enddo=1</b>
+
+in which <a href="change.html#case">case</a> <a href="diff.html#do">do</a> loops will be indented.  If all your loops are of do/enddo
+type only in, say, .f90 files, then you should set a buffer flag with an
+<a href="autocmd.html#autocommand">autocommand</a> such <a href="motion.html#as">as</a>
+
+<b>  au! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1</b>
+
+to get <a href="diff.html#do">do</a> loops indented in .f90 files and left alone in Fortran files with
+other extensions such <a href="motion.html#as">as</a> .for.
+
+
+
+PHP				*<a name="ft-php-indent"></A><b>ft-php-indent</b>* *<a name="php-indent"></A><b>php-indent</b>* *<a name="php-indenting"></A><b>php-indenting</b>*
+
+NOTE:	PHP files will be indented correctly only if PHP |<a href="syntax.html#syntax">syntax</a>| is active.
+
+If you are editing a file in <a href="os_unix.html#Unix">Unix</a> <a href="options.html#'fileformat'">'fileformat'</a> and '\r' characters are present
+before new lines, indentation won't proceed correctly ; you have to remove
+those useless characters first with a command like:
+
+<b>    :%s /\r$//g</b>
+
+Or, you can simply |<a href="eval.html#:let">:let</a>| the variable PHP_removeCRwhenUnix to 1 and the
+<a href="usr_41.html#script">script</a> will silently remove them when Vim loads a PHP file (at each|<a href="autocmd.html#BufRead">BufRead</a>|).
+
+<b><font color="purple">OPTIONS: </font></b>
+
+PHP indenting can be altered in several ways by modifying the values of some
+<a href="eval.html#variables">variables</a>:
+
+
+								*<a name="php-comment"></A><b>php-comment</b>*
+To not enable auto-formating of comments by default (if you want to use your
+own 'formatoptions'):
+<b>    :let g:PHP_autoformatcomment = 0</b>
+
+Else, '<a href="motion.html#t">t</a>' will be removed from the <a href="options.html#'formatoptions'">'formatoptions'</a> string and &quot;qrowcb&quot; will be
+added, see|fo-table|for more information.
+
+To add an extra indent to every PHP lines with N being the number of
+<a href="options.html#'shiftwidth'">'shiftwidth'</a> to add:
+<b>    :let g:PHP_default_indenting = N</b>
+
+For example, with N = 1, this will give:
+
+<b>    &lt;?php</b>
+<b>	if (!isset($History_lst_sel))</b>
+<b>	    if (!isset($History_lst_sel))</b>
+<b>		if (!isset($History_lst_sel)) {</b>
+<b>		    $History_lst_sel=0;</b>
+<b>		} else</b>
+<b>		    $foo="bar";</b>
+
+<b>	$command_hist = TRUE;</b>
+<b>    ?&gt;</b>
+(Notice the extra indent between the PHP container markers and the code)
+
+To indent PHP <a href="tagsrch.html#tags">tags</a> <a href="motion.html#as">as</a> the surrounding code:
+<b>    :let g:PHP_outdentphpescape = 0</b>
+
+To automatically remove '\r' characters when the <a href="options.html#'fileformat'">'fileformat'</a> is set to <a href="os_unix.html#Unix">Unix</a>:
+<b>    :let g:PHP_removeCRwhenUnix = 1</b>
+
+To indent braces at the same level than the code they contain:
+<b>    :let g:PHP_BracesAtCodeLevel = 1</b>
+<b>    </b>
+This will give the following result:
+<b>    if ($foo)</b>
+<b>	{</b>
+<b>	foo();</b>
+<b>	}</b>
+Instead of:
+<b>    if ($foo)</b>
+<b>    {</b>
+<b>	foo();</b>
+<b>    }</b>
+
+NOTE:	Indenting will be a bit slower if this option is used because some
+	optimizations won't be available.
+
+To indent 'case:' and 'default:' statements in switch() blocks:
+<b>    :let g:PHP_vintage_case_default_indent = 1</b>
+
+(Since in PHP braces are not required inside 'case/default' blocks, by default they are indented at the same level than the 'switch()' to avoid
+unnecessary indentation)
+
+
+
+PYTHON							*<a name="ft-python-indent"></A><b>ft-python-indent</b>*
+
+The amount of indent can be set for the following situations.  The examples
+given are the defaults.  Note that the <a href="eval.html#variables">variables</a> are set to an <a href="eval.html#expression">expression</a>, so
+that you can change the value of <a href="options.html#'shiftwidth'">'shiftwidth'</a> later.
+
+Indent after an open paren:
+<b>	let g:pyindent_open_paren = '&amp;sw * 2'</b>
+Indent after a nested paren:
+<b>	let g:pyindent_nested_paren = '&amp;sw'</b>
+Indent for a continuation line:
+<b>	let g:pyindent_continue = '&amp;sw * 2'</b>
+
+
+
+<a href="starting.html#SHELL">SHELL</a>							*<a name="ft-sh-indent"></A><b>ft-sh-indent</b>*
+
+The amount of indent applied under various circumstances in a shell file can
+be configured by setting the following keys in the |<a href="eval.html#Dictionary">Dictionary</a>|
+b:sh_indent_defaults to a specific amount or to a |<a href="eval.html#Funcref">Funcref</a>| that references a
+function that will return the amount desired:
+
+b:sh_indent_options['default']	Default amount of indent.
+
+b:sh_indent_options['continuation-line']
+				Amount of indent to add to a continued line.
+
+b:sh_indent_options['case-labels']
+				Amount of indent to add for <a href="change.html#case">case</a> labels.
+				(not actually implemented)
+
+b:sh_indent_options['case-statements']
+				Amount of indent to add for <a href="change.html#case">case</a> statements.
+
+b:sh_indent_options['case-breaks']
+				Amount of indent to add (or more likely
+				remove) for <a href="change.html#case">case</a> breaks.
+
+
+VERILOG							*<a name="ft-verilog-indent"></A><b>ft-verilog-indent</b>*
+
+General block statements such <a href="motion.html#as">as</a> if, for, <a href="change.html#case">case</a>, always, initial, function,
+specify and begin, etc., are indented.  The module block statements (first
+level blocks) are not indented by default.  you can turn on the indent with
+setting a variable in the <a href="starting.html#.vimrc">.vimrc</a> <a href="motion.html#as">as</a> follows:
+
+<b>  let b:verilog_indent_modules = 1</b>
+
+then the module blocks will be indented.  To stop this, remove the variable:
+
+<b>  :unlet b:verilog_indent_modules</b>
+
+To set the variable only for Verilog file.  The following statements can be
+used:
+
+<b>  au BufReadPost * if exists("b:current_syntax")</b>
+<b>  au BufReadPost *   if b:current_syntax == "verilog"</b>
+<b>  au BufReadPost *     let b:verilog_indent_modules = 1</b>
+<b>  au BufReadPost *   endif</b>
+<b>  au BufReadPost * endif</b>
+
+Furthermore, setting the variable b:verilog_indent_width to change the
+indenting width (default is 'shiftwidth'):
+
+<b>  let b:verilog_indent_width = 4</b>
+<b>  let b:verilog_indent_width = &amp;sw * 2</b>
+
+In addition, you can turn the <a href="starting.html#verbose">verbose</a> mode for debug issue:
+
+<b>  let b:verilog_indent_verbose = 1</b>
+
+Make sure to <a href="diff.html#do">do</a> &quot;<a href="options.html#:set">:set</a> <a href="options.html#'cmdheight'">cmdheight</a>=2&quot; first to allow the display of the message.
+
+
+
+VHDL							*<a name="ft-vhdl-indent"></A><b>ft-vhdl-indent</b>*
+
+Alignment of generic/port <a href="map.html#mapping">mapping</a> statements are performed by default. This
+causes the following alignment example:
+
+<b>  ENTITY sync IS</b>
+<b>  PORT (</b>
+<b>         clk        : IN  STD_LOGIC;</b>
+<b>         reset_n    : IN  STD_LOGIC;</b>
+<b>         data_input : IN  STD_LOGIC;</b>
+<b>         data_out   : OUT STD_LOGIC</b>
+<b>       );</b>
+<b>  END ENTITY sync;</b>
+
+To turn this off, add
+
+<b>  let g:vhdl_indent_genportmap = 0</b>
+
+to the <a href="starting.html#.vimrc">.vimrc</a> file, which causes the previous alignment example to change:
+
+<b>  ENTITY sync IS</b>
+<b>  PORT (</b>
+<b>    clk        : IN  STD_LOGIC;</b>
+<b>    reset_n    : IN  STD_LOGIC;</b>
+<b>    data_input : IN  STD_LOGIC;</b>
+<b>    data_out   : OUT STD_LOGIC</b>
+<b>  );</b>
+<b>  END ENTITY sync;</b>
+
+
+Alignment of right-hand side assignment &quot;&lt;=&quot; statements are performed by
+default. This causes the following alignment example:
+
+<b>  sig_out &lt;= (bus_a(1) AND</b>
+<b>             (sig_b OR sig_c)) OR</b>
+<b>             (bus_a(0) AND sig_d);</b>
+
+To turn this off, add
+
+<b>  let g:vhdl_indent_rhsassign = 0</b>
+
+to the <a href="starting.html#.vimrc">.vimrc</a> file, which causes the previous alignment example to change:
+
+<b>  sig_out &lt;= (bus_a(1) AND</b>
+<b>    (sig_b OR sig_c)) OR</b>
+<b>    (bus_a(0) AND sig_d);</b>
+
+
+Full-line comments (lines that begin with &quot;<a href="starting.html#--">--</a>&quot;) are indented to be aligned with
+the very previous line's comment, PROVIDED that a <a href="pattern.html#whitespace">whitespace</a> follows after
+&quot;<a href="starting.html#--">--</a>&quot;.
+
+For example:
+
+<b>  sig_a &lt;= sig_b; -- start of a comment</b>
+<b>                  -- continuation of the comment</b>
+<b>                  -- more of the same comment</b>
+
+While in <a href="insert.html#Insert">Insert</a> mode, after typing &quot;<a href="starting.html#--">--</a> &quot; (note the space &quot; &quot;), hitting <a href="scroll.html#CTRL-F">CTRL-F</a>
+will align the current &quot;<a href="starting.html#--">--</a> &quot; with the previous line's &quot;<a href="starting.html#--">--</a>&quot;.
+
+If the very previous line does not contain &quot;<a href="starting.html#--">--</a>&quot;, THEN the full-line comment
+will be aligned with the start of the next non-blank line that is NOT a
+full-line comment.
+
+Indenting the following code:
+
+<b>  sig_c &lt;= sig_d; -- comment 0</b>
+<b>         -- comment 1</b>
+<b>               -- comment 2</b>
+<b>    --debug_code:</b>
+<b>    --PROCESS(debug_in)</b>
+<b>         --BEGIN</b>
+<b>            --  FOR i IN 15 DOWNTO 0 LOOP</b>
+<b>             --    debug_out(8*i+7 DOWNTO 8*i) &lt;= debug_in(15-i);</b>
+<b>            --  END LOOP;</b>
+<b>     --END PROCESS debug_code;</b>
+
+<b>      -- comment 3</b>
+<b>  sig_e &lt;= sig_f; -- comment 4</b>
+<b>           -- comment 5</b>
+
+results in:
+
+<b>  sig_c &lt;= sig_d; -- comment 0</b>
+<b>                  -- comment 1</b>
+<b>                  -- comment 2</b>
+<b>  --debug_code:</b>
+<b>  --PROCESS(debug_in)</b>
+<b>  --BEGIN</b>
+<b>  --  FOR i IN 15 DOWNTO 0 LOOP</b>
+<b>  --    debug_out(8*i+7 DOWNTO 8*i) &lt;= debug_in(15-i);</b>
+<b>  --  END LOOP;</b>
+<b>  --END PROCESS debug_code;</b>
+
+<b>  -- comment 3</b>
+<b>  sig_e &lt;= sig_f; -- comment 4</b>
+<b>                  -- comment 5</b>
+
+Notice that &quot;--debug_code:&quot; does not align with &quot;<a href="starting.html#--">--</a> comment 2&quot;
+because there is no <a href="pattern.html#whitespace">whitespace</a> that follows after &quot;<a href="starting.html#--">--</a>&quot; in &quot;--debug_code:&quot;.
+
+Given the dynamic nature of indenting comments, indenting should be done TWICE.
+On the first pass, code will be indented. On the second pass, full-line
+comments will be indented according to the correctly indented code.
+
+
+
+VIM							*<a name="ft-vim-indent"></A><b>ft-vim-indent</b>*
+
+For indenting Vim scripts there is one variable that specifies the amount of
+indent for a continuation line, a line that starts with a <a href="intro.html#backslash">backslash</a>:
+
+<b>	:let g:vim_indent_cont = &amp;sw * 3</b>
+
+Three times shiftwidth is the default value.
+
+
+<a href="indent.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

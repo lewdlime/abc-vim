@@ -1,0 +1,183 @@
+% These are the bagpipe tunes from George Skene's manuscript book of 1715,
+% Adv.MS.5.2.21 in the National Library of Scotland, formerly the Library
+% of the Faculty of Advocates.  The rest of the book is fiddle music (with
+% some of the filthiest tune titles ever committed to paper).  As far as I
+% know, these are the oldest notated examples of music explicitly intended
+% for the bagpipes.  All of them are variation sets on familiar Lowland
+% Scots songs.  I've kept as near to the original MS as ABC allows; any
+% intentional changes are indicated in the tune headers.
+
+% Since this is the very first attempt at writing pipe music down, none of
+% the usual conventions can be taken for granted.  For example, Skene
+% couldn't make his mind up whether to write in A like modern Highland pipe
+% notation or in G like Northumbrian pipe music.  However, the notes are
+% clear enough; Skene knew what he was doing.
+
+% As to what the ornaments mean; the MS predates the introduction of the
+% Continental flute into Scotland by about ten years, so you can't use
+% sources like Hotteterre's flute tutor as a guide.  There are later
+% sources for the recorder that describe similar notation, and since Scots
+% recorder music from earlier in the century (like Thomson's MS of 1702) is
+% consistent with them, this might be the best guide.  But none of these
+% use the "gr" marking (here translated as "~") or have the "x" sign, though
+% an "x" written somewhat differently means a trill in some other sources
+% of the period.
+
+% My guess is that the ornament composed of two slanted lines is really a
+% hastily-written version of the "=" sign.  Where I've marked two vertical
+% lines - "||" - this is clearly intentional in the MS.
+
+% This was created on a Macintosh with Phil Taylor's ABC editor, BarFly.
+% It has also been tested on Laurie Griffiths' Muse for Windows.
+
+X:1
+T:Wat ye what I got late yestreen - Bagpipe Set
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, NLS Adv.MS.5.2.21, 1715
+N:bar 8 is | [ge][ec][cA] d2:| in the MS
+N:bar 28 is |fA/c/c d2:| in the MS
+M:6/8
+K:Dmix
+e|\
+cAa ef/g/a|eae fde|cAa ef/g/a|gec d2:|
+f/g/|\
+a2e f2d|gec efg|a2e f2d|gec d2:|
+e|\
+cAa ef/g/a|a/g/f/g/a a/g/f/g/a|cAa ef/g/a|gec d2:|
+f/g/|\
+aee fdd|ecc gee|aee fdd|ecA d2:|
+A|\
+dad dad|cgc cgc|dad dad|ecA ecA|
+d2a a/g/f/g/a|c2g g/f/e/f/g|d2a a/g/f/g/a/f/|gec d2||
+e|\
+cAe {f}ec/d/e|{f}ec/d/e {f}ec/d/e|cAe {f}ec/d/e|fA/B/c d2:|
+e|\
+d/c/d/e/f/g/ a/g/f/g/a/f/|c/B/c/d/e/f/ g/f/e/f/g/e/|\
+d/c/d/e/f/g/ a/g/f/g/a/f/|g/f/e/d/e/c/ d2:|
+f/g/|\
+a/g/f/e/f/d/ f/e/f/g/a/f/|g/f/e/d/e/c/ e/d/e/f/g/e/|\
+a/g/f/e/f/d/ f/e/f/g/a/f/|g/e/f/d/e/c/ d2:|
+
+X:2
+T:Malcome Kaird's Come Again - Bagpipe way
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, NLS Adv.MS.5.2.21, 1715
+N:Notes given a ~ are marked with a superscripted "gr" in the MS
+M:4/4
+L:1/8
+K:Gmix
+d|\
+"="B2 Gc (d/c/B/A/) "="BG|A/~A/B G/~G/c A/~A/c F/F/d|\
+"="B2 Ac (d/c/B/A/) "="BG|G/G/G G/G/G "="BGG:|
+d|\
+"="BG d2   "="BG g2|BG f2 AF Fd|BG d2 BG g2|BG d2 BG g2|
+(B/c/B) d2 (B/c/B) g2|A/~B/A f2 AFFf|\
+(g/f/e/d/) "="ec (d/c/B/A/)"="BG|A/~B/A f2 AGG:|
+d|\
+"="BG"="BG "="BG"="BG|A/~A/B G/G/c A/A/c F/F/d|\
+"="BG"="BG "="BG"="BG|A/~B/A f2 BGG:|
+f|\
+(g/f/e/)d/ "="ec (d/c/B/)A/ "="BG|A/B/A f2 "="AFFf|\
+(g/f/e/)d/ "="ec d/c/B/A/ "="BG|A/~B/A f2 BGG:|
+A|\
+G/~G/G "="BG G/G/G "="BG|A/~B/A f2 "="AFFA|\
+G/G/G "="BG G/G/G "="BG|A/B/A f2 BGG:|
+(e/f/)|\
+gBBg BBgB|A/B/A f2 AFF(e/f/)|\
+gBBg BBgB|A/B/A f2 BGG:|
+B|\
+G/~G/G G/G/G G/G/G G/G/G|A/A/B G/G/c A/A/c F/F/d|\
+G/G/G G/G/G G/G/G G/G/G|A/B/A f2 BGG:|
+B|\
+G/~G/G g"x"Bg"x"BgB|A/B/A f2 AFFA|G/G/G gB gBgB|A/B/A f2 BGG:|
+A|\
+G/~G/G A/A/A G/G/G A/A/A|G/G/G A/A/A cFFA|\
+G/G/G A/A/A G/G/G A/A/A|G/G/G A/A/A G/G/G A/A/A|
+G/G/G A/A/A G/G/G A/A/A|G/G/G A/A/A cFFd|\
+B2Gc d/c/B/A/ BG|A/~A/B G/G/c A/A/B G:|
+d|\
+"="BGGc d/c/B/A/ "="BG|A/~A/B G/G/c A/A/c F/F/d|\
+"="BGGc d/c/B/A/ "="BG|A/~A/B G/G/B A/A/B G/G/B|
+A/~A/B G/G/B A/A/B G/G/B|A/A/c F/F/c A/A/c F/F/c|\
+A/A/~B G/G/B A/A/B G/G/B|A/A/~B G/G/B A/A/B G/G/B|
+A/~A/B G/G/B A/A/B G/G/B|A/A/c F/F/c A/A/c F/F/c|\
+"="BGGc d/c/B/A/ "="BG|G/G/G G/G/G "="BGG|]
+
+X:3
+T:Cauld Kail in Aberdeen Kail-castocks in Strabogie - Bagpipe humour
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, NLS Adv.MS.5.2.21, 1715
+N:anacruses 1, 5 added by me
+M:4/4
+L:1/8
+K:D
+f|\
+e2"||"c{B}A ed"//"BG|c/~d/e A~c/d/ "="e2d::e|"//"cA A/~A/A "="BGdB|
+"//"cA A/~A/A A/~A/A ae|"||"cA A/~A/A "="BGdB|c/~d/e Aa "="e2d::
+g|\
+"="fA"||"cA ed"||"BG|fA"//"cB/A/ "//"e2d::e|"//"cA c/~d/e G~B/c/ dB|
+"||"cA c/~e/a A~f/g/ ae|"="fdec gGdB|"//"cAca "//"e2d::
+g|a/g/f/e/ c/d/e/c/ g/f/e/d/ B/c/d/B/|a/g/f/e/ c/d/e/c/ "="e2d::e|"="c>a"="c>a BGdB|
+"="c>a"="c>a "||"cAae|c>ac>a ("//"BG)dB|"//"cA"||"fd "="e2d::
+e|\
+Aaeg dgdB|Aaeg "//"e2d::e|"||"cAgd "||"BGdB|
+"||"cAec ae"//"fe|"//"cAgd "//"BGdB|"//"cAca "//"e2d::
+e|\
+Ae c/d/e/c/ Gd B/c/d/B/|Ae c/d/e/c/ "="e2d::e|(3c~dc (3c~dc "||"BGdB|
+(3c~dc (3c~dc "="cAae|(3c~dc (3c~dc "||"BGdB|("||"c/B/A) "="fd "="e2d:|
+
+X:4
+T:(Cauld Kail) A way instead of the gatherings in the second measure
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, NLS Adv.MS.5.2.21, 1715
+M:4/4
+L:1/8
+K:D
+a|\
+("//"cA)("//"cA) ("//"BG)dB|("//"cA)("//"cA) ("||"cA)ae|\
+("="cA)("="cA) ("||"BG)dB|("//"cA)("||"cf) "="e2d:|
+
+X:5
+T:(Cauld Kail) A noys. way of the 2d. measure wt. gatherings
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, NLS Adv.MS.5.2.21, 1715
+Z:Jack Campin 1998
+M:4/4
+L:1/8
+K:D
+e|\
+"||"cA A/~A/A "||"BG G/~G/G|"||"cA A/A/~A A/~A/A A/~A/A|\
+"//"cA A/~A/A BG G/~G/G|"||"c/~B/A c/e/a "="e2d:|
+
+X:6
+T:Gird the Cogie, for the pipe  Ingram's Set
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, NLS Adv.MS.5.2.21, 1715
+M:4/4
+L:1/8
+K:Amix
+f|\
+(efe)A (B~B/c/B)G|efeA "="c2A(c/e/)|\
+(efe)A B(c/B/B)G|e(f/g/) (a/g/f/e/) "="c2A:|
+f/g/|\
+(a/g/f/e/) (c/d/e/c/) d>B G(f/g/)|(a/g/f/e/) ae "="f2 e(f/g/)|\
+(a/g/f/e/) (c/d/e/c/) g>B GB|Af/g/ ae "="c2A:|
+B|\
+AA/B/ AA/B/ GG/B/ GG/B/|A/A/B A/A/B A/A/B A/A/B|\
+A/A/B A/A/B G/G/B G/G/B|Af/g/ ae "="c2A:|
+(f/g/)|\
+a/g/f/e/ c/d/e/c/ g>B Gf/g/|a/g/f/e/ ae "="f2 ef/g/|acac gBgB|cAae "="c2A:|
+{g}f|\
+{f}eAeA {c}BGBG|{f}eAeA "="cA"="cA|eAeA BGBG|"="fAeA "="c2A:|
+B|\
+A/A/B AB G/G/B GB|A/A/B AB A/A/B AB|A/A/B AB G/G/B GB|Af/g/ ae "="c2A:|
+(f/g/)|\
+a/g/f/e/ c/d/e/f/ d/c/B/A/ Gf/g/|a/g/f/e/ ae "="f2 ef/g/|\
+acca BBgB|d/c/B/A/ ae "="c2A:|
+{g}f|\
+eA c/d/e/c/ dGdB|eA c/d/e/c/ aA c/d/e/c/|\
+"="fA c/d/e/c/ B/A/G dB|Af/g/ ae "="c2A:|
+
+% Jack Campin * 11 Third Street, Newtongrange EH22 4PU, Scotland  07800 739 557
+% <http://www.campin.me.uk/>                 food intolerance data and recipes,
+% freeware logic fonts for the Macintosh, and Scots traditional music resources

@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: pi_spec</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: pi_spec</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="pi_spec.txt"></A><b>pi_spec.txt</b>*   For Vim version 7.3.  Last change: 2006 Apr 24
+
+<b><font color="purple">by Gustavo Niemeyer </font></b>
+
+This is a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> to work with rpm spec files.
+
+Currently, this Vim <a href="usr_05.html#plugin">plugin</a> allows you to easily update the &#37;changelog
+section in RPM spec files.  It will even create a section for you if it
+doesn't exist yet.  If you've already inserted an entry today, it will
+give you the opportunity to just add a new item in today's entry.  If you
+don't provide a format string (|<a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a>|), it'll ask you an
+email address and build a format string by itself.
+
+1. How to use it	|<a href="pi_spec.html#spec-how-to-use-it">spec-how-to-use-it</a>|
+2. Customizing		|<a href="pi_spec.html#spec-customizing">spec-customizing</a>|
+
+==============================================================================
+
+1. How to use it				*<a name="spec-how-to-use-it"></A><b>spec-how-to-use-it</b>*
+
+The spec_chglog <a href="usr_05.html#plugin">plugin</a> provides a map like the following:
+
+	<a href="map.html#:map">:map</a> &lt;buffer&gt; &lt;LocalLeader&gt;c &lt;Plug&gt;SpecChangelog
+
+It means that you may run the <a href="usr_05.html#plugin">plugin</a> inside a spec file by pressing
+your <a href="map.html#maplocalleader">maplocalleader</a> key (default is '\') plus '<a href="change.html#c">c</a>'.  If you <a href="diff.html#do">do</a> not have
+|<a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a>| set, the <a href="usr_05.html#plugin">plugin</a> will ask you for an email address
+to use in this edit session.
+
+Every time you run the <a href="usr_05.html#plugin">plugin</a>, it will check to see if the last entry in the
+changelog has been written today and by you.  If the entry matches, it will
+just insert a new changelog item, otherwise it will create a new changelog
+entry.  If you are running with |<a href="pi_spec.html#spec_chglog_release_info">spec_chglog_release_info</a>| enabled, it will
+also check if the name, version and release matches.  The <a href="usr_05.html#plugin">plugin</a> is smart
+enough to ask you if it should update the package release, if you have not
+done so.
+
+
+Setting a map					*<a name="spec-setting-a-map"></A><b>spec-setting-a-map</b>*
+
+As you should know, you can easily set a map to access any Vim command (or
+anything, for that matter).  If you don't like the default map of
+&lt;LocalLeader&gt;c, you may just set up your own key.  The following line
+shows you how you could <a href="diff.html#do">do</a> this in your <a href="starting.html#.vimrc">.vimrc</a> file, <a href="map.html#mapping">mapping</a> the <a href="usr_05.html#plugin">plugin</a> to
+the <a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a> key:
+
+	au <a href="autocmd.html#FileType">FileType</a> spec map &lt;buffer&gt; <a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a> &lt;Plug&gt;SpecChangelog
+
+Note: the <a href="usr_05.html#plugin">plugin</a> will respect your desire to change the default <a href="map.html#mapping">mapping</a>
+      and won't set it.
+
+This command will add a map only in the spec file <a href="windows.html#buffers">buffers</a>.
+
+
+==============================================================================
+
+2. Customizing					*<a name="spec-customizing"></A><b>spec-customizing</b>*
+
+
+The format string				*<a name="spec_chglog_format"></A><b>spec_chglog_format</b>*
+
+You can easily customize how your spec file entry will look like.  To <a href="diff.html#do">do</a>
+this just set the variable &quot;<a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a>&quot; in your <a href="starting.html#.vimrc">.vimrc</a> file like
+this:
+
+<b>	let spec_chglog_format = "%a %b %d %Y My Name &lt;my@email.com&gt;"</b>
+
+Note that &quot;&#37;a &#37;b &#37;d &#37;Y&quot; is the most used time format.  If you don't provide
+a format string, when you run the SpecChangelog command for the first
+time, it will ask you an email address and build the |<a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a>|
+variable for you.  This way, you will only need to provide your email
+address once.
+
+To discover which format <a href="options.html#options">options</a> you can use, take a look at the <a href="eval.html#strftime()">strftime()</a>
+function man page.
+
+
+Where to insert new items			*<a name="spec_chglog_prepend"></A><b>spec_chglog_prepend</b>*
+
+The <a href="usr_05.html#plugin">plugin</a> will usually insert new &#37;changelog entry items (note that it's
+not the entry itself) after the existing ones.  If you set the
+<a href="pi_spec.html#spec_chglog_prepend">spec_chglog_prepend</a> variable
+
+<b>	let spec_chglog_prepend = 1</b>
+
+it will insert new items before the existing ones.
+
+
+Inserting release info				*<a name="spec_chglog_release_info"></A><b>spec_chglog_release_info</b>*
+
+If you want, the <a href="usr_05.html#plugin">plugin</a> may automatically insert release information
+on each changelog entry.  One advantage of turning this feature on is
+that it may <a href="intro.html#control">control</a> if the release has been updated after the last
+change in the package or not.  If you have not updated the package
+version or release, it will ask you if it should update the package
+release for you.  To turn this feature on, just insert the following
+code in your <a href="starting.html#.vimrc">.vimrc</a>:
+
+<b>	let spec_chglog_release_info = 1</b>
+
+Then, the first item in your changelog entry will be something like:
+
+<b>	+ name-1.0-1cl</b>
+
+If you don't like the release updating feature and don't want to answer
+&quot;No&quot; each time it detects an old release, you may disable it with
+
+<b>	let spec_chglog_never_increase_release = 1</b>
+
+
+Good luck!!
+
+<a href="pi_spec.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

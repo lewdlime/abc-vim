@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: russian</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: russian</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="russian.txt"></A><b>russian.txt</b>*   For Vim version 7.3.  Last change: 2006 Apr 24
+
+
+		  VIM REFERENCE MANUAL    by Vassily Ragosin
+
+
+
+<a href="russian.html#Russian">Russian</a> language localization and support in Vim	   *<a name="russian"></A><b>russian</b>* *<a name="Russian"></A><b>Russian</b>*
+
+1. Introduction				  |<a href="russian.html#russian-intro">russian-intro</a>|
+2. <a href="russian.html#Russian">Russian</a> keymaps			  |<a href="russian.html#russian-keymap">russian-keymap</a>|
+3. Localization				  |<a href="russian.html#russian-l18n">russian-l18n</a>|
+4. Known issues				  |<a href="russian.html#russian-issues">russian-issues</a>|
+
+===============================================================================
+
+1. Introduction							*<a name="russian-intro"></A><b>russian-intro</b>*
+
+<a href="russian.html#Russian">Russian</a> language is supported perfectly well in Vim.  You can type and <a href="starting.html#view">view</a>
+<a href="russian.html#Russian">Russian</a> text just <a href="motion.html#as">as</a> any other, without the need to tweak the settings.
+
+===============================================================================
+
+2. <a href="russian.html#Russian">Russian</a> keymaps					       *<a name="russian-keymap"></A><b>russian-keymap</b>*
+
+To switch between languages you can use your system native keyboard switcher,
+or use one of the <a href="russian.html#Russian">Russian</a> keymaps, included in the Vim <a href="intro.html#distribution">distribution</a>.  For
+example,
+
+<b>    :set keymap=russian-jcukenwin</b>
+ 
+In the latter <a href="change.html#case">case</a>, you can switch between languages even if you <a href="diff.html#do">do</a> not have
+system <a href="russian.html#Russian">Russian</a> keyboard or independently from a system-wide keyboard settings.
+See <a href="options.html#'keymap'">'keymap'</a>.  You can also map a key to switch between keyboards, if you
+choose the latter option.  See |<a href="map.html#:map">:map</a>|.
+
+For your convenience, to avoid switching between keyboards, when you need to
+enter <a href="intro.html#Normal">Normal</a> mode command, you can also set <a href="options.html#'langmap'">'langmap'</a> option:
+
+<b>    :set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,</b>
+<b>    фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz</b>
+
+This is in <a href="mbyte.html#utf-8">utf-8</a>, you cannot read this if your <a href="options.html#'encoding'">'encoding'</a> is not <a href="mbyte.html#utf-8">utf-8</a>.
+You have to type this command in one line, it is wrapped for the sake of
+readability.
+
+===============================================================================
+
+3. Localization							 *<a name="russian-l18n"></A><b>russian-l18n</b>*
+
+If you wish to use <a href="message.html#messages">messages</a>, help files, <a href="gui.html#menus">menus</a> and other items translated to
+<a href="russian.html#Russian">Russian</a>, you will need to <a href="usr_90.html#install">install</a> the RuVim Language Pack, available in
+different codepages from
+
+	<a href="http://www.sourceforge.net/projects/ruvim/">http://www.sourceforge.net/projects/ruvim/</a>
+
+Make sure that your Vim is at least 6.2.506 and use ruvim 0.5 or later for
+automatic installs.  Vim also needs to be compiled with |<a href="various.html#+gettext">+gettext</a>| feature for
+user interface items translations to work.
+
+After downloading an archive from RuVim project, unpack it into your
+<a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> directory.  We recommend using <a href="mbyte.html#UTF-8">UTF-8</a> archive, if your version of
+Vim is compiled with |<a href="various.html#+multi_byte">+multi_byte</a>| feature enabled.
+
+In order to use the <a href="russian.html#Russian">Russian</a> documentation, make sure you have set the
+<a href="options.html#'helplang'">'helplang'</a> option to &quot;ru&quot;.
+
+===============================================================================
+
+4. Known issues						       *<a name="russian-issues"></A><b>russian-issues</b>*
+
+<a href="starting.html#--">--</a> If you are using <a href="russian.html#Russian">Russian</a> message translations in <a href="os_win32.html#Win32">Win32</a> console, then
+   you may see the output produced by &quot;vim --help&quot;, &quot;vim --version&quot; commands
+   and <a href="os_win32.html#Win32">Win32</a> console <a href="windows.html#window">window</a> title appearing in a wrong codepage.  This problem
+   is related to a bug in GNU gettext library and may be fixed in the future
+   releases of gettext.
+
+===============================================================================
+<a href="russian.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

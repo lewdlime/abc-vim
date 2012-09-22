@@ -1,0 +1,6609 @@
+% ===========================================================================
+% Jack Campin's Nine-Note Tune Book                                version 41
+% ===========================================================================
+
+% Tunes with the range CDEFGABcd, maybe with a few sharps or flats.  This
+% was originally intended for the simple non-overblowing clarinet in C sold
+% for the educational market by several European makers under different
+% names: the "chalumeau" by SANS in Catalonia; "saxonett" by Jupiter as
+% sold by Bernard Loffet in France; "clarineau" by Kunath, "chalumeau" by
+% Tupian and "pocket clarinet" by Hohner, all in Germany; and "chalumeau"
+% by Hanson in England.  Of these, the plastic Hanson is the cheapest, but
+% Tupian have the widest choice of different types and seem most committed
+% to the idea.  A discontinued British design of a similar instrument was
+% the aluminium "Highland Hornpipe", which you can still find second-hand.
+
+% The Maui Xaphoon is a similar-looking instrument with a saxophone-like
+% bore: it has a wider range, but poor intonation and inferior tone to the
+% more clarinet-like instruments.  It also takes a lot of breath pressure.
+
+% The tunes also work on the Italian-type 10-hole ocarina in C, crumhorns,
+% simple melodeons, psalteries, tuned-bar percussion, mediaeval bagpipes
+% and hurdy-gurdies.  The Armenian duduk, Turkish mey and Azeri balaban
+% will also work but may need a few notes adjusted by embouchure changes.
+
+% The tunes use a variety of keys and modes, but rarely need half-holing.
+
+% Many of these tunes are transposed from the keys they are most commonly
+% played in.  In some traditions, where tunes are usually played solo or
+% by unpredictable combinations of instruments, that doesn't matter, but
+% it matters for instrumental music from the British Isles: if tunes don't
+% fit the fiddle, flute or melodeon, you won't get other players joining
+% in.  So for these traditions, I've indicated when I've given the tune in
+% the "right" key; otherwise I'll have transposed it, and you'll need to
+% warn other players that you're doing something different.
+
+% I haven't transposed any Highland pipe tunes.  These are easy to find
+% in many sources and in Scottish practice they are always played in the
+% original key (either at concert A or B flat pitch).
+
+% Some tunes have an eight-note range and can be played in either of two
+% keys.
+
+% I'm serious about the tempo indications, which are usually the practical
+% dancing or singing speed for the tune.
+
+% As in many songbooks and hymnbooks, I've tried to avoid breaking phrases
+% across lines.  This means a lot of lines begin with an upbeat and end
+% with an incomplete bar, which instrumentalists may find unusual.
+
+% The tunes vary a lot in difficulty.  Just because a tune uses a limited
+% range, that doesn't make it simple.  I've tried to include music with the
+% widest possible variety of mode, rhythm and idiom.
+
+% ===========================================================================
+
+
+% == Scottish Gaelic songs ==================================================
+
+X:1
+T:Fiollaigean
+Z:Rory Campbell
+Z:Jack Campin, http://www.campin.me.uk/
+N:Gaelic satirical song
+M:9/8
+L:1/8
+Q:3/8=100
+K:DDor
+AAA ADD F2G|AAA ddd dcA|ccc dcA G2c|AGE G2c AGE||
+DDD F2c AGE|DDD F2c AGE|DDD F2G A2c|dAA A2G FDD||D3|]
+
+X:2
+T:Crodh Chailein
+T:Colin's Cattle
+Z:Jack Campin, http://www.campin.me.uk/
+B:A' Choisir-Chuil (The St Columba Collection of Gaelic Songs)
+M:3/4
+L:1/4
+Q:1/4=80
+K:C
+C/D/|E E G|E/D/ C C/D/|E G c   |A2 \
+G/F/|E G E|D    E c/A/|G E D   |C2||
+G/A/|c c d|c    A G/A/|c d c/A/|c2 \
+C/D/|E D C|D    E c/A/|G E D   |C2|]
+
+X:3
+T:Cumha Mhic Criomain
+T:MacCrimmon's Lament
+Z:Jack Campin, http://www.campin.me.uk/
+B:A' Choisir-Chuil (The St Columba Collection of Gaelic Songs)
+M:6/8
+L:1/8
+Q:3/8=36
+K:C
+D|A2G  A2D|ABA G<E\
+D|A2G  A2E|GEC E<D
+E|A2G  A2D|dcB A<D\
+E|G>AG E2c|ECD E<D||
+C|G2C  A2C|G2E D<C\
+C|C>DC c2G|c2A A<G
+G|G>AB c2G|A2A G<E\
+C|F>EF G2E|D2E D<C|]
+
+X:4
+T:Heavy the beat of the weary waves
+Z:Jack Campin, http://www.campin.me.uk/
+S:one of my old notebooks, no attribution
+N:lament for a drowned man, from Mull
+M:4/4
+L:1/4
+Q:1/4=100
+K:GMin
+G2 FD|B2  cA|B>c d2|dc  cB|B>c d>d|d (3c/B/A/ GF|
+G2 FA|B>d cA|G>A d2|z>A d2|z2  d2-|d (3c/B/A/ GF|G4|]
+
+X:5
+T:Cumha na h-Oighe
+T:Mackintosh's Lament
+Z:Jack Campin, http://www.campin.me.uk/
+B:A' Choisir-Chuil (The St Columba Collection of Gaelic Songs)
+N:very similar at the start to Dvorak's "Going Home" tune
+M:6/8
+L:1/8
+Q:3/8=40
+K:F
+A2A  c3 |A2G  F3 |G2 G A3 |G2 F D3 |
+F2D  F2D|F2D  C2C|D2 C A2A|G3   F3||
+G>FG c2c|A>GF F3 |G>FG A2A|G>FD D3 |
+F2D  F2D|F2D  C2C|D2 C A2A|G3   F3|]
+
+X:6
+T:Oran Na Maighdean Mhara
+T:The Mermaid's Song
+Z:Jack Campin, http://www.campin.me.uk/
+N:there is also a different Irish song of the same name
+M:6/8
+L:1/8
+Q:3/8=64
+K:DMix
+D2D F2G|AG2 F2A|D2D F2G|AG2 F3 |
+E2E E2G|AG2 E2C|D2D F2A|E2E D3 |
+F2A d2A|B2G AD2|F2A dA2|BG2 A3 |
+A2A D2F|GG2 EC2|D2D F2A|EE2 D3|]
+
+X:7
+T:Canan nan Gaidheal
+Z:Jack Campin, http://www.campin.me.uk/
+M:12/8
+L:1/8
+Q:3/8=54
+K:DDor
+  D/D/|DAG  ADF  E/D/C2- C2 D/E/|AAG  E>DC D3- D2
+  A/A/|A>Bc B>AG A3-     A2 A/A/|A>Bc B>AG A3- A2
+  G   |A>DD E>DC C3-     C2 G   |A>AG E>DC D3- D2
+|:c   |d<dc ADF  E/D/C2- C2 D/E/|AAG  E>DC D3- D2:|
+
+
+% == Scottish Highland instrumental tunes ===================================
+
+X:8
+T:Lord Dundee's Lamentation kill'd at the Battle of Killiecrankie
+Z:Jack Campin, http://www.campin.me.uk/
+B:Daniel Dow, Ancient Scottish Music, 1783
+M:9/8
+L:1/8
+Q:3/8=50
+K:DMin
+A3  AGG  A2D|F3  AGF  TE2D |
+D2E GED  DCC|C2D EDD  TD2C |
+C2D F>GF Fcc|c2c d>cA TA2G |
+F3  FGG  cAA|A2G AGF  TE2D|]
+
+X:9
+T:Earish Ayre
+Z:Jack Campin, http://www.campin.me.uk/
+S:James Thomson's recorder MS, Edinburgh 1702
+N:"Earish" means "Irish" which at that time and place meant "Scottish Gaelic"
+M:4/4
+L:1/8
+Q:1/4=120
+K:DDor
+D2 A2 (GF) (ED)|C2 G2 (FE) (DC)|D2 A2  A2   GA |(BA) (GF) ({EF}E2) D2||
+AG AB  c2   BA |GF GA  B2   AG |A2 d2 (cB) (AG)| AG   AB  ({EF}E2) F2 |
+FG AB  cd   cA |GF ED  CD   EC |D2 A2  A2   GA |(BA) (GF) ({EF}E2) D2|]
+
+
+X:10
+T:Cumh Easpuic Earra-ghaeidheal
+T:Lament for the Bishop of Argyll
+Z:Jack Campin, http://www.campin.me.uk/
+H:A fiddle pibroch from the 18th century, a tone higher in the MS.
+H:Probably for the harp originally; unplayable on the pipes.
+N:This uses a high G, which the SANS chalumeau will produce (with
+N:luck) by overblowing (split thumbhole, all fingerholes closed).
+S:McFarlan MS (1740) book III #34 p20
+P:ABCDA
+M:6/4
+L:1/8
+K:CMix
+P:A
+Q:3/4=40
+L:1/8
+|:F2F3 C TD4C2|F2F3 G TA4 G2 |\
+  F2F3 C TD4C2|D2F3 c TA4(GF)|
+  B2B3 c Td4c2|A2A3 c TA4 F2 |\
+  G2G3 A  B4D2|B2B3 c  d4 c2 |
+  A2A3 g  A4g2|G2G2GA  F4 G2 |\
+  A2A2Ac TG4A2|F2F2GF TD4 C2:|
+P:B
+M:9/8
+L:1/8
+Q:3/8=60
+|:(F2C)  F2C   TD2C | (F2C)  (F2G) (TA2G)|\
+  (F2C) (F2A) (TD2C)| (A2C)  (F2c) (TA2F)|
+  (B2A) (B2c)  (d2c)|(TA2G)  (A2c)  (A2F)|\
+  (G2F) (G2A)  (B2D)| (B2A)  (B2c)  (d2c)|
+  (A2G) (A2g)  (A2g)| (G2F)  (G2A)  (F2G)|\
+  (A2G) (A2c)  (G2A)| (F2c) (TA2F)  TD2C:|
+P:C
+M:C|
+L:1/8
+Q:1/2=50
+|:FFFC DDDC|FFFG AFFG |FFFA DDDC|FFFc AAAF |
+  BBBc dddc|AAAc AAAF |GGGA BBBD|BBBc dddc |
+  AAAg AAAg|GGGA FFFG |AAAc GGGA|FFFG DDDC:|
+P:D
+L:1/16
+Q:1/2=45
+|:FFFF F2C2 DDDD D2C2|FFFF F2G2 AAAA A2G2 |\
+  FFFF A2C2 DDDD D2C2|
+                      FFFF F2c2 AAAA A2F2 |\
+  BBBB B2c2 dddd d2c2|AAAA A2c2 AAAA A2F2 |
+  GGGG G2A2 BBBB B2D2|BBBB B2c2 dddd d2c2 |\
+  AAAA A2g2 AAAA A2g2|
+                      GGGG G2A2 FFFF F2G2 |\
+  AAAA A2c2 GGGG G2A2|FFFF F2G2 DDDD D2C2:|
+
+
+% == Lowland Scots songs and slow airs ======================================
+
+X:11
+T:O'er Bogie with my Love
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin, http://www.campin.me.uk/
+N:the anacruses for each part are written (GA) in the book
+M:C|
+L:1/8
+Q:1/2=60
+K:DMin
+(C/D/)|F>G (FD     F)CCD     | FF          (G/F/E/D/     D)Cz
+ C    |DGGF        GAc>d     |(c/d/)(c/A/) (c/A/G/F/)   (FD2) ||
+(C/D/)|F2  (A/B/)c F2 (A/B/)c| F2          (G/F/)(E/D/) (DC) z
+ C    |DGGF        GAc>d     |(c/d/)(c/A/) (c/A/G/F/)   (FD2) |]
+
+X:12
+T:Give me a Lass with a Lump of Land
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin, http://www.campin.me.uk/
+N:No repeat marked in the music, but needed to fit the text.
+M:6/8
+L:1/8
+Q:3/8=90
+K:C
+c>dc BcA|B2c d2B|c>dc B2A    |GAc (GE)C:|
+DEG  A2G|c2G A2G|DEG  A>BA/B/|cBA  GEC :|
+
+X:13
+T:Fy gar rub her o'er with Strae
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=60
+K:DDor
+E|F3 E D3  A |(GA)(FG) E2 C2 |F3 E D3  A |(GF)(EF) D2z
+E|F3 E D3  A |(GA)(FG) E2(DC)|F3 G A2 d2 |(AG)(FE) D3||
+B|c2A2 A2(GF)|(EF)(GF) E2(DC)|c2A2 A2(Bc)|(dc)(Ac) d3
+e|c2A2 A2(GF)|(EF)(GF) E2(DC)|F3 G A2 d2 |(AG)(FE) D3|]
+
+X:14
+T:Corn Rigs are bonny
+B:Joseph Mitchell: "The Highland Fair" (1731)
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/4
+Q:1/2=100
+K:F
+C   |FA  A(G/F/)|E>FGC|FA  A>G      |Fc2
+C   |FA  A(G/F/)|E>FGE|FD  E>D      |CF2||
+C   |Fc  A/B/ c |E>FGC|Fc (A/B/c/B/)|Ac2
+A/G/|Fc (A/B/)c |E>FGE|FD  E>D      |CF2|]
+
+X:15
+T:Hiland Ladie
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p7, Blaikie #16
+M:2/4
+L:1/8
+Q:1/4=100
+K:C
+AA```````AG      |c2 E2 |DD`DE |DD`DE |
+GG```````GE      |G2 E2 |CC`CE |CC`CE||
+A/G/A/B/ c/B/A/G/|c2 E2 |DD`DE |DD`DE |
+G/E/G/A/ G/E/G/A/|G2 E2 |CC`CE |CC`CE|]
+
+X:16
+T:Go to the windward my love
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p12, Blaikie #30
+M:C
+L:1/8
+Q:1/4=80
+K:GDor
+z2 |G2 G>F D2 D>D|B>d c>A F4      |G2 GA B>A Bc|d4 z2
+B>c|dd d>c c2 cc |BB  BG  A2 A/B/c|d2 GF D2  F2|G4 z2|]
+
+X:17
+T:The Jew's daughter
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p20, Blaikie #57
+M:3/4
+L:1/8
+Q:1/4=100
+K:DMin
+zD|D2 D2 C>D|E2  D2 DC|C2  C2 EG|A4
+c2|AG E2 D2 |C2  D2 Ec|A>G E3  D|D4|]
+
+X:18
+T:Lady Margerie
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p20, Blaikie #58
+M:3/4
+L:1/8
+Q:1/4=100
+K:DMin
+DE|F2  ED FG|A2 F2 ED|D2 D2 F>G|A4
+G2|A=B c2 BA|d2 DE FG|AG F2 E2 |D4|]
+
+X:19
+T:Drowzy Lane
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p20
+N:Blaikie #59
+M:6/8
+L:1/8
+Q:3/8=90
+K:DMin
+G|A2c A2F|A2c A2F|(E<G)G A2c|d2G G2
+F|A2c A2F|A2c A2F| GGG   A2G|F2D D2|]
+
+X:20
+T:Thomas the Rhymer
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p21
+N:Blaikie #64
+M:3/4
+L:1/8
+Q:1/4=100
+K:GMin
+D|GA B2 A2 |GG D2 B2| cc    c2 B2|cc d3
+G|Bc d2 d2 |cB A3  F| G/A/B A2 GF|DF G3|]
+
+X:21
+T:The Mill dams of Binnorie
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p21
+N:Blaikie #64
+M:2/4
+L:1/8
+Q:1/4=72
+K:F
+G|cc/d/ cG|cc/d/ cB|A>G``````FA   |GF D2|
+  DC/D/ FF|DC/D/ FA|C/C/C/D/ FA/G/|F2 C|]
+
+X:22
+T:Oxter my Lassie
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p21, Blaikie #65
+M:2/4
+L:1/16
+Q:1/4=60
+K:Bb
+F2|F3 G B2B2|B2G2 F2F2|G2B2 {d}c2Bc|dBcA B2
+Bc|d2dB c2d2|B2BG FGBc|dccB    G2FD|CDF2 F4|
+   B3 G FGBc|dcBG G2FD|C2DF    G2 |]
+
+X:23
+T:The winter it is past and the summer's come at last
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p28, Blaikie #87
+M:C
+L:1/8
+Q:1/4=90
+K:CMix
+D2|C2 DE F2 B>A|GF`GD C2 F2|G2 AB c2 Bd|G4 z2
+F2|G2 AB c2 BA |GF`GD C2 DE|F2 BA GF`GD|C4 z2|]
+
+X:24
+T:Good Lord Scroope alias Hughie Graham
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p32, Blaikie #102
+M:2/4
+L:1/16
+Q:1/4=66
+K:DMin
+A2Bc  d2`cB|c2c2 d4  |A2Bc  d2`cB|c2c2 d4 |
+A2Bc  d2`cB|c2c2 d2cB|c2Bc  A2`D2|E2DC D4 |
+c2c=B A2`D2|EDEG A2d2|c2c=B A2`D2|E2DC D4|]
+
+X:25
+T:Ye sit in the sun sae louzy
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p33, Blaikie #107
+M:6/8
+L:1/8
+Q:3/8=90
+K:C
+C|EGG G2G|A3  G2C|EGG G2G|A3 G2
+C|EGG GEG|A2G G2F|E2E EDC|D3 C2|]
+
+X:26
+T:Go fetch me Lord Thomas
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p35, Blaikie #113
+M:6/8
+L:1/8
+Q:3/8=80
+K:AMin
+E   |A2A ABc|BcA G2 E   |A2A ABc|B2A G2
+c/A/|GEC CDE|G2E D2 E/F/|G2G c2A|G3  C2|]
+
+X:27
+T:[untitled]
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p37, Blaikie #118
+N:leading note on the last line moved up from A, in the original
+M:3/4
+L:1/8
+Q:1/4=90
+K:DDor
+G2|A>A d2 A2 |B>A G2 \
+G2|A>A d2 A2 |B>A A2
+D2|F>F E2 c>A|G>F E2 \
+zC|F>G A2 DF |E>D D2|]
+
+X:28
+T:Herd the Cows
+Z:Jack Campin, http://www.campin.me.uk/
+S:Blaikie MS (NLS MS.1578) p38, Blaikie #123
+M:C|
+L:1/8
+Q:1/2=80
+K:DDor
+EG|A3  B cBAG|{F}E2 D2 C2 EG|A3 B cBAG|A4 D2
+EG|A3  B cBAG|   E2 G2 A2 Bc|d2A2 A2GE|D4 D2||
+AB|c2 A2 A2Bc|   d2 G2 G2 AB|c2A2 A2Bc|d4 G2
+AB|c2 A2 A2G2|   EG3   A2 Bc|d2A2 A2GE|D4 D2|]
+
+X:29
+T:Duncan Gray
+Z:Jack Campin, http://www.campin.me.uk/
+G:song
+M:C
+L:1/8
+Q:1/4=120
+K:F
+CF EF    GA E2|F2    G>B AF F2:|
+Ac cB/A/ BB B2|AB/A/ GF  ED C2 |
+CF EF    GA E2|F2    G>B AF F2:|
+
+X:30
+T:The twa Corbies
+Z:Jack Campin, http://www.campin.me.uk/
+S:Albyn's Anthology, 1818, via Bronson
+N:one of the original (Scottish) tunes for this
+N:seems to be related to The Hills of Gallowa
+M:2/4
+L:1/8
+Q:1/4=100
+K:DMix
+  A |D>E F>G|A2  d2 |A3
+  F |G>F E>D|E<E c2 |E3
+  F |D>E F>G|A<A d2 |A3
+  F |G>F E>D|D2  A>F|D2
+(cB)|A>F E>D|D2  A>F|D3|]
+
+X:31
+T:Lochaber No More
+Z:Jack Campin, http://www.campin.me.uk/
+B:Kerr's Merry Melodies Bk.3, p47
+Z:Nigel Gatherer
+M:3/4
+L:1/8
+Q:1/4=66
+K:CMix
+CD|E2 E2 EF|E2 D2 EG|A2 D2   DE |E2 D2 
+CD|EG FE DC|D4    CD|E2 C2   CD |C4  :|
+CD|E2 E2 EF|G2 FE DE|C2 c2   cd |d2 c2 
+CD|E2 E2 EF|G2 FE DE|C2 c2   cd |c4 
+GA|B2 B2 AG|A4    C2|D2 D2 (3CDE|E2 D2 
+CD|EG FE DC|D4    CD|E2 C2   CD |C4  :|
+
+X:32
+T:The Celebrated Trumpet Tune
+Z:Jack Campin, http://www.campin.me.uk/
+Z:Nathaniel Gow
+N:the trumpet fanfare used to announce the judge delivering the
+N:sentence of death in Scotland, until the early 19th century.
+M:3/4
+L:1/8
+Q:1/4=56
+K:F
+ F>G|A>G  A>G A>G|(F2  C2) F>G| A2   BAGF   |{A}G4
+~F>G|A>G  A>G A>G|(F2  C)z F>G|~A>B .c.A.B.G|   F4:|
+~A>B|c2  (dc``BA)| B2 (cB``AG)| A2  (BAGF)  |{A}G4
+ F>G|A>G  A>G A>G|(F2  C)z F>G|~A>B .c.A.B.G|   F4:|
+
+X:33
+T:Lament of Lady Dundee for her Husband
+Z:Jack Campin, http://www.campin.me.uk/
+C:Lady John Scott 
+S:Thirty Songs by Lady John Scott, 1910
+M:2/4
+L:1/8
+Q:1/4=50
+K:GMin
+G| B>B BB|AA  A>A|GG   GG |D3
+D| G>G Bc|d>d dc |BB   A>A|G3
+B| B>B AA|dd  d>d|A>A =B^G|A3
+A|^F>F GA|BB  AA |d<B  A>A|G3|]
+
+X:34
+T:The Laird of Cockpen
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=72
+K:DMin
+A|D>ED F2 F|E>CC C2E   |D>ED d2d|c>AA A2
+B|cFA  c>BA|G>AF E2F/G/|A>BA A2G|F>DD D2|]
+
+X:35
+T:Queen Among the Heather
+Z:Jack Campin, http://www.campin.me.uk/
+S:MacColl & Seeger, Till Doomsday in the Afternoon
+M:4/4
+L:1/8
+Q:1/4=90
+K:DDor
+cB|A2 A2 D2 (AG)|  E D3  HC2
+cB|A2 A2 D2  D2 |(3c2c2A2 c2Hd2|z4 z2
+cB|A2 A2 D2 (AG)|  E2 D2 HC2
+c2|Hd3 c A G2 c |  C2 D2 E HD3 |z4 z2|]
+
+X:36
+T:The Music of Spey
+Z:Jack Campin, http://www.campin.me.uk/
+C:J. Scott Skinner 
+M:4/4
+L:1/8
+Q:1/4=76
+K:F % Transposed from A
+C2 |A2 G>F C2 C2|D>C D<F C2 DE |F2 F2 F2 F2| G4     c2
+C2 |A2 G>F C2 C2|D>C D<F C2 DE |F2 F2 G2 c2| F6     ||
+C2 |B2 B>A G2 C2|c2  c>B A2 Bc |d2 c2 B2 A2|(A4 {BA}G2)
+c>B|A2 G>F C2 C2|D>C D<F C2 D>E|F2 F2 G2 c2| F6     |]
+
+X:37
+T:Hector the Hero
+Z:Jack Campin, http://www.campin.me.uk/
+C:J. Scott Skinner 
+S:The Scottish Violinist
+M:6/8
+L:1/8
+Q:3/8=40
+N:Most often played in D on the fiddle, but it's in A
+N:when played on the pipes and also fits our range in C.
+K:D
+D|F>ED BAF|A3-  A2  D|F>ED BAF|E3- E2D|
+  F>ED BAF|A2D Hd2  B|ADF  E2D|D3- D2:|
+F|BcB  dcB|A3-  A2  F|BAF  ADF|E3- E2F|
+  BcB  dcB|ADE  F<HdB|ADF  E2D|D3- D2|]
+
+X:38
+T:Copshawholm Fair
+Z:Jack Campin, http://www.campin.me.uk/
+B:Sheila Douglas, "The Sang's the Thing: Voices from Lowland Scotland"
+M:3/4
+L:1/8
+Q:3/4=72
+K:DMin
+A2|A4 AA|D2 D2 DD|A2 A3  A|c4
+GG|G4 GG|C4    CC|E4    EE|G4
+c2|A4 AA|D2 D2 D2|A4    AA|d4
+AA|A4 AG|G4    Ac|E3  D D2|D4|]
+
+
+% == Scottish dance tunes ===================================================
+
+X:39
+T:Midwinter Waltz
+Z:Jack Campin, http://www.campin.me.uk/
+T:AAB
+C:Dave Richardson
+M:3/4
+L:1/8
+Q:3/4=50
+P:AAB
+K:F % Transposed from G
+P:A
+FG|A3B c2|c3A G2|   G3A G2|F4  \
+DF|
+   G3A G2|G3A G2|[1 F3G AB|G4:|\
+                 [2 F3G F2|F4||
+P:B
+   GA|B3A B2|B3A B2|d3c d2|G3A \
+   B2|c3d c2|A3G F2|
+                    G3A F2|G4  \ 
+[1 GA|B3A B2|B3A B2|d3c d2|G3A
+   B2|c3d c2|A3G F2|G3A G2|F4:|\
+[2 FG|A3B c2|c3A G2|
+                    G3A G2|F4  \
+   DF|G3A G2|G3A G2|F3G F2|F4|]
+
+X:40
+T:Alastair of the Dun (in D minor and G minor)
+D:Andrew Rankine
+Z:Nigel Gatherer
+Z:Jack Campin, http://www.campin.me.uk/
+L:1/8
+M:2/4
+Q:1/4=116
+K:DMin
+% transposed down a fourth
+DD F2   |FE/D/ E2   |GG/G/ CC   |G/G/G/G/ CC |
+DD F2   |FE/D/ EF/G/|AF    GE   |D2       D2:|
+AG DE/G/|AG    D2   |GE    CE/F/|GE       C2 |
+AG DE/G/|AG    DE/G/|AF    GE   |D2       D2:|
+K:GMin
+% original
+GG B2   |BA/G/ A2   |cc/c/ FF   |c/c/c/c/ FF |
+GG B2   |BA/G/ AB/c/|dB    cA   |G2       G2:|
+dc GA/c/|dc    G2   |cA    FA/B/|cA       F2 |
+dc GA/c/|dc    GA/c/|dB    cA   |G2       G2:|
+
+X:41
+T:Wet and weary
+Z:Jack Campin, http://www.campin.me.uk/
+S:McFarlan MS II #36 p73
+M:9/8
+L:1/8
+Q:3/8=120
+K:Bb %Transposed from F
+B3  ABG D3|B3  ABG cAF|B3  ABG D3|F3 F2d cAF:|
+dBG dBG D3|dBG dBG cAF|dBG dBG d3|F3 F2A cAF:|
+
+X:42
+T:Miss Forbes's Farewell to Banff
+Z:Jack Campin, http://www.campin.me.uk/
+C:Isaac Cooper
+M:C|
+L:1/8
+Q:1/2=100
+K:C % transposed from G
+     CD |E2EG FEDC|E2G2 ABcA|G2GA GEDC|E2D2 D2
+     CD |E2EG FEDC|E2G2 ABcA|G2GA GECD|E2C2 C2:|
+   (3GAB|cBcd cBAG|AGAB c2BA|G2GA GEDC|E2D2 D2
+[1 (3GAB|cBcd cBAG|AGAB c2BA|G2GA GECD|E2C2 C2:|
+[2   CD |E2EG FEDC|E2G2 ABcA|G2GA GECD|E2C2 C2|]
+
+X:43
+T:Aiken Drum
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=110
+K:F % usually in D
+FG|A2A2 BAGF|D4 F3D|C2C2 D2F2|A2G2 G2
+FG|A2A2 BAGF|D4 F3D|C2C2 D2E2|F6   :|
+FG|A2A2 A2GF|B4 d3B|A2c2 A2F2|A2G2 G2
+FG|A2A2 BAGF|D4 F3D|C2C2 D2E2|F6   :|
+
+X:44
+T:Up with Aley, Aley
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:3/4
+L:1/4
+Q:3/4=112
+K:C %Transposed from D
+c2c|G2F|E>DC|c2c|B2 c|d2d  |\
+c2c|G2G|EFG |B3 |D>EF|F2E ||
+C2G|G2F|E>DC|C2G|G2 A|B2D  |\
+C2G|G2F|EFG |B3 |D2 C|D>ED|]
+
+X:45
+T:Seven Step Polka
+Z:Jack Campin, http://www.campin.me.uk/
+G:Shetland set dance
+M:2/4
+L:1/16
+Q:1/4=96
+K:F % usually in G
+F2F2 F2F2|EFGE F2C2|A2A2 A2A2|GABG A2F2|d2d2 c3A|B2B2 A3F  |
+D2G2 G3F |ECDE FGAc|d2d2 c3A |B2B2 A3F |D2G2 G3F|ECDE F2C2:|
+
+X:46
+T:Da Greenland Man's Tune
+Z:Jack Campin, http://www.campin.me.uk/
+G:Shetland slow jig
+M:6/8
+L:1/8
+Q:3/8=100
+K:EMix % usual key
+d2B c2A|BcB E3 |F2=G A2G|FD2 D3 |
+d2B c2A|BcB E3 |G2 A B2G|A3  A3:|
+B2B B2c|d2d d2B|A2 A A2F|D2E F2A|
+B2B B2c|d2d d2B|A2 F F2D|E3  E3:|
+
+X:47
+T:Tullochgorum
+Z:Jack Campin, http://www.campin.me.uk/
+S:"Amateur": Preceptor for the Great Highland Bagpipe, early 19th century
+N:gracenotes omitted
+M:C
+L:1/8
+Q:1/4=120
+K:DMix
+A|:F>D A>D G<C E2|F>D A>D F>G A>d |\
+   F>D A>D G<C E2|
+                  F>D A>D G2  FE :|\
+   D>d A>B G<C E2|D>d A>d F>d A>d |
+[1 D>d A>B G<C E2|D>d A>B G2  F>E:|\
+[2 D>d A>B c<G E2|D>d A>B G2  F>E|]
+
+X:48
+T:Merrily Danced the Quaker's Wife
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=112
+K:G
+D|GAB D2B|c2A BGE|GAB D2G|A3- A2
+E|GAB D2B|c2A BGE|GAB D2E|G3- G2:|
+A|BGG AGG|BGG AGE|GAB DEG|A3- A2
+A|BGG AGG|BGG AGE|GAB D2E|G3- G2:|
+
+X:49
+T:Trip To Pakistan
+Z:Jack Campin, http://www.campin.me.uk/
+C:Niall Kenny
+M: C|
+L: 1/8
+Q:1/2=92
+N:the usual key
+K:EMin
+EGBE  G3 B|A3 B   AGFG|EGBE  G3 B| AGFG  E4:|
+EGBG  c3 A|B3 d   AGFG|EGBG  c3 A| BAGB  A4:|
+FGBF  GBGF|EFGE   FGFE|DFAD  FADF| AGFG  E4:|
+
+X:50
+T:Ger the Rigger
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=140
+N:usually in G
+K:D
+A2D2 A2D2|ABAG F2D2|G4   GABc|d2A2 B2A2|
+A2D2 A2D2|ABAG F2D2|G2BG F2AF|EDEF D4 :|
+d2A2 BAFA|d2A2 BAFA|G4   GABc|d2A2 B2A2|
+d2A2 BAFA|d2A2 BAFD|G2BG F2AF|EDEF D4 :|
+
+
+% == English songs ==========================================================
+
+X:51
+T:Aim not too high
+T:Fortune My Foe
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and its Music
+M:C|
+L:1/4
+Q:1/4=100
+K:DDor
+D2 DE|F2 E2   |DAGF|E4:|\
+A2 AA|A2 A2   |
+               AcBA|G4 |\
+G2 cB|A3  G/F/|EDFE|D4|]
+
+X:52
+T:Willow, Willow
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+N:Desdemona's song from Othello
+M:3/4
+L:1/4
+Q:1/4=100
+K:DMin
+A   | A>      D   E   | D D z|z2\
+A/A/| c>      F   G   | F3   |z2
+A   | A>      D   F/G/| A A2 |z2\
+A/A/| c     F     G   | A F
+A/A/| G>      F   E/D/| E2      \
+c   |=B/A/  G/F/  E/E/| D D
+d   |^c/=B/ A/G/ ^F/E/|^F D=F|E>D E   |D2
+F   | F>      F   G   | A A2 |c>A B/G/|A A2|z2
+d   | c>      A   B/G/| A>G F|ED  E   |D3 |]
+
+X:53
+T:Take, o take those lips away
+Z:Jack Campin, http://www.campin.me.uk/
+C:John Wilson, early 1600s
+M:C
+L:1/8
+Q:1/4=80
+K:DMin
+z4 A4-|A2 G2 FD d2-|d2 ^c=B cd2c|d6
+cB|A3   A  G3   F |F8        |\
+   A3   A  G2 (AG)|F3   D d4 |\
+   d3   d  c2  A2 |G3   c c4 |
+   A3   A  G2  c2 |A2 =B2 c4 |\
+   A2 (GF) G2  F2 |E3   D D4|]
+
+X:54
+T:Flow My Tears (Lachrymae)
+T:AABBC
+Z:Jack Campin, http://www.campin.me.uk/
+C:John Dowland
+M:2/2
+L:1/8
+Q:1/4=100
+P:AABBC
+K:GMin
+P:A
+G6 FE|D4 B4-|B4 A2 G2 |^F2 G4 F2|G4 D4-|D2 D2 F2 F2|E4 C4|D6
+A2|B4 G4|A4 ^F4|G2 B3 A G2|^F4 B4|A2 G2 G4-|G2 ^F=E F4|G8-|G8||
+P:B
+B4 B2 A2|G2 F2 B4-|B2 AG ABcA|B4 F4|z2 G4 ^F2|G2 E2 D4|
+z2 CD E4|z2 EF G4|z2 GA B4|z2 FG AGAB|c4
+z2 CD|ECEF G4|z2 B4 A2|B3 A GF G2|^F8-|F8||
+P:C
+F6 G2|A2 GA B4|A2 G2 G4-|G4 ^F4|G6 B2|A2 B2 G4|^F8|
+z8| z4 d4-|d2 A2 c4-|c2 G2 B4|A4 G4|^F4 B4| A2 G2 G4-|G2 ^F=E F4|G8-|G8|]
+
+X:55
+T:When the King Enjoys His Own Again
+Z:Jack Campin, http://www.campin.me.uk/
+C:Martin Parker
+M:C
+L:1/8
+Q:1/4=120
+K:F  
+ C2 |D2 D2  F2  F2 |(GA)(Bc) A2 \
+(GA)|B2 D2  E2  F2 | G3   F  F2
+ C2 |C2 C2  F2  F2 |(GA)(Bc) A2 \
+(GA)|B2 D2  E2  F2 | G3   F  F2
+ G2 |G2 EF  G2  A2 |(GF) EF  G2 \
+ A2 |B2 D2 (EG)(FE)| D3   C  C2
+ C2 |c2 cB  A2 (GF)|(GA) Bc  A2 \
+ GA |B2 D2  E2  F2 | G3   F  F4|]
+
+X:56
+T:What if a Day
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:C|
+L:1/4
+Q:1/2=60
+K:DMin
+DC/D/ ED/E/|FG/F/ E2|FE/F/ GF/G/| A>A GF |E2D2:|
+AA    GG   |FF    E2|FG    Ac   |=B2  A2:|
+FG    A2   |EF    G2|DE    FG/F/| E2  D2:|
+
+X:57
+T:All in a garden green
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+L:1/4
+M:4/4
+K:C
+G2  GG   |E>D GE   |AG  FE   |D2  D2|
+F>G A/B/c|C>D E/F/G|FE  D/C/D|C2  C2|
+G>G Ac   |cB  c2   |EE  FE   |DC  D2|
+E>D C/D/E|F>E D/E/F|G>F E/F/G|A>G FE|DC D/E/D|C2 C2|]
+
+X:58
+T:Cavalilly Man
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:C|
+L:1/8
+Q:1/2=100
+K:Ador %Transposed from DDOR
+c3  c B2A2|A>B c2 E4| E>F G2 G3G|c>d c2 B>A G2|
+c2 c2 B3 A|A>B c2 E4|=F>E D2 E3E|E>F G2 A4   |]
+
+X:59
+T:Bonny Sweet Robin
+T:My Robin is to the greenwood gone
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+Q:1/4=120
+L:1/4
+M:3/4
+K:Ddorian
+D|:F> G F   |E>    F  D|c> A d|A3   :|
+ |:A d  c   |B>    A  G|c> B A|F> E D|
+   c> B A/G/|F/E/F/G/ A|G E2  |D3   :|
+
+X:60
+T:Come live with me and be my love
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:3/4
+L:1/4
+K:GMin
+G G G| B2  B   |c2  B|A3|B B B|B> c d|G Ac|B3 |
+d2  A|^F G A/B/|z c B|A3|B B B|c2   G|B A2|G3|]
+
+X:61
+T:Franklin is fled away
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:6/4
+L:1/4
+Q:3/4=60
+K:F %Transposed from G
+FFF E>DC|FFG            A3  |BBB A>B G   |GG>^F G3 |
+ccB A>GF|G/A/ B/A/ G/F/ E>DC|ccd c>B A/G/|AG>F  F3|]
+
+X:62
+T:The Gelding of the Devil
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:3/4
+L:1/4
+Q:3/4=92
+K:D %Transposed from G
+A|DDE|F>GF|E2F| G>AG|F2G|(AB)c|dDD|D2:|
+d|dBB|Bc d|cA2|(AG)F|GAB| AB c|dDD|D2:|
+
+X:63
+T:Iris on the bank of Thames
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:C|
+L:1/8
+K:AMin
+  A3 E  c2 B2| d2 B2 ^G4 |\
+  A3 B (cG)A2|(GF)E2  E4 |\
+  B3 c  B2^G2| A3   B c4||
+|:G2E2  A2^F2| d2 B2 ^G4 |\
+  A3 B  c2 B2|(A^G2)A A4:|
+
+X:64
+T:Grim King of the Ghosts
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:3/4
+L:1/4
+Q:1/4=100
+K:FMin
+  C   |F=E F|A G  F    |G2 C   |A G  c|A> G F|F2:|
+|:B   |c c F|d c (B/A/)|B2 c/B/|A> G A|F B  A|G2
+  C/C/|F=E F|A G  F    |G2 C   |A G  c|A> G F|F2:|
+
+X:65
+T:All Around My Hat
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=90
+K:F
+z|F2F G2E|F3 A2B|c3  B2G|(F2E) C2
+z|F2F G2E|F3 A2B|c2c d2B| c3-  c2||
+c|d2B B2d|c3 G2A|B2A c2A|(F2E) C2
+C|F2F G2E|F3 A2B|c3  B2G| F3-  F2|]
+
+X:66
+T:She Was Poor But She Was Honest
+Z:Jack Campin, http://www.campin.me.uk/
+G:Victorian bawdy music hall ballad
+M:4/4
+L:1/8
+Q:1/4=120
+K:G
+DG | B2- B3 F AG | FE3 z2 \
+FA | d2- d3 c A_B|=B4  z2
+DG | B2- B3 F AG | FE3 z2 \
+FA | d2- d3 c EF | G4  z2||
+P:Chorus
+DG | B2- B3 F AG | FE3 z2 \
+FA | d2- d3 c A_B|=B4  z2
+DG | B2- B3 F AG | FE3 z2 \
+d^c|=c2- c3 A EF | G4  z2|]
+
+X:67
+T:Dirty Old Town
+Z:Jack Campin, http://www.campin.me.uk/
+C:Ewan MacColl 
+M:C
+L:1/4
+Q:1/4=120
+K:DMin
+C D    F|A4-|A G/F/ A    F|C4-|C
+z A    c|d4-|d c/A/ G    F|A4-|A
+z d    c|A4-|A G/F/ A    F|C4-|C
+z D/F/ A|G4-|G z    G/F/ D|D4-|D|]
+
+
+% == English dance tunes ====================================================
+
+X:68
+T:The Dusty Miller
+Z:Jack Campin, http://www.campin.me.uk/
+B:John of the Greeny Cheshire Way
+N:(c) John Offord, Reproduced with permission
+M:3/2
+L:1/8
+K:F
+A3 B c2A2 G2F2|E2G2 G2A2 B2G2|A3 B c2A2 G2F2|C2F2 F2A2 G2F2:|
+K:C
+E2F2 G2A2 B2c2|d2D2 D2F2 E2D2|E2F2 G2A2 B2d2|c2C2 C2E2 D2C2:|
+
+X:69
+T:The Waterman's Dance
+Z:Jack Campin, http://www.campin.me.uk/
+B:John of the Greeny Cheshire Way
+N:(c) John Offord, Reproduced with permission
+M:9/4
+L:1/4
+K:CMix
+cGB AFA GEG|B3 BcB  A2G |\
+cGB AFA GEG|c3 cdc =B2G||
+cGF E2F G3 |B3 BcB  A2G |\
+cGF E2F G3 |c3 cdc =B2G||
+E2G D2G C2G|B3 BcB  A2G |\
+E2G D2G C2G|c3 cdc =B2G|]
+
+X:70
+T:Berwick Jockey
+Z:Jack Campin, http://www.campin.me.uk/
+B:John of the Greeny Cheshire Way
+N:(c) John Offord, Reproduced with permission
+M:3/2
+L:1/8
+K:C
+G4   AGFE AGFE|G4   AGFE E2c2|G4   AGFE AGFE|F2D2 D2E2 F2A2:|
+G2C2 C2G2 AGFE|G2C2 C2G2 A2c2|c2C2 C2G2 AGFE|F2D2 D2E2 F2A2:|
+c3 d c2G2 E2G2|c3 d c2A2 B2c2|c3 d c2C2 E2G2|d2D2 D2E2 F2A2:|
+
+X:71
+T:Bobbing Joan
+Z:Jack Campin, http://www.campin.me.uk/
+B:John of the Greeny Cheshire Way
+N:(c) John Offord, Reproduced with permission
+M:3/2
+L:1/8
+K:F
+A2F2 F2D2 F4  |A2F2 F2D2 E2G2 |\
+A2F2 F2D2 F2A2|G2A2 G2F2 E2G2:|
+F2A2 c2B2 A4  |F2A2 c2B2 A2c2 |\
+d2c2 B2A2 B2A2|G3 A GAGF E3 G:|
+
+X:72
+T:The Oddity
+Z:Jack Campin, http://www.campin.me.uk/
+S:Chris Green's website for English country dance tunes
+M:3/2
+L:1/8
+N:bar 6 originally |d2D2 AGED C2A,2|
+K:DDor
+d4  DEFG A2AB|c2c2 A2A2 EDEC|d4 DEFG A2A2|d2A2 AGFE D4:|
+F3A c2A2 c2A2|d2D2 AGED C3A |d4 DEFG A2A2|d2A2 AGFE D4:|
+
+X:73
+T:Sellinger's Round
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+K:F
+     F3  F>GA|B3   B>cd|c2B  A>GA|B6  |
+     F2F F>GA|B3   B>cd|c2B  A>GA|B3- B2
+c   |d3  d>cB|c3-  c2c |A>Bc c>BA|G3  c2
+A   |B>cB A2F|G>AB A2F |G2F  E>DE|F3- F2
+G/A/|B>cB A2F|G>AB A2F |G>AF E>DE|F6  |]
+
+X:74
+T:Old Simon the King
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:9/4
+L:1/4
+Q:3/4=112
+K:DMix
+G2G G>AG G2D|G2G G>AG   F2D|E2E E2E E>FG  |A2G F2E D2D:|
+G2G G>Bc d2G|G2G G2A/B/ c2E|E2E E2E E2F/G/|A2G F2E D2D:|
+
+X:75
+T:The Shaking of the Sheets
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:6/4
+L:1/4
+Q:3/4=100
+K:F
+A2F c2A|F2 C FA2|GB2 A>GF|DFG/A/ B2c:|
+ddB ccB|A>GF G2C|FFE FFC |AG2    F3  |
+ddB ccB|A>GF G2C|FFE FFC |AG2    F3 |]
+
+X:76
+T:Cuckolds all a-row
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:6/4
+L:1/4
+Q:3/4=100
+K:C %Transposed from G
+d|d2d  d2c |B2c d2G |A2A B>AB|(c3 c2):|
+E|FGF  EDE |D2D BAB |c2G AG2 | E3 C>DE|
+  F>GF E>DE|D2D B>AB|c2G AG2 | E3 C2 |]
+
+X:77
+T:Stingo
+Z:Jack Campin, http://www.campin.me.uk/
+S:Playford, 1651
+M:6/8
+L:1/8
+Q:3/8=104
+K:DMin
+|:D2D A2F   |GE2 C2 C|D2 D A2F|D3 F3:|
+  F2F F2E/F/|G2G G2 G|A2 A d2d|A3 c3 |
+  F2F F2E/F/|G2G G>AB|A>GF GE2|D3 F3|]
+
+X:78
+T:Joan to the Maypole
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:C|
+L:1/8
+K:DMin
+C2CC F2FF|G2FG A4|c3c (dc)(BA)|(BA)(GF) F4:|
+(c=B3) (cC3)|(c=B3) (cC3)|C2CC F2FG|A2GF E2D2|
+(d^c3) (dD3)|(d^c3) (dD3)|C2CC F2FG|A2GF E2D2|]
+
+X:79
+T:The Devil's Progress
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:6/4
+L:1/4
+Q:3/4=100
+K:G
+  D2D D2D|E2F  G2 B|A2G G2F|(G3 G3) |
+  D2D D2D|E2F  G2 B|A2G G2F|(G3 G2)
+A|B2B dG2|F(D2 D2)A|B2c A2G|(A3 A3) |
+  GD2 GD2|D2D  D2 D|EE2 F2G|(G3 G3)|]
+
+X:80
+T:Nonesuch
+Z:Jack Campin, http://www.campin.me.uk/
+S:Playford, 1651
+M:C|
+L:1/4
+Q:1/2=88
+K:DDor
+A|AF GA|FE/F/ DA|AF GA|F2 D
+A|AF GA|FE/F/ DA|AF GA|D3
+E|EC DE|FE/F/ DE|EC DE|F2 D
+E|EC DE|FE/F/ DE|EC DE|D3|]
+
+X:81
+T:The Begger Boy
+Z:Jack Campin, http://www.campin.me.uk/
+S:Playford
+M:6/8
+L:1/8
+Q:3/8=90
+K:C
+EEE c2c|BG2     A2G|EC2 D2D|E2F GE2 |
+EEE c2c|BG2     A2G|EC2 D2D|E2F GE2||
+EEE c2c|BG2     A2G|EG2 BAB|cE2 D3  |
+EGG B>AG|Acd/c/ BcA|GEC D2D|E2F GE2|]
+
+X:82
+T:The Old Mole
+Z:Jack Campin, http://www.campin.me.uk/
+S:Playford
+M:6/8
+L:1/8
+Q:3/8=120
+K:G
+G2G E>FG|A2F D2D|G2G  E>FG|A3 d3 |
+B2G E>FG|A2F D2D|E>FG F>EF|G3 G3|]
+
+X:83
+T:Joan's ale is new
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:6/4
+L:1/4
+Q:3/4=112
+K:C
+C|CCc B2A|G3  F2F|F3  E2E|E3  D2
+C|CCc B2c|d3  B2G|ABc c2B|c3- c2||
+c|c2c B2B|AAA G2E|FEF G2G|G2E C2
+C|C2c B2c|d2c B2G|ABc c2B|c3- c2
+G|c3  B2A|G2F E2C|F3  G2G|c3- c2|]
+
+X:84
+T:Mage on a Cree
+Z:Jack Campin, http://www.campin.me.uk/
+S:Playford
+N:possibly Irish
+M:6/8
+L:1/8
+Q:3/8=100
+K:DDor
+D|D>GA/B/ c2G|E2C G2E|F>GA A>GA| F>ED A2
+D|D>GA/B/ c2G|E2C G2E|F>GA B>cd|^c>Bc d2||
+
+X:85
+T:Millisons Jegge
+Z:Jack Campin, http://www.campin.me.uk/
+B:Playford
+M:6/8
+L:1/8
+Q:3/8=110
+K:GDor
+d|d>cB A2G|F2G A2d|d>cB A2G| F3  G2:|
+D|DFD  DFD|DFD F2F|GBG  GBG| GBG B2
+B|AcA  AcA|AcA c2d|d>cB A2G|^F3  G2|]
+
+X:86
+T:Argeers
+Z:Jack Campin, http://www.campin.me.uk/
+B:Playford
+M:4/4
+L:1/8
+Q:1/2=88
+K:F
+FGAB G2F2|E2C2 C4  |c2G2 c3 B|A2F2 F4  |
+FGAB G2F2|E3 F G2C2|DEF2 EFGA|F4   F4 ||
+EFG2 EFG2|c2G2 c2G2|EFG2 EFG2|c2G2 c2G2|
+c2BA B2cB|A2GF G3 C|DEFG EFGA|F4   F4 |]
+
+X:87
+T:The Fine Companion
+Z:Jack Campin, http://www.campin.me.uk/
+B:Playford
+M:6/8
+L:1/8
+Q:3/8=90
+K:GMin
+  G2B GGd |F>GA B>AG|d2c ddc |   dA2- A2
+G|AAA A2G |F>GA D2A |B2G F>GA|[1 G3   B3:|\
+                              [2 G3 B2||
+G|FDD A2G |FDE  D2A |BGA BGA |   B3   c3 |
+  ddd F>GA|BBA  BGd |FFG AFd |   G3   B3|]
+
+X:88
+T:Hey, Boys, Up Go We
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=120
+K:C
+z|d2d  d2c |B2c d2G |A2A B>AB|c3- c2 :|
+E|FGF  EDE |D2D BAB |c2G AG2 |E3  C>DE|
+  F>GF E>DE|D2D B>AB|c2G AG2 |E3  C2 :|
+
+X:89
+T:Cook Lorrel
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+M:6/8
+L:1/8
+Q:3/8=100
+K:GDor
+AAA A2A|AFD F2F|G2F G2 F|G2A B2 G |
+AAA A2A|AFD F2A|B2B A>GF|G2A B>AG|]
+
+X:90
+T:Sedauny
+T:Dargason
+Z:Jack Campin, http://www.campin.me.uk/
+B:Playford
+N:this goes round and round forever
+M:6/8
+L:1/8
+Q:3/8=100
+K:C
+E2C C2C|E2F G>FE|F2D D2D|F2G A>GF |
+E2C C2C|c2c B>AG|F2D D2D|d2c B>AG:|
+
+X:91
+T:Dear Tobacco
+Z:Jack Campin, http://www.campin.me.uk/
+S:transposed from Greg Stephens' version for the Boat Band
+M:C
+L:1/8
+Q:1/4=136
+K:DDor
+ADDF E/D/C/E/ D2|ADDB cBAG|ADDF E/D/C/D/ E2|C2CE GAGE:|
+ABcA B/A/B/c/ d2|ABcA GAGE|ABcA B/A/B/c/ D2|C2CE GAGE:|
+
+X:92
+T:The Hemp-Dresser
+T:The London Gentlewoman
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+N:original of "The Deil's Awa wi th'Exciseman"
+M:6/4
+L:1/4
+Q:3/4=112
+K:CMix
+F|F2c  cdc|B2A GAB|cdF F2G|A3 c2:|
+c|A2G  FGA|G2E C2C|C2F F2G|A3 c2
+c|A>GA FGA|G2C C2C|C2F F2G|A3 c2|]
+
+X:93
+T:Cheshire Round
+Z:Jack Campin, http://www.campin.me.uk/
+B:Walsh
+M:3/2
+L:1/8
+Q:1/2=120
+K:F %Transposed from C
+F4   E4   D4  |D2 G4 D2 EFGE|F4   E4   D4  |C2 F4 D2 EFGE:|
+A2c4   E2 D4  |D2 d4 D2 EFGE|G2c2 E2c2 D4  |C2 F4 D2 EFGE:|
+FGAF EFGE DEFD|D2 G4 D2 EFGE|F2c4 E2   DEFD|C2 F4 D2 EFGE:|
+
+X:94
+T:Cockle Shells
+Z:Jack Campin, http://www.campin.me.uk/
+B:Moffat, Dances of the Olden Time
+M:C|
+L:1/8
+Q:1/2=110
+K:DMin % original key
+A2|(F3 G A2) c2|(A2d2) cAGF |A2 G2 G2 FG|A2 G2 G2
+A2|(F3 G A2) c2|(A2d2) cAGF |F2 D2 D2 CD|F2 D2 D2:|
+c2|(dcdc A2) c2|(dcdc  A2)GF|A2 G2 G2 FG|A2 G2 G2
+c2|(dcdc A2) c2|(dcdc  A2)AG|F2 D2 D2 CD|F2 D2 D2:|
+
+X:95
+T:Orange in Bloom
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=84
+N:Version of "The Rock and Wee Pickle Tow", the town march of Linlithgow.
+N:When used as the Sherbourne morris dance it has a complicated
+N:repeat pattern and slows down in places in the second part.
+K:F
+C|D>FD   C>FG|A>cA G2 A|F>DD C>FG|AFF F2
+C|D>FD   C>FG|A>cA G2 A|F>DD C>FG|AFF F2:|
+C|AGA/B/ c2 A|G>FG A>Bc|d>cA G>FG|AGF D2
+C|D>FD   C>FG|A>cA G2 A|F>DD C>FG|A2F F2:|
+
+X:96
+T:Beaux of London City
+Z:Jack Campin, http://www.campin.me.uk/
+B:Michael Raven, 1000 English Country Dance Tunes
+M:9/8
+L:1/8
+Q:3/8=96
+K:F % original key
+C|F>FF A>GF A<cC|F2F A2G F2C|F>FF A>GF A<cC|F>CF A2G F2:|
+z|c2B  AGF  Ac2 |G2F G2A B3 |c2B  AGF  A<cC|F>CF A2G F2:|
+ 
+X:97
+T:Young Collins
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=180
+K:F
+F>G A>B c2  c2|B2 d2 G2 A>B|c2 c2 d2  c>B|A2 G2 F4    :|
+D2  C2  D>E F2|G2 G2 F3  G |A2 G2 A>B c2 |d2 d2 c>B A>G|
+F>G A>B c2  c2|B2 d2 G2 A>B|c2 c2 d2  c>B|A2 G2 F4    |]
+
+X:98
+T:General Monck's March
+T:The Monks' March
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=120
+K:D
+D2 DF|E2 EG|FA  dB|A2 AG|FA  FD|EG EC|D>E FE|D4:|
+A2 AG|Fz z2|G>A GF|Ez z2|A>B AG|F3  F|GA  BG|E4 |
+D2 DF|E2 EG|FA  dB|A2 AG|FA  FD|EG EC|D>E FE|D4|]
+
+X:99
+T:Rochdale Coconut Dance
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=90
+K:G % the usual key
+EFGF E2B2|EFGF E2B2|c2Ac B2G2|AGF2 E2D2:|
+G2BB G2B2|AGFG A2dd|G2BB G2B2|AGFE D2d2 |
+G2BB G2B2|AGFG A2dd|BdcB AcBA|G2F2 G2D2|]
+
+X:100
+T:The New Rigged Ship
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=104
+K:F
+C/D/|FEF F2A|FEF F2A|GEC CEF|GEC CDE|
+     FEF F2A|FEF F2A|GEC CDE|F3  F2:|
+A/B/|c2A c2A|F2F FAc|d2B d2B|G2G GAB|
+     c2A c2A|F2F GEC|DEF GFE|F3  F2:|
+
+X:101
+T:Circassian Circle
+Z:Jack Campin, http://www.campin.me.uk/
+N:odd version from a French site, described as Irish
+M:2/4
+L:1/8
+Q:1/4=144
+K:DDor
+C>D EG|cB AG|AD DE|FG/F/ ED|C>D EG|cB AG|Ad AB|c2 c2:|
+dA  dA|dA A2|cG cG|cG    G2|dA  dA|dA AB|cA GE|D2 D2:|
+
+X:102
+T:Old Adam The Poacher
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.sbgsongs.org/page14.htm
+H:Devonshire, 1890s
+M:4/4
+L:1/8
+Q:1/2=60
+N:original key; low A is the original
+N:hornpipe rhythm is an optional Irish idea
+K:DMin
+D>FA>c A2 F>E|D>FE>F D>FE>F|D>FA>c A2 F>E|D>FE>F [1 D2 [A,2A2]:|\
+                                                 [2 D4        ||
+K:D
+G>Bd>B G>Bd>B|G>AB>c d2 c>B|A2 A>B A2 A>F|D>FE>F    D2 [A,2A2]|]
+
+X:103
+T:Walter Bulwer's Polka No. 2
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=120
+K:G % the usual key
+D2G2 G2FG|A2E2 E4|FGA2 ABA2|B2G2 G3E |
+D2G2 G2FG|A2E2 E4|FGA2 D2EF|G2G2 G4 :|
+A2A2 B4  |A2A2 F4|G2G2 EFG2|A2A2 FGA2|
+A2A2 B4  |A2A2 F4|G2G2 EGFE|D2F2 D4 :|
+
+X:104
+T:Scan Tester's Polka No. 2
+Z:Jack Campin, http://www.campin.me.uk/
+C:Scan Tester
+M:C|
+L:1/8
+Q:1/2=82
+K:F
+AB|c2cc c2c2|c2=B2 _B2A2|G3 A G2F2|E6
+CD|E2DE F2EF|G2 c4    BA|G2F2 E2D2|C6 :|
+AB|c2F2 A2GA|B2D2   G3 A|B2d2 c2B2|A4 A3
+ B|c2F2 A2GA|B2D2   G3 A|B2dB A2G2|F6 :|
+
+X:105
+T:Winster Gallop (in C and D)
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=130
+K:C
+|:C2EE C2E2|C2E2 G4  |D2FF E2D2|C2E2 G4 |
+  F2A2 B2A2|G2E2 G4  |D3F  E2D2|C8     :|
+|:c2B2 A2G2|c2B2 A2G2|c2B2 A2G2|F2E2 D4 |
+  B2A2 G4  |B2A2 G4  |G4   D3 F|E2C2 C4:|
+K:D
+|:D2FF D2F2|D2F2 A4  |E2GG F2E2|D2F2 A4 |
+  G2B2 c2B2|A2F2 A4  |E3G  F2E2|D8     :|
+|:d2c2 B2A2|d2c2 B2A2|d2c2 B2A2|G2F2 E4 |
+  c2B2 A4  |c2B2 A4  |A4   E3G |F2D2 D4:|
+
+X:106
+T:Shepherd's Hey (in D, G and C)
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+K:D
+F2A2 G4 |FGAF E4|FGAF GGFG|A2E2 D4:|
+F2D2 G3E|F2D2 E4|FGAF GFGE|A2E2 D4:|
+K:G
+B2d2 c4 |BcdB A4|BcdB ccBc|d2A2 G4:|
+B2G2 c3A|B2G2 A4|BcdB cBcA|d2A2 G4:|
+K:C
+E2G2 F4 |EFGE D4|EFGE FFEF|G2D2 C4:|
+E2C2 F3D|E2C2 D4|EFGE FEFD|G2D2 C4:|
+
+X:107
+T:Prince William
+Z:Jack Campin, http://www.campin.me.uk/
+B:Walsh 1731
+M:C|
+L:1/8
+Q:1/2=120
+K:F
+C2|F4   A2GF|G6     B2|A4   G4   |FEFG F2G2|
+   A2F2 C2A2|G6     F2|E2c2 D2=B2|c6      :|
+AB|c4   d3c |B2A2 G2c2|B2A2 G2F2 |E2G2 C4  |
+   F2EF G2FG|A2GA B2cB|A2GF C2E2 |F6      :|
+
+X:108
+T:Kick the Bucket
+Z:Jack Campin, http://www.campin.me.uk/
+S:William Clark's tune manuscript
+M:9/8
+L:1/8
+Q:3/8=112
+K:C
+B|ABc cAF F2A|Bcd dBG G2B|ABc cAF B2A|GAG GEC C2:|
+B|cFE DED D2B|AFD CDC C2B|AFE FGA G2G|GAG GEC C2:|
+
+X:109
+T:The Steamboat
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=116
+K:D
+d2A F2D|DFA d3 |dcB AGF|EFG FED|
+d2A F2D|DFA d2d|dcB AGF|AFD D3:|
+F2A ABA|ABA F2D|G2B BcB|Bcd B2A|
+F2A ABA|ABA F2D|dcB AGF|AFD D3:|
+
+X:110
+T:Dorset Four Hand Reel
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+Q:1/4=108
+K:D
+FE|D2F2 A2GF|G2B2 G2B2|D2F2 A3G |F2E2 E2FE|
+   D2F2 A2GF|G2B2 G2B2|D2F2 A3G |F2D2 D2 :|
+A2|d2d2 dcB2|A2A2 AGF2|E2EF G2A2|B2A2 A2Bc|
+   d2d2 dcB2|A2A2 AGF2|E2EF G2E2|D4   D2 :|
+A2|D2FA dAFD|G2B2 G2B2|D2FA dAFD|E2A2 E2A2|
+   D2FA dAFD|G2B2 G2B2|A2cB AGFE|D2d2 d2 :|
+FG|A2F2 A2F2|B2G2 B2G2|A2F2 A2F2|E2A2 A3A |
+   A2F2 A2F2|B2G2 B2G2|A2cB AGFE|D2d2 d2 :|
+
+X:111
+T:Go Mauve
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/2=72
+C:Ian Luff 
+R:Schottische
+D:Blowzabella - Vanilla
+Z:Steve Mansfield
+K:EMin
+EGBG E2GB|dd^cB F4  |AGFE D2FG|   FEDE  FGE2 |
+EGBG E2GB|dd^cB F4  |AGFE DEFG|   E2E2- E4  :|
+E2E2 EFGE|F2F2  FGAF|G2G2 GBAG|   A2A2- AGFG |
+E2E2 EFGE|F2F2  FGAF|G2G2 GBAG|[1 A2A2- AGFG:|\
+                               [2 A2A2- A4  |]
+
+X:112
+T:The Sheffield Jig
+Z:Jack Campin, http://www.campin.me.uk/
+N:adapted from a transcription on TheSession.org of a tune
+N:I've heard in English sessions.  Sounds vaguely Galician.
+M:6/8
+L:1/8
+Q:3/8=108
+K:DMin
+DFA    A2A| BAG   A2A|Bcd cBA|GBG A3 |
+DFA    A2A| BAG   A2A|Bcd cBA|GFE D3:|
+d2 ^c2 =c2|=B2 _B2 A2|ABG A2A|BAG A2A|
+d2 ^c2 =c2|=B2 _B2 A2|ABG A2A|GFE D3:|
+
+X:113
+T:William Taylor's Table Top Hornpipe
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=130
+C:Dave Shepherd 
+S:Variation by Jo Downie
+N:Play this really slow and sexy
+N:original key
+K:GDor
+G2 G2  G>AB>G|A>BA>G F2D2|d4     c>dc>B|A>GF>G A>Bc>A|
+G2 G2  G>AB>G|A>BA>G F2D2|d>cB>A G>BA>F|G>BA>F G4   :|
+d>BG>B d2 d2 |c>AF>A c4  |B>AG>F G2 G>B|A>GF>G A>Bc>A|
+d>BG>B d2 d2 |c>AF>A c4  |B>AG>F G>BA>F|G>BA>F G4   :|
+
+X:114
+T:Droneless
+Z:Jack Campin, http://www.campin.me.uk/
+Z:Steve Mansfield
+C:Lawrence Morgan-Anstee (Eel Grinders) 
+M:6/8
+L:1/8
+Q:3/8=110
+K:GMin
+D|G3  GFD|   F3  F2G|F3  F2G|   EDC C3 |\
+  G3  GFD|
+          [1 A3  A2B|A3  AGF|   G2D D2:|\
+          [2 A2D F2G|A2D F2G|   G3- G3||
+|:DGA BAG|   EBA BAG|CAG AGF|   DAG A3 |
+  DGA BAG|   DFD BDF|CFG AGF|[1 G3- G3:|\
+                             [2 G2D D2|]
+
+X:115
+T:Music For A Found Harmonium (in D and F)
+Z:Jack Campin, http://www.campin.me.uk/
+T:ABABCDAECDABABB
+C:Simon Jeffes
+S:Penguin Cafe Orchestra: "Broadcasting from Home" (EG Records 1984)
+P:ABABCDAECDABABB
+M:C|
+L:1/8
+Q:1/2=100
+N:originally in C and E flat.
+N:There should be a continuous stuttering D playing
+N:throughout (a key on the harmonium was broken)
+N:one note is off-range, octave shift indicated
+K:D
+P:A
+D|FDGD FDDD|FDGD  FDCD|FDGD     FDDD|EDCD FDD:|
+P:B
+D|EDCD EDCD|FDCD  FDCD|GDED     CDGD|FDDD D2D:|
+P:C
+K:C
+F|cFEF GF2F|cFEF  E3F |cFEF     GF2F|cFEF E3 :|
+P:D
+K:F
+F|BFDF GF2F|BFDF  GF2F|BFEF     GE2F|BFEF GE2G|
+K:D
+  cGEG CG2G|cGEG  CG2G|cGEG     CG2G|cGEG CG2||
+P:E
+D|EDCD EDCD|FD=CD FDCD|GD[B,B]D GDCD|FDDD D2D:|
+
+
+% == Welsh tunes ============================================================
+
+X:116
+T:All Through the Night
+Z:Jack Campin, http://www.campin.me.uk/
+G:Welsh hymn
+M:4/4
+L:1/4
+Q:1/4=120
+K:F
+F>E D F|G>F E C|D2  E>E|F3    z |
+F>E D F|G>F E C|D2  E>E|F3    z||
+B A B c|d>c B A|B A G F|A>G F E |
+F>E D F|G>F E C|D2  E>E|F3    z|]
+
+X:117
+T:Cwm Rhondda
+T:Guide Me O Thou Great Jehovah
+Z:Jack Campin, http://www.campin.me.uk/
+G:Welsh hymn
+M:4/4
+L:1/8
+Q:1/4=90
+K:G
+   D2 E2 D3  G|GF GA B2 A2|\
+[1 B2 G2 E2 c2|B2 A2 G4  :|
+[2 B2 c2 d2 cA|G2 F2 G4  ||\
+   A3  B cB A2|B3  c dc B2|
+   d3  d dd dd|d8         |\
+   d3  c Bd cA|G2 F2 G4  |]
+
+X:118
+T:Tail Toddle
+Z:Jack Campin, http://www.campin.me.uk/
+S:Aird's collection, book 2 (1782)
+M:C|
+L:1/8
+Q:1/2=110
+K:G % Aird's key
+G/G/G BG c2GE|G/G/G BG A2FD|G/G/G BG  cABG        |A/B/c B/c/d A2 FD:|
+c2    GE EcGE|c2    GE DAFD|c2    GE (d/c/B/A/) BG|A/B/c B/c/d A2 FD:|
+G/G/G BG cABE|G/G/G BG ADFD|G/G/G BG  cABG        |A/B/c B/c/d c2 AF:|
+c2    Ec EcGE|c2    Ec DAFD|c2    Ec (d/c/B/A/) BG|A/B/c B/c/d A2 FD:|
+
+
+% == Northumbrian songs and dance tunes =====================================
+
+X:119
+T:Believe Me If All Those Endearing Young Charms (in C)
+T:My Lodging is on the Cold Ground
+Z:Jack Campin, http://www.campin.me.uk/
+N:originally Northumbrian
+M:6/8
+L:1/8
+Q:3/8=50
+K:C
+E/D/|C>DC CEG|FAc c2B/A/|G>FE DCD |E3-E2
+E/D/|C>DC CEG|FAc c2B/A/|GcE  D>CD|C3-C2:|
+G/F/|EGc  c2G|AFc c2B/A/|G>FE DCD |E3-E2
+E/D/|C>DC CEG|FAc c2B/A/|GcE  D>CD|C3-C2:|
+
+X:120
+T:Believe Me If All Those Endearing Young Charms (in D)
+T:My Lodging is on the Cold Ground
+Z:Jack Campin, http://www.campin.me.uk/
+N:originally Northumbrian
+M:3/4
+L:1/8
+Q:1/4=150
+K:D
+FE|D3  E D2|D2 F2 A2|G2 B2 d2|d4 cB|A3 G F2|E2 D2 E2|F6-|F4
+FE|D3  E D2|D2 F2 A2|G2 B2 d2|d4 cB|A3 d F2|E2 D2 E2|D6-|D4||
+AG|F2 A2 d2|d4    A2|G2 B2 d2|d4 cB|A3 G F2|E2 D2 E2|F6-|F4
+FE|D3  E D2|D2 F2 A2|G2 B2 d2|d4 cB|A3 d F2|E2 D2 E2|D6-|D4|]
+
+X:121
+T:My Love is Newly Listed
+T:The Snows They Melt the Soonest
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+N:this one needs half-holing
+M:C
+L:1/8
+Q:1/4=72
+K:DMin
+D>E   |F>A A=B  c<A AG | FD    D^C D2
+z D/E/|F>A A=B  c>c d>c|=BG    A^F G2
+z E   |FA  A>=B c>c d>c|=BG    GB  c2
+z_B   |AD  FG   A<c B>G| AF/D/ D>D D2|]
+
+X:122
+T:Elsie Marley
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:6/8
+L:1/8
+Q:3/8=112
+K:CMix
+P:Chorus
+EDE C2C|C2c  cGF|EDE C2C|D2B BFD |
+EDE CCC|cdc  cGF|FdF EcE|D2B BFD|]
+P:Verse
+E2F G2G|GA=B cGF|E2F G2G|DED BFD |
+E2F G2G|GA=B cGE|FdF EcE|D2B BFD||
+
+X:123
+T:Dol-Li-A
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:C
+L:1/8
+Q:1/4=80
+K:DMin
+ D2 EF  GE D2|FG A2 FG A2|\
+ D2 EF  GE D2|FG A2 D4  ||
+ B2 AG  AF D2|F2 Az F2 Az|\
+ B2 AG  AF D2|FG Az D4  |]
+
+X:124
+T:Buy Broom Buzzems
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:3/4
+L:1/8
+Q:3/4=50
+K:F
+FA cd BG|FA cd B2 |\
+FA cd BG|AF FD B2||
+G2 G2 EC|FF FA B2 |\
+G2 GF EC|FA BG F2|]
+
+X:125
+T:Go to Berwick Johnnie
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:3/2
+L:1/8
+Q:1/2=132
+K:C
+   G2C2 C2G2 AGFE|G2C2 C2G2 E2c2 |
+   G2C2 C2G2 AGFE|G2D2 D2E2 F2A2:|
+   c3 d c2C2 EFGE|c3 d c2C2 E2G2 |
+[1 c3 d c2C2 EFGE|A2d2 d2D2 F2A2:|
+[2 c3 d edcB cBAG|A2d2 d2D2 F2A2|]
+
+X:126
+T:Till the Tide Comes In
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:C
+L:1/8
+Q:1/4=120
+K:C
+  ED |CEG2 G2FE|DF A2 A2 GF|EGcE DAGF|E2 C2 C2
+  ED |CEG2 G2FE|DF A2 A2 GF|EGcE DAGF|E2 C2 C2:|
+(3GAB|cBcB cGEG|A2 G2 G2 AB|cBcB cGEG|F2 D2 D2
+  ED |CEG2 G2FE|DF A2 A2 GF|EGcE DAGF|E2 C2 C2:|
+
+X:127
+T:Bonny at Morn
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:6/4
+L:1/8
+Q:3/4=50
+K:DMin
+   E2|(A3   B)  A G  A2 D2 (EF)|(G3  F) E D (C2 D2)
+[1 E2| A3   B  (A`G) A2 D2  E2 | G2 E2  C2   D4 :|
+[2 E2|(DC)(DE) (F`G) A2 d2  c2 | A2 c2  E2   D4 ||
+   z2| D2  d2   d2  (D4     F2)| E2 c2  c2   C4 
+   E2|(DC``DE) (FG)  A2 d2  c2 | A2 c2  E2   D4 |]
+
+X:128
+T:Ca' Hawkie Through the Water
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:2/4
+L:1/8
+Q:1/4=100
+K:DMin
+P:Verse
+cA AF|GA B2| cA   A`F| G`````E     EC |
+cA AF|GA BB|(A`d) d^c| d`````D     DD||
+P:Chorus
+F2 FA|G2 GB| F2   F`A|(G/F/)(E/D/) CE |
+FF FA|G2 GB| Ad   d^c| d`````D     DD|]
+
+X:129
+T:All The Night I Lay Awake
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:3/4
+L:1/16
+Q:1/4=120
+K:C
+A3`G E2A2 GEDC|E2c2`c2E2 G2c2|A3`G E2A2 GEDC|D2A2`A2D2 F4:|
+E2G2 AGFE GEDC|E2G2 AGFE G2c2|E2G2 AGFE GEDC|D2A2`A2D2 F4:| 
+C3`D E2c2 GEDC|E2c2`c2E2 G2c2|C3`D E2c2 GEDC|D2A2`A2D2 F4:|
+E2c2`c2E2 ABcA|EFGE c2E2 G4  |E2c2`c2E2 ABcA|D2A2`A2D2 F4:|
+
+X:130
+T:Small Coals an' Little Money
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Minstrelsy
+M:4/4
+L:1/8
+Q:1/2=72
+K:DMin
+A2FD AD E/F/G|A2FD GC E/F/G |
+A2FD AD E/F/G|AGcA GC E/F/G:|
+ADFD AD E/F/G|ADFD GC E/F/G |
+ADFD AD E/F/G|AGcA GC E/F/G:|
+
+X:131
+T:Blaydon Races
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=124
+K:G
+ D|G2G G2G|G2G G2G|A2A A2A|B3  G3 |
+[1 ccc c2c|B2B B2B|A2B A2G|F3  D2:|
+[2 ccc c2c|B2c d2d|d2c B2A|G2A B2||
+ c|d3  d2B|G3  G2G|A2A A2A|B3  G3 |
+   c2c c2c|B2B B2B|A2B A2G|F3  D3 |
+   G2G G2G|G3  G2G|A2A A2A|B3  G3 |
+   c2c c2c|B2c d2d|d2c B2A|G3- G2|]
+
+X:132
+T:Cuckold Come Out of the Amrey
+Z:Jack Campin, http://www.campin.me.uk/
+S:Northumbrian Pipers Tune Book volume 1
+M:C
+L:1/16
+Q:1/4=116
+K:DDor
+DEFD F3G  A3G  A2c2|C2C2 E3F  GEDC EFGE|
+DEFD F3G  A3G  A2c2|G2ED c2E2 D4   A4 :|
+c3A  F2c2 A2F2 ABcA|GFED C2G2 E2C2 EFGE|
+cBAG FGAB c2F2 ABcA|G2FE c2E2 D4   A4 :|
+
+
+% == Irish songs ============================================================
+
+X:133
+T:Callino Casturame (In Summer Time)
+Z:Jack Campin, http://www.campin.me.uk/
+S:Simpson, The British Broadside Ballad and Its Music
+N:the oldest known Irish tune, printed in England in the 16th century
+M:3/4
+L:1/8
+Q:1/4=100
+K:F
+F3 G A2|A3 B A2| B4   B2|A3 G F2|
+G4   G2|G3 A G2|^F3 G F2|G4   G2|
+A3 B c2|A3 G F2| E3 F G2|E3 D C2|
+F4   F2|F3 G A2| G3 F E2|F6    |]
+
+X:134
+T:Down by the Sally Gardens
+Z:Jack Campin, http://www.campin.me.uk/
+B:Dyer-Bennet Songbook
+M:2/2
+L:1/8
+Q:1/2=100
+K:C
+(CD)|E2(DC) D2(EG)|A4 G2(cG)|A2(GE)  D3   C |C4 z2
+(CD)|E2(DC) D2(EG)|A4 G2(cG)|A2(GE)  D3   C |C4 z2
+ G2 |c2(BG) A2 c2 |B4 G2 EG |A2(GE) (GA)(cd)|c4 z2
+(CD)|E2 DC  D2(EG)|A4 G2(cG)|A2(GE)  D3   C |C4 z2|]
+
+X:135
+T:Ag Uirchill An Chreagain
+Z:Jack Campin, http://www.campin.me.uk/
+B:Eamonn Jordan, "Whistle and Sing"
+G:Sean-nos song
+M:3/4
+L:1/8
+Q:1/4=120
+K:G
+D2|G4 AG|ED3  DE|GG3 B2|A4 G2|E4
+BB|c4 BA|Bd3  BA|GG3  BB|A4 G2|E4
+BA|G4 AG|ED3  DE|GG3  BB|A4 G2|E4
+BB|c4 BA|Bd d3 c|BG B3 A|G4 G2|G4|]
+
+X:136
+T:O, Tabhair Dham Do Lamh
+T:O, Give Me Your Hand
+Z:Jack Campin, http://www.campin.me.uk/
+B:Joyce, P. W.; "Old Irish Folk Music and Songs"
+G:song air
+H:From the singing of Norry Dwane of Glenosheen: 1857.
+L:1/8
+M:3/4
+Q:3/4=40
+K:F
+BA|G2 FDDC|({C}B2) A2GF|D2 C2C2|   C4
+AB|c2 dcBA|   G2   FDFG|A2 BAGF|   G4
+AB|c2 dcBA|   G2   FDFG|A2 F2G2|{G}c4
+dc|BA G2FD|({C}B2) A2GF|D2 C2C2|   C4|]
+
+X:137
+T:Whatever you say, say nothing
+Z:Jack Campin, http://www.campin.me.uk/
+C:Colum Sands
+M:4/4
+L:1/8
+Q:1/4=130
+K:F
+ C|FF F2   F2G2|AA3    z2 AA|GG G2  F E3  |F4 z2
+AA|A2 A A- A2B2|c2 F2- F2 z2|GG3   =B2 Bc-|c2 z4
+c2|d2 cc   c2zA|GF3    F2 FF|FF F2- F2 G2 |A2 z4
+AG|F2 F F- F2G2|A2 AA- AG F2|G2 G2  GF E2 |F4 z3|]
+
+
+% == Irish dance tunes ======================================================
+
+X:138
+T:The Eagle's Whistle
+Z:Jack Campin, http://www.campin.me.uk/
+S:Petrie 1855
+M:6/8
+L:1/8
+Q:3/8=72
+K:CMix
+E2G  EDC|E2G  EDC|D2D EDC|D2D DEC |
+E2G  EDC|c>GA GED|C2C EDC|GCC EDC||
+c>GA GEG|c>GA GEC|D2D EDC|D2D DEC |
+c>GA GEG|c>GA GED|C2C EDC|GCC EDC|]
+
+X:139
+T:Brian Boru's March
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=80
+K:DDor
+A|F>ED D2A|F>ED D2G|E>DC C2G|E>DC C2
+A|F>ED D2A|F>ED D2D|D>FG A2G|F>ED D2:|
+z|CFG  A2G|A2G  A2G|CDE  G2E|G2E  G2
+E|DFG  A2G|A2G  A2G|D>FG A2G|F>ED D2:|
+z|F>ED d2d|F>ED d2d|E>DC c2c|E>DC c2
+c|F>ED d2d|F>ED d2d|D>FG A2G|F>ED D2:|
+
+X:140
+T:The Chorus Jig
+Z:Jack Campin, http://www.campin.me.uk/
+B:P.W. Joyce, Old Irish Folk Music and Songs
+M:6/8
+L:1/8
+Q:3/8=112
+K:G % original key
+  A2D          D2d         |AFD           FED  |A2D    D2d   |A3  BGE |
+  A2D          D2d         |AFD           FED  |E/F/GE cAG   |G3  GFE:|
+  F2d          dFd         |F2A           AFA  |F2d    dFd   |A3  BGE |
+  F2d          dFd         |F2A           AGF  |E/F/GE cAF   |G3  GFE |
+  F2d          dFd         |F2A           AFA  |F2d    dFd   |A3  ABc |
+  d/c/B/c/d/B/ c/B/A/B/c/A/|B/A/G/A/B/G/ .A.G.F|E/F/GE cAF   |G3  GFE |
+|:FEF          D/E/FD      |AFD           FED  |FEF    D/E/FD|ABc dAG |
+  FEF          D/E/FD      |AFD           FED  |E/F/GE cAF   |G3  GFE:|
+
+X:141
+T:Rip the Calico
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=100
+N:normally in D or G
+K:F
+E|F3 E FGAF|GF (3DEF GBAG|F3 E FGAF|GAFD C3 :|
+D|FDD2 BGAF|GF (3DEF GBAG|FDD2 BGAF|GAFD C3 :|
+G|AccA BGAF|GF (3DEF GBAG|AccA BGAF|GAFD C3
+G|AccA BGAF|GF (3DEF GBAG|AccA dAcA|G3 A BGA|]
+
+X:142
+T:A Fair Wind
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=100
+N:a common key for it (the other is A)
+K:G
+E|DGGF G3A|BAGA BAA2|DGGF G3A|BAGE EDD:|
+A|BddB G3A|BddB cAAc|BddB G3A|BAGE EDD:|
+E|GEE2 c3A|B2dB AcBA|GEE2 c3A|BAGE EDD:|
+
+X:143
+T:Tripping Up the Stairs
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/discussions/display/27756
+N:transposed from A
+M:C|
+L:1/8
+Q:1/2=100
+K:D
+GABG ABGA|BE ~E2 BEFA|GABG ABGB|  AD ~D2  ADFA |
+GABG ABGA|BE ~E2 BEFA|GABG ABcd|  AD ~D2  ADFA||
+d2cd BdAd|BE ~E2 BEFA|d2cd BdAG|  FD ~D2  ADFA |
+d2cd BdAd|BE ~E2 BEFA|d2cd BdAG|(3EFG AB =cAFA|]
+
+X:144
+T:The Bag of Praties
+Z:Jack Campin, http://www.campin.me.uk/
+S:R.M. Levey, The First Collection of the Dance Music of Ireland (1858)
+M:C
+L:1/8
+Q:1/4=148
+N:original key
+K:DMix
+dddd    d2 AB|cccc B2A2|dddd   (dA)AF|AFEF D2D2:|
+B2(AF) (AF)ED|B2AF A2A2|B2(AF) (AF)ED|EDEF D2D2:|
+
+X:145
+T:Jim Ward's Jig
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=112
+N:the standard key
+K:G
+D|G3  GAB|AGE GED|G2G AGE|GED DEF|
+  G3  GAB|AGE GAB|cBA BGE|DED D2:|
+B|cBA BAG|ABA AGB|cBA BGE|DED D2B|
+  cBA BAG|ABA ABc|dcB AGE|GED D2:|
+
+X:146
+T:The Concertina Reel
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/tunes/display/18
+M:C|
+L:1/8
+Q:1/2=100
+N:the usual key
+K:D
+A2FA BAFA|A2FA BAFA|B2BA B2BA|B2BA BAFA|
+A2FA BAFA|A2FA BAFA|FABc d2dA|BAFE D4 :|
+Addd Addd|AddA BAFA|B2BA B2BA|B2BA BAFA|
+Addd Addd|AddA BAFA|FABc d2dA|BAFE D4 :|
+
+X:147
+T:Julia Delaney's
+Z:Jack Campin, http://www.campin.me.uk/
+N:in the standard key, but the second part has been
+N:octave shifted to fit and some other notes changed
+M:C|
+L:1/8
+Q:1/2=100
+K:DDor
+A|dcAG F2DF|EDCE FDD2|dcAG F2DF|Add^c d3
+A|dcAG F2DF|EDCE FDD2|dcAG F2DF|Add^c d3:|
+E|FEDE FAGF|ECGC ACGC|FEDE FAGF|EDCE  D3
+E|FEDE FAGF|ECGC ACGC|FEDC AGFG|Add^c d3:|
+
+X:148
+T:The Swallow's Tail Reel (Billy Pigg version)
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/tunes/display/105
+N:Transposition of a Northumbrian pipe version of the tune
+M:C|
+L:1/8
+Q:1/2=100
+K:DDor
+    cB |AD (3FED AD (3FED| ADFA c2BA|GC (3EDC GC (3EDC|GCEG     cGEG     |
+        AD (3FED AD (3FED| ADFA c2Bc|dBcA     GECE    |F2       D2    D2:|
+|:(3ABc|d2   dc  A2   AG |^FGAB c2Bc|GcEc     GcEc    |C/D/E/F/ G/A/B c2
+    Bc |d2   dc  A2   AG |^FGAB c2Bc|dBcA     GECE    |F2       D2    D2:|
+
+
+X:149
+T:Dulaman na Binne Bui
+T:Seaweed from the Yellow Rock
+Z:Jack Campin, http://www.campin.me.uk/
+D:Mary Bergin: Feadoga Stain 2
+N:originally in G
+M:C|
+L:1/8
+Q:1/2=100
+K:D
+ DEFD GEFD|DEFG AF d2|DEFD GEFD|~E3F    GAFD |
+~D3F  GAFD|DEFG AF d2|DEFD GEFD|~E3F    G2FE||
+ FGAF dFAD|FDAc d2~D2|FGAF dFAF|~E3F [1 G2FE:|\
+                                     [2 GAFE||
+
+X:150
+T:Walter Sammon's Grandmother
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+D:Patrick Street 1.
+N:the original key
+Q:1/2=100
+K:D
+FAAB A2dB|AFDE FE~E2|   FAAB A2dB|
+                                  AFEG FDD2::\
+FAdA BAdA|FAdA FE~E2|
+                     [1 FAdA BAdA|F2EG FDD2:|\
+                     [2 dcBA BcdB|AFEG FDD2||
+
+X:151
+T:I'll Tell Me Ma
+T:The Golden City
+N:more likely Scottish originally
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=112
+K:G
+D|D2G2 B3B| c2B2 B3B |B2A2 A3B |A2G2 G3
+D|D2G2 B3B |c2B2 B3B |B2A2 A3B |A2G2 G3||
+z|d2d2 d2B2|c2c2 c2A2|B2B2 B2G2|A2F2 E2D
+z|d2d2 d2B2|c2c2 c4  |B2GG A2B2|A2G2 G3|]
+
+X:152
+T:Tom Barrett's Polka
+T:Patrick O'Connor's No. 1
+M:2/4
+L:1/8
+Q:1/4=124
+K:DDor % usually A dorian
+DD/D/ AD   |AD A2|GE cE|EC c2 |
+DD/D/ AD   |AD A2|GE cE|D2 D2:|
+dc    AB/c/|dc A2|GE cE|GE c2 |
+dc    AB/c/|dc A2|GE cE|D2 D2:|
+
+X:153
+T:Sullivan's Polka
+Z:Jack Campin, http://www.campin.me.uk/
+N:more often played in G
+M:2/4
+L:1/8
+Q:1/4=120
+K:D
+d2 d>B  |AF d>B  |AF d>B  |AF ED   |
+d2 d>B  |AF d>B  |FA E>F  |ED D2  :|
+FA AG/F/|GB BA/G/|FA AD/E/|FE ED/E/|
+FA AG/F/|GB BA/G/|FA EE/F/|ED D2  :|
+
+X:154
+T:The Cascade Polka
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/tunes/display/6203
+M:2/4
+L:1/8
+Q:1/4=120
+K:G
+BA/B/ dD   |ED AD|BA/B/ dG|BA A2 |
+BA/B/ dD   |ED AD|BA/B/ dA|BG G2:|
+Bd    dB/d/|eB dG|BA/B/ dG|BA A2 |
+Bd    dB/d/|eB dG|BA/B/ dA|BG G2:|
+
+X:155
+T:The Sweets Of May
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=104
+K:F % usually in G
+cB|AGF GFE|F2F F2G|ABA FGA|B3  c2
+ B|AGF GFE|F2F F2G|AcA BGE|F3  F:|
+EF|GAG G2F|D2E F3 |GAG B2c|d2c B2
+ A|GAG G2F|D2E F3 |G2G AGF|G3  G:|
+AB|c3  cdc|C3  C3 |B3  BcB|C3  C3|
+   F2C F2G|A2F A2B|cdc BAG|F3  F:|
+
+X:156
+T:Humours of Whiskey
+Z:Jack Campin, http://www.campin.me.uk/
+S:Harding's All-Round Collection
+N:version of the Scottish/English "Follow her over the border"
+M:9/8
+L:1/8
+Q:3/8=112
+K:DMin
+A2G FDD FDD|A2G ADD ABc|A2G ADD ADD|GAG G2F EDC:|
+F2A ABA ABA|F2A ABA GEC|F2A ABA ABA|GAG G2F EDC:|
+
+X:157
+T:The Woods Of Fanad
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/tunes/display/7761
+M:9/8
+L:1/8
+Q:3/8=112
+K:D
+A/G/|F2D DED DED|F2D DED A2G|F2D DED DED|G2F E2F G2:|
+E   |F2A d2c d3 |F2A d2c dAG|F2A ddc d2F|G2F E2F G2:|
+
+X:158
+T:The Dusty Miller
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/tunes/display/4323
+M:9/8
+L:1/8
+Q:3/8=112
+K:AMin
+d|A3  A2G A2G |   A3  A2G B2  \
+d|A3  A2G A2G |
+               [1 BBB B2A B2:|\
+               [2 B2G G2A B2||
+d|A2D DDD A3  |   A2D DDD B2  \
+d|A2D DDD G2A |
+               [1 B2G G2A B2:|\
+               [2 BBB B2A B2|]
+
+X:159
+T:The Chestnut Tree
+Z:Jack Campin, http://www.campin.me.uk/
+N:related to the Scots "Rattlin Roarin Willie"
+M:9/8
+L:1/8
+Q:3/8=112
+K:G
+AFD DED ABc|BAG GFG    ABc |
+BAG AFD DED|AFD DEF [1 G2z:|\
+                    [2 GBc||
+dBG GFG ABc|dBG GFG    A2F |
+DED c2A B2G|AFD DEF [1 GBc:|\
+                    [2 G2z|]
+
+X:160
+T:Up And Down Again
+N:Brose and Butter (Scottish)
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thesession.org/tunes/display/4445
+M:9/8
+L:1/8
+Q:3/8=112
+K:EMin
+GAB EEE EEE|GAB EEE AFD|GAB EEE EEE|FED AdB AFD:|
+GAB BdB BdB|GGG BdB AFD|GAB BdB BBB|cBA AdB AFD:|
+
+X:161
+T:The Shamrock
+Z:Jack Campin, http://www.campin.me.uk/
+M:9/8
+L:1/8
+Q:3/8=112
+K:D
+D2D FED FGA|D2D FED Bcd|D2D FED FGA|Bcd A2G FED:|
+FGA AFA A3 |FGA AFD Bcd|FGA AFA AFD|Bcd A2G FED:|
+
+
+% == Anglo-American songs ===================================================
+
+X:162
+T:Careless Love
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/4
+Q:1/2=80
+K:F
+A3 F|E C E G|F4-  |F4||\
+A3 B|c c d c|G4-  |G4||
+A3 B|c3   ^c|d2 B2|F4||\
+A3 F|E C E G|F4-  |F4|]
+
+X:163
+T:The Red River Valley
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+K:G
+DG |B2Bc B2AG|EG3- G2 \
+DG |B2GB d2cB|A6
+dc |B2BA G2AB|dc3- c2 \
+E_E|D2FG A2BA|G6   z2|]
+
+X:164
+T:Old Joe Clark
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=104
+K:DMix
+A|AB  cB|AG F2|AB  cB|A3
+A|AB  cB|AG F2|DF  EC|D3||
+z|D>D D2|AG F2|D>D DF|E3
+z|D>D D2|AG F2|DF  EC|D3|]
+
+X:165
+T:Will the Circle Be Unbroken?
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=90
+K:F
+CD|F2 F4   AG |F2  A4 \
+AG|F3  D F2F2 |DC- C4
+CD|F2 F4   A>B|c2  A4 \
+FG|A3  F G2G2 |F6  |]
+
+X:166
+T:Wayfaring Stranger
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/4
+Q:1/4=120
+K:F
+DDA|A4-|A G A G|FD3-|D \
+DDA|G4-|G D F G|A4- |A
+DDA|A4-|A G A G|FD3-|D \
+DDA|G4-|G F D C|D4- |D||
+AAc|d4-|d A c d|AG3-|G \
+AAc|d4-|d c d c|A4- |A
+ABc|A4-|A F G A|FD3-|D \
+DDA|G4-|G F D C|D4- |D|]
+
+X:167
+T:Wondrous Love
+Z:Jack Campin, http://www.campin.me.uk/
+S:as sung by the Rev. Joseph Morris of Huntsville, Alabama
+N:not the usual "Ye Jacobites By Name" tune!
+B:Richard Chase: American Folk Tales and Songs
+M:4/4
+L:1/4
+Q:1/4=120
+K:DDor
+D2|D C E G|A2 G E| D2   D     C|E2
+A2|c B A G|A2 G E|HD2
+G2|A G A c|d2 d2 | c A (A/G/) E|D2
+D2|D C E G|A2 G E| D2   D     C|E2
+A2|c B A G|A2 G E|HD2         |]
+
+X:168
+T:Jesse James
+Z:Jack Campin, http://www.campin.me.uk/
+S:Kenneth S. Clark, Cowboy Songs
+M:C
+L:1/8
+Q:1/2=84
+K:G
+DG|B2 BA  G2  zD|E2 GE D2 zB|B2 B2 d2 d2|A4 z2
+GA|B2 BA  G2  DD|E2 GE D2 GA|B2 cB A2 BA|G6 ||
+B2|cc c>c c3   c|B2 BA G2 B2|BB3   d2 d2|A6
+DG|BB BA  G G2 D|E2 GE DD G2|B2 cB A2 GF|G6 |]
+
+X:169
+T:Shady Grove
+Z:Jack Campin, http://www.campin.me.uk/
+S:Hootenany Song Book
+M:2/4
+L:1/16
+Q:1/4=110
+K:EMin
+E2E2 E2EE|F2E2 D4|E2EE F2A2|B6 B2|
+d3d  B2B2|A2FE D4|E2FF A2F2|E8  |]
+
+X:170
+T:Mr McKinley
+Z:Jack Campin, http://www.campin.me.uk/
+G:ballad on McKinley's assassination
+S:The Week-End Book, 1950s
+M:4/4
+L:1/8
+K:F
+z4      |cc2A d   c2c|    d c2F A2
+      zA|BA2F B/B/A2F|    FF EF F||
+ G/G/ AG|F2C2 z   GGA|({A}F4)    |]
+
+X:171
+T:Angeline the Baker
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+K:DMix
+GE|D2E2 G3 D|E2G4   GE|D2E2 G3 D|E6
+GE|D2E2 G3 A|B2A2 G3 A|B2A2 G2E2|D6:|
+Bc|d2B2 A2GA|BcBA G2Bc|d2B2 A2G2|E6
+Bc|d2B2 A2GA|BcBA G2GA|B2A2 G2E2|D6:|
+
+X:172
+T:Buffalo Girls
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=114
+K:D
+A2|D2D2 FFA2|B2A2 F4  |A2G2 E4  |B2A2 F2
+A2|D2DD F2A2|B2A2 F2F2|A2A2 GGE2|D6    :|
+z2|ddc2 B2AA|BA2A F4  |AG2G E4  |BA2A F4|
+   ddc2 B2AA|BA2A F2AA|c2AA GGE2|D6    :|
+
+X:173
+T:Hard Times Come Again No More
+Z:Jack Campin, http://www.campin.me.uk/
+C:Stephen Foster 
+M:4/4
+L:1/8
+Q:1/4=78
+K:D
+DE|F2 FF F A2 F |ED  DE F2\
+B2|A2 F2 FD  E>E|D6     :|
+FG|A3  A A2 ^GA |B4     A2\
+z2|d2 A2 B2  A2 |F>F FD E2
+DE|F2 FF F A2 F |E>D DE F2\
+B2|A2 F2 FD  E>E|D6     |]
+
+X:174
+T:Where Have All The Flowers Gone?
+Z:Jack Campin, http://www.campin.me.uk/
+C:Pete Seeger 
+M:C
+L:1/8
+Q:1/4=124
+K:C
+z2 GA G3 E|ED3   C4|z2 c4    d2|(B A2) G- G4 |
+z2 GA G3 E|ED3   C4|z2 F2 F3  E| D8          |
+z2 GA G3 E|ED3   C4|c2 c2 d c3 | B2   AG- G4 |
+z2 A2 F2D2|CE2G- G4|z2 A2 F2 E2| D3    D  C4-|C8|]
+
+X:175
+T:Which Side Are You On?
+Z:Jack Campin, http://www.campin.me.uk/
+B:Topic Songbook
+M:C
+L:1/4
+Q:1/4=100
+K:CDor
+  G|cccG|c2cc|dcBG|c2z
+  c|dcBG|G2GG|GGFD|C3||
+|:z|CCDF|G4  |GGFD|C3:|
+
+X:176
+T:Shenandoah
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=80
+K:D
+"^Solo"   D |       DD D3 E FG|[M:3/4] B A3 z
+"^Chorus" d-|[M:4/4]dc B3 A BA|[M:3/4] F A3 z
+"^Solo"   A |[M:4/4]BB B3 F AF|[M:3/4] E D3 z
+"^Chorus" E |       F3   D F>B|[M:2/4]A3  z  |\
+             [M:3/4]D>E F3  E |       E2 D2z|]
+
+X:177
+T:The Snake Charmer Song
+T:The Streets of Cairo
+Z:Jack Campin, http://www.campin.me.uk/
+C:Sol Bloom and James Thornton, 1893 
+H:see http://www.shira.net/streets-of-cairo.htm
+M:4/4
+L:1/8
+Q:1/4=120
+K:F
+DE| F2 E2 D2 DE|FA  EF  D2   :|\
+z2| AA AB AG EF|
+                GG  GA  GF     \
+DE| FF FG FE DE|F2  EE  D2 z2||
+  |:A4    A3  F|G>A G>F D2 C2 |\
+[1  F2 A2 c2 d2|
+                c2  d2  cA G2:|\
+[2  F2 AF G2 A2|F4      z2   |]
+
+
+% == Anglo-American dance tunes =============================================
+
+X:178
+T:Old Plantation Girls
+Z:Jack Campin, http://www.campin.me.uk/
+N:from Aird's collection, 1778; he says it's Virginian
+M:9/8
+L:1/8
+Q:3/8=108
+K:GDor
+A|B2G  A2F  D2E |F2F  F2G   ABc    |\
+  B2G  A2F  D2D |D2G  G>AG  G2    :|
+A|B>cd d>cB A2G |F>Ac c>AF (A/B/c)A|\
+  B>cd d>cB A>Bc|d2d  d>BG  G2    :|
+
+X:179
+T:Maid in the Pump-Room
+Z:Jack Campin, http://www.campin.me.uk/
+B:Ryan's Mammoth Collection
+G:hornpipe
+M:2/4
+L:1/16
+Q:1/4=84
+K:G % original key
+(3DEF|G2DD D2B2|cBAc B3A|GFGA G2B2|AGAB A2
+(3DEF|G2DD D2B2|cBAc B3A|GFGA BAGF|G2G2 G2 :|
+  D2 |GBdB GBdB|cBAc B3A|G2GG G2B2|AGAB c2A2|
+      GBdB GBdB|cBAc B3D|D2G2 B2d2|dcBA G2 :|
+
+X:180
+T:Jack's Alive
+Z:Jack Campin, http://www.campin.me.uk/
+B:Ryan's Mammoth Collection
+G:hornpipe
+M:2/4
+L:1/16
+Q:1/4=84
+N:second part taken down an octave
+K:G % original key
+D2|G2GB A2Ac|dBcA GFED|G2GB A2Ac|dBcA G2:|
+D2|GAGF EDEG|ABAF GFED|GAGF EDEG|ABAF G2:|
+
+X:181
+T:Patchwork Polka
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=124
+K:F
+A2C2  D2C2|ACC2 D2C2|A2F2  FGAc|B4    G4  |
+B2G2  GEE2|E2C2 DCC2|B2C2  ECC2|G2^G2 A2c2|
+A2C2  D2C2|ACC2 D2C2|A2F2  FGAc|B4    D4  |
+B2D2  DBB2|A2C2 CFAc|BGEG  c2E2|F4    F4 ||
+A2c2 =BcAF|C2F2 D2C2|A2c2 =BcAF|E4    E4  |
+G2B2  ABGE|C2E2 D2C2|BCC2  cCC2|G2^G2 A2c2|
+A2c2 =BcAF|C2F2 D2C2|A2c2 =BcAF|D4    D4  |
+B2D2  DBB2|A2C2 CFAc|BGEG  c2E2|F4    F4 |]
+
+X:182
+T:Little Diamond
+Z:Jack Campin, http://www.campin.me.uk/
+B:Ryan's Mammoth Collection
+N:transposed from A; first note in bars 5 and 8 taken up an octave
+G:jig (yes - in 2/4)
+M:2/4
+L:1/16
+Q:1/4=104
+K:D
+AF   zA  zFA2|AFzD EFD2|  BG  zB zGB2|AFzD EFD2:|
+AD (3DDD FFzF|zGzB A4  |(3ABc dD EFD2|AFzD EFD2:|
+
+
+% == Canadian songs =========================================================
+
+X:183
+T:Un Canadien Errant
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:1/4=120
+K:F
+FFF|C2F|A3|AGA|B2A|G3 |
+FFF|C2F|A3|AGA|B2A|G3 |
+GGG|A2B|c3|GAB|A2G|F3 |
+FFF|d2c|c3|GAB|A2G|F3|]
+
+X:184
+T:Running the Goat
+Z:Jack Campin, http://www.campin.me.uk/
+G:Polka (set dance from Harbour Deep, Newfoundland)
+Z:alf.warnock at nrc.ca
+M:2/4
+L:1/8
+Q:1/4=136
+K:G % original key
+E>F ED|(3EFG A2|BG GA|BD E2|DE FG|AB A2|BD (3EFE|D2 D2:|
+Bd  dc|  Bc  A2|BG GA|BG A2|Bd dc|Bc A2|BD (3EFE|D2 D2|]
+
+
+% == African-American songs =================================================
+
+X:185
+T:Go Down, Moses
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/4
+Q:1/4=100
+K:GMin
+D|B      B  A A | B<    B  G2  |D  D ^F< F|G3
+D|B      B  A A | B<    B  G2  |D  D ^F< F|G3         ||
+z|G<     G- G2  | c<    c- c2  |d  d2    c|d< d (c/B/G)|
+ (B/G/) (G2   B)|(G/F/) D- D> D|D< D ^F< F|G3         |]
+
+X:186
+T:Deep Blue Sea
+Z:Jack Campin, http://www.campin.me.uk/
+B:Hootenanny Song Book
+M:4/4
+L:1/4
+Q:1/4=100
+K:G
+B2 c2 |B2 _B<=B|                   G2 E2|D4 |
+B2 c2 |B2  A< G|                   c2 B2|A4 |
+B2 c2 |B2 _B<=B|                   G2 E2|D4 |
+GG G<D|GG  G< D|[M:2/4] Gc|[M:4/4] B2 A2|G4|]
+
+X:187
+T:Ain' Goin' Study War No More
+T:Down By The Riverside
+Z:Jack Campin, http://www.campin.me.uk/
+B:Topic Song Book, c.1960
+M:4/4
+L:1/8
+Q:1/4=120
+K:G
+GA|B D2 E GG G2|B2  B>^A B/=A/ G3 |A2   A>G A/G/ E3 |G2 G>E G/E/D
+GA|B D2 E GG G2|B2  A>^A B/=A/G GG|B<A- Ac  B2    A2|G6        ||
+GG|c<c cc c2 GA|B<B BB   B2     GG|B<A- A2  G2    A2|B6
+AB|c<c cc c2 GA|B<B BB   B2     GG|B<A-(Ac) B2    A2|G6        |]
+
+X:188
+T:Pick a Bale of Cotton
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=96
+K:G
+B2G2 GGG2|GGGG ED3|B2G2 GGG2|DDFF G4:|
+B4   c2d2|GGGG ED3|B4   c2d2|DDFF G4:|
+
+X:189
+T:A Good Man Is Hard To Find
+Z:Jack Campin, http://www.campin.me.uk/
+C:Eddie Green
+M:C
+L:1/8
+Q:1/4=150
+K:D
+   B B2B- BAFA |FF2F- F4  |F F2F- FE F2|A4- A3
+ z|B B2B- BAB^B|c2A2  F4  |EF^GA  B^ABc|A4- A2
+A2|B^ABA  BABc |A4-   A2A2|B^ABA  BAB^B|c4- c2||
+%
+|: A^A|B4-     B F^EF| B4-   B    \
+ F^EF |B4-     B E^DE| B4-   B2
+  ^B2 |c2B2    A c2 A| BA2c- c2   \
+   A2 |d^AB^G =A^EFE | FAFE Dz
+   A^A|B4-     B F^EF| B4-   B    \
+ F^EF |B4-     B E^DE| B4-   B
+^ABc  |d2 d2   c2  B2| A2^A2 B2   \
+  =A2 |dBAF    E D3  | dBAF (ED3)|
+       dDE^E   F d3  |^EF2D- D2   \
+   A^A|B2c2    B2  c2| B2c2  B2A2|\
+       d8-           | d4-   d2 :|
+
+X:190
+T:Saint Louis Blues
+Z:Jack Campin, http://www.campin.me.uk/
+C:W.C.Handy
+M:2/4
+L:1/16
+Q:1/4=72
+K:G
+  z2|{^A}BdBG- G4 |z ^DEG _B A3|G8-  |G6 \
+  z2|    zEGA- A4 |z  EGA _B A3|G8-  |G6
+  z2|    FAFD  D4 |z2 _BB  B A3|G8-  |G6 \
+  z2|{^A}BdBG- GG3|z ^DEG _B A3|G8-  |G6
+  z2|    zEGA- AA3|z ^DEG _B A3|G8-  |G6 \
+  z2|    FAFD- DD3|z2 _BB  B A3|G8-  |G4||
+%
+zddd|    dd3-  d4 |z  c2^c d_B3|A8-  |A4- A  \
+ c2c|    cc3-  c4 |z2 c^c  d A3|G8-  |G4  z2
+  dd|    dd3-  d4 |z  c2^c d_B3|A8-  |A4  z2 \
+  c2|    cc2c- c4 |z2 c^c  d A3|G4 A4|d6||
+%
+(^AB)| G2(^AB) G2(AB) |G2(^AB) (GA)B  G-|G8-|G4 z2
+(^AB)|=A2  GE  G2(A_B)|A2(GE)   G(^AB)G-|G8-|G4 z2
+(^AB)| d2(^AB) D(AB)C-|C(^AB)D- D (AB)G-|G8 |z4 z2|]
+
+
+% == Jazz tunes =============================================================
+
+X:191
+T:In a mellow tone
+Z:Jack Campin, http://www.campin.me.uk/
+C:Duke Ellington
+M:4/4
+L:1/8
+Q:1/2=86
+K:F
+zE2C DE2F-|F8|zE2C  DE2F-|F8 |\
+zE2C DE2F-|F8|z2GD  FG2A-|A8 |
+zG2D FG2D-|D8|z2FG- GF2A-|A8 |\
+zE2C DE2F-|F8|z2FA- A2FC-|C8 |
+zE2C DE2F-|F8|zE2C  DE2F-|F8 |\
+zE2C DE2F-|F8|z2GD  FG2A-|A8 |
+z_A3 d2AD-|D8|z_A3  d2AD-|D8 |\
+z_A3 d2AD-|D8|zE2C  DE2F-|F8|]
+
+X:192
+T:Take the "A" Train
+Z:Jack Campin, http://www.campin.me.uk/
+C:Billy Strayhorn
+N:this needs half-holing
+M:4/4
+L:1/8
+Q:1/2=80
+K:C
+E8-      |E3c   E2 A2| cE3- E4-|E8     |
+F8       |F^FGc ED_DA|_AC3- C4-|C8     |
+E8-      |E3c   E2 A2| cE3- E4-|E8     |
+F8       |F^FGc ED_DA|_AC3- C4-|C4  z4 |
+F2<A2- A4|cD3   F2 A2| cF3- F4-|F8     |
+F2<A2- A4|cD3   F2 A2| cF3- F4-|F4 _F4 |
+E8-      |E3c   E2 A2| cE3- E4-|E8     |
+F8       |F^FGc ED_DA|_AC3- C4-|C4  z4|]
+
+X:193
+T:Sweet Georgia Brown
+Z:Jack Campin, http://www.campin.me.uk/
+C:Ben, Bernie, Kenneth Casey & Maceo Pinkard
+M:C|
+L:1/8
+Q:1/2=112
+K:F
+DE2^F- F3D |A^F2=B- B3A |d4   A^F2D-|D6      z2|
+DE2F-  F3D |AF2=B-  B3G |d4  =BA2G- |G6      z2|
+CD2E-  E3C |GE2A-   A3G |c4   GE2C- |C2CD- DCD2|
+A8-        |A2CD-   DCD2|A6      A2 |G6      z2|
+DE2^F- F3D |A^F2=B- B3A |d4   A^F2D-|D6      z2|
+DE2F-  F3D |AF2=B-  B3G |d4  =BA2G- |G4    z4  |
+A3A-   A2z2|GE2A-   A2A2|A3A- A2z2  |GE2A- A2z2|
+CD2F-  FC3 |c^c2d-  dA3 |G4   cA2F- |F4    z4 |]
+
+
+% == Latin American songs ===================================================
+
+X:194
+T:La Cucaracha
+T:The Cockroach
+Z:Jack Campin, http://www.campin.me.uk/
+G:Mexican satirical song, late 19th century
+M:4/4
+L:1/8
+Q:1/4=144
+K:F
+  z4  |zC2C FFAA|c3A- A2z2|zc2d cBAc|B2G2
+  z4  |zC2C EEGG|B3G- G2z2|zc2d cBAG|F4 ||
+|:zCCC|F3 A zCCC|F3A  z4  |zFFF EEDD|C4
+  zCCC|E3 G zCCC|E3G  z4  |zc2d cBAG|F4 :|
+
+X:195
+T:Guantanamera
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.thecubaexperience.co.uk/cuba/guantanamera.jpg
+M:C
+L:1/8
+Q:1/4=120
+K:CMix
+P:Verse
+F GF|G2GF GG3|z4  z  \
+G AB|c4   B3A|GG3 z
+G AB|c2cc d4 |c4  z  \
+d BG|F2FE D4 |C4  z||
+P:Chorus
+z z2|c2cc dd3|z4  z  \
+B dd|c2dB cc3|z8    |
+     A2Bc d4 |c4  z  \
+d BG|F2FE D4 |C4  z|]
+
+X:196
+T:Dos palomitas
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://quenaycharango.blogspot.com
+G:Bolivian "huayno" dance
+M:2/4
+L:1/8
+Q:1/4=108
+K:F
+F/FE/ FG|A/AG/ AA|d2 c2|A4 |\
+A/dc/ AG|F/FE/ FG|A2 G2|F4:|
+d2    c2|A4      |d2 c2|A4 |\
+A/dc/ AG|F/FE/ FG|A2 G2|F4:|
+
+X:197
+T:Canto per ordenar la caza de la vicuna
+Z:Jack Campin, http://www.campin.me.uk/
+G:Dance song for a dramatized vicuna hunting ritual, Bolivia
+S:http://quenaycharango.blogspot.com
+M:2/4
+L:1/8
+Q:1/4=132 % guess
+K:GDor
+        GA Bc|[M:1/4] d2|BG|B<d|cA|G2|AA|GG |
+[M:2/4] BB dc|[M:1/4] A2|FD|GG |FD|G2|AA|G2|]
+
+X:198
+T:Kaswa
+Z:Jack Campin, http://www.campin.me.uk/
+G:Peruvian ritual dance performed in bird costumes
+S:http://quenaycharango.blogspot.com
+M:3/8
+L:1/8
+Q:3/8=112
+K:DMin
+ z2 (A|.d)d2|       dcA        | c3   | (A.c)z| (G.c)z| ({cAG}.F).F.F|  D3 |
+ z2 (A|.d)d2|       d2 (3d/c/A/| c3   | (Ac).c        | ({cAG}.F).F.F|  D3 | 
+(FGA- | AAc)|      (G.c)z             | (A.c)z|(2Gc   | ({cAG}.F).F.F|  D3 |
+(FGA) |.A.Az|                   (AcG  |(2cA)          |  ({AG}.F).F.F|  D3 |
+ z2 (A| d3) |       dcA        | c2(A |  c)zG         |({GcAG}.F).F.F|  D3 |
+ z2 (A|.d)d2|(4:3:4.c.d.c.A    | c3   | (A.c)z| (G.c)z| ({cAG}.F).F.F|  D3 |
+(FGA- | AAc)|      (G.c)z      |(A.c)z|  G3           |({GcAG}.F).F.F|  D3 |
+(FGA) | AA2 |                   (AcG  |  c2)(A|  c2)G | ({GAG}.F).F.F|H.D3|]
+
+X:199
+T:La Bamba
+Z:Jack Campin, http://www.campin.me.uk/
+G:folksong from Veracruz, Mexico
+M:4/4
+L:1/8
+Q:1/4=150
+K:G
+zc cc c2cB-|BG- G2  z4    |\
+z2 cc cccc |BG2  G  G2 GA-|
+A2 FA cBAB-|BG  z2  z4    |\
+z2 cc cccc |BGGG    G2 EA |
+A2 FA cBAB-|BG  z2  z4    |\
+z2 AB cBAB-|BG  zG  G2 EA-|
+A2 FA cBAG-|G2  G2  E2 ED |\
+zc cc c2cB-|BG  z2  z4    |
+zc cc c2cB-|BG2  E- EG2 E |\
+A2 zF A2cB-|B2  zG  G2 ED-|\
+D2 z2 z4  ||
+G4    E3 F-|FD  z2  z4    |\
+B4    G3 A-|AA  z2  z4    |
+B4    G3 A-|AA  z2  z4    |\
+G4    E3 F-|FD  z2  z4   |]
+
+X:200
+T:Macarena
+C:Los del Rio
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/16
+Q:1/4=124
+K:G
+  B2BB- BB2B- BBBA Bd-d2|B2BB- B2BB- BBBB  A2G2 |
+  zBB2  B2d2  zBB2 B2d2 |z2BB  B2BB  B2B2  A2G2 |
+  z2B2  B2d2  z2B2 B2d2 |zBBB  B2BB- BBB2  A2G2||
+|:G2GG  GGGG  GGGG GBDD |G2GG- GGGG  GGGG  E2D2 |
+  G2GG  GGGG  GGGG GBz2 |d6      Bd  BG-G2 z4  :|
+
+X:201
+T:Hasta Siempre, Comandante Che Guevara
+C:Carlos Puebla
+Z:Jack Campin, http://www.campin.me.uk/
+M:C
+L:1/8
+Q:1/4=88
+K:DMin
+z2|zG BA (3G2F2G2|FE- E4    z2   |  zG BA  (3G2F2G2|FE-  E4
+z2|D2 EF-  FD EF |G3  E- E2 zG   |  B2 AG- (3G2F2G2|F2   E4
+zA|A3  A (3B2B2c2|B2 A2- A3  A   |(3A2A2A2   B3  c |B2   A4
+zA|d3  A (3d2A2d2|c3 G- G2  zd/c/|  B3  F-   F2 FG |BA3- A2||"^last"d6|]
+
+
+% == New Zealand songs ======================================================
+
+X:202
+T:Pokarekare Ana
+Z:Jack Campin, http://www.campin.me.uk/
+C:Paraire Tomoana 
+N:simplified down to what most Kiwis sing these days
+N:for more elaborate versions and historical nitty-gritty,
+N:go to http://folksong.org.nz/pokarekare/index.html
+M:4/4
+L:1/8
+Q:1/4=110
+K:G
+D2|BB AA G4 |B6 \
+D2|G2 FF E4 |A6
+EE|AA GG F4 |A6 \
+D2|E2 F2 G4-|G6||
+G2|A2 B2 c4-|c6 \
+E2|G2 c2 B4-|B6
+D2|G2 B2 A4-|A6 \
+FF|E2 D2 G4-|G6|]
+
+
+% == Australian music =======================================================
+
+X:203
+T:Waltzing Matilda
+Z:Jack Campin, http://www.campin.me.uk/
+B:The Bushwhackers Australian Song Book, 1981
+N:the original tune, they say
+M:6/8
+L:1/8
+Q:3/8=100
+K:C
+    C2C C2C|c3   c3 |A3  A2B| A2G  E3 |
+    C3  C2C|c3   c2B|A2A A3 | G3
+zAB|c3  d2c|B3   G3 |A2G A2B|(A2G) E3 |
+    C3  C2C|c2c- c2c|D3  E2D| C3   z3|]
+
+X:204
+T:The Lanky Long Legs Mazurka
+Z:Jack Campin, http://www.campin.me.uk/
+S:Frank Creenaune
+A:Gilgandra, New South Wales, Australia
+Z:Transcribed into ABC by John Furlonger
+N:Middle section taken down an octave
+M:3/4
+L:1/8
+Q:1/4=140
+K:D % original key
+  d>c|B2 A2    d>c|B2 A2    d>c|B>F G>D   F>G|E4
+  c>B|A2 E2    c>B|A2 E2    c>B|A>G F2    E2 |D4||
+|:A>D|F2 F2    D>F|A2 A>B (3AFD|E2  E>G   F>E|D4:|
+|:d>c|B2 B>c (3dcB|A2 A2    D>E|F2  F2 [1 B>A|F4:|\
+                                       [2 E2 |D4||
+
+X:205
+T:Railway Hotel
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=132
+S:Bert Sheilds, collected by Alan Musgrove
+A:Unanderra, New South Wales south coast, Australia
+Z:Transcribed into ABC by John Furlonger
+K:G
+z2D2|G2AG F2GF|E2FE D2EF|G2G2 AGF2|G4:|
+z4  |B2B2 BAG2|AGAB A2GA|B2B2 BAGF|E4
+z2EF|G2AG F2GF|E2FE D2EF|G2G2 AGF2|G4:|
+
+
+% == Dutch and Flemish songs and dances =====================================
+
+X:206
+T:De Rommelpot
+Z:Jack Campin, http://www.campin.me.uk/
+B:Haywood, Folk Songs of the World
+M:2/4
+L:1/8
+Q:1/4=100
+K:DMin
+z   |DA  AG   |AG/F/ E      \
+z   |DA  AG   |AG/F/ E/z/
+F/E/|D2  CF/E/|D2    C      \
+z   |DE  FG   |AA    A      \
+z   |B>A GA   |F2    E2 |D3|]
+
+X:207
+T:De Boer van t' Hof de wy
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Eerste Deel
+M:C
+L:1/4
+Q:1/4=136
+K:GDor %Transposed from DDor
+G|G G A^F|G>  A G G   |B A d c | B2 A:|
+d|d c B A|G G2    A/B/|c B A G |^F2 D2|
+  D E^F G|A>  B A d   |c B A> G| G3  |]
+
+X:208
+T:Houte k... met Klompen
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Derde Deel
+M:6/4
+L:1/4
+Q:3/4=112
+K:GDor %Transposed from DDor
+D   |G>^FG G>AB|A3   G2 A|B>AB c>B c|d3- d2:|
+G/A/|B> AB c>Bc|d>cd D>GA|B>AB c>B c|d3- d2
+G/A/|B> AB c>Bc|d>cd d>cB|c>dB A>G^F|G3- G2|]
+
+X:209
+T:De Kooperen Berg
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Derde Deel
+N:strikingly similar to "The Peat Bog Soldiers"
+M:C|
+L:1/4
+Q:1/2=96
+K:GDor
+z   |G2 A>B|^F3  G   |AB cd|B2 AA/B/|cc BA|BG AB|~A2 D2|G3:|
+A/B/|cc cd | c2 cB/c/|dd cB|A2 AA/B/|cc BA|BG AB|~A2 D2|G3:|
+
+X:210
+T:Marionnet
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Derde Deel
+M:3/4
+L:1/4
+Q:3/4=100
+K:G
+z|G3  |A3  |D>EF|E2 \
+D|G2 A|B>cB|A>GF|G2:|
+A|B>AB|G>AB|c2 c|c2 \
+d|B>AB|G>AB|
+            A2 A|D2 \
+D|G2 A|B2 c|d2 G|F2 \
+D|d2 G|
+       F2 D|d2 G|F2 \
+D|G>AB|A>GF|G3- |G2|]
+
+X:211
+T:Potten en Pannen die Stincken
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Vierde Deel
+M:6/8
+L:1/8
+Q:3/8=100
+K:G
+D|G2A  G2F |G3  D2A|B2A  B2c |B3  G2
+A|B2A  B2^c|d3  G2G|G2F  E2D |D3- D2:|
+A|B>cd d>cB|A2A A2B|c>Bc d>cB|A2A A2
+A|B2A  B2c |d3  G2E|F2G  G2F| G3- G2:|
+
+X:212
+T:Moeder ick moet hebben een Man
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Vyfde Deel
+M:C
+L:1/4
+Q:1/4=120
+K:F
+CF    FE/D/|EE    F2 |\
+FE/D/ EF   |E>F   FF |
+GF    GA   |BA/B/ G2 |\
+AG/F/ G2   |AG/F/ G2 |\
+FE/D/ EF   |E>F   F2|]
+
+X:213
+T:De Forlaane
+T:ABA
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Vyfde Deel
+M:6/4
+L:1/4
+Q:3/4=116
+N:the speed of an Italian "furlana"
+P:ABA
+K:F
+P:A
+c   |F2F  F>GA  |G2C  C2c   |F2F  F>GA|G2C  C2
+C   |D>EF F>GE  |F2F  F2C   |D>EF F>GE|F2F  F2|]
+P:B
+c   |A2d  c2B   |A>GA F2c   |A2d  c2B |A>GA F2
+F/E/|D2C  C2F/E/|D2C  C2F/E/|D2C  D2E |F2C  C2
+c   |c3-  c2c   |c3-  c2c   |c>Bc d>cB|c2c  c2
+C   |C>DE F>ED  |G2G  G2C   |C>DE F>ED|G2G  G2
+c   |c>BA G>FE  |F2F  F2c   |c>BA G>FE|F2F  F2
+C   |F>EF G>FG  |A2F  F2C   |F>EF G>FG|A2F  F2
+c/B/|A2G  G2c/B/|A2G  G2c/B/|A2G  A2=B|c2G  G2
+G   |G3-  G2G   |G3-  G2G   |G>FG A>GF|G2G  G2||
+
+X:214
+T:Moeder myn Vink is doot
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Vyfde Deel
+M:6/8
+L:1/8
+Q:3/8=100
+K:G
+d3  d>cB|A2G G3 |\
+d3  d>cB|A2G G3 |\
+B2B Bcd |
+         c2B A2G|\
+B2B Bcd |c2B A2G|\
+d3 d>cB |A2G G3|]
+
+X:215
+T:De Koffy my vermaakt
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Vyfde Deel
+M:C
+L:1/4
+Q:1/2=100
+K:BMin
+F|FF FF|F2 B2|^AB c(B/A/)|B/^A/B/c/ B
+F|FF FF|F2 B2|^AB c(B/A/)|B3         :|
+c|dd dd|d2 F2| GF E D    |E/D/E/F/  EA|GF/E/ E>D|D3
+F|FF FF|F2 B2|^AB c(B/A/)|B3         |]
+
+X:216
+T:De Bruyd werdt na bedt gebrocht
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Sesde Deel
+M:C
+L:1/8
+Q:1/4=140
+K:F
+A2A2 AGAB| c2c2 cBcd|~B2BA BABc|~A2A2 A4:|
+A2A2 AcBA|~G2G2 G4  | F2F2 FAGF|~E2E2 E4:|
+C2C2 C2DE| F2F2 F4  | G2G2 GABc|~A2A2 A4:|
+c2c2 cBcd|~B2BA BABc|AGAB ~G3E | FEFG F4:|
+
+X:217
+T:Engelsche foly
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Sesde Deel
+M:3/4
+L:1/8
+Q:3/8=100
+K:GDor
+G3  A B2|~B3 A G2|~^F4 E2| ^F4    D2|G3  A B2|~B3 A  G2|A4 A2|A6:|
+G^FGA B2| BcBA G2|~^F4 G2|  AG^FE D2|G^FGA B2| BcBA  G2|A4 A2|A6:|
+BABc  d2| d3 c B2|~ A4 G2|~^F4    D2|EDE^F G2| AG^FE F2|G4 G2|G6:|
+
+X:218
+T:Het Gehoor
+T:(Baletten der vijf sinnen)
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Negende Deel
+M:3/4
+L:1/8
+Q:3/4=60
+K:EDor %Transposed from DDor
+GA|B2 B2 B2|~B3A G2|A3    B G2|~F4
+E2|G3  AB=c|~B3A GA|B=c ~A3  G| G4:|
+FG|A2 A2 A2|~A3G F2|B2   AB GA|~F4
+E2|G2 EFGA | B3A GF|GA  ~F3  E| E4:|
+
+X:219
+T:De Stinkpot Menuet
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Twaalfde Deel
+M:3/4
+L:1/4
+Q:3/4=60
+K:FDor %Transposed from DDor
+F c2|_d2 c|B~B2|A/G/A/B/A|Fc2|_d2 c|B ~B2|A3:|
+A G2| F2=E|F=EF|C3       |AG2| F=EF|G ~G2|F3:|
+
+X:220
+T:Wat sal men op den Avont doen
+Z:Jack Campin, http://www.campin.me.uk/
+B:Oude en Nieuwe Hollantse Boeren Lieties en Contredansen - Twaalfde Deel
+M:6/8
+N:original written in 6/4
+L:1/8
+Q:3/8=90
+K:F %Transposed from C
+C   |F>EF  G>FG|A>GF G2G|A>GF ~E>DE|F3-  F2:|
+E/F/|GEC   GEC |cAF  GEC|cAF  ~E>DE|F3-  F2:|
+c   |c>Bc  G>FG|A>GF G3 |c>BA  G>FE|A>GF G3 |A>GF ~E>DE|F3- F2:|
+c   |cAF   GEC |AFD  GEC|cAF   GEC |AFD  GEC|A>cF ~E>DE|F3- F2:|
+
+X:221
+T:Wat zullen we drinken
+T:Zeven Dagen Lang, Frying Salmon
+Z:Jack Campin, http://www.campin.me.uk/
+S:Marieke Smegen and various sources on the web
+M:none
+L:1/8
+Q:1/2=70
+K:DMin
+  G (3GFE|F2D2 DG GF|EG (3GFE|F2D2 EC|D4 z:|
+|:D   FG |A2A2 BG A2|z2 z\
+  G (3GFE|
+          F2D2 DG GF|EG (3GFE|F2D2 EC|D4 z:|
+
+
+% == German songs and dance tunes ===========================================
+
+X:222
+T:Palestine Song
+Z:Jack Campin, http://www.campin.me.uk/
+C:Walther von der Vogelweide
+M:C
+L:1/8
+Q:1/4=80
+K:DDor
+A|D2 D2 F2 F2      |D2      D/E/F/E/     D2 DC |\
+  E2 G2 A2 A/G/F   |E2    (3D/C/D/   E/F/E HD2:|
+A|A2 c2 c2 AG      |A2      cB           A3  z |\
+  A2 cB A2 A/G/F/E/|F2      G/F/E/D/     C3  z |
+  D2 A2 A2 GF      |EF/E/ (3D/C/D/   E/F/E HD2|]
+
+X:223
+T:Under der linden an der heide
+Z:Jack Campin, http://www.campin.me.uk/
+C:Walther van der Vogelweide
+S:the way Andrea van Ramm sang it with Syntagma
+N:Musicum but with a few extra gracenotes
+M:3/4
+L:1/8
+Q:1/4=90
+K:F
+   A4 {G}AG|   A3 A{B}AG|    F4 {GF}E2|{FG}F4-   Fz|
+   A4 {G}AG|   A3 A{B}AG|    F4 {GF}E2|{FG}F4-   Fz|
+   G4 {A}GF|   A4  {G}A2|    G4 {FG}A2|{FG}E4 {G}F2|
+   G4 {A}GF|   A4  {G}A2|    F4 {GF}E2| {A}F4-   Fz|
+   A4 {G}A2|{G}A4  {G}A2| {G}A4  {G}A2| {G}A4    z2|\
+{B}A4 {G}AE|{G}F4     z2|
+   G4 {F}GF|   A4  {G}A2|{FA}F4 {GF}E2|{FG}F6     |]
+
+X:224
+T:O sacred head now wounded
+Z:Jack Campin, http://www.campin.me.uk/
+G:love song made into a hymn by Luther
+M:C
+L:1/4
+Q:1/4=100
+K:AMin
+E|A G F E|D2 E B|c c B/A/ B|A3:|
+c|B G A B|c2 c G|A G F    F|E3
+c|B d c B|A2 B E|F E D    G|E3|]
+
+X:225
+T:Muss i denn
+T:Wooden Heart
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=108
+N:more or less the Elvis version
+K:C
+CD|E2EG F2FA|G2GF E4  |G2GF E2EG|F2FE D2G2|[1 E6:|\
+                                           [2 C6||
+CE|D3 E F2D2|E3 F G2GG|A2A2 c2BA|G6
+CD|E2EG F2FA|G2GF E4  |G2GF E2EG|F2FE D2G2|   C6|]
+
+X:226
+T:Arschloch von Leinsiedel
+T:ABA
+Z:Jack Campin, http://www.campin.me.uk/
+Z:Franz Fuchs
+G:"Zweifacher" dance from  Oberpfanz, eastern Bavaria
+M:3/4
+L:1/8
+Q:3/4=85
+P:ABA
+K:C
+P:A
+G2|C3D C2|D3CD2|E2 EF ED|C4 CD|
+[M:2/4] E2C2|E4|F2D2|F4|[M:3/4] G2 GA GF|E4:|
+CE|G2 GG Gc|E4 CE|G2 FE FA|D4 F2|
+[M:2/4] E2G2|D4|EE EG|D4|[M:3/4] EE EG DF|
+[M:2/4] EE EG|D4|[M:3/4] G2 GF ED|C4||
+P:B
+K:G
+D2|G3FG2|A3GA2|B3 cBA|G4
+GA|[M:2/4] B2 G2|B4|c2 A2|c4|[M:3/4] d3 cdc|B4:|
+GB|d2 dd d2|B4 GB|d2 cB c2|A4
+Ac|[M:2/4] BB Bd|A4|BB Bd|A4|
+[M:3/4] BB Bd Ac|[M:2/4]BB Bd|A4|[M:3/4] d2 dc BA|G4||
+
+X:227
+T:The Peat Bog Soldiers
+Z:Jack Campin, http://www.campin.me.uk/
+C:Rudi Goguel
+M:2/4
+L:1/8
+Q:1/4=88
+K:GMin
+   G2D2|G2BA|G2D2|G2G2|\
+   c2A2|B2G2|A2D2|G4  |
+   B2B2|B2dc|B2F2|B2B2|\
+   c2A2|B2G2|A2D2|G2 ||
+F2|d3d |d2B2|c4  |c2   \
+c2|B2B2|B2G2|A4  |A2D2|G4-|G2|]
+
+X:228
+T:Mac the Knife
+C:Kurt Weill
+Z:Jack Campin, http://www.campin.me.uk/
+M:C
+L:1/4
+Q:1/4=90
+K:AMin
+E/G/|A A2 D/F/|A A2 D/F/|A A2 c/B/|A3 
+G/B/|d c2 B/A/|c D2 E/F/|c D2 c/B/|A3:|
+
+X:229
+T:Lili Marlene
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=96
+K:C
+z|E>E E>F G2 E2 |F>F F>c B3 \
+z|D>D D>E F2 F>G|
+                 B>A G>F E3 \
+z|A2  B>c B2 A2 |A2  G2  B3 \
+A|G2  F2  A3   G|
+                 F2  E2  G3 \
+E|G3  F   F2 d2 |c4      G3 \
+E|G3  F   F2 D2 |C4      z3|]
+
+X:230
+T:Geh m'r nit uewer min mattele
+Z:Jack Campin, http://www.campin.me.uk/
+G:Branle from Alsace
+A:Puberg 1850
+B:La tradition Alsacienne.
+Z:transcription (partition) : eric.forgeot@caramail.com
+M:9/8
+L:1/8
+Q:1/4=130
+K:F
+F>GA F>Ac G>EC|F>GA F>Ac G2z |
+A>GA B>AB c>dc|A>GA c>BG F2z|]
+
+
+% == Turkish tunes and songs ================================================
+
+X:231
+T:Chechen Girl
+Z:Jack Campin, http://www.campin.me.uk/
+C:Tanburi Cemil Bey
+M:2/4 % Nim sofyan
+L:1/16
+Q:1/4=88
+K:DDor
+DEFG  A2`A2|A8        |AG```Ad  A4  |AG`Ad A4   |
+AGAd  AG`Ad|AG`Ad A4  |G2```FA  G2z2|G2`FA G2z2 |
+G2c_B BA`AG|GF`FE EDEC|DE```FE  GAEC|D4    z4  :|
+CDEF  GA`Bc|d8        |d4       d4  |d4    d4   |
+c2dc  c_BBA|AG`GF FEED|DE```FE  FGEC|D6      z2:|
+EFG2  GA`F2|EF`G2 GAF2|EF```G2  GAF2|E2 F4   E2:|
+DEFG  A2 A2|Ad A4   AG|GC```DE  FGAG|Ad A4   AG |
+F2G4     GF|E2 F4   FE|DE (3EDC F2ED|D6      z2:|
+
+X:232
+T:Tren Gelir
+T:The Train Comes
+Z:Jack Campin, http://www.campin.me.uk/
+N:Turkish children's song
+S:Eftal Dodur, Meshur Oyun Havalari, book 2
+M:2/4
+L:1/16
+Q:1/4=100
+K:DDor
+G2G2 D2D2|G2G2 D4|F4   GAGA|FGEF D4:|
+F2FE D2D2|F2FG E4|FGFG E2F2|E2D2 D4:|
+G2G2 D2D2|G2G2 D4|F4   GAGA|FGEF D4:|
+
+X:233
+T:Amenna Soyledik
+T:ABA
+Z:Jack Campin, http://www.campin.me.uk/
+G:Bektashi hymn
+C:Sebilci Huseyin Efendi
+M:C
+L:1/8
+Q:1/4=112
+P:ABA
+N:This is in the Ussak mode; the A should be slightly flattened
+K:GMin
+P:A
+F2G2 G2 F2|BBAB c4       |d2dc B2 d2|[1 c2cB A2 G2:|\
+                                     [2 c2cB c2 z2||
+P:B
+Bc2B A2 c2|cB2A G/F/G- GF|BAAG F2 AG|[1 G3 F c2 c2:|\
+                                     [2 G4   z4   |]
+
+X:234
+T:Bilmem su felegin
+Z:Jack Campin, http://www.campin.me.uk/
+B:Zulfu Livaneli, Gecmisten Gelecege Turkuler
+M:C
+L:1/8
+Q:1/4=90
+K:F
+|:FG  AA  G2 A2|F2 GG E2 F2 |\
+  FG  AA  G2 A2|F2 GG E2 F2:|\
+  c>B A<A G2 A2|
+                F2 GG E2 F2 |\
+  FG  AA  G2 A2|F2 GG E2 F2 |\
+|:FG  AA  GG AA|F2 GG E2 F2:|
+
+X:235
+T:Leylim Ley
+Z:Jack Campin, http://www.campin.me.uk/
+C:Zulfu Livaneli
+B:Zulfu Livaneli, Gecmisten Gelecege Turkuler
+M:5/4
+L:1/8
+Q:1/4=84
+K:EPhr
+       BB  BB BA AG  AB|[M:4/4](A4- AG)    AB|A4 z4|
+[M:5/4]B<B BB BA AG  AB|[M:4/4](A4- AG)    AB|A4 z4|
+[M:5/4]BB  BB BA AG  AB|[M:4/4](A4- AG)    AB|A4 z4|
+[M:5/4]G<G GG GG GG ^FG|[M:4/4](G4 =F/E/D) EF|E4 z2
+EF|F4- F/E/D F(F/E/)|E4 z2\
+EF|F4- F/E/D F(F/E/)|E8 |]
+
+X:236
+T:Haydi Haydi Sari Kiz
+T:Come on, blonde girl
+Z:Jack Campin, http://www.campin.me.uk/
+B:Eftal Dodur, Meshur Oyun Havalari
+N:dance song from Artvin
+N:song phrases are interspersed with instrumentals
+N:needs a drum accompaniment
+M:5/8
+L:1/16
+Q:5/8=56
+N:tempo taken from a YouTube video by Orhan Hakalmaz
+K:APhr
+"^Instrumental"\
+|:AGA^F G2AF`GE| A4   A2 A4  |\
+  AGA^F G2AF`GE| A4   A2 A4 :|
+"^Voice"\
+ ^c2d2  d2d4   |^c2d2 c2`B2A2|\
+  A4    B2A2`G2| A2B2 d2^c2B2|
+  A3G   A2G2^FG| A4   A2 A4  |\
+  AGA^F G2AF`GE| A4   A2 A4 ||
+"^Instrumental"\
+  AGA^F G2AFGE | A4   A2 A4 ||\
+"^Voice"\
+ =B2c2  c2c4   |=B2c2 B2_B2A2|
+  A4    B2A2`G2| A2B2 d2^c2B2|\
+  A3G   A2G2^FG| A4   A2 A4  |
+  AGA^F G2AF`GE| A4   A2 A4 ||\
+"^Instrumental"\
+  AGA^F G2AF`GE| A4   A2 A4  |
+|:AGA^F G2AF`GE| A4   A2 A4  |\
+  AGA^F G2AF`GE| A4   A2 A4 :|
+
+X:237
+T:Sivas Halayi
+T:Dance from Sivas
+Z:Jack Campin, http://www.campin.me.uk/
+N:look on YouTube for how to dance it
+M:C
+L:1/16
+Q:1/4=60
+K:DMin
+D2CD  C2G2 AFGE F2GE|D2CD  C2G2 AFGE F2GE|
+D2CD  C2G2 FGFE DCDE|FGFE  EFEC D8      :|
+ABGG  FGAF A3A  A2A2|ABAG  FGAG A8       |
+GA=Bc c2Bc GABc c2Bc|GA=Bc d2cB A8       |
+BABc  BAGB A8       |BABc  BAGB A8       |
+G2FG  FGAG BAGA F2GE|D2CD  C2G2 AFGE F2GE|
+D2CD  C2G2 AFGE F2GE|D2CD  C2G2 AFGE F2GE|
+D2CD  C2G2 FGFE DCDE|FGFE  EDEC D8      |]
+
+X:238
+T:Cayda Cira
+Z:Jack Campin, http://www.campin.me.uk/
+S:Mehmet Gunduz, "Sarkilar, Turkuler ve Oyun Havalari", v3
+M:5/8
+L:1/8
+Q:5/8=60
+K:EPhr
+P:Verse
+  z2 CG2|G2    G3 |A2 GAF|G2- G3||
+P:Chorus
+  FG A2G|c/B/c A2G|G2 FGA|FG  E3 |
+|:G2 FGA|FG    EFD|D2 CF2|FE  E3 |
+  G2 FGA|FG    EFD|D2 CF2|FE  E3:|
+
+X:239
+T:Kazova Halayi
+T:Dance from Kazova
+Z:Jack Campin, http://www.campin.me.uk/
+S:T. Hakki Karahasan, Yoresel Turk Halk Oyunlari
+N:the B is between a flat and a natural
+M:2/4
+L:1/8
+Q:1/4=124
+K:DPhr
+  DC     FE    |FE/F/ E/F/D   |  DD      E<D      |E<D DA |
+  DC     FE    |FE/F/ E/F/D   |  DD      E<D      |E<D D2||
+|:c=B/c/ BG    |A2    AG      |  c=B/c/  BG       |A2  z2:|
+|:B/c/d  dc/=B/|A2    AG      | =B/c/d   d(3c/B/c/|A2  z2:|
+|:E/F/G  GF/E/ |D2    A2      |  E/F/G   GE/G/    |F2  z2 |
+  E/F/G  GF/E/ |D/E/C F/E/F/G/|(3F/E/F/D D2       |D4    :|
+
+X:240
+T:Vardar Ovasi
+Z:Jack Campin, http://www.campin.me.uk/
+S:Mehmet Gunduz, "Sarkilar, Turkuler ve Oyun Havalari", v3
+M:5/8
+L:1/8
+Q:5/8=48
+N:bars 4 and 18 are |ED CB,A,| in the original - a flourish for the saz
+K:EPhr
+P:Intro
+|:DE E E2| F^G FE2|   DE  EE2 |[1 ED  F2E:|\
+                               [2 E2- E2z||
+P:Verse
+|:DE E E2|^GA  B2A|   A2 ^GFE:|
+|:AA A^GF| EF ^GFG|[1 FE  F2E:|\
+                   [2 FE- E3  |   E2- E2z||
+P:Chorus
+|:DE E E2| F^G F2E|   DE  EE2 |   ED  F2E |
+  DE E E2| F^G F2E|   DE  EE2 |   E2- E2z:|
+
+X:241
+T:Pencereden das gelir
+Z:Jack Campin, http://www.campin.me.uk/
+G:Azerbaijani song from the group "Balaban"
+B:Balaban, "Azeri Sarkilari" (Izmir 1996)
+M:6/8
+L:1/8
+Q:3/8=120
+K:D
+P:instrumental intro
+ d>cd cd2|=cBc  Bc2|B>AB AB2|.A.A.d A2z:|
+=c>Bc Bc2| B>AB AB2|A>GA GA2| G>FG  A2z |
+(3=cBA (3cBA (3cBA|(3BAG (3BAG (3BAG|(3AGF (3AGF (3AGF|F>^EF D2z|
+ DEF  GA2| G2F  A3 |DEF  GA2| G2G   F3  |
+ DEF  GA2| G2F  AA2|DEF  GA2| G2G   F3 ||
+P:song
+G<AA AA2|G<AA A3 |G<AA  GG2|F>^EF D2z:|
+AG2  AG2|F2A  A3 |G<AA  GG2|F>^EF D2z:|
+G2A  B3 |A<BB AAG|\
+G2A  B3 |A<BB AAG|
+F2G  A3 |G<AA GGF|F>^EF D3|]
+
+X:242
+T:Sari Gelin
+T:The Blonde Bride
+Z:Jack Campin, http://www.campin.me.uk/
+G:Turkish-Armenian Romeo-and-Juliet ballad from Erzurum
+N:also known in Armenian and Azeri tradition
+N:see http://en.wikipedia.org/wiki/Sari_Gelin
+M:10/8
+L:1/8
+Q:1/4=120
+K:EPhr
+  z2  E            E2    B3                    |\
+  B2  A3          (BA    B3)                   |\
+  B2 (B/c/) (B>A) (A>G)  A``````````````B     z|
+  B2 ^c      A2   (G>F) (G/A/)``````````A     z|\
+  G2  A      F2    E2   (E/G/)("^gliss."G{E}) z|\
+  F2  G      E2    E2-   E3                   ||
+|:z2  G      G2    A2    A3                    |\
+  A2  G3          (AG    A              B2)    |\
+  Bz  G      A2    B2    B3                    |\
+  B2 (B/c/)  A2   (A>G) (A/B/)``````````B     z|
+  B2 ^c      A2   (G>F) (G/A/)``````````A     z|\
+  G2  A      F2    E2   (E/G/)("^gliss."G{E}) z|\
+  F2  G      E2    E2-   E3                   :|
+
+X:243
+T:Depki
+Z:Jack Campin, http://www.campin.me.uk/
+G:dance from Adana, presumably the same as Arabic "dabke"
+S:T. Hakki Karahasan, Yoresel Turk Halk Oyunlari
+M:C
+L:1/16
+Q:1/4=124
+K:G
+ GABc d2dd d2dd d4  | GABc d2dc d8:|
+ c3c  cB3  B3B  BAG2|_BAGA GAGF G8:|
+_BAGA GAG2 BAGA G4  |_BAGA GAGF G8:|
+
+X:244
+T:Rampi Rampi
+Z:Jack Campin, http://www.campin.me.uk/
+Z:http://voluntocracy.org/Music
+P:(IVC)3I
+M:9/8
+L:1/8
+Q:1/4=130
+K:EPhr % actually hijaz
+P:I
+B|cc/B/ AA BB/A/ ^GGG|AA/^G/ FG EF GAB|
+  cc/B/ AA BB/A/ ^GGG|AA/^G/ FG FE Ez:|
+P:V
+z|A2 A2 (3::2A2^G ABz|A>^G FG FE EE:|
+z|D2 Ez      F2  ^GAz|A>^G FG FE EE:|
+P:C
+z|D6-          D3-      | D6       z3 |\
+  D2 EF  D2    EF2      | D2 EF D2 EF2|
+  D2 EF ^GA ((3B2A/B/ A)|^GF FE E2 E2:|
+
+X:245
+T:Mazi Kalbimde Yaradir
+Z:Jack Campin, http://www.campin.me.uk/
+C:Necdet Rustu 
+G:Turkish tango from the 1930s
+M:4/4
+L:1/8
+Q:1/4=120
+K:GMin
+   "Gm"z D  GA     B2  c2  |"Cm"  dB````BA      c4    |\
+   "D7"z D ^FG     A2  AB  |      cA````AG  "Gm"B4    |
+       B B2  A "G7"AA``GF  |"Cm"  ED    C4         z2 |\
+   "D7"A A2  A     Ac- c2  |      zA    BA  "Gm"G2 z2:|
+   "Gm"d z  d2-    dB``GD  |"D7"(3c=B_B A2      z4    |\
+       c z  c2-    cA`^FD  |"Gm"(3BA_A  G2      z4    |
+   "Cm"z E  EF     G2  FE  |"Gm"  G4            D2 z2 |\
+[1 "D7"DE   D2     z2(3AB=B|      c4            z4   :|
+[2 "D7"DE   D2     z2  cA  |"Gm"  BA"D7"G^F "Gm"G2 z2|]
+
+X:246
+T:Kazakh pop song from 1972
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=84
+N:I've no idea where I got this
+K:DMin
+(3D>EF   E>C | d>A  d2    |\
+(3GAB    A>E | F>G  A2    |
+(3d>cB   A>G | c>d  A2    |\
+(3ABA (3(GF)E| F>E  D2    |
+(3d>cB   A>G |(cA) (c/d/)A|\
+(3ABA (3(GF)E| F>E  D2   |]
+
+
+% == Iranian songs ==========================================================
+
+X:247
+T:Mastom Mastom
+T:I Am Drunk, I Am Drunk
+Z:Jack Campin, http://www.campin.me.uk/
+G:Persian Sufi folksong
+M:2/4
+L:1/8
+Q:1/4=140
+K:DMin
+zA AA|cc (B/A/)G|cc (B/A/)G|
+zA GF|G2  A2    |zA  GF    |D2 D2:|
+FE FE|zF  G2    |FE  FG    |FE D2:|
+
+X:248
+T:Ghol e Sangam
+T:Flower of Stone
+Z:Jack Campin, http://www.campin.me.uk/
+S:Aidin Poori
+G:Persian song from the 1970s
+M:C
+L:1/8
+Q:1/4=120 % "Allegro"
+K:FMin
+ =EF G2 F4 |F=E F2   E4|=EF  G2 F4   |F=E F2  E4 |
+  FG A2 G4 |GF  G2   F4| F=E F2 E2 DE|F2  G2  F4:|
+|:AB c2 B4 |AG  A2   G4| GA  B2 A4   |GF  G2  F4:|
+  FG A2 G4 |GF  G2   F4| F=E F2 E2 DE|F2  G2  F4||
+|:AB c2 c3d|c<B`B<=A B4| GA  B2 B3  c|B<A`A<G A4:|
+  FG A2 A4 |Ac``BA   G4|=EF  G2 G4   |GB``AG  F4|]
+
+
+% == Armenian songs and duduk tunes =========================================
+
+X:249
+T:Hala, hala ninnoy i
+Z:Jack Campin, http://www.campin.me.uk/
+S:a website about Komitas Vardapet
+D:on a Knar CD
+G:lullaby?
+M:4/4
+L:1/8
+Q:1/4=100
+K:DDor
+ D2     (DA)  A2      A2    |(AG)    (G>F)   A4  |\
+ FG      FG  (A2{B}) (A>F)  |(G2{A}) (GE)    F3z |
+(A2{B}) (AF)  G2     (G2{A})|(F2{G}) (E2{F}) G4  |\
+ DD      DC   F2     (FG)   |(F>G)   (E>D)   D3z||
+ c2     (cB) (c>A)    A2    | A2     (A>G)   A4  |\
+ FF      FG  (A2{c}) (A>F)  |(G2{A}) (G>E)  (F3G)|
+(A2{B}) (AF)  G2     (G2{A})|(F2{G}) (E2{F}) G3z |\
+ DD      DC  E2      (F>E)  |(FG)    (E>D)   D4 |]
+
+X:250
+T:Loosin Yelav
+T:The Moon Rose
+C:ABAC 
+S:Luciano Berio, 7 Folk Songs, III
+M:2/4
+L:1/8
+Q:1/4=58
+P:ABAC
+N:original in G minor
+K:DMin
+P:A
+D2 (DE) |F2 F2|G2 (GE)|(F2  D2)|\
+E2 (EF) |G2 D2|G2  F2 | G4     |
+A2 (Ac) |A2 A2|G2 (GA)|(F2 D2)| D2 (DE)|F2  G2 |E2 (FD)|D3z|
+A2 (AHc)|A2 A2|G2 (GA)|(F2  E2)|D2 (DE)|F2 (GE)|E2 (FD)|D3z||
+P:B
+DGGG|GAFE|DEFG|EFGHc|AGGG|GAFE|EFDHD||
+P:C
+DGGG|GAFE|GAFE|DEFG|EFDHD|]
+
+X:251
+T:Ingala
+T:ABCBCB
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.duduk.com
+M:3/4
+L:1/4
+Q:1/4=108
+P:ABCBCB
+K:DMin
+P:A
+ A     A A| A     G F    | G3-      |G3         |\
+ G     A B| A     G(F/E/)| F3-      |F3        ||
+P:B
+ D     F A| G     F E    | D     F A| d     A F |\
+ D     F A| G     F E    | D3-      | D3       ||
+P:C
+ d3-      | d3           |(d/c/) c c|(d/B/) B B |
+(c/A/) A A|(B/G/) G G    |(A/F/) F F|(G/E/) E E||
+
+X:252
+T:Dance from Balou
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.houshamadyan.org
+M:5/8
+L:1/8
+Q:1/4=138
+K:APhr
+A  (Ad) dd|d (^cd)  (cB)|^c (BA)  AA|A (AB) ^cz |\
+                         ^c (BA)  BB|
+                                     A  A2   Az::\
+A (^FG) AA|A  (AB) (^cB)| d (dc) MBB|A  A2   Az:|
+
+X:253
+T:Findjian
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.duduk.com
+M:2/4
+L:1/16
+Q:1/4=120
+K:G
+   E2z2   E2B2- |B2(Bd) B4  |(E=FED) E2B2-|B2(Bd) B4||
+|:(BcBA) (AB)G2-|G2G2   A2B2|(BcBA) (AB)G2|G2(FA) G4:|
+  (E=FED) E2B2- |B2(Bd) B4  | E2(ED) E2B2-|B2(Bd) B4||
+|:(BcBA) (ABAG  |G2)G2  A2B2|(BcBA   ABAG)|G2(FA) G4:|
+
+X:254
+T:Dushenka
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.duduk.com
+M:6/8
+L:1/8
+Q:3/8=112
+K:GDor
+GGc A3 |GGc A3|G2A FFG|EEF D3 :|
+F2G EFD|G2G G3|F2G EFD|GD2 D3  |
+EFG EFD|F2G G3|EFG EFD|GD2 Dz2 |
+GGc A3 |GGc A3|GGA FFG|EEF D3  |
+F2G EFD|F2G G3|F2G EFD|GD2 Dz2 |
+EFG EFD|F2G G3|EFG EFD|G2D2 Dz|]
+
+
+% == Greek songs ============================================================
+
+X:255
+T:Scholion of Seikilos
+Z:Jack Campin, http://www.campin.me.uk/
+N:ancient Greek
+M:6/8
+L:1/8
+Q:3/8=44
+N:accompaniment by JC
+V:1
+V:2 transpose -12
+K:GMix
+[V:1] Gd2 d3   |(Bcd) c3 |B2c d(cB)|BG2 (AF2)   |
+[V:2] GG2 G3   |(GFG) F3 |G2F G(FG)|GD2 (FC2)   |
+%
+[V:1] GBd c(Bc)|BG2 (AF2)|GBA cdB  |GG2  G(ED) |]
+[V:2] GGG F G2 |GD2 (FC2)|DDD FDD  |DD2 [G3G,3]|]
+
+X:256
+T:Tripolitza
+Z:Jack Campin, http://www.campin.me.uk/
+S:Karpeles, Folk Songs of Europe
+G:"Klepht" song from the 19th century
+M:4/4
+L:1/8
+Q:1/4=100
+K:GMin
+F2 GG  G2   G2 | G2 (FC)  F2  G2 |G2 z
+    F (AB) (cd)|(c B2 A) (A G2 F)|G6 z2 |
+B2 cd  d2   d2 | d2  cF  (AB) c2 |d2 z
+    F (AB) (cd)|(c B2 A) (A G2 F)|G6 z2|]
+
+X:257
+T:Pentozalis (song version)
+Z:Jack Campin, http://www.campin.me.uk/
+S:Karpeles, Folk Songs of Europe
+G:Cretan dance for the lyra
+M:2/4
+L:1/8
+Q:1/4=180
+K:DDor % also works in G dorian
+E|CC  F>F|EE CD |EC  FE |D2 D/z/
+E|CC  F>F|EE CD |EC  F>E|D2 D/z/||
+A|A>G FE |FG A>F|G>F EC |D2 D/z/
+A|A>G FE |FG A>F|G>F EC |D2 D   |]
+
+X:258
+T:Pentozali (dance version)
+Z:Jack Campin, http://www.campin.me.uk/
+G:Cretan dance for the lyra
+S:Deborah Jones, VIFD Music Book
+L:1/8
+M:2/4
+Q:1/4=120
+K:GDor
+BB/c/ AG/A/|FF/G/ A/B/c/A/|BB/G/ AF|[1 GG G/d/G/A/:|\
+                                    [2 GG G/d/G   ||
+dB    c/d/c|BB/G/ A/B/c/A/|BB/G/ AF|[1 GG G/d/G   :|\
+                                    [2 GG G/B/A/G/||
+FF    BB   |A>G   FF/G/   |AF    BA|[1 GG G/B/A/G/:|\
+                                    [2 GG GD      |]
+
+
+% == Latvian dance tunes ====================================================
+
+X:259
+T:Oira Oira
+Z:Jack Campin, http://www.campin.me.uk/
+N:good dance instruction video at http://www.youtube.com/watch?v=fWM96fBA4HQ
+M:2/4
+L:1/16
+Q:1/4=90
+K:G
+d4   d3c |B2B2 B4  |d2d2 d2cB|d2d2 d2cB |
+c4   c3B |A2A2 A4  |D2D2 E2F2|G4   G4  ||
+G2GA BAG2|c2A2 c2A2|A2AB cBA2|d2B2 d2B2:|
+G2GA BAG2|c2A2 c2A2|D2D2 E2F2|G4   G4  |]
+
+
+% == Sephardic songs ========================================================
+
+X:260
+T:La Rosa Enflorece
+N:Sephardic song from Istanbul c.1800
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=80
+K:G
+ E|A3   B   c>B Ac|   B>A^G=F E3
+ E|A3   B   c>B Ac|   B4      z2||
+Bc|d>B Bd   c>B Ac|   BA^G=F  E3
+ E|^G =F2 E DE  FG|[1 E>=F^GA B2:|\
+                   [2 E4      z3|]
+
+X:261
+T:El Rey de Francia
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=120
+K:DMin
+ D2 |D4   | A3    G |(GF)  (FG)| A4-       |A2
+(AB)|d3  c|(cA) (AG)|(GF)  (EG)|(GA/G/) F2-|F2
+ F2 |F2 E2| A2  (GF)|(FG/F/ ED)| C4-       |C2
+(DE)|F2 E2| A2  (GF)| F2   (ED)| D4-       |D2|]
+
+X:262
+T:Tres morillas me enamoran
+Z:Jack Campin, http://www.campin.me.uk/
+N:15th century Spanish
+B:Cancionero Musical, Madrid 1928
+M:2/4
+L:1/8
+Q:1/4=100
+K:APhr
+  Ad|cA FG|AG FE |D2 DE|F G<A G|A4-   |A2||
+  Ad|cA FG|AB A2-|A2 Ad|cA   FG|AB A2-|A2
+|:Ad|cA FG|AG FE |D2 DE|F G<A G|A4-   |A2:|
+
+X:263
+T:Ay Sarica Bre
+Z:Jack Campin, http://www.campin.me.uk/
+N:Sephardic song from Monastir
+M:4/4
+L:1/8
+Q:1/4=108
+K:EPhr
+ AA`^GF  E4        |^GA/A/ BA     B2 B2  ::\
+ c3   c (BA/B/ A^G)|
+                     BA  (^G/F/)E G2 G2   |\
+ BA`^GF  E2    B2  |^GA    G/G/F  E4     :|
+^GA``GF  E3      E |^GA````BA     B2 B2  :|
+ c3   c (BA/B/ A^G)| BA  (^G/F/)E G3  G/A/|\
+                     BA```^GF     E4     :|
+
+
+% == Klezmer tunes ==========================================================
+
+X:264
+T:Dona Dona
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=70
+K:DMin
+A2 D2 EF G2|A2 D2 EF G2|A2 D2 B2 AG|[1 F2 G2 A4:|\
+                                    [2 F2 E2 D4||
+c2 c2 c3  B|AG F4    z2|G2 G2 c2 cB|   A8       |
+c2 c2 c3  B|A2 G2 F2 FG|A3  G FE3  |   D8      ||
+EE EE G2 G2|FG A4    z2|GG GG c2 B2|   A8       |
+EE EE G2 G2|FG A4    z2|AE FG F2 E2|   D8      |]
+
+X:265
+T:Ya Ribon Olam
+Z:Jack Campin, http://www.campin.me.uk/
+S:clarinet arrangement off the web
+N:this is Ashkenazic; Sephardic versions are quite different
+M:C
+L:1/16
+Q:1/4=84
+K:DMin
+DFA2   DFA2  G2D2`D2D2|d4     cBAd   A4>>A4|
+ABc2   ABc2  dcBA G2D2|F2FF (3GAG FG A4>>A4|
+ABc2   ABc2  dcBA G2D2|F3F  (3GAG FE D8   ||
+c3B/A/ G2GD ~FFED C4  |D2DD   FDFA   G4 d4 |
+c3B/A/ G2GD ~FFED C4  |D2DD   FA2G   D8   |]
+
+X:266
+T:Shmelke's Nigun
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=120
+K:GDor
+    DD/D/   DD|GG D2|   GG DE |FE D2 |
+    DD/D/   DD|GG D2|[1 GF ED |F2 z2:|\
+                     [2 GF EF |DD EF||
+{GA}G2  {GA}G2|zB AG|   BA GB-|BA G2 |
+{FG}F2  {FG}F2|zA GF|[1 AG FA-|AG F2:|\
+                     [2 AG FG-|G4   |]
+
+X:267
+T:Nigun no 6
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=120
+K:GDor
+GG/G/ GA |BB/B/ Bc|   dd/d/ dc |[1 BA GD:|\
+                                [2 BA G2||
+c2    c>B|Ac    Ac|   B2    B>A|   GB GB |\
+c2    c>B|
+          Ac    Ac|[1 d>c   Bc |   d2 z2:|\
+                   [2 d>c   BA |   G2 z2||
+
+X:268
+T:Der Badchen Freylach
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=100
+B:Stacy Phillips, Mel Bay Klezmer Collection
+K:DDor
+D2DF ^GAGF|{^G}A2{G}A2 FED2|    D2DF ^GAGF      |{^G}A4 A4-   |
+AFDF ^GAFD|{^G}A2{G}A2 FED2|    EF^GF EDEF      |    D8      :|
+ABcB  dcBA|   ^GABc    A4  |    dcBA ^GABc      |    A4    A4 |\
+ABcB  dcBA|
+              ^GABc    A4  |[1  ABcB  AB ((3FED)|    EFD2- D4:|\
+                            [2 ^GABA  GAFE      |    D8      |]
+% original first part
+% DA,DF ^GAGF|{^G}A2{G}A2 FED2|    DA,DF ^GAGF      |{^G}A4 A4-   |
+% AA,DF ^GAFD|{^G}A2{G}A2 FED2|    EF^GF  EDEF      |    D8      :|
+
+X:269
+T:Zemer Atik
+T:Nigun Atik
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+K:GMin
+^FGEF GAFG|A8        | ABcd cBAG |A8       |
+ Addc cBBA|G2A2 ^F2D2|^FGEF GAFE |D8      ||
+ d4   d4  |cdcB  c2A2| B4   B2AG |A2d2 A2D2|
+ d4   d4  |cdcB  c2A2| GABG ABA^F|G8      |]
+
+X:270
+T:Fun der Khupe
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+P:ABCAB
+Q:1/2=96
+N:part order varies
+K:DDor
+P:A
+D4   EF^GA| ^G2AA     A2A2   |cBA2 A^GF2|A^GF2 FED2 |
+D4   EF^GA| ^G2A2     A2A2   |d6      A2|d2 c2 B2A2 |
+D4   EF^GA| ^G2A2     A2A2   |cBA2 A^GF2|A^GF2 FED2 |
+cBcB cB A2|(3d2c2B2 (3A2^G2F2|E2E2 FED^C|D6      A2:|
+P:B
+d6     A2| d6    A2|d2A2 d2A2 |   d6      z2 |
+d2c2 B2A2|^G3F GFED|d2c2 B2A2 |  ^G2A2- A4   |
+d2c2 B2A2|^G3F GFED|E2E2 FED^C|[1 D6      A2:|\
+                               [2 D8        ||
+P:C
+^F2A2 AGGF|^F2A2 AGGF|A^GAB cBAG|A2z2 d2z2|
+^F2A2 AGGF| G6    ^G2|BA^GF GFEF|D8      |]
+
+X:271
+T:Flatbush Waltz
+Z:Jack Campin, http://www.campin.me.uk/
+C:Andy Statman arr. Jack Campin
+N:second part has a lot of octave shifts
+N:needs half-holing for the E flat
+M:3/4
+L:1/8
+Q:1/4=150
+K:DMin
+        A3  d AG   |F2 D2 D2 |A3  d  AF|G3  \
+BAG    |DE FG AF/A/|GD G2 G2 |F3  G _EF|D3
+DFG    |A3  d AG   |F2 D2 D2 |A3  d  AF|G3  \
+c (3BAG|FG AB cA   |GD G2 G2 |F3  G _EF|D6||
+        F4    ED   |EA AE A^c|d2 c3   B|A6 |\
+        B2 A2 G2   |A2 D2 E2 |F3  E  FG|E6 |
+        F4    ED   |EA AE A^c|d2 c3   B|A6 |\
+        B2 A2 G2   |A2 D2 G2 |F3  G _EF|D6|]
+
+
+% == Indian songs ===========================================================
+
+X:272
+T:Vande Mataram
+Z:Jack Campin, http://www.campin.me.uk/
+C:Jadunath Bhattacharya
+S:http://www.flutetunes.com
+M:4/4
+L:1/8
+Q:1/4=100
+K:C
+        C2   D2-        DF`GF | G8                  |\
+        F2   G2-        GB`cB | c8                  |
+        cd (3c/_B/A/ B- BA G2 | GA (3G/F/E/ F- FE D2|\
+        DD```GF         E2 DE |(DC-) C6             |
+        C2   DF         GF G2-| GG  _BA       (AG3) |\
+        F2   G2-        GB`cB | c8                  |
+        F2   G2         B2 B2 | BB```cB        c3  B|[M:2/4]  c4  |
+[M:4/4] B2   BB         cB c2 | Bc```dc       _BA`BA|[M:2/4](AG3)|
+[M:4/4] DD   FF        (E C3) | DD```A_B       AG2 A|[M:2/4]  G4  |
+[M:4/4] FG   B2         BB B2-| BB```cB        c4   |\
+        F2   G2-        GB`cB | c8                  |\
+        F2   G2-        GB`cB | c8                 |]
+
+
+% == Russian songs ==========================================================
+
+X:273
+T:Meadowlands
+Z:Jack Campin, http://www.campin.me.uk/
+H:marching song of the Red Army in WW2
+M:C|
+L:1/8
+Q:1/2=56
+K:DMin
+B4   G2B2|A4   F2D2|BAGF G2d2|A4 F2D2|
+G2FE DCDE|D2A2 F2D2|G2FE DCDE|D8    |]
+
+X:274
+T:Korobeiniki
+T:the Tetris theme
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=120
+K:DMin
+A2  EF|G2 TFE|D2 DF|A2 GF|E3  F|G2 A2|F2 D2|D2 z2||
+G2- GB|d2  cB|A3  F|A2 GF|E2 EF|G2 A2|F2 D2|D2 z2|]
+
+X:275
+T:Cerdetshni
+Z:Jack Campin, http://www.campin.me.uk/
+Z:Nigel Gatherer
+M:2/4
+L:1/8
+Q:1/4=100
+K:GMin
+B/A/B/G/ ^FD   |GB      Ad      |c/B/A/G/ ^FD   |GB     A2 |
+B/A/B/G/ ^FD   |GB      Ad      |c/B/A/G/ ^FD   |GB/A/  G2||
+D{^c}d    D{c}d|D{^c}d =c/B/A/G/|D{^c}d    D{c}d|D{^c}d G2 |
+D{^c}d    D{c}d|D{^c}d =c/B/A/G/|D{^c}d    D{c}d|cA     G2|]
+
+
+% == Bosnian Sevdah songs ===================================================
+
+X:276
+T:Moj Dilbere
+Z:Jack Campin, http://www.campin.me.uk/
+S:Muhamed Zero, Sevdah Bosnjaka, Sarajevo 1995
+M:4/4
+L:1/8
+Q:1/4=90
+K:EPhr
+    "E" ^G2 A2 B2 (3cBA|"E"B8         |       \
+    "Am" c3  B c2   d2 |"E"B3 c B2  A2|       \
+    "Dm"^G3  B AG   F2 |"E"E8        ||
+  |:"E"  B3  c d2   c2 |"E"B3 c B2 A^G|"Dm"F6 \
+E2|      D3  E FE  ^GF |"E"E8        :|
+
+X:277
+T:Sarajevo, Divno Mesto
+Z:Jack Campin, http://www.campin.me.uk/
+S:Muhamed Zero, Sevdah Bosnjaka, Sarajevo 1995
+M:3/4
+L:1/8
+Q:1/4=100
+K:GDor
+  (EF)     (G3F) |(GA)    (F3    G/A/)|(BA)   (G3F) | (GA)    F4|
+  (FG/_A/) (c3=B)|(cd)    (c=B _AG)   |(B_A    A4-  | _A6)     ||
+|:(FG/_A/) (c3=B)|(cd/c/) =B4         |(c=B) (_AB2A)|(_AG/F/) G4|
+  (cd)     (c3=B)|(_A=B)  (AG   FG)   | G6-         |  G6      :|
+
+X:278
+T:Cudna jada od Mostara grada
+Z:Jack Campin, http://www.campin.me.uk/
+S:Muhamed Zero, Sevdah Bosnjaka, Sarajevo 1995
+M:2/4
+L:1/8
+Q:1/4=80
+K:EPhr
+^GA (B(3c/B/A/)|[M:4/4] (AB- B6)|A(B/c/) d2 c2 (Bc/B/)|A8|
+|:[M:3/4] dc B2 c2|[M:4/4] BA ^G2 (AG F2)|E8:|
+
+
+% == Balkan dances ==========================================================
+
+X:279
+T:Skudrinka
+Z:Jack Campin, http://www.campin.me.uk/
+O:Macedonia
+M:2/4
+L:1/16
+Q:1/4=120
+K:DMin
+E2D2 D2AG|FEF2 G2C2 |E2D2 D2AG|FEF2 G2C2|
+E2D2 D2AG|FEF2 G2C2 |E2D2 D2G2|D4   D4 :|
+ABcd cBAG|F3C  F>GEC|E2D2 DCAG|F3C  FGEC|
+ABcd cBAG|F3C  FGEC |EDDC G2C2|D4   D4 :|
+
+X:280
+T:Zaplet Kolo
+T:AABBBBB
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/2=120
+K:G
+         d2 B2 c2 A2|B2 G2- GcBA|B2 G2- GcBA|Bc d2- dcBA|[M:2/4] B2 G2:|
+K:C
+|:[M:4/4]G2 E2 F2 D2|E2 C2- CFED|E2 C2- CFED|EF G2- GFED|[M:2/4] E2 C2:|
+
+X:281
+T:Acano mlada nevesto
+Z:Jack Campin, http://www.campin.me.uk/
+S:Ralph B. Iverson
+Z:http://voluntocracy.org/Music
+O:Vardar, Macedonia
+M:11/8
+L:1/8
+Q:3/8=120
+K:DPhr % actually hijaz
+|:D3  d2 d2 c2B2| A2G G2^FG A4 :|
+|:G2G c2 B2 A2G2|^F2E E2DE  F2ED|
+  G2G c2 B2 A2G2|^F2A GFED  D4 :|
+|:DEC DE^FG ABAG| ABc BABG  ADDD|
+  DEC DE^FG ABAG|^FGA GFED  D4 :|
+
+X:282
+T:Rachenitsa
+Z:Jack Campin, http://www.campin.me.uk/
+G:Bulgarian dance
+M:7/16
+L:1/16
+Q:7/16=60 % increasing to 72
+P:AABBBBB
+K:EMin
+P:A
+E2B2  B2B|B2c2  B2A| A4   d2d|  dcBA  G2F:|
+A2AG  A2B|G2GF  F2D| E4   d2d|  dcBA  G2F |
+A2AG  A2B|G2GF  F2D| E4   E2E|  E2E2  E3 ||
+P:B
+K:EPhr
+E2A2 ^G2A|B2A2 ^G2F|^G4   A2A |^G2F2  E3 :|
+D2D2  E2F|A2A2 ^G2F| E4   A^GA| B2A^G A3  |
+D2D2  E2F|A2A2 ^G2F| E3F ^G2F | F2E2  E3 |]
+
+X:283
+T:Alunelul
+Z:Jack Campin, http://www.campin.me.uk/
+O:Romania
+M:4/4
+L:1/8
+Q:1/2=94
+K:DMin
+Mc.=B.c.d (c_B).A.G|.F2 .G2 .A2 z2|Mc.=B.c.d (c_B)AG|.F2 .E2 .D2 z2:|
+ F2   A2  TG4      |.F2 .A2 Tc4   |.F2  .A2  TG4    |.F2 .E2 .D2 z2:|
+
+X:284
+T:Paharelul
+Z:Jack Campin, http://www.campin.me.uk/
+O:Romania
+M:3/2
+L:1/8
+Q:1/2=104
+K:DMin
+  DA3  GF2E G2FE|DA3  GF2E G2FE |
+|:DEFE ED2C G2FE|DEFE ED2C D2D2:|
+
+X:285
+T:Papuselele
+T:ABCA
+Z:Jack Campin, http://www.campin.me.uk/
+O:Dobrogea, Romania
+N:see YouTube for the dance
+M:12/8
+L:1/8
+Q:3/4=62
+N:each bar is 6/8+3/4
+P:ABCA
+K:DDor
+[P:A]      D2C D2C DE F2 E2|D2C D2C DE  F2 E2|\
+           D2C D2C DE F2 E2|D3  A3  D2  D4  :|
+[P:B]      G2F G2F GF E2 D2|D2C D2C DE  F2 E2|\
+           G2F G2F GF E2 D2|D3  A3  D2  D4  :|
+[P:C][K:D] d2d A2A GF E2 D2|D2D A3  F^G A2 z2|\
+           d2d A2A GF E2 D2|D2D A3  D2  D4  :|
+
+X:286
+T:Romanian Tune from Bartok's First Rhapsody, 1928
+Z:Jack Campin, http://www.campin.me.uk/
+N:Bartok took this down from the Romanian fiddler Patru Mos
+N:in 1912.  It's more than coincidentally similar to "Simple
+N:Gifts", so my guess is that tune came from eastern Europe.
+B:Vera Lampert: Nepzene Bartok Muveiben, Budapest 2005.
+M:4/4
+L:1/16
+Q:1/4=110
+K:DMix % Transposed from AMix
+GFGA BGBc  .d2dc  B3c|.d2dc .B2Bc .d2dc [1 .B2.A2:|\
+                                        [2 .B2.G2||
+B3c .d2.D2 .D2.D2 D4 | E3F   GFEF .D2.D2    D4   :|
+
+X:287
+T:Ardeleana de la Recas
+Z:Jack Campin, http://www.campin.me.uk/
+G:Romanian dance tune
+M:4/4
+L:1/16
+Q:1/4=150
+K:DMix
+.F2.G2 .A2B2  c2d2  ddc2 |c2^A/=A/^A =AAA=F AGGF  FEC2|
+ GFG^G  A=GAB cBc2 ^cdd=c|c^AA=A AGFG  AG=FF FEC2|
+({G}(3::2c2)^A4 =A2G2 =F({A}G)F2 FEF2|GFG^A (3::2=A2G AB (3::2c2B c2 cddc|
+c^AA=A AG=FG AGGF FEDE|=FEDD DC[B,D]C D8|]
+
+X:288
+T:Gonxhet qelin drandofillet
+Z:Jack Campin, http://www.campin.me.uk/
+B:Ratislav Blagojevic, Popularna Skola Harmonike, Yugoslavia 1989
+G:Albanian wedding dance, via an accordion arrangement
+M:7/8
+L:1/8
+Q:1/4=120
+K:DDor
+     C({EF}E)E EC   EG    |F(E/F/)D ({EF}E2) Ez   :|
+     cBd       c_B (A/B/)G|FGA           FE (D/E/)C|
+({ED}E2)     G FE  _ED    |D3-           D2  z2   |]
+
+X:289
+T:Vallja E Tri Motrave
+Z:Jack Campin, http://www.campin.me.uk/
+C:Kosovo trad, after Hajdar Dushi on LP 
+D:Jugoton
+D:http://uk.youtube.com/watch?v=IOb1CEEE2hs
+M:C|
+L:1/8
+Q:1/2=96
+K:EPhr ^G
+GAGF GFGA|BAGF EDEF|GAGF GFGA|   BAGF E4 :|
+BcBA BABc|dcBA GFGA|BcBA BABc|   dcBA G4 :|
+GAGF GFGA|BAGF EDEF|GAGF GFGA|   BAGF E4 :|
+Q:1/2=100
+B2c2-c2B2|dcB2 dcB2|A2B2-B2A2|   cBA2 cBA2|
+G2A2-A2G2|BAG2 BAG2|BcBA BAGF|[1 EFGA B4 :|\
+                              [2 E8      ||
+Q:1/2=104
+AB2c BcBc|dcBc A4  |AB2c BcBc|   dcBc A4  |
+GA2B dcBA|cBAG F4  |GA2B dcBA|   cBAG F4  |
+FG2A BAGF|E8      ::\
+[Q:1/2=108]\
+dcBA cBAG|BAGF AGFE|
+                    DEFG GAB2|\
+dcBA cBAG|BAGF AGFE|E8      :|
+Q:1/2=112
+GAGF GFGA|BAGF EDEF|GAGF GFGA|   BAGF E4 :|
+
+
+% == Italian songs and dances =============================================== 
+
+X:290
+T:Antidotum tarantulae
+Z:Jack Campin, http://www.campin.me.uk/
+B:Walter Starkie, The Waveless Plain
+B:Athanasius Kircher, Magnes (1641)
+N:magical antidote for spider bite
+M:C|
+L:1/8
+Q:1/2=100
+K:DMin
+A3A G2cB|AFBA G3 A|B2 D2 D2^C2 |D8:|
+d3d c2dc|BGcB AABA|GF E3E   D2-|D8:|
+
+X:291
+T:Cicerenella
+N:Neapolitan Tarantella
+Z:Jack Campin, http://www.campin.me.uk/
+Z:John Chambers <jc@trillian.mit.edu>
+N:If the D part is used, the order is ADBC or ADABAC.
+M:6/8
+L:1/8
+Q:3/8=142
+P:ADBC
+K:DMin
+P:A
+|:d2d|A2A d2d|A2A A2A | B2B   BcB|B2A
+  ABA|A2G GAG|G2F FGF | F2E   F2E|D2z:|
+P:B
+|:D2E|FEF GFE|FEF GFE | FED  ^CDE|D2z
+  D2E|FEF GFG|AGA BAG | FED  ^CDE|D2z:|
+P:C
+|:CDE|FEF AFA|c2c cdc | c2B   BcB|B2A
+  CDE|FEF AFA|c2c c=Bc|[ce]dc BAG|F2z:|
+P:D
+|:A2B|c2c d2c|B2A G2A | B2B   c2B|A2G
+  F2A|c2c d2c|B2A G2A | BcB   A2G|F2z:|
+
+X:292
+T:Fa la nana
+Z:Jack Campin, http://www.campin.me.uk/
+G:lullaby from Monghidoro
+N:pickup zCDF| is zA,DF| in the original
+M:C
+L:1/8
+Q:1/4=108
+K:DMin
+    DE|F2GA B2A2|E2D2   F2A2|GFG2 E2F2|[1 D2 D4:|\
+                                       [2 D8   ||
+|:     E4   F2G2|F/E/D3 F2A2|GFG2 E2F2|[1 D8   :|\
+                                       [2 D6   ||
+|:  DE|F2GA B2A2|E2D2   F2A2|GFG2 E2F2|[1 D6   :|\
+                                       [2 D8   ||
+|:     E4   F2G2|F/E/D3 F2A2|GFG2 E2F2|[1 D8   :|\
+                                       [2 D4   ||
+|:zCDF|AABc BAAG|E2D2   F2A2|GFG2 E2F2|[1 D2D2 :|\
+                                       [2 D8   ||
+|:     E4   F2G2|F/E/D3 F2A2|GFG2 E2F2|[1 D8   :|\
+                                       [2 D6   ||
+|:  DE|F2G2 BAG2|E2D2   F2A2|GFG2 E2F2|[1 D2 D4:|\
+                                       [2 D2 D6||
+|:     E4   F2G2|F/E/D3 F2A2|GFG2 E2F2|[1 D8   :|\
+                                       [2 D4   ||
+|:D2A2|A2Bc B2A2|E2DD   F2A2|GFGG E2F2|[1 D4   :|\
+                                       [2 D8   ||
+|:     E4   F2G2|F/E/D3 F2A2|GFG2 E2F2|   D8   :|
+       E4   F2G2|F/E/D3 F2A2|GFG2 E2C2|   D8-   |D8|]
+
+X:293
+T:Bandiera Rossa
+Z:Jack Campin, http://www.campin.me.uk/
+M:C
+L:1/8
+Q:1/4=120
+K:C
+P:Verse
+[G,G]C>D|E>E E2- E z/D/C>D|E2 E2-E
+ EF>E   |E2  D2- D z/D/E>D|D2 C2-C
+[G,G]C>D|E>E E2- E z/D/C>D|E2 E2-E
+ EF>E   |E2  D2- D z/E/E>D|C4-   C||
+P:Chorus
+z3|G2 G>G GE-EG|A2G2 F4|
+   F2 F>F FD-DF|G2F2 E4|
+   G2 G>G GE-EG|A2B2 c3
+ A|GG GG  GG GF|E2D2 C|]
+
+X:294
+T:Bella Ciao
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+K:FMin
+CFG|AF3- F\
+CFG|AF3- F
+CFG|A2GF A2GF|c2c2 c
+cBc|dd3- ddcB|dc3- c
+cBA|G2c2 A2G2|F4-  F|]
+
+
+% == French dance tunes =====================================================
+
+X:295
+T:Washerwoman's Branle (in D dorian and G dorian)
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+M:C|
+L:1/4
+Q:1/2=92
+K:DDor
+  DDDD|CCF2|GFED|DCD2::DAFA|GFED:|
+|:DDC2|D2E2|EEEF|GFED |\
+  DDC2|D2E2|GFED|DCD2:|
+K:GDor
+  GGGG|FFB2|cBAG|GFG2::GdBd|cBAG:|
+|:GGF2|G2A2|AAAB|cBAG |\
+  GGF2|G2A2|cBAG|GFG2:|
+
+X:296
+T:Horse's Brawl
+Z:Jack Campin, http://www.campin.me.uk/
+C:Arbeau, Orchesographie, 1689
+M:2/2
+L:1/8
+Q:1/2=84
+K:G
+ G3A  B2B2|c2B2 A2c2|B2A2 G2F2|E4    D4  |
+ G3A  B2B2|c2B2 A2c2|BAG2 G2F2|G4    G4 :|
+ d2cB A2B2|c2BA G2B2|A2G2 F2G2|A4    A4  |
+ d2cB A2B2|c2BA G2B2|A2G2 G2F2|G4    G4 :|
+_B2AG B2AG|F2G2 A4  |D2E2 F2G2|A2_B2 A2G2|
+_B2AG B2AG|F2G2 A4  |D2E2 F2G2|G2 F2 G4 :|
+
+X:297
+T:Laigo
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+N:used in Canteloube's "Songs of the Auvergne"
+M:C|
+L:1/8
+Q:1/2=100
+K:F
+F2GA B2G2|cBcd cBAG|F2GA B2G2|cBcd c4:|
+GABG c2BA|GAGF E2C2|GABG c2BA|GAGE F4:|
+
+X:298
+T:Dans Les Caves
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+M:3/8
+L:1/16
+Q:3/8=66
+K:F
+C2D2E2|F2G2A2|B2G2AB|c2G2E2|C2D2E2|F2G2A2|BAG2F2|G6:|
+B3cB2 |A2G2F2|EFG2E2|F2G2A2|B3cB2 |A2G2F2|EFG2E2|F6:|
+
+X:299
+T:Fil et Bobine
+Z:Jack Campin, http://www.campin.me.uk/
+C:Evelyne Girardon
+S:Cam-French Tune Book
+M:3/8
+L:1/16
+Q:3/8=66
+K:C
+EF|G2c2B2|G3FGA|_B2A2F2|GAGFEF|G2c2B2|G3FGA|  _B2A2F2|G4:|
+EF|G2E2C2|D3CDE| F2E2C2|DEFDEF|G2E2C2|D3CDE|[1 F2E2C2|D4:|\
+                                            [2 F2EFED|C4||
+
+X:300
+T:Bourree
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+O:trad. Auvergne
+M:3/8
+L:1/16
+Q:3/8=69
+P:ABCCD
+K:F
+[P:A] F4  E2|F4  E2|F6   ||
+[P:B] GAGFEG|F2FGAB|c2BcBA|   GAG2F2|
+      GAGFEG|F2FGAB|ccBcBA|[1 G2 c4:|\
+                           [2 G6   ||
+[P:C] GABAGA|F2GAGF|E2DCDE|[1 F2 G4:|\
+                           [2 F6   ||
+[P:D] F2ABcd|c2ABAG|F4  E2|   F6   |]
+
+X:301
+T:Bourree Carre de la Chatre
+Z:Jack Campin, http://www.campin.me.uk/
+A:Berry
+M:2/4
+L:1/16
+Q:1/4=122
+K:C
+G2|C3D E2F2|G4   G4  |A3B c2A2|G3F  E2D2|
+   C3D E2F2|G4   G4  |A3B c2A2|G6      :|
+G2|E3C E2G2|FGFE D2E2|F3E F2A2|GAGF E2G2|
+   E3C E2G2|FGFE D2E2|F3G A2B2|c6      :|
+
+X:302
+T:Adele Blanc-Sec
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=144
+C:Frederic Paris 
+R:Schottische
+Z:Steve Mansfield 12/3/00
+K:DMin
+FEFA GFGB|A2 E4 FG|A3A  BABc|   A6 G2|
+FEFA GFGB|A2 E4 FG|A2GF EFGA|[1 D8  :|\
+                             [2 D6  ||
+FA|:d2cB ABcd|GABc A3A|B2AG E3B|AGEG F2D2 |
+    d2cB ABcd|GABc A3A|B2AG E3B|AGEF D4  :|
+
+X:303
+T:Il est bien temps
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+K:GMin
+D2|G4 A2B2|A3G ^F2D2|G4  A2B2 |c3B   A2B2|
+   G4 A2B2|A3G ^F2D2|G3B A2^F2|G6       :|
+D2|G4 A2B2|c3B  A2B2|d4 ^c2B2 |ABAG ^F2D2|
+   G4 A2B2|c3B  A2B2|G3B A2^F2|G6       :|
+
+X:304
+T:Avant-deux violette
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/8
+Q:1/4=126
+K:EMin
+  B2    BA|B2 G2|A>B   AF|G2 E2:|
+|:EF/G/ AB|GF GE|EF/G/ AB|GF E2:|
+
+X:305
+T:Bourree Tournante du Val de Loire
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+M:3/8
+L:1/8
+Q:3/8=66
+K:Bb
+FGA|B2c|B/A/GF|B3 |GAB|c2d|   c/B/AG|F3:|
+d2c|BAG|c2B   |AGF|A2G|FGA|[1 Bc^c  |d3:|\
+                           [2 Bdc   |B3|]
+
+X:306
+T:Bourree Tournante des Grandes Poteries
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+M:3/8
+L:1/8
+Q:3/8=66
+K:F
+A/B/|cAc|c/A/FA/B/|cAc|c2 G/A/|BGG|G2 F/G/|   AFF|[1 F2 :|\
+                                                  [2 FED||
+     C2D|C2D      |EFG|A3     |GFG|FED    |[1 CDC|   A2F:|\
+                                           [2 CAG|   F2 |]
+
+X:307
+T:Cochinelle
+Z:Jack Campin, http://www.campin.me.uk/
+C:Jean Blanchard
+S:Cam-French Tune Book
+M:3/8
+L:1/16
+Q:3/8=66
+K:C
+EF|G2c2B2|A2G2F2|GAGFDF|E2CDEF|G2c2B2|A2G2F2|GAGFDE|   C4  :|
+EF|GECAFD|GECAFD|GAGFDF|E2CDEF|GECAFD|GECAFD|GAGFDE|[1 C2CD:|\
+                                                    [2 C4  |]
+
+X:308
+T:Bourree d'Aragon
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+M:3/8
+L:1/8
+Q:3/8=66
+K:DDor
+DFG|AcB|GFD|A>Bc|dcB|A>Bc|   dcB|G3 :|
+dcA|cAG|AGF|GFD |DFA|G>FG|[1 ABc|BGA:|\
+                          [2 AGF|D3 |]
+
+X:309
+T:La Charge
+Z:Jack Campin, http://www.campin.me.uk/
+C:Manu Paris
+S:Cam-French Tune Book
+M:2/4
+L:1/8
+Q:1/4=150
+K:DMin
+D2  FE-|EG AG|D>E FE-|EFEC|D>E FE-|EG AG|D>E FG-|G4 :|
+A3   B-|B2 GF|E>F GF-|F4  |D>F EG |FF ED|E2  DG-|GEFG|
+A>B cB-|B2 GF|E>F GF-|F4  |D>F EG |A2 GF|E3   D-|D4 |]
+
+X:310
+T:Le Lezard
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://accordeontab.canalblog.com
+M:2/4
+L:1/16
+Q:1/4=120
+K:AMin
+G2ed c2GF|F2F2 F2de|B2B2 BAeB|c2Bc G4  |
+G2ed c2GE|F2F2 F2dc|B2B2 BGed|c4   c4 :|
+ABcd e2e2|e2dc A4  |BcBG B2B2|ABcB A2E2|
+ABcd e2e2|e2dc A4  |BcBG B2B2|ABcd A4 :|
+
+X:311
+T:La Cinquantaine
+T:Golden Wedding
+Z:Jack Campin, http://www.campin.me.uk/
+C:Jean Gabriel Marie (1852­1928)
+M:4/4
+L:1/8
+Q:1/2=84
+K:DMin
+F2|D2 A2 A2 A2|A2 GA B4   |    D2 A2 A2 A2|A2 GA B4   |
+   d2 cB A2 G2|F2 ED E2 F2|[1 TE6       D2|E6        :|\
+                           [2 TE6       F2|D6        ||
+z2|D2 c2 c2 c2|c2 Bc d2 A2|    B3  c dc`BA|G6       z2|
+   C2 B2 B2 B2|B2 AB c2 G2|    A3  B cB`AG|F8         |
+   E2 A2 A2 E2|FG`FE D2 F2|    E2 A2 A2 E2|FG`FE D2 F2|
+   E2 A4    F2|E2 A4    F2|    E2 z2 A4-  |A6       A2|
+   D2 A2 A2 A2|A2 GA B4   |    D2 A2 A2 A2|A2 GA B4   |
+   d2 cB A2 G2|F2 ED E2 F2|   TE6       F2|D6        |]
+
+X:312
+T:Ganivelle
+Z:Jack Campin, http://www.campin.me.uk/
+C:Frederic Paris
+S:http://simonwascher.info
+M:2/4
+L:1/16
+Q:1/4=72
+K:D
+|:DE|F3A E2DE|F2D2 D2EF|GFGA GFED|E3F E2
+  DE|F3A E2DE|F2D2 D2EF|GFGA BAGF|E6  :|
+|:A2|B3A G2FG|A2D2 D2A2|B3A  G2FG|A3B A2
+  GA|B3A G2FG|A2D2 D2EF|GFGA GFED|E6  :|
+
+X:313
+T:Le Canal En Octobre
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+C:Frederic Paris
+G:Schottische
+Z:Steve Mansfield
+K:G
+|:DGA|B3c cBAG|B3c cBAG|EFGB A3G|FGEF D2
+   GA|B3c cBAG|B3c cBAG|EFGB A3G|G4   z:|
+|:zdd|d3c cBAG|d3c cBAG|EFGB A3G|FGEF D2
+   Bc|d3c cBAG|d3c cBAG|EFGB A3G|G4   z:|
+
+X:314
+T:Valse du grand banc
+Z:Jack Campin, http://www.campin.me.uk/
+C:Dominique Dimey 
+S:sheet by Bernard Loffet, in A minor
+M:3/4
+L:1/4
+Q:3/4=64
+K:DMin
+A|D2D|E2E|F2E|D2F|A2F|G2G|A3|
+                                GFE|D3-|D2::\
+d|c2A|B2G|A2F|G2d|c2A|
+                      B2G|A3|[1 GFG|A3-|A2:|\
+                             [2 GFE|D3-|D2|]
+
+X:315
+T:Cafe Waltz
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/8
+Q:3/4=60
+Z:Steve Mansfield
+K:EMin
+      B4    G2|E3   F G2|A2  AG FE|   D2 E2 F2|\
+      G2 F2 G2|A2 ^G2 A2|
+                         B2 ^A2 B2|   A6      |\
+      B4    G2|E3   F G2|A2  AG FE|   D2 E2 F2|
+      G2 F2 G2|A2  F2 A2|B2 _B2 A2|[1 G6     :|\
+                                   [2 G3     |:\
+  FGE|D4    G2|E2  c2 B2|
+                         A2  d2 c2|   B3   AGE|\
+      D4    G2|E2  c2 B2|A2  G2 F2|[1 G3     :|\
+                                   [2 G4     ||
+|: A2|BG EG BG|BG  EG BG|cA  FD FA|   cA FD FA|
+      BG EG BG|BG  EG BG|cA  FD FA|[1 G4     :|\
+                                   [2 G6     |]
+
+X:316
+T:En Avant Blonde (valse) in D minor
+Z:Jack Campin, http://www.campin.me.uk/
+S:Italian accordion site
+M:3/4
+L:1/8
+Q:3/4=64
+K:DMin
+D2 F2 G2|A4    A2|C2 E2 F2|G4    G2|G2 F2 E2|D4    F2|E4    C2|D6:|
+A2 AG FG|A2 F2 D2|G2 GF EF|G2 E2 C2|A2 AG FG|A2 F2 D2|G2 E2 C2|D6:|
+
+X:317
+T:En Avant Blonde (valse) in G minor
+Z:Jack Campin, http://www.campin.me.uk/
+S:Italian accordion site
+M:3/4
+L:1/8
+Q:3/4=64
+K:GMin
+G2 B2 c2|d4    d2|F2 A2 B2|c4    c2|c2 B2 A2|G4    B2|A4    F2|G6:|
+d2 dc Bc|d2 B2 G2|c2 cB AB|c2 A2 F2|d2 dc Bc|d2 B2 G2|c2 A2 F2|G6:|
+
+
+% == Breton songs and dance tunes ===========================================
+
+X:318
+T:Toutouik
+Z:Jack Campin, http://www.campin.me.uk/
+G:lullaby
+M:6/8
+L:1/8
+Q:3/8=62
+K:GDor
+z|B2B A2A|G2G D2D|B2B AGF|G3- G2:|
+G|dBd cAc|BGB A2G|dBd cAc|BGB A3 |
+  B2B A2A|G2G D2D|B2B AGF|G3- G2|]
+
+X:319
+T:An Alarh
+Z:Jack Campin, http://www.campin.me.uk/
+N:Breton ballad tune Morris Blythman borrowed for "The Twa Corbies".
+N:This is the way Blythman himself sang it, not the way it's
+N:most often done nowadays, with a regular rock-and-roll beat.
+S:Kendal'ch: "Kanomp Uhel", Cooperative Breizh, La Baule, 1977
+M:2/4
+L:1/8
+Q:1/4=84
+K:GMin
+  D|       G  A      B  z | G2 F      F   |[M:2/8] G
+w:Eun      a- larc'h eun,   a- larc'h tre-         mor
+  D|[M:2/4]G  A      B  z | G2 F      F   |[M:2/8] G
+w:Eun      a- larc'h eun,   a- larc'h tre-         mor
+  B |[M:2/4]B    c    d>    d   |c>   B  (B2 | A4) ||
+w:War       lein tour moal  kas- tell Ar- vor_!
+P:Chorus
+   G   A    B     A/   G/ | G    F/   F/  G z |HD2 z2|
+w:Din! din! daon! d'an em-  gann d'an em- gann, o!
+  G    A    B     A/   G/ | G    F   HG2     |]
+w:Din! din- daon! d'an em-  gann ez   an!
+
+X:320
+T:Tri martolod
+Z:Jack Campin, http://www.campin.me.uk
+S:GIF score at http://per.kentel.pagesperso-orange.fr/martold3.htm
+M:C
+L:1/8
+Q:1/4=120
+K:GDor
+c|BA  G2 G2 F2 |BA  G2 GF/E/ D
+E|FD  G2 G2 F F|BA  GG F2    G
+D|DD  G2 G2 F2 |BA  G2 GF/E/ D 
+E|FD  G2 G2 F F|BA  GG F2    G 
+D|G>F GA BB AB |c>B AG B2    A 
+D|G>F GA BB AB |c>B AG B2    A|]
+
+X:321
+T:Hanter-dro
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cam-French Tune Book
+M:2/4
+L:1/8
+Q:1/4=200
+K:C
+C2 EF|G2 A2|G4   |c2 BA|G2 E2|[1 F2 G2:|\
+                              [2 G4   ||
+G2 AG|C2 D2|E2 C2|DE F2|E2 C2|   D2 D2 |
+G2 AG|C2 D2|E2 C2|DE F2|E2 D2|   C4   :|
+
+X:322
+T:An Anglezed bonetou ruz
+Z:Jack Campin, http://www.campin.me.uk/
+N:http://www.youtube.com/watch?v=J53TgNy6jXI
+M:C|
+L:1/8
+Q:1/2=96
+G:an dro
+K:AMin
+E|A2B2 c3B|cBAc B2AB|c2Bc A3c|BAGA B3:|
+E|A2B2 c3c|B2AB G4 ||\
+  A2GF E3A|B2c2 A2E2|A2GF E3A|B2c2 A3||
+
+
+X:323
+T:Erwan's An Dros
+Z:robin.beech@mcgill.ca
+Z:Jack Campin, http://www.campin.me.uk/
+C:each section 16 bars
+M:2/4
+L:1/16
+Q:1/4=144
+K:DMin
+P:A
+D2A2 A2G2|A2GF E2F2|D2A2 A2G2|[1 E2F2 E4:|\
+                              [2 E2F2 D4||
+G2F2 E4  |G2F2 E4  |F4   D4  |   A4   G4 |\
+F4   G2A2|F2E2 D2D2|F4   G2A2|   F2E2 D4:|
+P:B
+D2A2 A2GA|B2A2 GFEF|G2G2 A2G2|[1 FEDE F3E:|\
+                              [2 FEDE D4 ||
+D2D2 E2FE|D2D2 EDEF|G2G2 A2G2|[1 FEDE F3E:|\
+                              [2 FEDE D4 ||
+P:C
+K:AMin
+A2GA E3D|C3D  E2E2|A2GA E3D|C3D  E4:|
+E2AB c3A|G2A2 B2B2|E2AB c3A|G2B2 A4:|
+P:D
+K:DMin
+G2AG F3D |F2E2 DEFD|G2AG F3D|   F2E2 D4:|
+CF2D E2E2|CF2D E4  |G2AG F3D|[1 F2ED C4:|\
+                             [2 F2E2 D4|]
+
+X:324
+T:St Patrick's An Dro
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.breizh-partitions.fr
+M:4/4
+L:1/8
+Q:1/4=116
+K:DMin
+D/E/F/E/ DA   FDEA|G/A/G/F/ E>D  FD       E2 |
+D/E/F/E/ DA   FDEA|G/A/G/F/ ED   F/D/E/F/ D2:|
+D/E/F/G/ A>A  GcAF|D/E/F/A/ G>A  G/A/G/F/ E2 |
+D/E/F/G/ A>A  GcAF|D/E/F/A/ G>E  F/E/E/C/ D2:|
+
+X:325
+T:Kerfank 1870
+Z:Jack Campin, http://www.campin.me.uk/
+G:Breton an dro
+N:The usual tune for this song (by Tri Yann) is part B of "Erwan's
+N:An Dros".  I got this one off a Belgian diatonic accordion site.
+M:4/4
+L:1/16
+Q:1/4=144
+K:DMin
+A2AB A2AG F2E2 D4|G2G2 EDC2 DEFG ABA2|\
+A2AB A2AG F2E2 D4|G2G2 EDC2 DEFE D4 :|
+A2c2 D4   A2c2 E4|G2G2 EDC2 DEFG ABA2|\
+A2c2 D4   A2c2 E4|G2G2 EDC2 DEFE D4 :|
+
+X:326
+T:Theme Vannitaise
+Z:Jack Campin, http://www.campin.me.uk/
+N:often used in England for Morris dance
+N:also works on the chalumeau in D minor or G minor
+M:C|
+L:1/8
+Q:1/2=72
+K:EMin
+E2B2 B2AB|G2E2 E4  |A2AG F2FE|DEFA G2F2|
+E2B2 B2AB|G2E2 E4  |A2AG F2FE|DEFA E4 :|
+EFGF EFGF|EFGA B2G2|DEFE D3 E|F2A2 G2F2|
+EFGF EFGF|EFGA B2G2|DEFE D3 A|G2F2 E4 :|
+
+X:327
+T:Piler Lan
+Z:Jack Campin, http://www.campin.me.uk/
+B:Lawson, European Folk Dance
+M:4/4
+L:1/8
+Q:1/4=120 % guess
+K:F
+        FF AG FE F2|[M:5/4] FG AB c2 c4 |
+[M:4/4] cc dc BA G2|[M:5/4] BB dc BA F4:|
+[M:4/4] FG FG A2 A2|[M:5/4] Ac BA G2 G4 |
+[M:4/4] cc dc BA G2|[M:5/4] AB AG c2 c4 |
+[M:4/4] cc dc BA G2|[M:5/4] AB AG F2 F4:| 
+
+
+% == Spanish songs and dances ===============================================
+
+X:328
+T:Gypsy Dance
+Z:Jack Campin, http://www.campin.me.uk/
+S:J. Spencer Curwen, "Folk Songs of Many Lands"
+M:3/8
+L:1/8
+Z:Nigel Parsons
+K:GMin
+z DD |d2  d|d2 c|c2  B|z AB|d A2|   B G2|(^F2 D):|
+z D^F|A2 ^F|z GA|G2 ^F|z GA|B G2|   A F2| (E2 D):|
+z DD |d2  d|d2 c|c2  B|z AB|d A2|[1 B G2|(^F2 D):|\
+                                 [2 c2 B|  G3-   |G z2|] 
+
+X:329
+T:Panda's Asturian Tune
+Z:Jack Campin, http://www.campin.me.uk/
+M:C|
+L:1/8
+Q:1/2=100
+N:learnt (in B minor) from my one-time bandmate Panda Smith
+N:who learnt it at a Rainbow Gathering in Portugal; I don't
+N:know if it has a name
+K:DMin
+           |:DEDC D2E2|FEFE D2A2|DEDC DECE|D4   z2 [1 A2:|
+[2 D/E/F/G/||A3 G FCFA|A2AG F3 F|F2C2 F2A2|GAGF E4       |
+             DFFF CFFF|EGFE D2GF|EDCD E2FE|EGFE D4      |]
+
+X:330
+T:Galician Solstice Song
+Z:Jack Campin, http://www.campin.me.uk/
+N:learnt from my one-time bandmate Panda Smith,
+N:who got it at a Rainbow Gathering in Portugal
+M:2/4
+L:1/8
+Q:1/4=100
+K:EMin
+  AA/G/ F/E/D|GG Fz|A/B/A/G/ F/E/D|GG Fz:|
+|:EE/E/ FF/F/|DC Cz|EE/E/    FF/F/|DE Ez:|
+
+X:331
+T:Muineira De Chantada
+T:ABA
+Z:Jack Campin, http://www.campin.me.uk/
+G:Galician pipe tune
+N:there are many variants of this
+N:replace the low C sharp with a repeated E if necessary
+M:6/8
+L:1/8
+Q:3/8=112
+P:ABA
+K:DMin
+P:A
+D3 |D3- (4DEFG|A3-  A2A |A>GA B2A |   A3   E3  |
+    E3    F>GA|B3-  B>AG|A>BA G>FE|   F2E  D3  |
+    D3- (4DEFG|A3-  A2A |A>GA d2c |   c3   B3  |
+    d>^cd E2d |d3   A3  |A>BA G>FE|[1 D3-     :|\
+                                   [2 D3      ||
+P:B
+K:D
+d2c|A2B   c2A |B3   A2G |E2F  G2A |   F2D  d2c |
+    A2B   c2A |B>AB A2G |E2F  G2A |[1 D3      :|\
+                                   [2 D3-  D  ||
+ dA|c2B-  B>GE|B2A- A>FD|A2G- G>EC|   B2A- A>dA|
+    c2B-  B>GE|B2A- A>FD|A2G- G>EF|[1 D3-  D  :|\
+                                   [2 D3-     ||
+
+X:332
+T:De colores
+Z:Jack Campin, http://www.campin.me.uk/
+N:Habanera rhythm
+S:Musica Tradicional Asturiana, (C) Tello & Tito. Asturies, 2001.
+M:2/4
+L:1/8
+Q:1/4=56
+K:C
+G3 F|F<E-    EE/F/|G/GG/   GF/E/|G/GG/    GF/E/ |G<F- F2|
+A3 G|G<F-    FF/G/|A/AA/   AG/F/|A/AA/    AG/F/ |A<G- G2|
+G3 F|F<E-    EE/F/|G/GG/   GF/E/|G/GG/ (3_BBB   |A3    ||
+F/G/|A/AA/ (3ABA  |A/GG/ (3GAG  |G/FG/    A/G^F/|G3
+F/G/|A/AA/ (3ABA  |A/GG/ (3GAG  |G/FG/    A/GF/ |E4    |]
+
+X:333
+T:Song of the International Brigades
+Z:Jack Campin, http://www.campin.me.uk/
+C:Espinosa/Palacio
+B:Requena Gallego: Canciones de las Brigadas Internacionales
+M:C
+L:1/8
+Q:1/4=120
+K:F
+P:Verse
+C>C|F2  F2  F>F ED | C4  F2 \
+F>G|G2  G2  G>G AB | c4- cz
+B>c|d2  d>d dc  Bd |(c4  F2)\
+G>A|B2  B>A GD  EF | G4- Gz
+B>c|d2  d>d dc  Bd |(c4  F2)\
+G>A|B2  B>A GC  GA | F4- Fz
+C>D|C2  G>G GG  AG | F4  C2 \
+F>E|D2  D>E FE  FA | G4- Gz||
+P:Chorus
+B>c|d>d dd (dc) B>d|(c4  F2)\
+G>A|B2  B>A GD  EF | G4- Gz
+B>c|d>d dd (dc) B>d|(c4  F2)\
+G>A|B2  B>A GC  GA | F4- Fz|]
+
+
+% == Basque songs ===========================================================
+
+X:334
+T:Madalen Busturingo
+Z:Jack Campin, http://www.campin.me.uk/
+B:J.M. de Arratia, Cancionero Popular del Pais Vasco
+M:3/4
+L:1/8
+Q:1/4=120
+K:F
+AA/B/ cc/c/ c2|BB/B/ AA G2 |\
+BB/c/ dd/d/ d2|cc/c/ BB A2:|
+cc/c/ BB/B/ A2|c2    cA G2 |\
+BB/c/ dd/d/ d2|cc    BB A2:|
+
+X:335
+T:Jaun Kaputxin
+Z:Jack Campin, http://www.campin.me.uk/
+B:J.M. de Arratia, Cancionero Popular del Pais Vasco
+M:2/4
+L:1/8
+Q:1/4=100
+K:GMin
+G2 ^FG|A2 A2|B2  B2|A4 |\
+G2 =FG|A2 G2|F2 =E2|D4 |
+G2 ^FG|A2 A2|B2  B2|A4 |\
+d2  dc|d2 A2|B2  A2|G4|]
+
+X:336
+T:Binbili bonbolo
+Z:Jack Campin, http://www.campin.me.uk/
+B:Vingt-cinq Chansons d'Euskal Herria, Bayonne 1928
+M:2/4
+L:1/8
+Q:1/4=120
+K:AMin
+E2  EE |A2 AA|^G2 B2|A4   |c2 cB|d2 cB| A2 ^G2|A4 |
+c2  cc |c2 G2| A2 AA|A2 E2|F2 F2|E2 A2|^G2  B2|A4 |
+E2 ^F^G|A2 AA|^G2 B2|A4   |c2 cB|d2 cB| A2 ^G2|A4 |
+c2  cc |c2 G2| A2 AA|A2 E2|F2 F2|E2 A2|^G2  B2|A4|]
+
+X:337
+T:Galaien Escu Dantza
+Z:Jack Campin, http://www.campin.me.uk/
+B:Collection published in Donostia, 1826
+N:probably needs half-holing
+M:2/4
+L:1/8
+Q:1/4=112
+K:C
+z   |c2     cc |c2  B>A|   GF  ED   |{G} E2 D2 |\
+     G>G    GG |G>G FG |   A>G FE   |    D2 z :|
+K:Eb
+G/A/|B2     B>B|B2  AG |   A>G AF   |    G2 F2 |\
+     B>B    BB |cB  AG |   FF  AD   |    E2 z2||
+K:CMin
+     G>G    GG |GA =Bc |   cc  cd/c/|{c}=B2 G2 |\
+     cc/=B/ cG |AG  FE |{D}E3   D   |    C2  z|]
+
+
+% == Catalan songs and dance tunes ==========================================
+
+X:338
+T:El Cant dels Ocells
+Z:Jack Campin, http://www.campin.me.uk/
+G:Christmas carol
+M:2/4
+L:1/8
+Q:1/4=72
+K:DMin
+A   | DE  FG|    A3        d    |   ^cA B=c|A3       \
+B   | cB  dd|   ^c>B A2         |        
+      A4    |   ^FG  AB         |    G3   G|cB AG|A3 \
+G/F/|(EF) GF|    A4             |    D2 z2 |
+      A4    |   ^FG (A/B/)(c/B/)|({B}G3)  G|cB AG|A3 \
+G/F/| EF  GF|({F}A4)            |    D4-   |D3  |]
+
+X:339
+T:L'Abat dels Boigs
+Z:Jack Campin, http://www.campin.me.uk/
+G:for the sac des gemecs (Catalan bagpipe)
+M:3/4
+L:1/8
+Q:1/4=136
+K:C
+E>F|G2 G2 E>F|G2 G2 A>G|F>E F>G A>A|G2 E2
+E>F|G2 G2 E>F|G2 G2 A>G|F>E F>G A>G|E4 :|
+E>G|c4    B>A|G4    A>G|F>E F>G A>G|G2 E2
+E>G|c4    B>A|G4    A>G|F>E F>G A>G|E4 :|
+
+X:340
+T:El Nero
+S:CD WKPD-95 no 38, Ball de Bastons Catalunya, track 40
+S:Ball de Bastons de Castellar del Valles
+G:for a small accordion, rattle accompaniment
+M:2/4
+L:1/16
+K:C % original key
+P:intro
+Q:1/4=75
+CD|E2DC D2CD|E2DC D4   |G2EG A2FA|            G2F2 E2
+CD|E2DC D2CD|E2DC D4   |G2EG A2FA|            G2F2 E4||
+P:dance
+Q:1/4=82
+   G2Ez G2Ez|AGFE F2Dz|F2Dz F2Dz|[1           GFED E4:|\
+                                 [2           GFED C2||
+CD|E2DC D2CD|E2DC D4  |G2EG A2FA|             G2F2 E2
+CD|E2DC D2CD|E2DC D4  |G2EG A2FA|"^on repeats"G2F2 E4||\
+                                 "^last time" G2B2 c4|]
+
+X:341
+T:La Creu
+Z:Jack Campin, http://www.campin.me.uk/
+S:CD WKPD-95 no 38, Ball de Bastons Catalunya, track 13
+S:Ball de Bastons de Llorenc del Penedes
+G:for the gralla (small shawm), rattle accompaniment
+M:2/4
+L:1/8
+K:DMix
+P:intro
+Q:1/4=125
+A/A/|(3ABA (3GFE|  D2  zA/A/|(3ABA (3GFE|  D2  z2||
+P:dance
+Q:1/4=155
+    |: A>F   A>F|(3GFE F>D  |  A>F   A>F|(3GFE D2 |
+       D>F   A>A|(3AGA B2   |  G>A (3BAB|(3dcB A2 |
+       D>F   A>A|(3AGA B2   |  dz  (3ABA|(3GFE D2:|
+
+X:342
+T:La Dragona
+Z:Jack Campin, http://www.campin.me.uk/
+S:CD WKPD-95 no 38, Ball de Bastons Catalunya, track 19
+S:Bastoners de Vilafranca del Penedes
+N:for the gralla (small shawm), rattle accompaniment
+M:2/4
+L:1/8
+Q:1/4=212
+K:F
+P:intro
+  zC|FG AB| c2  cd|cB AG|B2 \
+  AC|FG AB| c2  cd|cB AG|F2||
+P:dance
+|:zC|FG AB| c2  cd|cB AG|B2 \
+  AC|FG AB| c2  cd|cB AG|F2  
+  zC|F2 C2| F3   A|GA Bc|A>G\
+  FC|F2 C2| F3   A|GA BG|F2
+  zA|GA Bc|TA>G FA|GA Bc|A3 \
+   A|GA Bc|TA>G FA|GA BG|F2:|
+
+X:343
+T:La Sardaneta
+Z:Jack Campin, http://www.campin.me.uk/
+S:CD WKPD-95 no 38, Ball de Bastons Catalunya, track 50
+S:Bastoners d'Artes
+N:for the violin
+M:2/4
+L:1/8
+K:DMin % original key
+P:intro
+Q:1/4=128
+       DE    FG   |AG  AB|BB Bc|A F2 A|AG FE|F D2 A|AG EF|D2 z||
+P:dance
+Q:1/4=146
+|:d/d/|dd/d/ dd/d/|d c2 B|BB Bc|A F2 A|AG FE|F D2 A|AG EF|D2 z:|
+|:z   |DE    FG   |AG  AB|BB Bc|A F2 A|AG FE|F D2 A|AG EF|D2 z:|
+
+
+% == Arabic songs and dance tunes ===========================================
+
+X:344
+T:Ah Ya Zayn
+Z:Jack Campin, http://www.campin.me.uk/
+N:Egyptian dance song
+M:2/4
+L:1/16
+Q:1/4=100
+K:EPhr
+^GA|B6 ^GA|B6     ^GA|BcBA BcBA|^G6
+ B2|A6 ^GA|BcBA ^GFE2|BAA^G GFFE|EF^GA B2
+ cB|A6 ^GA|BcBA ^GFE2|BAA^G GFFE|E2z4 |]
+
+X:345
+T:Bafta Hindi
+Z:Jack Campin, http://www.campin.me.uk/
+B:Baheega Sidky Rasheed, Egyptian Folk Songs
+N:very similar to the Neapolitan Tarantella
+M:2/4
+L:1/8
+Q:1/4=132
+K:DMin
+dd AA     |dd  AA    |AA  Bd     |^cB A2 |
+AA (B/A/)G|GG (A/G/)F|FF (G/F/)E| ED A2 |
+AA (B/A/)G|GG (A/G/)F|FF (G/F/)E| ED D2|]
+
+X:346
+T:Bint il Shalabeya
+Z:Jack Campin, http://www.campin.me.uk/
+B:Baheega Sidky Rasheed, Egyptian Folk Songs
+N:tenuously related to the Fairouz tune
+M:6/4
+L:1/8
+Q:3/4=48
+K:EPhr
+C2 E2 EF|(G3F)      E2 G2 F2 G2| GF (FE) HE2
+A2^G2 A2|(BA) (A^G) F2 A2 F2 A2|^GF  FE  HE2|]
+
+X:347
+T:Fug al-Nakhal
+N:Iraqi lyrical song
+Z:Jack Campin, http://www.campin.me.uk/
+C:Uthman al-Muwsli
+T:ABCAB
+P:ABCB
+M:C
+L:1/8
+Q:1/4=120
+K:AMin
+P:A
+L:1/8
+ z2(EA A2A2)|(A3BA2)           (^GA)|(BcBA A^GF2)|(^G4   AGFE):|
+P:B
+ z2(EA A2A2)|(A3BA2)           (^GA)|(BcBA A^GF2)|(^G4   AGFE) |
+(BA`A^G GFFE | F3)(F/E/ D/E/D/E/ FE)|(BAA^G GFFE)|(EF^GA BGA2)||
+P:C
+L:1/16
+z2 (cB cdcB) (BcBA) (ABA^G |^G2)(BA BcBA) (ABAG) (GAGF|
+F2)(A^G ABAG) (GAGF) (FGFE)|E2``F2`^G2A2   B2G2   A4 :|
+
+X:348
+T:Ya Abud
+Z:Jack Campin, http://www.campin.me.uk/
+G:Arabic dance tune for folk double clarinet, popular in Israel
+N:gracenotes omitted
+M:4/4
+L:1/8
+Q:1/4=120
+K:GMin
+GGGG    _ABAG    |GGGG    _ABAG |GGGG    _ABAG   |dc/B/_AG ABAG:|
+BG_AF    GAB2    |BG_AF    GAB2 |BG_AF    GAB2   |BG_AF    GAB2 |
+BB_A/G/A BB_A/G/A|BB_A/G/A B_AB2|BB_A/G/A BBA/G/A|BB_A/G/A BAc2 |
+c2BB     c2BB    |c2Bc     dcc2 |c2BB     c2BB   |c2Bc     dcc2 |
+GBBB    _c2B2    |GBBB    _c2B2 |GBBB    _c2B2   |GBBB    _c2B2 |
+BG_AG    AGAG    |GABd     cBB2 |BG_AG    AGAG   |GABd     cBB2|]
+
+
+% == Japanese songs and tunes ===============================================
+
+X:349
+T:Yotto Na
+Z:Jack Campin, http://www.campin.me.uk/
+B:Hootenanny Song Book
+G:Japanese miners' song
+M:C
+L:1/8
+Q:1/4=100
+K:GDor
+P:Verse
+d4|B2  BB cc dd|c8      |B4    G2 F2|D2 F2 G2 B2|G8 |
+   D>D D2 F2 G2|B2 G2 c4|d2 B2 G2 F2|D2 F2 G2 B2|G8||
+P:Refrain
+G>F G4 G>F|G4|]
+
+X:350
+T:The Flower of Hokkaido
+Z:Jack Campin, http://www.campin.me.uk/
+C:Sojiro
+M:2/4
+L:1/8
+Q:1/4=120
+K:DDor
+.D.A .D.A|.D.A A/G/F/E/| FD  D/E/F|.G.F  E2 |
+.D.A .D.A|.D.A A/G/F/E/| FD  D/E/F| EC   D2:|
+ d2   c>c|.d.A F2      | G>A c>c  |.A.G .A.c|
+ d2   c>c|.d.A F/G/A/G/|.F.D D/E/F|.E.C  D2:|
+
+
+% == Scandinavian songs and dance tunes =====================================
+
+X:351
+T:Herr Mannelig
+Z:Jack Campin, http://www.campin.me.uk/
+G:old Swedish ballad
+S:YouTube video http://www.youtube.com/watch?v=9SSSYx6Jl7U
+N:http://www.youtube.com/watch?v=HB27Az3xIpU for the text
+M:4/4
+L:1/8
+Q:1/4=132
+K:DMin
+A|ABAG F2 DE|FGFE D2DE|        F2  FF    G2 FG|        A4 F3
+A|ABAG F2 DE|FGFE D2DE|        F4        G>GFG|        A4 F3
+A|ABAG FF DE|FGFE D2DE|        F4        G2 FG|        A4 c2z
+A|ABAG F2 DE|FGFE D2DE|[M:2/4] FG- GF/E/      |[M:4/4] D4 z3|]
+
+X:352
+T:Lugum Leik
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/2=72
+G:Norwegian wedding march?
+C:efter Hans W. Brimi 
+Z:Richard Robinson <richard@beulah.demon.co.uk>
+K:DDor
+A2| D2ED C2C2|D2F2 A2c2|cBAG B2Bc|[1 A2 AF D2   :|\
+                                  [2 A2 A4    cB||
+|:[M:4/4] G2G4 AF|D2D4 FD|C2C2 E2EF|  [M:2/4] D2 DF|[M:4/4] A2 A4            cA |
+          G2G4 AF|D2D4 FD|C2C2 E2EF|[1        D2 D2         D2 FA|[M:2/4] A2 cA:|\
+                                    [2        D2 D2         D2  |]
+
+X:353
+T:Emma
+Z:Jack Campin, http://www.campin.me.uk/
+G:Finnish waltz
+M:3/4
+L:1/4
+Q:3/4=60
+K:DMin
+D|AAA|FDF|AAA|FDF|EEE|GFE|D2D|D2:|
+A|d2d|dcB|A2A|AGF|EEE|GFE|D2D|D2:|
+
+X:354
+T:Savings Bank Waltz
+Z:Jack Campin, http://www.campin.me.uk/
+Z:Lennart Sohlman
+S:http://www.folkwiki.se
+Q:1/4=142
+M:3/4
+L:1/4
+K:DMin
+A|d A F|G F E|D>D D|D E F|G>G G|[1 G F  G|A>A A|   A2 :|\
+                                [2 G c  B|A>A A|   A F||
+G|A>A A|A d c|B>B B|B A G|F A>F|   E D ^C|D>D D|[1 D F:|\
+                                                [2 D2 |]
+
+X:355
+T:Astridin valssi
+Z:Jack Campin, http://www.campin.me.uk/
+T:Astrids vals
+O:Norrbotten
+M:3/4
+L:1/8
+Q:3/4=48
+K:DMin
+A2|D4  E2|F4    G2|F3G FE|D2 F2 A2|d3  c BA|G2 B2 d2|A6-|A4     :|
+A2|d3c BA|G2 B2 d2|A3B AF|D4    E2|F6      |E2 D2 E2|D6 |D2 F2 A2|
+   d3c BA|G2 B2 d2|A3B AF|D4    E2|F2 B2 A2|G2 F2 E2|D6-|D4     |]
+
+X:356
+T:Slangpolska from Blekinge
+T:ABCBC
+Z:Henrik Norbeck
+Z:Jack Campin, http://www.campin.me.uk/
+N:nice ocarina version: http://www.youtube.com/watch?v=KJ1C7lUjIo8
+M:3/4
+L:1/16
+Q:1/4=120
+P:ABCBC
+K:DMin
+P:A
+    DE|TF2FD  E2EC D2DC|   DCDE  FEFG TA2  \
+    DE|TF2FD  E2EC D2DD|[1 C2D2 TD6      :|\
+                        [2 C2D2 TD4      ||
+P:B
+|:F2G2|TA4    c4   A4  |   A2GA  G4   TE3F|\
+        G2GE  G2GE FEFG|[1 AGFE  FEFG    :|\
+                        [2 AGFE  FEFG  A2||
+P:C
+|:DE|  TF2FD TE2EC D2DC|   DCDE  FEFG  A2  \
+  DE|   F2FD TE2EC D2DD|[1 C2D2  D4    A2:|\
+                        [2 C2D2  D6      |]
+
+X:357
+T:Polska efter Werner Wernberg
+Z:Jack Campin, http://www.campin.me.uk/
+Z:ABC-transkribering + förslag till arr av Lennart Sohlman
+S:http://www.folkwiki.se
+M:3/4
+L:1/8
+Q:1/4=102
+N:original in D minor; also works in F minor
+K:GMin
+D2 ^FD/F/ G2| D2   (Ac) (BA)|G>A Bd    B(A/G/)|(^F/G/)A/B/ (AG) FD|
+D2 ^FD/F/ G2| D2   (Ac) (BA)|G>A Bd    B(A/G/)|(^F/G/)A/F/  G4   :|
+D2  d2    d2|^cA/c/ d3    A |B>d cA/c/ BA/G/  |(^F/G/)A/B/ (AG) FD|
+D2  d2    d2|^cA/c/ d3    A |B>d cA/c/ BA/G/  |(^F/G/)A/F/  G4   :|
+
+X:358
+T:Sparve Lilla
+T:Little Sparrow
+Z:Jack Campin, http://www.campin.me.uk/
+G:Swedish polska from Varmland
+M:3/4
+L:1/8
+Q:1/4=150
+K:G
+|:d2 Bd Bd |dc (3ABc (3 ABc|d2 BG A>F|  G>A B>d (3^cBc|
+  d2 Bd Bd |dc (3ABc (3 ABc|d2 BG A>F|(3DEF G4       :|
+|:D2 GB A>F|G2   B>d (3^cBc|d2 BG A>F|  G2  AB     G>F|
+  D2 GB A>F|G2   B>d (3^cBc|d2 BG A>F|(3DEF G4       :|
+
+X:359
+T:Konvulsionslaten
+Z:Jack Campin, http://www.campin.me.uk/
+C:Anders Norudde 
+M:C|
+L:1/8
+Q:1/2=85
+K:DDor
+D-|DEFD  E2  ED-|DEFD  E2  ED-|DEFG  A2 GF |EFE2 [1 D3 :|\
+                                                 [2 D4 ||
+   cAcA  c2  AB-|BGBG  B2  Gc-|cAcd- dc BA-|ABcd-   dddd|
+   dc B A2 F2 c |cB A G2 E2 E |DEFG  A2 GF |EFE2 [1 D4 :|\
+                                                 [2 D3 |]
+
+
+% == Hungarian songs and dance tunes ========================================
+
+X:360
+T:Tavaszi szel
+Z:Jack Campin, http://www.campin.me.uk/
+S:various versions on the web
+G:Hungarian children's song
+M:4/4
+L:1/8
+Q:1/4=110
+K:DMin
+F2 G2 A2  A2|G2 (GA)  F2  G2|A  A3    G2 (GA)|F4 C4 |
+F2 G2 A A3  |G2 (GA) (FE) D2|G (G2 A) F2  E2 |D4 D4|]
+
+X:361
+T:Csillagom, reveszem
+T:My star, my ferryman
+Z:Jack Campin, http://www.campin.me.uk/
+B:Balint Sarosi: Gypsy Music
+S:Kodaly and Vargyas, 1960
+M:4/4
+L:1/8
+Q:1/4=60
+K:EMin
+(3A2A2B2 (3c2c2B2|AcBA EE3 |\
+(3A2A2B2 (3c2c2B2|AcBA EE3 |
+  EDED     EF G2 |FDED EFG2|\
+  A2c2     B2 A2 |G4  =F4  |E8|]
+
+X:362
+T:Erik, erik a cseresznye
+Z:Jack Campin, http://www.campin.me.uk/
+B:Martin, Hungarian Folk Dances
+O:Davod, Bacs-Kiskun County
+M:2/4
+L:1/8
+Q:1/4=120
+K:DDor
+d2 d2|cd  ed|(cB) A2 |\
+d2 d2|c_B AG| A2  A2 |
+G2 A2|FD  AG|(FE) D2 |\
+G2 A2|c_B AG| D2  D2|]
+
+X:363
+T:Boldogasszony Anyank
+Z:Jack Campin, http://www.campin.me.uk/
+G:old Hungarian nationalist hymn
+M:4/4
+L:1/4
+Q:1/4=90
+K:DMin
+        A B A G   |A G2z |\
+        A A G A/G/|F2 E2:|
+[M:3/2] D E F  E  D2|\
+        F F G<  G A2|
+[M:4/4] A A G A   |B2 A2 |\
+        D E F G   |E2 D2|]
+
+X:364
+T:Round Dance, Cradling
+Z:Jack Campin, http://www.campin.me.uk/
+B:Martin, Hungarian Folk Dances
+O:Decs, Tolna County
+M:5/8
+L:1/8
+Q:1/8=220
+K:DDor
+AA B B2|GF E G2|AD D z2 |
+GG A B2|cA A F2|GA A z2 |
+AG A B2|cA A B2|AF D z2 |
+AA A B2|AF E G2|AD D z2|]
+
+
+% == Hungarian Csango songs and dance tunes from Moldavia ===================
+
+X:365
+T:Csak azert szeretek
+Z:Jack Campin, http://www.campin.me.uk/
+B:Balint Sarosi, Gypsy Music
+N:collected 1955: a Polish song a few centuries old
+N:also used as a dance tune
+M:2/4
+L:1/8
+Q:1/4=100
+K:DMin
+DD d2|c c2 A|cc  A2|G F2 F |
+cc A2|G F2 E|GG _E2|D D2 D |
+CE G2|A F2 F|CE  G2|A F2 F |
+cA G2|A F2 E|GG _E2|D D2 D|]
+
+X:366
+T:Bulgaros
+T:Lerem, lerem
+Z:Jack Campin, http://www.campin.me.uk/
+O:Csango Hungarian dance tune from Moldavia
+M:C|
+L:1/8
+Q:1/2=96
+K:DMin
+A3F A3F   |A2A2   G2F2|G3F    G3F   |A2A2   G2F2:|
+D3E F>EG>E|F>EG>E F2E2|D3E    F>EG>E|F>DE>C D4   |
+D3E F>EG>E|F>ED>E F2G2|A>FG>E F>EG>E|F>DE>C D4  ||
+
+X:367
+T:Keresel
+Z:Jack Campin, http://www.campin.me.uk/
+O:Csango Hungarian dance tune from Moldavia
+M:2/2
+L:1/8
+Q:1/2=90
+K:F
+AFCF     AFCF|GABG {AG}A4  |GECE     GECE|{AG}AFGE F4:|
+C2FE {DE}D3 E|CEGE     FGA2|C2FE {DE}D3 D|    CEGE F4:|
+
+X:368
+T:The Devil's Road
+Z:Jack Campin, http://www.campin.me.uk/
+N:transposed from Moldavian Csango version in B minor
+S:played by both Hungarians and Romanians
+M:C|
+L:1/8
+Q:1/2=80
+K:DMin
+D>EF>E D>EF>E   |   D>EF>G A2    A2 |\
+G>AB>A G>AB>A   |
+                 [1 G>FE>F D>F   A2:|\
+                |[2 G>FE>F D4      |:\
+A>DD2  D/E/F E>D|
+                    A>DD2  D/E/F E>D|\
+G2G2   F2F2     |[1 E>DE>F D>F   A2:|\
+                 [2 E>DE>F D4      |]
+
+X:369
+T:Pingvin
+Z:Jack Campin, http://www.campin.me.uk/
+S:conga-like Csango dance from Moldavia
+N:a version of the Ukrainian song "Minka",
+N:also known as "Yes My Darling Daughter".
+M:C|
+L:1/8
+Q:1/2=104
+K:DMin %Transposed from BMIN
+D3E  F2D2|A3G FED2|C4  A4 |D2D2 D4 :|
+F2F2 F2A2|c3d cBAG|F3A c3B|A2A2 AGFE|
+D3E  FED2|A3G FED2|C4  A4 |D2D2 D4 :|
+
+
+% == Hungarian and Balkan Gypsy songs =======================================
+
+X:370
+T:Ederlezi
+Z:Jack Campin, http://www.campin.me.uk/
+G:Serbian/Bulgarian/Turkish Roma spring festival song
+M:4/4
+L:1/8
+K:DMin
+A/B/c/B/ AG G3  A|F8       |G4    G3  E|F3  G E2 D2|
+G4          G3  E|F3G E2 D2|F3  E G3  E|D8        :|
+A6             GF|G8       |F2 A2 GF ED|F2 EF A2 G2|
+F2       EF A2 G2|d3c B2 A2|A2 cB A2 G2|F3  E G3 E |D8:|
+
+X:371
+T:Trana nanna
+Z:Jack Campin, http://www.campin.me.uk/
+B:Bazsarozsa: 99 Cigany Nepdal, Editio Musica Budapest Z.1813
+N:This is Gypsy folk music, not the music of Gypsy professional
+N:musicians.  It's usually performed vocally with no instruments
+N:other than percussion done by clapping, stamping or whacking
+N:large jugs.  So I've included the nonsense words.
+M:2/4
+L:1/8
+Q:1/4=138
+K:G
+GA BB| cB   AD |GG        AA  |BB Az |
+w:Tra-na nan-na dan-na nan-na ta-da la-da ta-da-da
+GA BB| cB   AD |cc        dB  |AA G2||
+w:Da-na na-na tra-na na-na da-la na-na-ta-da-dom.
+A2 A2|(AG) .F.D|G/F/G/A/ .B.^c|d2 dz |
+w:Na-na da-*na-na da-ra-na-na na-na dai-nom
+A2 A2|(AG) .F.D|GA       .=F.G|E2 E2|]
+w:Hoi doi na* nan-na ta-da lad-da dai-dom.
+
+X:372
+T:Ta da rada radi
+Z:Jack Campin, http://www.campin.me.uk/
+B:Bazsarozsa: 99 Cigany Nepdal, Editio Musica Budapest Z.1813
+N:This is Gypsy folk music, not the music of Gypsy professional
+N:musicians.  It's usually performed vocally with no instruments
+N:other than percussion done by clapping, stamping or whacking
+N:large jugs.  So I've included the nonsense words.
+M:2/4
+L:1/16
+Q:1/4=112
+K:F
+d3A  BAB=B|  c2A2 F2A2|
+w:Ta da ra-da ra-di rad-dad-dad-da
+G3F  GABG |  A2F2F2F2|
+w:Ta-da ra-di ra-di rad-dad-dad-da
+d3A  BAB=B|  c2A2 F2A2|
+w:Ti ri la-la la-la rid-da-dad-da
+G3F  GABG |  A2F2F2z2||
+w:Ta-ra ra-da ra-da rid-dad-da.
+ABc2 FGA2 |  FGA2F2A2|
+w:Ta-di-rad da-di-rad  da-di-rad dal-la
+G3F  GABG |[1A2F2F2F2:|[2A2F2F2z2|]
+w:Ta-ra ra-ra-ra-ra rid-da dad-da rid-dad-da.
+
+X:373
+T:Rom bom bom bom bombolom
+Z:Jack Campin, http://www.campin.me.uk/
+B:Bazsarozsa: 99 Cigany Nepdal, Editio Musica Budapest Z.1813
+N:This is Gypsy folk music, not the music of Gypsy professional
+N:musicians.  It's usually performed vocally with no instruments
+N:other than percussion done by clapping, stamping or whacking
+N:large jugs.  So I've included the words, which are a mixture
+N:of Romany, Hungarian and nonsense.
+M:2/4
+L:1/8
+Q:1/4=88 % accelerate to 100
+K:CMix
+FF  EE   |FF    G2|cc    dB   |AA    F2 |
+w:Rom bom bom bom bom-bo-lom, ve-res laj-bim gom-bo-lom
+cc  dB   |AA    F2|DD    DF   |C<C   C2||
+w:A-hai Dev-la mu-ro d'i, sa du-kal ma da-ra t'i.
+F2  EC   |FF    G2|cc/d/ BB/G/|AA/G/ FF |
+w:Ai na-na tin-na-na tin-na-na tin-na-na tin-na-na nan-na
+c>d BB/G/|AA/G/ FF|DD/C/ DD/F/|CC    CC|]
+w:Ta-na ti-na-na ti-na-na  ti-na-na nan-na ti-na-na tin-na nan-na.
+
+
+% == Early music ============================================================
+
+X:374
+T:Quan vei l'aloete mover
+Z:Jack Campin, http://www.campin.me.uk/
+C:Bernard de Ventadorn
+M:3/4
+L:1/8
+Q:1/4=100
+K:DMin
+   D2        F2  A2 | A4       A2  |(BA G2) (AG)      |   G4            \
+B2|A4            B2 | c4      (AG) |(G2 F2) (GA)      |   A6           |
+   c2        d2 (cB)| A2 G2 (3(GAB)|(A2 F2) (G/A/G/F/)|   F6           |\
+   G2        A2  B2 | c4       A2  | G4      E2       |  (G/F/F/E/ D4) |
+  (A/B/A/G/) A2  B2 | c4       B2  | c4      d2       |   G4            \
+A2|c4            A2 | B4    (3(AGF)| G4   (3(AGF)     |   F6           |
+   G2        A2  B2 | c4       A2  | G4      E2       |(3(FED E2)       \
+E2|G4            A2 |(G2 F2)(3(GAG)|(E2 C2) (DE)      |  (G/F/F/E/ D4)|]
+
+X:375
+T:Quant li loussignolz jolis
+Z:Jack Campin, http://www.campin.me.uk/
+G:troubadour song
+M:3/4
+L:1/8
+Q:3/4=40
+K:DMin
+   d2     (c2 A2)|   B2   (AGF2)| G2  (A2G2)|(G2 F4)   |
+[1 F2      G4    |   A2   (A2B2)|(cB) (A2G2)| A6      :|
+[2 F2     (G2 AB)|  (AG)  (FED2)| C2  (C2D2)| D6      ||
+   E2      F4    |  (GF)   E4   | D2   EFED | C6       |
+  (GA/B/) (A2 G2)|(3(FED) (EFED)| C2  (C2D2)| D6       |
+   A2      c4    |   c2    c4   | c2   c4   |(c=BGA B2)|
+(3(cdc)    A4    |   B2   (AGF2)| G2   A2G2 |(G2 F4)   |
+   F2      G4    |   A2    B4   | A2  (G2F2)|(ED C4)   |
+   F2     (G2 AB)|   AG    FED2 | C2  (C2D2)| D6      |]
+
+X:376
+T:Reis Glorios
+Z:Jack Campin, http://www.campin.me.uk/
+C:Guiraut de Bornelh
+M:3/4
+L:1/4
+Q:1/4=100
+K:C
+ D>    D   A| A>     (A  B)| c  (B/A/  B)| G  (A/B/c)    |(B  A)  z   :|
+(A/G/A/B/) A|(G/F/) E2     | E>    G   A | D   E/(F/E/D/)|(D  C)  z    |
+ C>    D   E|(F/E/  D2)    |(A/G/A/B/) A |(G>F)   E      | F (G/F/E/D/)|E2 z |
+ C   D     E| F    (G/A/ G)|(F/E/D/E/  F)|(E   D) z     |]
+
+X:377
+T:A chantar m'er de so q'ieu no volria
+Z:Jack Campin, http://www.campin.me.uk/
+C:Beatriz de Dia
+M:3/4
+L:1/8
+Q:1/4=120
+N:the original has no notated rhythm - this interpretation is based
+N:on several different recordings
+K:DDor
+A2(AG) F2|(F2   G2)     A2  |   G4     F2 |  (FE)   D2   (3(FED)|E6 |
+C2 D2  E2|(FG) (A>G) (3(FED)|   C4    (DE)|   F4         (3(EDC)|D6:|
+A4     A2| A4           A2  |   G4     A2 |   G2 (3(FED)    E2  |F6 |
+F4     F2| A4           c2  |   B4     A2 |   G2 (3(FED) (3(FED)|E6 |
+C4     D2| E4          (FG) |  (A4     G2)|\
+                             (3(FED) C4   |  (DE)   F2   (3(EDC)|D6|]
+
+X:378
+T:La Quinte Estampie Real
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+K:DMin
+F| FEF G/F/GA   |GFE/D/       C2F   |
+[1 FED E/D/E/F/G|F3           F2   :|\
+[2 FED E/D/E/D/C|D3           D3   ||
+%
+   A2D A2G      |B/A/G/A/F/G/ F2z   |\
+   c2B A2G      |F/E/FG       A2F   |
+[1 FED E/D/E/F/G|F3           F3   :|\
+[2 FED E/D/E/D/C|D3           D3   ||
+%
+   GEF G2F/E/   |F/E/FG       A2z   |[M:9/8] A2d          GAG F2F|
+[M:6/8]\
+[1 FED E/D/E/F/G|F3           F3   :|\
+[2 FED E/D/E/D/C|D3           D3   ||
+%
+   C2D F2G       |A2z         c/B/cF|        c/B/c/d/c/B/ A2F|
+[1 FED E/D/E/F/G |F3          F3   :|\
+[2 FED E/D/E/D/C |D3          D3   |]
+
+X:379
+T:Rosa das Rosas
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cantigas de Santa Maria, 13th cent
+N:I have known this version for 40 years and don't know where it comes from.
+N:It's nothing like any I've seen in print or on record and a long way from
+N:the original.  I may have heard Andrea von Ramm singing it like this.
+M:6/8
+L:1/8
+Q:3/8=56
+K:DDor
+D2C D2E/F/|G2F/E/ D3    |D2C D2F|F3- F2z |
+F2G A2A   |G2F/E/ D3    |C2D E2D|D3- D2z |
+c2c d2c   |B2A    G/A/F2|G2B A2D|C3  E2z |
+D2C D2E/F/|G2F/E/ D3    |C2D E2D|D3- D2z|]
+
+X:380
+T:Maravillosos e piadosos
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cantigas de Santa Maria, 13th cent
+M:6/8
+L:1/8
+Q:3/8=90
+K:DMin
+  GAB A2G|FGA    G2F   |EFG A2F|DEF    A3     |
+  GAB A2G|FGA    G2F   |EFG A2F|DEF    G3    ||
+|:GAB ABc|B/c/BA B/A/GF|GAB ABc|B/c/BA B/A/G2:|
+  GAB A2G|FGA    G2F   |EFG A2F|DEF    A3     |
+  GAB A2G|FGA    G2F   |EFG A2F|DEC    D3    ||
+
+X:381
+T:Compo poden per sas culpas
+T:ABA
+Z:Jack Campin, http://www.campin.me.uk/
+S:Cantigas de Santa Maria, 13th cent
+P:ABA
+M:6/8
+L:1/8
+Q:3/8=94
+K:DDor
+P:A
+  zFF|FED F2G|A2A zAA|cBc d2c/B/|A2A
+  zAG|FED F2G|A2A zAG|FED EDC   |D2D||
+P:B
+|:zcc|cBG A2B|c2c zcd|cBG A2B   |G2G:|
+  zAG|FED F2G|A2A zAA|cBc d2c/B/|A2A
+  zAG|FED F2G|A2A zAG|FED EDC   |D2D||
+
+X:382
+T:La Rotta
+T:AABBA
+Z:Jack Campin, http://www.campin.me.uk/
+M:2/4
+L:1/16
+Q:1/4=132
+P:AABBA
+K:DDor
+[P:A] AB|c2Bc A2d2|dcBc A2AG|[1 GFFE DEFD|
+                                          E6:|\
+                             [2 GFFE EDDC|D6|]\
+[P:B] DE|F2FG A2AB|
+                   c2Bc A2AG|GFFE EDDC|[1 E6:|\
+                                       [2 D6|] 
+
+X:383
+T:L'Homme Arme
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/2
+L:1/2
+Q:3/2=60
+K:CDor
+C2C|F2F|ED2|C3 |GGC|zGG|GF2|ED2|C3 |
+GGG|C3 |c2c|B2B|c2c|G3 |
+c2c|B2B|c2A|G2c|d2c|BA2|G3 |z3 |
+C2C|F2F|ED2|C3 |GGC|zGG|GF2|ED2|C3|]
+
+X:384
+T:Ultreya!
+T:Onward!
+Z:Jack Campin, http://www.campin.me.uk/
+N:song of Flemish pilgrims to Santiago, 13th century
+S:Daniel Gonzalez: Asi Canta Galicia
+M:2/4
+L:1/8
+Q:1/4=90
+K:GDor
+zd Gd|d2>>c2|      (3(cBA) G2    |        AB    cB  |      (GA)    G2 |
+zd Gd|d3   c|[M:3/4] (cB) (AG) F2|[M:2/4] AB    cB  |      (GA)    G2 |
+      GD  GA|      (3(cBA)     F2|        AB (3(cdc)|[M:3/4]AG FA HA2||
+%
+[M:2/4] BA (3(GAB)|cd d2|d2 Gd|     (3(dc)B   A2 |
+        BA (3(GAB)|cd d2|dd Gd|[M:3/4] cB  GA G2||
+%
+M:2/4
+zd Gd|d2>>c2|      (3(cBA) G2    |        AB    cB  |      (GA)    G2 |
+zd Gd|d3   c|[M:3/4] (cB) (AG) F2|[M:2/4] AB    cB  |      (GA)    G2 |
+      GD  GA|      (3(cBA)     F2|        AB (3(cdc)|[M:3/4]AG FA HA2||
+%
+M:2/4
+BA         GA|Bc         d2|dd Gd   |dc c2|
+M:3/4
+cd (3(cG)A G2|cd (3(cG)A G2|GG GA GA|G6  |]
+
+X:385
+T:Pase el agoa
+Z:Jack Campin, http://www.campin.me.uk/
+C:Juan del Encina 
+M:6/8
+L:1/8
+Q:3/8=116
+K:EMin
+          B3  d2d|        B3  G3   |        AAA AB2|G3 F3|
+          B3  d2d|        B3  A2A  |        B2A GF2|E6  ||
+|:[M:6/8] EEE E2E|[M:3/4] F2 E2 ^D2|[M:3/8] E3    :|
+  [M:6/8] A2A A2A|        A2A A2A  |        AAA AB2|G3 F3|
+          B3  d2d|        B3  A2A  |        B2A GF2|E6  |]
+
+X:386
+T:La Mourisque
+Z:Jack Campin, http://www.campin.me.uk/
+C:Tielman Susato 1551
+M:2/4
+L:1/8
+Q:1/4=80
+K:F
+A/B/c cc|c3  B|AF    FG|E2 C2|
+A/B/c cc|c3  B|AF    GE|F3 G:|
+AF    FG|AF BG|AF    FG|E2 C2|
+AF    FG|AF BG|A/G/F GE|F4  :|
+
+X:387
+T:Belle qui tiens ma vie
+Z:Jack Campin, http://www.campin.me.uk/
+C:Thoinot Arbeau 
+S:Orchesographie
+M:C|
+L:1/8
+Q:1/2=60
+K:GDor
+G4 G2^F2|G2 A2  B4|B2 d2 c3   B|B2 A2 B4:|
+B4 A2 A2|G2 G2 ^F4|D4    E^F G2|G2^F2 G4:|
+
+X:388
+T:The Buffens
+Z:Jack Campin, http://www.campin.me.uk/
+S:Thoinot Arbeau, Orchesographie
+M:3/2
+L:1/8
+Q:1/2=60
+K:GDor
+FG AA B2|AG AF G2|FG AA B2|AF GG F2 |
+c2 dc B2|AG AB c2|c2 dc B2|GF GG F2|]
+
+X:389
+T:Pease Branle
+Z:Jack Campin, http://www.campin.me.uk/
+S:Thoinot Arbeau, Orchesographie
+M:C|
+L:1/4
+Q:1/2=100
+G:branle
+K:GDor
+B2 Bc|d2 dd|ed cc|d2 G2:|
+GA F2|GA BG|GA Bc|BA G2:|
+
+X:390
+T:Because of the Traitor I Die
+Z:Jack Campin, http://www.campin.me.uk/
+S:Thoinot Arbeau, Orchesographie
+G:galliard
+M:6/4
+L:1/4
+Q:3/4=80
+K:GDor
+ddc B2A|AGG F2D|ddc B2A|GGF G3:|
+AAA c2c|ccc d2d|ddc B2A|GGF G3:|
+
+X:391
+T:Scottish Branles
+Z:Jack Campin, http://www.campin.me.uk/
+S:Thoinot Arbeau, Orchesographie
+M:C|
+L:1/8
+Q:1/4=100
+G:branle
+N:last bar is just |ECD2|] in the book - I think Arbeau forgot a phrase
+K:DDor
+P:First Scottish Branle
+DEFD EFG2|GFED FGA2|AcBA  GFED |
+DEFD EFG2|GFED FGA2|GFED  ECD2||
+P:Second Scottish Branle
+A2AB cdcB|A2A2 GFE2|A2GF  E2D2 |
+A2AB cdcB|A2A2 GFED|GFED  ECD2|]
+
+X:392
+T:Never Weather-Beaten Saile
+C:Thomas Campion
+B:Auden, Kallman & Greenberg, Elizabethan Song Book
+N:chords simplified a bit from the piano part
+M:C|
+L:1/8
+Q:1/2=66
+K:F %Transposed from G
+       "F"  A2      A2  "C" G3     c |"Bb"B2  "C7"B2  "F" A3      \
+"Bb"d| "C"  c2  "Dm"F2  "F" G2 "C"G2 |"F" F8                    :|
+       "F"  c2  "C"(GA) "Bb"B2   (FG)|"F" A2      EF  "G" G3      \
+"C" G| "F" (AG)    (AB) "C" c3     d |"C"(cB) "F"(AB) "C" G4    ||
+     |:"Bb" D3   "Gm"D  "C" E2    C2 |"F" F3       F  "C" G2  E2 |\
+       "F"  A3   "Dm"A  "Gm"B2 "C"G2 |
+                                      "F"(cB)    (AG) "Bb"F2 (DE)|\
+       "Bb"(FG) "F"(AB) "C" G3      F|"F" F8                    :|
+
+
+% == Later classical music ==================================================
+
+X:393
+T:Finlandia
+Z:Jack Campin, http://www.campin.me.uk/
+C:Sibelius
+M:4/4
+L:1/4
+Q:1/4=110
+K:F
+z A G A|B3 A|G A F>G|G A3|\
+z A G A|B3 A|G A F>G|A4  |
+z c c c|d3 A|A c c>G|G B3|\
+z B A G|A3 F|F G G>A|A4  |
+z c c c|d3 A|A c c>G|G B3|\
+z B A G|A3 F|F G G>F|F4 |]
+
+X:394
+T:Waltz op.39 no.15
+Z:Jack Campin, http://www.campin.me.uk/
+C:Brahms 
+M:3/4
+L:1/8
+Q:1/4=150
+K:C
+(E3C)       (CE)|(E3C)  (CE)|(F2{GF}) (E2 D2)|(E3C) (CG)|
+(A3E)       (EG)|(A3E)  (EG)|(BA)      G2^F2 |(G3C) (CE)|
+(E3C)       (CE)|(E3C)  (CE)|(F2{GF}) (E2 D2)|(E3C) (CG)|
+(A3E)       (EG)|(A3E)  (EG)|(BA)      G2^F2 |(G3E) (EG)|
+(G3D)       (DG)|(G3E)  (EG)|(c3G)       (Gc)|(c3A) (Ac)|
+(d3A)       (Ac)|(cB)A2  G2 |(E3C)       (CE)|(E3C) (CE)|
+(F2{GF}) (E2 D2)|(E3C) ( CG)|(A3E)       (EG)|(A3E) (EG)|
+(cG)      F2 D2 | C2 zE (EG)|(G3D)       (DG)|(G3E) (EG)|
+(c3G)       (Gc)|(c3A)  (Ac)|(d3A)       (Ac)|(cB) A2 G2|
+(E3C)       (CE)|(E3C)  (CE)|(F2{GF}) (E2 D2)|(E3C) (CG)|
+(A3E)       (EG)|(A3E)  (EG)|(cG)     (F2 D2)| C6      |]
+
+X:395
+T:Marmotte op.53 no.7
+Z:Jack Campin, http://www.campin.me.uk/
+C:Beethoven 
+M:6/8
+L:1/8
+Q:3/8=84
+K:GMin
+D   |G2G G2G|ABA G2G|A2A BAG|A3 D2
+D   |G2G G2G|ABA G2G|A2A D2D|G3 G2
+G/A/|B2B c2c|d2d c2c|BAG BAG|A3 A2
+G/A/|B2B c2c|d2d c2c|BAG ABA|G3 G2|]
+
+
+% == Rounds, canons and other multi-part pieces =============================
+
+X:396
+T:Edi beo thu, hevene quene
+Z:Jack Campin, http://www.campin.me.uk/
+G:early English hymn
+M:6/8
+L:1/8
+Q:3/8=60
+K:F
+[V:1] F2c (cB)A   | G2d c2F |(GA)B (AG)F|(ED)E    F3 |
+[V:2] A2A (AG)F   | GGG A2A | G2G   F2 F|(GA)G    F3 |
+%
+[V:1] FFc (c/B/)BA| G2d c2F |(GA)B (AG)F|(ED)E    F3 |
+[V:2] AAA  AGF    | G2G A2A | G2G   F2 F|(GA)G    F3 |
+%
+[V:1] B2B (AG)F   |(ED)E F2G| B2B (AG)F |(ED)E    F2A|
+[V:2] G2G  F2F    |(GA)G F2F| G2G  FFF  |(G/A/)AG F2A|
+%
+[V:1] c2d  cBA    | G2d c2F |(GA)B (AG)F|(ED)E    F3|]
+[V:2] A2A  AGF    | G2G A2A | G2G   F2 F|(GA)G    F3|]
+
+X:397
+T:Hey ho nobody's home
+Z:Jack Campin, http://www.campin.me.uk/
+G:3-part round
+M:C
+L:1/4
+Q:1/4=100
+K:DMin
+[V:1] G2  D2 |G    G/G/ D2      ||
+[V:2] GG  AA |B/B/ B/B/ A2      ||
+[V:3] d>c d>c|d>     c  d/c/B/A/||
+
+X:398
+T:Le Vin Rose
+G:Romanian colinda? (from a French diatonic accordion site)
+Z:Jack Campin, http://www.campin.me.uk/
+M:7/8
+L:1/8
+V:1
+V:2 transpose -12
+Q:1/4=144
+K:EMin
+[V:1] E2 B2 ({Bc}B2)A|B2 A2 ({GA}G2)F|Ac BA ({GA}G2)F|(GA) (FG) E3 :|
+[V:2] E2 E2      E2 z|D2 D2      E2 z|E2 E2      E2 z| D2   D2  E2z:|
+%
+[V:1] A2 A2 ({GA}G2)F|F2 F2      D3  |Ac BA ({GA}G2)F|(GA) (FG) E3 :|
+[V:2] D2 D2      A2 z|D2 D2      D2 z|E2 E2      E2 z| D2   D2  E2z:|
+
+X:399
+T:Neemt mij in de hand
+Z:Jack Campin, http://www.campin.me.uk/
+S:Valerius (1626) via http://www.liederenbank.nl
+G:4-part round
+M:C|
+L:1/4
+Q:1/2=66
+K:DMin
+[V:1] G> F G G| D4   ||
+[V:2] G> A B B| A2 A2||
+[V:3] B> A G G|^F4   ||
+[V:4] G> A B c| d2 d2|]
+
+X:400
+T:Schiarazula Marazula
+Z:Jack Campin, http://www.campin.me.uk/
+V:3 transpose -12
+V:4 transpose -12
+N:needs two each of instruments an octave apart
+M:C|
+L:1/8
+Q:1/2=120
+K:GDor
+[V:1] d2|:d2c2 d2c2|B2B2 B2A2|G2F2 G2A2 |[1 G2G2 G2d2:|[2  G2G2 G2||
+[V:2] G2|:G4   G4  |G6     FE|D4   D4   |[1 D4   D4  :|[2  D6     ||
+[V:3] B2|:B6     c2|d4   d4  |B4   B4   |[1 B4   B4  :|[2  B6     ||
+[V:4] G2|:G4   G4  |G4   G4  |G4   G4   |[1 G4   G4  :|[2  G6     ||
+%
+[V:1] cB| A2G2 A2B2|A2G2 A2dc|B2G2 G2^F2|[1 G2G2 G2  :|[2  G6     |]
+[V:2] G2| F4   F4  |F4   F4  |D4   D4   |[1 D6       :|[2  D6     |]
+[V:3] E2| c4   c4  |c6     BA|B4   A4   |[1 B6       :|[2 =B6     |]
+[V:4] C2| F4   F4  |F4   F4  |G4   D4   |[1 G6       :|[2  G6     |]
+
+X:401
+T:King Herod And The Cock
+Z:Jack Campin, http://www.campin.me.uk/
+N:trad. English Christmas carol; arr. Jerome Epstein
+V:1
+V:2
+V:3 transpose -12
+M:C
+L:1/4
+Q:1/2=58
+K:GMin
+[V:1] D   |G G    B c|B G F D   |G G B    c|B3
+[V:2] D   |G G    F F|D D D D   |G G F    F|D3
+[V:3] D   |G G    B A|B G F D   |G G B    A|B3
+%
+[V:1] B/c/|d d/c/ d D|B2  c B/c/|d d c/B/ A|G3|]
+[V:2] B/c/|d d/c/ d D|B2  c B/A/|G G F    F|D3|]
+[V:3] B/c/|d d/c/ d D|B2  c B/c/|d d c/B/ A|G3|]
+
+X:402
+T:Gaudete (verse)
+Z:Jack Campin, http://www.campin.me.uk/
+C:anon. (Piae Cantiones 1582) 
+N:from Steeleye Span's rendition
+Z:ABC transcription Stephan Steiner
+N:This goes with the chorus following.  It fits in a 9-note range for
+N:a pair of instruments an octave apart.  Or you can do it on a 9-note
+N:instrument a fourth or fifth apart from the C-d range mostly used here.
+M:4/4
+L:1/8
+Q:1/4=124
+V:1 transpose +12
+V:2
+V:3
+K:DDor
+[V:1] DD  CD FE D2|z8           |
+[V:2] z8          |d_B AB G2 G2 |
+[V:3] dd  cd fe d2|d_B AB G2 G2 |
+%
+[V:1] z8          |FD  EF D2 D2|]
+[V:2] GG _BG Bc d2|z8          |]
+[V:3] GG _BG Bc d2|fd  ef d2 d2|]
+
+X:403
+T:Gaudete (chorus)
+Z:Jack Campin, http://www.campin.me.uk/
+C:anon. (Piae Cantiones 1582)
+Z:ABC transcription Stephan Steiner
+M:none
+L:1/8
+Q:1/4=120
+V:1
+V:2 transpose -12
+V:3 transpose -12
+V:4 bass middle=d transpose -24
+K:DDor
+[V:1]|:[M:4/4] D2D2 C2DE|[M:5/4] F2 FE2D C2  C2 |\
+       [M:4/4] C2D2 E3 D|[M:5/4] C2 DE2D C2 HD2:|
+[V:2]|:[M:4/4] A2A2 A2Ac|[M:5/4] c2 cc2A A2  A2 |\
+       [M:4/4] A2A2 c3 A|[M:5/4] A2 Fc2G A2 HA2:|
+[V:3]|:[M:4/4] D2F2 E2FG|[M:5/4] A2 AG2F E2  E2 |\
+       [M:4/4] E2F2 G3 F|[M:5/4] E2 DC2D E2 HD2:|
+[V:4]|:[M:4/4] d2d2 A2dc|[M:5/4] F2 Fc2d A2  A2 |\
+       [M:4/4] A2d2 c3 d|[M:5/4] A2 Bc2B A2 HD2:|
+
+X:404
+T:When Jesus Wept
+Z:Jack Campin, http://www.campin.me.uk/
+C:William Billings
+G:4-part round
+N:low A is the original if you can do it
+M:3/2
+L:1/2
+Q:1/2=100
+K:DMin
+[V:1] D| A2       G|(A/>B/ c) F|(A/>G/ F) E   |D2||
+[V:2] D| D2       C|(F     E) D| D2      [A,C]|D2||
+[V:3] A|(d     A) c|(F     G) A| A2       A   |A2||
+[V:4] F|(A/>G/ F) E|(F     B) A|(F/>E/ D) C   |D2||
+
+X:405
+T:Wake Every Breath
+Z:Jack Campin, http://www.campin.me.uk/
+C:William Billings
+G:round, 6 voices and accompaniment
+M:3/4
+L:1/8
+Q:1/4=90
+V:7 transpose -12
+K:F
+[V:1] F2|(A>B A2) G2 |(F>G A2)   B2  |(c>B A2)    G2  | F4     ||
+[V:2] F2| F4      C2 |(D>E F2)   D2  |(C2  F2)    C2  | F4     ||
+[V:3] A2| c4      c2 |(A>G F2)   F2  |(A>B c2)    c2  | c4     ||
+[V:4] F2|(A>B c2) c2 |(d2 c2) (3(FGA)|(G2  F2) (3(EFG)|(A>G F2)||
+[V:5] A2|(F2 C2)  C2 |(F>G A2)   F2  |(E2  F2) (3(GFE)|(F>G A2)||
+[V:6] A2|(cBAG)  (FE)|(FGAB)    (cB) |(AcFA)   (3(GFE)| F4     ||
+[V:7] F2| F4      C2 |(D>E F2)   D2  |(C2  F2)    C2  | F4     ||
+
+X:406
+T:Chopsticks
+Z:Jack Campin, http://www.campin.me.uk/
+S:http://www.musicaviva.com/abc/tunes/usa/chopsticks.abc
+M:6/8
+L:1/8
+V:1
+V:2
+Q:3/8=112
+K:C
+[V:1] "G7"FFF FFF|"C"EEE EEE|"G7"BBB BBB|[1 "C"c2c cBA:|\
+                                         [2 "C"c2c c2c|]
+[V:2]     GGG GGG|   GGG GGG|    DDD DDD|[1    C2C CDE:|\
+                                         [2    C2C C2E|]
+%
+[V:1] "G7"d2c B2A|"C"G2G GAG|"G7"F2F FGF|[1 "C"E2F G2c:|\
+                                         [2 "C"E2F E2z:|
+[V:2]     B2A G2F|   E2E EFE|    D2D DED|[1    C2D E2E:|\
+                                         [2    C2D C2z:|
+
+X:407
+T:Dragi ljudi, lahku noc
+Z:Jack Campin, http://www.campin.me.uk/
+G:Croatian part song
+B:Vinko Zganec: Narodni Popijevke Hrvatskog Zagora
+M:2/4
+L:1/8
+Q:1/4=54
+K:F
+[V:1] FG A{c}B   |c2 ({B}c2)|    A3  A/G/|d2 dd|{d}c3||
+[V:2] z4         |A2     G2 |    F3  z   |B2 BB|{B}A3||
+%
+[V:1]      |:F   |dd     dd |({d}c2) Ac  |dc Bc|   A3:|
+[V:2]      |:z   |BB     BB |    A2  FA  |BA GG|   F3:|
+%
+[V:1]        z   |cc     Ac |    dc  BB  |cc AA|   G3||
+[V:2]        z   |AA     FA |    BA  GG  |AG FF|   C3||
+%
+[V:1]      |:A/G/|dd     dd |    dc  Ac  |dc Bc|[1 A3:|[2 A4|]
+[V:2]      |:C   |BB     BB |    BA  FA  |BA GG|[1 F3:|[2 F4|]
+
+X:408
+T:Conkinata
+Z:Jack Campin, http://www.campin.me.uk/
+G:Bulgarian part song
+S:a file called Fakebook_Bulgarian_Music.pdf off the web
+Z:Birgitt Karlson 2003
+M:5/8
+L:1/8
+K:DMix
+P:instrumental
+|:A2  cBA|B2 BAG|A2 GFE|FG A3 |
+  A2 _BAG|A2 GFE|FG A2G|F2 F3:|
+P:vocal
+|:[F2A2] [F3A3]|[F2A2] [E2G2] [FA]|[E2G2]    [D3F3]    |   [F2-A2-] [F3A3]     |
+  [F2A2] [F3A3]|[F2A2] [E2G2] [FA]|[E2G2]    [D3F3]    |   [D2-F2-] [D3F3]    :|
+|:[G2B2] [G3B3]|[G2B2] [G3B3]     |[GB][A^c] [G2B2][FA]|   [F2-A2-] [F2A2] [DF]|
+  [F2A2] [F3A3]|[F2A2] [E2G2] [FA]|[E2G2]    [D3F3]    |[1 [F2-A2-] [F3A3]    :|\
+                                                        [2 [D2-F2-] [D3F3]    |]
+P:instrumental
+|:A2  cBA|B2 BAG|A2 GFE|FG A3 |
+  A2 _BAG|A2 GFE|FG A2G|F2 F3:|
+
+X:409
+T:Boite de Jazz
+Z:Jack Campin, http://www.campin.me.uk/
+C:Christian Josue 
+G:mazurka
+N:probably needs halfholing in the bass line
+M:9/8
+L:1/8
+Q:3/8=130
+V:2 transpose -12
+K:GMin
+[V:1] D G2A|B3  A2G A2G |F2A D2D G2A|B3 A2B c2F|d3  z2
+[V:2] z z3 |G3  G3  G3  |F3  F3  F3 |E3 E3  F3 |B3  z2
+%
+[V:1] c B2A|B3  A2G A2G |F2A D2D G2A|B3 A2G F2A|G3  z2:|
+[V:2] z B3 |G3  G3  G3  |F3  F3  F3 |E3 E3  F3 |G3  z2:|
+%
+[V:1] D G2A|d3 ^c3  A2=c|B3  A3  G2A|B3 A2B c2F|d2c B2
+[V:2] z z3 |D3  D3  D3  |G3  G3  G3 |E3 E3  F3 |B3  B2
+%
+[V:1] A B2c|d3 ^c3  A2=c|B3  A3  G2A|B3 A2G F2A|G3  z2:|
+[V:2] z B3 |D3  D3   D3 |G3  G3  G3 |E3 E3  F3 |G3  z2:|
+
+X:410
+T:In C
+Z:Jack Campin, http://www.campin.me.uk/
+C:Terry Riley
+N:The first bar, the PULSE of octaved C quavers, continues throughout
+N:the piece (usually done on a piano by one or a relay of players).
+N:The tempo never varies.
+N:Each players performs every bar a few times, moving on to the next when
+N:they feel the time is right, synchronizing with the Pulse, until all get
+N:to the end.  This can take between half an hour and several hours to
+N:play right through; most performances I've heard took about 45 minutes.
+N:One note in each of bars 19 and 20 is outside the range; I've indicated
+N:an alternative.
+M:none
+L:1/8
+Q:1/4=140
+K:C
+"^Pulse" [Cc]||\
+"^ 1" ({C}E2) ({C}E2) ({C}E2)||\
+"^ 2" ({C}E)F E2||\
+"^ 3" zE FE||\
+"^ 4" zE FG||\
+"^ 5" EF Gz||
+"^ 6" c8-c8||\
+"^ 7" z4 z2 z C/C/ Cz z4||\
+"^ 8" G12 F8-F8||\
+"^ 9" B/G/ z z2 z4||\
+"^10" B/G/||\
+"^11" F/G/B/G/B/G/||\
+"^12" FG B8 c2||
+"^13" B<G G/F/G z>G- G6||\
+"^14" c8 B8 G8 ^F8||\
+"^15" G<z z2 z4||\
+"^16" G/B/c/B/||\
+"^17" B/c/B/c/B/ z/||
+"^18" E/^F/E/F/ E>E||\
+"^19" z2 z [G2g2]||\
+"^20" E/^F/E/F/ [G,G]>E F/E/F/E/||\
+"^21" ^F3||
+"^22" EEE EEE EEE EEE EEE ^FFF GGG AAA B||
+"^23" E ^FFF FFF FFF FFF FFF GGG AAA B||
+"^24" E^F GGG GGG GGG GGG GGG AAA B||
+"^25" E^FG AAA AAA AAA AAA AAA BBB||
+"^26" E^FGA BBB BBB BBB BBB BBB||
+"^27" E/^F/E/F/ GE/G/ ^F/E/F/E/||\
+"^28" E/^F/E/^F/ E>E||
+"^29" E6 G6 c6||\
+"^30" c12||\
+"^31" G/F/G/ B/G/B/||\
+"^32" F/G/F/ F/B/F/- F6 G3||\
+"^33" G/F/ z||\
+"^34" G/F/||
+"^35" F/G/B/G/B/ z z2 z2 z2 _B2g6 [Aa][G2g2][=Bb] [A3a3] [Gg] \
+      [E6e6] [Gg] [^F-^f-] [F6f6] z2 z2 z [E-e-] [E4e4] [=F8=f8]||
+"^36" F/G/B/G/B/G/||\
+"^37" F/G/||\
+"^38" F/G/B/||\
+"^39" B/G/F/ G/B/c/||\
+"^40" B/F/||\
+"^41" B/G/||\
+"^42" c8 B8 A8 c8||
+"^43" [F/f/][E/e/][F/f/][E/e/] [Ee][Ee] [Ee][F/f/][E/e/]||\
+"^44" [Ff][E-e-][Ee] [C2c2]||\
+"^45" d2 d2 G2||\
+"^46" G/[D/d/][E/e/][D/d/] zG zG zG G/[D/d/][E/e/][D/d/]||\
+"^47" [D/d/][E/e/][Dd]||
+"^48" G12 G8 F8-F2||\
+"^49" F/G/_B/G/B/G/||\
+"^50" F/G/||\
+"^51" F/G/_B/||\
+"^52" G/_B/||\
+"^53" _B/G/||
+ 
+
+% == Scottish singalongs and farewell songs =================================
+
+X:411
+T:A Man's A Man For A' That
+Z:Jack Campin, http://www.campin.me.uk/
+M:C
+L:1/4
+Q:1/4=100
+K:CMix
+C|F>G F C|D F G B|A>G F C|D2 D
+C|F>G F C|D F G B|A>G F D|C2 C||
+B|A>B c A|B>A G B|A>B c C|D2 D
+B|A>B c A|d G G B|A>G F D|C2 C|]
+
+X:412
+T:Farewell to Fiunary
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=72
+K:F
+F2F c2A|G2F E2G|A2D D2E|D2C C3 |
+D2D F2F|G2G c2c|d2d c2A|G2F F3|]
+
+X:413
+T:The Dark Island
+Z:Jack Campin, http://www.campin.me.uk/
+C:Ian Maclachlan, 1958
+M:3/4
+L:1/8
+Q:3/4=50
+K:G
+   E2|A3E A2|G3A G2|E3D C2|D4  \
+[1 GA|B3A G2|Bd3 D2|
+                    B3d B2|A4:|\
+[2 GA|B3D dB|A3D BA|G6    |G4||
+   Bc|d3D D2|B3A G2|EC3 E2|D4  \
+   GA|B3A G2|
+             Bd3 D2|B3d B2|A4  \
+   DE|A3E A2|G3A G2|
+                    E3D C2|D4  \
+   GA|B3D dB|A3D BA|G6    |G4|]
+
+X:414
+T:The Northern Lights of Old Aberdeen (in D)
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:1/4=128
+K:D
+   A|A F G|A2  A|d c B|A3     |G A G|F2  E|(A3-|A2)
+   A|A2  F|A2  A|d c B|A3     |G A G|F2  E|(D3-|D2)
+   A|B G B|d c B|A3   |A2 A/A/|B G B|d c B|(c3-|c2)
+   A|A A F|A2  A|d c B|A3     |G A G|F F E|(D3-|D2)||
+   A|D2  D|F2  F|E D E|D2 A   |B2  B|G A B|(A3-|A2)
+[1 A|B2  B|G2  B|A2  F|E2 D   |E2  E|F2  D|(A3-|A2):|
+[2 A|B2  G|d2  B|A2  F|d2 d   |d2  B|c2  d|(d3-|d3)|]
+
+X:415
+T:The Northern Lights of Old Aberdeen (in C)
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:1/4=128
+K:C
+   G|G E F|G2  G|c B A|G3     |F G F|E2  D|(G3-|G2)
+   G|G2  E|G2  G|c B A|G3     |F G F|E2  D|(C3-|C2)
+   G|A F A|c B A|G3   |G2 G/G/|A F A|c B A|(B3-|B2)
+   G|G G E|G2  G|c B A|G3     |F G F|E E D|(C3-|C2)||
+   G|C2  C|E2  E|D C D|C2 G   |A2  A|F G A|(G3-|G2)
+[1 G|A2  A|F2  A|G2  E|D2 C   |D2  D|E2  C|(G3-|G2):|
+[2 G|A2  F|c2  A|G2  E|c2 c   |c2  A|B2  c|(c3-|c3)|]
+
+X:416
+T:My Last Farewell to Stirling
+Z:Jack Campin, http://www.campin.me.uk/
+M:C
+L:1/8
+Q:1/4=90
+K:EDor
+A2   |D3 D FE D2|F3 G  A3 \
+ B/c/|d3 A A2 GF|E3 D =C2
+zE   |D3 D FE D2|F3 G  A3 \
+ B/c/|d2A2 AG E2|F2D2  D2|]
+
+X:417
+T:The Band o' Shearers
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=100
+K:Ddor %Transposed from EDOR
+D|A3 A D3 D|AGAB c3
+A|G2G2 C2C2|EDEG A3
+A|D3 E F2G2|A2d2 c3
+G|A2c2 AGFE|D4   D3|]
+ 
+X:418
+T:Skye Boat Song (in G)
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=55
+K:G
+D>ED G2G|A>BA d3|B>AB E2E|   D3- D2z:|
+B>GB B3 |A>EA A3|G>EG G2G|[1 E3- E2z:|\
+                          [2 E3  D3 ||
+D>ED G2G|A>BA d3|B>AB E2E|[1 D3- D2z:|\
+                          [2 G3- G2z|]
+
+X:419
+T:Skye Boat Song (in F)
+Z:Jack Campin, http://www.campin.me.uk/
+M:6/8
+L:1/8
+Q:3/8=55
+K:F
+C>DC F2F|G>AG c3|A>GA D2D|   C3- C2z:|
+A>FA A3 |G>DG G3|F>DF F2F|[1 D3- D2z:|\
+                          [2 D3  C3 ||
+C>DC F2F|G>AG c3|A>GA D2D|[1 C3- C2z:|\
+                          [2 F3- F2z|]
+
+X:420
+T:Kelvingrove
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:3/4=64
+K:F
+F/G/|A2 c|G2 A|F2 E|D2 C   |D3 |G3 |G3-|G2
+F/G/|A2 c|G2 A|F2 E|D2 C   |D3 |F3 |F3-|F2
+G/A/|B2 A|B2 c|d3- |d2 A/B/|c2A|G2F|G3-|G2
+F/G/|A2 c|G2 A|F2 E|D2 C   |D3 |F3 |F3-|F2|]
+
+X:421
+T:The Gallowa Hills
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=104
+K:DMix
+AF|D3   E F2 G2|A2  d2 A3  G|F3   D D2 EF|G3  E  C2
+A2|D3   E F3  G|A2  d2 F2 ED|G>F GB A3  F|E3  D  D2||
+FG|A>A d2 F3  G|A<A d2 A3  F|G3   E C3  E|G2 c>B A2
+AF|D3   E F3  G|A2  d2 F2 ED|G>F GB A3  F|E3  D  D2|]
+
+X:422
+T:Ye Banks and Braes
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:3/4=50
+K:F
+C|F2 F|G>FG|AcA|GFG|A>GF|FDC|CD F   |G2
+C|F2 F|G>FG|AcA|GFG|A>GF|FDC|CD F   |F2||
+A|c2 d|cAF |c2d|cAF|cAF |cAF|d>cB/A/|G2
+C|F2 F|G>FG|AcA|GFG|A>GF|FDC|CD F   |F2|]
+
+X:423
+T:Loch Tay Boat Song
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:3/4=50
+G:Waltz
+K:D
+D|F2E|D2F|A3|F2 D|d2c|B2G|A3 |F2
+D|G2A|B2G|A3|F2 E|F2E|E2F|G2F|E2
+D|F2E|D2F|A3|F2 D|d2c|B2G|A3 |F2
+D|G2A|B2G|A3|F2 D|F2E|D2C|D3-|D2||
+A|d2c|B2G|A3|F2 D|d2c|B2G|A3-|A2
+D|d2c|B2G|A3|F2 G|F2E|E2F|G2F|E2
+D|F2E|D2F|A3|F2 D|d2c|B2G|A3 |F2
+D|G2A|B2G|A3|F2 D|F2E|D2C|D3-|D2|]
+
+X:424
+T:Come By The Hills
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/4
+Q:1/4=132
+K:F
+     A> G A|G F D|C2  C|D F F|F2
+C   |F> G A|B A G|A2  F|D F A|G2
+c   |c> A G|F> GA|B c d|c A F|G2
+F/G/|A> G A|G F D|C2  C|D F F|F2|]
+
+X:425
+T:We're No Awa Tae Bide Awa
+Z:Jack Campin, http://www.campin.me.uk/
+M:4/4
+L:1/8
+Q:1/4=120
+K:C
+D|E3 G FEDC|E2C2 C3
+G|c3 d cBAG|A4   G3
+G|c2c2 c3 E|F2A2 G3
+G|A2G2 c2E2|D4   C3|]
+
+X:426
+T:Freedom Come All Ye (in C)
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/8
+Q:1/4=100
+N:this is more often sung in A
+K:C
+G>E|C2 C>D      EG|A2     G2\
+Ac |G2 F>G      EC|EF/E/ HD2
+G>E|C2 C>D      EG|A2     G2\
+Ac |G2 G/E/C/D/ ED|C4
+AB |c2 G>G      Ac|G2     E2\
+A>c|G2 FG       EC|EF/E/ HD2
+G>E|C2 C>D      EG|A2     G2\
+Ac |G2 G/E/C/D/ ED|C4     |]
+
+X:427
+T:Freedom Come All Ye (in D)
+Z:Jack Campin, http://www.campin.me.uk/
+M:3/4
+L:1/8
+Q:1/4=100
+N:this is more often sung in A
+K:D
+A>F|D2 D>E      FA|B2     A2\
+Bd |A2 G>A      FD|FG/F/ HE2
+A>F|D2 D>E      FA|B2     A2\
+Bd |A2 A/F/D/E/ FE|D4
+Bc |d2 A>A      Bd|A2     F2\
+B>d|A2 GA       FD|FG/F/ HE2
+A>F|D2 D>E      FA|B2     A2\
+Bd |A2 A/F/D/E/ FE|D4     |]
+
+X:428
+T:Good night and joy be wi' you a'
+Z:Jack Campin: "Embro, Embro", transcription (c) 2001
+Z:Jack Campin, http://www.campin.me.uk/
+F:19bye/abc/GdNghtBu.abc
+S:SMM 600 (last song in it)
+N:words by Burns
+M:C
+L:1/8
+Q:1/4=92
+K:DMin
+(AG)|F2 F2 C3  F|D2 D2 d3  c|(Ac) (dc) (Ac) (dc)|A2 F2 F2AG|
+     F2 F2 C3  F|D2 D2 d3  c|(Ac) (dc) (Ac) (dc)|A2 F2 F2 ||
+ A2 |GF GA G2 FD|CD FG A2 GF| G3    A  (BA) (Bc)|d2 G2 G3 A|
+     BA Bc d2 cB|AG AB c2 BA| GA   cd   cA   GA |F2 D2 D2 |]
+
+% ===========================================================================
+% ==  (c) Jack Campin                            http://www.campin.me.uk/  ==
+% ==      11 Third Street, Newtongrange, Midlothian EH22 4PU, Scotland     ==
+% ===========================================================================
+

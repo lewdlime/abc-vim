@@ -1,0 +1,600 @@
+                                JedABC 1.18.1
+
+                            Guido Gonzato, Ph.D.
+     __________________________________________________________________
+
+      ##              ##          ####  #######      ######   ________
+      ##|             ##|        ##/##| ##|   ##    ##/        |  |  |
+      ##|             ##|       ##/ ##| ##|    ##  ##/         |  |  |
+      ##|  #####    ####|      ##/  ##| ########/  ##        () () ()
+      ##| #/    # ##/ ##|     ##/   ##| ##|    ##  ##
+      ##| ####### ##  ##|    #########| ##|    ##  ##
+ ##   ##| #\      ##\ ##|   ##/     ##| ##|   ##/   ##
+  #####/   #####/  #####/  ##/      ##| ######/      #####/
+     __________________________________________________________________
+
+1. Introduction
+
+   JedABC is an extension to the Jed editor that turns it into a powerful
+   and easy-to-use development environment for ABC and ABC Plus files.
+   Similar in concept to BarFly or runabc, it is fully integrated with
+   converters, players, and previewers, with several advantages. JedABC
+   works on Windows, Linux, and all platforms where Jed runs, but it was
+   only tested on Linux and Windows.
+
+   JedABC consists of the following files:
+     * the main S-Lang file, abc.sl
+     * encoding support files, abc-latin1.sl and abc-utf8.sl
+     * an external program, beep.exe (recommended, for Windows only)
+     * this help file, jedabc.txt
+
+   which are available from the ABC Plus page,
+   http://abcplus.sourceforge.net.
+
+   I developed JedABC `thinking Unix': that is, I gathered several tools
+   that do their job well and had them work together. Take a brilliant ABC
+   formatter, an ABC to MIDI converter, a MIDI player, the GhostView
+   PostScript viewer, and Jed: JedABC combines them all in an integrated
+   music creation environment. JedABC is specifically designed to work
+   with abcm2ps and abcMIDI: currently, the two most powerful ABC
+   applications available. Links:
+     * Jed, http://www.jedsoft.org/jed/
+     * The ABC home page, http://abcnotation.com
+     * abcm2ps, http://moinejf.free.fr
+     * abcMIDI, http://ifdo.pugmarks.com/~seymour/runabc/top.html
+     * ABCexplorer, http://stalikez.info/abcex.php/
+     * ABC Navigator, http://abcnavigator.free.fr/
+     * GhostScript, http://www.cs.wisc.edu/~ghost
+
+  1.1. To Whom is JedABC Aimed?
+
+   To all those who want to write music in ABC (Plus) format, are
+   reasonably familiar with computers, and need an easy-to-use, non-visual
+   editor. This is by far the fastest way of writing music.
+
+   Please note the emphasis on write. JedABC is not a graphical program
+   like ABC Navigator or ABCEdit. These applications are mainly designed
+   to manage existing tune collections, while JedABC is mainly designed
+   for writing them.
+
+  1.2. Scope and Features
+
+   JedABC is designed to make writing ABC files easier, more fun, less
+   subject to errors, with full integration with external programs, and to
+   save the user from using the command line. Current features are:
+     * syntax highlighting
+     * templates
+     * K: field wizard
+     * optional note playing (`note mode')
+     * automatic bar insertion (`autobar mode')
+     * automatic input conversion from Italian notation (do re mi...) to
+       English notation (c d e...)
+     * automatic on-the-fly PostScript conversion
+     * integrated conversion and preview/listening to
+     * measure bars reformatting
+     * index mode
+     * ...and much more.
+
+   Not to mention all of the features that the Jed editor boasts by
+   itself! User-definable keybindings (Emacs, Borland/WordStar, CUA...),
+   colour schemes, unlimited undo, advanced editing operations, macros,
+   etc. Forget notepad! Jed is a very sophisticated editor, and I strongly
+   suggest that you read its documentation.
+
+   All options are reachable via the Mode menu, but there are keyboard
+   shortcuts to the most common operations. By default, the Windows
+   version uses Borland IDE key bindings; all commands will start in
+   Ctrl-Z. With Emacs emulation, you'll use Ctrl-C. In the following, we
+   will assume IDE key bindings; see Command Reference below.
+
+  1.3. Windows Installation
+
+   First of all, install GhostScript and Ghostview. JedABC expects to find
+   the latter in c:\gstools\gsview.
+
+   Next, install the Jed binary; a Windows installer is provided. Finally,
+   download jedabc-1.18.1.zip and uncompress it to a temporary location.
+   Copy all files in jedabc-1.18.1/bin to the c:\windows folder. Files in
+   the lib/ directory must be copied to the lib/ subdirectory in the Jed
+   folder, e.g. c:\Program Files\Jed\lib.
+
+   Do not move the binary files to other folders, JedABC needs them! If
+   you wish, you can replace these programs with more recent versions.
+
+   Jed can emulate other editors. If you wish to use Emacs or CUA
+   keybindings, then edit the library file c:\jed\lib\jed.rc around line
+   31.
+
+  1.4. Manual Installation (Linux & co.)
+
+   First of all, download Jed for your platform and install it; Windows
+   users will want to read important details in README.pc. Then follow
+   these steps:
+     * copy the *.sl files and jedabc.txt to $JED_ROOT/lib, the directory
+       where all .sl files are kept;
+     * edit the file $JED_ROOT/lib/jed.rc (Linux users: $HOME/.jedrc) and
+       add the following lines:
+
+variable abc_encoding="utf8"; % or latin1, if you still use it
+autoload ("abc_mode", "abc");
+add_mode_for_extension ("abc", "abc");  % plain ABC files
+add_mode_for_extension ("abc", "abp");  % abcpp ABC files
+enable_dfa_syntax_for_mode ("abc");
+
+     * optionally, create the DFA cache adding abc.sl to the list in the
+       file lib/preparse.sl. This is useful for speeding up the syntax
+       highlighting. Under Linux, run this command as root:
+
+jed -batch -n -l preparse
+
+     * while Windows users will run Wjed then type:
+
+ESC-X ()=evalfile("preparse");
+
+     * optionally, Linux users may also append the following lines that
+       force saving ABC files with DOS-style end of line; this helps
+       Windows users read them.
+
+define abc_mode_hook ()
+{ setbuf_info (getbuf_info () | 0x400); }
+
+  1.5. Limitations
+
+   JedABC cannot deal with file and directory names containing spaces.
+   This is a serious issue in Windows, where directory names such as
+   Documents and Settings\My Music\ABC may be desirable.
+
+   The Windows version cannot run Ghostview and the MIDI player in the
+   background. The user will have to close these applications to return to
+   the editor.
+
+  1.6. Customisation
+
+   JedABC relies on external applications for converting the ABC file into
+   PostScript and/or MIDI, for viewing and listening to it. The following
+   applications and settings are used by default:
+
+   Linux:
+     * preprocessor: abcpp
+     * PostScript converter: abcm2ps
+     * PostScript converter flags: -c
+     * PostScript viewer: gv
+     * PostScript viewer flags: -watch
+     * MIDI converter: abc2midi
+     * MIDI converter flags: (none)
+     * MIDI player: timidity
+     * MIDI player flags: -A 300
+     * Voice extractor: abc2prt
+
+   Windows:
+     * preprocessor: abcpp.exe
+     * PostScript converter: abcm2ps.exe
+     * PostScript converter flags: -c
+     * PostScript viewer: gsview32.exe
+     * PostScript viewer flags: (none)
+     * MIDI converter: abc2midi.exe
+     * MIDI converter flags: (none)
+     * MIDI player: system MIDI player
+     * MIDI player flags: (none)
+     * Voice extractor: abc2prt.exe
+
+   If you wish to change the defaults, add lines like these to the
+   system-wide jed.rc or to your personal .jedrc:
+
+variable abc_preprocess_cmd   = "my_abcpp";
+variable abc_compile_ps_cmd   = "my_abc2ps";
+variable abc_compile_ps_flags = "-c -l";
+variable abc_compile_midi_cmd = "my_abc2midi";
+variable abc_compile_midi_flags = "-v";
+variable abc_view_cmd         = "my_gsview32";
+variable abc_player_cmd       = "my_mplayer";
+variable abc_player_flags     = "-T 80";
+
+   but make sure that the applications you chose are in the PATH. You can
+   also change some startup defaults: the length of the `beep' when notes
+   are played; whether to insert notes in Italian notation (see Inserting
+   Music in Italian Notation; whether to use autobar (see Autobar and
+   Inversion; whether to beep notes; and whether to insert ISO 8859-1 or
+   UTF8 Characters as special character sequences.
+
+variable beep_duration          = 100; % default: 50
+variable abc_start_with_doremi  = 1;   % default: 0
+variable abc_start_with_autobar = 0;   % default: 1
+variable abc_start_with_beep    = 0;   % default: 1
+variable abc_start_with_latin1  = 0;   % default: 1
+
+   You can also temporarily change these variables selecting JedABC
+   Options/Customise Options. Please note that you can't add the -O switch
+   to abcm2ps command line, as JedABC handles output files by itself.
+
+   Linux users will want to use the Timidity++ MIDI player, included in
+   most Linux distributions; its home page is
+   http://timidity.sourceforge.net.
+     __________________________________________________________________
+
+2. Usage
+
+   Before you start writing music, I suggest that you click on the Mode
+   menu and browse the submenus to have a look at all available features.
+
+   Options can be selected from menus, or via key sequences. There are two
+   cases: opening an existing ABC file, or starting a new one. If your ABC
+   file contains several tunes, JedABC will switch to Index Mode.
+
+  2.1. Opening an Existing ABC File
+
+   From the File menu, select Open. You will be prompted for a file name
+   in the minibuffer, that is the line at the bottom of the screen.
+
+   Browse the file to become familiar with the syntax highlighting,
+   designed to help distinguishing between notes and symbols. In
+   particular, note how lower and upper octave notes are printed in
+   different colours. There are several colour schemes; try selecting one
+   from Windows/Color Schemes/Wjed (or Xjed).
+
+   When you're done, view the PostScript output selecting View PostScript;
+   or listen to the tune(s) selecting Listen to Midi. If you wish to pass
+   command-line parameters to abcm2ps or abc2midi, select the Customise
+   Options menu entry and change the relevant variable.
+
+   The PostScript and MIDI files will be created in the same folder as the
+   ABC file.
+
+  2.2. Starting a New ABC File
+
+   From the File menu, select Open and insert the name of your new ABC
+   file. Remember to specify the .abc extension; it's used by Jed to
+   recognise the file type and activate ABC mode.
+
+   If you wish, choose a template from the Templates menu. In the current
+   version, these templates are defined:
+    1. Single Voice
+    2. Duet
+    3. Trio
+    4. SATB
+    5. Quintet
+    6. Sextet
+    7. Piano (2 voices)
+    8. Piano (4 voices)
+    9. Soloist + Piano (2 voices)
+   10. Soloist + Piano (4 voices)
+   11. SATB + Piano (2 voices)
+   12. SATB + Piano (4 voices)
+   13. Organ
+
+   JedABC inserts a header with the most common fields and the appropriate
+   voice definitions, then prompts you for the music key. The `key wizard'
+   asks you whether the key has sharps, flats, or nothing, and inserts the
+   K: field for you.
+
+   Select Templates/Customise Template if you wish to change the labels
+   associated to each voice.
+
+   Complete the header fields, move to the bottom of the file, then select
+   JedABC Options/Insert System. One or more V: fields will be inserted;
+   note mode and autobar will be turned on. This means that 1) if you
+   press a key between `a' and `g' (or `A' and `G'), the corresponding
+   note will be played; 2) when a measure is complete, the measure bar `|'
+   will be automatically inserted. More details will be given below.
+
+   You are now ready to write the music. At this stage, I suggest that you
+   start the PostScript viewer. At the end of each measure, the file will
+   be quietly converted to PostScript, and the PostScript viewer (if
+   capable) will refresh the view. If you make any mistake during
+   automatic PostScript conversion, you'll be warned and will be asked to
+   fix the last measure. If you launch the PostScript conversion by hand,
+   if errors are detected the cursor will be moved to the first one.
+
+  2.3. Writing Music, Lyrics, and Other Things
+
+   Basically, an ABC tune is composed of two different elements: music
+   lines, and all the rest. In music lines, each character represents a
+   note or a symbol. In field lines, comments etc. each letter is
+   equivalent to all others.
+
+   This leads to two different ways of writing things:
+     * note mode, used when writing actual notes;
+     * text mode, used to write everything else.
+
+   To put it briefly: select JedABC Options/Toggle Note Mode when you
+   write music, and turn it off when you write header fields, lyrics,
+   comments, inline fields, etc. Pressing a percent sign %, a double quote
+   ", or an exclamation mark ! (that is, starting a comment, a guitar
+   chord, or a decoration) in note mode disables note mode automatically:
+   remember to enable it back on later.
+
+  2.4. Inline Fields
+
+   If you change the key mid-tune, select Jedabc Options/Compose K: Field:
+   the key wizard will help you. In a similar manner, if you change the
+   metre or the default note length, select JedABC Options/Set Metre to
+   let JedABC know the new values.
+
+  2.5. Note playing
+
+   By default, in note mode every note you type is played, either by the
+   external program beep.exe (Windows) or directly by JedABC (Linux).
+   Disable note playing, if you wish, selecting JedABC Options/Toggle
+   Beeps On/Off. See below for details on playing notes above and below
+   the staff with the correct pitch.
+
+  2.6. Autobar and Inversion
+
+   `Autobar' means that when you have entered enough notes to complete a
+   measure, a bar will be inserted automatically. You can always insert a
+   bar yourself; the TAB key acts as `|', and is easier to reach.
+   Obviously, automatic bar insertion only works in note mode.
+
+   Not only is the bar inserted when the measure is complete: it's also
+   aligned to music lines above that belong to the same system. This way,
+   you obtain a nicely formatted system. With the exception of music
+   consisting of a single voice/instrument, systems are separated by a
+   comment line.
+
+   The measure length is automatically calculated using the M: and L:
+   fields. However, this is not enough for autobar to work. Since duration
+   is given by symbols that come after a note, autobar cannot work unless
+   another feature is introduced: symbol inversion.
+
+   Inversion works typing objects like numbers and / (that is, symbols of
+   note length) before the note. JedABC will use this information for its
+   routines, and will insert the objects after the note. This also holds
+   for commas and single quotes (octave specifiers). A message is
+   displayed that informs what the next note will become.
+
+   For example, if you wish to write this:
+
+C2 E/E/ G//G//G//G//
+
+   you'll have to type this:
+
+2C /E/E //G//G//G//G
+
+   Another example: if you want to obtain this:
+
+A,2 a/a/ a'//a'//a'//a'//
+
+   type this:
+
+,2A /a/a '//a'//a'//a'//a
+
+   I know, it seems awkward... but the advantages are worth the effort,
+   once you get used to it. Incidentally, inversion makes it possible to
+   play notes above and under the staff with the correct pitch. Also,
+   autobar handles Tuplets correctly.
+
+   Please note: you must turn autobar off when you need to correct notes!
+   Also, when you restart it it's best to write a bar `|' (and delete it)
+   to initialise the measures correctly. If you don't pay attention,
+   autobar can be a little obtrusive -- see Frequent Problems below.
+
+  2.7. Measure Bars Reformatting
+
+   When the cursor is within a system, you can reformat it to obtain
+   measures of equal length. Select JedABC Options/Reformat Measures, but
+   take care: the system must be delimited by comment lines.
+
+   For example, let's suppose you have this system:
+
+%
+[V:1] CDEF|GABc|cdef|gabc'|
+[V:2] C/C/ D/D/ E/F/|c4|e4|g4|
+[V:3] C2 C2|E2 G/G/ G/G/|c2 c2|
+%
+
+   After reformatting, you'll see this:
+
+%
+[V:1] CDEF          |GABc        |cdef |gabc'|
+[V:2] C/C/ D/D/ E/F/|c4          |e4   |g4|
+[V:3] C2 C2         |E2 G/G/ G/G/|c2 c2|
+%
+
+   Note that the fourth measure was not realigned, because voice 3 has
+   only three measures. Also, please bear in mind that the reformatting
+   algorithm is far from perfect: only simple measure bars are reformatted
+   correctly.
+
+   Select JedABC Options/Remove Redundant Spaces to remove spaces before
+   and after measure bars.
+
+  2.8. Tuplets
+
+   Pressing Ctrl-Z ( starts a tuplet; you will be prompted for the number
+   of notes. When the tuplet is completed, a message in the minibuffer
+   will notify you. Autobar will take note of the right number of notes to
+   complete the measure.
+
+  2.9. Inserting Music in Italian Notation
+
+   Notes can be entered typing their initial in Italian notation. To do
+   so, select JedABC Options/Do-re-mi to c-d-e. From now on, when you
+   press the keys `d', `r', `m', `f', `s', `l', `t' (which stand for Do,
+   Re, Mi, Fa, Sol, La, Si) JedABC will insert the notes from `c' to `b'.
+
+   Selecting this menu item twice toggles the conversion.
+
+  2.10. ISO 8859-1 or UTF8 Characters
+
+   Recent versions of Jed use UTF8 encoding, while older versions use ISO
+   encoding. If the Jed status line includes an uppercase `U' letter,
+   like:
+
+-**----+ Jed 0.99.18U: music.abc (abc) (37/112 21) 10:57am-----------
+
+   then it's running in UTF8 mode. Please specify the correct value for
+   the abc_encoding variable in .jedrc
+
+   By default, characters outside the ASCII range 32--126 are converted
+   automatically either to the corresponding TeX-like sequence, or the
+   octal code; whichever is easier to read. For example, accented
+   characters like à è ò are converted to \`o \`e \`i, while © ® become
+   \251 \256. Under Windows, the à letter will not be converted because of
+   clash with the arrow keys.
+
+   The conversion of special characters makes the ABC source more
+   portable, and I strongly suggest that you leave it on.
+
+  2.11. External Programs
+
+   JedABC uses external programs for preprocessing the file. If the ABC
+   file you edit has abcpp directives (that is, commands that start with
+   `#'; e.g. #define, #include, etc), the abcpp preprocessor will be run
+   before any conversion. The output file name is chosen automatically.
+
+   Another external command is abc2prt, which is used to extract a voice
+   from multivoice ABC files and save it to another ABC file.
+
+  2.12. PostScript Conversion
+
+   Let's suppose you're writing the file music.abc. Choose Convert to
+   PostScript. If the file contains abcpp directives, you'll be prompted
+   for the abcpp command line.
+
+   To view the PostScript file, choose View PostScript. The PostScript
+   viewer will be launched. From there you'll be able to print the score
+   or convert it to PDF. A note for Windows users: you must close the
+   GhostView window to be able to come back to JedABC.
+
+  2.13. MIDI Conversion
+
+   MIDI conversion is similar to PostScript conversion. The only
+   difference is that abc2midi creates as many files as the tunes
+   contained in music.abc: music1.mid, music2.mid,... When you're prompted
+   for the MIDI player command, make sure you specify the number of the
+   MIDI file. A note for Windows users: you must close the MIDI player
+   window to be able to come back to JedABC.
+
+  2.14. Index Mode
+
+   When you work on a file that contains several tunes, you may want to
+   typeset or play only one of these. JedABC makes it easy to work on ABC
+   collections by providing the `Index Mode' facility.
+
+   Select JedABC Options/Make Tune Index to create an index of all tunes
+   in a file. The screen will split, showing the tune index in the top
+   window and the first lines of the tune in the bottom window.
+
+   In the index, the tune under the cursor is highlighted. Press `q' to
+   quit, `v' or F10 to view the corresponding PostScript, `l' or F12 to
+   listen to the MIDI, `Enter' or double-click to edit the tune.
+
+   Unless the Q: field is specified, JedABC will set the tune tempo
+   according to the rhythm, if this information (R:) is available. This
+   feature overrides abc2midi's default tempo, which is often not
+   appropriate for playing folk tunes. Default tempo for some types of
+   tunes are:
+     * bourree2: 120
+     * bourree3: 200
+     * hornpipe: 160
+     * jig: 180
+     * march: 120
+     * mazurka: 120
+     * polka: 140
+     * reel: 220
+     * slide: 180
+     * slip jig: 180
+     * strathspey: 120
+     * walz: 120
+
+   Selecting a tune, the key and the note length will be set. From now on,
+   you will be editing the tune in a new window; the remaining part of the
+   file is hidden, but is still there. This means that if you do Edit/Save
+   As, the entire file will be saved, not only the tune! If you wish to
+   save just the tune on a separate file, you will have to define a text
+   block then save it on a file. Please see the Help menu.
+
+   Once you're done with the selected tune, to go back to the main file
+   select JedABC Options/Make Tune Index again, then press `q'.
+
+  2.15. Renumbering Tunes
+
+   When you work on ABC collections, you can renumber all tunes in a file
+   by selecting JedABC Options/Renumber Tunes. You'll be prompted for the
+   number to start from.
+
+  2.16. ABC Notation
+
+   The ABC Notation menu contains several submenus related to topics of
+   the ABC language. It comes in handy when you don't remember the name of
+   a decoration, or other ABC details.
+
+  2.17. Command Reference
+
+   The following table shows the actions associated for convenience to
+   keybindings:
+
+Convert to Postscript              Ctrl-Z CP (or F9)
+View Postscript                    Ctrl-Z VP (or F10)
+Convert to MIDI                    Ctrl-Z CM (or F11)
+Listen to MIDI                     Ctrl-Z l  (or F12)
+Stop Playing (Linux)               Ctrl-Z Z
+Extract Voice                      Ctrl-Z X
+Insert Template                    Ctrl-Z T1 ... TD
+Customise Template                 Ctrl-Z TT
+Toggle Note Mode                   Ctrl-Z N
+Toggle Beeps On/Off                Ctrl-Z B
+Toggle Autobar Mode                Ctrl-Z A
+Toggle Formatting                  Ctrl-Z F
+Toggle Latin1 Font                 Ctrl-Z L
+Reformat Measure                   Ctrl-Z R
+Remove Redundant Spaces            Ctrl-Z P
+Make Tune Index                    Ctrl-Z I
+Set Meter                          Ctrl-Z M
+Do-re-mi to c-d-e                  Ctrl-Z D
+Renumber Tunes                     Ctrl-Z U
+Compose K: Field                   Ctrl-Z K
+Insert System                      Ctrl-Z S
+     __________________________________________________________________
+
+3. Frequent Problems
+
+   Q: I'm trying to write V:2, but JedABC keeps telling me: ``Next note
+   will be multiplied by 2 (4, 8,...).'' What can I do?
+
+   A: you're in note mode with autobar activated, but you're trying to
+   write something that's not a note. Press any letter between 'a' and
+   'g', turn note mode off, then correct what you were writing.
+
+   Q: The measure I'm writing is wrong! The bar is autoinserted after 2
+   quarter notes, but the measure should be 4 quarters!
+
+   A: you deleted two notes and re-entered them, and autobar couldn't
+   notice. Insert `|' manually to reinitialise the measure.
+
+   Q: I'm running JedABC under Linux, and I can't get notes to play when I
+   enter them. What's wrong?
+
+   A: you might have to enter the commands /sbin/modprobe pcspkr and chmod
+   666 /dev/console as root.
+
+   Q: How come the gv viewer won't start?
+
+   A: you probably specified wrong command-line flags, i.e. -watch instead
+   of ---watch (one hyphen instead of two). Check them out.
+
+4. License and Final Notes
+
+   JedABC is released under the GNU General Public Licence. I rely on your
+   feedback to fix bugs and add new features.
+
+   I wish to thank a musician friend of mine, Maestro Sandro Pasqualetto,
+   for his useful comments and suggestions (``think vertically!''), and
+   Gianni Cunich for his suggestions and encouragement. The authors of Jed
+   and abcm2ps, John E. Davis and Jean-François Moine, made two of my
+   favourite pieces of software: thank you so much!
+
+   For whatever comment you may have on JedABC, please feel free to let me
+   know. If you like it, please drop me a line. If you really like it,
+   please make a donation to a charity of your choosing, and let me know.
+   Computers are nice, music is even nicer, but human beings are the most
+   important thing.
+
+   I hope you'll enjoy using JedABC.
+
+   Enjoy,
+
+   Guido =8-)
+     __________________________________________________________________
+
+                              This document was generated using AFT v5.097

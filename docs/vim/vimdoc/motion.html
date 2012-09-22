@@ -1,0 +1,1502 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: motion</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: motion</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="motion.txt"></A><b>motion.txt</b>*    For Vim version 7.3.  Last change: 2010 May 14
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Cursor motions					*<a name="cursor-motions"></A><b>cursor-motions</b>* *<a name="navigation"></A><b>navigation</b>*
+
+These commands move the cursor position.  If the new position is off of the
+screen, the screen is scrolled to show the cursor (see also <a href="options.html#'scrolljump'">'scrolljump'</a> and
+<a href="options.html#'scrolloff'">'scrolloff'</a> <a href="options.html#options">options</a>).
+
+1. Motions and operators	|<a href="motion.html#operator">operator</a>|
+2. Left-right motions		|<a href="motion.html#left-right-motions">left-right-motions</a>|
+3. Up-down motions		|<a href="motion.html#up-down-motions">up-down-motions</a>|
+4. Word motions			|<a href="motion.html#word-motions">word-motions</a>|
+5. Text object motions		|<a href="motion.html#object-motions">object-motions</a>|
+6. Text object selection	|<a href="motion.html#object-select">object-select</a>|
+7. Marks			|<a href="motion.html#mark-motions">mark-motions</a>|
+8. Jumps			|<a href="motion.html#jump-motions">jump-motions</a>|
+9. Various motions		|<a href="motion.html#various-motions">various-motions</a>|
+
+General remarks:
+
+If you want to know where you are in the file use the &quot;<a href="editing.html#CTRL-G">CTRL-G</a>&quot; command
+|<a href="editing.html#CTRL-G">CTRL-G</a>| or the &quot;g CTRL-G&quot; command |<a href="editing.html#g_CTRL-G">g_CTRL-G</a>|.  If you set the <a href="options.html#'ruler'">'ruler'</a> option,
+the cursor position is continuously shown in the status line (which slows down
+Vim a little).
+
+Experienced users prefer the <a href="usr_02.html#hjkl">hjkl</a> keys because they are always right under
+their fingers.  Beginners often prefer the arrow keys, because they <a href="diff.html#do">do</a> not
+know what the <a href="usr_02.html#hjkl">hjkl</a> keys <a href="diff.html#do">do</a>.  The mnemonic value of <a href="usr_02.html#hjkl">hjkl</a> is clear from looking
+at the keyboard.  Think of <a href="motion.html#j">j</a> <a href="motion.html#as">as</a> an arrow pointing downwards.
+
+The <a href="options.html#'virtualedit'">'virtualedit'</a> option can be set to make it possible to move the cursor to
+positions where there is no character or halfway a character.
+
+==============================================================================
+
+1. Motions and operators				*<a name="operator"></A><b>operator</b>*
+
+The motion commands can be used after an <a href="motion.html#operator">operator</a> command, to have the command
+operate on the text that was moved over.  That is the text between the cursor
+position before and after the motion.  Operators are generally used to delete
+or change text.  The following operators are available:
+
+	|<a href="change.html#c">c</a>|	c	change
+	|<a href="change.html#d">d</a>|	d	delete
+	|<a href="change.html#y">y</a>|	y	<a href="change.html#yank">yank</a> into <a href="sponsor.html#register">register</a> (does not change the text)
+	|<a href="change.html#~">~</a>|	~	swap <a href="change.html#case">case</a> (only if <a href="options.html#'tildeop'">'tildeop'</a> is set)
+	|<a href="change.html#g~">g~</a>|	g~	swap <a href="change.html#case">case</a>
+	|<a href="change.html#gu">gu</a>|	gu	make <a href="change.html#lowercase">lowercase</a>
+	|<a href="change.html#gU">gU</a>|	gU	make <a href="change.html#uppercase">uppercase</a>
+	|<a href="change.html#!">!</a>|	!	<a href="change.html#filter">filter</a> through an external program
+	|<a href="change.html#=">=</a>|	=	<a href="change.html#filter">filter</a> through <a href="options.html#'equalprg'">'equalprg'</a> or <a href="indent.html#C-indenting">C-indenting</a> if empty
+	|<a href="change.html#gq">gq</a>|	gq	text <a href="change.html#formatting">formatting</a>
+	|<a href="change.html#g?">g?</a>|	g?	ROT13 encoding
+	|<a href="change.html#&gt;">&gt;</a>|	&gt;	<a href="intro.html#shift">shift</a> right
+	|<a href="change.html#&lt;">&lt;</a>|	&lt;	<a href="intro.html#shift">shift</a> left
+	|<a href="fold.html#zf">zf</a>|	zf	define a fold
+	|<a href="map.html#g@">g@</a>|    g@      call function set with the <a href="options.html#'operatorfunc'">'operatorfunc'</a> option
+
+If the motion includes a <a href="intro.html#count">count</a> and the <a href="motion.html#operator">operator</a> also had a <a href="intro.html#count">count</a> before it,
+the two counts are multiplied.  For example: &quot;2d3w&quot; deletes six words.
+
+After applying the <a href="motion.html#operator">operator</a> the cursor is mostly left at the start of the text
+that was operated upon.  For example, &quot;yfe&quot; doesn't move the cursor, but &quot;yFe&quot;
+moves the cursor leftwards to the &quot;<a href="motion.html#e">e</a>&quot; where the <a href="change.html#yank">yank</a> started.
+
+
+						*<a name="linewise"></A><b>linewise</b>* *<a name="characterwise"></A><b>characterwise</b>*
+The <a href="motion.html#operator">operator</a> either affects whole lines, or the characters between the start
+and end position.  Generally, motions that move between lines affect lines
+(are linewise), and motions that move within a line affect characters (are
+<a href="motion.html#characterwise">characterwise</a>).  However, there are some exceptions.
+
+
+						*<a name="exclusive"></A><b>exclusive</b>* *<a name="inclusive"></A><b>inclusive</b>*
+A character motion is either <a href="motion.html#inclusive">inclusive</a> or <a href="motion.html#exclusive">exclusive</a>.  When <a href="motion.html#inclusive">inclusive</a>, the
+start and end position of the motion are included in the operation.  When
+<a href="motion.html#exclusive">exclusive</a>, the last character towards the end of the buffer is not included.
+Linewise motions always include the start and end position.
+
+Which motions are <a href="motion.html#linewise">linewise</a>, <a href="motion.html#inclusive">inclusive</a> or <a href="motion.html#exclusive">exclusive</a> is mentioned with the
+command.  There are however, two general exceptions:
+1. If the motion is <a href="motion.html#exclusive">exclusive</a> and the end of the motion is in column 1, the
+   end of the motion is moved to the end of the previous line and the motion
+   becomes <a href="motion.html#inclusive">inclusive</a>.  Example: &quot;<a href="motion.html#}">}</a>&quot; moves to the first line after a <a href="motion.html#paragraph">paragraph</a>,
+   but &quot;d}&quot; will not include that line.
+
+						*<a name="exclusive-linewise"></A><b>exclusive-linewise</b>*
+2. If the motion is <a href="motion.html#exclusive">exclusive</a>, the end of the motion is in column 1 and the
+   start of the motion was at or before the first non-blank in the line, the
+   motion becomes <a href="motion.html#linewise">linewise</a>.  Example: If a <a href="motion.html#paragraph">paragraph</a> begins with some blanks
+   and you <a href="diff.html#do">do</a> &quot;d}&quot; while standing on the first non-blank, all the lines of
+   the <a href="motion.html#paragraph">paragraph</a> are deleted, including the blanks.  If you <a href="diff.html#do">do</a> a put now, the
+   deleted lines will be inserted below the cursor position.
+
+Note that when the <a href="motion.html#operator">operator</a> is pending (the <a href="motion.html#operator">operator</a> command is typed, but the
+motion isn't yet), a special set of mappings can be used.  See |<a href="map.html#:omap">:omap</a>|.
+
+Instead of first giving the <a href="motion.html#operator">operator</a> and then a motion you can use <a href="visual.html#Visual">Visual</a>
+mode: <a href="motion.html#mark">mark</a> the start of the text with &quot;<a href="visual.html#v">v</a>&quot;, move the cursor to the end of the
+text that is to be affected and then hit the <a href="motion.html#operator">operator</a>.  The text between the
+start and the cursor position is highlighted, so you can see what text will
+be operated upon.  This allows much more freedom, but requires more key
+strokes and has limited <a href="undo.html#redo">redo</a> functionality.  See the chapter on <a href="visual.html#Visual">Visual</a> mode
+|<a href="visual.html#Visual-mode">Visual-mode</a>|.
+
+You can use a &quot;<a href="cmdline.html#:">:</a>&quot; command for a motion.  For example &quot;d:call FindEnd()&quot;.
+But this can't be redone with &quot;<a href="repeat.html#.">.</a>&quot; if the command is more than one line.
+This can be repeated:
+<b>	d:call search("f")&lt;CR&gt;</b>
+This cannot be repeated:
+<b>	d:if 1&lt;CR&gt;</b>
+<b>	   call search("f")&lt;CR&gt;</b>
+<b>	endif&lt;CR&gt;</b>
+
+
+FORCING A MOTION TO BE LINEWISE, CHARACTERWISE OR BLOCKWISE
+
+When a motion is not of the type you would like to use, you can force another
+type by using &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or <a href="visual.html#CTRL-V">CTRL-V</a> just after the <a href="motion.html#operator">operator</a>.
+Example:
+<b>	dj</b>
+deletes two lines
+<b>	dvj</b>
+deletes from the cursor position until the character below the cursor
+<b>	d&lt;C-V&gt;j</b>
+deletes the character under the cursor and the character below the cursor.
+
+Be careful with forcing a <a href="motion.html#linewise">linewise</a> <a href="intro.html#movement">movement</a> to be used <a href="motion.html#characterwise">characterwise</a> or
+blockwise, the column may not always be defined.
+
+
+							*<a name="o_v"></A><b>o_v</b>*
+<a href="visual.html#v">v</a>		When used after an <a href="motion.html#operator">operator</a>, before the motion command: Force
+		the <a href="motion.html#operator">operator</a> to work <a href="motion.html#characterwise">characterwise</a>, also when the motion is
+		<a href="motion.html#linewise">linewise</a>.  If the motion was <a href="motion.html#linewise">linewise</a>, it will become
+		|<a href="motion.html#exclusive">exclusive</a>|.
+		If the motion already was <a href="motion.html#characterwise">characterwise</a>, toggle
+		inclusive/exclusive.  This can be used to make an <a href="motion.html#exclusive">exclusive</a>
+		motion <a href="motion.html#inclusive">inclusive</a> and an <a href="motion.html#inclusive">inclusive</a> motion <a href="motion.html#exclusive">exclusive</a>.
+
+
+							*<a name="o_V"></A><b>o_V</b>*
+<a href="visual.html#V">V</a>		When used after an <a href="motion.html#operator">operator</a>, before the motion command: Force
+		the <a href="motion.html#operator">operator</a> to work <a href="motion.html#linewise">linewise</a>, also when the motion is
+		<a href="motion.html#characterwise">characterwise</a>.
+
+
+							*<a name="o_CTRL-V"></A><b>o_CTRL-V</b>*
+<a href="visual.html#CTRL-V">CTRL-V</a>		When used after an <a href="motion.html#operator">operator</a>, before the motion command: Force
+		the <a href="motion.html#operator">operator</a> to work blockwise.  This works like <a href="visual.html#Visual">Visual</a> block
+		mode selection, with the corners defined by the cursor
+		position before and after the motion.
+
+==============================================================================
+
+2. Left-right motions					*<a name="left-right-motions"></A><b>left-right-motions</b>*
+
+These commands move the cursor to the specified column in the current line.
+They stop at the first column and at the end of the line, except &quot;<a href="motion.html#$">$</a>&quot;, which
+may move to one of the next lines.  See <a href="options.html#'whichwrap'">'whichwrap'</a> option to make some of the
+commands move across line boundaries.
+
+
+<a href="motion.html#h">h</a>		or					*<a name="h"></A><b>h</b>*
+
+<a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>		or					*<a name="&lt;Left&gt;"></A><b>&lt;Left&gt;</b>*
+
+<a href="motion.html#CTRL-H">CTRL-H</a>		or					*<a name="CTRL-H"></A><b>CTRL-H</b>* *<a name="&lt;BS&gt;"></A><b>&lt;BS&gt;</b>*
+<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>			<a href="intro.html#[count]">[count]</a> characters to the left.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+			Note: If you prefer <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> to delete a character, use
+			the <a href="map.html#mapping">mapping</a>:
+				<a href="map.html#:map">:map</a> CTRL-V&lt;BS&gt;		X
+			(to enter &quot;CTRL-V&lt;BS&gt;&quot; type the <a href="visual.html#CTRL-V">CTRL-V</a> key, followed
+			by the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> key)
+			See |<a href="options.html#:fixdel">:fixdel</a>| if the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> key does not <a href="diff.html#do">do</a> what you
+			want.
+
+
+<a href="motion.html#l">l</a>		or					*<a name="l"></A><b>l</b>*
+
+<a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>		or					*<a name="&lt;Right&gt;"></A><b>&lt;Right&gt;</b>* *<a name="&lt;Space&gt;"></A><b>&lt;Space&gt;</b>*
+<a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>			<a href="intro.html#[count]">[count]</a> characters to the right.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="0"></A><b>0</b>*
+0			To the first character of the line.  |<a href="motion.html#exclusive">exclusive</a>|
+			motion.
+
+
+							*<a name="&lt;Home&gt;"></A><b>&lt;Home&gt;</b>* *<a name="&lt;kHome&gt;"></A><b>&lt;kHome&gt;</b>*
+<a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>			To the first character of the line.  |<a href="motion.html#exclusive">exclusive</a>|
+			motion.  When moving up or down next, stay in same
+			TEXT column (if possible).  Most other commands stay
+			in the same SCREEN column.  <a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a> works like &quot;1|&quot;,
+			which differs from &quot;<a href="motion.html#0">0</a>&quot; when the line starts with a
+			<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>.  {not in Vi}
+
+
+							*<a name="^"></A><b>^</b>*
+^			To the first non-blank character of the line.
+			|<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="$"></A><b>$</b>* *<a name="&lt;End&gt;"></A><b>&lt;End&gt;</b>* *<a name="&lt;kEnd&gt;"></A><b>&lt;kEnd&gt;</b>*
+$  or <a href="motion.html#&lt;End&gt;">&lt;End&gt;</a>		To the end of the line.  When a <a href="intro.html#count">count</a> is given also go
+			[count - 1] lines downward |<a href="motion.html#inclusive">inclusive</a>|.
+			In <a href="visual.html#Visual">Visual</a> mode the cursor goes to just after the last
+			character in the line.
+			When <a href="options.html#'virtualedit'">'virtualedit'</a> is active, &quot;<a href="motion.html#$">$</a>&quot; may move the cursor
+			back from past the end of the line to the last
+			character in the line.
+
+
+							*<a name="g_"></A><b>g_</b>*
+<a href="motion.html#g_">g_</a>			To the last non-blank character of the line and
+			[count - 1] lines downward |<a href="motion.html#inclusive">inclusive</a>|. {not in Vi}
+
+
+							*<a name="g0"></A><b>g0</b>* *<a name="g&lt;Home&gt;"></A><b>g&lt;Home&gt;</b>*
+<a href="motion.html#g0">g0</a> or <a href="motion.html#g&lt;Home&gt;">g&lt;Home&gt;</a>		When lines wrap ('wrap' on): To the first character of
+			the screen line.  |<a href="motion.html#exclusive">exclusive</a>| motion.  Differs from
+			&quot;<a href="motion.html#0">0</a>&quot; when a line is wider than the screen.
+			When lines don't wrap ('wrap' off): To the leftmost
+			character of the current line that is on the screen.
+			Differs from &quot;<a href="motion.html#0">0</a>&quot; when the first character of the line
+			is not on the screen.  {not in Vi}
+
+
+							*<a name="g^"></A><b>g^</b>*
+<a href="motion.html#g^">g^</a>			When lines wrap ('wrap' on): To the first non-blank
+			character of the screen line.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+			Differs from &quot;<a href="motion.html#^">^</a>&quot; when a line is wider than the screen.
+			When lines don't wrap ('wrap' off): To the leftmost
+			non-blank character of the current line that is on the
+			screen.  Differs from &quot;<a href="motion.html#^">^</a>&quot; when the first non-blank
+			character of the line is not on the screen.  {not in
+			Vi}
+
+
+							*<a name="gm"></A><b>gm</b>*
+<a href="motion.html#gm">gm</a>			Like &quot;<a href="motion.html#g0">g0</a>&quot;, but half a screenwidth to the right (or <a href="motion.html#as">as</a>
+			much <a href="motion.html#as">as</a> possible). {not in Vi}
+
+
+							*<a name="g$"></A><b>g$</b>* *<a name="g&lt;End&gt;"></A><b>g&lt;End&gt;</b>*
+<a href="motion.html#g$">g$</a> or <a href="motion.html#g&lt;End&gt;">g&lt;End&gt;</a>		When lines wrap ('wrap' on): To the last character of
+			the screen line and [count - 1] screen lines downward
+			|<a href="motion.html#inclusive">inclusive</a>|.  Differs from &quot;<a href="motion.html#$">$</a>&quot; when a line is wider
+			than the screen.
+			When lines don't wrap ('wrap' off): To the rightmost
+			character of the current line that is visible on the
+			screen.  Differs from &quot;<a href="motion.html#$">$</a>&quot; when the last character of
+			the line is not on the screen or when a <a href="intro.html#count">count</a> is used.
+			Additionally, vertical movements keep the column,
+			instead of going to the end of the line.
+			{not in Vi}
+
+
+							*<a name="bar"></A><b>bar</b>*
+|			To screen column <a href="intro.html#[count]">[count]</a> in the current line.
+			|<a href="motion.html#exclusive">exclusive</a>| motion.  Ceci n'est pas une pipe.
+
+
+							*<a name="f"></A><b>f</b>*
+f{char}			To [count]'th occurrence of {char} to the right.  The
+			cursor is placed on {char} |<a href="motion.html#inclusive">inclusive</a>|.
+			{char} can be entered <a href="motion.html#as">as</a> a digraph |<a href="change.html#digraph-arg">digraph-arg</a>|.
+			When <a href="options.html#'encoding'">'encoding'</a> is set to <a href="mbyte.html#Unicode">Unicode</a>, composing
+			characters may be used, see |<a href="mbyte.html#utf-8-char-arg">utf-8-char-arg</a>|.
+			|<a href="map.html#:lmap">:lmap</a>| mappings apply to {char}.  The <a href="editing.html#CTRL-^">CTRL-^</a> command
+			in <a href="insert.html#Insert">Insert</a> mode can be used to switch this on/off
+			|<a href="insert.html#i_CTRL-^">i_CTRL-^</a>|.
+
+
+							*<a name="F"></A><b>F</b>*
+F{char}			To the [count]'th occurrence of {char} to the left.
+			The cursor is placed on {char} |<a href="motion.html#exclusive">exclusive</a>|.
+			{char} can be entered like with the |<a href="motion.html#f">f</a>| command.
+
+
+							*<a name="t"></A><b>t</b>*
+t{char}			Till before [count]'th occurrence of {char} to the
+			right.  The cursor is placed on the character left of
+			{char} |<a href="motion.html#inclusive">inclusive</a>|.
+			{char} can be entered like with the |<a href="motion.html#f">f</a>| command.
+
+
+							*<a name="T"></A><b>T</b>*
+T{char}			Till after [count]'th occurrence of {char} to the
+			left.  The cursor is placed on the character right of
+			{char} |<a href="motion.html#exclusive">exclusive</a>|.
+			{char} can be entered like with the |<a href="motion.html#f">f</a>| command.
+
+
+							*<a name=";"></A><b>;</b>*
+;			Repeat latest <a href="motion.html#f">f</a>, t, <a href="motion.html#F">F</a> or <a href="motion.html#T">T</a> <a href="intro.html#[count]">[count]</a> times.
+
+
+							*<a name=","></A><b>,</b>*
+,			Repeat latest <a href="motion.html#f">f</a>, t, <a href="motion.html#F">F</a> or <a href="motion.html#T">T</a> in opposite direction
+			<a href="intro.html#[count]">[count]</a> times.
+
+==============================================================================
+
+3. Up-down motions					*<a name="up-down-motions"></A><b>up-down-motions</b>*
+
+
+<a href="motion.html#k">k</a>		or					*<a name="k"></A><b>k</b>*
+
+<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>		or					*<a name="&lt;Up&gt;"></A><b>&lt;Up&gt;</b>* *<a name="CTRL-P"></A><b>CTRL-P</b>*
+<a href="motion.html#CTRL-P">CTRL-P</a>			<a href="intro.html#[count]">[count]</a> lines upward |<a href="motion.html#linewise">linewise</a>|.
+
+
+<a href="motion.html#j">j</a>		or					*<a name="j"></A><b>j</b>*
+
+<a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>		or					*<a name="&lt;Down&gt;"></A><b>&lt;Down&gt;</b>*
+
+<a href="motion.html#CTRL-J">CTRL-J</a>		or					*<a name="CTRL-J"></A><b>CTRL-J</b>*
+
+<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>		or					*<a name="&lt;NL&gt;"></A><b>&lt;NL&gt;</b>* *<a name="CTRL-N"></A><b>CTRL-N</b>*
+<a href="motion.html#CTRL-N">CTRL-N</a>			<a href="intro.html#[count]">[count]</a> lines downward |<a href="motion.html#linewise">linewise</a>|.
+
+
+<a href="motion.html#gk">gk</a>		or					*<a name="gk"></A><b>gk</b>* *<a name="g&lt;Up&gt;"></A><b>g&lt;Up&gt;</b>*
+<a href="motion.html#g&lt;Up&gt;">g&lt;Up&gt;</a>			<a href="intro.html#[count]">[count]</a> display lines upward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+			Differs from '<a href="motion.html#k">k</a>' when lines wrap, and when used with
+			an <a href="motion.html#operator">operator</a>, because it's not <a href="motion.html#linewise">linewise</a>.  {not in Vi}
+
+
+<a href="motion.html#gj">gj</a>		or					*<a name="gj"></A><b>gj</b>* *<a name="g&lt;Down&gt;"></A><b>g&lt;Down&gt;</b>*
+<a href="motion.html#g&lt;Down&gt;">g&lt;Down&gt;</a>			<a href="intro.html#[count]">[count]</a> display lines downward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+			Differs from '<a href="motion.html#j">j</a>' when lines wrap, and when used with
+			an <a href="motion.html#operator">operator</a>, because it's not <a href="motion.html#linewise">linewise</a>.  {not in Vi}
+
+
+							*<a name="-"></A><b>-</b>*
+-  &lt;minus&gt;		<a href="intro.html#[count]">[count]</a> lines upward, on the first non-blank
+			character |<a href="motion.html#linewise">linewise</a>|.
+
+
++		or					*<a name="+"></A><b>+</b>*
+
+<a href="motion.html#CTRL-M">CTRL-M</a>		or					*<a name="CTRL-M"></A><b>CTRL-M</b>* *<a name="&lt;CR&gt;"></A><b>&lt;CR&gt;</b>*
+<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>			<a href="intro.html#[count]">[count]</a> lines downward, on the first non-blank
+			character |<a href="motion.html#linewise">linewise</a>|.
+
+
+							*<a name="_"></A><b>_</b>*
+_  &lt;underscore&gt;		<a href="intro.html#[count]">[count]</a> - 1 lines downward, on the first non-blank
+			character |<a href="motion.html#linewise">linewise</a>|.
+
+
+							*<a name="G"></A><b>G</b>*
+<a href="motion.html#G">G</a>			Goto line <a href="intro.html#[count]">[count]</a>, default last line, on the first
+			non-blank character |<a href="motion.html#linewise">linewise</a>|.  If <a href="options.html#'startofline'">'startofline'</a> not
+			set, keep the same column.
+			<a href="motion.html#G">G</a> is a one of |<a href="motion.html#jump-motions">jump-motions</a>|.
+
+
+							*<a name="&lt;C-End&gt;"></A><b>&lt;C-End&gt;</b>*
+<a href="motion.html#&lt;C-End&gt;">&lt;C-End&gt;</a>			Goto line <a href="intro.html#[count]">[count]</a>, default last line, on the last
+			character |<a href="motion.html#inclusive">inclusive</a>|. {not in Vi}
+
+
+<a href="motion.html#&lt;C-Home&gt;">&lt;C-Home&gt;</a>	or					*<a name="gg"></A><b>gg</b>* *<a name="&lt;C-Home&gt;"></A><b>&lt;C-Home&gt;</b>*
+<a href="motion.html#gg">gg</a>			Goto line <a href="intro.html#[count]">[count]</a>, default first line, on the first
+			non-blank character |<a href="motion.html#linewise">linewise</a>|.  If <a href="options.html#'startofline'">'startofline'</a> not
+			set, keep the same column.
+
+:[range]		Set the cursor on the last line number in <a href="cmdline.html#[range]">[range]</a>.
+			<a href="cmdline.html#[range]">[range]</a> can also be just one line number, e.g., &quot;:1&quot;
+			or &quot;:'m&quot;.
+			In contrast with |<a href="motion.html#G">G</a>| this command does not modify the
+			|<a href="motion.html#jumplist">jumplist</a>|.
+
+							*<a name="N&#37;"></A><b>N&#37;</b>*
+{count}&#37;		Go to {count} percentage in the file, on the first
+			non-blank in the line |<a href="motion.html#linewise">linewise</a>|.  To compute the new
+			line number this formula is used:
+			    ({count} &#42; number-of-lines + 99) / 100
+			See also <a href="options.html#'startofline'">'startofline'</a> option.  {not in Vi}
+
+
+:[range]go[to] <a href="intro.html#[count]">[count]</a>					*<a name=":go"></A><b>:go</b>* *<a name=":goto"></A><b>:goto</b>* *<a name="go"></A><b>go</b>*
+[count]go		Go to {count} byte in the buffer.  Default <a href="intro.html#[count]">[count]</a> is
+			one, start of the file.  When giving <a href="cmdline.html#[range]">[range]</a>, the
+			last number in it used <a href="motion.html#as">as</a> the byte <a href="intro.html#count">count</a>.  End-of-line
+			characters are counted depending on the current
+			<a href="options.html#'fileformat'">'fileformat'</a> setting.
+			{not in Vi}
+			{not available when compiled without the
+			|<a href="various.html#+byte_offset">+byte_offset</a>| feature}
+
+These commands move to the specified line.  They stop when reaching the first
+or the last line.  The first two commands put the cursor in the same column
+(if possible) <a href="motion.html#as">as</a> it was after the last command that changed the column,
+except after the &quot;<a href="motion.html#$">$</a>&quot; command, then the cursor will be put on the last
+character of the line.
+
+If &quot;<a href="motion.html#k">k</a>&quot;, &quot;<a href="motion.html#-">-</a>&quot; or <a href="motion.html#CTRL-P">CTRL-P</a> is used with a <a href="intro.html#[count]">[count]</a> and there are <a href="various.html#less">less</a> than <a href="intro.html#[count]">[count]</a>
+lines above the cursor and the <a href="options.html#'cpo'">'cpo'</a> option includes the &quot;<a href="motion.html#-">-</a>&quot; flag it is an
+error. |<a href="options.html#cpo--">cpo--</a>|.
+
+==============================================================================
+
+4. Word motions						*<a name="word-motions"></A><b>word-motions</b>*
+
+
+<a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a>	or					*<a name="&lt;S-Right&gt;"></A><b>&lt;S-Right&gt;</b>* *<a name="w"></A><b>w</b>*
+<a href="motion.html#w">w</a>			<a href="intro.html#[count]">[count]</a> words forward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+<a href="motion.html#&lt;C-Right&gt;">&lt;C-Right&gt;</a>	or					*<a name="&lt;C-Right&gt;"></A><b>&lt;C-Right&gt;</b>* *<a name="W"></A><b>W</b>*
+<a href="motion.html#W">W</a>			<a href="intro.html#[count]">[count]</a> WORDS forward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="e"></A><b>e</b>*
+e			Forward to the end of <a href="motion.html#word">word</a> <a href="intro.html#[count]">[count]</a> |<a href="motion.html#inclusive">inclusive</a>|.
+			Does not stop in an empty line.
+
+
+							*<a name="E"></A><b>E</b>*
+<a href="motion.html#E">E</a>			Forward to the end of <a href="motion.html#WORD">WORD</a> <a href="intro.html#[count]">[count]</a> |<a href="motion.html#inclusive">inclusive</a>|.
+			Does not stop in an empty line.
+
+
+<a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a>	or					*<a name="&lt;S-Left&gt;"></A><b>&lt;S-Left&gt;</b>* *<a name="b"></A><b>b</b>*
+<a href="motion.html#b">b</a>			<a href="intro.html#[count]">[count]</a> words backward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+<a href="motion.html#&lt;C-Left&gt;">&lt;C-Left&gt;</a>	or					*<a name="&lt;C-Left&gt;"></A><b>&lt;C-Left&gt;</b>* *<a name="B"></A><b>B</b>*
+<a href="motion.html#B">B</a>			<a href="intro.html#[count]">[count]</a> WORDS backward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="ge"></A><b>ge</b>*
+<a href="motion.html#ge">ge</a>			Backward to the end of <a href="motion.html#word">word</a> <a href="intro.html#[count]">[count]</a> |<a href="motion.html#inclusive">inclusive</a>|.
+
+
+							*<a name="gE"></A><b>gE</b>*
+<a href="motion.html#gE">gE</a>			Backward to the end of <a href="motion.html#WORD">WORD</a> <a href="intro.html#[count]">[count]</a> |<a href="motion.html#inclusive">inclusive</a>|.
+
+These commands move over words or WORDS.
+
+							*<a name="word"></A><b>word</b>*
+A <a href="motion.html#word">word</a> consists of a sequence of letters, digits and underscores, or a
+sequence of other non-blank characters, separated with white space (spaces,
+tabs, <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>).  This can be changed with the <a href="options.html#'iskeyword'">'iskeyword'</a> option.  An empty line
+is also considered to be a <a href="motion.html#word">word</a>.
+
+							*<a name="WORD"></A><b>WORD</b>*
+A <a href="motion.html#WORD">WORD</a> consists of a sequence of non-blank characters, separated with white
+space.  An empty line is also considered to be a <a href="motion.html#WORD">WORD</a>.
+
+A sequence of folded lines is counted for one <a href="motion.html#word">word</a> of a single character.
+&quot;<a href="motion.html#w">w</a>&quot; and &quot;<a href="motion.html#W">W</a>&quot;, &quot;<a href="motion.html#e">e</a>&quot; and &quot;<a href="motion.html#E">E</a>&quot; move to the start/end of the first <a href="motion.html#word">word</a> or <a href="motion.html#WORD">WORD</a> after
+a range of folded lines.  &quot;<a href="motion.html#b">b</a>&quot; and &quot;<a href="motion.html#B">B</a>&quot; move to the start of the first <a href="motion.html#word">word</a> or
+<a href="motion.html#WORD">WORD</a> before the fold.
+
+Special <a href="change.html#case">case</a>: &quot;<a href="change.html#cw">cw</a>&quot; and &quot;<a href="change.html#cW">cW</a>&quot; are treated like &quot;ce&quot; and &quot;cE&quot; if the cursor is
+on a non-blank.  This is because &quot;<a href="change.html#cw">cw</a>&quot; is interpreted <a href="motion.html#as">as</a> change-word, and a
+<a href="motion.html#word">word</a> does not include the following white space.  {Vi: &quot;<a href="change.html#cw">cw</a>&quot; when on a blank
+followed by other blanks changes only the first blank; this is probably a
+bug, because &quot;dw&quot; deletes all the blanks}
+
+Another special <a href="change.html#case">case</a>: When using the &quot;<a href="motion.html#w">w</a>&quot; motion in combination with an
+<a href="motion.html#operator">operator</a> and the last <a href="motion.html#word">word</a> moved over is at the end of a line, the end of
+that <a href="motion.html#word">word</a> becomes the end of the operated text, not the first <a href="motion.html#word">word</a> in the
+next line.
+
+The original <a href="intro.html#Vi">Vi</a> implementation of &quot;<a href="motion.html#e">e</a>&quot; is buggy.  For example, the &quot;<a href="motion.html#e">e</a>&quot; command
+will stop on the first character of a line if the previous line was empty.
+But when you use &quot;2e&quot; this does not happen.  In Vim &quot;ee&quot; and &quot;2e&quot; are the
+same, which is more logical.  However, this causes a small incompatibility
+between <a href="intro.html#Vi">Vi</a> and Vim.
+
+==============================================================================
+
+5. Text object motions					*<a name="object-motions"></A><b>object-motions</b>*
+
+
+							*<a name="("></A><b>(</b>*
+(			<a href="intro.html#[count]">[count]</a> sentences backward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name=")"></A><b>)</b>*
+)			<a href="intro.html#[count]">[count]</a> sentences forward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="{"></A><b>{</b>*
+{			<a href="intro.html#[count]">[count]</a> paragraphs backward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="}"></A><b>}</b>*
+}			<a href="intro.html#[count]">[count]</a> paragraphs forward.  |<a href="motion.html#exclusive">exclusive</a>| motion.
+
+
+							*<a name="]]"></A><b>]]</b>*
+<a href="motion.html#]]">]]</a>			<a href="intro.html#[count]">[count]</a> sections forward or to the next '<a href="motion.html#{">{</a>' in the
+			first column.  When used after an <a href="motion.html#operator">operator</a>, then also
+			stops below a '<a href="motion.html#}">}</a>' in the first column.  |<a href="motion.html#exclusive">exclusive</a>|
+			Note that |<a href="motion.html#exclusive-linewise">exclusive-linewise</a>| often applies.
+
+
+							*<a name="]["></A><b>][</b>*
+<a href="motion.html#][">][</a>			<a href="intro.html#[count]">[count]</a> sections forward or to the next '<a href="motion.html#}">}</a>' in the
+			first column.  |<a href="motion.html#exclusive">exclusive</a>|
+			Note that |<a href="motion.html#exclusive-linewise">exclusive-linewise</a>| often applies.
+
+
+							*<a name="[["></A><b>[[</b>*
+<a href="motion.html#[[">[[</a>			<a href="intro.html#[count]">[count]</a> sections backward or to the previous '<a href="motion.html#{">{</a>' in
+			the first column.  |<a href="motion.html#exclusive">exclusive</a>|
+			Note that |<a href="motion.html#exclusive-linewise">exclusive-linewise</a>| often applies.
+
+
+							*<a name="[]"></A><b>[]</b>*
+<a href="motion.html#[]">[]</a>			<a href="intro.html#[count]">[count]</a> sections backward or to the previous '<a href="motion.html#}">}</a>' in
+			the first column.  |<a href="motion.html#exclusive">exclusive</a>|
+			Note that |<a href="motion.html#exclusive-linewise">exclusive-linewise</a>| often applies.
+
+These commands move over three kinds of text <a href="index.html#objects">objects</a>.
+
+
+							*<a name="sentence"></A><b>sentence</b>*
+A <a href="motion.html#sentence">sentence</a> is defined <a href="motion.html#as">as</a> ending at a '<a href="repeat.html#.">.</a>', '<a href="change.html#!">!</a>' or '<a href="pattern.html#?">?</a>' followed by either the
+end of a line, or by a space or <a href="intro.html#tab">tab</a>.  Any number of closing '<a href="motion.html#)">)</a>', '<a href="index.html#]">]</a>', &#39;&#34;''
+and '<a href="motion.html#'">'</a>' characters may appear after the '<a href="repeat.html#.">.</a>', '<a href="change.html#!">!</a>' or '<a href="pattern.html#?">?</a>' before the spaces,
+tabs or end of line.  A <a href="motion.html#paragraph">paragraph</a> and section boundary is also a <a href="motion.html#sentence">sentence</a>
+boundary.
+If the '<a href="change.html#J">J</a>' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>, at least two spaces have to
+follow the punctuation <a href="motion.html#mark">mark</a>; &lt;Tab&gt;s are not recognized <a href="motion.html#as">as</a> white space.
+The definition of a <a href="motion.html#sentence">sentence</a> cannot be changed.
+
+
+							*<a name="paragraph"></A><b>paragraph</b>*
+A <a href="motion.html#paragraph">paragraph</a> begins after each empty line, and also at each of a set of
+<a href="motion.html#paragraph">paragraph</a> macros, specified by the pairs of characters in the <a href="options.html#'paragraphs'">'paragraphs'</a>
+option.  The default is &quot;IPLPPPQPP TPHPLIPpLpItpplpipbp&quot;, which corresponds to
+the macros &quot;.IP&quot;, &quot;.LP&quot;, etc.  (These are nroff macros, so the dot must be in
+the first column).  A section boundary is also a <a href="motion.html#paragraph">paragraph</a> boundary.
+Note that a blank line (only containing white space) is NOT a <a href="motion.html#paragraph">paragraph</a>
+boundary.
+Also note that this does not include a '<a href="motion.html#{">{</a>' or '<a href="motion.html#}">}</a>' in the first column.  When
+the '<a href="motion.html#{">{</a>' flag is in <a href="options.html#'cpoptions'">'cpoptions'</a> then '<a href="motion.html#{">{</a>' in the first column is used <a href="motion.html#as">as</a> a
+<a href="motion.html#paragraph">paragraph</a> boundary |<a href="vi_diff.html#posix">posix</a>|.
+
+
+							*<a name="section"></A><b>section</b>*
+A section begins after a form-feed (&lt;C-L&gt;) in the first column and at each of
+a set of section macros, specified by the pairs of characters in the
+<a href="options.html#'sections'">'sections'</a> option.  The default is &quot;SHNHH HUnhsh&quot;, which defines a section to
+start at the nroff macros &quot;.SH&quot;, &quot;.NH&quot;, &quot;.H&quot;, &quot;.HU&quot;, &quot;.nh&quot; and &quot;.sh&quot;.
+
+The &quot;<a href="index.html#]">]</a>&quot; and &quot;<a href="index.html#[">[</a>&quot; commands stop at the '<a href="motion.html#{">{</a>' or '<a href="motion.html#}">}</a>' in the first column.  This is
+useful to find the start or end of a function in a C program.  Note that the
+first character of the command determines the search direction and the
+second character the type of brace found.
+
+If your '<a href="motion.html#{">{</a>' or '<a href="motion.html#}">}</a>' are not in the first column, and you would like to use &quot;<a href="motion.html#[[">[[</a>&quot;
+and &quot;<a href="motion.html#]]">]]</a>&quot; anyway, try these mappings:
+<b>   :map [[ ?{&lt;CR&gt;w99[{</b>
+<b>   :map ][ /}&lt;CR&gt;b99]}</b>
+<b>   :map ]] j0[[%/{&lt;CR&gt;</b>
+<b>   :map [] k$][%?}&lt;CR&gt;</b>
+[type these literally, see |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|]
+
+==============================================================================
+
+6. Text object selection			*<a name="object-select"></A><b>object-select</b>* *<a name="text-objects"></A><b>text-objects</b>*
+
+						*<a name="v_a"></A><b>v_a</b>* *<a name="v_i"></A><b>v_i</b>*
+
+This is a series of commands that can only be used while in <a href="visual.html#Visual">Visual</a> mode or
+after an <a href="motion.html#operator">operator</a>.  The commands that start with &quot;<a href="insert.html#a">a</a>&quot; select &quot;<a href="insert.html#a">a</a>&quot;n object
+including white space, the commands starting with &quot;<a href="insert.html#i">i</a>&quot; select an &quot;inner&quot; object
+without white space, or just the white space.  Thus the &quot;inner&quot; commands
+always select <a href="various.html#less">less</a> text than the &quot;<a href="insert.html#a">a</a>&quot; commands.
+
+These commands are {not in Vi}.
+These commands are not available when the |<a href="various.html#+textobjects">+textobjects</a>| feature has been
+disabled at compile time.
+
+							*<a name="v_aw"></A><b>v_aw</b>* *<a name="aw"></A><b>aw</b>*
+<a href="motion.html#aw">aw</a>			&quot;a word&quot;, select <a href="intro.html#[count]">[count]</a> words (see |<a href="motion.html#word">word</a>|).
+			Leading or trailing white space is included, but not
+			counted.
+			When used in <a href="visual.html#Visual">Visual</a> <a href="motion.html#linewise">linewise</a> mode &quot;<a href="motion.html#aw">aw</a>&quot; switches to
+			<a href="visual.html#Visual">Visual</a> <a href="motion.html#characterwise">characterwise</a> mode.
+
+
+							*<a name="v_iw"></A><b>v_iw</b>* *<a name="iw"></A><b>iw</b>*
+<a href="motion.html#iw">iw</a>			&quot;inner word&quot;, select <a href="intro.html#[count]">[count]</a> words (see |<a href="motion.html#word">word</a>|).
+			White space between words is counted too.
+			When used in <a href="visual.html#Visual">Visual</a> <a href="motion.html#linewise">linewise</a> mode &quot;<a href="motion.html#iw">iw</a>&quot; switches to
+			<a href="visual.html#Visual">Visual</a> <a href="motion.html#characterwise">characterwise</a> mode.
+
+
+							*<a name="v_aW"></A><b>v_aW</b>* *<a name="aW"></A><b>aW</b>*
+<a href="motion.html#aW">aW</a>			&quot;a WORD&quot;, select <a href="intro.html#[count]">[count]</a> WORDs (see |<a href="motion.html#WORD">WORD</a>|).
+			Leading or trailing white space is included, but not
+			counted.
+			When used in <a href="visual.html#Visual">Visual</a> <a href="motion.html#linewise">linewise</a> mode &quot;<a href="motion.html#aW">aW</a>&quot; switches to
+			<a href="visual.html#Visual">Visual</a> <a href="motion.html#characterwise">characterwise</a> mode.
+
+
+							*<a name="v_iW"></A><b>v_iW</b>* *<a name="iW"></A><b>iW</b>*
+<a href="motion.html#iW">iW</a>			&quot;inner WORD&quot;, select <a href="intro.html#[count]">[count]</a> WORDs (see |<a href="motion.html#WORD">WORD</a>|).
+			White space between words is counted too.
+			When used in <a href="visual.html#Visual">Visual</a> <a href="motion.html#linewise">linewise</a> mode &quot;<a href="motion.html#iW">iW</a>&quot; switches to
+			<a href="visual.html#Visual">Visual</a> <a href="motion.html#characterwise">characterwise</a> mode.
+
+
+							*<a name="v_as"></A><b>v_as</b>* *<a name="as"></A><b>as</b>*
+<a href="motion.html#as">as</a>			&quot;a sentence&quot;, select <a href="intro.html#[count]">[count]</a> sentences (see
+			|<a href="motion.html#sentence">sentence</a>|).
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+							*<a name="v_is"></A><b>v_is</b>* *<a name="is"></A><b>is</b>*
+is			&quot;inner sentence&quot;, select <a href="intro.html#[count]">[count]</a> sentences (see
+			|<a href="motion.html#sentence">sentence</a>|).
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+							*<a name="v_ap"></A><b>v_ap</b>* *<a name="ap"></A><b>ap</b>*
+<a href="motion.html#ap">ap</a>			&quot;a paragraph&quot;, select <a href="intro.html#[count]">[count]</a> paragraphs (see
+			|<a href="motion.html#paragraph">paragraph</a>|).
+			Exception: a blank line (only containing white space)
+			is also a <a href="motion.html#paragraph">paragraph</a> boundary.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#linewise">linewise</a>.
+
+
+							*<a name="v_ip"></A><b>v_ip</b>* *<a name="ip"></A><b>ip</b>*
+<a href="motion.html#ip">ip</a>			&quot;inner paragraph&quot;, select <a href="intro.html#[count]">[count]</a> paragraphs (see
+			|<a href="motion.html#paragraph">paragraph</a>|).
+			Exception: a blank line (only containing white space)
+			is also a <a href="motion.html#paragraph">paragraph</a> boundary.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#linewise">linewise</a>.
+
+
+<a href="motion.html#a]">a]</a>						*<a name="v_a]"></A><b>v_a]</b>* *<a name="v_a["></A><b>v_a[</b>* *<a name="a]"></A><b>a]</b>* *<a name="a["></A><b>a[</b>*
+<a href="motion.html#a[">a[</a>			&quot;a <a href="motion.html#[]">[]</a> block&quot;, select <a href="intro.html#[count]">[count]</a> '<a href="index.html#[">[</a>' '<a href="index.html#]">]</a>' blocks.  This
+			goes backwards to the <a href="intro.html#[count]">[count]</a> unclosed '<a href="index.html#[">[</a>', and finds
+			the matching '<a href="index.html#]">]</a>'.  The enclosed text is selected,
+			including the '<a href="index.html#[">[</a>' and '<a href="index.html#]">]</a>'.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#i]">i]</a>						*<a name="v_i]"></A><b>v_i]</b>* *<a name="v_i["></A><b>v_i[</b>* *<a name="i]"></A><b>i]</b>* *<a name="i["></A><b>i[</b>*
+<a href="motion.html#i[">i[</a>			&quot;inner <a href="motion.html#[]">[]</a> block&quot;, select <a href="intro.html#[count]">[count]</a> '<a href="index.html#[">[</a>' '<a href="index.html#]">]</a>' blocks.  This
+			goes backwards to the <a href="intro.html#[count]">[count]</a> unclosed '<a href="index.html#[">[</a>', and finds
+			the matching '<a href="index.html#]">]</a>'.  The enclosed text is selected,
+			excluding the '<a href="index.html#[">[</a>' and '<a href="index.html#]">]</a>'.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#a)">a)</a>							*<a name="v_a)"></A><b>v_a)</b>* *<a name="a)"></A><b>a)</b>* *<a name="a("></A><b>a(</b>*
+
+<a href="motion.html#a(">a(</a>							*<a name="v_ab"></A><b>v_ab</b>* *<a name="v_a("></A><b>v_a(</b>* *<a name="ab"></A><b>ab</b>*
+<a href="motion.html#ab">ab</a>			&quot;a block&quot;, select <a href="intro.html#[count]">[count]</a> blocks, from &quot;<a href="intro.html#[count]">[count]</a> [(&quot; to
+			the matching '<a href="motion.html#)">)</a>', including the '<a href="motion.html#(">(</a>' and '<a href="motion.html#)">)</a>' (see
+			|<a href="motion.html#[(">[(</a>|).  Does not include white space outside of the
+			parenthesis.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#i)">i)</a>							*<a name="v_i)"></A><b>v_i)</b>* *<a name="i)"></A><b>i)</b>* *<a name="i("></A><b>i(</b>*
+
+<a href="motion.html#i(">i(</a>							*<a name="v_ib"></A><b>v_ib</b>* *<a name="v_i("></A><b>v_i(</b>* *<a name="ib"></A><b>ib</b>*
+<a href="motion.html#ib">ib</a>			&quot;inner block&quot;, select <a href="intro.html#[count]">[count]</a> blocks, from &quot;<a href="intro.html#[count]">[count]</a> [(&quot;
+			to the matching '<a href="motion.html#)">)</a>', excluding the '<a href="motion.html#(">(</a>' and '<a href="motion.html#)">)</a>' (see
+			|<a href="motion.html#[(">[(</a>|).
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#a&gt;">a&gt;</a>						*<a name="v_a&gt;"></A><b>v_a&gt;</b>* *<a name="v_a&lt;"></A><b>v_a&lt;</b>* *<a name="a&gt;"></A><b>a&gt;</b>* *<a name="a&lt;"></A><b>a&lt;</b>*
+<a href="motion.html#a&lt;">a&lt;</a>			&quot;a <a href="intro.html#&lt;&gt;">&lt;&gt;</a> block&quot;, select <a href="intro.html#[count]">[count]</a> <a href="intro.html#&lt;&gt;">&lt;&gt;</a> blocks, from the
+			[count]'th unmatched '<a href="change.html#&lt;">&lt;</a>' backwards to the matching
+			'<a href="change.html#&gt;">&gt;</a>', including the '<a href="change.html#&lt;">&lt;</a>' and '<a href="change.html#&gt;">&gt;</a>'.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#i&gt;">i&gt;</a>						*<a name="v_i&gt;"></A><b>v_i&gt;</b>* *<a name="v_i&lt;"></A><b>v_i&lt;</b>* *<a name="i&gt;"></A><b>i&gt;</b>* *<a name="i&lt;"></A><b>i&lt;</b>*
+<a href="motion.html#i&lt;">i&lt;</a>			&quot;inner <a href="intro.html#&lt;&gt;">&lt;&gt;</a> block&quot;, select <a href="intro.html#[count]">[count]</a> <a href="intro.html#&lt;&gt;">&lt;&gt;</a> blocks, from
+			the [count]'th unmatched '<a href="change.html#&lt;">&lt;</a>' backwards to the matching
+			'<a href="change.html#&gt;">&gt;</a>', excluding the '<a href="change.html#&lt;">&lt;</a>' and '<a href="change.html#&gt;">&gt;</a>'.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+						*<a name="v_at"></A><b>v_at</b>* *<a name="at"></A><b>at</b>*
+at			&quot;a <a href="tagsrch.html#tag">tag</a> block&quot;, select <a href="intro.html#[count]">[count]</a> <a href="tagsrch.html#tag">tag</a> blocks, from the
+			[count]'th unmatched &quot;&lt;aaa&gt;&quot; backwards to the matching
+			&quot;&lt;/aaa&gt;&quot;, including the &quot;&lt;aaa&gt;&quot; and &quot;&lt;/aaa&gt;&quot;.
+			See |<a href="motion.html#tag-blocks">tag-blocks</a>| about the details.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+						*<a name="v_it"></A><b>v_it</b>* *<a name="it"></A><b>it</b>*
+it			&quot;inner <a href="tagsrch.html#tag">tag</a> block&quot;, select <a href="intro.html#[count]">[count]</a> <a href="tagsrch.html#tag">tag</a> blocks, from the
+			[count]'th unmatched &quot;&lt;aaa&gt;&quot; backwards to the matching
+			&quot;&lt;/aaa&gt;&quot;, excluding the &quot;&lt;aaa&gt;&quot; and &quot;&lt;/aaa&gt;&quot;.
+			See |<a href="motion.html#tag-blocks">tag-blocks</a>| about the details.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#a}">a}</a>							*<a name="v_a}"></A><b>v_a}</b>* *<a name="a}"></A><b>a}</b>* *<a name="a{"></A><b>a{</b>*
+
+<a href="motion.html#a{">a{</a>							*<a name="v_aB"></A><b>v_aB</b>* *<a name="v_a{"></A><b>v_a{</b>* *<a name="aB"></A><b>aB</b>*
+<a href="motion.html#aB">aB</a>			&quot;a Block&quot;, select <a href="intro.html#[count]">[count]</a> Blocks, from &quot;<a href="intro.html#[count]">[count]</a> [{&quot; to
+			the matching '<a href="motion.html#}">}</a>', including the '<a href="motion.html#{">{</a>' and '<a href="motion.html#}">}</a>' (see
+			|<a href="motion.html#[{">[{</a>|).
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+<a href="motion.html#i}">i}</a>							*<a name="v_i}"></A><b>v_i}</b>* *<a name="i}"></A><b>i}</b>* *<a name="i{"></A><b>i{</b>*
+
+<a href="motion.html#i{">i{</a>							*<a name="v_iB"></A><b>v_iB</b>* *<a name="v_i{"></A><b>v_i{</b>* *<a name="iB"></A><b>iB</b>*
+<a href="motion.html#iB">iB</a>			&quot;inner Block&quot;, select <a href="intro.html#[count]">[count]</a> Blocks, from &quot;<a href="intro.html#[count]">[count]</a> [{&quot;
+			to the matching '<a href="motion.html#}">}</a>', excluding the '<a href="motion.html#{">{</a>' and '<a href="motion.html#}">}</a>' (see
+			|<a href="motion.html#[{">[{</a>|).
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+
+
+a&quot;							*<a name="v_aquote"></A><b>v_aquote</b>* *<a name="aquote"></A><b>aquote</b>*
+
+<a href="motion.html#a'">a'</a>							*<a name="v_a'"></A><b>v_a'</b>* *<a name="a'"></A><b>a'</b>*
+
+<a href="motion.html#a`">a`</a>							*<a name="v_a`"></A><b>v_a`</b>* *<a name="a`"></A><b>a`</b>*
+			&quot;a quoted string&quot;.  Selects the text from the previous
+			<a href="change.html#quote">quote</a> until the next <a href="change.html#quote.">quote.</a>  The <a href="options.html#'quoteescape'">'quoteescape'</a> option
+			is used to skip escaped <a href="quotes.html#quotes">quotes</a>.
+			Only works within one line.
+			When the cursor starts on a <a href="change.html#quote">quote</a>, Vim will figure out
+			which <a href="change.html#quote">quote</a> pairs form a string by searching from the
+			start of the line.
+			Any trailing white space is included, unless there is
+			none, then leading white space is included.
+			When used in <a href="visual.html#Visual">Visual</a> mode it is made <a href="motion.html#characterwise">characterwise</a>.
+			Repeating this object in <a href="visual.html#Visual">Visual</a> mode another string is
+			included.  A <a href="intro.html#count">count</a> is currently not used.
+
+
+i&quot;							*<a name="v_iquote"></A><b>v_iquote</b>* *<a name="iquote"></A><b>iquote</b>*
+
+<a href="motion.html#i'">i'</a>							*<a name="v_i'"></A><b>v_i'</b>* *<a name="i'"></A><b>i'</b>*
+
+<a href="motion.html#i`">i`</a>							*<a name="v_i`"></A><b>v_i`</b>* *<a name="i`"></A><b>i`</b>*
+			Like a&quot;, <a href="motion.html#a'">a'</a> and <a href="motion.html#a`">a`</a>, but exclude the <a href="quotes.html#quotes">quotes</a> and
+			<a href="repeat.html#repeating">repeating</a> won't extend the <a href="visual.html#Visual">Visual</a> selection.
+			Special <a href="change.html#case">case</a>: With a <a href="intro.html#count">count</a> of 2 the <a href="quotes.html#quotes">quotes</a> are
+			included, but no extra white space <a href="motion.html#as">as</a> with a&quot;/a'/a`.
+
+When used after an <a href="motion.html#operator">operator</a>:
+For non-block <a href="index.html#objects">objects</a>:
+	For the &quot;<a href="insert.html#a">a</a>&quot; commands: The <a href="motion.html#operator">operator</a> applies to the object and the white
+	space after the object.  If there is no white space after the object
+	or when the cursor was in the white space before the object, the white
+	space before the object is included.
+	For the &quot;inner&quot; commands: If the cursor was on the object, the
+	<a href="motion.html#operator">operator</a> applies to the object.  If the cursor was on white space, the
+	<a href="motion.html#operator">operator</a> applies to the white space.
+For a block object:
+	The <a href="motion.html#operator">operator</a> applies to the block where the cursor is in, or the block
+	on which the cursor is on one of the braces.  For the &quot;inner&quot; commands
+	the surrounding braces are excluded.  For the &quot;<a href="insert.html#a">a</a>&quot; commands, the braces
+	are included.
+
+When used in <a href="visual.html#Visual">Visual</a> mode:
+When start and end of the <a href="visual.html#Visual">Visual</a> area are the same (just after typing &quot;v&quot;):
+	One object is selected, the same <a href="motion.html#as">as</a> for using an <a href="motion.html#operator">operator</a>.
+When start and end of the <a href="visual.html#Visual">Visual</a> area are not the same:
+	For non-block <a href="index.html#objects">objects</a> the area is extended by one object or the white
+	space up to the next object, or both for the &quot;<a href="insert.html#a">a</a>&quot; <a href="index.html#objects">objects</a>.  The
+	direction in which this happens depends on which side of the <a href="visual.html#Visual">Visual</a>
+	area the cursor is.  For the block <a href="index.html#objects">objects</a> the block is extended one
+	level outwards.
+
+For illustration, here is a list of delete commands, grouped from small to big
+<a href="index.html#objects">objects</a>.  Note that for a single character and a whole line the existing <a href="intro.html#vi">vi</a>
+<a href="intro.html#movement">movement</a> commands are used.
+	&quot;dl&quot;	delete character (alias: &quot;<a href="change.html#x">x</a>&quot;)		|<a href="change.html#dl">dl</a>|
+
+	&quot;<a href="motion.html#diw">diw</a>&quot;	delete inner <a href="motion.html#word">word</a>			*<a name="diw"></A><b>diw</b>*
+
+	&quot;<a href="motion.html#daw">daw</a>&quot;	delete a <a href="motion.html#word">word</a>				*<a name="daw"></A><b>daw</b>*
+
+	&quot;<a href="motion.html#diW">diW</a>&quot;	delete inner WORD (see |<a href="motion.html#WORD">WORD</a>|)		*<a name="diW"></a><b>diW</b>*
+
+	&quot;<a href="motion.html#daW">daW</a>&quot;	delete a WORD (see |<a href="motion.html#WORD">WORD</a>|)		*<a name="daW"></a><b>daW</b>*
+	&quot;dd&quot;	delete one line				|<a href="change.html#dd">dd</a>|
+
+	&quot;<a href="motion.html#dis">dis</a>&quot;	delete inner <a href="motion.html#sentence">sentence</a>			*<a name="dis"></A><b>dis</b>*
+
+	&quot;<a href="motion.html#das">das</a>&quot;	delete a <a href="motion.html#sentence">sentence</a>			*<a name="das"></A><b>das</b>*
+
+	&quot;<a href="motion.html#dib">dib</a>&quot;	delete inner '<a href="motion.html#(">(</a>' '<a href="motion.html#)">)</a>' block		*<a name="dib"></A><b>dib</b>*
+
+	&quot;<a href="motion.html#dab">dab</a>&quot;	delete a '<a href="motion.html#(">(</a>' '<a href="motion.html#)">)</a>' block			*<a name="dab"></A><b>dab</b>*
+
+	&quot;<a href="motion.html#dip">dip</a>&quot;	delete inner <a href="motion.html#paragraph">paragraph</a>			*<a name="dip"></A><b>dip</b>*
+
+	&quot;<a href="motion.html#dap">dap</a>&quot;	delete a <a href="motion.html#paragraph">paragraph</a>			*<a name="dap"></A><b>dap</b>*
+
+	&quot;<a href="motion.html#diB">diB</a>&quot;	delete inner '<a href="motion.html#{">{</a>' '<a href="motion.html#}">}</a>' block		*<a name="diB"></A><b>diB</b>*
+
+	&quot;<a href="motion.html#daB">daB</a>&quot;	delete a '<a href="motion.html#{">{</a>' '<a href="motion.html#}">}</a>' block			*<a name="daB"></A><b>daB</b>*
+
+Note the difference between using a <a href="intro.html#movement">movement</a> command and an object.  The
+<a href="intro.html#movement">movement</a> command operates from here (cursor position) to where the <a href="intro.html#movement">movement</a>
+takes us.  When using an object the whole object is operated upon, no matter
+where on the object the cursor is.  For example, compare &quot;dw&quot; and &quot;<a href="motion.html#daw">daw</a>&quot;: &quot;dw&quot;
+deletes from the cursor position to the start of the next <a href="motion.html#word">word</a>, &quot;<a href="motion.html#daw">daw</a>&quot; deletes
+the <a href="motion.html#word">word</a> under the cursor and the space after or before it.
+
+
+
+Tag blocks						*<a name="tag-blocks"></A><b>tag-blocks</b>*
+
+For the &quot;it&quot; and &quot;<a href="motion.html#at">at</a>&quot; text <a href="index.html#objects">objects</a> an attempt is done to select blocks between
+matching <a href="tagsrch.html#tags">tags</a> for HTML and XML.  But since these are not completely compatible
+there are a few restrictions.
+
+The normal method is to select a &lt;tag&gt; until the matching &lt;/tag&gt;.  For &quot;<a href="motion.html#at">at</a>&quot;
+the <a href="tagsrch.html#tags">tags</a> are included, for &quot;it&quot; they are excluded.  But when &quot;it&quot; is repeated
+the <a href="tagsrch.html#tags">tags</a> will be included (otherwise nothing would change).  Also, &quot;it&quot; used
+on a <a href="tagsrch.html#tag">tag</a> block with no contents will select the leading <a href="tagsrch.html#tag">tag</a>.
+
+&quot;&lt;aaa/&gt;&quot; items are skipped.  Case is ignored, also for XML where <a href="change.html#case">case</a> does
+matter.
+
+In HTML it is possible to have a <a href="tagsrch.html#tag">tag</a> like &lt;br&gt; or &lt;meta ...&gt; without a
+matching end <a href="tagsrch.html#tag">tag</a>.  These are ignored.
+
+The text <a href="index.html#objects">objects</a> are tolerant about mistakes.  Stray end <a href="tagsrch.html#tags">tags</a> are ignored.
+
+==============================================================================
+
+7. Marks					*<a name="mark-motions"></A><b>mark-motions</b>* *<a name="E20"></A><b>E20</b>* *<a name="E78"></A><b>E78</b>*
+
+Jumping to a <a href="motion.html#mark">mark</a> can be done in two ways:
+1. With ` (backtick):	  The cursor is positioned at the specified location
+			  and the motion is |<a href="motion.html#exclusive">exclusive</a>|.
+2. With '' (single quote): The cursor is positioned on the first non-blank
+			  character in the line of the specified location and
+			  the motion is <a href="motion.html#linewise">linewise</a>.
+
+
+						*<a name="m"></A><b>m</b>* *<a name="mark"></A><b>mark</b>* *<a name="Mark"></A><b>Mark</b>*
+m{a-zA-Z}		Set <a href="motion.html#mark">mark</a> {a-zA-Z} at cursor position (does not move
+			the cursor, this is not a motion command).
+
+
+						*<a name="m'"></A><b>m'</b>* *<a name="m`"></A><b>m`</b>*
+<a href="motion.html#m'">m'</a>  or  <a href="motion.html#m`">m`</a>		Set the previous context <a href="motion.html#mark">mark</a>.  This can be jumped to
+			with the &quot;'&#39;&#34;' or &quot;<a href="motion.html#``">``</a>&quot; command (does not move the
+			cursor, this is not a motion command).
+
+
+						*<a name="m["></A><b>m[</b>* *<a name="m]"></A><b>m]</b>*
+<a href="motion.html#m[">m[</a>  or  <a href="motion.html#m]">m]</a>		Set the |<a href="motion.html#'[">'[</a>| or |<a href="motion.html#']">']</a>| <a href="motion.html#mark">mark</a>.  Useful when an <a href="motion.html#operator">operator</a> is
+			to be simulated by multiple commands.  (does not move
+			the cursor, this is not a motion command).
+
+
+						*<a name=":ma"></A><b>:ma</b>* *<a name=":mark"></A><b>:mark</b>* *<a name="E191"></A><b>E191</b>*
+:[range]ma[rk] {a-zA-Z'}
+			Set <a href="motion.html#mark">mark</a> {a-zA-Z'} at last line number in <a href="cmdline.html#[range]">[range]</a>,
+			column 0.  Default is cursor line.
+
+
+						*<a name=":k"></A><b>:k</b>*
+:[range]k{a-zA-Z'}	Same <a href="motion.html#as">as</a> <a href="motion.html#:mark">:mark</a>, but the space before the <a href="motion.html#mark">mark</a> name can
+			be omitted.
+
+
+						*<a name="'"></A><b>'</b>* *<a name="'a"></A><b>'a</b>* *<a name="`"></A><b>`</b>* *<a name="`a"></A><b>`a</b>*
+'{a-z}  `{a-z}		Jump to the <a href="motion.html#mark">mark</a> {a-z} in the current buffer.
+
+
+						*<a name="'A"></A><b>'A</b>* *<a name="'0"></A><b>'0</b>* *<a name="`A"></A><b>`A</b>* *<a name="`0"></A><b>`0</b>*
+'{A-Z0-9}  `{A-Z0-9}	To the <a href="motion.html#mark">mark</a> {A-Z0-9} in the file where it was set (not
+			a motion command when in another file).  {not in Vi}
+
+
+						*<a name="g'"></A><b>g'</b>* *<a name="g'a"></A><b>g'a</b>* *<a name="g`"></A><b>g`</b>* *<a name="g`a"></A><b>g`a</b>*
+g'{mark}  g`{mark}
+			Jump to the {mark}, but don't change the <a href="motion.html#jumplist">jumplist</a> when
+			jumping within the current buffer.  Example:
+<b>				g`"</b>
+ 			jumps to the last known position in a file.  See
+			$VIMRUNTIME/vimrc_example.vim.
+			Also see |<a href="motion.html#:keepjumps">:keepjumps</a>|.
+			{not in Vi}
+
+
+						*<a name=":marks"></A><b>:marks</b>*
+<a href="motion.html#:marks">:marks</a>			<a href="eval.html#List">List</a> all the current marks (not a motion command).
+			The |<a href="motion.html#'(">'(</a>|, |<a href="motion.html#')">')</a>|, |<a href="motion.html#'{">'{</a>| and |<a href="motion.html#'}">'}</a>| marks are not listed.
+			The first column has number zero.
+			{not in Vi}
+
+						*<a name="E283"></A><b>E283</b>*
+<a href="motion.html#:marks">:marks</a> {arg}		<a href="eval.html#List">List</a> the marks that are mentioned in {arg} (not a
+			motion command).  For example:
+<b>				:marks aB</b>
+ 			to list marks '<a href="insert.html#a">a</a>' and '<a href="motion.html#B">B</a>'.  {not in Vi}
+
+
+							*<a name=":delm"></A><b>:delm</b>* *<a name=":delmarks"></A><b>:delmarks</b>*
+:delm[arks] {marks}	Delete the specified marks.  Marks that can be deleted
+			include A-Z and 0-9.  You cannot delete the '' <a href="motion.html#mark">mark</a>.
+			They can be specified by giving the list of <a href="motion.html#mark">mark</a>
+			names, or with a range, separated with a dash.  Spaces
+			are ignored.  Examples:
+<b>			   :delmarks a	      deletes mark a</b>
+<b>			   :delmarks a b 1    deletes marks a, b and 1</b>
+<b>			   :delmarks Aa       deletes marks A and a</b>
+<b>			   :delmarks p-z      deletes marks in the range p to z</b>
+<b>			   :delmarks ^.[]     deletes marks ^ . [ ]</b>
+<b>			   :delmarks \"	      deletes mark "</b>
+ 			{not in Vi}
+
+:delm[arks]!		Delete all marks for the current buffer, but not marks
+			A-Z or 0-9.
+			{not in Vi}
+
+A <a href="motion.html#mark">mark</a> is not visible in any way.  It is just a position in the file that is
+remembered.  Do not confuse marks with named <a href="change.html#registers">registers</a>, they are totally
+unrelated.
+
+<a href="motion.html#'a">'a</a> - 'z		<a href="change.html#lowercase">lowercase</a> marks, valid within one file
+<a href="motion.html#'A">'A</a> - 'Z		<a href="change.html#uppercase">uppercase</a> marks, also called file marks, valid between files
+<a href="motion.html#'0">'0</a> - '9		numbered marks, set from .viminfo file
+
+Lowercase marks <a href="motion.html#'a">'a</a> to 'z are remembered <a href="motion.html#as">as</a> long <a href="motion.html#as">as</a> the file remains in the
+buffer list.  If you remove the file from the buffer list, all its marks are
+lost.  If you delete a line that contains a <a href="motion.html#mark">mark</a>, that <a href="motion.html#mark">mark</a> is erased.
+
+Lowercase marks can be used in combination with operators.  For example: &quot;d't&quot;
+deletes the lines from the cursor position to <a href="motion.html#mark">mark</a> '<a href="motion.html#t">t</a>'.  Hint: Use <a href="motion.html#mark">mark</a> '<a href="motion.html#t">t</a>' for
+Top, '<a href="motion.html#b">b</a>' for Bottom, etc..  Lowercase marks are restored when using <a href="undo.html#undo">undo</a> and
+<a href="undo.html#redo">redo</a>.
+
+Uppercase marks <a href="motion.html#'A">'A</a> to 'Z include the file name.  {Vi: no <a href="change.html#uppercase">uppercase</a> marks} You
+can use them to jump from file to file.  You can only use an <a href="change.html#uppercase">uppercase</a> <a href="motion.html#mark">mark</a>
+with an <a href="motion.html#operator">operator</a> if the <a href="motion.html#mark">mark</a> is in the current file.  The line number of the
+<a href="motion.html#mark">mark</a> remains correct, even if you insert/delete lines or edit another file for
+a moment.  When the <a href="options.html#'viminfo'">'viminfo'</a> option is not empty, <a href="change.html#uppercase">uppercase</a> marks are kept in
+the .viminfo file.  See |<a href="starting.html#viminfo-file-marks">viminfo-file-marks</a>|.
+
+Numbered marks <a href="motion.html#'0">'0</a> to '9 are quite different.  They can not be set directly.
+They are only present when using a viminfo file |<a href="starting.html#viminfo-file">viminfo-file</a>|.  Basically <a href="motion.html#'0">'0</a>
+is the location of the cursor when you last exited Vim, '1 the last but one
+time, etc.  Use the &quot;<a href="change.html#r">r</a>&quot; flag in <a href="options.html#'viminfo'">'viminfo'</a> to specify files for which no
+Numbered mark should be stored.  See |<a href="starting.html#viminfo-file-marks">viminfo-file-marks</a>|.
+
+
+
+							*<a name="'["></A><b>'[</b>* *<a name="`["></A><b>`[</b>*
+<a href="motion.html#'[">'[</a>  <a href="motion.html#`[">`[</a>			To the first character of the previously changed
+			or yanked text.  {not in Vi}
+
+
+							*<a name="']"></A><b>']</b>* *<a name="`]"></A><b>`]</b>*
+<a href="motion.html#']">']</a>  <a href="motion.html#`]">`]</a>			To the last character of the previously changed or
+			yanked text.  {not in Vi}
+
+After executing an <a href="motion.html#operator">operator</a> the Cursor is put at the beginning of the text
+that was operated upon.  After a put command (&quot;p&quot; or &quot;<a href="change.html#P">P</a>&quot;) the cursor is
+sometimes placed at the first inserted line and sometimes on the last inserted
+character.  The four commands above put the cursor at either end.  Example:
+After yanking 10 lines you want to go to the last one of them: &quot;10Y']&quot;.  After
+<a href="insert.html#inserting">inserting</a> several lines with the &quot;<a href="change.html#p">p</a>&quot; command you want to jump to the lowest
+inserted line: &quot;p']&quot;.  This also works for text that has been inserted.
+
+Note: After <a href="change.html#deleting">deleting</a> text, the start and end positions are the same, except
+when using blockwise <a href="visual.html#Visual">Visual</a> mode.  These commands <a href="diff.html#do">do</a> not work when no change
+was made yet in the current file.
+
+
+							*<a name="'&lt;"></A><b>'&lt;</b>* *<a name="`&lt;"></A><b>`&lt;</b>*
+<a href="motion.html#'&lt;">'&lt;</a>  <a href="motion.html#`&lt;">`&lt;</a>			To the first line or character of the last selected
+			<a href="visual.html#Visual">Visual</a> area in the current buffer.  For block mode it
+			may also be the last character in the first line (to
+			be able to define the block).  {not in Vi}.
+
+
+							*<a name="'&gt;"></A><b>'&gt;</b>* *<a name="`&gt;"></A><b>`&gt;</b>*
+<a href="motion.html#'&gt;">'&gt;</a>  <a href="motion.html#`&gt;">`&gt;</a>			To the last line or character of the last selected
+			<a href="visual.html#Visual">Visual</a> area in the current buffer.  For block mode it
+			may also be the first character of the last line (to
+			be able to define the block).  Note that <a href="options.html#'selection'">'selection'</a>
+			applies, the position may be just after the <a href="visual.html#Visual">Visual</a>
+			area.  {not in Vi}.
+
+
+							*<a name="''"></A><b>''</b>* *<a name="``"></A><b>``</b>*
+<a href="motion.html#''">''</a>  <a href="motion.html#``">``</a>			To the position before the latest jump, or where the
+			last &quot;m&#39;&#34;' or &quot;<a href="motion.html#m`">m`</a>&quot; command was given.  Not set when the
+			|<a href="motion.html#:keepjumps">:keepjumps</a>| command modifier was used.
+			Also see |<a href="tips.html#restore-position">restore-position</a>|.
+
+
+							*<a name="'quote"></A><b>'quote</b>* *<a name="`quote"></A><b>`quote</b>*
+&#39;&#34;'  `&quot;			To the cursor position when last exiting the current
+			buffer.  Defaults to the first character of the first
+			line.  See |<a href="eval.html#last-position-jump">last-position-jump</a>| for how to use this
+			for each opened file.
+			Only one position is remembered per buffer, not one
+			for each <a href="windows.html#window">window</a>.  As long <a href="motion.html#as">as</a> the buffer is visible in
+			a <a href="windows.html#window">window</a> the position won't be changed.
+			{not in Vi}.
+
+
+							*<a name="'^"></A><b>'^</b>* *<a name="`^"></A><b>`^</b>*
+<a href="motion.html#'^">'^</a>  <a href="motion.html#`^">`^</a>			To the position where the cursor was the last time
+			when <a href="insert.html#Insert">Insert</a> mode was stopped.  This is used by the
+			|<a href="insert.html#gi">gi</a>| command.  Not set when the |<a href="motion.html#:keepjumps">:keepjumps</a>| command
+			modifier was used.  {not in Vi}
+
+
+							*<a name="'."></A><b>'.</b>* *<a name="`."></A><b>`.</b>*
+<a href="motion.html#'.">'.</a>  <a href="motion.html#`.">`.</a>			To the position where the last change was made.  The
+			position is at or near where the change started.
+			Sometimes a command is executed <a href="motion.html#as">as</a> several changes,
+			then the position can be near the end of what the
+			command changed.  For example when <a href="insert.html#inserting">inserting</a> a <a href="motion.html#word">word</a>,
+			the position will be on the last character.
+			{not in Vi}
+
+
+							*<a name="'("></A><b>'(</b>* *<a name="`("></A><b>`(</b>*
+'(  <a href="motion.html#`(">`(</a>			To the start of the current <a href="motion.html#sentence">sentence</a>, like the |<a href="motion.html#(">(</a>|
+			command.  {not in Vi}
+
+
+							*<a name="')"></A><b>')</b>* *<a name="`)"></A><b>`)</b>*
+<a href="motion.html#')">')</a>  <a href="motion.html#`)">`)</a>			To the end of the current <a href="motion.html#sentence">sentence</a>, like the |<a href="motion.html#)">)</a>|
+			command.  {not in Vi}
+
+
+							*<a name="'{"></A><b>'{</b>* *<a name="`{"></A><b>`{</b>*
+<a href="motion.html#'{">'{</a>  <a href="motion.html#`{">`{</a>			To the start of the current <a href="motion.html#paragraph">paragraph</a>, like the |<a href="motion.html#{">{</a>|
+			command.  {not in Vi}
+
+
+							*<a name="'}"></A><b>'}</b>* *<a name="`}"></A><b>`}</b>*
+<a href="motion.html#'}">'}</a>  <a href="motion.html#`}">`}</a>			To the end of the current <a href="motion.html#paragraph">paragraph</a>, like the |<a href="motion.html#}">}</a>|
+			command.  {not in Vi}
+
+These commands are not marks themselves, but jump to a <a href="motion.html#mark">mark</a>:
+
+
+							*<a name="]'"></A><b>]'</b>*
+<a href="motion.html#]'">]'</a>			<a href="intro.html#[count]">[count]</a> times to next line with a <a href="change.html#lowercase">lowercase</a> <a href="motion.html#mark">mark</a> below
+			the cursor, on the first non-blank character in the
+			line. {not in Vi}
+
+
+							*<a name="]`"></A><b>]`</b>*
+<a href="motion.html#]`">]`</a>			<a href="intro.html#[count]">[count]</a> times to <a href="change.html#lowercase">lowercase</a> <a href="motion.html#mark">mark</a> after the cursor. {not
+			in Vi}
+
+
+							*<a name="['"></A><b>['</b>*
+<a href="motion.html#['">['</a>			<a href="intro.html#[count]">[count]</a> times to previous line with a <a href="change.html#lowercase">lowercase</a> <a href="motion.html#mark">mark</a>
+			before the cursor, on the first non-blank character in
+			the line. {not in Vi}
+
+
+							*<a name="[`"></A><b>[`</b>*
+<a href="motion.html#[`">[`</a>			<a href="intro.html#[count]">[count]</a> times to <a href="change.html#lowercase">lowercase</a> <a href="motion.html#mark">mark</a> before the cursor.
+			{not in Vi}
+
+
+
+:loc[kmarks] {command}					*<a name=":loc"></A><b>:loc</b>* *<a name=":lockmarks"></A><b>:lockmarks</b>*
+			Execute {command} without adjusting marks.  This is
+			useful when <a href="change.html#changing">changing</a> text in a way that the line <a href="intro.html#count">count</a>
+			will be the same when the change has completed.
+			WARNING: When the line <a href="intro.html#count">count</a> does change, marks below
+			the change will keep their line number, thus move to
+			another text line.
+			These items will not be adjusted for deleted/inserted
+			lines:
+			- lower <a href="change.html#case">case</a> <a href="print.html#letter">letter</a> marks <a href="motion.html#'a">'a</a> - 'z
+			- upper <a href="change.html#case">case</a> <a href="print.html#letter">letter</a> marks <a href="motion.html#'A">'A</a> - 'Z
+			- numbered marks <a href="motion.html#'0">'0</a> - '9
+			- last insert position <a href="motion.html#'^">'^</a>
+			- last change position <a href="motion.html#'.">'.</a>
+			- the <a href="visual.html#Visual">Visual</a> area <a href="motion.html#'&lt;">'&lt;</a> and <a href="motion.html#'&gt;">'&gt;</a>
+			- line numbers in placed <a href="sign.html#signs">signs</a>
+			- line numbers in <a href="quickfix.html#quickfix">quickfix</a> positions
+			- positions in the |<a href="motion.html#jumplist">jumplist</a>|
+			- positions in the |<a href="tagsrch.html#tagstack">tagstack</a>|
+			These items will still be adjusted:
+			- previous context <a href="motion.html#mark">mark</a> <a href="motion.html#''">''</a>
+			- the cursor position
+			- the <a href="starting.html#view">view</a> of a <a href="windows.html#window">window</a> on a buffer
+			- <a href="fold.html#folds">folds</a>
+			- diffs
+
+
+:kee[pmarks] {command}					*<a name=":kee"></A><b>:kee</b>* *<a name=":keepmarks"></A><b>:keepmarks</b>*
+			Currently only has effect for the <a href="change.html#filter">filter</a> command
+			YXXY:range!|:
+			- When the number of lines after filtering is equal to
+			  or larger than before, all marks are kept at the
+			  same line number.
+			- When the number of lines decreases, the marks in the
+			  lines that disappeared are deleted.
+			In any <a href="change.html#case">case</a> the marks below the filtered text have
+			their line numbers adjusted, thus stick to the text,
+			<a href="motion.html#as">as</a> usual.
+			When the '<a href="change.html#R">R</a>' flag is missing from <a href="options.html#'cpoptions'">'cpoptions'</a> this has
+			the same effect <a href="motion.html#as">as</a> using &quot;<a href="motion.html#:keepmarks">:keepmarks</a>&quot;.
+
+
+							*<a name=":keepj"></A><b>:keepj</b>* *<a name=":keepjumps"></A><b>:keepjumps</b>*
+:keepj[umps] {command}
+			Moving around in {command} does not change the |<a href="motion.html#''">''</a>|,
+			|<a href="motion.html#'.">'.</a>| and |<a href="motion.html#'^">'^</a>| marks, the |<a href="motion.html#jumplist">jumplist</a>| or the
+			|<a href="motion.html#changelist">changelist</a>|.
+			Useful when making a change or <a href="insert.html#inserting">inserting</a> text
+			automatically and the user doesn't want to go to this
+			position.  E.g., when updating a &quot;Last change&quot;
+			<a href="editing.html#timestamp">timestamp</a> in the first line:
+
+<b>				:let lnum = line(".")</b>
+<b>				:keepjumps normal gg</b>
+<b>				:call SetLastChange()</b>
+<b>				:keepjumps exe "normal " . lnum . "G"</b>
+ 
+			Note that &quot;<a href="motion.html#:keepjumps">:keepjumps</a>&quot; must be used for every command.
+			When invoking a function the commands in that function
+			can still change the <a href="motion.html#jumplist">jumplist</a>.  Also, for
+			&quot;<a href="motion.html#:keepjumps">:keepjumps</a> exe 'command &#39;&#34;' the &quot;command&quot; won't keep
+			jumps.  Instead use: &quot;<a href="eval.html#:exe">:exe</a> 'keepjumps command&#39;&#34;'
+
+==============================================================================
+
+8. Jumps					*<a name="jump-motions"></A><b>jump-motions</b>*
+
+A &quot;jump&quot; is one of the following commands: &quot;&#39;&#34;', &quot;<a href="motion.html#`">`</a>&quot;, &quot;<a href="motion.html#G">G</a>&quot;, &quot;<a href="pattern.html#/">/</a>&quot;, &quot;<a href="pattern.html#?">?</a>&quot;, &quot;<a href="pattern.html#n">n</a>&quot;,
+&quot;<a href="pattern.html#N">N</a>&quot;, &quot;<a href="motion.html#&#37;">&#37;</a>&quot;, &quot;<a href="motion.html#(">(</a>&quot;, &quot;<a href="motion.html#)">)</a>&quot;, &quot;<a href="motion.html#[[">[[</a>&quot;, &quot;<a href="motion.html#]]">]]</a>&quot;, &quot;<a href="motion.html#{">{</a>&quot;, &quot;<a href="motion.html#}">}</a>&quot;, &quot;<a href="change.html#:s">:s</a>&quot;, &quot;<a href="tagsrch.html#:tag">:tag</a>&quot;, &quot;<a href="motion.html#L">L</a>&quot;, &quot;<a href="motion.html#M">M</a>&quot;, &quot;<a href="motion.html#H">H</a>&quot; and
+the commands that start editing a new file.  If you make the cursor &quot;jump&quot;
+with one of these commands, the position of the cursor before the jump is
+remembered.  You can return to that position with the &quot;'&#39;&#34;' and &quot;<a href="motion.html#``">``</a>&quot; command,
+unless the line containing that position was changed or deleted.
+
+
+							*<a name="CTRL-O"></A><b>CTRL-O</b>*
+<a href="motion.html#CTRL-O">CTRL-O</a>			Go to <a href="intro.html#[count]">[count]</a> Older cursor position in jump list
+			(not a motion command).  {not in Vi}
+			{not available without the |<a href="various.html#+jumplist">+jumplist</a>| feature}
+
+
+<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>		or					*<a name="CTRL-I"></A><b>CTRL-I</b>* *<a name="&lt;Tab&gt;"></A><b>&lt;Tab&gt;</b>*
+<a href="motion.html#CTRL-I">CTRL-I</a>			Go to <a href="intro.html#[count]">[count]</a> newer cursor position in jump list
+			(not a motion command).
+			In a |<a href="quickfix.html#quickfix-window">quickfix-window</a>| it takes you to the position of
+			the error under the cursor.
+			{not in Vi}
+			{not available without the |<a href="various.html#+jumplist">+jumplist</a>| feature}
+
+
+							*<a name=":ju"></A><b>:ju</b>* *<a name=":jumps"></A><b>:jumps</b>*
+:ju[mps]		Print the jump list (not a motion command).  {not in
+			Vi} {not available without the |<a href="various.html#+jumplist">+jumplist</a>| feature}
+
+
+							*<a name="jumplist"></A><b>jumplist</b>*
+Jumps are remembered in a jump list.  With the <a href="motion.html#CTRL-O">CTRL-O</a> and <a href="motion.html#CTRL-I">CTRL-I</a> command you
+can go to cursor positions before older jumps, and back again.  Thus you can
+move up and down the list.  There is a separate jump list for each <a href="windows.html#window">window</a>.
+The maximum number of entries is fixed at 100.
+{not available without the |<a href="various.html#+jumplist">+jumplist</a>| feature}
+
+For example, after three jump commands you have this jump list:
+
+<b><font color="purple">  jump line  col file/text </font></b>
+<b><font color="purple">    3	  1    0 some text </font></b>
+<b><font color="purple">    2	 70    0 another line </font></b>
+<b><font color="purple">    1  1154   23 end. </font></b>
+<b><font color="purple"> &gt; </font></b>
+
+The &quot;file/text&quot; column shows the file name, or the text at the jump if it is
+in the current file (an indent is removed and a long line is truncated to fit
+in the <a href="windows.html#window">window</a>).
+
+You are currently in line 1167.  If you then use the <a href="motion.html#CTRL-O">CTRL-O</a> command, the
+cursor is put in line 1154.  This results in:
+
+<b><font color="purple">  jump line  col file/text </font></b>
+<b><font color="purple">    2	  1    0 some text </font></b>
+<b><font color="purple">    1	 70    0 another line </font></b>
+<b><font color="purple"> &gt;  0  1154   23 end. </font></b>
+<b><font color="purple">    1  1167    0 foo bar </font></b>
+
+The pointer will be set at the last used jump position.  The next <a href="motion.html#CTRL-O">CTRL-O</a>
+command will use the entry above it, the next <a href="motion.html#CTRL-I">CTRL-I</a> command will use the
+entry below it.  If the pointer is below the last entry, this indicates that
+you did not use a <a href="motion.html#CTRL-I">CTRL-I</a> or <a href="motion.html#CTRL-O">CTRL-O</a> before.  In this <a href="change.html#case">case</a> the <a href="motion.html#CTRL-O">CTRL-O</a> command
+will cause the cursor position to be added to the jump list, so you can get
+back to the position before the <a href="motion.html#CTRL-O">CTRL-O</a>.  In this <a href="change.html#case">case</a> this is line 1167.
+
+With more <a href="motion.html#CTRL-O">CTRL-O</a> commands you will go to lines 70 and 1.  If you use <a href="motion.html#CTRL-I">CTRL-I</a>
+you can go back to 1154 and 1167 again.  Note that the number in the &quot;jump&quot;
+column indicates the <a href="intro.html#count">count</a> for the <a href="motion.html#CTRL-O">CTRL-O</a> or <a href="motion.html#CTRL-I">CTRL-I</a> command that takes you to
+this position.
+
+If you use a jump command, the current line number is inserted at the end of
+the jump list.  If the same line was already in the jump list, it is removed.
+The result is that when <a href="repeat.html#repeating">repeating</a> <a href="motion.html#CTRL-O">CTRL-O</a> you will get back to old positions
+only once.
+
+When the |<a href="motion.html#:keepjumps">:keepjumps</a>| command modifier is used, jumps are not stored in the
+<a href="motion.html#jumplist">jumplist</a>.  Jumps are also not stored in other cases, e.g., in a |<a href="repeat.html#:global">:global</a>|
+command.  You can explicitly add a jump by setting the '' <a href="motion.html#mark">mark</a>.
+
+After the <a href="motion.html#CTRL-O">CTRL-O</a> command that got you into line 1154 you could give another
+jump command (e.g., &quot;G&quot;).  The jump list would then become:
+
+<b><font color="purple">  jump line  col file/text </font></b>
+<b><font color="purple">    4	  1    0 some text </font></b>
+<b><font color="purple">    3	 70    0 another line </font></b>
+<b><font color="purple">    2  1167    0 foo bar </font></b>
+<b><font color="purple">    1  1154   23 end. </font></b>
+<b><font color="purple"> &gt; </font></b>
+
+The line numbers will be adjusted for deleted and inserted lines.  This fails
+if you stop editing a file without <a href="editing.html#writing">writing</a>, like with &quot;:n!&quot;.
+
+When you split a <a href="windows.html#window">window</a>, the <a href="motion.html#jumplist">jumplist</a> will be copied to the new <a href="windows.html#window">window</a>.
+
+If you have included the '' item in the <a href="options.html#'viminfo'">'viminfo'</a> option the <a href="motion.html#jumplist">jumplist</a> will be
+stored in the <a href="starting.html#viminfo">viminfo</a> file and restored when starting Vim.
+
+
+
+CHANGE LIST JUMPS			*<a name="changelist"></A><b>changelist</b>* *<a name="change-list-jumps"></A><b>change-list-jumps</b>* *<a name="E664"></A><b>E664</b>*
+
+When making a change the cursor position is remembered.  One position is
+remembered for every change that can be undone, unless it is close to a
+previous change.  Two commands can be used to jump to positions of changes,
+also those that have been undone:
+
+
+							*<a name="g;"></A><b>g;</b>* *<a name="E662"></A><b>E662</b>*
+<a href="motion.html#g;">g;</a>			Go to <a href="intro.html#[count]">[count]</a> older position in change list.
+			If <a href="intro.html#[count]">[count]</a> is larger than the number of older change
+			positions go to the oldest change.
+			If there is no older change an error message is given.
+			(not a motion command)
+			{not in Vi}
+			{not available without the |<a href="various.html#+jumplist">+jumplist</a>| feature}
+
+
+							*<a name="g,"></A><b>g,</b>* *<a name="E663"></A><b>E663</b>*
+<a href="motion.html#g,">g,</a>			Go to <a href="intro.html#[count]">[count]</a> newer cursor position in change list.
+			Just like |<a href="motion.html#g;">g;</a>| but in the opposite direction.
+			(not a motion command)
+			{not in Vi}
+			{not available without the |<a href="various.html#+jumplist">+jumplist</a>| feature}
+
+When using a <a href="intro.html#count">count</a> you jump <a href="motion.html#as">as</a> far back or forward <a href="motion.html#as">as</a> possible.  Thus you can
+use &quot;999g;&quot; to go to the first change for which the position is still
+remembered.  The number of entries in the change list is fixed and is the same
+<a href="motion.html#as">as</a> for the |<a href="motion.html#jumplist">jumplist</a>|.
+
+When two undo-able changes are in the same line and at a column position <a href="various.html#less">less</a>
+than <a href="options.html#'textwidth'">'textwidth'</a> apart only the last one is remembered.  This avoids that a
+sequence of small changes in a line, for example &quot;xxxxx&quot;, adds many positions
+to the change list.  When <a href="options.html#'textwidth'">'textwidth'</a> is zero <a href="options.html#'wrapmargin'">'wrapmargin'</a> is used.  When that
+also isn't set a fixed number of 79 is used.  Detail: For the computations
+bytes are used, not characters, to avoid a speed penalty (this only matters
+for <a href="mbyte.html#multi-byte">multi-byte</a> encodings).
+
+Note that when text has been inserted or deleted the cursor position might be
+a bit different from the position of the change.  Especially when lines have
+been deleted.
+
+When the |<a href="motion.html#:keepjumps">:keepjumps</a>| command modifier is used the position of a change is not
+remembered.
+
+
+							*<a name=":changes"></A><b>:changes</b>*
+<a href="motion.html#:changes">:changes</a>		Print the change list.  A &quot;<a href="change.html#&gt;">&gt;</a>&quot; character indicates the
+			current position.  Just after a change it is below the
+			newest entry, indicating that &quot;<a href="motion.html#g;">g;</a>&quot; takes you to the
+			newest entry position.  The first column indicates the
+			<a href="intro.html#count">count</a> needed to take you to this position.  Example:
+
+<b><font color="purple">				change line  col text </font></b>
+				    3     9    8 bla bla bla
+				    2    11   57 foo is a <a href="motion.html#bar">bar</a>
+				    1    14   54 the latest changed line
+				<a href="change.html#&gt;">&gt;</a>
+
+			The &quot;3g;&quot; command takes you to line 9.  Then the
+			output of &quot;<a href="motion.html#:changes">:changes</a> is:
+
+<b><font color="purple">				change line  col text </font></b>
+				<a href="change.html#&gt;">&gt;</a>   0     9    8 bla bla bla
+				    1    11   57 foo is a <a href="motion.html#bar">bar</a>
+				    2    14   54 the latest changed line
+
+			Now you can use &quot;<a href="motion.html#g,">g,</a>&quot; to go to line 11 and &quot;2g,&quot; to go
+			to line 14.
+
+==============================================================================
+
+9. Various motions				*<a name="various-motions"></A><b>various-motions</b>*
+
+
+							*<a name="&#37;"></A><b>&#37;</b>*
+<a href="motion.html#&#37;">&#37;</a>			Find the next item in this line after or under the
+			cursor and jump to its match. |<a href="motion.html#inclusive">inclusive</a>| motion.
+			Items can be:
+			([{}])		parenthesis or (curly/square) brackets
+					(this can be changed with the
+					<a href="options.html#'matchpairs'">'matchpairs'</a> option)
+			/* */		start or end of C-style comment
+			#if, #ifdef, #else, #elif, #endif
+					C preprocessor conditionals (when the
+					cursor is on the # or no ([{
+					following)
+			For other items the matchit <a href="usr_05.html#plugin">plugin</a> can be used, see
+			|<a href="usr_05.html#matchit-install">matchit-install</a>|.  This <a href="usr_05.html#plugin">plugin</a> also helps to skip
+			matches in comments.
+
+			When <a href="options.html#'cpoptions'">'cpoptions'</a> contains &quot;M&quot; |<a href="options.html#cpo-M">cpo-M</a>| backslashes
+			before parens and braces are ignored.  Without &quot;<a href="motion.html#M">M</a>&quot; the
+			number of backslashes matters: an even number doesn't
+			match with an odd number.  Thus in &quot;<a href="motion.html#(">(</a> \) )&quot; and &quot;\( (
+			\)&quot; the first and last parenthesis match.
+
+			When the '<a href="motion.html#&#37;">&#37;</a>' character is not present in <a href="options.html#'cpoptions'">'cpoptions'</a>
+			|<a href="options.html#cpo-&#37;">cpo-&#37;</a>|, parens and braces inside double <a href="quotes.html#quotes">quotes</a> are
+			ignored, unless the number of parens/braces in a line
+			is uneven and this line and the previous one does not
+			end in a <a href="intro.html#backslash">backslash</a>.  '<a href="motion.html#(">(</a>', '<a href="motion.html#{">{</a>', '<a href="index.html#[">[</a>', '<a href="index.html#]">]</a>', '<a href="motion.html#}">}</a>' and '<a href="motion.html#)">)</a>'
+			are also ignored (parens and braces inside single
+			<a href="quotes.html#quotes">quotes</a>).  Note that this works fine for C, but not for
+			<a href="if_perl.html#Perl">Perl</a>, where single <a href="quotes.html#quotes">quotes</a> are used for strings.
+
+			Nothing special is done for matches in comments.  You
+			can either use the matchit <a href="usr_05.html#plugin">plugin</a> |<a href="usr_05.html#matchit-install">matchit-install</a>| or
+			put <a href="quotes.html#quotes">quotes</a> around matches.
+
+			No <a href="intro.html#count">count</a> is allowed, {count}&#37; jumps to a line {count}
+			percentage down the file |<a href="motion.html#N&#37;">N&#37;</a>|.  Using '&#37;' on
+			#if/#else/#endif makes the <a href="intro.html#movement">movement</a> <a href="motion.html#linewise">linewise</a>.
+
+
+						*<a name="[("></A><b>[(</b>*
+<a href="motion.html#[(">[(</a>			go to <a href="intro.html#[count]">[count]</a> previous unmatched '<a href="motion.html#(">(</a>'.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+
+						*<a name="[{"></A><b>[{</b>*
+<a href="motion.html#[{">[{</a>			go to <a href="intro.html#[count]">[count]</a> previous unmatched '<a href="motion.html#{">{</a>'.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+
+						*<a name="])"></A><b>])</b>*
+<a href="motion.html#])">])</a>			go to <a href="intro.html#[count]">[count]</a> next unmatched '<a href="motion.html#)">)</a>'.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+
+						*<a name="]}"></A><b>]}</b>*
+<a href="motion.html#]}">]}</a>			go to <a href="intro.html#[count]">[count]</a> next unmatched '<a href="motion.html#}">}</a>'.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+The above four commands can be used to go to the start or end of the current
+code block.  It is like doing &quot;<a href="motion.html#&#37;">&#37;</a>&quot; on the '<a href="motion.html#(">(</a>', '<a href="motion.html#)">)</a>', '<a href="motion.html#{">{</a>' or '<a href="motion.html#}">}</a>' at the other
+end of the code block, but you can <a href="diff.html#do">do</a> this from anywhere in the code block.
+Very useful for C programs.  Example: When standing on &quot;<a href="change.html#case">case</a> x:&quot;, &quot;<a href="motion.html#[{">[{</a>&quot; will
+bring you back to the switch statement.
+
+
+						*<a name="]m"></A><b>]m</b>*
+<a href="motion.html#]m">]m</a>			Go to <a href="intro.html#[count]">[count]</a> next start of a method (for Java or
+			similar structured language).  When not before the
+			start of a method, jump to the start or end of the
+			class.  When no '<a href="motion.html#{">{</a>' is found after the cursor, this is
+			an error.  |<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+						*<a name="]M"></A><b>]M</b>*
+<a href="motion.html#]M">]M</a>			Go to <a href="intro.html#[count]">[count]</a> next end of a method (for Java or
+			similar structured language).  When not before the end
+			of a method, jump to the start or end of the class.
+			When no '<a href="motion.html#}">}</a>' is found after the cursor, this is an
+			error. |<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+						*<a name="[m"></A><b>[m</b>*
+<a href="motion.html#[m">[m</a>			Go to <a href="intro.html#[count]">[count]</a> previous start of a method (for Java or
+			similar structured language).  When not after the
+			start of a method, jump to the start or end of the
+			class.  When no '<a href="motion.html#{">{</a>' is found before the cursor this is
+			an error. |<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+						*<a name="[M"></A><b>[M</b>*
+<a href="motion.html#[M">[M</a>			Go to <a href="intro.html#[count]">[count]</a> previous end of a method (for Java or
+			similar structured language).  When not after the
+			end of a method, jump to the start or end of the
+			class.  When no '<a href="motion.html#}">}</a>' is found before the cursor this is
+			an error. |<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+The above two commands assume that the file contains a class with methods.
+The class definition is surrounded in '<a href="motion.html#{">{</a>' and '<a href="motion.html#}">}</a>'.  Each method in the class
+is also surrounded with '<a href="motion.html#{">{</a>' and '<a href="motion.html#}">}</a>'.  This applies to the Java language.  The
+file looks like this:
+
+<b>	// comment</b>
+<b>	class foo {</b>
+<b>		int method_one() {</b>
+<b>			body_one();</b>
+<b>		}</b>
+<b>		int method_two() {</b>
+<b>			body_two();</b>
+<b>		}</b>
+<b>	}</b>
+Starting with the cursor on &quot;body_two()&quot;, using &quot;<a href="motion.html#[m">[m</a>&quot; will jump to the '<a href="motion.html#{">{</a>' at
+the start of &quot;method_two()&quot; (obviously this is much more useful when the
+method is long!).  Using &quot;2[m&quot; will jump to the start of &quot;method_one()&quot;.
+Using &quot;3[m&quot; will jump to the start of the class.
+
+
+						*<a name="[#"></A><b>[#</b>*
+<a href="motion.html#[#">[#</a>			go to <a href="intro.html#[count]">[count]</a> previous unmatched &quot;#if&quot; or &quot;#else&quot;.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+
+						*<a name="]#"></A><b>]#</b>*
+<a href="motion.html#]#">]#</a>			go to <a href="intro.html#[count]">[count]</a> next unmatched &quot;#else&quot; or &quot;#endif&quot;.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+These two commands work in C programs that contain #if/#else/#endif
+constructs.  It brings you to the start or end of the #if/#else/#endif where
+the current line is included.  You can then use &quot;<a href="motion.html#&#37;">&#37;</a>&quot; to go to the matching line.
+
+
+						*<a name="[star"></A><b>[star</b>* *<a name="[/"></A><b>[/</b>*
+[*  or  <a href="motion.html#[/">[/</a>		go to <a href="intro.html#[count]">[count]</a> previous start of a C comment &quot;/*&quot;.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+
+						*<a name="]star"></A><b>]star</b>* *<a name="]/"></A><b>]/</b>*
+]*  or  <a href="motion.html#]/">]/</a>		go to <a href="intro.html#[count]">[count]</a> next end of a C comment &quot;*/&quot;.
+			|<a href="motion.html#exclusive">exclusive</a>| motion. {not in Vi}
+
+
+
+						*<a name="H"></A><b>H</b>*
+<a href="motion.html#H">H</a>			To line <a href="intro.html#[count]">[count]</a> from top (Home) of <a href="windows.html#window">window</a> (default:
+			first line on the <a href="windows.html#window">window</a>) on the first non-blank
+			character |<a href="motion.html#linewise">linewise</a>|.  See also <a href="options.html#'startofline'">'startofline'</a> option.
+			Cursor is adjusted for <a href="options.html#'scrolloff'">'scrolloff'</a> option.
+
+
+						*<a name="M"></A><b>M</b>*
+<a href="motion.html#M">M</a>			To Middle line of <a href="windows.html#window">window</a>, on the first non-blank
+			character |<a href="motion.html#linewise">linewise</a>|.  See also <a href="options.html#'startofline'">'startofline'</a> option.
+
+
+						*<a name="L"></A><b>L</b>*
+<a href="motion.html#L">L</a>			To line <a href="intro.html#[count]">[count]</a> from bottom of <a href="windows.html#window">window</a> (default: Last
+			line on the <a href="windows.html#window">window</a>) on the first non-blank character
+			|<a href="motion.html#linewise">linewise</a>|.  See also <a href="options.html#'startofline'">'startofline'</a> option.
+			Cursor is adjusted for <a href="options.html#'scrolloff'">'scrolloff'</a> option.
+
+<a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a>		Moves to the position on the screen where the mouse
+			click is |<a href="motion.html#exclusive">exclusive</a>|.  See also |<a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a>|.  If the
+			position is in a status line, that <a href="windows.html#window">window</a> is made the
+			active <a href="windows.html#window">window</a> and the cursor is not moved.  {not in Vi}
+
+<a href="motion.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

@@ -1,0 +1,21 @@
+%%format optacc
+%--------- Optional accidentals (#) (b) etc. ----------
+%--------------- Hudson Lacerda (2010) ----------------
+
+%%scale 1
+
+X:1
+T:Optional accidentals (optacc.fmt)
+K:C#m
+C =/C =/3C =/4C =/5C =/6C C D ||
+[!(sharp)!Ce] !(sharp)![ec] \
+[!(dsharp)!Ce] !(dsharp)![ec] \
+[!(flat)!Ce] !(flat)![ec] \
+[!(dflat)!Ce] !(dflat)![ec] \
+[!(natural)!Ce] !(natural)![ec] ||
+[c!(natural)!eg]
+
+%%vskip  20
+%%text Does the PostScript stack contain junk?
+%%postscript 0 -20 M 30 F3 count 3 string cvs show
+

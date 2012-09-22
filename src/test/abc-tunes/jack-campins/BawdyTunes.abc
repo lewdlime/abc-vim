@@ -1,0 +1,435 @@
+% ==========================================================================
+% Tunes with Suggestive and Bawdy Titles (mostly from 18th century Scotland)
+% ==========================================================================
+%
+% Jack Campin                 <http://www.campin.me.uk/>                2009
+%
+% ==========================================================================
+
+% The metronome marks are guesswork on my part (words like "Slow" are in the
+% original sources).
+
+X:1
+T:Hit her upon the Bum
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Caledonian Pocket Companion v6
+M:6/8
+L:1/16
+Q:3/8=80 "Slow"
+K:E Dorian
+ f2  |Te4      A2   cB`cd``ef | g2G2B2 d4    f2 | Te4    A2   cB`cd`ec | a2``A2c2 Te4
+(dc) | d3```e``f2   g2(ag``fe)| d2G2B2 d4    f2 |  e4    A2   cB`cd`ec | a2``A2c2  e4   :|
+ a2  | A2``a2``e2   c2`e2``c2 | g2G2B2 d4({c}B2)|  A2``a2e2   c2`e2`c2 | A2``a2e2  c2e2c2|
+       d2``f2``d2   c2`e2``c2 | g2G2B2 d4    f2 |  e4    A2  (e2`cd`e2)| a2``A2c2  e4   :|
+ e2  |(c2``AB``A2) (c2`AB``A2)| g2G2B2 d4    B2 | (c2``ABA2) (e2`AB`A2)|(a2``ABA2) e4
+ c2  | d2`(a^g)a2   c2(a^g)a2 | B2G2B2 d4    a2 |T^g4    f2   e2(cd)e2 | a2``A2c2  e4   :|
+(f^g)|(a^g)a2``A2  (ed)e2``A2 |=g2G2B2 d4    B2 | (a^g)a2A2  (ed)e2`A2 |(a^g)a2A2  e4
+=g2  | f2`(df)`a2   e2(ce)`a2 | g2G2B2 d4    a2 |T^g4    f2   e2(cd)e2 | a2``A2c2  e4   :|
+(cB) | A2``a2``A2   a2`A2``a2 | g2G2B2 d4    B2 |  A2``a2A2   a2`A2`a2 | A2``a2A2  e3`fg2|
+       f2``d2``f2   g2(ag``fe)| d2G2B2 d4    f2 | Te4    A2  Tc3``d`e2 | a2``A2c2  e4   :|
+ d2  | c2``A2``e2   c2`A2``d2 | B2G2g2 B2`G2`e2 |  c2``A2e2   c2`A2`a2 | c2``A2e2  a2c2A2|
+       d2``b2``d2   c2`a2``f2 | g2G2B2 d4    f2 |  e3c   A2  Tc3``d`e2 | a2``A2c2  e4   :|
+
+X:2
+T:Hitt her between the legs
+Z:Jack Campin <http://www.campin.me.uk/>
+S:William Dixon MS, 1733
+N:This is a bagpipe tune, written in this key on a 4-line staff.
+N:It would more often be written in A mixolydian these days, as
+N:it is in Matt Seattle's edition "The Master Piper".
+M:6/4
+L:1/8
+Q:3/4=100
+K:G Mixolydian
+ G2B2G2 G2Bcd2|G2B2G2 d4  B2| G2B2G2 G2Bcd2|F2A2F2 c4  A2 |
+ G2B2G2 G2Bcd2|G2B2G2 g2d2f2| e2c2e2 d2B2d2|c2A2F2 c4  A2||
+ g2B2G2 BABcdB|g2B2G2 d4  B2| g2B2G2 BABcdB|f2A2F2 c4  A2 |
+ g2B2G2 BABcdB|g2B2G2 g2d2f2| e2c2e2 d2B2d2|c2A2F2 c4  A2||
+ B2G2G2 B2G2G2|B2G2G2 d2A2A2| B2G2G2 B2G2G2|A2F2F2 f2A2A2 |
+ B2G2G2 B2G2G2|B2G2B2 g2d2f2| e2c2e2 d2B2d2|c2A2F2 c4  A2||
+ gfefg2 BABcd2|g2B2G2 d4  B2| gfefg2 BABcd2|f2A2F2 c4  A2 |
+ gfefg2 BABcd2|g2B2G2 g2d2f2| e2c2e2 d2B2d2|c2A2F2 c4  A2||
+ G2BcdG dGBcdG|dGBcdG dABcdA| dGBcdG dGBcdG|dABcdF c4  A2 |
+ G2BcdG dGBcdG|dGBcdG B2G2G2| BcdcBA efgfed|f2A2F2 c4  A2||
+Tg4  g2 BABcdB|g2B2G2 d4  B2|Tg4  g2 BABcdB|f2A2F2 c4  A2 |
+Tg4  g2 BABcdB|g2B2G2 g2d2f2| e2c2e2 d2B2d2|c2A2F2 c4  A2||
+ G2BcdB dcBcdB|G2BcdB d4  B2| G2BcdB dcBcdB|f2A2F2 c4  A2 |
+ G2BcdB dcBcdB|gfefge dcBcdB| cBcdec dcdefd|c2A2F2 c4  A2||
+ BcdBG2 B4  G2|BcdBG2 c4  A2| BcdBG2 B4  G2|ABcAF2 c4  A2 |
+ BcdBG2 B4  G2|BcdBG2 B2G2G2| cBcdec dcdefd|c2A2F2 c4  A2||
+
+X:3
+T:The Scots Wriggle
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Caledonian Pocket Companion
+M:9/8
+L:1/8
+Q:3/8=108
+K:G
+ G2c  TB2G (B/c/d)B| G2c  TB2G  efg    | G2d  TB2G   dBG    |TF2A         AFD        (F/G/A)F:|
+ G2g   g2G  B/c/d`B| G2g   g2e (f/g/a)f| gfe   dcB   cde    |TF2A         AFD        (F/G/A)F:|
+ G3    BGB (A/B/cA)| G3    BGB (A/B/c)A| G3    BGB  (A/B/c)A|(B/c/d)B     gdB         AFD    :|
+ G2g   gdB  dBB    | G2g   gdB  def    | g2b   afd   gdB    | Ace         EFG         AFD    :|
+ G2B   dBB (b2g)   | G2B   dBB  aAA    | G2B   dBB  (b2a)   | gfe         dcB         AFD    :|
+(d2B) (d2B) dgb    |(c2A) (c2A) cfa    |(B2G) (B2G) (b2g)   | g(e/f/g/e/) d(B/c/d/B/) AFD    :|
+
+X:4
+T:How can I Keep My Maidenhead
+Z:Jack Campin <http://www.campin.me.uk/>
+S:NLS MS 21717 (flute tunes)
+M:C|
+L:1/8
+Q:1/2=112
+K:F
+F2FG AGFA|G/G/G Gc dcdf|fgfd cAFA|GAFC D/D/D [1 d2:|\
+                                             [2 df||
+cdfg agfa|gfga    Tgfdf|cdfg agfa|gfga f/f/f    f2:|
+
+X:5
+T:The Black Part of the C--t
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene, NLS Adv. 5.2.21 (fiddle tunes part)
+M:C|
+L:1/8
+Q:1/2=112
+K:A Mixolydian
+c>BAe       eB/B/ Be|c>BAe       fd/d/ df|eA/A/ Ae    eB/B/ Be|ee````fd  Te2d2:|
+c/A/A c/A/A B>B```Be|c/A/A c/A/A f>e```df|c/A/A c/A/A B>B```Be|de/e/ f>d Te2d2:|
+
+X:6
+T:The Well Buked Ballap
+Z:Jack Campin <http://www.campin.me.uk/>
+S:James Thomson's MS for the treble recorder, 1702
+N:The title means "The Well-Filled Codpiece"
+M:C
+L:1/16
+Q:1/4=120
+K:G Mixolydian
+de|f3g  f2c2 A4   c2ef|g3a  g3d B4 d2
+de|f2f2 Afed e2e2 cdec|d2de d3G B4 d2:|
+fe|defg f3c  A4   c2ef|efga g3d B4 d2
+de|defg f2ed cdef e2dc|Bcde d3G B4 d2:|
+
+X:7
+T:I've seen as good as you muffed below the Covering
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene, NLS Adv. 5.2.21 (fiddle tunes part)
+M:9/8
+L:1/8
+Q:3/8=120
+K:G Dorian
+G>AG B2g    ge/f/g|G>AG B2f    cAF|G>AG B2g    ge/f/g|f3 F>GA/B/ cAF:|
+f2d  dB/c/d dB/c/d|f2d  dB/c/d cFc|f2d  dB/c/d dB/c/d|f3 F>GA/B/ cAF:|
+
+X:8
+T:Maggie's weam is fu I true
+Z:Jack Campin <http://www.campin.me.uk/>
+S:NLS MS Adv.5.2.22
+N:last bar 1st part is |fdeg d/d/d d:| in score, this way in marginal note
+M:4/4
+L:1/8
+K:D
+B|ADFD ADFB|ADFA E/E/E GB|ADFD ABde|fdef d/d/d d:|
+A|defd geaf|gefd e/e/e eB|defd eBdA|BAdF D/D/D D:|
+
+X:9
+T:My Dear durst I but but M-w you
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS of 1715, NLS Adv.5.2.21 (fiddle tunes part)
+M:C|
+L:1/8
+K:G
+A|G/G/G GE A2AB|G/G/G GE GBGE       |GBGE     A2AB|G/G/G GE    G3         :|
+B|G/G/G Bd eAAB|G/G/G BG dGBd       |e/e/e dB eAAB|G/G/G GE    G3         :|
+g|e/g/f ge a2ab|g>age    g/e/g/a/ ge|g>age    a2ab|g>age       g/g/g     g:|
+B|G/G/G Bd eAAB|G/G/G BG dGBd       |e/f/g Bd eAAB|G/G/G GE   [g2B2D2G,2]g:|
+
+X:10
+T:Tail Todle
+Z:Jack Campin <http://www.campin.me.uk/>
+S:George Skene's MS, 1715, NLS Adv.5.2.21 (fiddle tunes part)
+N:The ornament here interpreted as an inverted mordent (P) is written
+N:as "x" in the MS; the one taken to be a trill (T) is written as "=".
+M:C|
+L:1/8
+K:A Mixolydian
+% Introduction
+ dd`````Pfd   ge````````gB   | dd``````Tfd       Te2     (cA) |\
+Pdd``````fd  Pge```````Tfd   |Tee       f/g/a    Te2     (cA)||
+%
+% Tune
+~dd``````fd   g2        dB   | dd```````fd        c/d/e (TcA) |\
+ dd``````fd  ~ge````````fd   | ee       f/g/a    Te2     (cA):|
+~g2    (.dB) (B.g)``````dB   | g2      .d(B       B).e  (TcA  |\
+ g2)     Bg   a/g/f/e/ Tfd   | e/f/g/e/ f/g/a/f/ Te2     (cA):|
+%
+% Last time
+ d/d/d T(fd) ~ge````````gB   | d/d/d   (gd)      (eA)    TcA  |\
+ d/d/d T(fd) Pge```````Tfd   | e/e/e    f/g/a    Te2     (cA) |
+(g2      B)g  Bg```````(d{c}B| g2)      Bg        Ae````(TcA  |\
+ g2)     Bg   a/g/f/e/  fd   | e/f/g    f/g/a    Te2      cA ||
+~g2    (.dB) (B.g)``````dB   | g2      .d(B       B).e``(TcA  |\
+ g2)     Bg   a/g/f/e/ Tfd   | e/f/g/e/ f/g/a/f/ Te2     (cA)|]
+
+X:11
+T:Tail Todle
+S:Margaret Sinkler MS, Glasgow 1710
+Z:Jack Campin <http://www.campin.me.uk/>
+M:4/4
+L:1/8
+Q:1/2=104
+K:G Mixolydian
+ G2G2 B2G2|c4   A2F2|G2G2 B2 G2 | d4   B2G2 |
+ d4   B2G2|c4   A2F2|G2g2 d2 e2 | d4   B2G2||
+ D2D2 B2G2|ABc2 A2F2|G2G2 B2 G2 | Bcd2 B2G2 |
+ Bcd2 B2G2|ABc2 A2F2|Bcd2 ef g2 | d4   B2G2||
+ B2d2 d2f2|c4   A2F2|B2d2 d2 e^f| gfed g2d2 |
+=f2ef gfed|c4   A2F2|GABc d2 g2 | d4   B2G2||
+ D2D2 B2G2|ABcB A2G2|G2G2 B2 G2 | Bcdc B2G2 |
+ Bcdc B2G2|ABcB A2F2|BcdB e^fge | d4   B2G2||
+ BAGc dBgd|cdcB AGAF|GABc dB`ec |^fdge afge |
+=fgag fgfd|cdcB ABAF|GABc de^fg | d4   B2G2|]
+
+X:12
+T:Sheelah na Gig
+Z:Jack Campin <http://www.campin.me.uk/>
+S:NLS MS 21841 (C.K. Sharpe collection of sheets)
+M:9/8
+L:1/8
+Q:3/8=112
+K:D
+ FGA      ABc d3 |FGA GB=c B3 :|
+ d2d      ded cBA|c2c cde  AFD |\
+ ddd      ded cBA|B2B Bcd  AFD:|
+[G3E3B,3] BGE BGE|G3  BGE  AFD |\
+ G3       BGE BGE|FGA Bcd  AFD:|
+
+X:13
+T:The Queen of Sluts
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Raven, 1000 English Country Dance Tunes
+M:2/4
+L:1/8
+Q:1/4=144
+K:G
+g2 dB|cd`ef|g2 dd|cA A2|g2 dB|cdef|gbaf|g2 z2:|
+a2 fd|a2 gf|ef`ga|gf`ed|dB`cd|efga|gfed|g2 z2:|
+
+X:14
+T:Geld him Lasses
+Z:Jack Campin <http://www.campin.me.uk/>
+N:It's unlikely you were meant to play this with no repeats
+N:as it was written.  But I can't decide what repeat structure
+N:might be most appropriate.  Maybe treat one or both of the
+N:first two sections as a refrain?
+S:Thomson MS, 1702
+M:6/4
+L:1/4
+K:D Dorian
+f2   TA2       F2|Ac2 fTed|g2   TB2       G2|Bd2 fTed||
+f>g   ag       f2|Ac2 fTed|g>a   ba       g2|Bd2 fTed||
+fF    AF       fF|Ac2 fTed|gG    BG       gG|Bd2 fTed||
+f>g   f/g/a/g/ f2|Ac2 fTed|g>a   g/a/b/a/ g2|Bd2 fTed||
+fe/d/ c/B/A/G/ F2|Ac2 fTed|gf/e/ d/c/B/A/ G2|Bd2 fTed|]
+
+X:15
+T:Steer her up and had her gaan
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Aird's Airs v1 (NLS Inglis.33) #118
+M:4/4
+L:1/8
+Q:1/2=112 "Brisk"
+K:D
+ (fe)|d2d2     f3e|defg a2  AG | F2  A2   A2 (GF)|E2E2 {B}c3e|
+      d2d2     f3e|defg a2 (ag)|(ba)(gf) (ed)(ec)|d4      D2:|
+(Tfe)|d2A2     F3A|dAGA F2(TED)| E2 =c4       e=F|G=FED  [E2C2]
+ Tfe |d2A2 {G}TF3E|DEFG A2  gf | ef``gf   ec``Ac |d4      D2:|
+
+X:16
+T:Piss upon the Grass
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Rutherford, Compleat Tutor
+M:6/8
+L:1/8
+Q:3/8=124
+K:C
+c2c c>de/f/|g2e c2e |d2e d2e|d2c BAG|
+c2c c>de/f/|g2e c2e |d2c B2A|G3- G3:|
+d2e d2e    |d2e dBG |e2f g2a|g2a gec|
+f2e f2g    |a2b c'ba|gfe dcB|c3- c3:|
+
+X:17
+T:4 bare legg's in a bed
+T:Scotch Portion
+Z:Jack Campin <http://www.campin.me.uk/>
+S:NLS MS.21716
+M:9/4
+L:1/4
+Q:3/4=100
+K:G Dorian
+A2B cBA BAG|^FAA A2G  FED |  BAB  cBc   d3 |DGG G2A BAG:|
+f2f fgf e2d| cAB A2G ^F>ED|[1 g2g g>ag ^f2d|
+                                            dgg g2a bag:|\
+                           [2 BAB cBc   d3 |DGG G2A BAG|]
+
+X:18
+T:[She's] Sweetest When She's Naked
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Henry Atkinson's MS, 1690s, via MH
+M:6/4
+L:1/8
+Q:3/4=60
+K:A Minor
+A2e3f (d2c/d/)e2|A2 c4   GE`DE G2|A2 c4    dcde`ga|e3 dcd e2 A4:|
+A2d4   d3 e   d2|e2 g4   g3  a g2|ge`de g2 gede g2|agabab g2 e4 |
+e2fedc dcde```ga|ge`dBAG E2 G4   |A2 c4    dcde`gd|efedcd e2 A4|]
+
+X:19
+T:Wantoness for evermore
+Z:Jack Campin <http://www.campin.me.uk/>
+S:Robert Petrie: A Collection of Strathspey Reels & Country Dances, Edin 1806
+N:via MH, MS.21690
+M:4/4
+L:1/8
+Q:1/4=80 "Slow"
+K:E Minor
+   EFGA B2B2|BAFA {A}B4  |E2FG A3 d|    AFEF D3
+F| EFGA B2Bd|BAFA    B2de|fdeB dBAF|({F}B4)  E4:|
+  Tf3 e d2f2|e2de    B3^c|d3 B A2d2|    AFEF D2
+de|f3 e d2f2|e2de    B2de|fdeB dBAF|    B4   E4:|
+P:Variation
+(E/F/E/F/) (G/A/G/A/) Bg`eB |(B/c/B/A/) (F/E/F/A/) B4     | EB, GE  AF dB|    AB/G/ FE Dd AF|
+(E/F/E/F/) (G/A/G/A/) B(bgf)|(efg).f              (ed)(cB)|.A(c`BA) BG`AF|({A}B4)      E4  :|
+(fgf)e dD  df|ef`ed ^cA`Bc|df````dB     AB`````````^cd       |AGFE DAde|
+(fgf)e d^c df|ef de  B^cde|fd/f/ eB/e/ (d/^c/B/A/) (B/A/G/F/)|B4   E4 :|
+
+X:20
+T:Claw her weam
+Z:Jack Campin <http://www.campin.me.uk/>
+T:The Lass of Livingston
+S:Atkinson MS via MH
+N:MH appears to indicate B2 as an alternate first note in bar 7
+M:4/4
+L:1/8
+Q:1/4=120
+K:D Minor
+C/D/ |F3 G A3 f|cAcf cA`GF|A3  F G3  F/G/|A3 G G3
+F/>D/|F3 G A3 d|cAGF GA c2|d2 D2 D2 CD   |F2D2 D2:|
+a/g/ |fcfg fgag|fcdf cA`GF|A3  G G3  F   |A3 G G3
+F/D/ |fgag fafd|cAcd cd`fg|a2 D2 D2 CD   |F2D2 D2:|
+
+X:21
+T:Tom come tickle me
+Z:Jack Campin <http://www.campin.me.uk/>
+S:MacFarlan MS II #230
+N:early version of the tune later called "Trip to Sligo" in Ireland
+M:6/8
+L:1/8
+Q:3/8=120
+K:E Dorian
+E   |G2e  BGE|F2d AFD|E2e  BGB| AFD  E2:|
+c/d/|edc  BGE|dcB AFD|edc  BeG| AFD  E2:|
+F   |E>FE BEB|FDF AFA|E>FE BEg|Tf>ed e2:|
+g/a/|bge  bge|afd afd|bge  beg|Tf>ed e2:|
+
+X:22
+T:Ha'd the lass till I win at her
+Z:Jack Campin <http://www.campin.me.uk/>
+S:MacFarlan MS II #
+M:4/4
+L:1/8
+M:1/2=108
+K:D
+Af`fg    fdec|Ae`ec    dg B/c/d/B/|Ae`eg    fd`ef|g>edg BGdB:|
+Aa f/g/a fdec|Aa f/g/a dG`dB      |Aa f/g/a f>def|g>edg BGdB:|
+
+X:23
+T:Our Bride's No Maiden
+Z:Jack Campin <http://www.campin.me.uk/>
+S:MacFarlan MS II #179
+M:9/8
+L:1/8
+Q:3/8=100
+K:G Mixolydian
+cef     gcg (a/g/``f/e/)(d/c/)|d2a (f/g/a)d  f2a |\
+cef     gcg (a/g/``f/e/)(d/c/)|c2g (e/f/g)c Te2g:|
+ceg     ceg (a/g/)(f/e/)(d/c/)|d2a (f/g/a)d  f2a |\
+ceg     ceg (a/g/)(f/e/)(d/c/)|c2g (e/f/g)c Te2g:|
+ceg     ceg (a/g/)(f/e/)(d/c/)|d2a (f/g/a)d  f2a |\
+c>de/f/ gcg (a/g/``f/e/``d/)c/|c2g (e/f/g)c Te2g:|
+
+X:24
+T:Under her Apron
+Z:Jack Campin <http://www.campin.me.uk/>
+S:MacFarlan MS II #175
+M:6/8
+L:1/8
+Q:3/8=100
+K:D Dorian
+c   |ABA ded|Tc2A G2G|ABA ded|ede  d2
+g/f/|ede fed| cBA GAB|cBA def|ed^c d2:|
+A/B/|cA/B/c/A/ dB/c/d/B/|cA/B/c/A/ BG/A/B/G/|\
+     cA/B/c/A/ dB/c/d/B/|ec/d/e/c/ f2
+g/f/|ede       fed      |cBA       GAB      |\
+     cd/c/B/A/ def      |gce       d2      :|
+
+X:25
+T:I canno' win at her for her big Belly
+Z:Jack Campin <http://www.campin.me.uk/>
+S:MacFarlan MS II #148
+M:6/8
+L:1/16
+Q:3/8=100
+K:A Mixolydian
+d4 A2  TB4   A2|e4e2 fga2f2|d4  A2 TB4   A2|TF4A2 Bcd2A2:|
+d4(a2   a2)fgaf|e4e2 fga2f2|d4 (a2  a2)fgaf| d4d2 fga2f2 |
+gab2g2  fg`a2f2|e4e2 fga2f2|d4  A2 TB4   A2|TF4A2 Bcd2A2:|
+d2A2d2 TF3``ED2|e4e2 fgagfe|d4  A2 TB3``AG2|TF4A2 Bcd2A2:|
+d4  a2  ag`fgaf|e4e2 fga2f2|d2f2d2  a2`fgaf| d4d2 fga2f2 |
+b2gabg  a2`fgaf|e4e2 fgagfe|d4  A2 TB3``AG2|TF4A2 Bcd2A2:|
+
+X:26
+T:Ay as she piss'd she padled it
+Z:Jack Campin <http://www.campin.me.uk/>
+S:McFarlan MS II #12
+M:C|
+L:1/8
+K:D Dorian
+D|G2G2 ABcA|TB3A G2c2|TA3G  F2f2|TA3G F2A2|
+  G2G2 ABcA|TB3A G2c2| A2F2 ABcA| G4  d3 :|
+c|TB2 d4 e^f|g2d2 BcdB| g2d2 BcdB|f2c2 ABcA|
+  TB2 d4e ^f|g2d2 BcdB|TA2F2 ABcA|G4   d3 :|
+D|GFGA BABc| dc```````BA        GABG|AcFc AFcA|fedc ABcA|
+  GFGA BABc|(d/c/B/c/ d/c/B/A/) GABG|AGAB cAdF|G4   d3 :|
+(d/4e/4f/2)| g>dTB>d g>dTB>d|(g/^f/e/f/ g/f/e/d/) Bd g(d/e/)|f>cA>c f>c`````A>c|fedc Acfa|
+            TBdga    gdef   | gfed                Bd`gB     |cB`c(e d)e/^f/ gA |G4   d3 :|
+d/c/|BGB(d d)e/^f/ gc|Bd2B GA_Bc| A   F2         A      f(e/d/) (c/d/c/_B/)|TA3G FGAc|
+     BGB(d d)B2     g|Bd2B GA`BG|(A/G/A/B/) (c/d/e/^f/) g(f/e/) (d/c/B/A/) | G4  d3 :|
+e/^f/|gG`````````dG (B/A/B/c/ d)G|Bd2    e/^f/ gdBG|fFAF (A/G/A/_B/ c)F|Ac2d/e/ fcAF|
+      g/^f/e/d/ TB(d d)e/^f/  gd |eg d/c/d/c/ TBdgB|cBcA (d/c/d/e/  d)D|G4      d3 :|
+
+X:27
+T:The Bellbird Sings in the Cunt of Death
+Z:Jack Campin <http://www.campin.me.uk/>
+C:Jack Campin
+N:This is basically the New Zealand national anthem speeded up and
+N:in a different metre and mode.  I was experimenting with perverse
+N:variations on it: this Playford-like jig emerged.  So it needed a
+N:suitably anti-patriotic title.
+N:The reference is to the legend of the Maori hero Maui, who tried to
+N:destroy death.  He borrowed his grandmother's jawbone to use as a
+N:club, and led an army of all the birds of the forest up the vagina
+N:of Hine Nui o Te Po (The Great Lady of the Void, the goddess of death)
+N:to kill her while she was sleeping.  Maui told all the birds to keep
+N:quiet so as not to wake her, but the bellbird couldn't stop himself
+N:letting out a tweet.  Hine Nui o Te Po awoke and crushed Maui with her
+N:cunt muscles.
+M:6/8
+L:1/8
+Q:3/8=100
+K:G Dorian
+G2F G2D|BAB  G2F|EGc DGB   |A>FE  D2F|
+G2D E2F|GAG  B2c|BAG EF/G/A|G>^FE G3:|
+d2d B2c|d_ed d2d|A2B c>AG  |F>GE  D2F|
+G2D E2F|GAG  B2c|BAG EF/G/A|G>^FE G3:|
+

@@ -1,0 +1,196 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_43</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_43</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_43.txt"></A><b>usr_43.txt</b>*	For Vim version 7.3.  Last change: 2008 Dec 28
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			       Using <a href="filetype.html#filetypes">filetypes</a>
+
+
+When you are editing a file of a certain type, for example a C program or a
+shell <a href="usr_41.html#script">script</a>, you often use the same option settings and mappings.  You
+quickly get tired of manually setting these each time.  This chapter explains
+how to <a href="diff.html#do">do</a> it automatically.
+
+|<a href="usr_43.html#43.1">43.1</a>|	Plugins for a <a href="filetype.html#filetype">filetype</a>
+|<a href="usr_43.html#43.2">43.2</a>|	Adding a <a href="filetype.html#filetype">filetype</a>
+
+     Next chapter: |<a href="usr_44.html">usr_44.txt</a>|  Your own <a href="syntax.html#syntax">syntax</a> highlighted
+ Previous chapter: |<a href="usr_42.html">usr_42.txt</a>|  Add new <a href="gui.html#menus">menus</a>
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="43.1"></A><b>43.1</b>*	Plugins for a <a href="filetype.html#filetype">filetype</a>				*<a name="filetype-plugin"></A><b>filetype-plugin</b>*
+
+How to start using <a href="filetype.html#filetype">filetype</a> plugins has already been discussed here:
+|<a href="usr_05.html#add-filetype-plugin">add-filetype-plugin</a>|.  But you probably are not satisfied with the default
+settings, because they have been kept minimal.  Suppose that for C files you
+want to set the <a href="options.html#'softtabstop'">'softtabstop'</a> option to 4 and define a <a href="map.html#mapping">mapping</a> to insert a
+three-line comment.  You <a href="diff.html#do">do</a> this with only two steps:
+
+
+							*<a name="your-runtime-dir"></A><b>your-runtime-dir</b>*
+1. Create your own runtime directory.  On <a href="os_unix.html#Unix">Unix</a> this usually is &quot;~/.vim&quot;.  In
+   this directory create the &quot;<a href="usr_41.html#ftplugin">ftplugin</a>&quot; directory:
+
+<b>	mkdir ~/.vim</b>
+<b>	mkdir ~/.vim/ftplugin</b>
+ 
+   When you are not on <a href="os_unix.html#Unix">Unix</a>, check the value of the <a href="options.html#'runtimepath'">'runtimepath'</a> option to
+   see where Vim will look for the &quot;<a href="usr_41.html#ftplugin">ftplugin</a>&quot; directory:
+
+<b>	set runtimepath</b>
+
+   You would normally use the first directory name (before the first comma).
+   You might want to prepend a directory name to the <a href="options.html#'runtimepath'">'runtimepath'</a> option in
+   your |<a href="starting.html#vimrc">vimrc</a>| file if you don't like the default value.
+
+2. Create the file &quot;~/.vim/ftplugin/c.vim&quot;, with the contents:
+
+<b>	setlocal softtabstop=4</b>
+<b>	noremap &lt;buffer&gt; &lt;LocalLeader&gt;c o/**************&lt;CR&gt;&lt;CR&gt;/&lt;Esc&gt;</b>
+
+Try editing a C file.  You should notice that the <a href="options.html#'softtabstop'">'softtabstop'</a> option is set
+to 4.  But when you edit another file it's reset to the default zero.  That is
+because the &quot;<a href="options.html#:setlocal">:setlocal</a>&quot; command was used.  This sets the <a href="options.html#'softtabstop'">'softtabstop'</a> option
+only locally to the buffer.  As soon <a href="motion.html#as">as</a> you edit another buffer, it will be
+set to the value set for that buffer.  For a new buffer it will get the
+default value or the value from the last &quot;<a href="options.html#:set">:set</a>&quot; command.
+
+Likewise, the <a href="map.html#mapping">mapping</a> for &quot;\c&quot; will disappear when editing another buffer.
+The &quot;<a href="map.html#:map">:map</a> &lt;buffer&gt;&quot; command creates a <a href="map.html#mapping">mapping</a> that is local to the current
+buffer.  This works with any <a href="map.html#mapping">mapping</a> command: &quot;<a href="map.html#:map!">:map!</a>&quot;, &quot;<a href="map.html#:vmap">:vmap</a>&quot;, etc.  The
+|<a href="map.html#&lt;LocalLeader&gt;">&lt;LocalLeader&gt;</a>| in the <a href="map.html#mapping">mapping</a> is replaced with the value of the
+&quot;<a href="map.html#maplocalleader">maplocalleader</a>&quot; variable.
+
+You can find examples for <a href="filetype.html#filetype">filetype</a> plugins in this directory:
+
+<b>	$VIMRUNTIME/ftplugin/</b>
+
+More details about <a href="editing.html#writing">writing</a> a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> can be found here:
+|<a href="usr_41.html#write-plugin">write-plugin</a>|.
+
+==============================================================================
+
+*<a name="43.2"></A><b>43.2</b>*	Adding a <a href="filetype.html#filetype">filetype</a>
+
+If you are using a type of file that is not recognized by Vim, this is how to
+get it recognized.  You need a runtime directory of your own.  See
+|<a href="usr_43.html#your-runtime-dir">your-runtime-dir</a>| above.
+
+Create a file &quot;filetype.vim&quot; which contains an <a href="autocmd.html#autocommand">autocommand</a> for your <a href="filetype.html#filetype">filetype</a>.
+(Autocommands were explained in section |<a href="usr_40.html#40.3">40.3</a>|.)  Example:
+
+<b>	augroup filetypedetect</b>
+<b>	au BufNewFile,BufRead *.xyz	setf xyz</b>
+<b>	augroup END</b>
+
+This will recognize all files that end in &quot;.xyz&quot; <a href="motion.html#as">as</a> the &quot;xyz&quot; <a href="filetype.html#filetype">filetype</a>.  The
+&quot;<a href="autocmd.html#:augroup">:augroup</a>&quot; commands put this <a href="autocmd.html#autocommand">autocommand</a> in the &quot;filetypedetect&quot; group.  This
+allows removing all autocommands for <a href="filetype.html#filetype">filetype</a> detection when doing &quot;<a href="filetype.html#:filetype">:filetype</a>
+off&quot;.  The &quot;setf&quot; command will set the <a href="options.html#'filetype'">'filetype'</a> option to its argument,
+unless it was set already.  This will make sure that <a href="options.html#'filetype'">'filetype'</a> isn't set
+<a href="if_cscop.html#twice">twice</a>.
+
+You can use many different patterns to match the name of your file.  Directory
+names can also be included.  See |<a href="autocmd.html#autocmd-patterns">autocmd-patterns</a>|.  For example, the files
+under &quot;/usr/share/scripts/&quot; are all &quot;<a href="if_ruby.html#ruby">ruby</a>&quot; files, but don't have the expected
+file name extension.  Adding this to the example above:
+
+<b>	augroup filetypedetect</b>
+<b>	au BufNewFile,BufRead *.xyz			setf xyz</b>
+<b>	au BufNewFile,BufRead /usr/share/scripts/*	setf ruby</b>
+<b>	augroup END</b>
+
+However, if you now edit a file /usr/share/scripts/README.txt, this is not a
+<a href="if_ruby.html#ruby">ruby</a> file.  The danger of a <a href="pattern.html#pattern">pattern</a> ending in &quot;*&quot; is that it quickly matches
+too many files.  To avoid trouble with this, put the filetype.vim file in
+another directory, one that is at the end of <a href="options.html#'runtimepath'">'runtimepath'</a>.  For <a href="os_unix.html#Unix">Unix</a> for
+example, you could use &quot;~/.vim/after/filetype.vim&quot;.
+   You now put the detection of text files in ~/.vim/filetype.vim:
+
+<b>	augroup filetypedetect</b>
+<b>	au BufNewFile,BufRead *.txt			setf text</b>
+<b>	augroup END</b>
+
+That file is found in <a href="options.html#'runtimepath'">'runtimepath'</a> first.  Then use this in
+~/.vim/after/filetype.vim, which is found last:
+
+<b>	augroup filetypedetect</b>
+<b>	au BufNewFile,BufRead /usr/share/scripts/*	setf ruby</b>
+<b>	augroup END</b>
+
+What will happen now is that Vim searches for &quot;filetype.vim&quot; files in each
+directory in <a href="options.html#'runtimepath'">'runtimepath'</a>.  First ~/.vim/filetype.vim is found.  The
+<a href="autocmd.html#autocommand">autocommand</a> to catch *.txt files is defined there.  Then Vim finds the
+filetype.vim file in <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>, which is halfway <a href="options.html#'runtimepath'">'runtimepath'</a>.  Finally
+~/.vim/after/filetype.vim is found and the <a href="autocmd.html#autocommand">autocommand</a> for detecting <a href="if_ruby.html#ruby">ruby</a>
+files in /usr/share/scripts is added.
+   When you now edit /usr/share/scripts/README.txt, the autocommands are
+checked in the order in which they were defined.  The *.txt <a href="pattern.html#pattern">pattern</a> matches,
+thus &quot;setf text&quot; is executed to set the <a href="filetype.html#filetype">filetype</a> to &quot;text&quot;.  The <a href="pattern.html#pattern">pattern</a> for
+<a href="if_ruby.html#ruby">ruby</a> matches too, and the &quot;setf ruby&quot; is executed.  But since <a href="options.html#'filetype'">'filetype'</a> was
+already set to &quot;text&quot;, nothing happens here.
+   When you edit the file /usr/share/scripts/foobar the same autocommands are
+checked.  Only the one for <a href="if_ruby.html#ruby">ruby</a> matches and &quot;setf ruby&quot; sets <a href="options.html#'filetype'">'filetype'</a> to
+<a href="if_ruby.html#ruby">ruby</a>.
+
+
+RECOGNIZING BY CONTENTS
+
+If your file cannot be recognized by its file name, you might be able to
+recognize it by its contents.  For example, many <a href="usr_41.html#script">script</a> files start with a
+line like:
+
+<b><font color="purple">	#!/bin/xyz </font></b>
+
+To recognize this <a href="usr_41.html#script">script</a> create a file &quot;scripts.vim&quot; in your runtime directory
+(same place where filetype.vim goes).  It might look like this:
+
+<b>	if did_filetype()</b>
+<b>	  finish</b>
+<b>	endif</b>
+<b>	if getline(1) =~ '^#!.*[/\\]xyz\&gt;'</b>
+<b>	  setf xyz</b>
+<b>	endif</b>
+
+The first check with <a href="eval.html#did_filetype()">did_filetype()</a> is to avoid that you will check the
+contents of files for which the <a href="filetype.html#filetype">filetype</a> was already detected by the file
+name.  That avoids wasting time on checking the file when the &quot;setf&quot; command
+won't <a href="diff.html#do">do</a> anything.
+   The scripts.vim file is sourced by an <a href="autocmd.html#autocommand">autocommand</a> in the default
+filetype.vim file.  Therefore, the order of checks is:
+
+	1. filetype.vim files before <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> in <a href="options.html#'runtimepath'">'runtimepath'</a>
+	2. first part of $VIMRUNTIME/filetype.vim
+	3. all scripts.vim files in <a href="options.html#'runtimepath'">'runtimepath'</a>
+	4. remainder of $VIMRUNTIME/filetype.vim
+	5. filetype.vim files after <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> in <a href="options.html#'runtimepath'">'runtimepath'</a>
+
+If this is not sufficient for you, add an <a href="autocmd.html#autocommand">autocommand</a> that matches all files
+and sources a <a href="usr_41.html#script">script</a> or executes a function to check the contents of the file.
+
+==============================================================================
+
+Next chapter: |<a href="usr_44.html">usr_44.txt</a>|  Your own <a href="syntax.html#syntax">syntax</a> highlighted
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_43.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

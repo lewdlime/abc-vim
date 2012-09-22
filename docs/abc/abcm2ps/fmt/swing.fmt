@@ -1,0 +1,126 @@
+# swing.fmt - To put "swing" ("inégale") indications
+# Hudson Lacerda (28/07/2010)
+
+beginps
+
+/swingprepare {
+	      exch 39 sub exch 40 add translate
+	      0.4 0.5 scale
+	      90 -34 moveto
+	      30 F0 (=) show
+} !
+
+/swing4 {
+	gsave
+	swingprepare
+	/dlsymX{
+	48.0 0.0 138.5 42.0 y0X tubr(3:2)162.5 38.0 y0X bnumb
+	}def
+	/y0X{-46.0 add}def
+	dlsymX
+	24.5 -34.0 hd 20.0 su
+	64.5 -34.0 hd 20.0 su
+	139.5 -34.0 Hd 20.0 su
+	179.5 -34.0 hd 20.0 su
+	grestore
+} !
+	
+/swing8 {
+	gsave
+	swingprepare
+	/dlsymX{
+	48.0 0.0 134.0 42.0 y0X tubr(3:2)158.0 38.0 y0X bnumb
+	}def
+	/y0X{-46.0 add}def
+	dlsymX
+	3.2 36.7 -0.0 27.7 -14.0 bm
+	24.5 -34.0 hd 19.0 su
+	60.5 -34.0 hd 19.0 su
+	135.0 -34.0 hd 20.0 su
+	175.0 -34.0 hd 1 20.0 sfu
+	grestore
+} !
+	
+
+/swing16 {
+	gsave
+	swingprepare
+	/dlsymX{
+	44.0 0.0 134.0 46.0 y0X tubr(3:2)156.0 42.0 y0X bnumb
+	}def
+	/y0X{-50.0 add}def
+	dlsymX
+	3.2 36.7 -0.0 27.7 -13.8 bm
+	3.2 36.0 -0.0 28.0 -18.8 bm
+	24.5 -38.0 hd 23.2 su
+	60.5 -38.0 hd 23.2 su
+	3.2 36.7 -0.0 138.2 -13.8 bm
+	3.2 6.0 -0.0 168.5 -18.8 bm
+	135.0 -38.0 hd 23.2 su
+	171.0 -38.0 hd 23.2 su
+	grestore
+} !
+
+/swing32 {
+	gsave
+	swingprepare
+	/dlsymX{
+	44.0 0.0 134.0 47.0 y0X tubr(3:2)156.0 43.0 y0X bnumb
+	}def
+	/y0X{-51.0 add}def
+	dlsymX
+	3.2 36.7 -0.0 27.7 -14.0 bm
+	3.2 36.0 -0.0 28.0 -19.0 bm
+	3.2 36.0 -0.0 28.0 -24.0 bm
+	24.5 -39.0 hd 24.0 su
+	60.5 -39.0 hd 24.0 su
+	3.2 36.7 -0.0 138.2 -14.0 bm
+	3.2 36.0 -0.0 138.5 -19.0 bm
+	3.2 6.0 -0.0 168.5 -24.0 bm
+	135.0 -39.0 hd 24.0 su
+	171.0 -39.0 hd 24.0 su
+	grestore
+} !
+
+endps
+
+
+deco swing4  3 swing4  30 0 0
+deco swing8  3 swing8  30 0 0
+deco swing16 3 swing16 30 0 0
+deco swing32 3 swing32 30 0 0
+
+
+### The code was adapted from the abcm2ps output for this ABC source:
+###
+### X:1
+### %%notespacingfactor 1
+### M:none
+### K:C stafflines=0 clef=none
+### V:1 up
+### %%tuplets 2 0 2
+### L:1/4
+### BB yy (3:2:2B2B
+### %%vskip 0
+### L:1/8
+### BB yy (3:2:2B2B
+### %%vskip 0
+### L:1/16
+### BB yy (3:2:2B2B
+### %%vskip 0
+### L:1/32
+### BB yy (3:2:2B2B
+
+
+#	Test file:
+#	
+#	X:1
+#	K:G
+#	!swing8! cde y cde
+#	%%vskip 0
+#	!swing8! !swing8! cde !swing8! !swing8! y cde
+#	%%vskip 0
+#	!swing16! !swing32! cde !swing4! !swing8! y cde
+#	%%vskip 0
+#	!swing16! | yyyyyy !swing32! | yyyyyy !swing4! | yyyyyy !swing8! | yyy
+

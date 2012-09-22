@@ -1,0 +1,130 @@
+% translate.fmt            -*- abc -*-
+% Posicionamento arbitrário de decorações
+% Arbitrary positioning of decorations
+
+% Copyright (C) Hudson Lacerda (2004-2009)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+% MODO DE USO:
+%
+% DECORAÇÕES DE DESLOCAMENTO:
+% !sobe!     ou !^^!	Move um passo para cima
+% !desce!    ou !__!	Move um passo para baixo
+% !esquerda! ou !<<!	Move um passo para a esquerda
+% !direita!  ou !>>!	Move um passo para a direita
+% !reset!               Restaura posição e passo
+%
+% Servem para ajustar a posição de alguma decoração, caso necessário.
+%
+% A decoração !reset! deve ser usada logo após a decoração a ser
+% deslocada.
+%
+% O tamanho default de um passo é de 3 pontos. Por conveniência, isso
+% pode ser mudado com as:
+%
+% DECORAÇÕES !1pt!, !3pt!, !6pt! ou !12pt!,
+%
+% que especificam a distância a deslocar.
+%
+% A distância é redefinida por !reset! como 3pt.
+
+% USAGE:
+%
+% OFFSET DECORATIONS:
+% !sobe!     ou !^^!	Move one step upwards
+% !desce!    ou !__!	Move one step downwards
+% !esquerda! ou !<<!	Move one step leftside
+% !direita!  ou !>>!	Move one step rightside
+% !reset!               Reset position and step size
+%
+% The decorations above can "move" the following decoration(s).
+%
+% !reset! should be used just after the decoration to be translated.
+%
+% The default step size is 3pt. It may be changed with the
+%
+% DECORATIONS: !1pt!, !3pt!, !6pt! or !12pt!,
+%
+% which set the distance of the next translation.
+%
+% That distance is reset to 3pt with !reset!.
+
+
+
+
+beginps
+
+% DEFAULT:
+/tl_OFFSET_X 3 def   %  UNIDADE DE DESLOCAMENTO HORIZONTAL    (offset units)
+/tl_OFFSET_Y 3 def   %  UNIDADE DE DESLOCAMENTO VERTICAL
+
+% INIT:
+/tl_DESVIO_X 0 def   % Duas variáveis para armazenar as
+/tl_DESVIO_Y 0 def   % informações de deslocamento
+
+/tl_sobe       {pop pop 0  tl_OFFSET_Y  xymove currentpoint translate
+		 /tl_DESVIO_Y  tl_DESVIO_Y tl_OFFSET_Y add  def
+		 } bind def
+/tl_desce      {pop pop 0  tl_OFFSET_Y neg xymove  currentpoint translate
+		 /tl_DESVIO_Y  tl_DESVIO_Y tl_OFFSET_Y sub  def
+		 } bind def
+/tl_esquerda   {pop pop tl_OFFSET_X neg 0 xymove  currentpoint translate
+		 /tl_DESVIO_X  tl_DESVIO_X tl_OFFSET_X sub  def
+		 } bind def
+/tl_direita    {pop pop tl_OFFSET_X 0  xymove currentpoint translate
+		 /tl_DESVIO_X  tl_DESVIO_X tl_OFFSET_X add  def
+		 } bind def
+/tl_RESETPOS  {pop pop tl_DESVIO_X neg tl_DESVIO_Y neg xymove
+	         currentpoint translate
+		 /tl_DESVIO_X 0 def /tl_DESVIO_Y 0 def % reset offset
+		 /tl_OFFSET_X 3 def /tl_OFFSET_Y 3 def % reset unit
+		} bind def
+
+/tl_offset1  {pop pop /tl_OFFSET_X  1 def /tl_OFFSET_Y  1 def}!
+/tl_offset3  {pop pop /tl_OFFSET_X  3 def /tl_OFFSET_Y  3 def}!
+/tl_offset6  {pop pop /tl_OFFSET_X  6 def /tl_OFFSET_Y  6 def}!
+/tl_offset12 {pop pop /tl_OFFSET_X 12 def /tl_OFFSET_Y 12 def}!
+
+endps
+
+deco sobe 3 tl_sobe 0 0 0
+deco desce 3 tl_desce 0 0 0
+deco esquerda 3 tl_esquerda 0 0 0
+deco direita 3 tl_direita 0 0 0
+
+deco ^^ 3 tl_sobe 0 0 0
+deco __ 3 tl_desce 0 0 0
+deco << 3 tl_esquerda 0 0 0
+deco >> 3 tl_direita 0 0 0
+
+deco reset 3 tl_RESETPOS 0 0 0
+
+deco 1pt  3 tl_offset1  0 0 0
+deco 3pt  3 tl_offset3  0 0 0
+deco 6pt  3 tl_offset6  0 0 0
+deco 12pt 3 tl_offset12 0 0 0
+
+% Sugestão de abreviações:
+% U: l = esquerda
+% U: r = direita
+% U: j = desce
+% U: k = sobe
+
+
+
+
+

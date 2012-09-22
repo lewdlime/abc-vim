@@ -1,0 +1,148 @@
+% tab.fmt     -*- abc -*-
+% Hudson Lacerda (2005)
+
+% Recursos para tablaturas de guitarra/violão
+
+% Copyright (C) Hudson Lacerda (2005)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+% ! Define as seguintes decorações: !
+%
+% !a! !b! !c! !d! !e! !f!   representam respectivamente:
+%                           corda solta (!a!),
+%                           casas 1, 2, 3, 4 e 5 (!b! a !f!).
+% (Evita conflito com decorações padrão !0! ... !5!)
+%
+% !6! !7! !8! !9! !10! !11! !12!  representam as casas indicadas.
+%
+% !&!  é um espaçador vertical para saltar cordas intermediárias.
+%
+% !bend!  desenha uma pequena curva ascendente (bending up)
+%
+% !minima! !seminima! !colcheia! !semicolcheia! !fusa!
+%     desenham as figuras corresponentes acima da pauta (tablatura).
+
+
+% ! OPERADORES POSTSCRIPT: !
+% O número de cordas da tablatura (se não for 6) deve ser indicado assim:
+%    %%postscript  7 tab_cordas
+% ou, equivalentemente:
+%    %%postscript  7 tab_n
+%
+% (O exemplo acima refere-se a uma tablatura com 7 cordas)
+%
+% Para escolher a fonte a ser usada:
+%    %%postscript  /tab_font{ /Times-Bold 8 }def
+%
+% Para substituir uma clave normal por uma "clave" de tablatura:
+%    %%postscript [(E)(B)(G)(D)(A)(E)] tab_pclef
+%    (Isso substitui a clave de percussão pela indicação de afinação)
+%
+% Todas as claves podem ser substituídas:
+% tab_pclef (perc - P - clave de percussão)
+% tab_tclef (treble - G - clave de sol)
+% tab_cclef (alto - C - clave de dó)
+% tab_bclef (bass - F - clave de fá)
+%
+% Para restaurar a clave normal, use um array vazio []:
+%    %%postscript [] tab_pclef
+% Ou uma string vazia (), para postscript inline:
+%    [I:postscript () tab_pclef]
+% Ou, ainda:
+%    %%postscript normal tab_pclef
+
+% ! MODO DE USO: !
+% Use a instrução stafflines=6 no campo V: para obter 6 linhas na tablatura.
+% Opcionalmente, use a instrução staffscale=1.5 (ou outro valor) no campo V:.
+% As decorações são "empilhadas" em uma pausa oculta "x", como em:
+% !colcheia!   !a! !b! !a! !&! !b! x
+% %(colcheia) (1a. 2a. 3a. 4a. 5a. cordas)
+
+% Mantém cópias das claves originais
+postscript /tab_pclef-orig /pclef load bind def % perc
+postscript /tab_tclef-orig /tclef load bind def % treble (G)
+postscript /tab_cclef-orig /cclef load bind def % alto (C)
+postscript /tab_bclef-orig /bclef load bind def % bass (F)
+% !A fazer: tratar claves pequenas!
+
+postscript /tab_cordas{/tab_nstr exch 6 mul def}!
+postscript /tab_n{tab_cordas}!
+postscript 6 tab_cordas
+
+postscript /tab_font{/Helvetica-Bold 7.5}!
+postscript /tab{tab_nstr .5 sub add M tab_font selectfont showc}!
+
+% Clave de tablatura
+postscript /normal [] def
+postscript /tab_v [(E)(B)(G)(D)(A)(E)] def % Afinação
+postscript /tab_clef { -8 add M
+postscript     0 1 tab_v length 1 sub {
+postscript        tab_v exch get currentpoint 2 copy 5 2 roll tab
+postscript        -6 add M
+postscript     } for }!
+postscript /tab_set_clef {
+postscript     dup 0 eq{
+postscript           /pclef/tab_pclef-orig
+postscript        } {dup 1 eq{
+postscript           /tclef/tab_tclef-orig
+postscript        } {dup 2 eq{
+postscript           /cclef/tab_cclef-orig
+postscript        } {
+postscript           /bclef/tab_bclef-orig
+postscript        }ifelse }ifelse }ifelse 3 2 roll pop
+postscript     2 index length 0 ne { % vetor não vazio
+postscript        pop/tab_clef
+postscript     } if % else reset clefs
+postscript     load bind def/tab_v exch def }!
+% Interface
+postscript /tab_pclef{0 tab_set_clef}! % perc
+postscript /tab_tclef{1 tab_set_clef}! % treble (G)
+postscript /tab_cclef{2 tab_set_clef}! % alto (C)
+postscript /tab_bclef{3 tab_set_clef}! % bass (F)
+
+postscript /tab_bend{exch 12 add exch tab_nstr add sld pop}!
+postscript /tab_minima{10 add gsave T .5 dup scale 0 0 Hd 18 su grestore}!
+postscript /tab_seminima{10 add gsave T .5 dup scale 0 0 hd 18 su grestore}!
+postscript /tab_colcheia{10 add gsave T .5 dup scale 0 0 hd 1 18 sfu grestore}!
+postscript /tab_semicol{
+postscript           10 add gsave T .5 dup scale 0 0 hd 2 18 sfu grestore}!
+postscript /tab_fusa{10 add gsave T .5 dup scale 0 0 hd 3 18 sfu grestore}!
+
+deco   a  4 tab 6 0 0   0
+deco   b  4 tab 6 0 0   1
+deco   c  4 tab 6 0 0   2
+deco   d  4 tab 6 0 0   3
+deco   e  4 tab 6 0 0   4
+deco   f  4 tab 6 0 0   5
+deco   6  4 tab 6 0 0   6
+deco   7  4 tab 6 0 0   7
+deco   8  4 tab 6 0 0   8
+deco   9  4 tab 6 0 0   9
+deco  10  4 tab 6 0 0  10
+deco  11  4 tab 6 0 0  11
+deco  12  4 tab 6 0 0  12
+
+deco & 4 tab 6 0 0  \1          % espaçador vertical
+deco bend 4 tab_bend 0 0 0 \1       % bending up
+
+deco minima 3 tab_minima 24 0 0
+deco seminima 3 tab_seminima 24 0 0
+deco colcheia 3 tab_colcheia 24 0 0
+deco semicolcheia 3 tab_semicol 24 0 0
+deco fusa 3 tab_fusa 24 0 0
+
+

@@ -1,0 +1,98 @@
+% Some Scottish Halloween tunes
+% =============================
+%
+% A few tunes with creepy associations.
+%
+% There are many more of these in my "Embro, Embro" CD-ROM -
+% this is a selection with no discernible Edinburgh reference.
+%
+% v1.1 October 2006
+%
+% Jack Campin <http://www.campin.me.uk/>
+
+X:1
+T:the Terror of Death
+T:s eagal leam a mbas
+Z:Jack Campin  2006  http://www.campin.me.uk/
+S:Daniel Dow, Ancient Scotish Music, 1778 or 1783
+N:Dow attributes this to the harpist Rory Dall (who may have been two
+N:people, one of them Irish and one Scottish a hundred years apart, or
+N:they may both have been the same Irishman, there are several competing
+N:stories all asserted with utter authoritativeness).
+N:Dow printed it in a keyboard arrangement with a godawful bass line which
+N:I have left out.
+N:Works pretty well on the alto flute or the ud (it's quite similar to some
+N:classical Middle Eastern compositions); I haven't heard anyone but me play it.
+M:3/4
+L:1/8
+Q:1/4=100
+K:A Minor
+d|d>c (d/c/d/e/) f2| eAAA          A2| dGGG        G2             |    cFFF                  F2       |
+  GFEE           E2| DEFG          A2| G3         EDC             |   (C/D/E/F/) A   A,3              |
+  d>c (d/c/d/e/) f2| adaa          a2| gcgg        g2             |    agff                  f2       |
+  gfee           e2| defg          a2| g3         edc             |   (c/d/e/g/) a   A2          A-   |
+  AG   A/B/c/B/  A2| GAcA          G2|(FGAG)       F2             |({F}E2)   ({G}F2)         A2       |
+  G2   F2        E2| DA,       D3   E|(F/D/E/C/) D3         A     |    A2       (A/G/F/E/)  (D/E/F/G/)|
+  A2   E2        E2|(E/F/G/F/) E2  E2| F>GFE     (3D/E/F/ (3G/A/B/|    c2        G2          G2       |GA   cA   G2 |
+  FGAB           c2| GFEE          E2| DEFG        A2             |    G3            EDC              |CD (3EGA A,3|]
+
+
+X:2
+T:The Headless Body
+Z:Jack Campin  2006  http://www.campin.me.uk/
+S:Frances Tolmie: 105 Songs of Occupation from the Western Isles of Scotland
+N:Tolmie explains that this is about a headless female giant who rampaged
+N:around the countryside tearing her victims into pieces with her bare hands.
+N:She (the giant, not Tolmie) was a form of the Morrigan, the Celtic goddess
+N:of death.  This transcription is dedicated to Anne Widdecombe.
+M:6/8
+L:1/8
+Q:3/8=100
+K:E Dorian
+    EFF  d3|F2F FED|EFF d3 |FED E2E |
+    EFF  d3|F2F FED|EEE FED|EED E2E||
+({F}A2)d B3|A2A FED|A2d B3 |AGF E2D |
+({D}A2)d B3|A2A FED|EEE FED|E2E DEF|]
+  
+X:3
+T:The Witches Hill
+Z:Jack Campin  2006  http://www.campin.me.uk/
+S:Abraham Mackintosh, 1792
+M:C
+L:1/8
+Q:1/4=120
+K:A Minor
+E| A>B({AB}c)B    A.E.E.^F|G>D.B,.D            G>A.B.E|\
+   A>B.c.d        e>d e>g |dB (e/d/)(c/B/)     A2  A :|
+B|(c/d/e/f/ g>)a .g.e.c.e |d<g d>c            .B.G.G.B|\
+  (c/d/e/f/ g>)a .g.e.c.e |dB (e/d/)(c/B/) ({B}A3)
+B|(c/d/e/f/ g>)a .g.e.c.e |d<g d>c            .B.G G>B|\
+   A>B.c>.d       e>d.e.g |dB (e/d/)(c/B/) ({B}A2)   |]
+
+X:4
+T:The Warlocks
+Z:Jack Campin  2006  http://www.campin.me.uk/
+C:Robert Lowe
+N:Written to go with his father's reel "The Witches".
+M:C
+L:1/8
+Q:1/4=108
+K:E Minor
+ e|B<EG>F E2  EF/G/   |A<d A>F       D2  D<d     |
+   B<EG>F E>B e>f     |g>e g/f/e/^d/ e2  e      :|
+ B|e>gB>g e<B e/f/g/e/|f>ad>a        f<d f/g/a/f/|
+[1 e>gB>g eB  e/f/g/e/|d>BA<F        E2  E      :|
+[2 e<gf<e d>B A<F     |G<BA<F        E2  E      |]
+
+X:5
+T:The Witches
+Z:Jack Campin  2006  http://www.campin.me.uk/
+C:Joseph Lowe
+M:C|
+L:1/8
+Q:1/2=108
+K:E Minor
+F|(EB)BG (FD)DF|(EB)BG (GA)B^c|   dBAG FDDF|EBAF GEE:|
+f| gfeg   Bgeg |(fd)ad (bd)ad |[1 gfeg Bgeg|fdaf gee:|
+                               [2 gfef deBd|AdFA BEE|]
+

@@ -1,0 +1,155 @@
+%
+% exercícios pentatônicos com ritmos brasileiros
+%
+
+% %landscape
+
+%%format domovel.fmt
+
+%%scale 1.2
+%%titleleft
+%%bstemdown
+
+%%topsspace 0
+%%titlespace -.5cm
+%%musicspace 0
+%%composerspace 0
+%%staffsep 20
+
+
+%%textfont Helvetica 10
+%%titlefont Helvetica-Bold 16
+%%withxrefs
+%%leftmargin .8cm
+%%rightmargin .8cm
+
+%%deco head-fi 3 dms 0 0 0 fi
+
+
+X:1
+T:l - l,
+Q:"a 1"
+M:2/4
+L:1/8
+%%text Fonte default : 
+K:F
+%K:none
+%%postscript domovel_inicio domovel_iniciais
+% %postscript domovel_nomes
+[!domovel_s!c][!head-fi!=B]2c | dc2A | cA2F | G2z2 | AG2F | DF2G | FG2D | F2z2 |
+GA2c | A2F2 | GA2c | A2z2 | dc2A | GF2D | GA2G | F2z2 |]
+% %postscript domovel_iniciais
+% %postscript /domovel_font {/Times-BoldItalic 10} def
+% %postscript /domovel_font {/Helvetica-Bold 10} def
+
+X:2
+T:d' - l,
+Q:"a 1"
+M:2/4
+L:1/4
+%%postscript /domovel_font {/Courier-Bold 10.2} def
+%%text Fonte Courier-Bold 10.2 : 
+% K:Eb
+K:none clef=none
+[!domovel_r!F]/EC/ | EF | FE | Ez | F/CF/ | FE | CE | E !fine!z |
+B/ce/ | c/BG/ | F/EC/ | Fz | B/cG/ | B/GF/ | E/CE/ | E!D.C.!z |]
+
+%%postscript /domovel_font {/Times-Bold 9.5} def
+%%text Fonte Times-Bold 9.5 :
+
+X:3
+T:m - l,
+M:C|
+L:1/4
+% K:Em
+K:none clef=none
+[!domovel_m!B]/BB/ A/GA/ |\
+G2E2 | B/BB/ A/GA/ | G2z2 |
+G/EA/ G/BA/ | E/GG/ A2 | G/EA/ B/AG/ | E/GG/ G2 |]
+
+
+%%scale .7
+
+X:3
+T:m - l,
+M:C|
+L:1/4
+%%postscript domovel_fim
+%%postscript 2.5 pos_clavedomovel
+K:Em bass middle=A
+B/BB/ A/GA/ | G2E2 | B/BB/ A/GA/ | G2z2 |
+G/EA/ G/BA/ | E/GG/ A2 | G/EA/ B/AG/ | E/GG/ G2 |]
+%%postscript restaureclaves
+
+%%scale 1.3
+
+
+X:4
+T:Durações e nomes
+M:none
+L:1/2
+%%postscript /domovel_font{/Courier-Bold 10}!
+%%postscript restaureclaves
+%%postscript domovel_inicio
+%%postscript domovel_nomes
+K:C
+[!domovel_d!C] D8 E4 F2 G A/ B// c/// d//// e///// f/64 g a b y
+
+X:5
+T:Números
+M:3/4
+K:G
+%%postscript domovel_inicio domovel_numeros
+[!domovel_d!G]A BG AB | Gg fe dc | B3A G2 |]
+
+X:6
+T:Modo nordestino e fa ocorrente
+M:2/4
+%%deco head-fa 3 dms 0 0 0 fa
+%%postscript [(d) (r) (m) (fi) (s) (l) (ta)] domovel_def_vetor
+K:none
+[!domovel_d!G]A2B d2B2 | c3A- A2G2 | fe2d cB2A | G[!head-fa!c]BG- G2 z2 |]
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+X:7
+T:Teste de fontes
+M:none
+%%postscript domovel_inicio
+%%postscript domovel_iniciais
+L:1/4
+%%maxstaffsep 1.5cm
+K:none clef=none
+% %postscript /domovel_font {/Bookman-DemiItalic 9} def
+%%postscript /domovel_font {/Courier-BoldItalic 10} def
+[!domovel_f!C]DEFGABcdefgabc'|
+%%postscript /domovel_font {/Palatino-Bold 9.5} def
+% %postscript /domovel_font {/Helvetica-BoldItalic 8.5} def
+CDEFGABcdefgabc'|
+%%postscript /domovel_font {/AvantGarde-Book 9.5} def
+%%postscript /domovel_font {/Helvetica-Bold 9.5} def
+CDEFGABcdefgabc'|
+%%postscript /domovel_font {/AvantGarde-Demi 9.5} def
+CDEFGABcdefgabc'|
+%%postscript /domovel_font {/NewCenturySchlbk-Roman 9.5} def
+CDEFGABcdefgabc'|
+%%postscript /domovel_font {/NewCenturySchlbk-Bold 9.5} def
+CDEFGABcdefgabc'|
+%%postscript 0 0 domovel_fim
+
+X:8
+T:Oitavas
+M:none
+K:C alto1
+% %postscript /domovel_font {/Helvetica-Bold 9} def
+%%postscript /domovel_font {/AvantGarde-Demi 9.} def
+% %postscript domovel_iniciais
+%%postscript [
+%%postscript   (d,)(r,)(m,)(f,)(s,)(l,)(t,)
+%%postscript   (d)(r)(m)(f)(s)(l)(t)
+%%postscript   (d')(r')(m')(f')(s')(l')(t')
+%%postscript ]domovel_def_vetor
+%%postscript /dm_modulo 21 3 mul def
+[!domovel_d!C,]D,E,F,G,A,B, C D E F G A B cdefgab

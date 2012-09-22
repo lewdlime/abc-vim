@@ -1,0 +1,1156 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 0 0 595 842
+%%Title: bracinhoexample2.abc
+%%Creator: abcm2ps-6.0.7
+%%CreationDate: Feb 27, 2010 09:18
+%%Pages: (atend)
+%%LanguageLevel: 3
+%%EndComments
+%CommandLine: bracinhoexample2.abc -O =
+
+%%BeginSetup
+/!{bind def}bind def
+/bdef{bind def}!
+/T/translate load def
+/M/moveto load def
+/RM/rmoveto load def
+/L/lineto load def
+/RL/rlineto load def
+/C/curveto load def
+/RC/rcurveto load def
+/SLW/setlinewidth load def
+/defl 0 def
+/dlw{0.7 SLW}!
+/creator [(abcm2ps) 6 0 7] def
+/xymove{/x 2 index def/y 1 index def M}!
+/showc{dup stringwidth pop .5 mul neg 0 RM show}!
+/showr{dup stringwidth pop neg 0 RM show}!
+/showb{	dup currentpoint 3 -1 roll show
+	.6 SLW
+	exch 2 sub exch 3 sub 3 -1 roll
+	stringwidth pop 4 add
+	currentfont /ScaleMatrix get 0 get .8 mul
+	4 add rectstroke}!
+/tclef{	M
+	-1.9 3.7 RM
+	-3.3 1.9 -3.1 6.8 2.4 8.6 RC
+	7 0 9.8 -8 4.1 -11.7 RC
+	-5.2 -2.4 -12.5 0 -13.3 6.2 RC
+	-0.7 6.4 4.15 10.5 10 15.3 RC
+	4 4 3.6 6.1 2.8 9.6 RC
+	-2.3 -1.5 -4.7 -4.8 -4.5 -8.5 RC
+	0.8 -12.2 3.4 -17.3 3.5 -26.3 RC
+	0.3 -4.4 -1.2 -6.2 -3.8 -6.2 RC
+	-3.7 -0.1 -5.8 4.3 -2.8 6.1 RC
+	3.9 1.9 6.1 -4.6 1.4 -4.8 RC
+	0.7 -1.2 4.6 -0.8 4.2 4.2 RC
+	-0.2 10.3 -3 15.7 -3.5 28.3 RC
+	0 4.1 0.6 7.4 5 10.6 RC
+	2.3 -3.2 2.9 -10 1 -12.7 RC
+	-2.4 -4.3 -11.5 -10.3 -11.8 -15 RC
+	0.4 -7 6.9 -8.5 11.7 -6.1 RC
+	3.9 3 1.3 8.8 -3.7 8.1 RC
+	-4 -0.2 -4.8 -3.1 -2.7 -5.7 RC
+	fill}!
+/stclef{gsave T .85 dup scale 0 0 tclef grestore}!
+/octu{/Times-Roman 12 selectfont M -1.5 36 RM(8)show}!
+/octl{/Times-Roman 12 selectfont M -3.5 -19 RM(8)show}!
+/bclef{	M
+	-8.8 3.5 RM
+	6.3 1.9 10.2 5.6 10.5 10.8 RC
+	0.3 4.9 -0.5 8.1 -2.6 8.8 RC
+	-2.5 1.2 -5.8 -0.7 -5.9 -4.1 RC
+	1.8 3.1 6.1 -0.6 3.1 -3 RC
+	-3 -1.4 -5.7 2.3 -1.9 7 RC
+	2.6 2.3 11.4 0.6 10.1 -8 RC
+	-0.1 -4.6 -5 -10.2 -13.3 -11.5 RC
+	16 17.5 RM currentpoint 1.1 0 360 arc
+	-1.1 -6 RM currentpoint 1.1 0 360 arc
+	fill}!
+/sbclef{gsave T .85 dup scale 0 3 bclef grestore}!
+/cchalf{0 12 M
+	2.6 5 RL
+	2.3 -5.8 5.2 -2.4 4.7 1.6 RC
+	0.4 3.9 -3 6.7 -5.1 4 RC
+	4.1 0.5 0.9 -5.3 -0.9 -1.4 RC
+	-0.5 3.4 6.5 4.3 7.8 -0.8 RC
+	1.9 -5.6 -4.1 -9.8 -6 -5.4 RC
+	-1.6 -3 RL
+	fill}!
+/cclef{	gsave T
+	cchalf 0 24 T 1 -1 scale cchalf
+	-5.5 0 3 24 rectfill
+	-0.5 0 M 0 24 RL 0.7 SLW stroke grestore}!
+/scclef{gsave T .85 dup scale 0 2 cclef grestore}!
+/pclef{	exch 2.7 sub exch 2 add 5.4 20
+	1.4 SLW rectstroke}!
+/spclef{pclef}!
+/bm{	M 3 copy RL neg 0 exch RL
+	neg exch neg exch RL 0 exch RL fill}!
+/bnum{M/Times-Italic 12 selectfont showc}!
+/bnumb{	currentgray/Times-Italic 12 selectfont
+	3 index stringwidth pop 4 add
+	dup .5 mul neg 4 index add 3 index 3 -1 roll 8
+	1.0 setgray rectfill setgray M showc}!
+/tubr{3 sub M 0 3 RL RL 0 -3 RL dlw stroke}!
+/tubrl{3 add M 0 -3 RL RL 0 3 RL dlw stroke}!
+/r00{	xymove
+	-1.5 -6 RM currentpoint 3 12 rectfill}!
+/r0{	xymove
+	-1.5 0 RM currentpoint 3 6 rectfill}!
+/r1{	xymove
+	-3.5 3 RM currentpoint 7 3 rectfill}!
+/r2{	xymove
+	-3.5 0 RM currentpoint 7 3 rectfill}!
+/r4{	xymove
+	-1 8.5 RM
+	3.6 -5.1 RL
+	-2.1 -5.2 RL
+	2.2 -4.3 RL
+	-2.6 2.3 -5.1 0 -2.4 -2.6 RC
+	-4.8 3 -1.5 6.9 1.4 4.1 RC
+	-3.1 4.5 RL
+	1.9 5.1 RL
+	-1.5 3.5 RL
+	fill}!
+/r8e{	-1.5 -1.5 -2.4 -2 -3.6 -2 RC
+	2.4 2.8 -2.8 4 -2.8 1.2 RC
+	0 -2.7 4.3 -2.4 5.9 -0.6 RC
+	fill}!
+/r8{	xymove
+	.5 SLW 3.3 4 RM
+	-3.4 -9.6 RL stroke
+	x y M 3.4 4 RM r8e}!
+/r16{	xymove
+	.5 SLW 3.3 4 RM
+	-4 -15.6 RL stroke
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r32{	xymove
+	.5 SLW 4.8 10 RM
+	-5.5 -21.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r64{	xymove
+	.5 SLW 4.8 10 RM
+	-7 -27.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e
+	x y M 0.4 -8 RM r8e}!
+/r128{	xymove
+	.5 SLW 5.8 16 RM
+	-8.5 -33.6 RL stroke
+	x y M 5.9 16 RM r8e
+	x y M 4.4 10 RM r8e
+	x y M 2.9 4 RM r8e
+	x y M 1.4 -2 RM r8e
+	x y M -0.1 -8 RM r8e}!
+/dt{x y M RM currentpoint 1.2 0 360 arc fill}!
+/hld{	1.5 add 2 copy 1.5 add M currentpoint 1.3 0 360 arc
+	M -7.5 0 RM
+	0 11.5 15 11.5 15 0 RC
+	-0.25 0 RL
+	-1.25 9 -13.25 9 -14.5 0 RC
+	fill}!
+/dnb{	dlw M -3.2 2 RM
+	0 7.2 RL
+	6.4 0 RM
+	0 -7.2 RL
+	currentpoint stroke M
+	-6.4 4.8 RM
+	0 2.4 RL
+	6.4 0 RL
+	0 -2.4 RL
+	fill}!
+/upb{	dlw M -2.6 9.4 RM
+	2.6 -8.8 RL
+	2.6 8.8 RL
+	stroke}!
+/grm{	M -5 2.5 RM
+	5 8.5 5.5 -4.5 10 2 RC
+	-5 -8.5 -5.5 4.5 -10 -2 RC fill}!
+/stc{3 add M currentpoint 1.2 0 360 arc fill}!
+/emb{	1.2 SLW 1 setlinecap M
+	-2.5 3 RM 5 0 RL stroke 0 setlinecap}!
+/cpu{	M -6 0 RM
+	0.4 7.3 11.3 7.3 11.7 0 RC
+	-1.3 6 -10.4 6 -11.7 0 RC fill}!
+/sld{	M -7.2 -4.8 RM
+	1.8 -0.7 4.5 0.2 7.2 4.8 RC
+	-2.1 -5 -5.4 -6.8 -7.6 -6 RC fill}!
+/trl{	/Times-BoldItalic 16 selectfont
+	M -4 2 RM(tr)show}!
+/umrd{	4 add M
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL fill}!
+/lmrd{	2 copy umrd 8 add M
+	.6 SLW 0 -8 RL stroke}!
+/fng{/Bookman-Demi 8 selectfont M -3 1 RM show}!
+/dacs{/Times-Roman 16 selectfont 3 add M showc}!
+/brth{/Times-BoldItalic 30 selectfont 6 add M(,)show}!
+/pf{/Times-BoldItalic 16 selectfont 5 add M show}!
+/sfz{	M -7 5 RM pop
+	/Times-Italic 14 selectfont(s)show
+	/Times-BoldItalic 16 selectfont(f)show
+	/Times-Italic 14 selectfont(z)show}!
+/coda{	1 SLW 2 add 2 copy M 0 20 RL
+	2 copy M -10 10 RM 20 0 RL stroke
+	10 add 6 0 360 arc 1.7 SLW stroke}!
+/sgno{	M 0 3 RM currentpoint currentpoint currentpoint
+	1.5 -1.7 6.4 0.3 3 3.7 RC
+	-10.4 7.8 -8 10.6 -6.5 11.9 RC
+	4 1.9 5.9 -1.7 4.2 -2.6 RC
+	-1.3 -0.7 -2.9 1.3 -0.7 2 RC
+	-1.5 1.7 -6.4 -0.3 -3 -3.7 RC
+	10.4 -7.8 8 -10.6 6.5 -11.9 RC
+	-4 -1.9 -5.9 1.7 -4.2 2.6 RC
+	1.3 0.7 2.9 -1.3 0.7 -2 RC
+	fill
+	M 0.8 SLW -6 1.2 RM 12.6 12.6 RL stroke
+	7 add exch 6 sub exch 1.2 0 360 arc fill
+	8 add exch 6 add exch 1.2 0 360 arc fill}!
+/cresc{	1 SLW M dup 5 RM
+	defl 1 and 0 eq
+	{dup neg 4 RL 4 RL}
+	{dup neg 2.2 RL 0 3.6 RM 2.2 RL}
+	ifelse stroke}!
+/dim{	1 SLW 5 add M
+	defl 2 and 0 eq
+	{dup 4 RL neg 4 RL}
+	{dup 2.2 RL 0 3.6 RM neg 2.2 RL}
+	ifelse stroke}!
+/dplus{	1.2 SLW 0.5 add M 0 6 RL
+	-3 -3 RM 6 0 RL stroke}!
+/accent{1.2 SLW M -4 2 RM
+	8 2 RL -8 2 RL stroke}!
+/turn{	M 5.2 8 RM
+	1.4 -0.5 0.9 -4.8 -2.2 -2.8 RC
+	-4.8 3.5 RL
+	-3 2 -5.8 -1.8 -3.6 -4.4 RC
+	1 -1.1 2 -0.8 2.1 0.1 RC
+	0.1 0.9 -0.7 1.2 -1.9 0.6 RC
+	-1.4 0.5 -0.9 4.8 2.2 2.8 RC
+	4.8 -3.5 RL
+	3 -2 5.8 1.8 3.6 4.4 RC
+	-1 1.1 -2 0.8 -2.1 -0.1 RC
+	-0.1 -0.9 0.7 -1.2 1.9 -0.6 RC
+	fill}!
+/turnx{	2 copy turn M
+	.6 SLW 0 1.5 RM 0 9 RL stroke}!
+/lphr{1.2 SLW M 0 -18 RL stroke}!
+/mphr{1.2 SLW M 0 -12 RL stroke}!
+/sphr{1.2 SLW M 0 -6 RL stroke}!
+/ltr{	gsave 4 add T
+	0 6 3 -1 roll{
+		2{
+			0 0.4 M
+			2 1.9 3.4 2.3 3.9 0 C
+			2.1 0 L
+			1.9 0.8 1.4 0.7 0 -0.4 C
+			fill
+			180 rotate -6 0 T
+		}repeat
+		pop 6 0 T
+	}for
+	grestore}!
+/arp{gsave 90 rotate exch neg ltr grestore}!
+/wedge{1 add M -1.5 5 RL 3 0 RL -1.5 -5 RL fill}!
+/opend{dlw M currentpoint 3 add 2.5 -90 270 arc stroke}!
+/snap{	dlw 2 copy M -3 6 RM
+	0 5 6 5 6 0 RC
+	0 -5 -6 -5 -6 0 RC
+	5 add M 0 -6 RL stroke}!
+/thumb{	dlw 2 copy M -2.5 7 RM
+	0 6 5 6 5 0 RC
+	0 -6 -5 -6 -5 0 RC
+	2 add M 0 -4 RL stroke}!
+/trem{	M -4.5 0 RM{
+		currentpoint
+		9 3 RL 0 -3 RL -9 -3 RL 0 3 RL
+		fill 5.4 sub M
+	}repeat}!
+/hl{	.8 SLW M -6 0 RM 12 0 RL stroke}!
+/hl1{	.8 SLW M -7 0 RM 14 0 RL stroke}!
+/hl2{	.7 SLW M -9 0 RM 18 0 RL stroke}!
+/usharp{{
+	60 -190 410 750
+	136 702
+	136 -188
+	168 -188
+	168 702
+	296 -138
+	328 -138
+	328 750
+	296 750
+	64 464
+	64 348
+	402 444
+	402 560
+	64 118
+	64 2
+	402 100
+	402 214
+	} <0b000123030a0123030a0123030a0123030a>
+    }cvlit def
+/uflat{{
+	70 -60 410 700
+	70 686
+	102 686
+	102 -48
+	70 -52
+	102 280
+	148 352 254 370 310 300
+	410 190 190 -26 102 -48
+	102 -20
+	156 -20 302 186 232 270
+	182 330 102 274 102 236
+	} <0b00010303030a0105050105050a>
+    }cvlit def
+/unat{{
+	60 -190 310 750
+	96 750
+	64 750
+	64 34
+	96 42
+	278 96
+	278 -186
+	310 -186
+	310 520
+	276 510
+	96 460
+	96 750
+	96 158
+	96 348
+	278 400
+	278 212
+	} <0b00012a030a0123030a>
+    }cvlit def
+/udblesharp{{
+	60 110 400 450
+	240 282
+	280 320 314 350 398 350
+	398 446
+	302 446
+	302 362 272 328 234 290
+	194 328 164 362 164 446
+	68 446
+	68 350
+	154 350 188 320 226 282
+	188 244 154 214 68 214
+	68 118
+	164 118
+	164 202 194 236 234 274
+	272 236 302 202 302 118
+	398 118
+	398 214
+	314 214 280 244 240 282
+	} <0b0001050303050503030505030305050303050a>
+    }cvlit def
+/udbleflat{{
+	20 -60 550 700
+	20 686
+	44 686
+	44 -48
+	20 -52
+	44 280
+	78 352 158 370 200 300
+	275 190 102 -26 44 -48
+	44 -20
+	84 -20 194 186 141 270
+	104 330 44 274 44 236
+	270 686
+	294 686
+	294 -48
+	270 -52
+	294 280
+	328 352 408 370 450 300
+	525 190 352 -26 294 -48
+	294 -20
+	334 -20 444 186 391 270
+	354 330 294 274 294 236
+	} <0b000123030a0105050105050a0123030a0105050105050a>
+    }cvlit def
+/sh0{	gsave T -4 -5 T .018 dup scale usharp ufill grestore}!
+/ft0{	gsave T -3 -3 T .018 dup scale uflat ufill grestore}!
+/nt0{	gsave T -3 -5 T .018 dup scale unat ufill grestore}!
+/dsh0{	gsave T -4 -5 T .018 dup scale udblesharp ufill grestore}!
+/dft0{	gsave T -4 -3 T .018 dup scale udbleflat ufill grestore}!
+/gsc{gsave y T .7 dup scale 0 0}!
+/sh1{	gsave T .9 SLW
+	0 -7.8 M 0 15.4 RL stroke
+	-1.8 -2.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	-1.8 3.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	grestore}!
+/sh513{	gsave T .8 SLW
+	-2.5 -8.7 M 0 15.4 RL
+	0 -7.8 M 0 15.4 RL
+	2.5 -6.9 M 0 15.4 RL stroke
+	-3.7 -3.1 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	-3.7 3.2 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	grestore}!
+/ft1{gsave -1 1 scale exch neg exch ft0 grestore}!
+/ftx{	-1.4 2.7 RM
+	5.7 3.1 5.7 -3.6 0 -6.7 RC
+	3.9 4 4 7.6 0 5.8 RC
+	currentpoint fill M
+	dlw 0 7.1 RM 0 -12.4 RL stroke}!
+/ft513{2 copy gsave -1 1 scale exch neg 3 add exch M ftx grestore
+	M 1.5 0 RM ftx}!
+/gcshow{show}!
+/box{.6 SLW rectstroke}!
+/find{search{pop 3 -1 roll 1 add 3 1 roll}{pop exit}ifelse}!
+/gxshow{exch 1 index stringwidth pop
+	sub 0 2 index(	){find}loop div
+	0 9 4 -1 roll widthshow}!
+/anshow{show}!
+/wln{M .8 SLW 0 RL stroke}!
+/hyph{	.8 SLW 3 add M
+	dup cvi 40 idiv 1 add 1 index exch div
+	dup 3 sub 3 1 roll
+	dup .5 mul dup 1.5 sub 0 RM
+	exch 3 -1 roll
+	{pop 3 0 RL dup 0 RM}for stroke pop}!
+/lyshow{show}!
+/bar{M dlw 0 exch RL stroke}!
+/dotbar{[5] 0 setdash bar [] 0 setdash}!
+/thbar{3 -1 roll 3 exch rectfill}!
+/rdots{	2 copy 9 add M currentpoint 1.2 0 360 arc
+	15 add M currentpoint 1.2 0 360 arc fill}!
+/csig{	M
+	1 17.3 RM
+	0.9 0 2.3 -0.7 2.4 -2.2 RC
+	-1.2 2 -3.6 -0.1 -1.6 -1.7 RC
+	2 -1 3.8 3.5 -0.8 4.7 RC
+	-2 0.4 -6.4 -1.3 -5.8 -7 RC
+	0.4 -6.4 7.9 -6.8 9.1 -0.7 RC
+	-2.3 -5.6 -6.7 -5.1 -6.8 0 RC
+	-0.5 4.4 0.7 7.5 3.5 6.9 RC
+	fill}!
+/ctsig{dlw 2 copy csig 4 add M 0 16 RL stroke}!
+/pmsig{0.3 SLW 12 add M currentpoint 5 0 360 arc stroke}!
+/pMsig{2 copy pmsig 12 add M currentpoint 1.3 0 360 arc fill}!
+/imsig{0.3 SLW 12 add 2 copy 5 add M 5 90 270 arc stroke}!
+/iMsig{2 copy imsig 12 add M currentpoint 1.3 0 360 arc fill}!
+/tsig{	M gsave/Times-Bold 16 selectfont 1.2 1 scale
+	0 1 RM currentpoint 3 -1 roll showc
+	12 add M showc grestore}!
+/stsig{	M gsave/Times-Bold 18 selectfont 1.2 1 scale
+	0 7 RM showc grestore}!
+/staff{	dlw M{dup 0 RL dup neg 6 RM}repeat
+	pop stroke}!
+/sep0{dlw 0 M 0 RL stroke}!
+/hbrce{	-2.5 1 RM
+	-4.5 -4.6 -7.5 -12.2 -4.4 -26.8 RC
+	3.5 -14.3 3.2 -21.7 -2.1 -24.2 RC
+	7.4 2.4 7.3 14.2 3.5 29.5 RC
+	-2.7 9.5 -1.5 16.2 3 21.5 RC
+	fill}!
+/brace{	gsave T 0 0 M .01 mul 1 exch scale hbrce
+	0 -100 M 1 -1 scale hbrce grestore}!
+/bracket{M dlw -5 2 RM currentpoint
+	-1.7 2 RM 10.5 -1 12 4.5 12 3.5 RC
+	0 -1 -3.5 -5.5 -8.5 -5.5 RC fill
+	3 SLW M 0 2 RM
+	0 exch neg 8 sub RL currentpoint stroke
+	dlw M -1.7 0 RM
+	10.5 1 12 -4.5 12 -3.5 RC
+	0 1 -3.5 5.5 -8.5 5.5 RC fill}!
+/mrest{	gsave T 1 SLW
+	-20 6 M 0 12 RL 20 6 M 0 12 RL stroke
+	5 SLW -20 12 M 40 0 RL stroke
+	/Times-Bold 15 selectfont 0 28 M showc grestore}!
+/mrep{	2 copy 2 copy
+	M -5 15 RM currentpoint 1.4 0 360 arc
+	M 5 9 RM currentpoint 1.4 0 360 arc
+	M -7 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+	fill}!
+/mrep2{	2 copy 2 copy
+	M -5 18 RM currentpoint 1.4 0 360 arc
+	M 5 6 RM currentpoint 1.4 0 360 arc fill
+	M 1.8 SLW
+	-7 4 RM 14 10 RL -14 -4 RM 14 10 RL
+	stroke}!
+/srep{	M -1 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+	fill}!
+/repbra{gsave dlw T 0 -20 M
+	0 20 3 index 1 ne{RL}{RM}ifelse 0 RL 0 ne{0 -20 RL}if stroke
+	4 exch M show grestore}!
+/SL{M C RL C closepath fill}!
+/dSL{	M [4] 0 setdash .8 SLW
+	C stroke [] 0 setdash
+	pop pop pop pop pop pop pop pop}!
+/strw{stringwidth pop w add/w exch def}!
+/jshow{w 0 32 4 -1 roll widthshow}!
+/hd{	xymove
+	3.5 2 RM
+	-2 3.5 -9 -0.5 -7 -4 RC
+	2 -3.5 9 0.5 7 4 RC fill}!
+/Hd{	xymove
+	3 1.6 RM
+	-1 1.8 -7 -1.4 -6 -3.2 RC
+	1 -1.8 7 1.4 6 3.2 RC
+	0.5 0.3 RM
+	2 -3.8 -5 -7.6 -7 -3.8 RC
+	-2 3.8 5 7.6 7 3.8 RC
+	fill}!
+/HD{	xymove
+	-2.7 1.4 RM
+	1.5 2.8 6.9 0 5.3 -2.7 RC
+	-1.5 -2.8 -6.9 0 -5.3 2.7 RC
+	8.3 -1.4 RM
+	0 1.5 -2.2 3 -5.6 3 RC
+	-3.4 0 -5.6 -1.5 -5.6 -3 RC
+	0 -1.5 2.2 -3 5.6 -3 RC
+	3.4 0 5.6 1.5 5.6 3 RC
+	fill}!
+/HDD{	dlw HD
+	x y M -6 -4 RM 0 8 RL
+	12 0 RM 0 -8 RL stroke}!
+/breve{	xymove
+	2.5 SLW -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -10 RL stroke}!
+/longa{	xymove
+	2.5 SLW -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -16 RL stroke}!
+/pshhd{/x 2 index def/y 1 index def dsh0}!
+/pfthd{/x 2 index def/y 1 index def dsh0
+	.7 SLW x y 4 0 360 arc stroke}!
+/pdshhd{pshhd}!
+/pdfthd{pfthd}!
+/ghd{	xymove
+	1.7 1 RM
+	-1 1.7 -4.5 -0.2 -3.4 -2 RC
+	1 -1.7 4.5 0.2 3.4 2 RC fill}!
+/gua{x y M -1 4 RM RL stroke}!
+/gda{x y M -5 -4 RM RL stroke}!
+/ghl{	.6 SLW M -3 0 RM 6 0 RL stroke}!
+/gsl{dlw M C stroke}!
+/utf-array[
+<c2a1>	/exclamdown
+<c2a2>	/cent
+<c2a3>	/sterling
+<c2a4>	/currency
+<c2a5>	/yen
+<c2a6>	/brokenbar
+<c2a7>	/section
+<c2a8>	/dieresis
+<c2a9>	/copyright
+<c2aa>	/ordfeminine
+<c2ab>	/guillemotleft
+<c2ac>	/logicalnot
+<c2ae>	/registered
+<c2b0>	/degree
+<c2b1>	/plusminus
+<c2b2>	/twosuperior
+<c2b3>	/threesuperior
+<c2b4>	/acute
+<c2b6>	/paragraph
+<c2b8>	/cedilla
+<c2b9>	/onesuperior
+<c2ba>	/ordmasculine
+<c2bb>	/guillemotright
+<c2bc>	/onequarter
+<c2bd>	/onehalf
+<c2be>	/threequarters
+<c2bf>	/questiondown
+<c380>	/Agrave
+<c381>	/Aacute
+<c382>	/Acircumflex
+<c383>	/Atilde
+<c384>	/Adieresis
+<c385>	/Aring
+<c386>	/AE
+<c387>	/Ccedilla
+<c388>	/Egrave
+<c389>	/Eacute
+<c38a>	/Ecircumflex
+<c38b>	/Edieresis
+<c38c>	/Igrave
+<c38d>	/Iacute
+<c38e>	/Icircumflex
+<c38f>	/Idieresis
+<c390>	/Eth
+<c391>	/Ntilde
+<c392>	/Ograve
+<c393>	/Oacute
+<c394>	/Ocircumflex
+<c395>	/Otilde
+<c396>	/Odieresis
+<c397>	/multiply
+<c398>	/Oslash
+<c399>	/Ugrave
+<c39a>	/Uacute
+<c39b>	/Ucircumflex
+<c39c>	/Udieresis
+<c39d>	/Yacute
+<c39e>	/Thorn
+<c39f>	/germandbls
+<c3a0>	/agrave
+<c3a1>	/aacute
+<c3a2>	/acircumflex
+<c3a3>	/atilde
+<c3a4>	/adieresis
+<c3a5>	/aring
+<c3a6>	/ae
+<c3a7>	/ccedilla
+<c3a8>	/egrave
+<c3a9>	/eacute
+<c3aa>	/ecircumflex
+<c3ab>	/edieresis
+<c3ac>	/igrave
+<c3ad>	/iacute
+<c3ae>	/icircumflex
+<c3af>	/idieresis
+<c3b0>	/eth
+<c3b1>	/ntilde
+<c3b2>	/ograve
+<c3b3>	/oacute
+<c3b4>	/ocircumflex
+<c3b5>	/otilde
+<c3b6>	/odieresis
+<c3b7>	/divide
+<c3b8>	/oslash
+<c3b9>	/ugrave
+<c3ba>	/uacute
+<c3bb>	/ucircumflex
+<c3bc>	/udieresis
+<c3bd>	/yacute
+<c3be>	/thorn
+<c3bf>	/ydieresis
+<c480>	/Amacron
+<c481>	/amacron
+<c482>	/Abreve
+<c483>	/abreve
+<c484>	/Aogonek
+<c485>	/aogonek
+<c486>	/Cacute
+<c487>	/cacute
+<c488>	/Ccircumflex
+<c489>	/ccircumflex
+<c48a>	/Cdotaccent
+<c48b>	/cdotaccent
+<c48c>	/Ccaron
+<c48d>	/ccaron
+<c48e>	/Dcaron
+<c48f>	/dcaron
+<c490>	/Dcroat
+<c491>	/dcroat
+<c492>	/Emacron
+<c493>	/emacron
+<c494>	/Ebreve
+<c495>	/ebreve
+<c496>	/Edotaccent
+<c497>	/edotaccent
+<c498>	/Eogonek
+<c499>	/eogonek
+<c49a>	/Ecaron
+<c49b>	/ecaron
+<c49c>	/Gcircumflex
+<c49d>	/gcircumflex
+<c49e>	/Gbreve
+<c49f>	/gbreve
+<c4a0>	/Gdotaccent
+<c4a1>	/gdotaccent
+<c4a2>	/Gcommaaccent
+<c4a3>	/gcommaaccent
+<c4a4>	/Hcircumflex
+<c4a5>	/hcircumflex
+<c4a6>	/Hbar
+<c4a7>	/hbar
+<c4a8>	/Itilde
+<c4a9>	/itilde
+<c4aa>	/Imacron
+<c4ab>	/imacron
+<c4ac>	/Ibreve
+<c4ad>	/ibreve
+<c4ae>	/Iogonek
+<c4af>	/iogonek
+<c4b0>	/Idotaccent
+<c4b1>	/dotlessi
+<c4b2>	/IJ
+<c4b3>	/ij
+<c4b4>	/Jcircumflex
+<c4b5>	/jcircumflex
+<c4b6>	/Kcommaaccent
+<c4b7>	/kcommaaccent
+<c4b8>	/kgreenlandic
+<c4b9>	/Lacute
+<c4ba>	/lacute
+<c4bb>	/Lcommaaccent
+<c4bc>	/lcommaaccent
+<c4bd>	/Lcaron
+<c4be>	/lcaron
+<c4bf>	/Ldot
+<c581>	/Lslash
+<c582>	/lslash
+<c583>	/Nacute
+<c584>	/nacute
+<c585>	/Ncedilla
+<c586>	/ncedilla
+<c587>	/Ncaron
+<c588>	/ncaron
+<c58a>	/Eng
+<c58b>	/eng
+<c58c>	/Omacron
+<c58d>	/omacron
+<c58e>	/Obreve
+<c58f>	/obreve
+<c590>	/Ohungarumlaut
+<c591>	/ohungarumlaut
+<c594>	/Racute
+<c595>	/racute
+<c596>	/Rcedilla
+<c597>	/rcedilla
+<c598>	/Rcaron
+<c599>	/rcaron
+<c59a>	/Sacute
+<c59b>	/sacute
+<c59c>	/Scircumflex
+<c59d>	/scircumflex
+<c59e>	/Scedilla
+<c59f>	/scedilla
+<c5a0>	/Scaron
+<c5a1>	/scaron
+<c5a2>	/Tcedilla
+<c5a3>	/tcedilla
+<c5a4>	/Tcaron
+<c5a5>	/tcaron
+<c5a6>	/Tbar
+<c5a7>	/tbar
+<c5a8>	/Utilde
+<c5a9>	/utilde
+<c5aa>	/Umacron
+<c5ab>	/umacron
+<c5ac>	/Ubreve
+<c5ad>	/ubreve
+<c5ae>	/Uring
+<c5af>	/uring
+<c5b0>	/Uhungarumlaut
+<c5b1>	/uhungarumlaut
+<c5b2>	/Uogonek
+<c5b3>	/uogonek
+<c5b9>	/Zacute
+<c5ba>	/zacute
+<c5bb>	/Zdotaccent
+<c5bc>	/zdotaccent
+<c5bd>	/Zcaron
+<c5be>	/zcaron
+<cb87>	/caron
+<cb98>	/breve
+<cb99>	/dotaccent
+<cb9b>	/ogonek
+<cb9d>	/hungarumlaut
+<e280a6> /ellipsis
+<e282ac> /Euro
+]def
+/extra-array[
+<c281> /sharp
+<c282> /flat
+<c283> /natural
+<c284> /dsharp
+<c285> /dflat
+]def
+/extra-draw<<
+	/.notdef{ }
+	/sharp{460 0 setcharwidth usharp ufill}
+	/flat{400 0 setcharwidth uflat ufill}
+	/natural{380 0 setcharwidth unat ufill}
+	/dsharp{460 0 setcharwidth udblesharp ufill}
+	/dflat{500 0 setcharwidth udbleflat ufill}
+>>def
+/showerror{	gsave 1 0.7 0.7 setrgbcolor 2.5 SLW 2 copy newpath
+	30 0 360 arc stroke grestore}!
+0 setlinecap 0 setlinejoin
+/su{dlw x y M 3.5 1.0 RM 1.0 sub 0 exch RL stroke}!
+/sd{dlw x y M -3.5 -1.0 RM 1.0 add 0 exch RL stroke}!
+/sfu{	dlw x y M 3.5 1.0 RM
+	1.0 sub 0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 -5.6 9.6 -9 5.6 -18.4 RC
+		1.6 6 -1.3 11.6 -5.6 12.8 RC
+		fill
+	  }{
+		1 sub{	currentpoint
+			0.9 -3.7 9.1 -6.4 6 -12.4 RC
+			1 5.4 -4.2 8.4 -6 8.4 RC
+			fill 5.4 sub M
+		}repeat
+		1.2 -3.2 9.6 -5.7 5.6 -14.6 RC
+		1.6 5.4 -1 10.2 -5.6 11.4 RC
+		fill
+	  }ifelse}!
+/sfd{	dlw x y M -3.5 -1.0 RM
+	1.0 add 0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 5.6 9.6 9 5.6 18.4 RC
+		1.6 -6 -1.3 -11.6 -5.6 -12.8 RC
+		fill
+	  }{
+		1 sub{	currentpoint
+			0.9 3.7 9.1 6.4 6 12.4 RC
+			1 -5.4 -4.2 -8.4 -6 -8.4 RC
+			fill 5.4 add M
+		}repeat
+		1.2 3.2 9.6 5.7 5.6 14.6 RC
+		1.6 -5.4 -1 -10.2 -5.6 -11.4 RC
+		fill
+	  }ifelse}!
+/sfs{	dup 0 lt{
+		dlw x y M -3.5 -1.0 RM
+		1.0 add 0 exch RL currentpoint stroke
+		M{	currentpoint
+			7 3.2 RL
+			0 3.2 RL
+			-7 -3.2 RL
+			fill 5.4 add M
+		}repeat
+	}{
+		dlw x y M 3.5 1.0 RM
+		1.0 sub 0 exch RL currentpoint stroke
+		M{	currentpoint
+			7 -3.2 RL
+			0 -3.2 RL
+			-7 3.2 RL
+			fill 5.4 sub M
+		}repeat
+	}ifelse}!
+/gu{	.6 SLW x y M
+	1.6 0 RM 0 exch RL stroke}!
+/gd{	.6 SLW x y M
+	-1.6 0 RM 0 exch RL stroke}!
+/sgu{	.6 SLW x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 -3.4 5.6 -3.8 3 -10 RC
+		1.2 4.4 -1.4 7 -3 7 RC
+		fill
+	  }{
+		{	currentpoint
+			1 -3.2 5.6 -2.8 3.2 -8 RC
+			1.4 4.8 -2.4 5.4 -3.2 5.2 RC
+			fill 3.5 sub M
+		}repeat
+	  }ifelse}!
+/sgd{	.6 SLW x y M -1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 3.4 5.6 3.8 3 10 RC
+		1.2 -4.4 -1.4 -7 -3 -7 RC
+		fill
+	  }{
+		{	currentpoint
+			1 3.2 5.6 2.8 3.2 8 RC
+			1.4 -4.8 -2.4 -5.4 -3.2 -5.2 RC
+			fill 3.5 add M
+		}repeat
+	  }ifelse}!
+/sgs{	.6 SLW x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M{	currentpoint
+		3 -1.5 RL 0 -2 RL -3 1.5 RL
+		closepath fill 3 sub M
+	}repeat}!
+currentdict /showc known false eq {
+/showc{dup stringwidth pop 0.5 mul neg 0 RM show}!
+} if
+/gd_incr_numpal{/gd_numpal gd_numpal 1 add def}def
+/gd_resettemp{/gd_tempstring 20 string def}def
+/gd_incrindice{/gd_indice gd_indice 1 add def}def
+/gd_reinitindice{/gd_indice 0 def}def
+/gd_armazena{gd_palavras exch gd_numpal exch put gd_incr_numpal}def
+/gd_nome? true def
+/bracinho_com_nome{/gd_nome? true def}def
+/bracinho_sem_nome{/gd_nome? false def}def
+/gd_separa_palavras {
+/gd_texto exch def
+/gd_palavras 20 array def
+/gd_tempstring 20 string def
+/gd_numpal 0 def
+/gd_indice 0 def
+/imprimir? 0 def
+/gd_tamanho gd_texto length 1 sub def
+0 1 gd_tamanho {
+dup gd_texto exch 1 getinterval dup
+( ) eq {
+pop pop
+imprimir? 1 eq {gd_tempstring gd_armazena}if
+gd_reinitindice
+gd_resettemp
+/imprimir? 0 def
+} {
+gd_tempstring exch
+gd_indice exch putinterval
+gd_incrindice
+/imprimir? 1 def
+gd_tamanho eq {gd_tempstring gd_armazena}if
+}ifelse
+}for
+/gd_tamanho gd_numpal -1 add def
+}def
+/bracinho {
+3 2 roll
+gd_separa_palavras
+gd_tamanho 3 -2 roll gd_guitarN
+/Times-Bold 8 selectfont
+4 gd_tamanho mul 2 sub 18.5 moveto gd_palavras 0 get 20 string cvs
+dup 0 get(-)0 get eq{
+pop
+}{
+
+(^) search {
+show
+pop
+(\0)search{3 1 roll pop pop}if
+gd_nome? false eq{pop ()}if
+/Helvetica 10 selectfont
+gd_Nv gd_Nv 2 div sub 31 M showc
+
+}{
+show
+} ifelse
+}ifelse
+/gd_def_y{dup /gd_y exch def}def
+/gd_pest-x 0 def
+/gd_pest-y 0 def
+/gd_pest2-x 0 def
+/gd_pest2-y 0 def
+/gd_y 0 def
+1 1 gd_tamanho {
+dup /gd_indd exch def
+/gd_x exch 1 sub 4 mul def
+0 1 gd_tempstring length 2 sub {
+/gd_ind2 exch def
+gd_palavras gd_indd get gd_ind2 get
+dup (x) 0 get eq {gd_x gd_gx} if
+dup (0) 0 get eq {gd_x gd_go} if
+dup (1) 0 get eq {gd_x 21 gd_def_y gd_dot} if
+dup (2) 0 get eq {gd_x 15 gd_def_y gd_dot} if
+dup (3) 0 get eq {gd_x  9 gd_def_y gd_dot} if
+dup (4) 0 get eq {gd_x  3 gd_def_y gd_dot} if
+dup (5) 0 get eq {gd_x -3 gd_def_y gd_dot} if
+dup (6) 0 get eq {gd_x -6 gd_def_y gd_dot} if
+pop
+gd_palavras gd_indd get gd_ind2 1 add get
+
+/gd_oldlw currentlinewidth def
+2.8 setlinewidth
+dup ([) 0 get eq {gd_x gd_y /gd_pest-y exch def /gd_pest-x exch def} if
+dup (])0 get eq{gd_x gd_y moveto gd_pest-x gd_pest-y lineto stroke}if
+
+dup ({) 0 get eq {gd_x gd_y /gd_pest2-y exch def /gd_pest2-x exch def} if
+dup(})0 get eq{gd_x gd_y moveto gd_pest2-x gd_pest2-y lineto stroke}if
+pop
+gd_oldlw setlinewidth
+} for
+} for
+grestore
+}def
+/bracinho_grande{gsave 2 dup scale T 0 0 bracinho grestore}!
+/gd_guitarN{
+gsave 8 add T
+
+/gd_NNN exch def  /gd_Nv gd_NNN 1 sub 4 mul def
+gd_Nv 2 div neg 0 T
+1.5 setlinewidth -0.3 30.6 M gd_Nv 0.6 add 0 RL stroke
+0.6 setlinewidth
+-.3 0 M gd_Nv .6 add 0 RL
+0 6 M gd_Nv 0 RL
+0 12 M gd_Nv 0 RL
+0 18 M gd_Nv 0 RL
+0 24 M gd_Nv 0 RL
+0 1 gd_NNN 1 sub{4 mul 0 M 0 30 RL}for
+stroke 0.5 setlinewidth
+0 6 T}def
+/gd_dot{newpath 1.4 0 360 arc fill}def
+/gd_gx{28 M -1.3 -1.3 RM 2.6 2.6 RL 0 -2.6 RM -2.6 2.6 RL stroke}def
+/gd_go{28 newpath 1.5 0 360 arc stroke}def
+/gd_imprime_palavras{
+0 1 gd_tamanho {
+gd_palavras exch get 20 string cvs show
+}for
+} def
+/gd_teste {
+M gd_separa_palavras gd_imprime_palavras
+} def
+/gcshow-b /gcshow load bind def
+
+/brac{/BRDEF exch def /BRNAM exch def
+	dup BRNAM eq {
+	BRDEF currentpoint exch 7 add exch 9 add bracinho
+	}if}!
+
+/gcshow-bracinho{
+	(C) (- 0 3 2 0 1 0) brac
+	(Cdim7) (- x 3 4 2 4 x) brac
+	(D\201dim7) (- x x 1 2 1 2) brac
+	(D) (- x - 0 2 3 2) brac
+	(D/A) (- x 0 0 2 3 2) brac
+	(E\202) (- x x 1 3 4 3) brac
+	(E) (- 0 2 2 1 0 0) brac
+	(E/B) (- x 2 2 1 0 0) brac
+	(E/G\201) (- 4 x 2 4 0 0) brac
+	(Edim7) (- x x 2 3 2 3) brac
+	(F) (1a. 1[ 3 3 2 - 1]) brac
+	(F/A) (- x 0 3 2 1 1) brac
+	(F/C) (- x 3 3 2 1 1) brac
+	(F\201m) (- 2 4 4 2 2 2) brac
+	(F\201m7) (- 2[ 4 2 2 2 2]) brac
+	(Fdim7) (- 1 x 0 1 0 1) brac
+	(G) (- 3 2 0 0 0 3) brac
+	(G/D) (- x x 0 4 3 3) brac
+	(A\201dim7) (- x 1 2 0 2 0) brac
+	% %%%% (A/C\201) (- x 4 3[ 3 3 x]) brac
+	(A/C\201) (- x 4 2[ - - 2x]) brac % %%%%%%%
+	(Gm7M) (- 3[ x x 3 3 2]) brac % %%%%%%
+	(A) (- - 0 2 2 2 0) brac
+	(A/E) (- x x 2 2 2 0) brac
+	(A7) (- - 0 2 2 2 3) brac
+	(Am) (- - 0 2 2 1 0) brac
+	(B) (- x 2[ 4 4 4 2]) brac
+	(Bm) (- x 2[ 4 4 3 2]) brac
+	(Bm6) (- x 2 x 1 3 2) brac
+	(Bm7) (- x 2[ 4 2 3 2]) brac
+	(Bm/F\201) (- 2[ 2 4 4 3 2]) brac
+	(E7) (- 0 2 2 1 4 0) brac
+	(Cm) (3a. x 1[ 3 3 2 1]) brac
+	(Bm7/5d) (- x 2 3 2 3 x) brac
+  	(B/F\201) (- 2[ 2 4 4 4 2]) brac
+	(B/A) (- x 0 4 4 4 2) brac
+   gcshow-b}!
+
+/gcshow{gcshow-bracinho}!
+/Extra 10 dict begin
+	/FontType 3 def
+	/FontMatrix[.001 0 0 .001 0 0]def
+	/Encoding 256 array def
+	/FontBBox[0 0 1000 1000]def
+	/BuildGlyph{
+		userdict/extra-draw get exch
+		2 copy known not{pop/.notdef}if
+		get exec pop
+	}!
+	currentdict
+end
+definefont pop
+/CIDInit/ProcSet findresource begin
+    12 dict begin
+	begincmap
+		/CMapName/CMAP-UTF8 def
+		/CMapType 1 def
+		/CIDSystemInfo[null]def
+		/WMode 0 def
+		3 begincodespacerange
+			<00>	<7f>
+			<c280>	<dfbf>
+			<e28080> <e28fbf>
+		endcodespacerange
+		1 beginbfrange
+			<00> <7f> <00>
+		endbfrange
+		utf-array length 2 idiv
+		beginbfchar
+			utf-array aload pop
+		endbfchar
+		1 usefont
+		extra-array length 2 idiv
+		beginbfchar
+			extra-array aload pop
+		endbfchar
+	endcmap
+    CMapName currentdict/CMap defineresource pop
+    end
+end
+/Helvetica-utf8/CMAP-UTF8[/Helvetica /Extra]composefont pop
+/F0{/Helvetica-utf8 exch selectfont}!
+/Times-Italic-utf8/CMAP-UTF8[/Times-Italic /Extra]composefont pop
+/F1{/Times-Italic-utf8 exch selectfont}!
+/Times-Roman-utf8/CMAP-UTF8[/Times-Roman /Extra]composefont pop
+/F2{/Times-Roman-utf8 exch selectfont}!
+/Times-Bold-utf8/CMAP-UTF8[/Times-Bold /Extra]composefont pop
+/F3{/Times-Bold-utf8 exch selectfont}!
+%%EndSetup
+%%Page: 1 1
+gsave 0 813.6 T
+% --- width 657.7
+0.75 dup scale
+68.0 0 T
+% --- 1 (Test of bracinho) ---
+% --- font 20.0 F2 
+0 -22.68 T
+0 -25.67 T
+328.9 0 M 20.0 F2 (Test of bracinho)showc 
+0 -25.34 T
+/dlsym{
+/y{-19.8 y0}def 27.9 y M 13.0 F3 (By)lyshow 
+108.6 y M (he)lyshow 
+67.2 121.5 y hyph 188.7 y M (re)lyshow 
+264.2 y M (you)lyshow 
+343.7 y M (find)lyshow 
+425.8 y M (the)lyshow 
+507.6 y M (ly)lyshow 
+65.2 518.2 y hyph 583.4 y M (rics)lyshow 
+
+29.0 34.0 y0 M 12.0 F0 (B/A)gcshow 
+272.1 34.0 y0 M (F)gcshow 
+347.2 34.0 y0 M (Gm7M)gcshow 
+506.6 34.0 y0 M (Cdim7)gcshow 
+}def
+/y0{-74.0 add}def
+657.7 5 0.0 -74.0 staff
+dlsym
+12.0 -74.0  tclef
+37.0 -80.0 hl 37.0 -80.0 Hd 20.0 su
+116.5 -77.0 Hd 20.0 su
+195.6 -74.0 Hd 20.0 su
+275.1 -71.0 Hd 20.0 su
+355.2 -68.0 Hd 20.0 su
+435.2 -65.0 Hd 20.0 su
+514.6 -62.0 Hd -20.0 sd
+594.0 -59.0 Hd -20.0 sd
+0 -124.00 T
+/dlsym{
+/y{-19.8 y0}def 27.9 y M 13.0 F3 (By)lyshow 
+106.7 y M (he)lyshow 
+65.6 119.6 y hyph 185.2 y M (re)lyshow 
+258.8 y M (you)lyshow 
+335.8 y M (find)lyshow 
+415.5 y M (the)lyshow 
+495.6 y M (ly)lyshow 
+63.3 506.2 y hyph 569.5 y M (rics)lyshow 
+
+29.0 35.0 y0 M 12.0 F0 (B/A)gcshow 
+266.8 35.0 y0 M (F)gcshow 
+416.9 35.0 y0 M (A/C)gcshow 
+494.5 35.0 y0 M (Cdim7)gcshow 
+}def
+/y0{-74.0 add}def
+657.7 5 0.0 -74.0 staff
+dlsym
+12.0 -74.0  tclef
+37.0 -80.0 hl 37.0 -80.0 Hd 20.0 su
+114.6 -77.0 Hd 20.0 su
+192.2 -74.0 Hd 20.0 su
+269.8 -71.0 Hd 20.0 su
+347.4 -68.0 Hd 20.0 su
+424.9 -65.0 Hd 20.0 su
+502.5 -62.0 Hd -20.0 sd
+580.1 -59.0 Hd -20.0 sd
+0 -124.00 T
+%%PageTrailer
+grestore
+showpage
+%%Trailer
+%%Pages: 1
+%EOF

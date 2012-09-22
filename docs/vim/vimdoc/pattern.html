@@ -1,0 +1,1462 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: pattern</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Vim documentation: pattern</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr/>
+<pre>
+
+*<a name="pattern.txt"></a><b>pattern.txt</b>*   For Vim version 7.3.  Last change: 2011 Feb 25
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Patterns and search commands				*<a name="pattern-searches"></A><b>pattern-searches</b>*
+
+The very basics can be found in section |<a href="usr_03.html#03.9">03.9</a>| of the user manual.  A few more
+explanations are in chapter 27 |<a href="usr_27.html">usr_27.txt</a>|.
+
+1. Search commands		|<a href="pattern.html#search-commands">search-commands</a>|
+2. The definition of a pattern	|<a href="pattern.html#search-pattern">search-pattern</a>|
+3. Magic			|<a href="pattern.html#/magic">/magic</a>|
+4. Overview of pattern items	|<a href="pattern.html#pattern-overview">pattern-overview</a>|
+5. Multi items			|<a href="pattern.html#pattern-multi-items">pattern-multi-items</a>|
+6. Ordinary atoms		|<a href="pattern.html#pattern-atoms">pattern-atoms</a>|
+7. Ignoring case in a <a href="pattern.html#pattern">pattern</a>	|<a href="pattern.html#/ignorecase">/ignorecase</a>|
+8. Composing characters		|<a href="pattern.html#patterns-composing">patterns-composing</a>|
+9. Compare with <a href="if_perl.html#Perl">Perl</a> patterns	|<a href="pattern.html#perl-patterns">perl-patterns</a>|
+10. Highlighting matches	|<a href="pattern.html#match-highlight">match-highlight</a>|
+
+==============================================================================
+
+1. Search commands				*<a name="search-commands"></A><b>search-commands</b>* *<a name="E486"></A><b>E486</b>*
+
+
+							*<a name="/"></A><b>/</b>*
+/{pattern}[/]&lt;CR&gt;	Search forward for the [count]'th occurrence of
+			{pattern} |<a href="motion.html#exclusive">exclusive</a>|.
+
+/{pattern}/{offset}&lt;CR&gt;	Search forward for the [count]'th occurrence of
+			{pattern} and go |<a href="pattern.html#{offset}">{offset}</a>| lines up or down.
+			|<a href="motion.html#linewise">linewise</a>|.
+
+
+							*<a name="/&lt;CR&gt;"></A><b>/&lt;CR&gt;</b>*
+<a href="pattern.html#/&lt;CR&gt;">/&lt;CR&gt;</a>			Search forward for the [count]'th occurrence of the
+			latest used pattern |<a href="pattern.html#last-pattern">last-pattern</a>| with latest used
+			|<a href="pattern.html#{offset}">{offset}</a>|.
+
+//{offset}&lt;CR&gt;		Search forward for the [count]'th occurrence of the
+			latest used pattern |<a href="pattern.html#last-pattern">last-pattern</a>| with new
+			|<a href="pattern.html#{offset}">{offset}</a>|.  If {offset} is empty no offset is used.
+
+
+							*<a name="?"></A><b>?</b>*
+?{pattern}[?]&lt;CR&gt;	Search backward for the [count]'th previous
+			occurrence of {pattern} |<a href="motion.html#exclusive">exclusive</a>|.
+
+?{pattern}?{offset}&lt;CR&gt;	Search backward for the [count]'th previous
+			occurrence of {pattern} and go |<a href="pattern.html#{offset}">{offset}</a>| lines up or
+			down |<a href="motion.html#linewise">linewise</a>|.
+
+
+							*<a name="?&lt;CR&gt;"></A><b>?&lt;CR&gt;</b>*
+<a href="pattern.html#?&lt;CR&gt;">?&lt;CR&gt;</a>			Search backward for the [count]'th occurrence of the
+			latest used pattern |<a href="pattern.html#last-pattern">last-pattern</a>| with latest used
+			|<a href="pattern.html#{offset}">{offset}</a>|.
+
+??{offset}&lt;CR&gt;		Search backward for the [count]'th occurrence of the
+			latest used pattern |<a href="pattern.html#last-pattern">last-pattern</a>| with new
+			|<a href="pattern.html#{offset}">{offset}</a>|.  If {offset} is empty no offset is used.
+
+
+							*<a name="n"></A><b>n</b>*
+<a href="pattern.html#n">n</a>			Repeat the latest &quot;<a href="pattern.html#/">/</a>&quot; or &quot;<a href="pattern.html#?">?</a>&quot; <a href="intro.html#[count]">[count]</a> times.
+			|<a href="pattern.html#last-pattern">last-pattern</a>| {Vi: no count}
+
+
+							*<a name="N"></A><b>N</b>*
+N			Repeat the latest &quot;<a href="pattern.html#/">/</a>&quot; or &quot;<a href="pattern.html#?">?</a>&quot; <a href="intro.html#[count]">[count]</a> times in
+			opposite direction. |<a href="pattern.html#last-pattern">last-pattern</a>| {Vi: no count}
+
+
+							*<a name="star"></A><b>star</b>* *<a name="E348"></A><b>E348</b>* *<a name="E349"></A><b>E349</b>*
+*			Search forward for the [count]'th occurrence of the
+			<a href="motion.html#word">word</a> nearest to the cursor.  The <a href="motion.html#word">word</a> used for the
+			search is the first of:
+				1. the keyword under the cursor |<a href="options.html#'iskeyword'">'iskeyword'</a>|
+				2. the first keyword after the cursor, in the
+				   current line
+				3. the non-blank <a href="motion.html#word">word</a> under the cursor
+				4. the first non-blank <a href="motion.html#word">word</a> after the cursor,
+				   in the current line
+			Only whole keywords are searched for, like with the
+			command &quot;/\&lt;keyword\&gt;&quot;.  |<a href="motion.html#exclusive">exclusive</a>|  {not in Vi}
+			<a href="options.html#'ignorecase'">'ignorecase'</a> is used, <a href="options.html#'smartcase'">'smartcase'</a> is not.
+
+
+							*<a name="#"></A><b>#</b>*
+#			Same <a href="motion.html#as">as</a> &quot;*&quot;, but search backward.  The pound sign
+			(character 163) also works.  If the &quot;<a href="pattern.html##">#</a>&quot; key works <a href="motion.html#as">as</a>
+			backspace, try using &quot;stty erase &lt;BS&gt;&quot; before starting
+			Vim (&lt;BS&gt; is <a href="motion.html#CTRL-H">CTRL-H</a> or a real backspace).  {not in Vi}
+
+
+							*<a name="gstar"></A><b>gstar</b>*
+g*			Like &quot;*&quot;, but don't put &quot;\&lt;&quot; and &quot;\&gt;&quot; around the <a href="motion.html#word">word</a>.
+			This makes the search also find matches that are not a
+			whole <a href="motion.html#word">word</a>.  {not in Vi}
+
+
+							*<a name="g#"></A><b>g#</b>*
+<a href="pattern.html#g#">g#</a>			Like &quot;<a href="pattern.html##">#</a>&quot;, but don't put &quot;\&lt;&quot; and &quot;\&gt;&quot; around the <a href="motion.html#word">word</a>.
+			This makes the search also find matches that are not a
+			whole <a href="motion.html#word">word</a>.  {not in Vi}
+
+
+							*<a name="gd"></A><b>gd</b>*
+<a href="pattern.html#gd">gd</a>			Goto local Declaration.  When the cursor is on a local
+			variable, this command will jump to its declaration.
+			First Vim searches for the start of the current
+			function, just like &quot;<a href="motion.html#[[">[[</a>&quot;.  If it is not found the
+			search stops in line 1.  If it is found, Vim goes back
+			until a blank line is found.  From this position Vim
+			searches for the keyword under the cursor, like with
+			&quot;*&quot;, but lines that look like a comment are ignored
+			(see <a href="options.html#'comments'">'comments'</a> option).
+			Note that this is not guaranteed to work, Vim does not
+			really check the <a href="syntax.html#syntax">syntax</a>, it only searches for a match
+			with the keyword.  If included files also need to be
+			searched use the commands listed in |<a href="tagsrch.html#include-search">include-search</a>|.
+			After this command |<a href="pattern.html#n">n</a>| searches forward for the next
+			match (not backward).
+			{not in Vi}
+
+
+							*<a name="gD"></A><b>gD</b>*
+<a href="pattern.html#gD">gD</a>			Goto global Declaration.  When the cursor is on a
+			global variable that is defined in the file, this
+			command will jump to its declaration.  This works just
+			like &quot;<a href="pattern.html#gd">gd</a>&quot;, except that the search for the keyword
+			always starts in line 1.  {not in Vi}
+
+
+							*<a name="1gd"></A><b>1gd</b>*
+<a href="pattern.html#1gd">1gd</a>			Like &quot;<a href="pattern.html#gd">gd</a>&quot;, but ignore matches inside a <a href="intro.html#{}">{}</a> block that
+			ends before the cursor position. {not in Vi}
+
+
+							*<a name="1gD"></A><b>1gD</b>*
+<a href="pattern.html#1gD">1gD</a>			Like &quot;<a href="pattern.html#gD">gD</a>&quot;, but ignore matches inside a <a href="intro.html#{}">{}</a> block that
+			ends before the cursor position. {not in Vi}
+
+
+							*<a name="CTRL-C"></A><b>CTRL-C</b>*
+<a href="pattern.html#CTRL-C">CTRL-C</a>			Interrupt current (search) command.  Use CTRL-Break on
+			<a href="os_msdos.html#MS-DOS">MS-DOS</a> |<a href="os_dos.html#dos-CTRL-Break">dos-CTRL-Break</a>|.
+			In <a href="intro.html#Normal">Normal</a> mode, any pending command is aborted.
+
+
+							*<a name=":noh"></A><b>:noh</b>* *<a name=":nohlsearch"></A><b>:nohlsearch</b>*
+:noh[lsearch]		Stop the highlighting for the <a href="options.html#'hlsearch'">'hlsearch'</a> option.  It
+			is automatically turned back on when using a search
+			command, or setting the <a href="options.html#'hlsearch'">'hlsearch'</a> option.
+			This command doesn't work in an <a href="autocmd.html#autocommand">autocommand</a>, because
+			the highlighting state is saved and restored when
+			executing autocommands |<a href="autocmd.html#autocmd-searchpat">autocmd-searchpat</a>|.
+			Same thing for when invoking a user function.
+
+While typing the search <a href="pattern.html#pattern">pattern</a> the current match will be shown if the
+<a href="options.html#'incsearch'">'incsearch'</a> option is on.  Remember that you still have to finish the search
+command with <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> to actually position the cursor at the displayed match.  Or
+use <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> to <a href="editing.html#abandon">abandon</a> the search.
+
+All matches for the last used search <a href="pattern.html#pattern">pattern</a> will be highlighted if you set
+the <a href="options.html#'hlsearch'">'hlsearch'</a> option.  This can be suspended with the |<a href="pattern.html#:nohlsearch">:nohlsearch</a>| command.
+
+
+					*<a name="search-offset"></A><b>search-offset</b>* *<a name="{offset}"></A><b>{offset}</b>*
+These commands search for the specified <a href="pattern.html#pattern">pattern</a>.  With &quot;<a href="pattern.html#/">/</a>&quot; and &quot;<a href="pattern.html#?">?</a>&quot; an
+additional offset may be given.  There are two types of offsets: line offsets
+and character offsets.  {the character offsets are not in Vi}
+
+The offset gives the cursor position relative to the found match:
+    [num]	[num] lines downwards, in column 1
+    +[num]	[num] lines downwards, in column 1
+    -[num]	[num] lines upwards, in column 1
+    e[+num]	[num] characters to the right of the end of the match
+    e[-num]	[num] characters to the left of the end of the match
+    s[+num]	[num] characters to the right of the start of the match
+    s[-num]	[num] characters to the left of the start of the match
+    b[+num]	[num] identical to s[+num] above (mnemonic: begin)
+    b[-num]	[num] identical to s[-num] above (mnemonic: begin)
+    ;{pattern}  perform another search, see |<a href="pattern.html#//;">//;</a>|
+
+If a '<a href="motion.html#-">-</a>' or '<a href="motion.html#+">+</a>' is given but [num] is omitted, a <a href="intro.html#count">count</a> of one will be used.
+When including an offset with '<a href="motion.html#e">e</a>', the search becomes <a href="motion.html#inclusive">inclusive</a> (the
+character the cursor lands on is included in operations).
+
+Examples:
+
+<b><font color="purple">pattern			cursor position	</font></b>
+/test/+1		one line below &quot;test&quot;, in column 1
+/test/e			on the last t of &quot;test&quot;
+/test/s+2		on the '<a href="change.html#s">s</a>' of &quot;test&quot;
+/test/b-3		three characters before &quot;test&quot;
+
+If one of these commands is used after an <a href="motion.html#operator">operator</a>, the characters between
+the cursor position before and after the search is affected.  However, if a
+line offset is given, the whole lines between the two cursor positions are
+affected.
+
+An example of how to search for matches with a <a href="pattern.html#pattern">pattern</a> and change the match
+with another <a href="motion.html#word">word</a>:
+<b>	/foo&lt;CR&gt;	find "foo"</b>
+<b>	c//e		change until end of match</b>
+<b>	bar&lt;Esc&gt;	type replacement</b>
+<b>	//&lt;CR&gt;		go to start of next match</b>
+<b>	c//e		change until end of match</b>
+<b>	beep&lt;Esc&gt;	type another replacement</b>
+<b>			etc.</b>
+ 
+
+							*<a name="//;"></A><b>//;</b>* *<a name="E386"></A><b>E386</b>*
+A very special offset is '<a href="motion.html#;">;</a>' followed by another search command.  For example:
+
+<b>   /test 1/;/test</b>
+<b>   /test.*/+1;?ing?</b>
+
+The first one first finds the next occurrence of &quot;test 1&quot;, and then the first
+occurrence of &quot;test&quot; after that.
+
+This is like executing two search commands after each other, except that:
+- It can be used <a href="motion.html#as">as</a> a single motion command after an <a href="motion.html#operator">operator</a>.
+- The direction for a following &quot;<a href="pattern.html#n">n</a>&quot; or &quot;<a href="pattern.html#N">N</a>&quot; command comes from the first
+  search command.
+- When an error occurs the cursor is not moved at all.
+
+
+							*<a name="last-pattern"></A><b>last-pattern</b>*
+The last used <a href="pattern.html#pattern">pattern</a> and offset are remembered.  They can be used to repeat
+the search, possibly in another direction or with another <a href="intro.html#count">count</a>.  Note that
+two patterns are remembered: One for 'normal' search commands and one for the
+substitute command &quot;<a href="change.html#:s">:s</a>&quot;.  Each time an empty <a href="pattern.html#pattern">pattern</a> is given, the previously
+used <a href="pattern.html#pattern">pattern</a> is used.  However, if there is no previous search command, a
+previous substitute <a href="pattern.html#pattern">pattern</a> is used, if possible.
+
+The <a href="options.html#'magic'">'magic'</a> option sticks with the last used <a href="pattern.html#pattern">pattern</a>.  If you change <a href="options.html#'magic'">'magic'</a>,
+this will not change how the last used <a href="pattern.html#pattern">pattern</a> will be interpreted.
+The <a href="options.html#'ignorecase'">'ignorecase'</a> option does not <a href="diff.html#do">do</a> this.  When <a href="options.html#'ignorecase'">'ignorecase'</a> is changed, it
+will result in the <a href="pattern.html#pattern">pattern</a> to match other text.
+
+All matches for the last used search <a href="pattern.html#pattern">pattern</a> will be highlighted if you set
+the <a href="options.html#'hlsearch'">'hlsearch'</a> option.
+
+To clear the last used search <a href="pattern.html#pattern">pattern</a>:
+<b>	:let @/ = ""</b>
+This will not set the <a href="pattern.html#pattern">pattern</a> to an empty string, because that would match
+everywhere.  The <a href="pattern.html#pattern">pattern</a> is really cleared, like when starting Vim.
+
+The search usually skips matches that don't move the cursor.  Whether the next
+match is found at the next character or after the skipped match depends on the
+'c' flag in <a href="options.html#'cpoptions'">'cpoptions'</a>.  See |<a href="options.html#cpo-c">cpo-c</a>|.
+	   with '<a href="change.html#c">c</a>' flag:   &quot;/...&quot; advances 1 to 3 characters
+	without '<a href="change.html#c">c</a>' flag:   &quot;/...&quot; advances 1 character
+The unpredictability with the '<a href="change.html#c">c</a>' flag is caused by starting the search in the
+first column, skipping matches until one is found past the cursor position.
+
+When searching backwards, searching starts at the start of the line, using the
+'<a href="change.html#c">c</a>' flag in <a href="options.html#'cpoptions'">'cpoptions'</a> <a href="motion.html#as">as</a> described above.  Then the last match before the
+cursor position is used.
+
+In <a href="intro.html#Vi">Vi</a> the &quot;<a href="tagsrch.html#:tag">:tag</a>&quot; command sets the last search <a href="pattern.html#pattern">pattern</a> when the <a href="tagsrch.html#tag">tag</a> is searched
+for.  In Vim this is not done, the previous search <a href="pattern.html#pattern">pattern</a> is still remembered,
+unless the '<a href="motion.html#t">t</a>' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>.  The search <a href="pattern.html#pattern">pattern</a> is always
+put in the search <a href="cmdline.html#history">history</a>.
+
+If the <a href="options.html#'wrapscan'">'wrapscan'</a> option is on (which is the default), searches wrap around
+the end of the buffer.  If <a href="options.html#'wrapscan'">'wrapscan'</a> is not set, the backward search stops
+at the beginning and the forward search stops at the end of the buffer.  If
+<a href="options.html#'wrapscan'">'wrapscan'</a> is set and the <a href="pattern.html#pattern">pattern</a> was not found the error message &quot;<a href="pattern.html#pattern">pattern</a>
+not found&quot; is given, and the cursor will not be moved.  If <a href="options.html#'wrapscan'">'wrapscan'</a> is not
+set the message becomes &quot;search hit BOTTOM without match&quot; when searching
+forward, or &quot;search hit TOP without match&quot; when searching backward.  If
+wrapscan is set and the search wraps around the end of the file the message
+&quot;search hit TOP, continuing at BOTTOM&quot; or &quot;search hit BOTTOM, continuing at
+TOP&quot; is given when searching backwards or forwards respectively.  This can be
+switched off by setting the '<a href="change.html#s">s</a>' flag in the <a href="options.html#'shortmess'">'shortmess'</a> option.  The highlight
+method '<a href="motion.html#w">w</a>' is used for this message (default: <a href="syntax.html#standout">standout</a>).
+
+
+							*<a name="search-range"></A><b>search-range</b>*
+You can limit the search command &quot;<a href="pattern.html#/">/</a>&quot; to a certain range of lines by including
+\&#37;&gt;l items.  For example, to match the <a href="motion.html#word">word</a> &quot;limit&quot; below line 199 and above
+line 300:
+<b>	/\%&gt;199l\%&lt;300llimit</b>
+Also see |<a href="pattern.html#/\&#37;&gt;l">/\&#37;&gt;l</a>|.
+
+Another way is to use the &quot;<a href="change.html#:substitute">:substitute</a>&quot; command with the '<a href="change.html#c">c</a>' flag.  Example:
+<b>   :.,300s/Pattern//gc</b>
+This command will search from the cursor position until line 300 for
+&quot;<a href="pattern.html#Pattern">Pattern</a>&quot;.  At the match, you will be asked to type a character.  Type '<a href="repeat.html#q">q</a>' to
+stop at this match, type '<a href="pattern.html#n">n</a>' to find the next match.
+
+The &quot;*&quot;, &quot;<a href="pattern.html##">#</a>&quot;, &quot;g*&quot; and &quot;<a href="pattern.html#g#">g#</a>&quot; commands look for a <a href="motion.html#word">word</a> near the cursor in this
+order, the first one that is found is used:
+- The keyword currently under the cursor.
+- The first keyword to the right of the cursor, in the same line.
+- The <a href="motion.html#WORD">WORD</a> currently under the cursor.
+- The first <a href="motion.html#WORD">WORD</a> to the right of the cursor, in the same line.
+The keyword may only contain letters and characters in <a href="options.html#'iskeyword'">'iskeyword'</a>.
+The <a href="motion.html#WORD">WORD</a> may contain any non-blanks (&lt;Tab&gt;s and/or &lt;Space&gt;s).
+Note that if you type with ten fingers, the characters are <a href="starting.html#easy">easy</a> to remember:
+the &quot;<a href="pattern.html##">#</a>&quot; is under your left hand middle finger (search to the left and up) and
+the &quot;*&quot; is under your right hand middle finger (search to the right and down).
+(this depends on your keyboard layout though).
+
+==============================================================================
+
+2. The definition of a <a href="pattern.html#pattern">pattern</a>		*<a name="search-pattern"></A><b>search-pattern</b>* *<a name="pattern"></A><b>pattern</b>* *<a name="[pattern]"></A><b>[pattern]</b>*
+
+					*<a name="regular-expression"></A><b>regular-expression</b>* *<a name="regexp"></A><b>regexp</b>* *<a name="Pattern"></A><b>Pattern</b>*
+
+					*<a name="E76"></A><b>E76</b>* *<a name="E383"></A><b>E383</b>* *<a name="E476"></A><b>E476</b>*
+
+For starters, read chapter 27 of the user manual |<a href="usr_27.html">usr_27.txt</a>|.
+
+
+						*<a name="/bar"></A><b>/bar</b>* *<a name="/\bar"></A><b>/\bar</b>* *<a name="/pattern"></A><b>/pattern</b>*
+1. A <a href="pattern.html#pattern">pattern</a> is one or more branches, separated by &quot;\|&quot;.  It matches anything
+   that matches one of the branches.  Example: &quot;foo\|beep&quot; matches &quot;foo&quot; and
+   matches &quot;beep&quot;.  If more than one branch matches, the first one is used.
+
+   <a href="pattern.html#pattern">pattern</a> ::=	    branch
+		or  branch \| branch
+		or  branch \| branch \| branch
+		etc.
+
+
+						*<a name="/branch"></A><b>/branch</b>* *<a name="/\&amp;"></A><b>/\&amp;</b>*
+2. A branch is one or more concats, separated by &quot;\&amp;&quot;.  It matches the last
+   concat, but only if all the preceding concats also match at the same
+   position.  Examples:
+	&quot;foobeep\&amp;...&quot; matches &quot;foo&quot; in &quot;foobeep&quot;.
+	&quot;.*Peter\&amp;.*Bob&quot; matches in a line containing both &quot;Peter&quot; and &quot;Bob&quot;
+
+   branch ::=	    concat
+		or  concat \&amp; concat
+		or  concat \&amp; concat \&amp; concat
+		etc.
+
+
+						*<a name="/concat"></A><b>/concat</b>*
+3. A concat is one or more pieces, concatenated.  It matches a match for the
+   first piece, followed by a match for the second piece, etc.  Example:
+   &quot;f[0-9]b&quot;, first matches &quot;<a href="motion.html#f">f</a>&quot;, then a digit and then &quot;<a href="motion.html#b">b</a>&quot;.
+
+   concat  ::=	    piece
+		or  piece piece
+		or  piece piece piece
+		etc.
+
+
+						*<a name="/piece"></A><b>/piece</b>*
+4. A piece is an atom, possibly followed by a multi, an indication of how many
+   times the atom can be matched.  Example: &quot;a*&quot; matches any sequence of &quot;<a href="insert.html#a">a</a>&quot;
+   characters: &quot;&quot;, &quot;<a href="insert.html#a">a</a>&quot;, &quot;aa&quot;, etc.  See |<a href="pattern.html#/multi">/multi</a>|.
+
+   piece   ::=	    atom
+		or  atom  multi
+
+
+						*<a name="/atom"></A><b>/atom</b>*
+5. An atom can be one of a long list of items.  Many atoms match one character
+   in the text.  It is often an ordinary character or a character class.
+   Braces can be used to make a <a href="pattern.html#pattern">pattern</a> into an atom.  The &quot;\z(\)&quot; construct
+   is only for <a href="syntax.html#syntax">syntax</a> highlighting.
+
+   atom    ::=	    ordinary-atom		|<a href="pattern.html#/ordinary-atom">/ordinary-atom</a>|
+		or  \( <a href="pattern.html#pattern">pattern</a> \)		|<a href="pattern.html#/\(">/\(</a>|
+		or  \&#37;( <a href="pattern.html#pattern">pattern</a> \)		|<a href="pattern.html#/\&#37;(">/\&#37;(</a>|
+		or  \z( <a href="pattern.html#pattern">pattern</a> \)		|<a href="syntax.html#/\z(">/\z(</a>|
+
+
+==============================================================================
+
+3. Magic							*<a name="/magic"></A><b>/magic</b>*
+
+Some characters in the <a href="pattern.html#pattern">pattern</a> are taken literally.  They match with the same
+character in the text.  When preceded with a <a href="intro.html#backslash">backslash</a> however, these
+characters get a special meaning.
+
+Other characters have a special meaning without a <a href="intro.html#backslash">backslash</a>.  They need to be
+preceded with a <a href="intro.html#backslash">backslash</a> to match literally.
+
+If a character is taken literally or not depends on the <a href="options.html#'magic'">'magic'</a> option and the
+items mentioned next.
+
+							*<a name="/\m"></A><b>/\m</b>* *<a name="/\M"></A><b>/\M</b>*
+Use of &quot;\m&quot; makes the <a href="pattern.html#pattern">pattern</a> after it be interpreted <a href="motion.html#as">as</a> if <a href="options.html#'magic'">'magic'</a> is set,
+ignoring the actual value of the <a href="options.html#'magic'">'magic'</a> option.
+Use of &quot;\M&quot; makes the <a href="pattern.html#pattern">pattern</a> after it be interpreted <a href="motion.html#as">as</a> if <a href="options.html#'nomagic'">'nomagic'</a> is used.
+
+							*<a name="/\v"></A><b>/\v</b>* *<a name="/\V"></A><b>/\V</b>*
+Use of &quot;\v&quot; means that in the <a href="pattern.html#pattern">pattern</a> after it all ASCII characters except
+'0'-'9', 'a'-'z', 'A'-'Z' and '<a href="motion.html#_">_</a>' have a special meaning.  &quot;very magic&quot;
+
+Use of &quot;\V&quot; means that in the <a href="pattern.html#pattern">pattern</a> after it only the <a href="intro.html#backslash">backslash</a> has a
+special meaning.  &quot;very nomagic&quot;
+
+Examples:
+<b><font color="purple">after:	  \v	   \m	    \M	     \V		matches </font></b>
+		<a href="options.html#'magic'">'magic'</a> <a href="options.html#'nomagic'">'nomagic'</a>
+	  $	   $	    $	     \$		matches end-of-line
+	  .	   .	    \.	     \.		matches any character
+	  &#42;	   &#42;	    \*	     \*		any number of the previous atom
+	  ()	   \(\)     \(\)     \(\)	grouping into an atom
+	  &#124;	   \&#124;	    \&#124;	     \&#124;		separating alternatives
+	  \a	   \a	    \a	     \a		alphabetic character
+	  \\	   \\	    \\	     \\		literal <a href="intro.html#backslash">backslash</a>
+	  \.	   \.	    .	     .		literal dot
+	  \{	   {	    {	     {		literal '<a href="motion.html#{">{</a>'
+	  a	   a	    a	     a		literal '<a href="insert.html#a">a</a>'
+
+{only Vim supports \m, \M, \v and \V}
+
+It is recommended to always keep the <a href="options.html#'magic'">'magic'</a> option at the default setting,
+which is <a href="options.html#'magic'">'magic'</a>.  This avoids portability problems.  To make a <a href="pattern.html#pattern">pattern</a> immune
+to the <a href="options.html#'magic'">'magic'</a> option being set or not, put &quot;\m&quot; or &quot;\M&quot; at the start of the
+<a href="pattern.html#pattern">pattern</a>.
+
+==============================================================================
+
+4. Overview of <a href="pattern.html#pattern">pattern</a> items				*<a name="pattern-overview"></A><b>pattern-overview</b>*
+
+
+Overview of multi items.				*<a name="/multi"></A><b>/multi</b>* *<a name="E61"></A><b>E61</b>* *<a name="E62"></A><b>E62</b>*
+
+More explanation and examples below, follow the links.			*<a name="E64"></A><b>E64</b>*
+
+<b><font color="purple">	  multi </font></b>
+<b><font color="purple">     'magic' 'nomagic'	matches of the preceding atom </font></b>
+|<a href="pattern.html#/star">/star</a>|	&#42;	\*	0 or more	<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible
+|<a href="pattern.html#/\+">/\+</a>|	\+	\+	1 or more	<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (*)
+|<a href="pattern.html#/\=">/\=</a>|	\=	\=	0 or 1		<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (*)
+|<a href="pattern.html#/\?">/\?</a>|	\?	\?	0 or 1		<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (*)
+
+|<a href="pattern.html#/\{">/\{</a>|	\{n,m}	\{n,m}	<a href="pattern.html#n">n</a> to <a href="motion.html#m">m</a>		<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (*)
+	\{n}	\{n}	<a href="pattern.html#n">n</a>		exactly (*)
+	\{n,}	\{n,}	at least <a href="pattern.html#n">n</a>	<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (*)
+	\{,m}	\{,m}	0 to <a href="motion.html#m">m</a>		<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (*)
+	\{}	\{}	0 or more	<a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (same <a href="motion.html#as">as</a> *) (*)
+
+|<a href="pattern.html#/\{-">/\{-</a>|	\{-n,m}	\{-n,m}	<a href="pattern.html#n">n</a> to <a href="motion.html#m">m</a>		<a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible (*)
+	\{-n}	\{-n}	<a href="pattern.html#n">n</a>		exactly (*)
+	\{-n,}	\{-n,}	at least <a href="pattern.html#n">n</a>	<a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible (*)
+	\{-,m}	\{-,m}	0 to <a href="motion.html#m">m</a>		<a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible (*)
+	\{-}	\{-}	0 or more	<a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible (*)
+
+
+							*<a name="E59"></A><b>E59</b>*
+|<a href="pattern.html#/\@&gt;">/\@&gt;</a>|	\@&gt;	\@&gt;	1, like matching a whole <a href="pattern.html#pattern">pattern</a> (*)
+|<a href="pattern.html#/\@=">/\@=</a>|	\@=	\@=	nothing, requires a match |<a href="pattern.html#/zero-width">/zero-width</a>| (*)
+|<a href="pattern.html#/\@!">/\@!</a>|	\@!	\@!	nothing, requires NO match |<a href="pattern.html#/zero-width">/zero-width</a>| (*)
+|<a href="pattern.html#/\@&lt;=">/\@&lt;=</a>|	\@&lt;=	\@&lt;=	nothing, requires a match behind |<a href="pattern.html#/zero-width">/zero-width</a>| (*)
+|<a href="pattern.html#/\@&lt;!">/\@&lt;!</a>|	\@&lt;!	\@&lt;!	nothing, requires NO match behind |<a href="pattern.html#/zero-width">/zero-width</a>| (*)
+
+(*) {not in Vi}
+
+
+
+Overview of ordinary atoms.				*<a name="/ordinary-atom"></A><b>/ordinary-atom</b>*
+More explanation and examples below, follow the links.
+
+<b><font color="purple">      ordinary atom </font></b>
+<b><font color="purple">      magic   nomagic	matches </font></b>
+|<a href="pattern.html#/^">/^</a>|	^	^	start-of-line (at start of <a href="pattern.html#pattern">pattern</a>) |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\^">/\^</a>|	\^	\^	literal '^'
+|<a href="pattern.html#/\_^">/\_^</a>|	\_^	\_^	start-of-line (used anywhere) |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/$">/$</a>|	$	$	end-of-line (at end of <a href="pattern.html#pattern">pattern</a>) |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\$">/\$</a>|	\$	\$	literal '$'
+|<a href="pattern.html#/\_$">/\_$</a>|	\_$	\_$	end-of-line (used anywhere) |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/.">/.</a>|	.	\.	any single character (not an end-of-line)
+|<a href="pattern.html#/\_.">/\_.</a>|	\_.	\_.	any single character or end-of-line
+|<a href="pattern.html#/\&lt;">/\&lt;</a>|	\&lt;	\&lt;	beginning of a <a href="motion.html#word">word</a> |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&gt;">/\&gt;</a>|	\&gt;	\&gt;	end of a <a href="motion.html#word">word</a> |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\zs">/\zs</a>|	\zs	\zs	anything, sets start of match
+|<a href="pattern.html#/\ze">/\ze</a>|	\ze	\ze	anything, sets end of match
+
+|<a href="pattern.html#/\&#37;^">/\&#37;^</a>|	\&#37;^	\&#37;^	beginning of file |<a href="pattern.html#/zero-width">/zero-width</a>|		*<a name="E71"></a><b>E71</b>*
+|<a href="pattern.html#/\&#37;$">/\&#37;$</a>|	\&#37;$	\&#37;$	end of file |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&#37;V">/\&#37;V</a>|	\&#37;V	\&#37;V	inside <a href="visual.html#Visual">Visual</a> area |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&#37;#">/\&#37;#</a>|	\&#37;#	\&#37;#	cursor position |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&#37;'m">/\&#37;'m</a>|	\&#37;'m	\&#37;'m	<a href="motion.html#mark">mark</a> m position |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&#37;l">/\&#37;l</a>|	\&#37;23l	\&#37;23l	in line 23 |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&#37;c">/\&#37;c</a>|	\&#37;23c	\&#37;23c	in column 23 |<a href="pattern.html#/zero-width">/zero-width</a>|
+|<a href="pattern.html#/\&#37;v">/\&#37;v</a>|	\&#37;23v	\&#37;23v	in virtual column 23 |<a href="pattern.html#/zero-width">/zero-width</a>|
+
+
+Character classes {not in Vi}:				*<a name="/character-classes"></A><b>/character-classes</b>*
+|<a href="pattern.html#/\i">/\i</a>|	\i	\i	identifier character (see <a href="options.html#'isident'">'isident'</a> option)
+|<a href="pattern.html#/\I">/\I</a>|	\I	\I	like &quot;\i&quot;, but excluding digits
+|<a href="pattern.html#/\k">/\k</a>|	\k	\k	keyword character (see <a href="options.html#'iskeyword'">'iskeyword'</a> option)
+|<a href="pattern.html#/\K">/\K</a>|	\K	\K	like &quot;\k&quot;, but excluding digits
+|<a href="pattern.html#/\f">/\f</a>|	\f	\f	file name character (see <a href="options.html#'isfname'">'isfname'</a> option)
+|<a href="pattern.html#/\F">/\F</a>|	\F	\F	like &quot;\f&quot;, but excluding digits
+|<a href="pattern.html#/\p">/\p</a>|	\p	\p	printable character (see <a href="options.html#'isprint'">'isprint'</a> option)
+|<a href="pattern.html#/\P">/\P</a>|	\P	\P	like &quot;\p&quot;, but excluding digits
+|<a href="pattern.html#/\s">/\s</a>|	\s	\s	<a href="pattern.html#whitespace">whitespace</a> character: <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> and <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+|<a href="pattern.html#/\S">/\S</a>|	\S	\S	non-whitespace character; opposite of \s
+|<a href="pattern.html#/\d">/\d</a>|	\d	\d	digit:				[0-9]
+|<a href="pattern.html#/\D">/\D</a>|	\D	\D	non-digit:			[^0-9]
+|<a href="pattern.html#/\x">/\x</a>|	\x	\x	hex digit:			[0-9A-Fa-f]
+|<a href="pattern.html#/\X">/\X</a>|	\X	\X	non-hex digit:			[^0-9A-Fa-f]
+|<a href="pattern.html#/\o">/\o</a>|	\o	\o	<a href="eval.html#octal">octal</a> digit:			[0-7]
+|<a href="pattern.html#/\O">/\O</a>|	\O	\O	non-octal digit:		[^0-7]
+|<a href="pattern.html#/\w">/\w</a>|	\w	\w	<a href="motion.html#word">word</a> character:			[0-9A-Za-z_]
+|<a href="pattern.html#/\W">/\W</a>|	\W	\W	non-word character:		[^0-9A-Za-z_]
+|<a href="pattern.html#/\h">/\h</a>|	\h	\h	head of <a href="motion.html#word">word</a> character:		[A-Za-z_]
+|<a href="pattern.html#/\H">/\H</a>|	\H	\H	non-head of <a href="motion.html#word">word</a> character:	[^A-Za-z_]
+|<a href="pattern.html#/\a">/\a</a>|	\a	\a	alphabetic character:		[A-Za-z]
+|<a href="pattern.html#/\A">/\A</a>|	\A	\A	non-alphabetic character:	[^A-Za-z]
+|<a href="pattern.html#/\l">/\l</a>|	\l	\l	<a href="change.html#lowercase">lowercase</a> character:		[a-z]
+|<a href="pattern.html#/\L">/\L</a>|	\L	\L	non-lowercase character:	[^a-z]
+|<a href="pattern.html#/\u">/\u</a>|	\u	\u	<a href="change.html#uppercase">uppercase</a> character:		[A-Z]
+|<a href="pattern.html#/\U">/\U</a>|	\U	\U	non-uppercase character		[^A-Z]
+|<a href="pattern.html#/\_">/\_</a>|	\_x	\_x	where <a href="change.html#x">x</a> is any of the characters above: character
+			class with end-of-line included
+(end of character classes)
+
+|<a href="pattern.html#/\e">/\e</a>|	\e	\e	<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>
+|<a href="pattern.html#/\t">/\t</a>|	\t	\t	<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+|<a href="pattern.html#/\r">/\r</a>|	\r	\r	<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>
+|<a href="pattern.html#/\b">/\b</a>|	\b	\b	<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>
+|<a href="pattern.html#/\n">/\n</a>|	\n	\n	end-of-line
+|<a href="pattern.html#/~">/~</a>|	~	\~	last given substitute string
+|<a href="pattern.html#/\1">/\1</a>|	\1	\1	same string <a href="motion.html#as">as</a> matched by first \(\) {not in Vi}
+|<a href="pattern.html#/\2">/\2</a>|	\2	\2	Like &quot;\1&quot;, but uses second \(\)
+	   <a href="eval.html#...">...</a>
+|<a href="pattern.html#/\9">/\9</a>|	\9	\9	Like &quot;\1&quot;, but uses ninth \(\)
+
+								*<a name="E68"></A><b>E68</b>*
+|<a href="syntax.html#/\z1">/\z1</a>|	\z1	\z1	only for <a href="syntax.html#syntax">syntax</a> highlighting, see |<a href="syntax.html#:syn-ext-match">:syn-ext-match</a>|
+	   <a href="eval.html#...">...</a>
+|<a href="syntax.html#/\z1">/\z1</a>|	\z9	\z9	only for <a href="syntax.html#syntax">syntax</a> highlighting, see |<a href="syntax.html#:syn-ext-match">:syn-ext-match</a>|
+
+	<a href="change.html#x">x</a>	<a href="change.html#x">x</a>	a character with no special meaning matches itself
+
+|<a href="pattern.html#/[]">/[]</a>|	[]	\[]	any character specified inside the []
+|<a href="pattern.html#/\&#37;[]">/\&#37;[]</a>| \&#37;[]	\&#37;[]	a sequence of optionally matched atoms
+
+|<a href="pattern.html#/\c">/\c</a>|	\c	\c	ignore <a href="change.html#case">case</a>, <a href="diff.html#do">do</a> not use the <a href="options.html#'ignorecase'">'ignorecase'</a> option
+|<a href="pattern.html#/\C">/\C</a>|	\C	\C	match <a href="change.html#case">case</a>, <a href="diff.html#do">do</a> not use the <a href="options.html#'ignorecase'">'ignorecase'</a> option
+|<a href="pattern.html#/\m">/\m</a>|	\m	\m	<a href="options.html#'magic'">'magic'</a> on for the following chars in the <a href="pattern.html#pattern">pattern</a>
+|<a href="pattern.html#/\M">/\M</a>|	\M	\M	<a href="options.html#'magic'">'magic'</a> off for the following chars in the <a href="pattern.html#pattern">pattern</a>
+|<a href="pattern.html#/\v">/\v</a>|	\v	\v	the following chars in the <a href="pattern.html#pattern">pattern</a> are &quot;very magic&quot;
+|<a href="pattern.html#/\V">/\V</a>|	\V	\V	the following chars in the <a href="pattern.html#pattern">pattern</a> are &quot;very nomagic&quot;
+|<a href="pattern.html#/\Z">/\Z</a>|	\Z	\Z	ignore differences in <a href="mbyte.html#Unicode">Unicode</a> &quot;combining characters&quot;.
+			Useful when searching voweled Hebrew or <a href="arabic.html#Arabic">Arabic</a> text.
+
+|<a href="pattern.html#/\&#37;d">/\&#37;d</a>|	\&#37;d	\&#37;d	match specified decimal character (eg \&#37;d123)
+|<a href="pattern.html#/\&#37;x">/\&#37;x</a>|	\&#37;x	\&#37;x	match specified hex character (eg \&#37;x2a)
+|<a href="pattern.html#/\&#37;o">/\&#37;o</a>|	\&#37;o	\&#37;o	match specified <a href="eval.html#octal">octal</a> character (eg \&#37;o040)
+|<a href="pattern.html#/\&#37;u">/\&#37;u</a>|	\&#37;u	\&#37;u	match specified <a href="mbyte.html#multibyte">multibyte</a> character (eg \&#37;u20ac)
+|<a href="pattern.html#/\&#37;U">/\&#37;U</a>|	\&#37;U	\&#37;U	match specified large <a href="mbyte.html#multibyte">multibyte</a> character (eg
+			\&#37;U12345678)
+
+<b><font color="purple">Example			matches </font></b>
+\&lt;\I\i*		or
+\&lt;\h\w*
+\&lt;[a-zA-Z_][a-zA-Z0-9_]*
+			An identifier (e.g., in a C program).
+
+\(\.$\|\. \)		A period followed by <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a> or a space.
+
+[.!?][])&quot;']*\($\|[ ]\)	A search <a href="pattern.html#pattern">pattern</a> that finds the end of a <a href="motion.html#sentence">sentence</a>,
+			with almost the same definition <a href="motion.html#as">as</a> the &quot;<a href="motion.html#)">)</a>&quot; command.
+
+cat\Z			Both &quot;cat&quot; and &quot;càt&quot; (&quot;a&quot; followed by 0x0300)
+			Does not match &quot;càt&quot; (character 0x00e0), even
+			though it may look the same.
+
+
+==============================================================================
+
+5. Multi items						*<a name="pattern-multi-items"></A><b>pattern-multi-items</b>*
+
+An atom can be followed by an indication of how many times the atom can be
+matched and in what way.  This is called a multi.  See |<a href="pattern.html#/multi">/multi</a>| for an
+overview.
+
+
+						*<a name="/star"></A><b>/star</b>* *<a name="/\star"></A><b>/\star</b>* *<a name="E56"></A><b>E56</b>*
+*	(use \* when <a href="options.html#'magic'">'magic'</a> is not set)
+	Matches 0 or more of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible.
+<b><font color="purple">	Example  'nomagic'	matches </font></b>
+	a*	   a\*		&quot;&quot;, &quot;<a href="insert.html#a">a</a>&quot;, &quot;aa&quot;, &quot;aaa&quot;, etc.
+	.*	   \.\*		anything, also an empty string, no end-of-line
+	\_.*	   \_.\*	everything up to the end of the buffer
+	\_.*END	   \_.\*END	everything up to and including the last &quot;END&quot;
+				in the buffer
+
+	Exception: When &quot;*&quot; is used at the start of the <a href="pattern.html#pattern">pattern</a> or just after
+	&quot;<a href="motion.html#^">^</a>&quot; it matches the <a href="pattern.html#star">star</a> character.
+
+	Be aware that <a href="repeat.html#repeating">repeating</a> &quot;\_.&quot; can match a lot of text and take a long
+	time.  For example, &quot;\_.*END&quot; matches all text from the current
+	position to the last occurrence of &quot;END&quot; in the file.  Since the &quot;*&quot;
+	will match <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible, this first skips over all lines until
+	the end of the file and then tries matching &quot;END&quot;, backing up one
+	character at a time.
+
+
+							*<a name="/\+"></A><b>/\+</b>* *<a name="E57"></A><b>E57</b>*
+\+	Matches 1 or more of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible. {not in
+	Vi}
+<b><font color="purple">	Example		matches </font></b>
+	^.\+$		any non-empty line
+	\s\+		white space of at least one character
+
+
+							*<a name="/\="></A><b>/\=</b>*
+\=	Matches 0 or 1 of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible. {not in Vi}
+<b><font color="purple">	Example		matches </font></b>
+	foo\=		&quot;fo&quot; and &quot;foo&quot;
+
+
+							*<a name="/\?"></A><b>/\?</b>*
+\?	Just like \=.  Cannot be used when searching backwards with the &quot;<a href="pattern.html#?">?</a>&quot;
+	command. {not in Vi}
+
+
+						*<a name="/\{"></A><b>/\{</b>* *<a name="E58"></A><b>E58</b>* *<a name="E60"></A><b>E60</b>* *<a name="E554"></A><b>E554</b>*
+\{n,m}	Matches <a href="pattern.html#n">n</a> to <a href="motion.html#m">m</a> of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible
+\{n}	Matches <a href="pattern.html#n">n</a> of the preceding atom
+\{n,}	Matches at least <a href="pattern.html#n">n</a> of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible
+\{,m}	Matches 0 to <a href="motion.html#m">m</a> of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible
+\{}	Matches 0 or more of the preceding atom, <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a> possible (like *)
+
+							*<a name="/\{-"></A><b>/\{-</b>*
+\{-n,m}	matches <a href="pattern.html#n">n</a> to <a href="motion.html#m">m</a> of the preceding atom, <a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible
+\{-n}	matches <a href="pattern.html#n">n</a> of the preceding atom
+\{-n,}	matches at least <a href="pattern.html#n">n</a> of the preceding atom, <a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible
+\{-,m}	matches 0 to <a href="motion.html#m">m</a> of the preceding atom, <a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible
+\{-}	matches 0 or more of the preceding atom, <a href="motion.html#as">as</a> few <a href="motion.html#as">as</a> possible
+	{Vi does not have any of these}
+
+	<a href="pattern.html#n">n</a> and <a href="motion.html#m">m</a> are positive decimal numbers or zero
+
+								*<a name="non-greedy"></A><b>non-greedy</b>*
+	If a &quot;<a href="motion.html#-">-</a>&quot; appears immediately after the &quot;<a href="motion.html#{">{</a>&quot;, then a shortest match
+	first algorithm is used (see example below).  In particular, &quot;\{-}&quot; is
+	the same <a href="motion.html#as">as</a> &quot;*&quot; but uses the shortest match first algorithm.  BUT: A
+	match that starts earlier is preferred over a shorter match: &quot;a\{-}b&quot;
+	matches &quot;aaab&quot; in &quot;xaaab&quot;.
+
+<b><font color="purple">	Example			matches </font></b>
+	ab\{2,3}c		&quot;abbc&quot; or &quot;abbbc&quot;
+	a\{5}			&quot;aaaaa&quot;
+	ab\{2,}c		&quot;abbc&quot;, &quot;abbbc&quot;, &quot;abbbbc&quot;, etc.
+	ab\{,3}c		&quot;ac&quot;, &quot;abc&quot;, &quot;abbc&quot; or &quot;abbbc&quot;
+	a[bc]\{3}d		&quot;abbbd&quot;, &quot;abbcd&quot;, &quot;acbcd&quot;, &quot;acccd&quot;, etc.
+	a\(bc\)\{1,2}d		&quot;abcd&quot; or &quot;abcbcd&quot;
+	a[bc]\{-}[cd]		&quot;abc&quot; in &quot;abcd&quot;
+	a[bc]*[cd]		&quot;abcd&quot; in &quot;abcd&quot;
+
+	The } may optionally be preceded with a <a href="intro.html#backslash">backslash</a>: \{n,m\}.
+
+
+							*<a name="/\@="></A><b>/\@=</b>*
+\@=	Matches the preceding atom with zero width. {not in Vi}
+	Like &quot;(?=pattern)&quot; in <a href="if_perl.html#Perl">Perl</a>.
+<b><font color="purple">	Example			matches </font></b>
+	foo\(bar\)\@=		&quot;foo&quot; in &quot;foobar&quot;
+	foo\(bar\)\@=foo	nothing
+
+							*<a name="/zero-width"></A><b>/zero-width</b>*
+	When using &quot;\@=&quot; (or &quot;<a href="motion.html#^">^</a>&quot;, &quot;<a href="motion.html#$">$</a>&quot;, &quot;\&lt;&quot;, &quot;\&gt;&quot;) no characters are included
+	in the match.  These items are only used to check if a match can be
+	made.  This can be tricky, because a match with following items will
+	be done in the same position.  The last example above will not match
+	&quot;foobarfoo&quot;, because it tries match &quot;foo&quot; in the same position where
+	&quot;<a href="motion.html#bar">bar</a>&quot; matched.
+
+	Note that using &quot;\&amp;&quot; works the same <a href="motion.html#as">as</a> using &quot;\@=&quot;: &quot;foo\&amp;..&quot; is the
+	same <a href="motion.html#as">as</a> &quot;\(foo\)\@=..&quot;.  But using &quot;\&amp;&quot; is easier, you don't need the
+	braces.
+
+
+
+							*<a name="/\@!"></A><b>/\@!</b>*
+\@!	Matches with zero width if the preceding atom does NOT match at the
+	current position. |<a href="pattern.html#/zero-width">/zero-width</a>| {not in Vi}
+	Like '(?!pattern)&quot; in <a href="if_perl.html#Perl">Perl</a>.
+<b><font color="purple">	Example			matches </font></b>
+	foo\(bar\)\@!		any &quot;foo&quot; not followed by &quot;<a href="motion.html#bar">bar</a>&quot;
+	a.\{-}p\@!		&quot;<a href="insert.html#a">a</a>&quot;, &quot;<a href="motion.html#ap">ap</a>&quot;, &quot;app&quot;, etc. not followed by a &quot;<a href="change.html#p">p</a>&quot;
+	if \(\(then\)\@!.\)*$	&quot;if &quot; not followed by &quot;then&quot;
+
+	Using &quot;\@!&quot; is tricky, because there are many places where a <a href="pattern.html#pattern">pattern</a>
+	does not match.  &quot;a.*p\@!&quot; will match from an &quot;<a href="insert.html#a">a</a>&quot; to the end of the
+	line, because &quot;.*&quot; can match all characters in the line and the &quot;<a href="change.html#p">p</a>&quot;
+	doesn't match at the end of the line.  &quot;a.\{-}p\@!&quot; will match any
+	&quot;<a href="insert.html#a">a</a>&quot;, &quot;<a href="motion.html#ap">ap</a>&quot;, &quot;aap&quot;, etc. that isn't followed by a &quot;<a href="change.html#p">p</a>&quot;, because the &quot;<a href="repeat.html#.">.</a>&quot;
+	can match a &quot;<a href="change.html#p">p</a>&quot; and &quot;p\@!&quot; doesn't match after that.
+
+	You can't use &quot;\@!&quot; to look for a non-match before the matching
+	position: &quot;\(foo\)\@!bar&quot; will match &quot;<a href="motion.html#bar">bar</a>&quot; in &quot;foobar&quot;, because at the
+	position where &quot;<a href="motion.html#bar">bar</a>&quot; matches, &quot;foo&quot; does not match.  To avoid matching
+	&quot;foobar&quot; you could use &quot;\(foo\)\@!...bar&quot;, but that doesn't match a
+	<a href="motion.html#bar">bar</a> at the start of a line.  Use &quot;\(foo\)\@&lt;!bar&quot;.
+
+
+							*<a name="/\@&lt;="></A><b>/\@&lt;=</b>*
+\@&lt;=	Matches with zero width if the preceding atom matches just before what
+	follows. |<a href="pattern.html#/zero-width">/zero-width</a>| {not in Vi}
+	Like '(?&lt;=pattern)&quot; in <a href="if_perl.html#Perl">Perl</a>, but Vim allows non-fixed-width patterns.
+<b><font color="purple">	Example			matches </font></b>
+	\(an\_s\+\)\@&lt;=file	&quot;file&quot; after &quot;an&quot; and white space or an
+				end-of-line
+	For speed it's often much better to avoid this multi.  Try using &quot;\zs&quot;
+	instead |<a href="pattern.html#/\zs">/\zs</a>|.  To match the same <a href="motion.html#as">as</a> the above example:
+		an\_s\+\zsfile
+
+	&quot;\@&lt;=&quot; and &quot;\@&lt;!&quot; check for matches just before what follows.
+	Theoretically these matches could start anywhere before this position.
+	But to limit the time needed, only the line where what follows matches
+	is searched, and one line before that (if there is one).  This should
+	be sufficient to match most things and not be too slow.
+	The part of the <a href="pattern.html#pattern">pattern</a> after &quot;\@&lt;=&quot; and &quot;\@&lt;!&quot; are checked for a
+	match first, thus things like &quot;\1&quot; don't work to reference \(\) inside
+	the preceding atom.  It does work the other way around:
+<b><font color="purple">	Example			matches </font></b>
+	\1\@&lt;=,\([a-z]\+\)	&quot;,abc&quot; in &quot;abc,abc&quot;
+
+
+							*<a name="/\@&lt;!"></A><b>/\@&lt;!</b>*
+\@&lt;!	Matches with zero width if the preceding atom does NOT match just
+	before what follows.  Thus this matches if there is no position in the
+	current or previous line where the atom matches such that it ends just
+	before what follows.  |<a href="pattern.html#/zero-width">/zero-width</a>| {not in Vi}
+	Like '(?&lt;!pattern)&quot; in <a href="if_perl.html#Perl">Perl</a>, but Vim allows non-fixed-width patterns.
+	The match with the preceding atom is made to end just before the match
+	with what follows, thus an atom that ends in &quot;.*&quot; will work.
+	Warning: This can be slow (because many positions need to be checked
+	for a match).
+<b><font color="purple">	Example			matches </font></b>
+	\(foo\)\@&lt;!bar		any &quot;<a href="motion.html#bar">bar</a>&quot; that's not in &quot;foobar&quot;
+	\(\/\/.*\)\@&lt;!in	&quot;in&quot; which is not after &quot;<a href="version7.html#//">//</a>&quot;
+
+
+							*<a name="/\@&gt;"></A><b>/\@&gt;</b>*
+\@&gt;	Matches the preceding atom like matching a whole <a href="pattern.html#pattern">pattern</a>. {not in Vi}
+	Like &quot;(?&gt;pattern)&quot; in <a href="if_perl.html#Perl">Perl</a>.
+<b><font color="purple">	Example		matches </font></b>
+	\(a*\)\@&gt;a	nothing (the &quot;a*&quot; takes all the &quot;a&quot;'s, there can't be
+			another one following)
+
+	This matches the preceding atom <a href="motion.html#as">as</a> if it was a <a href="pattern.html#pattern">pattern</a> by itself.  If
+	it doesn't match, there is no retry with shorter sub-matches or
+	anything.  Observe this difference: &quot;a*b&quot; and &quot;a*ab&quot; both match
+	&quot;aaab&quot;, but in the second <a href="change.html#case">case</a> the &quot;a*&quot; matches only the first two
+	&quot;a&quot;s.  &quot;\(a*\)\@&gt;ab&quot; will not match &quot;aaab&quot;, because the &quot;a*&quot; matches
+	the &quot;aaa&quot; (as many &quot;<a href="insert.html#a">a</a>&quot;s <a href="motion.html#as">as</a> possible), thus the &quot;<a href="motion.html#ab">ab</a>&quot; can't match.
+
+
+==============================================================================
+
+6.  Ordinary atoms					*<a name="pattern-atoms"></A><b>pattern-atoms</b>*
+
+An ordinary atom can be:
+
+
+							*<a name="/^"></A><b>/^</b>*
+^	At beginning of <a href="pattern.html#pattern">pattern</a> or after &quot;\|&quot;, &quot;\(&quot;, &quot;\&#37;(&quot; or &quot;\n&quot;: matches
+	start-of-line; at other positions, matches literal '<a href="motion.html#^">^</a>'. |<a href="pattern.html#/zero-width">/zero-width</a>|
+<b><font color="purple">	Example		matches </font></b>
+	^beep(		the start of the C function &quot;beep&quot; (probably).
+
+
+							*<a name="/\^"></A><b>/\^</b>*
+\^	Matches literal '<a href="motion.html#^">^</a>'.  Can be used at any position in the <a href="pattern.html#pattern">pattern</a>.
+
+
+							*<a name="/\_^"></A><b>/\_^</b>*
+\_^	Matches start-of-line. |<a href="pattern.html#/zero-width">/zero-width</a>|  Can be used at any position in
+	the <a href="pattern.html#pattern">pattern</a>.
+<b><font color="purple">	Example		matches </font></b>
+	\_s*\_^foo	white space and blank lines and then &quot;foo&quot; at
+			start-of-line
+
+
+							*<a name="/$"></A><b>/$</b>*
+$	At end of <a href="pattern.html#pattern">pattern</a> or in front of &quot;\|&quot;, &quot;\)&quot; or &quot;\n&quot; ('magic' on):
+	matches end-of-line <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>; at other positions, matches literal '<a href="motion.html#$">$</a>'.
+	|<a href="pattern.html#/zero-width">/zero-width</a>|
+
+
+							*<a name="/\$"></A><b>/\$</b>*
+\$	Matches literal '<a href="motion.html#$">$</a>'.  Can be used at any position in the <a href="pattern.html#pattern">pattern</a>.
+
+
+							*<a name="/\_$"></A><b>/\_$</b>*
+\_$	Matches end-of-line. |<a href="pattern.html#/zero-width">/zero-width</a>|  Can be used at any position in the
+	<a href="pattern.html#pattern">pattern</a>.  Note that &quot;a\_$b&quot; never matches, since &quot;<a href="motion.html#b">b</a>&quot; cannot match an
+	end-of-line.  Use &quot;a\nb&quot; instead |<a href="pattern.html#/\n">/\n</a>|.
+<b><font color="purple">	Example		matches </font></b>
+	foo\_$\_s*	&quot;foo&quot; at end-of-line and following white space and
+			blank lines
+
+
+.	(with <a href="options.html#'nomagic'">'nomagic'</a>: \.)				*<a name="/."></A><b>/.</b>* *<a name="/\."></A><b>/\.</b>*
+	Matches any single character, but not an end-of-line.
+
+
+							*<a name="/\_."></A><b>/\_.</b>*
+\_.	Matches any single character or end-of-line.
+	Careful: &quot;\_.*&quot; matches all text to the end of the buffer!
+
+
+							*<a name="/\&lt;"></A><b>/\&lt;</b>*
+\&lt;	Matches the beginning of a <a href="motion.html#word">word</a>: The next char is the first char of a
+	<a href="motion.html#word">word</a>.  The <a href="options.html#'iskeyword'">'iskeyword'</a> option specifies what is a <a href="motion.html#word">word</a> character.
+	|<a href="pattern.html#/zero-width">/zero-width</a>|
+
+
+							*<a name="/\&gt;"></A><b>/\&gt;</b>*
+\&gt;	Matches the end of a <a href="motion.html#word">word</a>: The previous char is the last char of a
+	<a href="motion.html#word">word</a>.  The <a href="options.html#'iskeyword'">'iskeyword'</a> option specifies what is a <a href="motion.html#word">word</a> character.
+	|<a href="pattern.html#/zero-width">/zero-width</a>|
+
+
+							*<a name="/\zs"></A><b>/\zs</b>*
+\zs	Matches at any position, and sets the start of the match there: The
+	next char is the first char of the whole match. |<a href="pattern.html#/zero-width">/zero-width</a>|
+	Example:
+<b>		/^\s*\zsif</b>
+ 	matches an &quot;if&quot; at the start of a line, ignoring white space.
+	Can be used multiple times, the last one encountered in a matching
+	branch is used.  Example:
+<b>		/\(.\{-}\zsFab\)\{3}</b>
+ 	Finds the third occurrence of &quot;Fab&quot;.
+	{not in Vi} {not available when compiled without the |<a href="various.html#+syntax">+syntax</a>| feature}
+
+							*<a name="/\ze"></A><b>/\ze</b>*
+\ze	Matches at any position, and sets the end of the match there: The
+	previous char is the last char of the whole match. |<a href="pattern.html#/zero-width">/zero-width</a>|
+	Can be used multiple times, the last one encountered in a matching
+	branch is used.
+	Example: &quot;end\ze\(if\|for\)&quot; matches the &quot;end&quot; in &quot;endif&quot; and
+	&quot;endfor&quot;.
+	{not in Vi} {not available when compiled without the |<a href="various.html#+syntax">+syntax</a>| feature}
+
+
+						*<a name="/\&#37;^"></A><b>/\&#37;^</b>* *<a name="start-of-file"></A><b>start-of-file</b>*
+\&#37;^	Matches start of the file.  When matching with a string, matches the
+	start of the string. {not in Vi}
+	For example, to find the first &quot;VIM&quot; in a file:
+<b>		/\%^\_.\{-}\zsVIM</b>
+ 
+
+						*<a name="/\&#37;$"></A><b>/\&#37;$</b>* *<a name="end-of-file"></A><b>end-of-file</b>*
+\&#37;$	Matches end of the file.  When matching with a string, matches the
+	end of the string. {not in Vi}
+	Note that this does NOT find the last &quot;VIM&quot; in a file:
+<b>		/VIM\_.\{-}\%$</b>
+ 	It will find the next VIM, because the part after it will always
+	match.  This one will find the last &quot;VIM&quot; in the file:
+<b>		/VIM\ze\(\(VIM\)\@!\_.\)*\%$</b>
+ 	This uses |<a href="pattern.html#/\@!">/\@!</a>| to ascertain that &quot;VIM&quot; does NOT match in any
+	position after the first &quot;VIM&quot;.
+	Searching from the end of the file backwards is easier!
+
+
+						*<a name="/\&#37;V"></A><b>/\&#37;V</b>*
+\&#37;V	Match inside the <a href="visual.html#Visual">Visual</a> area.  When <a href="visual.html#Visual">Visual</a> mode has already been
+	stopped match in the area that |<a href="visual.html#gv">gv</a>| would reselect.
+	This is a |<a href="pattern.html#/zero-width">/zero-width</a>| match.  To make sure the whole <a href="pattern.html#pattern">pattern</a> is
+	inside the <a href="visual.html#Visual">Visual</a> area put it at the start and end of the <a href="pattern.html#pattern">pattern</a>,
+	e.g.:
+<b>		/\%Vfoo.*bar\%V</b>
+ 	Only works for the current buffer.
+
+
+						*<a name="/\&#37;#"></A><b>/\&#37;#</b>* *<a name="cursor-position"></A><b>cursor-position</b>*
+\&#37;#	Matches with the cursor position.  Only works when matching in a
+	buffer displayed in a <a href="windows.html#window">window</a>. {not in Vi}
+	WARNING: When the cursor is moved after the <a href="pattern.html#pattern">pattern</a> was used, the
+	result becomes invalid.  Vim doesn't automatically update the matches.
+	This is especially relevant for <a href="syntax.html#syntax">syntax</a> highlighting and <a href="options.html#'hlsearch'">'hlsearch'</a>.
+	In other words: When the cursor moves the display isn't updated for
+	this change.  An update is done for lines which are changed (the whole
+	line is updated) or when using the |<a href="various.html#CTRL-L">CTRL-L</a>| command (the whole screen
+	is updated).  Example, to highlight the <a href="motion.html#word">word</a> under the cursor:
+<b>		/\k*\%#\k*</b>
+ 	When <a href="options.html#'hlsearch'">'hlsearch'</a> is set and you move the cursor around and make changes
+	this will clearly show when the match is updated or not.
+
+
+						*<a name="/\&#37;'m"></A><b>/\&#37;'m</b>* *<a name="/\&#37;&lt;'m"></A><b>/\&#37;&lt;'m</b>* *<a name="/\&#37;&gt;'m"></A><b>/\&#37;&gt;'m</b>*
+\&#37;'m	Matches with the position of <a href="motion.html#mark">mark</a> <a href="motion.html#m">m</a>.
+\&#37;&lt;'m	Matches before the position of <a href="motion.html#mark">mark</a> <a href="motion.html#m">m</a>.
+\&#37;&gt;'m	Matches after the position of <a href="motion.html#mark">mark</a> <a href="motion.html#m">m</a>.
+	Example, to highlight the text from <a href="motion.html#mark">mark</a> 's to 'e:
+<b>		/.\%&gt;'s.*\%&lt;'e..</b>
+ 	Note that two dots are required to include <a href="motion.html#mark">mark</a> 'e in the match.  That
+	is because &quot;\&#37;&lt;'e&quot; matches at the character before the 'e <a href="motion.html#mark">mark</a>, and
+	since it's a |<a href="pattern.html#/zero-width">/zero-width</a>| match it doesn't include that character.
+	{not in Vi}
+	WARNING: When the <a href="motion.html#mark">mark</a> is moved after the <a href="pattern.html#pattern">pattern</a> was used, the result
+	becomes invalid.  Vim doesn't automatically update the matches.
+	Similar to moving the cursor for &quot;\&#37;#&quot; |<a href="pattern.html#/\&#37;#">/\&#37;#</a>|.
+
+
+						*<a name="/\&#37;l"></A><b>/\&#37;l</b>* *<a name="/\&#37;&gt;l"></A><b>/\&#37;&gt;l</b>* *<a name="/\&#37;&lt;l"></A><b>/\&#37;&lt;l</b>*
+\&#37;23l	Matches in a specific line.
+\&#37;&lt;23l	Matches above a specific line (lower line number).
+\&#37;&gt;23l	Matches below a specific line (higher line number).
+	These three can be used to match specific lines in a buffer.  The &quot;23&quot;
+	can be any line number.  The first line is 1. {not in Vi}
+	WARNING: When <a href="insert.html#inserting">inserting</a> or <a href="change.html#deleting">deleting</a> lines Vim does not automatically
+	update the matches.  This means <a href="autocmd.html#Syntax">Syntax</a> highlighting quickly becomes
+	wrong.
+	Example, to highlight the line where the cursor currently is:
+<b>		:exe '/\%' . line(".") . 'l.*'</b>
+ 	When <a href="options.html#'hlsearch'">'hlsearch'</a> is set and you move the cursor around and make changes
+	this will clearly show when the match is updated or not.
+
+
+						*<a name="/\&#37;c"></A><b>/\&#37;c</b>* *<a name="/\&#37;&gt;c"></A><b>/\&#37;&gt;c</b>* *<a name="/\&#37;&lt;c"></A><b>/\&#37;&lt;c</b>*
+\&#37;23c	Matches in a specific column.
+\&#37;&lt;23c	Matches before a specific column.
+\&#37;&gt;23c	Matches after a specific column.
+	These three can be used to match specific columns in a buffer or
+	string.  The &quot;23&quot; can be any column number.  The first column is 1.
+	Actually, the column is the byte number (thus it's not exactly right
+	for <a href="mbyte.html#multi-byte">multi-byte</a> characters).  {not in Vi}
+	WARNING: When <a href="insert.html#inserting">inserting</a> or <a href="change.html#deleting">deleting</a> text Vim does not automatically
+	update the matches.  This means <a href="autocmd.html#Syntax">Syntax</a> highlighting quickly becomes
+	wrong.
+	Example, to highlight the column where the cursor currently is:
+<b>		:exe '/\%' . col(".") . 'c'</b>
+ 	When <a href="options.html#'hlsearch'">'hlsearch'</a> is set and you move the cursor around and make changes
+	this will clearly show when the match is updated or not.
+	Example for matching a single byte in column 44:
+<b>		/\%&gt;43c.\%&lt;46c</b>
+ 	Note that &quot;\&#37;&lt;46c&quot; matches in column 45 when the &quot;<a href="repeat.html#.">.</a>&quot; matches a byte in
+	column 44.
+
+						*<a name="/\&#37;v"></A><b>/\&#37;v</b>* *<a name="/\&#37;&gt;v"></A><b>/\&#37;&gt;v</b>* *<a name="/\&#37;&lt;v"></A><b>/\&#37;&lt;v</b>*
+\&#37;23v	Matches in a specific virtual column.
+\&#37;&lt;23v	Matches before a specific virtual column.
+\&#37;&gt;23v	Matches after a specific virtual column.
+	These three can be used to match specific virtual columns in a buffer
+	or string.  When not matching with a buffer in a <a href="windows.html#window">window</a>, the option
+	values of the current <a href="windows.html#window">window</a> are used (e.g., <a href="options.html#'tabstop'">'tabstop'</a>).
+	The &quot;23&quot; can be any column number.  The first column is 1.
+	Note that some virtual column positions will never match, because they
+	are halfway through a <a href="intro.html#tab">tab</a> or other character that occupies more than
+	one screen character.  {not in Vi}
+	WARNING: When <a href="insert.html#inserting">inserting</a> or <a href="change.html#deleting">deleting</a> text Vim does not automatically
+	update highlighted matches.  This means <a href="autocmd.html#Syntax">Syntax</a> highlighting quickly
+	becomes wrong.
+	Example, to highlight all the characters after virtual column 72:
+<b>		/\%&gt;72v.*</b>
+ 	When <a href="options.html#'hlsearch'">'hlsearch'</a> is set and you move the cursor around and make changes
+	this will clearly show when the match is updated or not.
+	To match the text up to column 17:
+<b>		/.*\%17v</b>
+ 	Column 17 is included, because that's where the &quot;\&#37;17v&quot; matches,
+	even though this is a |<a href="pattern.html#/zero-width">/zero-width</a>| match.  Adding a dot to match the
+	next character has the same result:
+<b>		/.*\%17v.</b>
+ 	This command does the same thing, but also matches when there is no
+	character in column 17:
+<b>		/.*\%&lt;18v.</b>
+ 
+
+Character classes: {not in Vi}
+
+\i	identifier character (see <a href="options.html#'isident'">'isident'</a> option)	*<a name="/\i"></A><b>/\i</b>*
+
+\I	like &quot;\i&quot;, but excluding digits			*<a name="/\I"></A><b>/\I</b>*
+
+\k	keyword character (see <a href="options.html#'iskeyword'">'iskeyword'</a> option)	*<a name="/\k"></A><b>/\k</b>*
+
+\K	like &quot;\k&quot;, but excluding digits			*<a name="/\K"></A><b>/\K</b>*
+
+\f	file name character (see <a href="options.html#'isfname'">'isfname'</a> option)	*<a name="/\f"></A><b>/\f</b>*
+
+\F	like &quot;\f&quot;, but excluding digits			*<a name="/\F"></A><b>/\F</b>*
+
+\p	printable character (see <a href="options.html#'isprint'">'isprint'</a> option)	*<a name="/\p"></A><b>/\p</b>*
+
+\P	like &quot;\p&quot;, but excluding digits			*<a name="/\P"></A><b>/\P</b>*
+
+NOTE: the above also work for <a href="mbyte.html#multi-byte">multi-byte</a> characters.  The ones below only
+match ASCII characters, <a href="motion.html#as">as</a> indicated by the range.
+
+
+						*<a name="whitespace"></A><b>whitespace</b>* *<a name="white-space"></A><b>white-space</b>*
+
+\s	<a href="pattern.html#whitespace">whitespace</a> character: <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> and <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>		*<a name="/\s"></A><b>/\s</b>*
+
+\S	non-whitespace character; opposite of \s	*<a name="/\S"></A><b>/\S</b>*
+
+\d	digit:				[0-9]		*<a name="/\d"></A><b>/\d</b>*
+
+\D	non-digit:			[^0-9]		*<a name="/\D"></A><b>/\D</b>*
+
+\x	hex digit:			[0-9A-Fa-f]	*<a name="/\x"></A><b>/\x</b>*
+
+\X	non-hex digit:			[^0-9A-Fa-f]	*<a name="/\X"></A><b>/\X</b>*
+
+\o	<a href="eval.html#octal">octal</a> digit:			[0-7]		*<a name="/\o"></A><b>/\o</b>*
+
+\O	non-octal digit:		[^0-7]		*<a name="/\O"></A><b>/\O</b>*
+
+\w	<a href="motion.html#word">word</a> character:			[0-9A-Za-z_]	*<a name="/\w"></A><b>/\w</b>*
+
+\W	non-word character:		[^0-9A-Za-z_]	*<a name="/\W"></A><b>/\W</b>*
+
+\h	head of <a href="motion.html#word">word</a> character:		[A-Za-z_]	*<a name="/\h"></A><b>/\h</b>*
+
+\H	non-head of <a href="motion.html#word">word</a> character:	[^A-Za-z_]	*<a name="/\H"></A><b>/\H</b>*
+
+\a	alphabetic character:		[A-Za-z]	*<a name="/\a"></A><b>/\a</b>*
+
+\A	non-alphabetic character:	[^A-Za-z]	*<a name="/\A"></A><b>/\A</b>*
+
+\l	<a href="change.html#lowercase">lowercase</a> character:		[a-z]		*<a name="/\l"></A><b>/\l</b>*
+
+\L	non-lowercase character:	[^a-z]		*<a name="/\L"></A><b>/\L</b>*
+
+\u	<a href="change.html#uppercase">uppercase</a> character:		[A-Z]		*<a name="/\u"></A><b>/\u</b>*
+
+\U	non-uppercase character		[^A-Z]		*<a name="/\U"></A><b>/\U</b>*
+
+	NOTE: Using the atom is faster than the <a href="motion.html#[]">[]</a> form.
+
+	NOTE: <a href="options.html#'ignorecase'">'ignorecase'</a>, &quot;\c&quot; and &quot;\C&quot; are not used by character classes.
+
+
+			*<a name="/\_"></A><b>/\_</b>* *<a name="E63"></A><b>E63</b>* *<a name="/\_i"></A><b>/\_i</b>* *<a name="/\_I"></A><b>/\_I</b>* *<a name="/\_k"></A><b>/\_k</b>* *<a name="/\_K"></A><b>/\_K</b>* *<a name="/\_f"></A><b>/\_f</b>* *<a name="/\_F"></A><b>/\_F</b>*
+
+			*<a name="/\_p"></A><b>/\_p</b>* *<a name="/\_P"></A><b>/\_P</b>* *<a name="/\_s"></A><b>/\_s</b>* *<a name="/\_S"></A><b>/\_S</b>* *<a name="/\_d"></A><b>/\_d</b>* *<a name="/\_D"></A><b>/\_D</b>* *<a name="/\_x"></A><b>/\_x</b>* *<a name="/\_X"></A><b>/\_X</b>*
+
+			*<a name="/\_o"></A><b>/\_o</b>* *<a name="/\_O"></A><b>/\_O</b>* *<a name="/\_w"></A><b>/\_w</b>* *<a name="/\_W"></A><b>/\_W</b>* *<a name="/\_h"></A><b>/\_h</b>* *<a name="/\_H"></A><b>/\_H</b>* *<a name="/\_a"></A><b>/\_a</b>* *<a name="/\_A"></A><b>/\_A</b>*
+
+			*<a name="/\_l"></A><b>/\_l</b>* *<a name="/\_L"></A><b>/\_L</b>* *<a name="/\_u"></A><b>/\_u</b>* *<a name="/\_U"></A><b>/\_U</b>*
+\_x	Where &quot;<a href="change.html#x">x</a>&quot; is any of the characters above: The character class with
+	end-of-line added
+(end of character classes)
+
+
+\e	matches <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>					*<a name="/\e"></A><b>/\e</b>*
+
+\t	matches <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>					*<a name="/\t"></A><b>/\t</b>*
+
+\r	matches <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>					*<a name="/\r"></A><b>/\r</b>*
+
+\b	matches <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>					*<a name="/\b"></A><b>/\b</b>*
+
+\n	matches an end-of-line				*<a name="/\n"></A><b>/\n</b>*
+	When matching in a string instead of buffer text a literal newline
+	character is matched.
+
+
+~	matches the last given substitute string	*<a name="/~"></A><b>/~</b>* *<a name="/\~"></A><b>/\~</b>*
+
+
+\(\)	A <a href="pattern.html#pattern">pattern</a> enclosed by escaped parentheses.	*<a name="/\("></A><b>/\(</b>* *<a name="/\(\)"></A><b>/\(\)</b>* *<a name="/\)"></A><b>/\)</b>*
+
+	E.g., &quot;\(^a\)&quot; matches '<a href="insert.html#a">a</a>' at the start of a line.  *<a name="E51"></A><b>E51</b>* *<a name="E54"></A><b>E54</b>* *<a name="E55"></A><b>E55</b>*
+
+
+\1      Matches the same string that was matched by	*<a name="/\1"></A><b>/\1</b>* *<a name="E65"></A><b>E65</b>*
+	the first sub-expression in \( and \). {not in Vi}
+	Example: &quot;\([a-z]\).\1&quot; matches &quot;ata&quot;, &quot;ehe&quot;, &quot;tot&quot;, etc.
+
+\2      Like &quot;\1&quot;, but uses second sub-expression,	*<a name="/\2"></A><b>/\2</b>*
+
+   <a href="eval.html#...">...</a>							*<a name="/\3"></A><b>/\3</b>*
+
+\9      Like &quot;\1&quot;, but uses ninth sub-expression.	*<a name="/\9"></A><b>/\9</b>*
+	Note: The numbering of groups is done based on which &quot;\(&quot; comes first
+	in the <a href="pattern.html#pattern">pattern</a> (going left to right), NOT based on what is matched
+	first.
+
+
+\&#37;(\)	A <a href="pattern.html#pattern">pattern</a> enclosed by escaped parentheses.	*<a name="/\&#37;(\)"></A><b>/\&#37;(\)</b>* *<a name="/\&#37;("></A><b>/\&#37;(</b>* *<a name="E53"></A><b>E53</b>*
+	Just like \(\), but without counting it <a href="motion.html#as">as</a> a sub-expression.  This
+	allows using more groups and it's a little bit faster.
+	{not in Vi}
+
+<a href="change.html#x">x</a>	A single character, with no special meaning, matches itself
+
+
+							*<a name="/\"></A><b>/\</b>* *<a name="/\\"></A><b>/\\</b>*
+\x	A <a href="intro.html#backslash">backslash</a> followed by a single character, with no special meaning,
+	is reserved for future expansions
+
+
+<a href="motion.html#[]">[]</a>	(with <a href="options.html#'nomagic'">'nomagic'</a>: \[])		*<a name="/[]"></A><b>/[]</b>* *<a name="/\[]"></A><b>/\[]</b>* *<a name="/\_[]"></A><b>/\_[]</b>* *<a name="/collection"></A><b>/collection</b>*
+\_[]
+	A collection.  This is a sequence of characters enclosed in brackets.
+	It matches any single character in the collection.
+<b><font color="purple">	Example		matches </font></b>
+	[xyz]		any '<a href="change.html#x">x</a>', '<a href="change.html#y">y</a>' or '<a href="index.html#z">z</a>'
+	[a-zA-Z]$	any alphabetic character at the end of a line
+	\c[a-z]$	same
+
+								*<a name="/[\n]"></A><b>/[\n]</b>*
+	With &quot;\_&quot; prepended the collection also includes the end-of-line.
+	The same can be done by including &quot;\n&quot; in the collection.  The
+	end-of-line is also matched when the collection starts with &quot;<a href="motion.html#^">^</a>&quot;!  Thus
+	&quot;\_[^ab]&quot; matches the end-of-line and any character but &quot;<a href="insert.html#a">a</a>&quot; and &quot;<a href="motion.html#b">b</a>&quot;.
+	This makes it <a href="intro.html#Vi">Vi</a> compatible: Without the &quot;\_&quot; or &quot;\n&quot; the collection
+	does not match an end-of-line.
+
+								*<a name="E769"></A><b>E769</b>*
+	When the '<a href="index.html#]">]</a>' is not there Vim will not give an error message but
+	assume no collection is used.  Useful to search for '<a href="index.html#[">[</a>'.  However, you
+	<a href="diff.html#do">do</a> get <a href="pattern.html#E769">E769</a> for internal searching.
+
+	If the sequence begins with &quot;<a href="motion.html#^">^</a>&quot;, it matches any single character NOT
+	in the collection: &quot;[^xyz]&quot; matches anything but '<a href="change.html#x">x</a>', '<a href="change.html#y">y</a>' and '<a href="index.html#z">z</a>'.
+	- If two characters in the sequence are separated by '<a href="motion.html#-">-</a>', this is
+	  shorthand for the full list of ASCII characters between them.  E.g.,
+	  &quot;[0-9]&quot; matches any decimal digit.  Non-ASCII characters can be
+	  used, but the character values must not be more than 256 apart.
+	- A character class <a href="eval.html#expression">expression</a> is evaluated to the set of characters
+	  belonging to that character class.  The following character classes
+	  are supported:
+<b><font color="purple">			  Name		Contents </font></b>
+
+*<a name="[:alnum:]"></A><b>[:alnum:]</b>*		  <a href="pattern.html#[:alnum:]">[:alnum:]</a>     letters and digits
+
+*<a name="[:alpha:]"></A><b>[:alpha:]</b>*		  <a href="pattern.html#[:alpha:]">[:alpha:]</a>     letters
+
+*<a name="[:blank:]"></A><b>[:blank:]</b>*		  <a href="pattern.html#[:blank:]">[:blank:]</a>     space and <a href="intro.html#tab">tab</a> characters
+
+*<a name="[:cntrl:]"></A><b>[:cntrl:]</b>*		  <a href="pattern.html#[:cntrl:]">[:cntrl:]</a>     <a href="intro.html#control">control</a> characters
+
+*<a name="[:digit:]"></A><b>[:digit:]</b>*		  <a href="pattern.html#[:digit:]">[:digit:]</a>     decimal digits
+
+*<a name="[:graph:]"></A><b>[:graph:]</b>*		  <a href="pattern.html#[:graph:]">[:graph:]</a>     printable characters excluding space
+
+*<a name="[:lower:]"></A><b>[:lower:]</b>*		  <a href="pattern.html#[:lower:]">[:lower:]</a>     <a href="change.html#lowercase">lowercase</a> letters (all letters when
+					<a href="options.html#'ignorecase'">'ignorecase'</a> is used)
+
+*<a name="[:print:]"></A><b>[:print:]</b>*		  <a href="pattern.html#[:print:]">[:print:]</a>     printable characters including space
+
+*<a name="[:punct:]"></A><b>[:punct:]</b>*		  <a href="pattern.html#[:punct:]">[:punct:]</a>     punctuation characters
+
+*<a name="[:space:]"></A><b>[:space:]</b>*		  <a href="pattern.html#[:space:]">[:space:]</a>     <a href="pattern.html#whitespace">whitespace</a> characters
+
+*<a name="[:upper:]"></A><b>[:upper:]</b>*		  <a href="pattern.html#[:upper:]">[:upper:]</a>     <a href="change.html#uppercase">uppercase</a> letters (all letters when
+					<a href="options.html#'ignorecase'">'ignorecase'</a> is used)
+
+*<a name="[:xdigit:]"></A><b>[:xdigit:]</b>*		  <a href="pattern.html#[:xdigit:]">[:xdigit:]</a>    hexadecimal digits
+
+*<a name="[:return:]"></A><b>[:return:]</b>*		  <a href="pattern.html#[:return:]">[:return:]</a>	the <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> character
+
+*<a name="[:tab:]"></A><b>[:tab:]</b>*		  <a href="pattern.html#[:tab:]">[:tab:]</a>	the <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> character
+
+*<a name="[:escape:]"></A><b>[:escape:]</b>*		  <a href="pattern.html#[:escape:]">[:escape:]</a>	the <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> character
+
+*<a name="[:backspace:]"></A><b>[:backspace:]</b>*		  <a href="pattern.html#[:backspace:]">[:backspace:]</a>	the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> character
+	  The brackets in character class expressions are additional to the
+	  brackets delimiting a collection.  For example, the following is a
+	  plausible <a href="pattern.html#pattern">pattern</a> for a UNIX filename: &quot;[-./[:alnum:]_~]\+&quot; That is,
+	  a list of at least one character, each of which is either '<a href="motion.html#-">-</a>', '<a href="repeat.html#.">.</a>',
+	  '<a href="pattern.html#/">/</a>', alphabetic, numeric, '<a href="motion.html#_">_</a>' or '<a href="change.html#~">~</a>'.
+	  These items only work for 8-bit characters.
+
+							*<a name="/[[="></A><b>/[[=</b>* *<a name="[==]"></A><b>[==]</b>*
+	- An equivalence class.  This means that characters are matched that
+	  have almost the same meaning, e.g., when ignoring accents.  The form
+	  is:
+		[=a=]
+	  Currently this is only implemented for latin1.  Also works for the
+	  latin1 characters in <a href="mbyte.html#utf-8">utf-8</a> and latin9.
+
+							*<a name="/[[."></A><b>/[[.</b>* *<a name="[..]"></A><b>[..]</b>*
+	- A collation element.  This currently simply accepts a single
+	  character in the form:
+		[.a.]
+
+							  *<a name="/\]"></A><b>/\]</b>*
+	- To include a literal '<a href="index.html#]">]</a>', '<a href="motion.html#^">^</a>', '<a href="motion.html#-">-</a>' or '\' in the collection, put a
+	  <a href="intro.html#backslash">backslash</a> before it: &quot;[xyz\]]&quot;, &quot;[\^xyz]&quot;, &quot;[xy\-z]&quot; and &quot;[xyz\\]&quot;.
+	  (Note: POSIX does not support the use of a <a href="intro.html#backslash">backslash</a> this way).  For
+	  '<a href="index.html#]">]</a>' you can also make it the first character (following a possible
+	  &quot;^&quot;):  &quot;[]xyz]&quot; or &quot;[^]xyz]&quot; {not in Vi}.
+	  For '<a href="motion.html#-">-</a>' you can also make it the first or last character: &quot;[-xyz]&quot;,
+	  &quot;[^-xyz]&quot; or &quot;[xyz-]&quot;.  For '\' you can also let it be followed by
+	  any character that's not in &quot;^]-\bdertnoUux&quot;.  &quot;[\xyz]&quot; matches '\',
+	  '<a href="change.html#x">x</a>', '<a href="change.html#y">y</a>' and '<a href="index.html#z">z</a>'.  It's better to use &quot;\\&quot; though, future expansions
+	  may use other characters after '\'.
+	- The following translations are accepted when the '<a href="motion.html#l">l</a>' flag is not
+	  included in <a href="options.html#'cpoptions'">'cpoptions'</a> {not in Vi}:
+		\e	<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>
+		\t	<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+		\r	<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>	(NOT end-of-line!)
+		\b	<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>
+		\n	line break, see above |<a href="pattern.html#/[\n]">/[\n]</a>|
+		\d123	decimal number of character
+		\o40	<a href="eval.html#octal">octal</a> number of character up to 0377
+		\x20	hexadecimal number of character up to 0xff
+		\u20AC	hex. number of <a href="mbyte.html#multibyte">multibyte</a> character up to 0xffff
+		\U1234	hex. number of <a href="mbyte.html#multibyte">multibyte</a> character up to 0xffffffff
+	  NOTE: The other <a href="intro.html#backslash">backslash</a> codes mentioned above <a href="diff.html#do">do</a> not work inside
+	  <a href="motion.html#[]">[]</a>!
+	- Matching with a collection can be slow, because each character in
+	  the text has to be compared with each character in the collection.
+	  Use one of the other atoms above when possible.  Example: &quot;\d&quot; is
+	  much faster than &quot;[0-9]&quot; and matches the same characters.
+
+
+						*<a name="/\&#37;[]"></A><b>/\&#37;[]</b>* *<a name="E69"></A><b>E69</b>* *<a name="E70"></A><b>E70</b>* *<a name="E369"></A><b>E369</b>*
+\&#37;[]	A sequence of optionally matched atoms.  This always matches.
+	It matches <a href="motion.html#as">as</a> much of the list of atoms it contains <a href="motion.html#as">as</a> possible.  Thus
+	it stops at the first atom that doesn't match.  For example:
+<b>		/r\%[ead]</b>
+ 	matches &quot;<a href="change.html#r">r</a>&quot;, &quot;re&quot;, &quot;rea&quot; or &quot;read&quot;.  The longest that matches is used.
+	To match the <a href="intro.html#Ex">Ex</a> command &quot;function&quot;, where &quot;fu&quot; is required and
+	&quot;nction&quot; is optional, this would work:
+<b>		/\&lt;fu\%[nction]\&gt;</b>
+ 	The end-of-word atom &quot;\&gt;&quot; is used to avoid matching &quot;fu&quot; in &quot;full&quot;.
+	It gets more complicated when the atoms are not ordinary characters.
+	You don't often have to use it, but it is possible.  Example:
+<b>		/\&lt;r\%[[eo]ad]\&gt;</b>
+ 	Matches the words &quot;<a href="change.html#r">r</a>&quot;, &quot;re&quot;, &quot;ro&quot;, &quot;rea&quot;, &quot;roa&quot;, &quot;read&quot; and &quot;road&quot;.
+	There can be no \(\), \&#37;(\) or \z(\) items inside the <a href="motion.html#[]">[]</a> and \&#37;[] does
+	not nest.
+	To include a &quot;<a href="index.html#[">[</a>&quot; use &quot;[[]&quot; and for &quot;<a href="index.html#]">]</a>&quot; use []]&quot;, e.g.,:
+<b>		/index\%[[[]0[]]]</b>
+ 	matches &quot;index&quot; &quot;index[&quot;, &quot;index[0&quot; and &quot;index[0]&quot;.
+	{not available when compiled without the |<a href="various.html#+syntax">+syntax</a>| feature}
+
+
+				*<a name="/\&#37;d"></A><b>/\&#37;d</b>* *<a name="/\&#37;x"></A><b>/\&#37;x</b>* *<a name="/\&#37;o"></A><b>/\&#37;o</b>* *<a name="/\&#37;u"></A><b>/\&#37;u</b>* *<a name="/\&#37;U"></A><b>/\&#37;U</b>* *<a name="E678"></A><b>E678</b>*
+
+\&#37;d123	Matches the character specified with a decimal number.  Must be
+	followed by a non-digit.
+\&#37;o40	Matches the character specified with an <a href="eval.html#octal">octal</a> number up to 0377.
+	Numbers below 040 must be followed by a non-octal digit or a non-digit.
+\&#37;x2a	Matches the character specified with up to two hexadecimal characters.
+\&#37;u20AC	Matches the character specified with up to four hexadecimal
+	characters.
+\&#37;U1234abcd	Matches the character specified with up to eight hexadecimal
+	characters.
+
+==============================================================================
+
+7. Ignoring <a href="change.html#case">case</a> in a <a href="pattern.html#pattern">pattern</a>					*<a name="/ignorecase"></A><b>/ignorecase</b>*
+
+If the <a href="options.html#'ignorecase'">'ignorecase'</a> option is on, the <a href="change.html#case">case</a> of normal letters is ignored.
+<a href="options.html#'smartcase'">'smartcase'</a> can be set to ignore <a href="change.html#case">case</a> when the <a href="pattern.html#pattern">pattern</a> contains <a href="change.html#lowercase">lowercase</a>
+letters only.
+
+							*<a name="/\c"></A><b>/\c</b>* *<a name="/\C"></A><b>/\C</b>*
+When &quot;\c&quot; appears anywhere in the <a href="pattern.html#pattern">pattern</a>, the whole <a href="pattern.html#pattern">pattern</a> is handled like
+<a href="options.html#'ignorecase'">'ignorecase'</a> is on.  The actual value of <a href="options.html#'ignorecase'">'ignorecase'</a> and <a href="options.html#'smartcase'">'smartcase'</a> is
+ignored.  &quot;\C&quot; does the opposite: Force matching <a href="change.html#case">case</a> for the whole <a href="pattern.html#pattern">pattern</a>.
+{only Vim supports \c and \C}
+Note that <a href="options.html#'ignorecase'">'ignorecase'</a>, &quot;\c&quot; and &quot;\C&quot; are not used for the character classes.
+
+Examples:
+<b><font color="purple">      pattern	'ignorecase'  'smartcase'	matches </font></b>
+	foo	  off		-		foo
+	foo	  on		-		foo Foo FOO
+	Foo	  on		off		foo Foo FOO
+	Foo	  on		on		    Foo
+	\cfoo	  -		-		foo Foo FOO
+	foo\C	  -		-		foo
+
+
+Technical detail:				*<a name="NL-used-for-Nul"></A><b>NL-used-for-Nul</b>*
+<a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a> characters in the file are stored <a href="motion.html#as">as</a> <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> in memory.  In the display
+they are shown <a href="motion.html#as">as</a> &quot;^@&quot;.  The translation is done when reading and <a href="editing.html#writing">writing</a>
+files.  To match a <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a> with a search <a href="pattern.html#pattern">pattern</a> you can just enter CTRL-@ or
+&quot;<a href="visual.html#CTRL-V">CTRL-V</a> 000&quot;.  This is probably just what you expect.  Internally the
+character is replaced with a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> in the search <a href="pattern.html#pattern">pattern</a>.  What is unusual is
+that typing <a href="visual.html#CTRL-V">CTRL-V</a> <a href="motion.html#CTRL-J">CTRL-J</a> also inserts a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>, thus also searches for a <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a>
+in the file.  {Vi cannot handle <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a> characters in the file at all}
+
+
+						*<a name="CR-used-for-NL"></A><b>CR-used-for-NL</b>*
+When <a href="options.html#'fileformat'">'fileformat'</a> is &quot;<a href="os_mac.html#mac">mac</a>&quot;, <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> characters in the file are stored <a href="motion.html#as">as</a> <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>
+characters internally.  In the text they are shown <a href="motion.html#as">as</a> &quot;^J&quot;.  Otherwise this
+works similar to the usage of <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> for a <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a>.
+
+When working with <a href="eval.html#expression">expression</a> evaluation, a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> character in the <a href="pattern.html#pattern">pattern</a>
+matches a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> in the string.  The use of &quot;\n&quot; (backslash <a href="pattern.html#n">n</a>) to match a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>
+doesn't work there, it only works to match text in the buffer.
+
+
+						*<a name="pattern-multi-byte"></A><b>pattern-multi-byte</b>*
+Patterns will also work with <a href="mbyte.html#multi-byte">multi-byte</a> characters, mostly <a href="motion.html#as">as</a> you would
+expect.  But invalid bytes may cause trouble, a <a href="pattern.html#pattern">pattern</a> with an invalid byte
+will probably never match.
+
+==============================================================================
+
+8. Composing characters					*<a name="patterns-composing"></A><b>patterns-composing</b>*
+
+
+							*<a name="/\Z"></A><b>/\Z</b>*
+When &quot;\Z&quot; appears anywhere in the <a href="pattern.html#pattern">pattern</a>, composing characters are ignored.
+Thus only the base characters need to match, the composing characters may be
+different and the number of composing characters may differ.  Only relevant
+when <a href="options.html#'encoding'">'encoding'</a> is &quot;<a href="mbyte.html#utf-8">utf-8</a>&quot;.
+
+When a composing character appears at the start of the <a href="pattern.html#pattern">pattern</a> of after an
+item that doesn't include the composing character, a match is found at any
+character that includes this composing character.
+
+When using a dot and a composing character, this works the same <a href="motion.html#as">as</a> the
+composing character by itself, except that it doesn't matter what comes before
+this.
+
+The order of composing characters matters, even though <a href="change.html#changing">changing</a> the order
+doesn't change what a character looks like.  This may change in the future.
+
+==============================================================================
+
+9. Compare with <a href="if_perl.html#Perl">Perl</a> patterns				*<a name="perl-patterns"></A><b>perl-patterns</b>*
+
+Vim's regexes are most similar to Perl's, in terms of what you can <a href="diff.html#do">do</a>.  The
+difference between them is mostly just <a href="intro.html#notation">notation</a>;  here's a summary of where
+they differ:
+
+<b><font color="purple">Capability			in Vimspeak	in Perlspeak </font></b>
+force <a href="change.html#case">case</a> insensitivity	\c		(?i)
+force <a href="change.html#case">case</a> sensitivity		\C		(?-i)
+backref-less grouping		\&#37;(atom\)	(?:atom)
+conservative quantifiers	\{-n,m}		*?, +?, ??, <a href="intro.html#{}">{}</a>?
+0-width match			atom\@=		(?=atom)
+0-width non-match		atom\@!		(?!atom)
+0-width preceding match		atom\@&lt;=	(?&lt;=atom)
+0-width preceding non-match	atom\@&lt;!	(?&lt;!atom)
+match without retry		atom\@&gt;		(?&gt;atom)
+
+Vim and <a href="if_perl.html#Perl">Perl</a> handle newline characters inside a string a bit differently:
+
+In <a href="if_perl.html#Perl">Perl</a>, ^ and $ only match at the very beginning and end of the text,
+by default, but you can set the '<a href="motion.html#m">m</a>' flag, which lets them match at
+embedded newlines <a href="motion.html#as">as</a> well.  You can also set the '<a href="change.html#s">s</a>' flag, which causes
+a . to match newlines <a href="motion.html#as">as</a> well.  (Both these flags can be changed inside
+a <a href="pattern.html#pattern">pattern</a> using the same <a href="syntax.html#syntax">syntax</a> used for the <a href="insert.html#i">i</a> flag above, BTW.)
+
+On the other hand, Vim's ^ and $ always match at embedded newlines, and
+you get two separate atoms, \&#37;^ and \&#37;$, which only match at the very
+start and end of the text, respectively.  Vim solves the second problem
+by giving you the \_ &quot;modifier&quot;:  put it in front of a . or a character
+class, and they will match newlines <a href="motion.html#as">as</a> well.
+
+Finally, these constructs are unique to <a href="if_perl.html#Perl">Perl</a>:
+- execution of arbitrary code in the regex:  (?{perl code})
+- conditional expressions:  (?(condition)true-expr|false-expr)
+
+...and these are unique to Vim:
+- <a href="change.html#changing">changing</a> the magic-ness of a <a href="pattern.html#pattern">pattern</a>:  \v \V \m \M
+   (very useful for avoiding backslashitis)
+- sequence of optionally matching atoms:  \&#37;[atoms]
+- \&amp; (which is to \| what &quot;and&quot; is to &quot;or&quot;;  it forces several branches
+   to match at one spot)
+- matching lines/columns by number:  \&#37;5l \&#37;5c \&#37;5v
+- setting the start and end of the match:  \zs \ze
+
+==============================================================================
+
+10. Highlighting matches				*<a name="match-highlight"></A><b>match-highlight</b>*
+
+
+							*<a name=":mat"></A><b>:mat</b>* *<a name=":match"></A><b>:match</b>*
+:mat[ch] {group} /{pattern}/
+		Define a <a href="pattern.html#pattern">pattern</a> to highlight in the current <a href="windows.html#window">window</a>.  It will
+		be highlighted with {group}.  Example:
+<b>			:highlight MyGroup ctermbg=green guibg=green</b>
+<b>			:match MyGroup /TODO/</b>
+ 		Instead of <a href="version7.html#//">//</a> any character can be used to <a href="motion.html#mark">mark</a> the start and
+		end of the {pattern}.  Watch out for using special characters,
+		such <a href="motion.html#as">as</a> &#39;&#34;'' and '&#124;'.
+
+		{group} must exist at the moment this command is executed.
+
+		The {group} highlighting still applies when a character is
+		to be highlighted for <a href="options.html#'hlsearch'">'hlsearch'</a>, <a href="motion.html#as">as</a> the highlighting for
+		matches is given higher priority than that of <a href="options.html#'hlsearch'">'hlsearch'</a>.
+		<a href="autocmd.html#Syntax">Syntax</a> highlighting (see <a href="options.html#'syntax'">'syntax'</a>) is also overruled by
+		matches.
+
+		Note that highlighting the last used search <a href="pattern.html#pattern">pattern</a> with
+		<a href="options.html#'hlsearch'">'hlsearch'</a> is used in all <a href="windows.html#windows">windows</a>, while the <a href="pattern.html#pattern">pattern</a> defined
+		with &quot;<a href="pattern.html#:match">:match</a>&quot; only exists in the current <a href="windows.html#window">window</a>.  It is kept
+		when switching to another buffer.
+
+		<a href="options.html#'ignorecase'">'ignorecase'</a> does not apply, use |<a href="pattern.html#/\c">/\c</a>| in the <a href="pattern.html#pattern">pattern</a> to
+		ignore <a href="change.html#case">case</a>.  Otherwise <a href="change.html#case">case</a> is not ignored.
+
+		<a href="options.html#'redrawtime'">'redrawtime'</a> defines the maximum time searched for <a href="pattern.html#pattern">pattern</a>
+		matches.
+
+		When matching end-of-line and Vim redraws only part of the
+		display you may get unexpected results.  That is because Vim
+		looks for a match in the line where redrawing starts.
+
+		Also see |<a href="eval.html#matcharg()">matcharg()</a>| and |<a href="eval.html#getmatches()">getmatches()</a>|. The former returns
+		the highlight group and <a href="pattern.html#pattern">pattern</a> of a previous |<a href="pattern.html#:match">:match</a>|
+		command.  The latter returns a list with highlight groups and
+		patterns defined by both |<a href="eval.html#matchadd()">matchadd()</a>| and |<a href="pattern.html#:match">:match</a>|.
+
+		Highlighting matches using |<a href="pattern.html#:match">:match</a>| are limited to three
+		matches (aside from |<a href="pattern.html#:match">:match</a>|, |<a href="pattern.html#:2match">:2match</a>| and |<a href="pattern.html#:3match">:3match</a>|are
+		available). |<a href="eval.html#matchadd()">matchadd()</a>| does not have this limitation and in
+		addition makes it possible to prioritize matches.
+
+		Another example, which highlights all characters in virtual
+		column 72 and more:
+<b>			:highlight rightMargin term=bold ctermfg=blue guifg=blue</b>
+<b>			:match rightMargin /.\%&gt;72v/</b>
+ 		To highlight all character that are in virtual column 7:
+<b>			:highlight col8 ctermbg=grey guibg=grey</b>
+<b>			:match col8 /\%&lt;8v.\%&gt;7v/</b>
+ 		Note the use of two items to also match a character that
+		occupies more than one virtual column, such <a href="motion.html#as">as</a> a TAB.
+
+:mat[ch]
+:mat[ch] none
+		Clear a previously defined match <a href="pattern.html#pattern">pattern</a>.
+
+
+
+:2mat[ch] {group} /{pattern}/					*<a name=":2match"></A><b>:2match</b>*
+:2mat[ch]
+:2mat[ch] none
+
+:3mat[ch] {group} /{pattern}/					*<a name=":3match"></A><b>:3match</b>*
+:3mat[ch]
+:3mat[ch] none
+		Just like |<a href="pattern.html#:match">:match</a>| above, but set a separate match.  Thus
+		there can be three matches active at the same time.  The match
+		with the lowest number has priority if several match at the
+		same position.
+		The &quot;<a href="pattern.html#:3match">:3match</a>&quot; command is used by the |<a href="pi_paren.html#matchparen">matchparen</a>| <a href="usr_05.html#plugin">plugin</a>.  You
+		are suggested to use &quot;<a href="pattern.html#:match">:match</a>&quot; for manual matching and
+		&quot;<a href="pattern.html#:2match">:2match</a>&quot; for another <a href="usr_05.html#plugin">plugin</a>.
+
+
+<a href="pattern.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+</body>
+</html>

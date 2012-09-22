@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: debugger</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: debugger</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="debugger.txt"></A><b>debugger.txt</b>*  For Vim version 7.3.  Last change: 2005 Mar 29
+
+
+		  VIM REFERENCE MANUAL    by Gordon Prieur
+
+
+
+Debugger Support Features				*<a name="debugger-support"></A><b>debugger-support</b>*
+
+1. Debugger Features		|<a href="debugger.html#debugger-features">debugger-features</a>|
+2. Vim Compile Options		|<a href="debugger.html#debugger-compilation">debugger-compilation</a>|
+3. Integrated Debuggers		|<a href="debugger.html#debugger-integration">debugger-integration</a>|
+
+{Vi does not have any of these features}
+
+==============================================================================
+
+1. Debugger Features					*<a name="debugger-features"></A><b>debugger-features</b>*
+
+The following features are available for an integration with a debugger or
+an Integrated Programming Environment (IPE) or Integrated Development
+Environment (IDE):
+
+	Alternate Command Input				|<a href="debugger.html#alt-input">alt-input</a>|
+	Debug Signs					|<a href="debugger.html#debug-signs">debug-signs</a>|
+	Debug Source Highlight				|<a href="debugger.html#debug-highlight">debug-highlight</a>|
+	Message Footer					|<a href="debugger.html#gui-footer">gui-footer</a>|
+	Balloon Evaluation				|<a href="debugger.html#balloon-eval">balloon-eval</a>|
+
+These features were added specifically for use in the <a href="gui_x11.html#Motif">Motif</a> version of <a href="starting.html#gvim">gvim</a>.
+However, the |<a href="debugger.html#alt-input">alt-input</a>| and |<a href="debugger.html#debug-highlight">debug-highlight</a>| were written to be usable in
+both vim and <a href="starting.html#gvim">gvim</a>.  Some of the other features could be used in the non-GUI
+vim with slight modifications.  However, I did not <a href="diff.html#do">do</a> this nor did I test the
+reliability of building for vim or non <a href="gui_x11.html#Motif">Motif</a> <a href="gui.html#GUI">GUI</a> versions.
+
+
+
+1.1 Alternate Command Input				*<a name="alt-input"></A><b>alt-input</b>*
+
+For Vim to work with a debugger there must be at least an input connection
+with a debugger or external tool.  In many cases there will also be an output
+connection but this isn't absolutely necessary.
+
+The purpose of the input connection is to let the external debugger send
+commands to Vim.  The commands sent by the debugger should give the debugger
+enough <a href="intro.html#control">control</a> to display the current debug environment and state.
+
+The current implementation is based on the X Toolkit dispatch loop and the
+XtAddInput() function call.
+
+
+
+1.2 Debug Signs						*<a name="debug-signs"></A><b>debug-signs</b>*
+
+Many debuggers <a href="motion.html#mark">mark</a> specific lines by placing a small sign or color highlight
+on the line.  The |<a href="sign.html#:sign">:sign</a>| command lets the debugger set this graphic <a href="motion.html#mark">mark</a>.  Some
+examples where this feature would be used would be a debugger showing an arrow
+representing the Program Counter (PC) of the program being debugged.  Another
+example would be a small stop sign for a line with a breakpoint.  These visible
+highlights let the user keep track of certain parts of the state of the
+debugger.
+
+This feature can be used with more than debuggers, too.  An IPE can use a sign
+to highlight build <a href="message.html#errors">errors</a>, searched text, or other things.  The sign feature
+can also work together with the |<a href="debugger.html#debug-highlight">debug-highlight</a>| to ensure the <a href="motion.html#mark">mark</a> is
+highly visible.
+
+Debug <a href="sign.html#signs">signs</a> are defined and placed using the |<a href="sign.html#:sign">:sign</a>| command.
+
+
+
+1.3 Debug Source Highlight				*<a name="debug-highlight"></A><b>debug-highlight</b>*
+
+This feature allows a line to have a predominant highlight.  The highlight is
+intended to make a specific line stand out.  The highlight could be made to
+work for both vim and <a href="starting.html#gvim">gvim</a>, whereas the debug sign is, in most cases, limited
+to <a href="starting.html#gvim">gvim</a>.  The one exception to this is Sun Microsystem's dtterm.  The dtterm
+from Sun has a &quot;sign gutter&quot; for showing <a href="sign.html#signs">signs</a>.
+
+
+
+1.4 Message Footer					*<a name="gui-footer"></A><b>gui-footer</b>*
+
+The message footer can be used to display <a href="message.html#messages">messages</a> from a debugger or IPE.  It
+can also be used to display menu and toolbar <a href="tips.html#tips">tips</a>.  The footer area is at the
+bottom of the <a href="gui.html#GUI">GUI</a> <a href="windows.html#window">window</a>, below the line used to display colon commands.
+
+The display of the footer is controlled by the <a href="options.html#'guioptions'">'guioptions'</a> <a href="print.html#letter">letter</a> '<a href="motion.html#F">F</a>'.
+
+
+
+1.5 Balloon Evaluation					*<a name="balloon-eval"></A><b>balloon-eval</b>*
+
+This feature allows a debugger, or other external tool, to display dynamic
+information based on where the mouse is pointing.  The purpose of this feature
+was to allow Sun's <a href="visual.html#Visual">Visual</a> WorkShop debugger to display <a href="eval.html#expression">expression</a> evaluations.
+However, the feature was implemented in <a href="motion.html#as">as</a> general a manner <a href="motion.html#as">as</a> possible and
+could be used for displaying other information <a href="motion.html#as">as</a> well.
+
+The Balloon Evaluation has some settable parameters too.  For <a href="gui_x11.html#Motif">Motif</a> the font
+list and colors can be set via X resources (XmNballoonEvalFontList,
+XmNballoonEvalBackground, and XmNballoonEvalForeground).
+The <a href="options.html#'balloondelay'">'balloondelay'</a> option sets the delay before an attempt is made to show a
+balloon.
+The <a href="options.html#'ballooneval'">'ballooneval'</a> option needs to be set to switch it on.
+
+Balloon evaluation is only available when compiled with the |<a href="various.html#+balloon_eval">+balloon_eval</a>|
+feature.
+
+The Balloon evaluation <a href="eval.html#functions">functions</a> are also used to show a tooltip for the
+toolbar.  The <a href="options.html#'ballooneval'">'ballooneval'</a> option does not need to be set for this.  But the
+other settings apply.
+
+Another way to use the balloon is with the <a href="options.html#'balloonexpr'">'balloonexpr'</a> option.  This is
+completely user definable.
+
+==============================================================================
+
+2. Vim Compile Options					*<a name="debugger-compilation"></A><b>debugger-compilation</b>*
+
+The debugger features were added explicitly for use with Sun's <a href="visual.html#Visual">Visual</a>
+WorkShop Integrated Programming Environment (ipe).  However, they were done
+in <a href="motion.html#as">as</a> generic a manner <a href="motion.html#as">as</a> possible so that integration with other debuggers
+could also use some or all of the tools used with Sun's ipe.
+
+The following compile time preprocessor <a href="eval.html#variables">variables</a> <a href="intro.html#control">control</a> the features:
+
+    Alternate Command Input			ALT_X_INPUT
+    Debug Glyphs				FEAT_SIGNS
+    Debug Highlights				FEAT_SIGNS
+    Message Footer				FEAT_FOOTER
+    Balloon Evaluation				FEAT_BEVAL
+
+The first integration with a full IPE/IDE was with Sun <a href="visual.html#Visual">Visual</a> WorkShop.  To
+compile a <a href="starting.html#gvim">gvim</a> which interfaces with VWS set the following flag, which sets
+all the above flags:
+
+    Sun <a href="visual.html#Visual">Visual</a> WorkShop				FEAT_SUN_WORKSHOP
+
+==============================================================================
+
+3. Integrated Debuggers					*<a name="debugger-integration"></A><b>debugger-integration</b>*
+
+One fully integrated debugger/IPE/IDE is Sun's <a href="visual.html#Visual">Visual</a> WorkShop Integrated
+Programming Environment.
+
+For Sun NetBeans support see |<a href="netbeans.html#netbeans">netbeans</a>|.
+
+<a href="debugger.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

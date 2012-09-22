@@ -1,0 +1,415 @@
+X:1
+T:An Choisir
+Z: id:dc-slide-1
+M:6/8
+L:1/8
+K:B Minor
+B2A|F2B BAB|d2e f3|e3 efe|c2e a3|!
+F2B BAB|d2e f3|e2d cBA|B3:|!
+d2e|fgf efe|d2e c2d|B3 dcB|A2F F2E|!
+F2B BAB|d2e f3|e2d cBA|B3:|!
+
+X:2
+T:Bank of Turf
+Z: id:dc-slide-2
+M:6/8
+L:1/8
+K:D Major
+A3 DFA|BAF D3|dcd ede|f3 def|!
+g3 gab|afd Bcd|[1 e2d e2d|cBA Bcd:|[2 ABc dfe|d3 d3|]!
+e3 efg|f3 fga|g3 f3|edB ABd|!
+e3 efg|f3 fga|gfe dcB|A3 A3:|!
+
+X:3
+T:Connie Walsh's
+Z: id:dc-slide-7
+M:6/8
+L:1/8
+K:D Major
+d3|Bcd Bcd|c2B A2A|Bcd e2f|g3 f2g|!
+agf gfe|f2d A2A|Bcd e2c|d3:|!
+f2g|agf gfe|f2d A2A|Bcd e2f|g3 f2g|!
+agf gfe|f2d A2A|Bcd e2c|d3:|!
+
+X:4
+T:Danny Ab's
+Z: id:dc-slide-22
+M:6/8
+L:1/8
+K:G Major
+B3 cBc|d3-d2e|dBG dBG|A3 AGA|!
+B3 cBc|d3-d2g|fed cBA|G3 G3:|!
+g2d B2g|f2d c3|ded c2A|ded B3|!
+g2d B2g|f2d c2B|ABc def|g3 g3:|!
+
+X:5
+T:Denis Murphy's
+Z: id:dc-slide-8
+M:6/8
+L:1/8
+K:D Major
+dcB|A2D FED|F2A A2f|g2e f2d|e2d Bcd|!
+A2D FED|F2A A2f|a2f efe|d3:|!
+d2A|d2e f3|gfe f3|gfe f2d|e2d Bcd|!
+d2e f3|gfe f2g|a2f efe|d3:|!
+
+X:6
+T:Dingle Regatta
+Z: id:dc-slide-9
+M:6/8
+L:1/8
+K:G Major
+d^cd e2d|BAB d2B|ABA AGA|B2A G3|!
+d^cd e2d|BAB d2B|ABA B2A|G3 G3:|!
+d3 def|g3 gfg|a3 aga|b2a gfe|!
+d3 def|g3 gab|a2g f2e|def g3:|!
+g3 d3|B3 G3|FAF DEF|GAB def|!
+g3 d3|B3 G3|FAF DEF|G3 G3:|!
+
+X:7
+T:Dinny Delaney
+Z: id:dc-slide-10
+M:6/8
+L:1/8
+K:D Mixolydian
+A2D DED|A2G E2G|A2D DED|G2A GED|!
+A2D DED|c2d e2d|dcA AGE|G2A GED|!
+A2D DED|A2B G2B|A2B G2A|E2G GEG|!
+A2D DED|c2d e2d|dcA AGE|G2A GED|]!
+dcA AGE|c3 ABc|dcA AGE|G2A GED|!
+dcA AGE|c2d e2d|dcA AGE|G2A GED:|!
+
+X:8
+T:Eileen O'Riordan's
+Z: id:dc-slide-11
+M:6/8
+L:1/8
+K:A Mixolydian
+E2A ABA|E2A ABA|e2A ABA|G3 F2G|!
+E2A ABA|E2A ABA|efe dcB|A3 A3:|!
+efe efe|d2B c2d|e2A ABA|G3 F2G|!
+E2A ABA|E2A ABA|efe dcB|A3 A3:|!
+
+X:9
+T:Going to the Well for Water
+Z: id:dc-slide-12
+M:6/8
+L:1/8
+K:D Major
+e|fgf fed|efe edc|ded dcB|cdc cBA|!
+GBB GBB|FAA FAA|EDE e2d|cBc d2:|!
+B|Aff Aff|Aff fed|Bgg Bgg|Bgg gfe|!
+cdc BcB|Ace a2f|gfe ABc|dfe d2:|!
+
+X:10
+T:John Kelly's
+Z: id:dc-slide-13
+M:6/8
+L:1/8
+K:D Major
+e|f2A ABA|BAB d3|cdc B2A|g3 f2e|!
+f2A ABA|BAB d3|cdc B2A|d3 d2:|!
+f|g3 gfe|f3 fed|B2e efe|d2B Bef|!
+g3 gfe|f3 fed|B2e efa|b3 a2:|!
+
+X:11
+T:Kathleen Hehir's
+Z: id:dc-slide-5
+M:6/8
+L:1/8
+K:D Major
+c|dcd e2d|c2E EFG|BcB A2G|F2D DFA|!
+dcd e2d|c2E EFG|ABA GFE|D3 D2:|!
+A,|DFA d3|c2B G3|ABA G2E|B2A F3|!
+DFA d3|c2B G2F|EFG ABc|d3 d2:|!
+c|d2c d2e|f2d A3|f3 fed|c2d ecA|!
+d2c d2e|f2d A2F|EFG ABc|d3 d2:|!
+b|a2f f2d|Adf agf|g2e e2c|Ace gfg|!
+a2f f2d|Adf agf|gec ABc|d3 d2:|!
+
+X:12
+T:Kathleen Hehir's
+Z: id:dc-slide-6
+M:6/8
+L:1/8
+K:G Major
+f|gfg a2g|f2A ABc|efe d2c|B2G GBd|!
+gfg a2g|f2A ABc|ded cBA|G3 G2:|!
+D|GBd g3|f2d c3|ded c2A|e2d B3|!
+GBd g3|f2d c2B|ABc def|g3 g2:|!
+f|g2f g2a|b2g d3|b3 bag|f2g afd|!
+g2f g2a|b2g d2B|ABc def|g3 g2:|!
+e|d2B B2G|DGB dcB|c2A A2F|DFA cBc|!
+d2B B2G|DGB dcB|cAF DEF|G3 G2:|!
+
+X:13
+T:Kilfenora
+Z: id:dc-slide-14
+M:6/8
+L:1/8
+K:G Major
+BA|B2B BAB|dBA G2B|ded d2B|ded d2c|!
+B2B BAB|dBA G2B|ded cBA|G3 G:|!
+Bd|g3 f3|ege dBA|ded d2B|ded dBd|!
+g3 f3|ege dBA|[1 ded cBA|G3 G:|[2 dge dge|dge d|]!
+
+X:14
+T:Leg of the Duck
+Z: id:dc-slide-15
+M:6/8
+L:1/8
+K:D Major
+e|fga efg|fef dBA|Bee e2d|Bee e3|!
+fga efg|fef dBA|Bdd d2A|Bdd d2:|!
+e|fdd edd|f3 edA|Bee e2d|Bee e3|!
+fdd edd|f3 edA|Bdd d2A|Bdd d2:|!
+
+X:15
+T:Lisheen
+Z: id:dc-slide-16
+M:6/8
+L:1/8
+K:G Major
+BcB BAB|G2B A2G|BcB BAG|A2B cBA|!
+BcB BAB|G3 GBd|g2e dBG|A2B cBA:|!
+g3 d3|ege d3|gfg aga|bab afd|!
+g3 d3|ege d3|gfg aga|bgf g3:|!
+
+X:16
+T:Lock the Door
+Z: id:dc-slide-17
+M:6/8
+L:1/8
+K:E Dorian
+B,|EDE BAG|FDF AFD|EDE BAB|AGF E2B,|!
+EDE BAG|FDF AFA|d2B AGF|E3 E2:|!
+A|B2c d2e|dcB AFA|B2c d2e|fdB fdA|!
+B2c d2e|dcB AFA|d2B AGF|E3 E2:|!
+
+X:17
+T:Martin's Favourite
+Z: id:dc-slide-37
+M:6/8
+L:1/8
+K:G Major
+d|g2d e2d|g2d e2d|BdB ABA|G2A BGE|!
+D2E G2A|B2d dBG|BdB ABA|G3 G2:|!
+E|D2E G2A|B2d dBG|BdB ABA|G2A BGE|!
+D2E G2A|B2d dBG|BdB ABA|G3 G2:|!
+
+X:18
+T:Mary Willie's
+Z: id:dc-slide-18
+M:6/8
+L:1/8
+K:C Major
+G|c2d e2d|cBc A3|f2G BAG|d2G BAG|!
+c2d e2d|cBc A3|f2G BAG|c3 c2:|!
+G|c2d e2g|age g2e|d2G BAG|d2G BAG|!
+c2d e2g|age g2e|d2G BAG|c3 c2:|!
+
+X:19
+T:Mary Willie's
+Z: id:dc-slide-19
+M:6/8
+L:1/8
+K:D Major
+A|d2e f2e|dcd B3|g2A cBA|e2A cBA|!
+d2e f2e|dcd B3|g2A cBA|d3 d2:|!
+A|d2e f2a|baf a2f|e2A cBA|e2A cBA|!
+d2e f2a|baf a2f|e2A cBA|d3 d2:|!
+
+X:20
+T:Merrily Kiss the Quaker
+Z: id:dc-slide-20
+M:6/8
+L:1/8
+K:G Major
+D|GAB D2B|cBA BGE|GAB DEG|A3 AGE|!
+GAB D2B|cBA BGE|GAB DEF|G3 G2:|!
+A|BGG AGG|BGG AGG|GAB DEG|A3 AGA|!
+BGG AGG|BGG AGG|GAB DEF|G3 G2:|!
+d|g3 a3|bge d^cd|g3 gab|a3 agf|!
+g3 f3|e3 dBA|GAB DEF|G3 G2:|!
+
+X:21
+T:O'Keefe's
+Z: id:dc-slide-21
+M:6/8
+L:1/8
+K:D Major
+z|a2f g2e|f2d B2A|a2f g2e|f2d def|!
+a2f g2e|f2d B2A|GAB dBA|G2E E2:|!
+D|GAB d3|dBe dBA|GAB dBA|B2e e3|!
+GAB d3|dBe dBA|GAB dBA|G2E E2:|!
+
+X:22
+T:O'Keefe's
+Z: id:dc-slide-23
+M:6/8
+L:1/8
+K:A Dorian
+A2e e2d|BAB d2B|A2e e2d|B2G GAB|!
+A2e e2d|BAB d3|BAB d2e|B2A A3:|!
+e2a a2b|a2g e2d|e2a a2b|a2g e2f|!
+g3 gfe|dBA G3|BAB d2e|B2A A3:|!
+
+X:23
+T:Over the Water to Charlie
+Z: id:dc-slide-24
+M:6/8
+L:1/8
+K:G Major
+GBd eBd|efg dBd|GBd eBd|e2f g3|!
+GBd eBd|efg dBd|bag agf|e2f g3:|!
+bag agf|efg dBd|bag agf|e2a a3|!
+bag agf|efg dBd|G3 dBd|e2f g3:|!
+
+X:24
+T:Patsy Geary's
+Z: id:dc-slide-25
+M:6/8
+L:1/8
+K:D Major
+D2E|F2A AFA|B=cB A2G|F2A d2e|f3 fef|!
+g3 f3|e3 d2B|ABA AFD|E3 D2E|!
+F2A AFA|B=cB A2G|F2A d2e|f3 fef|!
+g3 f3|e3 d2B|ABA f2e|d3|]!
+d2e|f2e f2e|f2e fga|ABA BAF|A3 ABd|!
+e2d e2d|e2d efa|baf afe|d3:|!
+
+X:25
+T:Priest
+Z: id:dc-slide-26
+M:6/8
+L:1/8
+K:G Major
+g|edB d2B|d2B d2g|edB d2B|c2A A2g|!
+edB d2B|BAB g3|BAB gfg|B2G G2:|!
+f|gag fgf|g2e e2d|eaa aga|b2e e2f|!
+gag fgf|g2e e2d|BAB gfg|B2G G2:|!
+
+X:26
+T:Road to Lisdoonvarna
+Z: id:dc-slide-27
+M:6/8
+L:1/8
+K:E Dorian
+E2B B2A|B2c d3|F2A ABA|D2E FED|!
+E2B B2A|B2c d3|cdc B2A|B2E E3:|!
+e2f gfe|d2B Bcd|c2A ABc|d2B B3|!
+e2f gfe|d2B Bcd|cdc B2A|B2E E3:|
+
+X:27
+T:Rosie Finn's
+Z: id:dc-slide-28
+M:6/8
+L:1/8
+K:G Major
+G2B d2g|b2g d2B|cBc agf|gfe dBA|!
+G2B d2g|b2g d2B|cBc agf|g3 g3:|!
+g2b c'2b|a2e efg|f2a abg|f2d def|!
+g2b c'2b|a2e efg|faf def|g3 g3:|!
+
+X:28
+T:Smash the Windows
+Z: id:dc-slide-29
+M:6/8
+L:1/8
+K:D Major
+A,|DED F2A|d2f ecA|G2B F2A|E2F GFE|!
+DED F2A|d2f ecA|Bgf edc|d3 d2:|!
+b|a2f d2e|f2g agf|g2e c2d|e2f gfe|!
+[1 a2f d2e|f2g agf|ged cde|d3 d2:|!
+[2 fed gfe|agf bag|fed cde|d3 d2|]!
+
+X:29
+T:Star above the Garter
+Z: id:dc-slide-30
+M:6/8
+L:1/8
+K:G Major
+d2B BAG|A3 ABA|G2E c2B|BAG ABc|!
+d2B BAG|A3 ABA|G2E c2E|DED D3:|!
+d2e f2a|g2e d2B|G2B c2B|BAG ABc|!
+d2e f2a|g2e d2B|G2B c2E|DED D3:|!
+
+X:30
+T:This Is My Love, Do You Like Her
+Z: id:dc-slide-31
+M:6/8
+L:1/8
+K:A Dorian
+c2B|A3 AGE|c2B c2d|e3 edB|g3-g2e|!
+def gfe|dBA G2A|B2e dBG|A3:|!
+A3|e2a age|d2g gfg|e2a age|g2b a2g|!
+eaf g2e|dBA G2A|B2e dBG|A3:|!
+
+X:31
+T:Tidy Anne
+Z: id:dc-slide-32
+M:6/8
+L:1/8
+K:D Major
+GFE|D2d BAF|D2d B2A|F2E EFE|F2E EFE|!
+D2d BAF|D2d B2c|def edc|d2A:|!
+d2e|f2f fed|e2e edc|d2d dcB|A3 d2e|!
+f2f fed|e2e edc|def edc|d2A:|!
+
+X:32
+T:Weaver's
+Z: id:dc-slide-33
+M:6/8
+L:1/8
+K:D Major
+g|fed B2d|A2d F2B|A2F D2F|E3 E2g|!
+fed B2d|A2d F2B|A2F EFE|D3 D2:|!
+e|fdf a3|baf a3|fdf a2f|g3 f2e|!
+[1 fdf a3|baf a3|fdf a2f|d3 d2:|!
+[2 faf efe|ded BdB|ABA GFE|D3 D2|]!
+
+X:33
+T:Where's the Cat
+Z: id:dc-slide-34
+M:6/8
+L:1/8
+K:A Major
+EFE A2E|F2E A3|EFE A2c|B2A F2E|!
+EFE A2E|F2E A3|cec d2c|B2A F2E:|!
+cBc e2c|BAF d3|cBc e2c|B2A F2E|!
+cBc e2c|BAF d3|faf e2c|B2A F2E:|!
+
+X:34
+T:Where's the Cat
+Z: id:dc-slide-35
+M:6/8
+L:1/8
+K:G Major
+DED G2D|E2D G3|DED G2B|A2G E2D|!
+DED G2D|E2D G3|BdB c2B|A2G E2D:|!
+BAB d2B|AGE c3|BAB d2B|A2G E2D|!
+BAB d2B|AGE c3|ege d2B|A2G E2D:|!
+
+X:35
+T:Whole Chicken in the Soup
+Z: id:dc-slide-38
+M:6/8
+L:1/8
+K:G Major
+G2E D2E|G2A B3|cBA B2G|A2G EDE|!
+G2E D2E|G2A B2d|d2B ABA|G3 G3:|!
+efg d2B|c2e d3|d2B A2G|E2A ABA|!
+[1 efg d2B|c2e d3|d2B ABA|G3 G3:|!
+[2 G2E D2E|G2A B2d|d2B ABA|G3 G3|]!
+
+X:36
+T:Yellow Wattle
+Z: id:dc-slide-36
+M:6/8
+L:1/8
+K:D Mixolydian
+dcA AGE|ABA AB^c|dcA AB^c|dcA GED|!
+dcA AGE|ABA AGE|DED cde|dcA GED:|!
+ded c3|d^cd =c3|d^cd =cde|dcA GED|!
+ded c3|d^cd d2=c|ABA A^cd|dcA GED:|!
+

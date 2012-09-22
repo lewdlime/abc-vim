@@ -1,0 +1,408 @@
+% microtonal.fmt           -*- abc -*-
+% Acidentes para musica microtonal
+% (Microtone accidentals)
+
+% !TODO! : reduce arrows height
+
+% Copyright (C) 2004-2007 Hudson Lacerda
+%   Parts of this code were based on abcm2ps:
+%      Copyright (C) Jean-François Moine (1998-2004)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+%
+% Acidentes criados:
+%
+% 9/ COM SETA PARA CIMA, 6/ COM SETA PARA BAIXO:
+%
+% ^9/ (i.e.: ^9/2)
+% ^6/ (i.e.: ^6/2)
+% =9/ (i.e.: =9/2)
+% =6/ (i.e.: =6/2)
+% _9/ (i.e.: _9/2)
+% _6/ (i.e.: _6/2)
+%
+
+%
+% Change style of 1/2 and 3/2 accidentals with:
+% %%postscript [true|false] usearrows
+% %%postscript [true|false] usearrowsup
+% %%postscript [true|false] usearrowsdown
+%
+
+%
+% Decorações adicionadas:
+%
+% +head-invisible+
+%	Para adicionar um acidente ao lado de outro:
+%	[^9/A!head-invisible!^A]
+%	(Só funciona com haste para baixo)
+%
+postscript /poppop{pop pop}!
+deco head-invisible 0 poppop 0 0 0
+
+
+% COMANDO bash PARA GERAR NUMEROS DE <micro_value>
+% (Usando o programa `microval' - Hudson Lacerda)
+% for (( num=1,den=12; num<=den; num++ )) do microval $num $den; done
+
+% desenho
+%postscript /mt-seta{M 1.7 -7 RL -3.4 0 RL fill}!
+%postscript /mt-seta{M 2 -8 RL -4 0 RL fill}!
+postscript /mt-seta{2.5 sub M 1.7 -6 RL -3.4 0 RL fill}!
+
+postscript /sh^{2 copy sh0 exch 1.5 add exch 15 add mt-seta}!
+postscript /sh_{2 copy sh0 exch 1.2 sub exch 15 sub
+postscript         gsave T 180 rotate 0 0 mt-seta grestore}!
+postscript /ft^{2 copy ft0 exch 1.8 sub exch 14 add mt-seta}!
+postscript /ft_{2 copy ft0 exch 1.8 sub exch 11 sub
+postscript         gsave T 180 rotate 0 0 mt-seta grestore}!
+postscript /nt^{2 copy nt0 exch 2.0 sub exch 13.7 add mt-seta}!
+postscript /nt_{2 copy nt0 exch 1.3 add exch 13.7 sub
+postscript         gsave T 180 rotate 0 0 mt-seta grestore}!
+% interface
+postscript /sh2049{sh^}! % ^9/2
+postscript /sh1281{sh_}! % ^6/2
+postscript /ft2049{ft^}! % _9/2
+postscript /ft1281{ft_}! % _6/2
+postscript /nt2049{nt^}! % =9/2
+postscript /nt1281{nt_}! % =6/2
+
+% hack size (tamanho)
+%postscript /pq{gsave T 1 .5  scale 0 0}!
+%postscript /qp{grestore}!
+%postscript /sh2049{pq sh^ qp}! % ^9/2
+%postscript /sh1281{pq sh_ qp}! % ^6/2
+%postscript /ft2049{pq ft^ qp}! % _9/2
+%postscript /ft1281{pq ft_ qp}! % _6/2
+%postscript /nt2049{pq nt^ qp}! % =9/2
+%postscript /nt1281{pq nt_ qp}! % =6/2
+
+
+%---------------------------------------
+
+
+% ! Sagittal's Revised 72-Equal Temperament Symbols !
+% !  http://users.bigpond.net.au/d.keenan/sagittal  !
+
+beginps
+
+% !utils!
+/r72-bm{	% usage: t dx dy x y r72-bm
+	% Code from: bm (J.F.Moine - abcm2ps)
+	M 3 copy RL neg 0 exch RL
+	neg exch neg exch RL 0 exch RL fill}!
+/r72-inv{gsave T 1 -1 scale 0 0}! % invert symbol - DON'T FORGET grestore
+/r72-curvebm{	% usage: t dx1 dy1 dx2 dy2 dx3 dy3 x y r72-curvebm
+	9 copy M RC
+	3 1 roll M 0 exch neg RL RC
+	0 exch RL fill}!
+
+% !SYMBOLS!
+/r72-1u{
+	exch 1.5 add exch % horizontal centering (centraliza horizontalmente)
+	4.5 add % vertical offset
+	2 copy
+	%2 copy pop 1 0 0 setrgbcolor 0 dt 0 setgray
+	exch .25 add exch % linewidth/2 (see below/ver abaixo:)
+	3   -3 -5.35    5 3 roll  r72-bm
+	.5 setlinewidth   % linewidth
+	1 sub M 0 -11 RL  % sub: hide stroke end (oculta ponta da haste)
+	stroke}!
+/r72-2u{
+	exch -1.5 add exch % horizontal centering
+	3.5 add % vertical offset
+	2 copy
+	M -.25 0 RM
+	3.5  2.5 0  3 -1.5  3.5 -2.5 currentpoint r72-curvebm
+	.5 setlinewidth
+	-1 add M 0 -10 RL
+	3 3 RM 0 5 RL
+	stroke}!
+/r72-3u{
+	4.5 add % vertical offset
+	2 copy
+	3   -3 -5.35    5 3 roll  r72-bm
+	2 copy
+	3    3 -5.35    5 3 roll  r72-bm
+	.5 setlinewidth   % linewidth
+	1 sub M 0 -11 RL  % sub: hide stroke end (oculta ponta da haste)
+	stroke}!
+/r72-4u{
+	exch -2.5 add exch % horizontal centering
+	3 add % vertical offset
+	2 copy
+	M -.25 0 RM
+	3.5  3.5 0  5 0  5.5 -2.5 currentpoint r72-curvebm
+	.5 setlinewidth
+	.5 sub M 0 -10 RL
+	  3 0 RM currentpoint 0 10 RL
+	M 2 3 RM 0 3.5 RL
+	stroke}!
+/r72-5u{
+	exch -3.25 add exch % horizontal centering
+	4.6 add % vertical offset
+	2 copy
+	exch .25 sub exch
+	2   6.5 -6.4    5 3 roll  r72-bm
+	.5 setlinewidth   % linewidth
+	1 sub M 0 -11.4 RL  % sub: hide stroke end (oculta ponta da haste)
+	2.75 0 RM 0 8 RL
+	stroke}!
+/r72-6u{
+	4.5 add % vertical offset
+	2 copy
+	2.5   -3.5 -6    5 3 roll  r72-bm
+	2 copy
+	2.5    3.5 -6    5 3 roll  r72-bm
+	.5 setlinewidth   % linewidth
+	M -1.25 -3 RM 0 -9 RL  % sub: hide stroke end (oculta ponta da haste)
+	2.5 0 RM 0 9 RL
+	stroke}!
+/r72-7u{
+	exch 2.25 add exch % horizontal adjust
+	4.6 add % vertical offset
+	2 copy
+	exch .25 add exch
+	2   -6.5 -6.4    5 3 roll  r72-bm
+	.5 setlinewidth   % linewidth
+	1 sub M 0 -11.4 RL  % sub: hide stroke end (oculta ponta da haste)
+	currentpoint
+	-2 0 RM 0 9 RL
+	M -4 0 RM 0 8 RL
+	stroke}!
+/r72-8u{
+	exch -3.5 add exch % horizontal centering
+	3 add % vertical offset
+	2 copy
+	M -.25 0 RM
+	3.5  5.5 0  7 0  7.5 -2.5 currentpoint r72-curvebm
+	.5 setlinewidth
+	.5 sub M 0 -10 RL
+	  2.5 0 RM currentpoint 0 10 RL
+	  2.5 0 RM 0 -10 RL
+	M 2.5 0 RM
+	  2 3 RM 0 3.5 RL
+	stroke}!
+/r72-9u{
+	%exch -.5 add exch % horizontal adjust
+	4.5 add % vertical offset
+	2 copy
+	2.5 -4.5 -6    5 3 roll  r72-bm
+	2 copy
+	2.5  4.5 -6    5 3 roll  r72-bm
+	.5 setlinewidth   % linewidth
+	1.5 sub M  % sub: hide stroke end (oculta ponta da haste) 
+	0 -11 RL currentpoint
+	 -2.25 0 RM 0 8 RL
+	M 2.25 0 RM 0 8 RL
+	stroke}!
+/r72-10u{
+	3 add % vertical offset
+	2 copy
+	exch -1.5 add exch % horizontal adjust
+	2 copy
+	M -.25 0 RM
+	2.5  5.5 0  5.75 -3  6 -4.5 currentpoint r72-curvebm
+	.5 setlinewidth
+	M 5.5 -4.5 RM 0 -3 RL
+	-2.4 add
+	2 copy
+	M -.75 0 RM   3.5 -8.1 RL
+	M  .75 0 RM  -3.5 -8.1 RL
+	stroke}!
+/r72-11u{
+	3 add % vertical offset
+	exch -1.5 add exch % horizontal adjust
+	2 copy
+	M -2 1 RM
+	2 7.5 -5.5 currentpoint r72-bm
+	.5 setlinewidth
+	-2.4 add
+	2 copy
+	% ! REVISE( !
+	gsave 2 copy -.85 2 T M -.75 0 RM   3.5 -8.1 RL stroke grestore
+	% ! )REVISE !
+	M -.75 0 RM   3.5 -8.1 RL
+	M  .75 0 RM  -3.5 -8.1 RL
+	stroke}!
+/r72-12u{
+	3 add % vertical offset
+	2 copy
+	1 add 2 copy
+	2.75   -4.5 -5    5 3 roll  r72-bm
+	2.75    4.5 -5    5 3 roll  r72-bm
+	.5 setlinewidth
+	-2.4 add
+	2 copy
+	M -.75 0 RM   3.5 -8.1 RL
+	M  .75 0 RM  -3.5 -8.1 RL
+	stroke}!
+
+% % !teste(!
+%/dsh2049{r72-12u}! % ^^9/2
+%/dsh1281{r72-12d}! % ^^6/2
+% % !)teste!
+
+% ! inverted down symbols (simbolos virados para baixo) !
+/r72-1d{r72-inv r72-1u grestore}!
+/r72-2d{r72-inv r72-2u grestore}!
+/r72-3d{r72-inv r72-3u grestore}!
+/r72-4d{r72-inv r72-4u grestore}!
+/r72-5d{r72-inv r72-5u grestore}!
+/r72-6d{r72-inv r72-6u grestore}!
+/r72-7d{r72-inv r72-7u grestore}!
+/r72-8d{r72-inv r72-8u grestore}!
+/r72-9d{r72-inv r72-9u grestore}!
+/r72-10d{r72-inv r72-10u grestore}!
+/r72-11d{r72-inv r72-11u grestore}!
+/r72-12d{r72-inv r72-12u grestore}!
+
+
+% ! interface !
+/sh11{r72-1u}!
+/sh267{r72-2u}!
+/sh523{r72-3u}!
+/sh779{r72-4u}!
+/sh1035{r72-5u}!
+/sh1291{r72-6u}!
+/sh1547{r72-7u}!
+/sh1803{r72-8u}!
+/sh2059{r72-9u}!
+/sh2315{r72-10u}!
+/sh2571{r72-11u}!
+/sh2827{r72-12u}!
+%
+/ft11{r72-1d}!
+/ft267{r72-2d}!
+/ft523{r72-3d}!
+/ft779{r72-4d}!
+/ft1035{r72-5d}!
+/ft1291{r72-6d}!
+/ft1547{r72-7d}!
+/ft1803{r72-8d}!
+/ft2059{r72-9d}!
+/ft2315{r72-10d}!
+/ft2571{r72-11d}!
+/ft2827{r72-12d}!
+
+endps
+
+
+% microvalues for n/12 accidental PS functions
+%sh11
+%sh267
+%sh523
+%sh779
+%sh1035
+%sh1291
+%sh1547
+%sh1803
+%sh2059
+%sh2315
+%sh2571
+%sh2827
+
+
+%% 8ths of tone - quarter-tone accidentals with arrows
+%% TODO: complete them with enharmonic accidentals
+
+beginps
+
+/up-arrow {M 2 -7 RL -4 0 RL fill}!
+/dn-arrow {gsave T 180 rotate 0 0 up-arrow grestore}!
+
+% 1/8tone = 1/4semitone
+% 1/4: <micro_value> = 3
+/sh3 {2 copy nt0 exch 2 sub exch 14.5 add up-arrow} !
+/ft3 {2 copy nt0 exch 1.3 add exch 14.5 sub dn-arrow} !
+
+% 2/8tone = 2/4semitone = 1/2 semitone (quarter-tone)
+% 2/4: <micro_value> = 259
+/sh259/sh1 load !
+/ft259/ft1 load !
+
+% 3/8tone = 3/4semitone
+% 3/4: <micro_value> = 515
+/sh515 {2 copy sh259 exch 0 sub exch 14.5 add up-arrow} !
+/ft515 {2 copy ft259 exch 1.8 add exch 14.5 sub 2 copy
+	  dn-arrow 2 add M 0 9 RL .8 setlinewidth stroke dlw} !
+
+endps
+
+%----------------------------------
+
+%------------------
+beginps
+
+/old_sh1 /sh1 load bind def
+/old_sh513 /sh513 load bind def
+/old_ft1 /ft1 load bind def
+/old_ft513 /ft513 load bind def
+
+/usearrows{
+
+true eq
+{
+	/sh1{nt^}!
+	/ft1{nt_}!
+	/sh513{sh^}!
+	/ft513{ft_}!
+} {
+	/sh1 /old_sh1 load bind def
+	/sh513 /old_sh513 load bind def
+	/ft1 /old_ft1 load bind def
+	/ft513 /old_ft513 load bind def
+} ifelse
+
+}!
+
+/usearrowsup{
+
+true eq
+{
+	/sh1{nt^}!
+	/ft1{ft^}!
+	/sh513{sh^}!
+	/ft513{ft_}!
+} {
+	/sh1 /old_sh1 load bind def
+	/sh513 /old_sh513 load bind def
+	/ft1 /old_ft1 load bind def
+	/ft513 /old_ft513 load bind def
+} ifelse
+
+}!
+
+/usearrowsdown{
+
+true eq
+{
+	/sh1{sh_}!
+	/ft1{nt_}!
+	/sh513{sh^}!
+	/ft513{ft_}!
+} {
+	/sh1 /old_sh1 load bind def
+	/sh513 /old_sh513 load bind def
+	/ft1 /old_ft1 load bind def
+	/ft513 /old_ft513 load bind def
+} ifelse
+
+}!
+
+endps
+%--------------------
+

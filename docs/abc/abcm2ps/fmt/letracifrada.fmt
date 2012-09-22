@@ -1,0 +1,223 @@
+% letracifrada.fmt	-*- abc -*-
+% Para inserir letra cifrada como texto.
+% To insert guitar chords above lyrics (%%text / W:).
+
+% Hudson Lacerda (01/11/2004)
+% jun-2007: English translation added
+% feb-2009: Change font definition
+
+% Copyright (C) 2004-2007 Hudson Lacerda
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+%--------------------------------------------------
+% PORTUGUÊS
+%--------------------------------------------------
+
+% Este arquivo de formato permite a inserção de cifras
+% sobre linhas de texto. As cifras são escritas entre
+% colchetes, e são inseridas sobre a palavra seguinte.
+%
+% As linhas de texto podem ser campos `W:' ou qualquer texto
+% não justificado (e.g. `%%begintext obeylines').
+% [Precisamente, qualquer texto impresso com o operador `show'.]
+%
+% Para ativar a formatação (redefinir `show'), use:
+%   %%postscript letracifrada_inicio
+% e para desativá-la (restaurar `show' original) use:
+%   %%postscript letracifrada_fim
+% ou `[.]' no final do texto. O ponto entre colchetes deve ser usado
+% quando a letra cifrada for inserida em um campo `W:'.
+%
+% Exemplo:
+%
+%   %%postscript letracifrada_inicio
+%   %%begintext obeylines
+%   %%O[G]lê mulé ren[C]dêra
+%   %%O[D7]lê mulé ren[G]dá
+%   %%Tu m'in[Em]sina a fazê [Am]renda
+%   %%Que eu t'in[D7]sino a namo[G]rá.
+%   %%endtext
+%   %%postscript letracifrada_fim
+%
+% Um caracter `;' (ponto-e-vírgula) entre colchetes insere
+% uma fermata sobre o final da palavra anterior:
+%
+%   %%postscript letracifrada_inicio
+%   %%text d r m s m r d [;]
+%   %%postscript letracifrada_fim
+%
+% Os caracteres `#', `b' e `=' são substituídos
+% respectivamente por sustenido, bemol e bequadro
+% nas cifras.
+%
+% ! Não implementado: !
+% - Cálculo automático do espaçamento
+%   para evitar colisões de cifras.
+% - Inserção do caracter `['.
+% - Inserção dos caracteres `b', `#' e `=' em cifras.
+%
+% ! SUGESTÕES PARA USO: !
+% Use bastante espaço entre linhas:
+%    %%lineskipfac 2.7
+%
+% Para obter cifras formatadas, use também:
+%    %%format cifras_beta.fmt
+
+%--------------------------------------------------
+% ENGLISH
+%--------------------------------------------------
+
+% This format file allows the insertion of guitar chords above text
+% lines. The gchords are written between square braces [ and ],
+% before the letter above which it should be printed.
+%
+% The text lines may be fields W: or whatever non-justified text
+% (e.g. `%%begintext obeylines').
+% [To say it in a precise way: whatever text which is printed with
+% the PS operator `show'.]
+
+% To set on the formatting (refinining `show'), use:
+%   %%postscript letracifrada_inicio
+% and to set it off, use:
+%   %%postscript letracifrada_fim
+% or `[.]' inside the text block. The latter is to be used inside
+% W: fields.
+%
+% Example:
+%
+%   %%postscript letracifrada_inicio
+%   %%begintext obeylines
+%   %%O[G]lê mulé ren[C]dêra
+%   %%O[D7]lê mulé ren[G]dá
+%   %%Tu m'in[Em]sina a fazê [Am]renda
+%   %%Que eu t'in[D7]sino a namo[G]rá.
+%   %%endtext
+%   %%postscript letracifrada_fim
+%
+% To insert a fermata, use the character `;' (semicomma) betweeen
+% square braces AFTER the word:
+%
+%   %%postscript letracifrada_inicio
+%   %%text d r m s m r d [;]
+%   %%postscript letracifrada_fim
+%
+% The characters `#', `b' and `=' are replaced with accidentals.
+%
+% ! Not implemented: !
+% - Automatic spacing to avoid clashes of gchords.
+% - Inserting `['.
+% - Inserting `b', `#' and `=' inside the gchords.
+%
+% ! SUGGESTIONS: !
+% Use enough space between lines:
+%    %%lineskipfac 2.7
+%
+% To use formatted gchords, try also:
+%    %%format cifras_beta.fmt
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+postscript % NOTE:
+postscript %    lc_show -> process and print text with guitar chords
+postscript %    lc_xou  -> just print text (copy of `show')
+postscript %    ! `show' is redefined at the execution !
+postscript /lc_xou/show load def
+postscript 
+postscript % ! ATIVA/DESATIVA A FORMATAÇÃO DE TEXTO CIFRADO !
+postscript % inicia (start)
+postscript /letracifrada_inicio{/show/lc_show load def}!
+postscript % termina (end)
+postscript /letracifrada_fim{/show/lc_xou load def}!
+postscript 
+postscript % ! AJUSTES DIVERSOS !
+postscript % fonte (font)
+postscript /letracifrada_font{/Helvetica-Bold fh 1.03 mul selectfont}def
+postscript % deslocamento horizontal (horizontal off-set)
+postscript /lc_horizontal_offset 0 def
+postscript % deslocamento vertical (vertical off-set)
+postscript /lc_vertical_offset {fh 2 div} def
+postscript %/lc_vertical_offset 0 def
+postscript 
+postscript % Substitui `b', `#' e `=' por acidentes (accidentals)
+postscript /lc_acidentes{
+postscript 	2 dict begin
+postscript 		dup /lc_tmpstr exch def
+postscript 		/lc_ind 0 def
+postscript 		length 1 sub -1 0 {
+postscript 		        /lc_ind exch def
+postscript 			lc_tmpstr lc_ind get
+postscript 			dup(#)0 get eq{
+postscript 			     lc_tmpstr lc_ind 129 put pop% sharp
+postscript 			} {
+postscript 			     dup(b)0 get eq{
+postscript 			        lc_tmpstr lc_ind 130 put pop% flat
+postscript 			     } {
+postscript 			        (=)0 get eq{
+postscript 			           lc_tmpstr lc_ind 131 put% natural
+postscript 			        }if
+postscript 			     }ifelse
+postscript 			}ifelse
+postscript 		}for
+postscript 		lc_tmpstr % resultado
+postscript 	end
+postscript }!
+postscript 
+postscript % ! OPERADOR PRINCIPAL !
+postscript /lc_show{ % usage: str lc_show
+postscript    { % inicia (start) loop
+postscript 	([)search
+postscript 	{
+postscript 		lc_xou pop % mostra anterior e deleta delimitador
+postscript 		(])search
+postscript 		{
+postscript 			% Substitui `b', `#' e `=' por acidentes
+postscript 			lc_acidentes
+postscript 			gsave % imprime cifra e deleta delimitador
+postscript 				letracifrada_font
+postscript 				lc_horizontal_offset
+postscript 				lc_vertical_offset RM
+postscript 				dup(;)eq{ % string (;) desenha fermata
+postscript 					currentpoint T
+postscript 					fh .08 mul dup scale
+postscript 					-5.5 fh M
+postscript 					pop currentpoint hld
+postscript 				} {
+postscript					dup(.)eq{ % desativa a formatação
+postscript						pop letracifrada_fim
+postscript					} { % imprime cifra
+postscript						0 fh RM gcshow %lc_xou
+postscript					}ifelse
+postscript 				}ifelse
+postscript 				pop
+postscript 			grestore % resto fica na fila
+postscript 		} {
+postscript 			lc_xou % mostra resto
+postscript 			exit % termina loop
+postscript 		}ifelse
+postscript 	} {
+postscript 		lc_xou % mostra resto
+postscript 		exit % termina loop
+postscript 	}ifelse
+postscript    }loop
+postscript }!
+

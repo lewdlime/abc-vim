@@ -1,0 +1,948 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: message</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: message</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="message.txt"></A><b>message.txt</b>*   For Vim version 7.3.  Last change: 2011 Jan 30
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+This file contains an alphabetical list of <a href="message.html#messages">messages</a> and error <a href="message.html#messages">messages</a> that
+Vim produces.  You can use this if you don't understand what the message
+means.  It is not complete though.
+
+1. Old messages		|<a href="message.html#:messages">:messages</a>|
+2. Error messages	|<a href="message.html#error-messages">error-messages</a>|
+3. Messages		|<a href="message.html#messages">messages</a>|
+
+==============================================================================
+
+1. Old <a href="message.html#messages">messages</a>			*<a name=":messages"></A><b>:messages</b>* *<a name=":mes"></A><b>:mes</b>* *<a name="message-history"></A><b>message-history</b>*
+
+The &quot;<a href="message.html#:messages">:messages</a>&quot; command can be used to <a href="starting.html#view">view</a> previously given <a href="message.html#messages">messages</a>.  This
+is especially useful when <a href="message.html#messages">messages</a> have been overwritten or truncated.  This
+depends on the <a href="options.html#'shortmess'">'shortmess'</a> option.
+
+The number of remembered <a href="message.html#messages">messages</a> is fixed at 20 for the tiny version and 200
+for other versions.
+
+
+								*<a name="g&lt;"></A><b>g&lt;</b>*
+The &quot;<a href="message.html#g&lt;">g&lt;</a>&quot; command can be used to see the last page of previous command output.
+This is especially useful if you accidentally typed <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> at the <a href="message.html#hit-enter">hit-enter</a>
+prompt.  You are then back at the <a href="message.html#hit-enter">hit-enter</a> prompt and can then scroll further
+back.
+Note: when you stopped the output with &quot;<a href="repeat.html#q">q</a>&quot; at the more prompt only up to that
+point will be displayed.
+The previous command output is cleared when another command produces output.
+
+If you are using translated <a href="message.html#messages">messages</a>, the first printed line tells who
+maintains the <a href="message.html#messages">messages</a> or the translations.  You can use this to contact the
+maintainer when you spot a mistake.
+
+If you want to find help on a specific (error) message, use the ID at the
+start of the message.  For example, to get help on the message:
+
+<b>	E72: Close error on swap file</b>
+
+or (translated):
+
+<b>	E72: Errore durante chiusura swap file</b>
+
+Use:
+
+<b>	:help E72</b>
+
+If you are lazy, it also works without the <a href="intro.html#shift">shift</a> key:
+
+<b>	:help e72</b>
+
+==============================================================================
+
+2. Error <a href="message.html#messages">messages</a>				*<a name="error-messages"></A><b>error-messages</b>* *<a name="errors"></A><b>errors</b>*
+
+When an error message is displayed, but it is removed before you could read
+it, you can see it again with:
+<b>  :echo errmsg</b>
+or <a href="starting.html#view">view</a> a list of recent <a href="message.html#messages">messages</a> with:
+<b>  :messages</b>
+
+
+LIST OF MESSAGES
+
+			*<a name="E222"></A><b>E222</b>* *<a name="E228"></A><b>E228</b>* *<a name="E232"></A><b>E232</b>* *<a name="E256"></A><b>E256</b>* *<a name="E293"></A><b>E293</b>* *<a name="E298"></A><b>E298</b>* *<a name="E304"></A><b>E304</b>* *<a name="E317"></A><b>E317</b>*
+
+			*<a name="E318"></A><b>E318</b>* *<a name="E356"></A><b>E356</b>* *<a name="E438"></A><b>E438</b>* *<a name="E439"></A><b>E439</b>* *<a name="E440"></A><b>E440</b>* *<a name="E316"></A><b>E316</b>* *<a name="E320"></A><b>E320</b>* *<a name="E322"></A><b>E322</b>*
+
+			*<a name="E323"></A><b>E323</b>* *<a name="E341"></A><b>E341</b>* *<a name="E473"></A><b>E473</b>* *<a name="E570"></A><b>E570</b>* *<a name="E685"></A><b>E685</b>* 
+<b>  Add to read buffer</b>
+<b>  makemap: Illegal mode</b>
+<b>  Cannot create BalloonEval with both message and callback</b>
+<b>  Hangul automata ERROR</b>
+<b>  block was not locked</b>
+<b>  Didn't get block nr {N}?</b>
+<b>  ml_upd_block0(): Didn't get block 0??</b>
+<b>  pointer block id wrong {N}</b>
+<b>  Updated too many blocks?</b>
+<b>  get_varp ERROR</b>
+<b>  u_undo: line numbers wrong</b>
+<b>  undo list corrupt</b>
+<b>  undo line missing</b>
+<b>  ml_get: cannot find line {N}</b>
+<b>  cannot find line {N}</b>
+<b>  line number out of range: {N} past the end</b>
+<b>  line count wrong in block {N}</b>
+<b>  Internal error</b>
+<b>  Internal error: {function}</b>
+<b>  fatal error in cs_manage_matches</b>
+
+This is an internal error.  If you can reproduce it, please send in a bug
+report. |<a href="intro.html#bugs">bugs</a>|
+
+
+<b>  ATTENTION</b>
+<b>  Found a swap file by the name ...</b>
+
+See |<a href="usr_11.html#ATTENTION">ATTENTION</a>|.
+
+
+							*<a name="E92"></A><b>E92</b>* 
+<b>  Buffer {N} not found</b>
+
+The buffer you requested does not exist.  This can also happen when you have
+wiped out a buffer which contains a <a href="motion.html#mark">mark</a> or is referenced in another way.
+|<a href="windows.html#:bwipeout">:bwipeout</a>|
+
+
+							*<a name="E95"></A><b>E95</b>* 
+<b>  Buffer with this name already exists</b>
+
+You cannot have two <a href="windows.html#buffers">buffers</a> with the same name.
+
+
+							*<a name="E72"></A><b>E72</b>* 
+<b>  Close error on swap file</b>
+
+The |<a href="recover.html#swap-file">swap-file</a>|, that is used to keep a copy of the edited text, could not be
+closed properly.  Mostly harmless.
+
+
+							*<a name="E169"></A><b>E169</b>* 
+<b>  Command too recursive</b>
+
+This happens when an <a href="intro.html#Ex">Ex</a> command executes an <a href="intro.html#Ex">Ex</a> command that executes an <a href="intro.html#Ex">Ex</a>
+command, etc.  This is only allowed 200 times.  When it's more there probably
+is an endless loop.  Probably a |<a href="eval.html#:execute">:execute</a>| or |<a href="repeat.html#:source">:source</a>| command is involved.
+
+
+							*<a name="E254"></A><b>E254</b>* 
+<b>  Cannot allocate color {name}</b>
+
+The color name {name} is unknown.  See |<a href="syntax.html#gui-colors">gui-colors</a>| for a list of colors that
+are available on most systems.
+
+
+							*<a name="E458"></A><b>E458</b>* 
+<b>  Cannot allocate colormap entry, some colors may be incorrect</b>
+
+This means that there are not enough colors available for Vim.  It will still
+run, but some of the colors will not appear in the specified color.  Try
+stopping other applications that use many colors, or start them after starting
+<a href="starting.html#gvim">gvim</a>.
+Browsers are known to consume a lot of colors.  You can avoid this with
+netscape by telling it to use its own colormap:
+<b>	netscape -install</b>
+Or tell it to limit to a certain number of colors (64 should work well):
+<b>	netscape -ncols 64</b>
+This can also be done with a line in your Xdefaults file:
+<b>	Netscape*installColormap: Yes</b>
+or
+<b>	Netscape*maxImageColors:  64</b>
+ 
+
+							*<a name="E79"></A><b>E79</b>* 
+<b>  Cannot expand wildcards</b>
+
+A filename contains a strange combination of characters, which causes Vim to
+attempt expanding <a href="editing.html#wildcards">wildcards</a> but this fails.  This does NOT mean that no
+matching file names could be found, but that the <a href="pattern.html#pattern">pattern</a> was illegal.
+
+
+							*<a name="E459"></A><b>E459</b>* 
+<b>  Cannot go back to previous directory</b>
+
+While expanding a file name, Vim failed to go back to the previously used
+directory.  All file names being used may be invalid now!  You need to have
+execute permission on the current directory.
+
+
+							*<a name="E190"></A><b>E190</b>* *<a name="E212"></A><b>E212</b>* 
+<b>  Cannot open "{filename}" for writing</b>
+<b>  Can't open file for writing</b>
+
+For some reason the file you are <a href="editing.html#writing">writing</a> to cannot be created or overwritten.
+The reason could be that you <a href="diff.html#do">do</a> not have permission to write in the directory
+or the file name is not valid.
+
+
+							*<a name="E166"></A><b>E166</b>* 
+<b>  Can't open linked file for writing</b>
+
+You are trying to write to a file which can't be overwritten, and the file is
+a link (either a hard link or a symbolic link).  Writing might still be
+possible if the directory that contains the link or the file is writable, but
+Vim now doesn't know if you want to delete the link and write the file in its
+place, or if you want to delete the file itself and write the new file in its
+place.  If you really want to write the file under this name, you have to
+manually delete the link or the file, or change the permissions so that Vim
+can overwrite.
+
+
+							*<a name="E46"></A><b>E46</b>* 
+<b>  Cannot change read-only variable "{name}"</b>
+
+You are trying to assign a value to an argument of a function |<a href="eval.html#a:var">a:var</a>| or a Vim
+internal variable |<a href="eval.html#v:var">v:var</a>| which is read-only.
+
+
+							*<a name="E90"></A><b>E90</b>* 
+<b>  Cannot unload last buffer</b>
+
+Vim always requires one buffer to be loaded, otherwise there would be nothing
+to display in the <a href="windows.html#window">window</a>.
+
+
+							*<a name="E40"></A><b>E40</b>* 
+<b>  Can't open errorfile &lt;filename&gt;</b>
+
+When using the &quot;<a href="quickfix.html#:make">:make</a>&quot; or &quot;<a href="quickfix.html#:grep">:grep</a>&quot; commands: The file used to save the error
+<a href="message.html#messages">messages</a> or <a href="quickfix.html#grep">grep</a> output cannot be opened.  This can have several causes:
+- <a href="options.html#'shellredir'">'shellredir'</a> has a wrong value.
+- The shell changes directory, causing the error file to be written in another
+  directory.  This could be fixed by <a href="change.html#changing">changing</a> <a href="options.html#'makeef'">'makeef'</a>, but then the make
+  command is still executed in the wrong directory.
+- <a href="options.html#'makeef'">'makeef'</a> has a wrong value.
+- The <a href="options.html#'grepprg'">'grepprg'</a> or <a href="options.html#'makeprg'">'makeprg'</a> could not be executed.  This cannot always be
+  detected (especially on <a href="os_win32.html#MS-Windows">MS-Windows</a>).  Check your $PATH.
+
+
+<b>  Can't open file C:\TEMP\VIoD243.TMP</b>
+
+On <a href="os_win32.html#MS-Windows">MS-Windows</a>, this message appears when the output of an external command was
+to be read, but the command didn't run successfully.  This can be caused by
+many things.  Check the <a href="options.html#'shell'">'shell'</a>, <a href="options.html#'shellquote'">'shellquote'</a>, <a href="options.html#'shellxquote'">'shellxquote'</a>, <a href="options.html#'shellslash'">'shellslash'</a> and
+related <a href="options.html#options">options</a>.  It might also be that the external command was not found,
+there is no different error message for that.
+
+
+							*<a name="E12"></A><b>E12</b>* 
+<b>  Command not allowed from exrc/vimrc in current dir or tag search</b>
+
+Some commands are not allowed for security reasons.  These commands mostly
+come from a <a href="starting.html#.exrc">.exrc</a> or <a href="starting.html#.vimrc">.vimrc</a> file in the current directory, or from a <a href="tagsrch.html#tags">tags</a>
+file.  Also see <a href="options.html#'secure'">'secure'</a>.
+
+
+							*<a name="E74"></A><b>E74</b>* 
+<b>  Command too complex</b>
+
+A <a href="map.html#mapping">mapping</a> resulted in a very long command string.  Could be caused by a
+<a href="map.html#mapping">mapping</a> that indirectly calls itself.
+
+
+<b>  CONVERSION ERROR</b>
+
+When <a href="editing.html#writing">writing</a> a file and the text &quot;CONVERSION ERROR&quot; appears, this means that
+some bits were lost when converting text from the internally used <a href="mbyte.html#UTF-8">UTF-8</a> to the
+format of the file.  The file will not be marked unmodified.  If you care
+about the loss of information, set the <a href="options.html#'fileencoding'">'fileencoding'</a> option to another value
+that can handle the characters in the buffer and write again.  If you don't
+care, you can <a href="editing.html#abandon">abandon</a> the buffer or reset the <a href="options.html#'modified'">'modified'</a> option.
+
+
+							*<a name="E302"></A><b>E302</b>* 
+<b>  Could not rename swap file</b>
+
+When the file name changes, Vim tries to rename the |<a href="recover.html#swap-file">swap-file</a>| <a href="motion.html#as">as</a> well.
+This failed and the old swap file is now still used.  Mostly harmless.
+
+
+							*<a name="E43"></A><b>E43</b>* *<a name="E44"></A><b>E44</b>* 
+<b>  Damaged match string</b>
+<b>  Corrupted regexp program</b>
+
+Something inside Vim went wrong and resulted in a corrupted <a href="pattern.html#regexp">regexp</a>.  If you
+know how to reproduce this problem, please report it. |<a href="intro.html#bugs">bugs</a>|
+
+
+							*<a name="E208"></A><b>E208</b>* *<a name="E209"></A><b>E209</b>* *<a name="E210"></A><b>E210</b>* 
+<b>  Error writing to "{filename}"</b>
+<b>  Error closing "{filename}"</b>
+<b>  Error reading "{filename}"</b>
+
+This occurs when Vim is trying to rename a file, but a simple change of file
+name doesn't work.  Then the file will be copied, but somehow this failed.
+The result may be that both the original file and the destination file exist
+and the destination file may be incomplete.
+
+
+<b>  Vim: Error reading input, exiting...</b>
+
+This occurs when Vim cannot read typed characters while input is required.
+Vim got stuck, the only thing it can <a href="diff.html#do">do</a> is exit.  This can happen when both
+stdin and stderr are redirected and executing a <a href="usr_41.html#script">script</a> that doesn't exit Vim.
+
+
+							*<a name="E47"></A><b>E47</b>* 
+<b>  Error while reading errorfile</b>
+
+Reading the error file was not possible.  This is NOT caused by an error
+message that was not recognized.
+
+
+							*<a name="E80"></A><b>E80</b>* 
+<b>  Error while writing</b>
+
+Writing a file was not completed successfully.  The file is probably
+incomplete.
+
+
+							*<a name="E13"></A><b>E13</b>* *<a name="E189"></A><b>E189</b>* 
+<b>  File exists (add ! to override)</b>
+<b>  "{filename}" exists (add ! to override)</b>
+
+You are protected from accidentally overwriting a file.  When you want to
+write anyway, use the same command, but add a &quot;<a href="change.html#!">!</a>&quot; just after the command.
+Example:
+<b>	:w /tmp/test</b>
+changes to:
+<b>	:w! /tmp/test</b>
+ 
+
+							*<a name="E768"></A><b>E768</b>* 
+<b>  Swap file exists: {filename} (:silent! overrides)</b>
+
+You are protected from overwriting a file that is being edited by Vim.  This
+happens when you use &quot;<a href="editing.html#:w!">:w!</a> filename&quot; and a swapfile is found.
+- If the swapfile was left over from an old crashed edit session you may want
+  to delete the swapfile.  Edit {filename} to find out information about the
+  swapfile.
+- If you want to write anyway prepend &quot;:silent!&quot; to the command.  For example:
+<b>	:silent! w! /tmp/test</b>
+  The special command is needed, since you already added the ! for overwriting
+  an existing file.
+
+
+							*<a name="E139"></A><b>E139</b>* 
+<b>  File is loaded in another buffer</b>
+
+You are trying to write a file under a name which is also used in another
+buffer.  This would result in two versions of the same file.
+
+
+							*<a name="E142"></A><b>E142</b>* 
+<b>  File not written: Writing is disabled by 'write' option</b>
+
+The <a href="options.html#'write'">'write'</a> option is off.  This makes all commands that try to write a file
+generate this message.  This could be caused by a |<a href="starting.html#-m">-m</a>| commandline argument.
+You can switch the <a href="options.html#'write'">'write'</a> option on with &quot;<a href="options.html#:set">:set</a> <a href="options.html#'write'">write</a>&quot;
+
+
+							*<a name="E25"></A><b>E25</b>* 
+<b>  GUI cannot be used: Not enabled at compile time</b>
+
+You are running a version of Vim that doesn't include the <a href="gui.html#GUI">GUI</a> code.  Therefore
+&quot;<a href="starting.html#gvim">gvim</a>&quot; and &quot;<a href="gui_x11.html#:gui">:gui</a>&quot; don't work.
+
+
+							*<a name="E49"></A><b>E49</b>* 
+<b>  Invalid scroll size</b>
+
+This is caused by setting an invalid value for the <a href="options.html#'scroll'">'scroll'</a>, <a href="options.html#'scrolljump'">'scrolljump'</a> or
+<a href="options.html#'scrolloff'">'scrolloff'</a> <a href="options.html#options">options</a>.
+
+
+							*<a name="E17"></A><b>E17</b>* 
+<b>  "{filename}" is a directory</b>
+
+You tried to write a file with the name of a directory.  This is not possible.
+You probably need to append a file name.
+
+
+							*<a name="E19"></A><b>E19</b>* 
+<b>  Mark has invalid line number</b>
+
+You are using a <a href="motion.html#mark">mark</a> that has a line number that doesn't exist.  This can
+happen when you have a <a href="motion.html#mark">mark</a> in another file, and some other program has
+deleted lines from it.
+
+
+							*<a name="E219"></A><b>E219</b>* *<a name="E220"></A><b>E220</b>* 
+<b>  Missing {.</b>
+<b>  Missing }.</b>
+
+Using a <a href="intro.html#{}">{}</a> construct in a file name, but there is a { without a matching } or
+the other way around.  It should be used like this: {foo,bar}.  This matches
+&quot;foo&quot; and &quot;<a href="motion.html#bar">bar</a>&quot;.
+
+
+							*<a name="E315"></A><b>E315</b>* 
+<b>  ml_get: invalid lnum: {number}</b>
+
+This is an internal Vim error.  Please try to find out how it can be
+reproduced, and submit a bug report |<a href="http://vimdoc.sourceforge.net/htmldoc/bugreport.html">bugreport.vim</a>|.
+
+
+							*<a name="E173"></A><b>E173</b>* 
+<b>  {number} more files to edit</b>
+
+You are trying to exit, while the last item in the argument list has not been
+edited.  This protects you from accidentally exiting when you still have more
+files to work on.  See |<a href="editing.html#argument-list">argument-list</a>|.  If you <a href="diff.html#do">do</a> want to exit, just <a href="diff.html#do">do</a> it
+again and it will work.
+
+
+							*<a name="E23"></A><b>E23</b>* *<a name="E194"></A><b>E194</b>* 
+<b>  No alternate file</b>
+<b>  No alternate file name to substitute for '#'</b>
+
+The alternate file is not defined yet.  See |<a href="editing.html#alternate-file">alternate-file</a>|.
+
+
+							*<a name="E32"></A><b>E32</b>* 
+<b>  No file name</b>
+
+The current buffer has no name.  To write it, use &quot;<a href="editing.html#:w">:w</a> fname&quot;.  Or give the
+buffer a name with &quot;<a href="editing.html#:file">:file</a> fname&quot;.
+
+
+							*<a name="E141"></A><b>E141</b>* 
+<b>  No file name for buffer {number}</b>
+
+One of the <a href="windows.html#buffers">buffers</a> that was changed does not have a file name.  Therefore it
+cannot be written.  You need to give the buffer a file name:
+<b>	:buffer {number}</b>
+<b>	:file {filename}</b>
+ 
+
+							*<a name="E33"></A><b>E33</b>* 
+<b>  No previous substitute regular expression</b>
+
+When using the '<a href="change.html#~">~</a>' character in a <a href="pattern.html#pattern">pattern</a>, it is replaced with the previously
+used <a href="pattern.html#pattern">pattern</a> in a &quot;<a href="change.html#:substitute">:substitute</a>&quot; command.  This fails when no such command has
+been used yet.  See |<a href="pattern.html#/~">/~</a>|.  This also happens when using &quot;:s/pat/&#37;/&quot;, where the
+&quot;<a href="motion.html#&#37;">&#37;</a>&quot; stands for the previous substitute string.
+
+
+							*<a name="E35"></A><b>E35</b>* 
+<b>  No previous regular expression</b>
+
+When using an empty search <a href="pattern.html#pattern">pattern</a>, the previous search <a href="pattern.html#pattern">pattern</a> is used.  But
+that is not possible if there was no previous search.
+
+
+							*<a name="E24"></A><b>E24</b>* 
+<b>  No such abbreviation</b>
+
+You have used an &quot;<a href="map.html#:unabbreviate">:unabbreviate</a>&quot; command with an argument which is not an
+existing abbreviation.  All variations of this command give the same message:
+&quot;<a href="map.html#:cunabbrev">:cunabbrev</a>&quot;, &quot;<a href="map.html#:iunabbrev">:iunabbrev</a>&quot;, etc.  Check for trailing white space.
+
+
+<b>  /dev/dsp: No such file or directory</b>
+
+Only given for <a href="gui_x11.html#GTK">GTK</a> <a href="gui.html#GUI">GUI</a> with <a href="gui_x11.html#Gnome">Gnome</a> support.  <a href="gui_x11.html#Gnome">Gnome</a> tries to use the audio
+device and it isn't present.  You can ignore this error.
+
+
+							*<a name="E31"></A><b>E31</b>* 
+<b>  No such mapping</b>
+
+You have used an &quot;<a href="map.html#:unmap">:unmap</a>&quot; command with an argument which is not an existing
+<a href="map.html#mapping">mapping</a>.  All variations of this command give the same message: &quot;<a href="map.html#:cunmap">:cunmap</a>&quot;,
+&quot;<a href="map.html#:unmap!">:unmap!</a>&quot;, etc.  A few hints:
+- Check for trailing white space.
+- If the <a href="map.html#mapping">mapping</a> is buffer-local you need to use &quot;<a href="map.html#:unmap">:unmap</a> &lt;buffer&gt;&quot;.
+  |<a href="map.html#:map-&lt;buffer&gt;">:map-&lt;buffer&gt;</a>|
+
+
+							*<a name="E37"></A><b>E37</b>* *<a name="E89"></A><b>E89</b>* 
+<b>  No write since last change (add ! to override)</b>
+<b>  No write since last change for buffer {N} (add ! to override)</b>
+
+You are trying to |<a href="editing.html#abandon">abandon</a>| a file that has changes.  Vim protects you from
+losing your work.  You can either write the changed file with &quot;<a href="editing.html#:w">:w</a>&quot;, or, if you
+are sure, |<a href="editing.html#abandon">abandon</a>| it anyway, and lose all the changes.  This can be done by
+adding a '<a href="change.html#!">!</a>' character just after the command you used.  Example:
+<b>	:e other_file</b>
+changes to:
+<b>	:e! other_file</b>
+ 
+
+							*<a name="E162"></A><b>E162</b>* 
+<b>  No write since last change for buffer "{name}"</b>
+
+This appears when you try to exit Vim while some <a href="windows.html#buffers">buffers</a> are changed.  You
+will either have to write the changed buffer (with |<a href="editing.html#:w">:w</a>|), or use a command to
+<a href="editing.html#abandon">abandon</a> the buffer forcefully, e.g., with &quot;:qa!&quot;.  Careful, make sure you
+don't throw away changes you really want to keep.  You might have forgotten
+about a buffer, especially when <a href="options.html#'hidden'">'hidden'</a> is set.
+
+
+<b>  [No write since last change]</b>
+
+This appears when executing a shell command while at least one buffer was
+changed.  To avoid the message reset the <a href="options.html#'warn'">'warn'</a> option.
+
+
+							*<a name="E38"></A><b>E38</b>* 
+<b>  Null argument</b>
+
+Something inside Vim went wrong and resulted in a NULL pointer.  If you know
+how to reproduce this problem, please report it. |<a href="intro.html#bugs">bugs</a>|
+
+
+							*<a name="E172"></A><b>E172</b>* 
+<b>  Only one file name allowed</b>
+
+The &quot;<a href="editing.html#:edit">:edit</a>&quot; command only accepts one file name.  When you want to specify
+several files for editing use &quot;:next&quot; |<a href="editing.html#:next">:next</a>|.
+
+
+						*<a name="E41"></A><b>E41</b>* *<a name="E82"></A><b>E82</b>* *<a name="E83"></A><b>E83</b>* *<a name="E342"></A><b>E342</b>* 
+<b>  Out of memory!</b>
+<b>  Out of memory!  (allocating {number} bytes)</b>
+<b>  Cannot allocate any buffer, exiting...</b>
+<b>  Cannot allocate buffer, using other one...</b>
+
+Oh, oh.  You must have been doing something complicated, or some other program
+is consuming your memory.  Be careful!  Vim is not completely prepared for an
+out-of-memory situation.  First make sure that any changes are saved.  Then
+try to solve the memory shortage.  To stay on the safe side, exit Vim and
+start again.
+
+Buffers are only partly kept in memory, thus editing a very large file is
+unlikely to cause an out-of-memory situation.  Undo information is completely
+in memory, you can reduce that with these <a href="options.html#options">options</a>:
+- <a href="options.html#'undolevels'">'undolevels'</a>  Set to a low value, or to -1 to disable <a href="undo.html#undo">undo</a> completely.  This
+  helps for a change that affects all lines.
+- <a href="options.html#'undoreload'">'undoreload'</a> Set to zero to disable.
+
+Also see |<a href="os_msdos.html#msdos-limitations">msdos-limitations</a>|.
+
+
+							*<a name="E339"></A><b>E339</b>* 
+<b>  Pattern too long</b>
+
+This happens on systems with 16 bit ints: The compiled <a href="pattern.html#regexp">regexp</a> <a href="pattern.html#pattern">pattern</a> is
+longer than about 65000 characters.  Try using a shorter <a href="pattern.html#pattern">pattern</a>.
+It also happens when the offset of a rule doesn't fit in the space available.
+Try simplifying the <a href="pattern.html#pattern">pattern</a>.
+
+
+							*<a name="E45"></A><b>E45</b>* 
+<b>  'readonly' option is set (add ! to override)</b>
+
+You are trying to write a file that was marked <a href="motion.html#as">as</a> read-only.  To write the
+file anyway, either reset the <a href="options.html#'readonly'">'readonly'</a> option, or add a '<a href="change.html#!">!</a>' character just
+after the command you used.  Example:
+<b>	:w</b>
+changes to:
+<b>	:w!</b>
+ 
+
+							*<a name="E294"></A><b>E294</b>* *<a name="E295"></A><b>E295</b>* *<a name="E301"></A><b>E301</b>* 
+<b>  Read error in swap file</b>
+<b>  Seek error in swap file read</b>
+<b>  Oops, lost the swap file!!!</b>
+
+Vim tried to read text from the |<a href="recover.html#swap-file">swap-file</a>|, but something went wrong.  The
+text in the related buffer may now be corrupted!  Check carefully before you
+write a buffer.  You may want to write it in another file and check for
+differences.
+
+
+							*<a name="E192"></A><b>E192</b>* 
+<b>  Recursive use of :normal too deep</b>
+
+You are using a &quot;<a href="various.html#:normal">:normal</a>&quot; command, whose argument again uses a &quot;<a href="various.html#:normal">:normal</a>&quot;
+command in a recursive way.  This is restricted to <a href="options.html#'maxmapdepth'">'maxmapdepth'</a> levels.  This
+example illustrates how to get this message:
+<b>	:map gq :normal gq&lt;CR&gt;</b>
+If you type &quot;<a href="change.html#gq">gq</a>&quot;, it will execute this <a href="map.html#mapping">mapping</a>, which will call &quot;<a href="change.html#gq">gq</a>&quot; again.
+
+
+							*<a name="E22"></A><b>E22</b>* 
+<b>  Scripts nested too deep</b>
+
+Scripts can be read with the &quot;<a href="starting.html#-s">-s</a>&quot; command-line argument and with the &quot;<a href="repeat.html#:source">:source</a>&quot;
+command.  The <a href="usr_41.html#script">script</a> can then again read another <a href="usr_41.html#script">script</a>.  This can continue
+for about 14 levels.  When more nesting is done, Vim assumes that there is a
+recursive loop somewhere and stops with this error message.
+
+
+							*<a name="E319"></A><b>E319</b>* 
+<b>  Sorry, the command is not available in this version</b>
+
+You have used a command that is not present in the version of Vim you are
+using.  When compiling Vim, many different features can be enabled or
+disabled.  This depends on how big Vim has chosen to be and the operating
+system.  See |<a href="various.html#+feature-list">+feature-list</a>| for when which feature is available.  The
+|<a href="various.html#:version">:version</a>| command shows which feature Vim was compiled with.
+
+
+							*<a name="E300"></A><b>E300</b>* 
+<b>  Swap file already exists (symlink attack?)</b>
+
+This message appears when Vim is trying to open a swap file and finds it
+already exists or finds a symbolic link in its place.  This shouldn't happen,
+because Vim already checked that the file doesn't exist.  Either someone else
+opened the same file at exactly the same moment (very unlikely) or someone is
+attempting a symlink attack (could happen when editing a file in /tmp or when
+<a href="options.html#'directory'">'directory'</a> starts with &quot;/tmp&quot;, which is a bad choice).
+
+
+							*<a name="E432"></A><b>E432</b>* 
+<b>  Tags file not sorted: {file name}</b>
+
+Vim (and <a href="intro.html#Vi">Vi</a>) expect <a href="tagsrch.html#tags">tags</a> files to be sorted in ASCII order.  Binary searching
+can then be used, which is a lot faster than a linear search.  If your <a href="tagsrch.html#tags">tags</a>
+files are not properly sorted, reset the |<a href="options.html#'tagbsearch'">'tagbsearch'</a>| option.
+This message is only given when Vim detects a problem when searching for a
+<a href="tagsrch.html#tag">tag</a>.  Sometimes this message is not given, even though the <a href="tagsrch.html#tags">tags</a> file is not
+properly sorted.
+
+
+							*<a name="E460"></A><b>E460</b>* 
+<b>  The resource fork would be lost (add ! to override)</b>
+
+On the <a href="os_mac.html#Macintosh">Macintosh</a> (classic), when <a href="editing.html#writing">writing</a> a file, Vim attempts to preserve all
+info about a file, including its resource <a href="os_unix.html#fork">fork</a>.  If this is not possible you
+get this error message.  Append &quot;<a href="change.html#!">!</a>&quot; to the command name to write anyway (and
+lose the info).
+
+
+							*<a name="E424"></A><b>E424</b>* 
+<b>  Too many different highlighting attributes in use</b>
+
+Vim can only handle about 223 different kinds of highlighting.  If you run
+into this limit, you have used too many |<a href="syntax.html#:highlight">:highlight</a>| commands with different
+arguments.  A &quot;<a href="syntax.html#:highlight">:highlight</a> link&quot; is not counted.
+
+
+							*<a name="E77"></A><b>E77</b>* 
+<b>  Too many file names</b>
+
+When expanding file names, more than one match was found.  Only one match is
+allowed for the command that was used.
+
+
+							*<a name="E303"></A><b>E303</b>* 
+<b>  Unable to open swap file for "{filename}", recovery impossible</b>
+
+Vim was not able to create a swap file.  You can still edit the file, but if
+Vim unexpectedly exits the changes will be lost.  And Vim may consume a lot of
+memory when editing a big file.  You may want to change the <a href="options.html#'directory'">'directory'</a> option
+to avoid this error.  See |<a href="recover.html#swap-file">swap-file</a>|.
+
+
+							*<a name="E140"></A><b>E140</b>* 
+<b>  Use ! to write partial buffer</b>
+
+When using a range to write part of a buffer, it is unusual to overwrite the
+original file.  It is probably a mistake (e.g., when <a href="visual.html#Visual">Visual</a> mode was active
+when using &quot;:w&quot;), therefore Vim requires using a !  after the command, e.g.:
+&quot;:3,10w!&quot;.
+
+
+<b>  Warning: Cannot convert string "&lt;Key&gt;Escape,_Key_Cancel" to type</b>
+<b>  VirtualBinding</b>
+
+Messages like this appear when starting up.  This is not a Vim problem, your
+<a href="options.html#X11">X11</a> configuration is wrong.  You can find a hint on how to solve this here:
+	<a href="http://groups.yahoo.com/group/solarisonintel/message/12179">http://groups.yahoo.com/group/solarisonintel/message/12179</a>.
+[this URL is no longer valid]
+
+
+							*<a name="W10"></A><b>W10</b>* 
+<b>  Warning: Changing a readonly file</b>
+
+The file is read-only and you are making a change to it anyway.  You can use
+the |<a href="autocmd.html#FileChangedRO">FileChangedRO</a>| <a href="autocmd.html#autocommand">autocommand</a> event to avoid this message (the <a href="autocmd.html#autocommand">autocommand</a>
+must reset the <a href="options.html#'readonly'">'readonly'</a> option).  See <a href="options.html#'modifiable'">'modifiable'</a> to completely disallow
+making changes to a file.
+This message is only given for the first change after <a href="options.html#'readonly'">'readonly'</a> has been set.
+
+
+							*<a name="W13"></A><b>W13</b>* 
+<b>  Warning: File "{filename}" has been created after editing started</b>
+
+You are editing a file in Vim when it didn't exist, but it does exist now.
+You will have to decide if you want to keep the version in Vim or the newly
+created file.  This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.
+
+
+							*<a name="W11"></A><b>W11</b>* 
+<b>  Warning: File "{filename}" has changed since editing started</b>
+
+The file which you have started editing has got another <a href="editing.html#timestamp">timestamp</a> and the
+contents changed (more precisely: When reading the file again with the current
+option settings and autocommands you would end up with different text).  This
+probably means that some other program changed the file.  You will have to
+find out what happened, and decide which version of the file you want to keep.
+Set the <a href="options.html#'autoread'">'autoread'</a> option if you want to <a href="diff.html#do">do</a> this automatically.
+This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.
+
+There is one situation where you get this message even though there is nothing
+wrong: If you save a file in Windows on the day the daylight saving time
+starts.  It can be fixed in one of these ways:
+- Add this line in your autoexec.bat:
+<b>	   SET TZ=-1</b>
+  Adjust the &quot;-1&quot; for your time zone.
+- Disable &quot;automatically adjust clock for daylight saving changes&quot;.
+- Just write the file again the next day.  Or set your clock to the next day,
+  write the file <a href="if_cscop.html#twice">twice</a> and set the clock back.
+
+
+							*<a name="W12"></A><b>W12</b>* 
+<b>  Warning: File "{filename}" has changed and the buffer was changed in Vim as well</b>
+
+Like the above, and the buffer for the file was changed in this Vim <a href="motion.html#as">as</a> well.
+You will have to decide if you want to keep the version in this Vim or the one
+on disk.  This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.
+
+
+							*<a name="W16"></A><b>W16</b>* 
+<b>  Warning: Mode of file "{filename}" has changed since editing started</b>
+
+When the <a href="editing.html#timestamp">timestamp</a> for a buffer was changed and the contents are still the
+same but the mode (permissions) have changed.  This usually occurs when
+checking out a file from a version <a href="intro.html#control">control</a> system, which causes the read-only
+bit to be reset.  It should be safe to reload the file.  Set <a href="options.html#'autoread'">'autoread'</a> to
+automatically reload the file.
+
+
+							*<a name="E211"></A><b>E211</b>* 
+<b>  File "{filename}" no longer available</b>
+
+The file which you have started editing has disappeared, or is no longer
+accessible.  Make sure you write the buffer somewhere to avoid losing
+changes.  This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.
+
+
+							*<a name="W14"></A><b>W14</b>* 
+<b>  Warning: List of file names overflow</b>
+
+You must be using an awful lot of <a href="windows.html#buffers">buffers</a>.  It's now possible that two <a href="windows.html#buffers">buffers</a>
+have the same number, which causes various problems.  You might want to exit
+Vim and restart it.
+
+
+							*<a name="E296"></A><b>E296</b>* *<a name="E297"></A><b>E297</b>* 
+<b>  Seek error in swap file write</b>
+<b>  Write error in swap file</b>
+
+This mostly happens when the disk is full.  Vim could not write text into the
+|<a href="recover.html#swap-file">swap-file</a>|.  It's not directly harmful, but when Vim unexpectedly exits some
+text may be lost without <a href="recover.html#recovery">recovery</a> being possible.  Vim might run out of memory
+when this problem persists.
+
+
+						*<a name="connection-refused"></A><b>connection-refused</b>* 
+<b>  Xlib: connection to "&lt;machine-name:0.0" refused by server</b>
+
+This happens when Vim tries to connect to the X server, but the X server does
+not allow a connection.  The connection to the X server is needed to be able
+to restore the title and for the xterm <a href="gui.html#clipboard">clipboard</a> support.  Unfortunately this
+error message cannot be avoided, except by disabling the |<a href="various.html#+xterm_clipboard">+xterm_clipboard</a>|
+and |<a href="various.html#+X11">+X11</a>| features.
+
+
+							*<a name="E10"></A><b>E10</b>* 
+<b>  \\ should be followed by /, ? or &amp;</b>
+
+A command line started with a <a href="intro.html#backslash">backslash</a> or the range of a command contained a
+<a href="intro.html#backslash">backslash</a> in a wrong place.  This is often caused by command-line continuation
+being disabled.  Remove the '<a href="change.html#C">C</a>' flag from the <a href="options.html#'cpoptions'">'cpoptions'</a> option to enable it.
+Or use &quot;<a href="options.html#:set">:set</a> <a href="options.html#'nocp'">nocp</a>&quot;
+
+
+							*<a name="E471"></A><b>E471</b>* 
+<b>  Argument required</b>
+
+This happens when an <a href="intro.html#Ex">Ex</a> command with mandatory argument(s) was executed, but
+no argument has been specified.
+
+
+							*<a name="E474"></A><b>E474</b>* *<a name="E475"></A><b>E475</b>* 
+<b>  Invalid argument</b>
+<b>  Invalid argument: {arg}</b>
+
+An <a href="intro.html#Ex">Ex</a> command has been executed, but an invalid argument has been specified.
+
+
+							*<a name="E488"></A><b>E488</b>* 
+<b>  Trailing characters</b>
+
+An argument has been added to an <a href="intro.html#Ex">Ex</a> command that does not permit one.
+
+
+							*<a name="E477"></A><b>E477</b>* *<a name="E478"></A><b>E478</b>* 
+<b>  No ! allowed</b>
+<b>  Don't panic!</b>
+
+You have added a &quot;<a href="change.html#!">!</a>&quot; after an <a href="intro.html#Ex">Ex</a> command that doesn't permit one.
+
+
+							*<a name="E481"></A><b>E481</b>* 
+<b>  No range allowed</b>
+
+A range was specified for an <a href="intro.html#Ex">Ex</a> command that doesn't permit one.  See
+|<a href="cmdline.html#cmdline-ranges">cmdline-ranges</a>|.
+
+
+							*<a name="E482"></A><b>E482</b>* *<a name="E483"></A><b>E483</b>* 
+<b>  Can't create file {filename}</b>
+<b>  Can't get temp file name</b>
+
+Vim cannot create a temporary file.
+
+
+							*<a name="E484"></A><b>E484</b>* *<a name="E485"></A><b>E485</b>* 
+<b>  Can't open file {filename}</b>
+<b>  Can't read file {filename}</b>
+
+Vim cannot read a temporary file.
+
+
+							*<a name="E464"></A><b>E464</b>* 
+<b>  Ambiguous use of user-defined command</b>
+
+There are two user-defined commands with a common name prefix, and you used
+<a href="cmdline.html#Command-line">Command-line</a> completion to execute one of them. |<a href="map.html#user-cmd-ambiguous">user-cmd-ambiguous</a>|
+Example:
+<b>	:command MyCommand1 echo "one"</b>
+<b>	:command MyCommand2 echo "two"</b>
+<b>	:MyCommand</b>
+ 
+
+							*<a name="E492"></A><b>E492</b>* 
+<b>  Not an editor command</b>
+
+You tried to execute a command that is neither an <a href="intro.html#Ex">Ex</a> command nor
+a user-defined command.
+
+==============================================================================
+
+3. Messages						*<a name="messages"></A><b>messages</b>*
+
+This is an (incomplete) overview of various <a href="message.html#messages">messages</a> that Vim gives:
+
+
+			*<a name="hit-enter"></A><b>hit-enter</b>* *<a name="press-enter"></A><b>press-enter</b>* *<a name="hit-return"></A><b>hit-return</b>*
+
+			*<a name="press-return"></A><b>press-return</b>* *<a name="hit-enter-prompt"></A><b>hit-enter-prompt</b>*
+
+  Press ENTER or type command to continue
+
+This message is given when there is something on the screen for you to read,
+and the screen is about to be redrawn:
+- After executing an external command (e.g., &quot;:!ls&quot; and &quot;=&quot;).
+- Something is displayed on the status line that is longer than the width of
+  the <a href="windows.html#window">window</a>, or runs into the <a href="options.html#'showcmd'">'showcmd'</a> or <a href="options.html#'ruler'">'ruler'</a> output.
+
+-&gt; Press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> or <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> to redraw the screen and continue, without that
+   key being used otherwise.
+-&gt; Press '<a href="cmdline.html#:">:</a>' or any other <a href="intro.html#Normal">Normal</a> mode command character to start that command.
+-&gt; Press '<a href="motion.html#k">k</a>', <a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>, '<a href="undo.html#u">u</a>', '<a href="motion.html#b">b</a>' or '<a href="index.html#g">g</a>' to scroll back in the <a href="message.html#messages">messages</a>.  This
+   works the same way <a href="motion.html#as">as</a> at the |<a href="message.html#more-prompt">more-prompt</a>|.  Only works when <a href="options.html#'compatible'">'compatible'</a>
+   is off and <a href="options.html#'more'">'more'</a> is on.
+-&gt; Pressing '<a href="motion.html#j">j</a>', '<a href="motion.html#f">f</a>', '<a href="change.html#d">d</a>' or <a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a> is ignored when <a href="message.html#messages">messages</a> scrolled off the
+   top of the screen, <a href="options.html#'compatible'">'compatible'</a> is off and <a href="options.html#'more'">'more'</a> is on, to avoid that
+   typing one '<a href="motion.html#j">j</a>' or '<a href="motion.html#f">f</a>' too many causes the <a href="message.html#messages">messages</a> to disappear.
+-&gt; Press &lt;C-Y&gt; to copy (yank) a modeless selection to the <a href="gui.html#clipboard">clipboard</a> <a href="sponsor.html#register">register</a>.
+-&gt; Use a menu.  The characters defined for <a href="cmdline.html#Cmdline-mode">Cmdline-mode</a> are used.
+-&gt; When <a href="options.html#'mouse'">'mouse'</a> contains the '<a href="change.html#r">r</a>' flag, clicking the left mouse button works
+   like pressing <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>.  This makes it impossible to select text though.
+-&gt; For the <a href="gui.html#GUI">GUI</a> clicking the left mouse button in the last line works like
+   pressing <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>.
+{Vi: only &quot;<a href="cmdline.html#:">:</a>&quot; commands are interpreted}
+
+If you accidentally hit <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> or <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> and you want to see the displayed
+text then use |<a href="message.html#g&lt;">g&lt;</a>|.  This only works when <a href="options.html#'more'">'more'</a> is set.
+
+To reduce the number of <a href="message.html#hit-enter">hit-enter</a> prompts:
+- Set <a href="options.html#'cmdheight'">'cmdheight'</a> to 2 or higher.
+- Add flags to <a href="options.html#'shortmess'">'shortmess'</a>.
+- Reset <a href="options.html#'showcmd'">'showcmd'</a> and/or <a href="options.html#'ruler'">'ruler'</a>.
+
+If your <a href="usr_41.html#script">script</a> causes the <a href="message.html#hit-enter">hit-enter</a> prompt and you don't know why, you may
+find the |<a href="eval.html#v:scrollstart">v:scrollstart</a>| variable useful.
+
+Also see <a href="options.html#'mouse'">'mouse'</a>.  The <a href="message.html#hit-enter">hit-enter</a> message is highlighted with the |<a href="syntax.html#hl-Question">hl-Question</a>|
+group.
+
+
+
+						*<a name="more-prompt"></A><b>more-prompt</b>* *<a name="pager"></A><b>pager</b>* 
+<b>  -- More --</b>
+<b>  -- More -- SPACE/d/j: screen/page/line down, b/u/k: up, q: quit</b>
+
+This message is given when the screen is filled with <a href="message.html#messages">messages</a>.  It is only
+given when the <a href="options.html#'more'">'more'</a> option is on.  It is highlighted with the |<a href="syntax.html#hl-MoreMsg">hl-MoreMsg</a>|
+group.
+
+<b><font color="purple">Type					effect </font></b>
+     <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> or <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> or <a href="motion.html#j">j</a> or <a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>	one more line
+     <a href="change.html#d">d</a>					down a page (half a screen)
+     <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> or <a href="motion.html#f">f</a> or <a href="scroll.html#&lt;PageDown&gt;">&lt;PageDown&gt;</a>		down a screen
+     <a href="motion.html#G">G</a>					down all the way, until the <a href="message.html#hit-enter">hit-enter</a>
+					prompt
+
+     <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> or <a href="motion.html#k">k</a> or <a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>			one line back (*)
+     <a href="undo.html#u">u</a>					up a page (half a screen) (*)
+     <a href="motion.html#b">b</a> or <a href="scroll.html#&lt;PageUp&gt;">&lt;PageUp&gt;</a>			back a screen (*)
+     <a href="index.html#g">g</a>					back to the start (*)
+
+     <a href="repeat.html#q">q</a>, <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> or <a href="pattern.html#CTRL-C">CTRL-C</a>			stop the listing
+     :					stop the listing and enter a
+					     command-line
+    &lt;C-Y&gt;				<a href="change.html#yank">yank</a> (copy) a modeless selection to
+					the <a href="gui.html#clipboard">clipboard</a> (&quot;* and &quot;<a href="motion.html#+">+</a> <a href="change.html#registers">registers</a>)
+    {menu-entry}			what the menu is defined to in
+					<a href="cmdline.html#Cmdline-mode">Cmdline-mode</a>.
+    <a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a> (**)			next page
+
+Any other key causes the meaning of the keys to be displayed.
+
+(*)  backwards <a href="scroll.html#scrolling">scrolling</a> is {not in Vi}.  Only scrolls back to where <a href="message.html#messages">messages</a>
+     started to scroll.
+(**) Clicking the left mouse button only works:
+     - For the <a href="gui.html#GUI">GUI</a>: in the last line of the screen.
+     - When '<a href="change.html#r">r</a>' is included in <a href="options.html#'mouse'">'mouse'</a> (but then selecting text won't work).
+
+
+Note: The typed key is directly obtained from the terminal, it is not mapped
+and typeahead is ignored.
+
+The |<a href="message.html#g&lt;">g&lt;</a>| command can be used to see the last page of previous command output.
+This is especially useful if you accidentally typed <a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a> at the <a href="message.html#hit-enter">hit-enter</a>
+prompt.
+
+<a href="message.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

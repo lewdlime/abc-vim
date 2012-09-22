@@ -1,0 +1,370 @@
+X:1
+T:Ace and Deuce of Pipering
+Z: id:dc-setdance-1
+M:C|
+L:1/8
+K:G Major
+dc|B2cA B2cA|BdcA B2AG|d2e^c d2e^c|dfe^c d=cBA|!
+e2fd edcB|Adde dcBA|B2cA B2AG|FGAB cBcA|!
+G2ge fdcA|FGAB cAFG|AGGF G2FG|AGGF G2:|!
+GF|G2=f2 e2f2|G2=fg fdcA|G2g2 f2g2|d2ga gedc|!
+A2=f2 e2fe|d^cde fefg|agfa gfde|fdcA BGAF|!
+G2ge fdcA|FGAB cAFG|AGGF G2FG|AGGF G2:|!
+
+X:2
+T:Blackbird
+Z: id:dc-setdance-2
+M:2/4
+L:1/8
+K:D Mixolydian
+dc|BGBd|c2B2|AGFG|ABcA|d^cde|d=cAF|GAGF|D2DE|!
+FEFG|A2fe|d^cde|dcAF|GAGF|D2D2|D2:|!
+de|fede|f2g2|abag|fgaf|g2gf|gbaf|gagf|d2de|!
+fede|f2g2|abag|fgaf|gagf|d2d2|!
+defg|a3f|g3e|f3e|dcAG|ABcd|efge|a4|!
+ABAG|FGAB|cBce|dcAF|GAGF|D2D2|D2:|!
+
+X:3
+T:Blackthorn Stick
+Z: id:dc-setdance-3
+M:6/8
+L:1/8
+K:G Major
+d|BAG E2G|D2D EGF|G2D GAB|c2c BAG|BdB A2D|!
+GAB c2c|BAG Bdd|edc BAG|EGE DB,D|EGF G2D|!
+GAB c2c|BAG Bdd|edc BAG|EGE DB,D|EGF G2|]!
+
+X:4
+T:Bonaparte's Retreat
+Z: id:dc-setdance-5
+M:C|
+L:1/8
+K:G Major
+GE|DGGF GBAG|FAde fefg|agfa gfde|fdcA BGAF|!
+DGGF GBAG|FAde fefg|agfd cAFG|(3ABA GF G2:|!
+de|fefg fefd|gfga gfde|fgag fdcA|G2AF GFED|!
+fefg fefd|gfga g2fg|agbg agfd|(3gag af g2fg|!
+agbg agfd|(3gag af gfde|fgag fdcA|G2AF G2|]!
+
+X:5
+T:Downfall of Paris
+Z: id:dc-setdance-6
+M:C|
+L:1/8
+K:G Major
+(3DEF|G2GA G2GA|G2AB cBAG|A2AB A2AB|A2AB cBAG|!
+B2BA B2BA|Bdgf edcB|A2AB A2AB|ABcA GFED|!
+G2GA G2GA|G2AB cBAG|A2AB A2AB|A2AB cBAG|!
+BABc dedc|BABc dedc|(3Bcd BG (3ABc AF|G2GF G2:|!
+Bc|d2dB d2dB|e2d2 c2B2|c2cB c2cB|d2c2 B2A2|!
+B2BA B2BA|Bdgf edcB|A2AB A2AB|ABcA GFED|!
+G2GA G2GA|G2AB cBAG|A2AB A2AB|A2AB cBAG|!
+BABc dedc|BABc dedc|(3Bcd BG (3ABc AF|G2GF G2:|!
+Bc|d2ef gfed|Bdge dcBA|G2G2 A2A2|B2B2 A2Bc|!
+d2ef gfed|Bdge dcBA|G2 (3ABc BGAF|G2GF G2:|!
+AG|F2G2 A2B2|c2B2 A2G2|F2G2 A2B2|c2B2 A2Bc|!
+d2ef gfed|Bdge dcBA|G2 (3ABc BGAF|G2GF G2:|!
+
+X:6
+T:Funny Tailor
+Z: id:dc-setdance-7
+M:6/8
+L:1/8
+K:G Major
+D|GED GAB|GBA G2G|G2A Bcd|efg fed|e2B d2A|!
+Bcd efg|fed g2B|dBA GED|GAB GBA|G2G G2A|!
+Bcd efg|fed g2B|dBA GED|GAB GBA|G2G G2|]!
+
+X:7
+T:Garden of Daisies
+Z: id:dc-setdance-8
+M:C|
+L:1/8
+K:D Major
+fg|a2af gbag|fefa gfef|dcde fdec|dedc AGFG|!
+AB=cA d^cAG|FEFG AB=cA|dcdf edce|d2dc d2:|!
+A2|dcde fefg|a2af defg|a2af gbag|fgfe defg|!
+a2af gbag|fefa gfef|dcde fdec|dedc A2|]!
+
+X:8
+T:Humours of Bandon
+Z: id:dc-setdance-9
+M:6/8
+L:1/8
+K:G Major
+C|DGG GFG|A2G FGA|BGG GFG|Ade fef|!
+d2e c2A|BAG FGA|BGA FDF|G3 G2:|!
+B|dgg gfg|a2g fga|g2f d2e|=f2d c2e|!
+d2c Bcd|c2B G2B|A2G FGA|G2F D2|]!
+
+X:9
+T:Hunt
+Z: id:dc-setdance-10
+M:C|
+L:1/8
+K:G Major
+D2|GABG AGEG|cBce dcBA|GABG AGED|EAAG AcBA|!
+GABG AGEG|cBce dcBA|GABG AGED|(3EFG FA G2:|!
+D2|GABc d2de|=f2f2 f2ed|e2e2 efge|d2de d2cB|!
+cBcd edcB|A2AB A2G2|g2g2 gedB|A2AB A2|]!
+
+X:10
+T:Hurling Boys
+Z: id:dc-setdance-11
+M:6/8
+L:1/8
+K:G Major
+D|G2F G2B|d2B GAB|cBA AGA|B2G DEF|!
+G2F G2B|d2B G2g|fed AB^c|d3 d2:|!
+f|e2d e2f|g2d B2G|d2B Gce|d2B G2g|edc BcA|G2F E2D|!
+EFE EFG|DED D2g|edc BcA|G3 G2D|!
+EFE EFG|DED D2g|edc BcA|G3 G2|]!
+
+X:11
+T:Hurry the Jug
+Z: id:dc-setdance-12
+M:6/8
+L:1/8
+K:E Dorian
+B,|EFE G2A|BGE FEF|DED F2G|AdB AFD|!
+EFE G2A|BGE FGA|BdB AdF|EGF E2:|!
+B|AFA d2d|cec d2B|AFA d2A|BAG FED|!
+[1 E2e e2f|g2e f2d|B2e e2f|gfe fdB:|!
+[2 EFE G2A|BGE FGA|BdB AdF|EGF E2|]!
+
+X:12
+T:Is the Big Man Within
+Z: id:dc-setdance-13
+M:9/8
+L:1/8
+K:D Major
+E|FDF G2E E2G|FDF A2D D2E|FDF G2E E2c|dcB A2D D2:|!
+M:6/8
+E|F2A ABc|ded cBA|BcB AGF|B2E E2G|!
+F2A ABc|ded cBA|BcB BAF|A2D D2:|!
+
+X:13
+T:Job of Journey Work
+Z: id:dc-setdance-14
+M:C|
+L:1/8
+K:D Major
+fe|dcAG FGAB|=cABG A2fe|d2cA BGAF|GBAF DEFG|!
+ABAF GFEF|D2DE F2FG|A2dB cdef|d2dc d2:|!
+de|f2ef gfef|dcAG A2de|f2ef gfef|dedc A2fg|agfa gfef|dcde f2|]!
+
+X:14
+T:Jockey to the Fair
+Z: id:dc-setdance-15
+M:6/8
+L:1/8
+K:G Major
+D|G2A B2c|d2g d2c|BdG GFG|cBc A2c|!
+d^cd efg|a2f d2g|fed AB^c|d3 d2:|!
+f|afd afd|c2c B2c|dgd dgd|c2c B2d|!
+e2f gfe|d2c B2d|edc B2A|B2G E2F|GAG GBd|!
+e2f g2e|dBG A2B|E2F G2A|B2g B2A|G3 G2|]!
+
+X:15
+T:Kilkenny Races
+Z: id:dc-setdance-16
+M:C|
+L:1/8
+K:G Major
+(3DEF|G2GA GABc|d2 (3efg d2Bd|c2Ac B2GB|ABAG FE (3DEF|!
+G2GA GABc|d2 (3efg d2gf|(3ece (3gag (3fdf (3aba|g2gf g2:|!
+(3abc'|d'2a2 b2g2|abag fdgf|efed (3dfa gf|dedc B2G2|!
+[1 d'2a2 b2g2|abag fdgf|(3ece (3gag (3fdf (3aba|g2gf g2:|!
+[2 G2GA GABc|d2 (3efg d2gf|(3ece (3gag (3fdf (3aba|g2gf g2|]!
+dc|B2G2 d2G2|(3efg d^c d2G=c|BAGB dBcB|B,2C2 D2dc|!
+B2G2 d2G2|(3efg d^c d2gf|(3ece (3gag (3fdf (3aba|g2gf g2:|!
+
+X:16
+T:King of the Fairies
+Z: id:dc-setdance-17
+M:C|
+L:1/8
+K:E Minor
+B,|EDEF GFGA|BcBA G3A|B2E2 EFGE|FGFE D2B,2|!
+EDEF GFGA|BAGB d3c|B2E2 GFED|E6-E:|!
+K:E Dorian
+B|e2B2 Bdef|gagf e3f|e2B2 BABc|dedc BcdB|!
+e2B2 Bdef|gagf efed|Bdeg fedf|e6ef|!
+g3e f3d|edBc d3e|dBAF GABc|dBAF GFED|!
+B,2E2 EFGA|B2e2 edef|e2B2 BAGF|E6-E:|!
+
+X:17
+T:Lodge Road
+Z: id:dc-setdance-18
+M:C|
+L:1/8
+K:D Major
+A2|d2df edcB|A2A2 A2F2|DFAF DFAF|G2FG E2A2|!
+d2df edcB|A2A2 A2F2|DFAF GFEF|D2DC D2:|!
+A2|defg agfe|defg a2af|g2eg f2df|edcB ABcA|!
+f2f2 g2g2|e2e2 f2fe|dfaf dfaf|g2fg e2e2|!
+f2f2 g2g2|e2e2 f2fe|dfaf bgec|d2dc d2|]!
+
+X:18
+T:Madame Bonaparte
+Z: id:dc-setdance-19
+M:C|
+L:1/8
+K:A Major
+ed|c2cB cecA|d2dc dfdB|Aceg agaf|e3f edcB|!
+c2cB cecA|dcde fgaf|ecAc dBGB|A2AG A2:|!
+cB|Aceg a3f|e3f edcB|Aceg a3f|e3f edcB|!
+ceAe ceAe|dfBf dfBf|ceAe ceAe|GBEB GBEB|!
+ceAe ceAe|dcde fgaf|ecAc dBGB|A2AG A2:|!
+
+X:19
+T:Madame Bonaparte
+Z: id:dc-setdance-20
+M:C|
+L:1/8
+K:G Major
+dc|B2BA BdBG|c2cB cecA|GBdf gfge|d3e dcBA|!
+B2BA BdBG|cBcd efge|dBGB cAFA|G2GF G2:|!
+BA|GBdf g3e|d3e dcBA|GBdf g3e|d3e dcBA|!
+BdGd BdGd|ceAe ceAe|BdGd BdGd|FADA FADA|!
+BdGd BdGd|cBcd efge|dBGB cAFA|G2GF G2:|!
+
+X:20
+T:Orange Rogue
+Z: id:dc-setdance-22
+M:6/8
+L:1/8
+K:G Major
+f|ege dBA|GEF G2A|BAB def|g2b agf|!
+ege dBA|GEF G2A|BAB d^cd|e3 e2:|!
+f|g2e a2f|g2d Bcd|g2e agf|g3 B2d|!
+g2e a2f|g2e fed|BAB def|g2b ag|]!
+
+X:21
+T:Piper in the Meadow Straying
+Z: id:dc-setdance-23
+M:C|
+L:1/8
+K:G Major
+Bc|dedc BcBA|GFGA B2G2|ABcA G2F2|G2B2 B2Bc|!
+dedc BcBA|GFGA B2G2|ABcA G2F2|G2B2 G2:|!
+GB|A2AB c2A2|BABc d2B2|c2cd efg2|fed^c d2|]!
+
+X:22
+T:Planxty Davis
+Z: id:dc-setdance-24
+M:C|
+L:1/8
+K:D Major
+FG|A2AB A2FG|AFAB A3B|AGFE DEFG|A2AB A2dc|!
+B2Bc B2Ac|BABc B2dB|AGFE DEFA|B2Bd B2fa|!
+bafb afeg|fedf e2de|fedB BAdF|A2AB A2dc|!
+B2AB d2Bd|e2de f2ed|BABc d2F2|E4 D2:|!
+fg|a2ab a2fg|afab a2fg|agfe defg|a2ab a2fa|!
+b2ba b2fa|bafa b2fb|agfe defa|b2ba b2fa|!
+bafb afeg|fedf e2de|fedB BAdF|A2AB A2dc|!
+B2AB d2Bd|e2de f2ed|BABc d2F2|E4 D2:|!
+
+X:23
+T:Planxty Drury
+Z: id:dc-setdance-25
+M:6/8
+L:1/8
+K:D Major
+A|d2d dcB|A2G F2G|E2e efd|c2B AFG|!
+A2f fgf|e2d cBA|f2g afd|ced cBA|!
+AFA AFA|Bcd ecA|afa gec|d3 d2:|!
+B|ABA GAG|FGF E2E|E2E E2G|FDG FGE|!
+D3 d3|efe ecA|ABc def|g2f edc|!
+d2d ded|BAG Bcd|efe egf|efd cBA|!
+d2F G2B|A2G FGA|BAG FGE|D3 D2:|!
+
+X:24
+T:Planxty Browne
+Z: id:dc-setdance-21
+M:6/8
+L:1/8
+K:G Major
+g|dBG GAB|E2E E2c|AFD DEF|G2G G2g|!
+dBG Bcd|E2E E2c|AFD DEF|G2G G2:|!
+g/a/|bgb afd|efg gfe|dBg dBG|AFD D2g/a/|!
+bgb afd|efg gfe|faf ge^c|d2d de=f|!
+ece dBd|cac BgB|Ace dBG|FAF DEF|!
+GAB EFG|ABc def|gdB cAF|G3 G2|]!
+
+X:25
+T:Rambling Rake
+Z: id:dc-setdance-26
+M:C|
+L:1/8
+K:A Dorian
+E|AGAB cBcd|efec d2ge|d2ge d2ge|dcBA G2GB|!
+AGAB cBcd|efec d2ge|dBGB dedB|c2A2 A3:|!
+d|efec d2g2|efec d2g2|fgaf dgg2|fgaf d2ga|!
+bagf efga|bagf efga|baga bagf|edef g2fg|!
+efec d2g2|efed c2Bc|ABcd gfge|dcBA G2GB|!
+AGAB cBcd|efec d2ge|dBGB dedB|c2A2 A3|]!
+
+X:26
+T:Rodney's Glory
+Z: id:dc-setdance-27
+M:C|
+L:1/8
+K:A Dorian
+ed|c2Bc ABcA|BGEF G2cd|e=fed cde^f|gfge d=fed|!
+c2Bc ABcA|BGEF G2ed|c2BA GABG|A2AG A2:|!
+cd|eaab aged|e=fed c3A|g2fg agec|dcAF G3B|!
+AGAB cBcd|edeg a3b|aged cdef|gfge d=f|]!
+
+X:27
+T:Rub the Bag
+Z: id:dc-setdance-28
+M:6/8
+L:1/8
+K:D Major
+ded fed|cBA cec|BcB fdB|BcB fdB|!
+ded fed|cBA cec|ABA ecA|ABA ecA:|!
+ded def|efe efg|fgf f2^g|aba a2g|fgf fga|gfe efe|]!
+
+X:28
+T:Saint Patrick's Day
+Z: id:dc-setdance-29
+M:6/8
+L:1/8
+K:G Major
+D|GAG GBd|gfe dBG|AGA BGD|EFE E2D|!
+GAG GBd|gfe dBG|AGA BGD|E2F G2:|!
+B|def gag|fed edB|def gag|fed e2B|def gag|fed efg|]!
+
+X:29
+T:Three Sea Captains
+Z: id:dc-setdance-30
+M:6/8
+L:1/8
+K:G Major
+D|GFG BGB|c2A F2D|GFG BGB|d2B G2B|!
+[1 cec A2c|BdB G2B|A2B c2B|ABG FE:|!
+[2 cec A2c|BdB G2F|EcB AGF|G3 G2|]!
+d|gfg dcB|ABc def|gfg dBd|e2c A2d|!
+g2a bge|f2g afd|egf ed^c|d3 dcB|!
+c2d ecA|B2c dBG|A2B c2B|ABG FE|]!
+
+X:30
+T:White Blanket
+Z: id:dc-setdance-31
+M:C|
+L:1/8
+K:G Major
+AB|c2E2 E2DE|G2AB c3A|BAGE DEFG|A2AB A2dc|BAGE DEFA|G2GF G2:|!
+Bd|e2ef edef|gedB c3A|BAGE DEFG|A2AB A2dc|BAGE DEFA|G2GF G2:|!
+
+X:31
+T:Youghal Harbour
+Z: id:dc-setdance-32
+M:C|
+L:1/8
+K:G Major
+ef|gfed B2AB|dB (3ABA GEDE|G2GA Bdef|gfed B2AB|dB (3ABA G2G2|G6:|!
+A2|Bdef g2fg|agfg e3f|fedB dBAB|d2de d2ef|!
+g2ga gfed|(3BdB AG EDB,D|G2GA BABd|edef g2|]!
+

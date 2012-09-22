@@ -1,0 +1,6737 @@
+%!PS-Adobe-2.0
+%%BoundingBox: 0 0 612 792
+%%Title: AtFirstLight.abc
+%%Creator: abcm2ps-7.0.14
+%%CreationDate: Aug 21, 2012 23:16
+%%Pages: (atend)
+%%LanguageLevel: 3
+%%EndComments
+%CommandLine: -O = -i -j 1 -N 3 AtFirstLight.abc
+
+%%BeginSetup
+/!{bind def}bind def
+/bdef{bind def}!
+/T/translate load def
+/M/moveto load def
+/RM/rmoveto load def
+/L/lineto load def
+/RL/rlineto load def
+/C/curveto load def
+/RC/rcurveto load def
+/SLW/setlinewidth load def
+/defl 0 def
+/dlw{0.7 SLW}!
+/creator [(abcm2ps) 7 0 14] def
+/xymove{/x 2 index def/y 1 index def M}!
+/showc{dup stringwidth pop .5 mul neg 0 RM show}!
+/showr{dup stringwidth pop neg 0 RM show}!
+/showb{	dup currentpoint 3 -1 roll show
+	.6 SLW
+	exch 2 sub exch 3 sub 3 -1 roll
+	stringwidth pop 4 add
+	currentfont /ScaleMatrix get 0 get .8 mul
+	4 add rectstroke}!
+/utclef{<95200072
+	0000ff2e01c2030c
+	00ac0056
+	0064007f006400f400e00112
+	0176011c01bc0056013a0012
+	00c8ffde002700120015009a
+	0006014f0072017f00f101e8
+	0149023f0140026d012f02ba
+	00fc029900d1025100d60200
+	00e700f500fa008a0107ffc2
+	010dff6200f4ff3c00baff3b
+	006aff3a003cff98007dffc0
+	00d2ffe90102ff5b009cff57
+	00b3ff4600f8ff3200f6ffb3
+	00ec009200cf010900c4021c
+	00c4027600c402be01240304
+	015c02bc0163021e013a01e3
+	00f001790039013b003b00a7
+	0044000e00cfffee01370022
+	018d0063015400e200e700d2
+	00a000c6007e008f00ac0056
+	><0b000132050a>}cvlit def
+/tclef{gsave T -10 0 T .045 dup scale utclef ufill grestore}!
+/stclef{gsave T -10 0 T .037 dup scale utclef ufill grestore}!
+/octu{/Times-Roman 12 selectfont M -2.5 0 RM(8)show}!
+/octl{/Times-Roman 12 selectfont M -3.5 0 RM(8)show}!
+/ubclef{<95200046
+	00000050019a0244
+	00010057
+	007d007a00df00a500ff0143
+	012a022700580239003f01aa
+	007a01fa00dc0194009b015c
+	005d012d00280172003101b4
+	00460241013f023c01430180
+	014200d100d9007800010057
+	01660151
+	016601750199017301990151
+	0199012c0166012d01660151
+	016401d2
+	016401f6019701f4019701d2
+	019701ac016401ad016401d2
+	><0b000126050a0122050a0122050a>}cvlit def
+/bclef{gsave T -10 0 T .045 dup scale ubclef ufill grestore}!
+/sbclef{gsave T -10 3 T .037 dup scale ubclef ufill grestore}!
+/ucclef{<95200066
+	006effbe01e70256
+	00d10108
+	00d10002
+	00c40002
+	00c40213
+	00d10213
+	00d10113
+	00ea012700fa013701100180
+	011e0161011d014d0148013a
+	01a2011801a80244011f01f3
+	015301e0013a01a3011401a6
+	00ba01cc01350256019f01eb
+	01e7019c01a000fa01190131
+	0109010a
+	011900e4
+	01a0011b01e70079019f002a
+	0135ffbe00ba00490114006f
+	013a007201530035011f0022
+	01a8ffd101a200fd014800db
+	011d00c8011b00bd0110009b
+	00fa00e400ea00f400d10108
+	006e0213
+	00a70213
+	00a70002
+	006e0002
+	006e0213
+	><0b000125032605220326050a0124030a>}cvlit def
+/cclef{gsave T -12 0 T .045 dup scale ucclef ufill grestore}!
+/scclef{gsave T -12 2 T .037 dup scale ucclef ufill grestore}!
+/pclef{	exch 2.7 sub exch 2 add 5.4 20
+	1.4 SLW rectstroke}!
+/spclef{pclef}!
+/bm{	M 3 copy RL neg 0 exch RL
+	neg exch neg exch RL 0 exch RL fill}!
+/bnum{M/Times-Italic 12 selectfont showc}!
+/bnumb{	currentgray/Times-Italic 12 selectfont
+	3 index stringwidth pop 4 add
+	dup .5 mul neg 4 index add 3 index 3 -1 roll 8
+	1.0 setgray rectfill setgray M showc}!
+/tubr{3 sub M 0 3 RL RL 0 -3 RL dlw stroke}!
+/tubrl{3 add M 0 -3 RL RL 0 3 RL dlw stroke}!
+/r00{	xymove
+	-1.5 -6 RM currentpoint 3 12 rectfill}!
+/r0{	xymove
+	-1.5 0 RM currentpoint 3 6 rectfill}!
+/r1{	xymove
+	-3.5 3 RM currentpoint 7 3 rectfill}!
+/r2{	xymove
+	-3.5 0 RM currentpoint 7 3 rectfill}!
+/r4{	xymove
+	-1 8.5 RM
+	3.6 -5.1 RL
+	-2.1 -5.2 RL
+	2.2 -4.3 RL
+	-2.6 2.3 -5.1 0 -2.4 -2.6 RC
+	-4.8 3 -1.5 6.9 1.4 4.1 RC
+	-3.1 4.5 RL
+	1.9 5.1 RL
+	-1.5 3.5 RL
+	fill}!
+/r8e{	-1.5 -1.5 -2.4 -2 -3.6 -2 RC
+	2.4 2.8 -2.8 4 -2.8 1.2 RC
+	0 -2.7 4.3 -2.4 5.9 -0.6 RC
+	fill}!
+/r8{	xymove
+	.5 SLW 3.3 4 RM
+	-3.4 -9.6 RL stroke
+	x y M 3.4 4 RM r8e}!
+/r16{	xymove
+	.5 SLW 3.3 4 RM
+	-4 -15.6 RL stroke
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r32{	xymove
+	.5 SLW 4.8 10 RM
+	-5.5 -21.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r64{	xymove
+	.5 SLW 4.8 10 RM
+	-7 -27.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e
+	x y M 0.4 -8 RM r8e}!
+/r128{	xymove
+	.5 SLW 5.8 16 RM
+	-8.5 -33.6 RL stroke
+	x y M 5.9 16 RM r8e
+	x y M 4.4 10 RM r8e
+	x y M 2.9 4 RM r8e
+	x y M 1.4 -2 RM r8e
+	x y M -0.1 -8 RM r8e}!
+/dt{x y M RM currentpoint 1.2 0 360 arc fill}!
+/hld{	1.5 add 2 copy 1.5 add M currentpoint 1.3 0 360 arc
+	M -7.5 0 RM
+	0 11.5 15 11.5 15 0 RC
+	-0.25 0 RL
+	-1.25 9 -13.25 9 -14.5 0 RC
+	fill}!
+/dnb{	dlw M -3.2 2 RM
+	0 7.2 RL
+	6.4 0 RM
+	0 -7.2 RL
+	currentpoint stroke M
+	-6.4 4.8 RM
+	0 2.4 RL
+	6.4 0 RL
+	0 -2.4 RL
+	fill}!
+/upb{	dlw M -2.6 9.4 RM
+	2.6 -8.8 RL
+	2.6 8.8 RL
+	stroke}!
+/grm{	M -5 2.5 RM
+	5 8.5 5.5 -4.5 10 2 RC
+	-5 -8.5 -5.5 4.5 -10 -2 RC fill}!
+/stc{3 add M currentpoint 1.2 0 360 arc fill}!
+/emb{	1.2 SLW 1 setlinecap M
+	-2.5 3 RM 5 0 RL stroke 0 setlinecap}!
+/cpu{	M -6 0 RM
+	0.4 7.3 11.3 7.3 11.7 0 RC
+	-1.3 6 -10.4 6 -11.7 0 RC fill}!
+/sld{	M -7.2 -4.8 RM
+	1.8 -0.7 4.5 0.2 7.2 4.8 RC
+	-2.1 -5 -5.4 -6.8 -7.6 -6 RC fill}!
+/trl{	/Times-BoldItalic 16 selectfont
+	M -4 2 RM(tr)show}!
+/umrd{	4 add M
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL fill}!
+/lmrd{	2 copy umrd M
+	.6 SLW 0 8 RL stroke}!
+/fng{/Bookman-Demi 8 selectfont M -3 1 RM show}!
+/dacs{/Times-Roman 16 selectfont 3 add M showc}!
+/brth{/Times-BoldItalic 30 selectfont 6 add M(,)show}!
+/pf{/Times-BoldItalic 16 selectfont 5 add M show}!
+/sfz{	M -7 5 RM pop
+	/Times-Italic 14 selectfont(s)show
+	/Times-BoldItalic 16 selectfont(f)show
+	/Times-Italic 14 selectfont(z)show}!
+/coda{	1 SLW 2 add 2 copy M 0 20 RL
+	2 copy M -10 10 RM 20 0 RL stroke
+	10 add 6 0 360 arc 1.7 SLW stroke}!
+/sgno{	M 0 3 RM currentpoint currentpoint currentpoint
+	1.5 -1.7 6.4 0.3 3 3.7 RC
+	-10.4 7.8 -8 10.6 -6.5 11.9 RC
+	4 1.9 5.9 -1.7 4.2 -2.6 RC
+	-1.3 -0.7 -2.9 1.3 -0.7 2 RC
+	-1.5 1.7 -6.4 -0.3 -3 -3.7 RC
+	10.4 -7.8 8 -10.6 6.5 -11.9 RC
+	-4 -1.9 -5.9 1.7 -4.2 2.6 RC
+	1.3 0.7 2.9 -1.3 0.7 -2 RC
+	fill
+	M 0.8 SLW -6 1.2 RM 12.6 12.6 RL stroke
+	7 add exch 6 sub exch 1.2 0 360 arc fill
+	8 add exch 6 add exch 1.2 0 360 arc fill}!
+/cresc{	1 SLW M dup 5 RM
+	defl 1 and 0 eq
+	{dup neg 4 RL 4 RL}
+	{dup neg 2.2 RL 0 3.6 RM 2.2 RL}
+	ifelse stroke}!
+/dim{	1 SLW 5 add M
+	defl 2 and 0 eq
+	{dup 4 RL neg 4 RL}
+	{dup 2.2 RL 0 3.6 RM neg 2.2 RL}
+	ifelse stroke}!
+/dplus{	1.2 SLW 0.5 add M 0 6 RL
+	-3 -3 RM 6 0 RL stroke}!
+/accent{1.2 SLW M -4 2 RM
+	8 2 RL -8 2 RL stroke}!
+/turn{	M 5.2 8 RM
+	1.4 -0.5 0.9 -4.8 -2.2 -2.8 RC
+	-4.8 3.5 RL
+	-3 2 -5.8 -1.8 -3.6 -4.4 RC
+	1 -1.1 2 -0.8 2.1 0.1 RC
+	0.1 0.9 -0.7 1.2 -1.9 0.6 RC
+	-1.4 0.5 -0.9 4.8 2.2 2.8 RC
+	4.8 -3.5 RL
+	3 -2 5.8 1.8 3.6 4.4 RC
+	-1 1.1 -2 0.8 -2.1 -0.1 RC
+	-0.1 -0.9 0.7 -1.2 1.9 -0.6 RC
+	fill}!
+/turnx{	2 copy turn M
+	.6 SLW 0 1.5 RM 0 9 RL stroke}!
+/lphr{1.2 SLW M 0 -18 RL stroke}!
+/mphr{1.2 SLW M 0 -12 RL stroke}!
+/sphr{1.2 SLW M 0 -6 RL stroke}!
+/ltr{	gsave 4 add T
+	0 6 3 -1 roll{
+		2{
+			0 0.4 M
+			2 1.9 3.4 2.3 3.9 0 C
+			2.1 0 L
+			1.9 0.8 1.4 0.7 0 -0.4 C
+			fill
+			180 rotate -6 0 T
+		}repeat
+		pop 6 0 T
+	}for
+	grestore}!
+/arp{gsave 90 rotate exch neg ltr grestore}!
+/wedge{1 add M -1.5 5 RL 3 0 RL -1.5 -5 RL fill}!
+/opend{dlw M currentpoint 3 add 2.5 -90 270 arc stroke}!
+/snap{	dlw 2 copy M -3 6 RM
+	0 5 6 5 6 0 RC
+	0 -5 -6 -5 -6 0 RC
+	5 add M 0 -6 RL stroke}!
+/thumb{	dlw 2 copy M -2.5 7 RM
+	0 6 5 6 5 0 RC
+	0 -6 -5 -6 -5 0 RC
+	2 add M 0 -4 RL stroke}!
+/trem{	M -4.5 0 RM{
+		currentpoint
+		9 3 RL 0 -3 RL -9 -3 RL 0 3 RL
+		fill 5.4 sub M
+	}repeat}!
+/hl{	.8 SLW M -6 0 RM 12 0 RL stroke}!
+/hl1{	.8 SLW M -7 0 RM 14 0 RL stroke}!
+/hl2{	.7 SLW M -9 0 RM 18 0 RL stroke}!
+/usharp{<95200024
+	003cff42019a02ee
+	008802be
+	0088ff44
+	00a8ff44
+	00a802be
+	0128ff76
+	0148ff76
+	014802ee
+	012802ee
+	004001d0
+	0040015c
+	019201bc
+	01920230
+	00400076
+	00400002
+	01920064
+	019200d6
+	><0b000123030a0123030a0123030a0123030a>}cvlit def
+/uflat{<95200028
+	0064000001b802ee
+	006402ea
+	008402ea
+	0084000c
+	00640008
+	00840154
+	00b2019c011c01ae01540168
+	01b800fa00dc00220084000c
+	00840028
+	00ba0028014c00f60106014a
+	00d401860084014e00840128
+	><0b00010303030a0105050105050a>}cvlit def
+/unat{<95200022
+	003cff42013602ee
+	006002ee
+	004002ee
+	00400022
+	0060002a
+	01160060
+	0116ff46
+	0136ff46
+	01360208
+	011401fe
+	006001cc
+	006002ee
+	0060009e
+	0060015c
+	01160190
+	011600d4
+	><0b00012a030a0123030a>}cvlit def
+/udblesharp{<95200046
+	003c006e019001c2
+	00f0011a
+	01180140013a015e018e015e
+	018e01be
+	012e01be
+	012e016a0110014800ea0122
+	00c2014800a4016a00a401be
+	004401be
+	0044015e
+	009a015e00bc014000e2011a
+	00bc00f4009a00d6004400d6
+	00440076
+	00a40076
+	00a400ca00c200ec00ea0112
+	011000ec012e00ca012e0076
+	018e0076
+	018e00d6
+	013a00d6011800f400f0011a
+	><0b0001050303050503030505030305050303050a>}cvlit def
+/udbleflat{<9520004c
+	00140000022602ee
+	001402ea
+	002c02ea
+	002c000c
+	00140008
+	002c0154
+	004e019c009e01ae00c80168
+	011300fa00660022002c000c
+	002c0028
+	0054002800c200f6008d014a
+	00680186002c014e002c0128
+	010e02ea
+	012602ea
+	0126000c
+	010e0008
+	01260154
+	0148019c019801ae01c20168
+	020d00fa016000220126000c
+	01260028
+	014e002801bc00f60187014a
+	016201860126014e01260128
+	><0b000123030a0105050105050a0123030a0105050105050a>}cvlit def
+/sh0{	gsave T -4 -5 T .018 dup scale usharp ufill grestore}!
+/ft0{	gsave T -3.5 -3.5 T .018 dup scale uflat ufill grestore}!
+/nt0{	gsave T -3 -5 T .018 dup scale unat ufill grestore}!
+/dsh0{	gsave T -4 -5 T .018 dup scale udblesharp ufill grestore}!
+/dft0{	gsave T -4 -3.5 T .018 dup scale udbleflat ufill grestore}!
+/gsc{gsave y T .7 dup scale 0 0}!
+/sh1{	gsave T .9 SLW
+	0 -7.8 M 0 15.4 RL stroke
+	-1.8 -2.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	-1.8 3.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	grestore}!
+/sh513{	gsave T .8 SLW
+	-2.5 -8.7 M 0 15.4 RL
+	0 -7.8 M 0 15.4 RL
+	2.5 -6.9 M 0 15.4 RL stroke
+	-3.7 -3.1 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	-3.7 3.2 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	grestore}!
+/ft1{gsave -1 1 scale exch neg exch ft0 grestore}!
+/ftx{	-1.4 2.7 RM
+	5.7 3.1 5.7 -3.6 0 -6.7 RC
+	3.9 4 4 7.6 0 5.8 RC
+	currentpoint fill M
+	dlw 0 7.1 RM 0 -12.4 RL stroke}!
+/ft513{2 copy gsave -1 1 scale exch neg 3 add exch M ftx grestore
+	M 1.5 0 RM ftx}!
+/gcshow{show}!
+/box{.6 SLW rectstroke}!
+/boxstart{currentpoint pop/x exch def}!
+/boxmark{currentpoint pop dup x gt
+	{/x exch def}{pop}ifelse}!
+/boxdraw{x 3 index sub 2 add exch box}!
+/gxshow{0 9 3 -1 roll widthshow}!
+/anshow{show}!
+/wln{M .8 SLW 0 RL stroke}!
+/hyph{	.8 SLW 3 add M
+	dup cvi 20 idiv 3 mul 25 add
+	1 index cvi exch idiv 1 add exch 1 index div
+	dup 4 sub 3 1 roll .5 mul 2 sub 0 RM
+	{4 0 RL dup 0 RM}repeat stroke pop}!
+/lyshow{show}!
+/bar{M dlw 0 exch RL stroke}!
+/dotbar{[5] 0 setdash bar [] 0 setdash}!
+/thbar{3 -1 roll 3 exch rectfill}!
+/rdots{	2 copy 9 add M currentpoint 1.2 0 360 arc
+	15 add M currentpoint 1.2 0 360 arc fill}!
+/csig{	M
+	1 17.3 RM
+	0.9 0 2.3 -0.7 2.4 -2.2 RC
+	-1.2 2 -3.6 -0.1 -1.6 -1.7 RC
+	2 -1 3.8 3.5 -0.8 4.7 RC
+	-2 0.4 -6.4 -1.3 -5.8 -7 RC
+	0.4 -6.4 7.9 -6.8 9.1 -0.7 RC
+	-2.3 -5.6 -6.7 -5.1 -6.8 0 RC
+	-0.5 4.4 0.7 7.5 3.5 6.9 RC
+	fill}!
+/ctsig{dlw 2 copy csig 4 add M 0 16 RL stroke}!
+/pmsig{0.3 SLW 12 add M currentpoint 5 0 360 arc stroke}!
+/pMsig{2 copy pmsig 12 add M currentpoint 1.3 0 360 arc fill}!
+/imsig{0.3 SLW 12 add 2 copy 5 add M 5 90 270 arc stroke}!
+/iMsig{2 copy imsig 12 add M currentpoint 1.3 0 360 arc fill}!
+/tsig{	M gsave/Times-Bold 16 selectfont 1.2 1 scale
+	0 1 RM currentpoint 3 -1 roll showc
+	12 add M showc grestore}!
+/stsig{	M gsave/Times-Bold 18 selectfont 1.2 1 scale
+	0 7 RM showc grestore}!
+/staff{	dlw M{dup 0 RL dup neg 6 RM}repeat
+	pop stroke}!
+/sep0{dlw 0 M 0 RL stroke}!
+/hbrce{	-2.5 1 RM
+	-4.5 -4.6 -7.5 -12.2 -4.4 -26.8 RC
+	3.5 -14.3 3.2 -21.7 -2.1 -24.2 RC
+	7.4 2.4 7.3 14.2 3.5 29.5 RC
+	-2.7 9.5 -1.5 16.2 3 21.5 RC
+	fill}!
+/brace{	gsave T 0 0 M .01 mul 1 exch scale hbrce
+	0 -100 M 1 -1 scale hbrce grestore}!
+/bracket{M -5 2 RM currentpoint
+	-1.7 2 RM 10.5 -1 12 4.5 12 3.5 RC
+	0 -1 -3.5 -5.5 -8.5 -5.5 RC fill
+	3 SLW M 0 2 RM
+	0 exch neg 8 sub RL currentpoint stroke
+	M -1.7 0 RM
+	10.5 1 12 -4.5 12 -3.5 RC
+	0 1 -3.5 5.5 -8.5 5.5 RC fill}!
+/mrest{	gsave T 1 SLW
+	-20 6 M 0 12 RL 20 6 M 0 12 RL stroke
+	5 SLW -20 12 M 40 0 RL stroke
+	/Times-Bold 15 selectfont 0 28 M showc grestore}!
+/mrep{	2 copy 2 copy
+	M -5 15 RM currentpoint 1.4 0 360 arc
+	M 5 9 RM currentpoint 1.4 0 360 arc
+	M -7 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+	fill}!
+/mrep2{	2 copy 2 copy
+	M -5 18 RM currentpoint 1.4 0 360 arc
+	M 5 6 RM currentpoint 1.4 0 360 arc fill
+	M 1.8 SLW
+	-7 4 RM 14 10 RL -14 -4 RM 14 10 RL
+	stroke}!
+/srep{	M -1 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+	fill}!
+/repbra{gsave dlw T 0 -20 M
+	0 20 3 index 1 ne{RL}{RM}ifelse 0 RL 0 ne{0 -20 RL}if stroke
+	4 exch M show grestore}!
+/SL{M RC RL RC closepath fill}!
+/dSL{	M [4] 0 setdash .8 SLW
+	RC stroke [] 0 setdash}!
+/strw{stringwidth pop w add/w exch def}!
+/jshow{w 0 32 4 -1 roll widthshow}!
+/uhd{{	100 -270 640 280
+	560 82
+	474 267 105 105 186 -80
+	267 -265 636 -102 555 82
+	}<0b000122050a>}cvlit def
+/hd{	/x 2 index def/y 1 index def
+	gsave T -7.4 0 T .02 dup scale uhd ufill grestore}!
+/Hd{	xymove
+	3 1.6 RM
+	-1 1.8 -7 -1.4 -6 -3.2 RC
+	1 -1.8 7 1.4 6 3.2 RC
+	0.5 0.3 RM
+	2 -3.8 -5 -7.6 -7 -3.8 RC
+	-2 3.8 5 7.6 7 3.8 RC
+	fill}!
+/HD{	xymove
+	-2.7 1.4 RM
+	1.5 2.8 6.9 0 5.3 -2.7 RC
+	-1.5 -2.8 -6.9 0 -5.3 2.7 RC
+	8.3 -1.4 RM
+	0 1.5 -2.2 3 -5.6 3 RC
+	-3.4 0 -5.6 -1.5 -5.6 -3 RC
+	0 -1.5 2.2 -3 5.6 -3 RC
+	3.4 0 5.6 1.5 5.6 3 RC
+	fill}!
+/HDD{	dlw HD
+	x y M -6 -4 RM 0 8 RL
+	12 0 RM 0 -8 RL stroke}!
+/breve{	xymove
+	2.5 SLW -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -10 RL stroke}!
+/longa{	xymove
+	2.5 SLW -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -16 RL stroke}!
+/pshhd{/x 2 index def/y 1 index def dsh0}!
+/pfthd{/x 2 index def/y 1 index def dsh0
+	.7 SLW x y 4 0 360 arc stroke}!
+/pdshhd{pshhd}!
+/pdfthd{pfthd}!
+/ghd{	xymove
+	1.7 1 RM
+	-1 1.7 -4.5 -0.2 -3.4 -2 RC
+	1 -1.7 4.5 0.2 3.4 2 RC fill}!
+/gua{x y M -1 4 RM RL stroke}!
+/gda{x y M -5 -4 RM RL stroke}!
+/ghl{	.6 SLW M -3 0 RM 6 0 RL stroke}!
+/gsl{dlw M RC stroke}!
+/custos{2 copy M -4 0 RM 2 2.5 RL 2 -2.5 RL 2 2.5 RL 2 -2.5 RL
+	-2 -2.5 RL -2 2.5 RL -2 -2.5 RL -2 2.5 RL fill
+	M 3.5 0 RM 5 7 RL dlw stroke}!
+/c280_c29f[
+	/.notdef	/sharp		/flat		/natural
+	/dsharp		/dflat]def
+/extra-draw{
+	/sharp{460 0 setcharwidth usharp ufill}bind def
+	/flat{460 0 setcharwidth uflat ufill}bind def
+	/natural{400 0 setcharwidth unat ufill}bind def
+	/dsharp{460 0 setcharwidth udblesharp ufill}bind def
+	/dflat{500 0 setcharwidth udbleflat ufill}bind def
+ }def
+/c2a0_c5bf[
+/LA140000	/exclamdown	/cent		/sterling
+/currency	/yen		/brokenbar	/section
+/dieresis	/copyright	/ordfeminine	/guillemotleft
+/logicalnot	/LI120000	/registered	/LI180000
+/degree	/plusminus	/twosuperior	/threesuperior
+/acute		/LO200000	/paragraph	/SA070000
+/cedilla	/onesuperior	/ordmasculine	/guillemotright
+/onequarter	/onehalf	/threequarters	/questiondown
+/Agrave	/Aacute		/Acircumflex	/Atilde
+/Adieresis	/Aring		/AE		/Ccedilla
+/Egrave	/Eacute		/Ecircumflex	/Edieresis
+/Igrave	/Iacute		/Icircumflex	/Idieresis
+/Eth		/Ntilde		/Ograve		/Oacute
+/Ocircumflex	/Otilde		/Odieresis	/multiply
+/Oslash	/Ugrave		/Uacute		/Ucircumflex
+/Udieresis	/Yacute		/Thorn		/germandbls
+/agrave	/aacute		/acircumflex	/atilde
+/adieresis	/aring		/ae		/ccedilla
+/egrave	/eacute		/ecircumflex	/edieresis
+/igrave	/iacute		/icircumflex	/idieresis
+/eth		/ntilde		/ograve		/oacute
+/ocircumflex	/otilde		/odieresis	/divide
+/oslash	/ugrave		/uacute		/ucircumflex
+/udieresis	/yacute		/thorn		/ydieresis
+/Amacron	/amacron	/Abreve		/abreve
+/Aogonek	/aogonek	/Cacute		/cacute
+/Ccircumflex	/ccircumflex	/Cdotaccent	/cdotaccent
+/Ccaron	/ccaron		/Dcaron		/dcaron
+/Dcroat	/dcroat		/Emacron	/emacron
+/Ebreve	/ebreve		/Edotaccent	/edotaccent
+/Eogonek	/eogonek	/Ecaron		/ecaron
+/Gcircumflex	/gcircumflex	/Gbreve		/gbreve
+/Gdotaccent	/gdotaccent	/Gcommaaccent	/gcommaaccent
+/Hcircumflex	/hcircumflex	/Hbar		/hbar
+/Itilde	/itilde		/Imacron	/imacron
+/Ibreve	/ibreve		/Iogonek	/iogonek
+/Idotaccent	/dotlessi	/IJ		/ij
+/Jcircumflex	/jcircumflex	/Kcedilla	/kcedilla
+/kgreenlandic	/Lacute		/lacute		/Lcedilla
+/lcedilla	/Lcaron		/lcaron		/Ldot
+/ldot		/Lslash		/lslash		/Nacute
+/nacute	/Ncedilla	/ncedilla	/tmacron
+/ncaron	/napostrophe	/Eng		/eng
+/Omacron	/omacron	/Obreve		/obreve
+/Ohungarumlaut	/ohungarumlaut	/OE		/oe
+/Racute	/racute		/Rcommaaccent	/rcommaaccent
+/Rcaron	/rcaron		/Sacute		/sacute
+/Scircumflex	/scircumflex	/Scedilla	/scedilla
+/Scaron	/scaron		/Tcedilla	/tcedilla
+/Tcaron	/tcaron		/Tbar		/tbar
+/Utilde	/utilde		/Umacron	/umacron
+/Ubreve	/ubreve		/Uring		/uring
+/Uhungarumlaut	/uhungarumlaut	/Uogonek	/uogonek
+/Wcircumflex	/wcircumflex	/Ycircumflex	/ycircumflex
+/Ydieresis	/Zacute		/zacute		/Zdotaccent
+/zdotaccent	/Zcaron		/zcaron		/longs
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+/.notdef	/.notdef	/.notdef	/.notdef
+]def
+/latinfontdef{
+  /latinfont curfont findfont dup length
+	dict begin
+		{1 index/FID ne{def}{pop pop}ifelse}forall
+		/Encoding c2a0_c5bf def
+		currentdict
+	end
+  definefont}def
+/Error<<
+	/FontType 3
+	/FontMatrix[.001 0 0 .001 0 0]
+	/Encoding[256{/.notdef}repeat]
+	/FontBBox[0 0 500 500]
+	/BuildChar{
+		500 0 99 348 401 453 setcachedevice 50 setlinewidth
+		100 400 moveto 300 0 rlineto stroke
+		pop pop
+	}
+  >>definefont pop
+/compdef{
+	/FontType 0
+	/FontMatrix[1 0 0 1 0 0]
+	/FMapType 6
+	/SubsVector<01 8080>
+	/Encoding[0 0]
+	/FDepVector[/Error findfont]
+  }def
+/compe000def{/compe000<<compdef>>definefont}def
+/compe100def{/compe100<<compdef>>definefont}def
+/compe200def{/compe200<<compdef>>definefont}def
+/showerror{	gsave 1 0.7 0.7 setrgbcolor 2.5 SLW newpath
+	30 0 360 arc stroke grestore}!
+/pdfmark where{pop}{userdict/pdfmark/cleartomark load put}ifelse
+0 setlinecap 0 setlinejoin
+/su{dlw x y M 3.5 1.0 RM 1.0 sub 0 exch RL stroke}!
+/sd{dlw x y M -3.5 -1.0 RM 1.0 add 0 exch RL stroke}!
+/sfu{	dlw x y M 3.5 1.0 RM
+	1.0 sub 0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 -5.6 9.6 -9 5.6 -18.4 RC
+		1.6 6 -1.3 11.6 -5.6 12.8 RC
+		fill
+	  }{
+		1 sub{	currentpoint
+			0.9 -3.7 9.1 -6.4 6 -12.4 RC
+			1 5.4 -4.2 8.4 -6 8.4 RC
+			fill 5.4 sub M
+		}repeat
+		1.2 -3.2 9.6 -5.7 5.6 -14.6 RC
+		1.6 5.4 -1 10.2 -5.6 11.4 RC
+		fill
+	  }ifelse}!
+/sfd{	dlw x y M -3.5 -1.0 RM
+	1.0 add 0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 5.6 9.6 9 5.6 18.4 RC
+		1.6 -6 -1.3 -11.6 -5.6 -12.8 RC
+		fill
+	  }{
+		1 sub{	currentpoint
+			0.9 3.7 9.1 6.4 6 12.4 RC
+			1 -5.4 -4.2 -8.4 -6 -8.4 RC
+			fill 5.4 add M
+		}repeat
+		1.2 3.2 9.6 5.7 5.6 14.6 RC
+		1.6 -5.4 -1 -10.2 -5.6 -11.4 RC
+		fill
+	  }ifelse}!
+/sfs{	dup 0 lt{
+		dlw x y M -3.5 -1.0 RM
+		1.0 add 0 exch RL currentpoint stroke
+		M{	currentpoint
+			7 3.2 RL
+			0 3.2 RL
+			-7 -3.2 RL
+			fill 5.4 add M
+		}repeat
+	}{
+		dlw x y M 3.5 1.0 RM
+		1.0 sub 0 exch RL currentpoint stroke
+		M{	currentpoint
+			7 -3.2 RL
+			0 -3.2 RL
+			-7 3.2 RL
+			fill 5.4 sub M
+		}repeat
+	}ifelse}!
+/gu{	.6 SLW x y M
+	1.6 0 RM 0 exch RL stroke}!
+/gd{	.6 SLW x y M
+	-1.6 0 RM 0 exch RL stroke}!
+/sgu{	.6 SLW x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 -3.4 5.6 -3.8 3 -10 RC
+		1.2 4.4 -1.4 7 -3 7 RC
+		fill
+	  }{
+		{	currentpoint
+			1 -3.2 5.6 -2.8 3.2 -8 RC
+			1.4 4.8 -2.4 5.4 -3.2 5.2 RC
+			fill 3.5 sub M
+		}repeat
+	  }ifelse}!
+/sgd{	.6 SLW x y M -1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq{
+		pop
+		0.6 3.4 5.6 3.8 3 10 RC
+		1.2 -4.4 -1.4 -7 -3 -7 RC
+		fill
+	  }{
+		{	currentpoint
+			1 3.2 5.6 2.8 3.2 8 RC
+			1.4 -4.8 -2.4 -5.4 -3.2 -5.2 RC
+			fill 3.5 add M
+		}repeat
+	  }ifelse}!
+/sgs{	.6 SLW x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M{	currentpoint
+		3 -1.5 RL 0 -2 RL -3 1.5 RL
+		closepath fill 3 sub M
+	}repeat}!
+/ExtraFont 10 dict begin
+	/FontType 3 def
+	/FontMatrix[.001 0 0 .001 0 0]def
+	/Encoding[256{/.notdef}repeat]def
+	Encoding 0 c280_c29f putinterval
+	/FontBBox[0 0 1000 1000]def
+	/BuildChar{
+		1 index/Encoding get exch get
+		1 index/BuildGlyph get exec
+	}bind def
+	/CharProcs 3 dict def
+		CharProcs begin
+			/.notdef{}def
+			extra-draw
+		end
+	/BuildGlyph{
+		exch /CharProcs get exch
+		2 copy known not{pop /.notdef}if
+		get exec
+	}bind def
+	currentdict
+    end
+ definefont pop
+/mkfont-utf8{
+	/curfont exch def
+	<<
+	/FontType 0
+	/FontMatrix[1 0 0 1 0 0]
+	/FMapType 4
+	/Encoding[0 1]
+	/FDepVector[
+		curfont findfont
+		/compfont2<<
+			/FontType 0
+			/FontMatrix[1 0 0 1 0 0]
+			/FMapType 6
+	/SubsVector<01 4280 0020 00c0 00c0 00c0 00e0 1a40 0100 0100 0100>
+			/Encoding[0 1 2 2 2 2 0 3 4 5 0]
+			/FDepVector[
+				/Error findfont
+				/ExtraFont findfont
+				latinfontdef
+				compe000def
+				compe100def
+				compe200def
+			]
+		>>definefont
+	]
+	>>definefont pop}bind def
+/Helvetica-utf8/Helvetica mkfont-utf8
+/F0{/Helvetica-utf8 exch selectfont}!
+/Times-Italic-utf8/Times-Italic mkfont-utf8
+/F1{/Times-Italic-utf8 exch selectfont}!
+/Times-Roman-utf8/Times-Roman mkfont-utf8
+/F2{/Times-Roman-utf8 exch selectfont}!
+/Times-Bold-utf8/Times-Bold mkfont-utf8
+/F3{/Times-Bold-utf8 exch selectfont}!
+%%EndSetup
+%%Page: 1 1
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (1)showr 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Farewell To Connaught - Liz Carroll's - Brendan's - The Limestone Rock)showc 
+0 -25.34 T
+% --- 1 (Farewell To Connaught - Liz Carroll's - Brendan's - The Limestone Rock) ---
+% --- font 20.0 F2 
+[/Title(Farewell To Connaught - Liz Carroll's - Brendan's - The Limestone Rock)/OUT pdfmark
+15.0 F2 62.5 -17.0 M(A)show 
+60.5 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  226.9 32.0 y0 M(2)show 367.0 32.0 y0 M(3)show 518.8 32.0 y0 M(4)show
+(3)128.9 25.8 y0 bnum
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(4)(4) 43.0 -57.0 tsig
+71.5 -57.0 rdots 24.0 67.5 -57.0 bar 24.0 61.5 -57.0 thbar 
+85.0 -60.0 hd 20.0 su
+3.2 29.3 -4.3 116.1 -34.7 bm
+113.0 -54.0 hd 18.2 su
+127.3 -57.0 hd 19.1 su
+141.5 -60.0 hd 20.0 su
+3.2 55.0 6.8 160.5 -32.6 bm
+157.3 -54.0 hd 20.4 su
+175.4 -51.0 hd 19.7 su
+193.5 -48.0 hd 18.9 su
+211.6 -45.0 hd 18.2 su
+24.0 229.7 -57.0 bar 
+242.2 -42.0 hd -20.0 sd
+-3.2 18.8 2.3 266.4 -61.7 bm
+270.2 -42.0 hd -18.6 sd
+288.3 -39.0 hd -19.4 sd
+-3.2 18.8 -3.7 304.5 -63.5 bm
+308.3 -42.0 hd -20.6 sd
+326.4 -48.0 hd -18.2 sd
+344.5 -51.0 hd 20.0 su
+24.0 369.8 -57.0 bar 
+-3.2 55.7 -0.0 378.5 -67.2 bm
+382.3 -48.0 hd -18.2 sd
+400.4 -39.0 hd -27.2 sd
+418.5 -39.0 hd -27.2 sd
+437.4 -42.0 hd 428.4 y sh0 -24.2 sd
+457.4 -39.0 hd -20.0 sd
+-3.2 18.8 2.3 481.5 -61.7 bm
+485.4 -42.0 hd -18.6 sd
+503.5 -39.0 hd -19.4 sd
+24.0 521.6 -57.0 bar 
+-3.2 55.7 -0.0 530.3 -60.0 bm
+534.1 -36.0 hd -23.0 sd
+552.2 -39.0 hd -20.0 sd
+571.1 -42.0 hd 562.1 y sh0 -17.0 sd
+589.2 -39.0 hd -20.0 sd
+-3.2 55.0 -5.6 605.3 -61.6 bm
+609.2 -36.0 hd -24.6 sd
+627.3 -39.0 hd -23.5 sd
+645.4 -42.0 hd -22.3 sd
+663.5 -48.0 hd -18.2 sd
+24.0 681.6 -57.0 bar 
+344.5 -29.0 grm
+0 -80.00 T
+/y0{-49.0 add}!
+681.6 5 0.0 -49.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 195.7 32.0 y0 M(6)show 350.3 35.0 y0 M(7)show 518.5 32.0 y0 M(8)show
+(3)91.6 25.8 y0 bnum
+(3)254.4 -19.2 y0 bnum
+12.0 -49.0  tclef
+27.0 -25.0 sh0 
+45.0 -52.0 hd 20.0 su
+3.2 30.8 -4.4 78.1 -26.8 bm
+74.9 -46.0 hd 18.2 su
+90.0 -49.0 hd 19.1 su
+105.0 -52.0 hd 19.9 su
+3.2 58.3 6.9 124.9 -24.7 bm
+121.7 -46.0 hd 20.3 su
+140.9 -43.0 hd 19.6 su
+160.1 -40.0 hd 18.9 su
+179.3 -37.0 hd 18.2 su
+24.0 198.5 -49.0 bar 
+211.0 -34.0 hd -20.0 sd
+-3.2 30.8 4.4 237.1 -56.2 bm
+240.9 -37.0 hd -18.2 sd
+256.0 -34.0 hd -19.1 sd
+271.1 -31.0 hd -19.9 sd
+-3.2 19.9 -3.8 283.9 -55.4 bm
+287.7 -34.0 hd -20.5 sd
+306.9 -40.0 hd -18.2 sd
+326.1 -43.0 hd 20.0 su
+24.0 353.1 -49.0 bar 
+3.2 58.3 -0.0 368.8 -17.8 bm
+365.6 -40.0 hd 21.2 su
+384.8 -37.0 hd 18.2 su
+404.0 -40.0 hd 21.2 su
+423.2 -43.0 hd 24.2 su
+3.2 58.3 5.7 447.6 -23.5 bm
+444.5 -49.0 hd 24.6 su
+463.7 -43.0 hd 20.4 su
+482.9 -40.0 hd 19.3 su
+502.0 -37.0 hd 18.2 su
+24.0 521.3 -49.0 bar 
+3.2 58.3 -6.7 536.9 -14.8 bm
+533.8 -34.0 hd 18.2 su
+553.0 -40.0 hd 22.0 su
+572.2 -43.0 hd 22.8 su
+591.3 -49.0 hd 26.6 su
+3.2 19.9 -2.4 615.8 -29.3 bm
+612.6 -49.0 hd 18.6 su
+631.8 -52.0 hd 19.4 su
+653.1 -52.0 hd 20.0 su
+24.0 678.6 -49.0 thbar 24.0 675.6 -49.0 bar 671.6 -49.0 rdots 
+326.1 -21.0 grm
+653.1 -23.0 grm
+0 -72.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 206.4 32.0 y0 M(10)show 363.0 32.0 y0 M(11)show 507.9 32.0 y0 M(12)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+-3.2 58.2 -0.0 61.2 -44.0 bm
+65.0 -26.0 hd -17.0 sd
+84.2 -20.0 hd -23.0 sd
+103.4 -20.0 hd -23.0 sd
+122.5 -23.0 hd -20.0 sd
+143.8 -20.0 hd -20.0 sd
+-3.2 19.9 -2.4 169.8 -46.3 bm
+173.6 -26.0 hd -19.4 sd
+192.8 -29.0 hd -18.6 sd
+24.0 212.0 -47.0 bar 
+-3.2 58.2 -0.0 220.7 -50.0 bm
+224.5 -32.0 hd -17.0 sd
+243.7 -29.0 hd -20.0 sd
+262.9 -26.0 hd -23.0 sd
+282.1 -29.0 hd -20.0 sd
+-3.2 19.9 -3.8 299.5 -53.4 bm
+303.3 -32.0 hd -20.5 sd
+322.5 -38.0 hd -18.2 sd
+341.7 -38.0 hd 20.0 su
+24.0 368.6 -47.0 bar 
+-3.2 58.3 -0.0 377.3 -44.0 bm
+381.1 -26.0 hd -17.0 sd
+400.3 -17.0 hl 400.3 -17.0 hd -26.0 sd
+419.5 -17.0 hl 419.5 -17.0 hd -26.0 sd
+438.7 -20.0 hd -23.0 sd
+460.0 -17.0 hl 460.0 -17.0 hd 8.0 3 dt -20.0 sd
+494.3 -20.0 hd 1 -20.0 sfd
+24.0 513.5 -47.0 bar 
+-3.2 58.3 -0.0 522.1 -44.0 bm
+526.0 -26.0 hd -17.0 sd
+545.2 -17.0 hl 545.2 -17.0 hd -26.0 sd
+564.4 -17.0 hl 564.4 -17.0 hd -26.0 sd
+583.6 -20.0 hd -23.0 sd
+-3.2 58.2 -0.0 601.0 -50.0 bm
+604.9 -26.0 hd -23.0 sd
+624.0 -29.0 hd -20.0 sd
+643.2 -32.0 hd -17.0 sd
+662.4 -29.0 hd -20.0 sd
+24.0 681.6 -47.0 bar 
+143.8 -16.0 grm
+341.7 -16.0 grm
+460.0 -13.0 grm
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 185.6 32.0 y0 M(14)show 350.6 35.0 y0 M(15)show 517.7 38.0 y0 M(16)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+-3.2 57.9 -0.0 41.2 -49.0 bm
+45.0 -31.0 hd -17.0 sd
+64.1 -25.0 hd -23.0 sd
+83.1 -25.0 hd -23.0 sd
+102.2 -28.0 hd -20.0 sd
+123.3 -25.0 hd -20.0 sd
+-3.2 19.7 -2.4 149.2 -51.3 bm
+153.0 -31.0 hd -19.4 sd
+172.1 -34.0 hd -18.6 sd
+24.0 191.2 -52.0 bar 
+-3.2 57.9 -0.0 199.8 -55.0 bm
+203.7 -37.0 hd -17.0 sd
+222.7 -34.0 hd -20.0 sd
+241.8 -31.0 hd -23.0 sd
+260.9 -34.0 hd -20.0 sd
+3.2 57.9 -5.3 283.1 -14.8 bm
+279.9 -34.0 hd 18.2 su
+299.0 -43.0 hd 25.4 su
+318.0 -43.0 hd 23.7 su
+337.1 -46.0 hd 24.9 su
+24.0 356.2 -52.0 bar 
+3.2 57.9 -0.0 371.8 -20.8 bm
+368.7 -43.0 hd 21.2 su
+387.7 -40.0 hd 18.2 su
+406.8 -43.0 hd 21.2 su
+425.9 -46.0 hd 24.2 su
+3.2 57.9 5.7 450.2 -26.5 bm
+447.0 -52.0 hd 24.6 su
+466.1 -46.0 hd 20.4 su
+485.1 -43.0 hd 19.3 su
+504.2 -40.0 hd 18.2 su
+24.0 523.3 -52.0 bar 
+3.2 57.9 -6.7 538.9 -17.8 bm
+535.8 -37.0 hd 18.2 su
+554.8 -43.0 hd 22.0 su
+573.9 -46.0 hd 22.8 su
+593.0 -52.0 hd 26.6 su
+3.2 19.7 -2.4 617.3 -32.3 bm
+614.1 -52.0 hd 18.6 su
+633.2 -55.0 hd 19.4 su
+654.3 -55.0 hd 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+123.3 -21.0 grm
+654.3 -26.0 grm
+0 -75.00 T
+15.0 F2 42.5 -17.0 M(B)show 
+40.5 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 220.8 33.0 y0 M(18)show 368.8 32.0 y0 M(19)show 514.5 32.0 y0 M(20)show
+(3)129.2 24.0 y0 bnum
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+51.5 -70.0 rdots 24.0 47.5 -70.0 bar 24.0 41.5 -70.0 thbar 
+63.5 -46.0 sh0 69.0 -55.0 sh0 
+87.0 -73.0 hd 20.0 su
+3.2 28.3 -0.0 117.0 -51.8 bm
+113.8 -73.0 hd 20.2 su
+127.6 -73.0 hd 20.2 su
+141.4 -73.0 hd 20.2 su
+3.2 52.9 -0.0 159.8 -43.0 bm
+156.6 -61.0 hd 17.0 su
+174.1 -73.0 hd 29.0 su
+191.5 -67.0 hd 23.0 su
+208.9 -64.0 hd 20.0 su
+24.0 226.4 -70.0 bar 
+238.9 -61.0 hd 20.0 su
+3.2 18.1 3.7 268.9 -45.4 bm
+265.7 -67.0 hd 20.6 su
+283.1 -61.0 hd 18.2 su
+-3.2 52.9 -0.0 300.8 -70.2 bm
+304.6 -52.0 hd -17.2 sd
+322.1 -46.0 hd -23.2 sd
+339.5 -49.0 hd -20.2 sd
+356.9 -52.0 hd -17.2 sd
+24.0 374.4 -70.0 bar 
+-3.2 18.1 5.7 383.0 -77.3 bm
+386.9 -58.0 hd -18.2 sd
+404.3 -43.0 hd -27.7 sd
+423.5 -43.0 hd -20.0 sd
+-3.2 52.9 -6.8 446.5 -64.5 bm
+450.4 -43.0 hd -20.5 sd
+467.8 -46.0 hd -19.7 sd
+485.2 -49.0 hd -19.0 sd
+502.6 -52.0 hd -18.2 sd
+24.0 520.1 -70.0 bar 
+-3.2 25.8 -4.2 528.8 -78.1 bm
+-3.2 12.6 -2.0 529.1 -73.2 bm
+532.6 -55.0 hd -22.2 sd
+545.2 -58.0 hd -21.2 sd
+557.8 -61.0 hd -20.2 sd
+-3.2 18.1 -2.3 573.2 -69.3 bm
+577.0 -49.0 hd -19.4 sd
+594.4 -52.0 hd -18.6 sd
+3.2 52.9 -6.6 615.0 -35.8 bm
+611.9 -55.0 hd 18.2 su
+629.3 -61.0 hd 22.0 su
+646.7 -64.0 hd 22.9 su
+664.1 -70.0 hd 26.7 su
+24.0 681.6 -70.0 bar 
+423.5 -39.0 grm
+0 -93.00 T
+/y0{-69.0 add}!
+681.6 5 0.0 -69.0 staff
+14.0 F1 24.0 32.0 y0 M(21)show 161.3 33.0 y0 M(22)show 286.5 38.0 y0 M(23)show 418.9 38.0 y0 M(24)show 545.1 38.0 y0 M(24)show
+(3)85.7 24.0 y0 bnum
+13.0 F2 (1)-11.4 2 118.2 424.5 67.0 y0 repbra
+(2)-11.4 2 130.9 550.7 67.0 y0 repbra
+12.0 -69.0  tclef
+27.0 -45.0 sh0 32.5 -54.0 sh0 
+50.5 -72.0 hd 20.0 su
+3.2 24.1 -0.0 75.6 -50.8 bm
+72.4 -72.0 hd 20.2 su
+84.1 -72.0 hd 20.2 su
+95.8 -72.0 hd 20.2 su
+3.2 44.3 -0.0 111.8 -42.0 bm
+108.6 -60.0 hd 17.0 su
+123.2 -72.0 hd 29.0 su
+137.7 -66.0 hd 23.0 su
+152.3 -63.0 hd 20.0 su
+24.0 166.9 -69.0 bar 
+179.4 -60.0 hd 20.0 su
+3.2 15.2 3.4 204.5 -44.2 bm
+201.3 -66.0 hd 20.9 su
+215.9 -60.0 hd 18.2 su
+-3.2 44.3 -0.0 230.0 -69.2 bm
+233.9 -51.0 hd -17.2 sd
+248.4 -45.0 hd -23.2 sd
+263.0 -48.0 hd -20.2 sd
+277.5 -51.0 hd -17.2 sd
+24.0 292.1 -69.0 bar 
+3.2 44.3 -0.0 307.8 -34.8 bm
+304.6 -54.0 hd 18.2 su
+319.2 -60.0 hd 24.2 su
+333.7 -60.0 hd 24.2 su
+348.3 -57.0 hd 21.2 su
+-3.2 44.3 -0.0 362.4 -79.2 bm
+366.3 -54.0 hd -24.2 sd
+380.8 -60.0 hd -18.2 sd
+395.4 -48.0 hd -30.2 sd
+409.9 -51.0 hd -27.2 sd
+24.0 424.5 -69.0 bar 
+3.2 44.3 -6.3 440.2 -34.8 bm
+437.0 -54.0 hd 18.2 su
+451.6 -60.0 hd 22.1 su
+466.1 -63.0 hd 23.1 su
+480.7 -69.0 hd 27.0 su
+496.6 -66.0 hd 8.0 0 dt 20.0 su
+522.7 -69.0 hd 1 20.0 sfu
+24.0 547.7 -69.0 thbar 24.0 544.7 -69.0 bar 540.7 -69.0 rdots 
+3.2 44.3 -6.3 566.4 -34.8 bm
+563.2 -54.0 hd 18.2 su
+577.7 -60.0 hd 22.1 su
+592.3 -63.0 hd 23.1 su
+606.8 -69.0 hd 27.0 su
+3.2 44.3 5.4 626.0 -40.2 bm
+622.8 -66.0 hd 24.9 su
+637.4 -60.0 hd 20.7 su
+651.9 -57.0 hd 19.4 su
+666.4 -54.0 hd 18.2 su
+24.0 681.6 -69.0 bar 24.0 678.6 -69.0 bar 
+496.6 -43.0 grm
+0 -92.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(25)show 213.9 32.0 y0 M(26)show 353.1 32.0 y0 M(27)show 514.5 32.0 y0 M(28)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 32.5 -37.0 sh0 
+57.0 -52.0 rdots 24.0 53.0 -52.0 bar 24.0 47.0 -52.0 thbar 
+-3.2 55.8 4.0 66.7 -53.2 bm
+70.5 -34.0 hd -18.2 sd
+88.9 -28.0 hd -22.9 sd
+107.2 -22.0 hl 107.2 -19.0 hd -30.5 sd
+125.6 -28.0 hd -20.2 sd
+-3.2 55.8 -0.0 142.1 -49.0 bm
+145.9 -22.0 hl 145.9 -22.0 hd -26.0 sd
+164.3 -28.0 hd -20.0 sd
+182.7 -31.0 hd -17.0 sd
+201.1 -25.0 hd -23.0 sd
+24.0 219.5 -52.0 bar 
+232.0 -28.0 hd 8.0 3 dt -20.0 sd
+264.8 -34.0 hd 1 -20.0 sfd
+-3.2 55.8 -0.0 281.3 -62.2 bm
+285.2 -31.0 hd -30.2 sd
+303.5 -43.0 hd -18.2 sd
+321.9 -40.0 hd -21.2 sd
+340.3 -37.0 hd -24.2 sd
+24.0 358.7 -52.0 bar 
+-3.2 55.8 4.0 367.3 -53.2 bm
+371.2 -34.0 hd -18.2 sd
+389.5 -28.0 hd -22.9 sd
+407.9 -22.0 hl 407.9 -19.0 hd -30.5 sd
+426.3 -28.0 hd -20.2 sd
+-3.2 55.8 -0.0 442.8 -49.0 bm
+446.6 -22.0 hl 446.6 -22.0 hd -26.0 sd
+465.0 -28.0 hd -20.0 sd
+483.4 -31.0 hd -17.0 sd
+501.7 -25.0 hd -23.0 sd
+24.0 520.1 -52.0 bar 
+-3.2 55.8 -5.7 528.8 -53.6 bm
+532.6 -28.0 hd -24.6 sd
+551.0 -31.0 hd -23.5 sd
+569.4 -34.0 hd -22.3 sd
+587.7 -40.0 hd -18.2 sd
+-3.2 55.8 5.7 604.2 -56.2 bm
+608.1 -37.0 hd -18.2 sd
+626.5 -34.0 hd -19.3 sd
+644.8 -31.0 hd -20.5 sd
+663.2 -25.0 hd -24.6 sd
+24.0 681.6 -52.0 bar 
+232.0 -6.0 grm
+0 -75.00 T
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1 24.0 32.0 y0 M(29)show 156.8 32.0 y0 M(30)show 289.2 36.0 y0 M(31)show 415.9 32.0 y0 M(32)show 555.2 32.0 y0 M(32)show
+13.0 F2 (1)-11.4 2 131.4 421.5 61.0 y0 repbra
+(2)-11.4 2 120.8 560.8 61.0 y0 repbra
+12.0 -63.0  tclef
+27.0 -39.0 sh0 32.5 -48.0 sh0 
+50.5 -39.0 hd 8.0 3 dt -20.0 sd
+77.3 -42.0 hd 1 -20.0 sfd
+-3.2 15.7 2.2 90.0 -64.6 bm
+93.8 -45.0 hd -18.6 sd
+108.8 -42.0 hd -19.4 sd
+-3.2 22.7 -4.0 121.5 -62.2 bm
+-3.2 11.0 -1.9 121.8 -57.3 bm
+125.3 -39.0 hd -22.3 sd
+136.3 -42.0 hd -21.2 sd
+147.3 -45.0 hd -20.1 sd
+24.0 162.4 -63.0 bar 
+-3.2 45.6 -5.1 171.0 -71.5 bm
+174.9 -42.0 hd -28.5 sd
+189.8 -54.0 hd -18.2 sd
+204.8 -54.0 hd -19.9 sd
+219.8 -54.0 hd -21.6 sd
+3.2 45.6 -0.0 237.9 -28.8 bm
+234.8 -54.0 hd 24.2 su
+249.8 -51.0 hd 21.2 su
+264.7 -48.0 hd 18.2 su
+279.7 -54.0 hd 24.2 su
+24.0 294.8 -63.0 bar 
+307.3 -51.0 hd 20.0 su
+3.2 15.7 -2.2 333.2 -37.4 bm
+330.0 -57.0 hd 18.6 su
+345.0 -60.0 hd 19.4 su
+3.2 45.6 3.7 364.6 -28.2 bm
+361.5 -57.0 hd 27.8 su
+376.4 -51.0 hd 23.0 su
+391.4 -45.0 hd 18.2 su
+406.4 -51.0 hd 25.4 su
+24.0 421.5 -63.0 bar 
+3.2 45.6 -0.0 437.1 -36.0 bm
+434.0 -54.0 hd 17.0 su
+448.9 -60.0 hd 23.0 su
+463.9 -63.0 hd 26.0 su
+478.9 -57.0 hd 20.0 su
+3.2 45.6 5.4 498.5 -34.2 bm
+495.4 -60.0 hd 24.9 su
+510.4 -54.0 hd 20.6 su
+525.3 -51.0 hd 19.4 su
+540.3 -48.0 hd 18.2 su
+24.0 557.8 -63.0 thbar 24.0 554.8 -63.0 bar 550.8 -63.0 rdots 
+3.2 45.6 -0.0 576.5 -36.0 bm
+573.3 -54.0 hd 17.0 su
+588.3 -60.0 hd 23.0 su
+603.3 -63.0 hd 26.0 su
+618.3 -57.0 hd 20.0 su
+634.8 -60.0 hd 8.0 0 dt 20.0 su
+661.6 -63.0 hd 1 20.0 sfu
+24.0 681.6 -63.0 bar 24.0 678.6 -63.0 bar 
+50.5 -35.0 grm
+0 -86.00 T
+15.0 F2 40.5 -17.0 M(C)show 
+38.5 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(33)show 197.6 32.0 y0 M(34)show 356.4 35.0 y0 M(35)show 505.6 41.0 y0 M(36)show
+12.0 -70.0  tclef
+27.0 -46.0 sh0 32.5 -55.0 sh0 
+3.2 20.1 -3.8 53.7 -44.7 bm
+50.5 -64.0 hd 18.2 su
+70.0 -70.0 hd 20.5 su
+91.6 -70.0 hd 20.0 su
+-3.2 59.1 -4.2 121.5 -76.0 bm
+125.3 -52.0 hd -23.0 sd
+144.8 -58.0 hd -18.4 sd
+164.2 -58.0 hd -19.8 sd
+183.7 -61.0 hd -18.2 sd
+24.0 203.2 -70.0 bar 
+215.7 -58.0 hd -20.0 sd
+3.2 20.1 -2.4 246.2 -50.3 bm
+243.0 -70.0 hd 18.6 su
+262.5 -73.0 hd 19.4 su
+3.2 59.1 7.0 287.3 -48.7 bm
+284.1 -70.0 hd 20.3 su
+303.6 -67.0 hd 19.6 su
+323.0 -64.0 hd 18.9 su
+342.5 -61.0 hd 18.2 su
+24.0 362.0 -70.0 bar 
+3.2 59.1 -5.4 377.6 -38.8 bm
+374.5 -58.0 hd 18.2 su
+394.0 -70.0 hd 28.4 su
+413.4 -70.0 hd 26.7 su
+432.9 -70.0 hd 24.9 su
+456.9 -52.0 hd 8.0 3 dt -20.0 sd
+491.7 -49.0 hd 1 -20.0 sfd
+24.0 511.2 -70.0 bar 
+3.2 59.1 -4.2 526.9 -32.8 bm
+523.7 -52.0 hd 18.2 su
+543.2 -61.0 hd 25.8 su
+562.7 -61.0 hd 24.4 su
+582.1 -61.0 hd 23.0 su
+3.2 59.1 -0.0 606.9 -43.0 bm
+603.7 -67.0 hd 23.0 su
+623.2 -61.0 hd 17.0 su
+642.6 -61.0 hd 17.0 su
+662.1 -61.0 hd 17.0 su
+24.0 681.6 -70.0 bar 
+0 -93.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(37)show 193.7 32.0 y0 M(38)show 348.8 36.0 y0 M(39)show 508.1 32.0 y0 M(40)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 32.5 -35.0 sh0 
+3.2 19.7 -3.8 53.7 -24.7 bm
+50.5 -44.0 hd 18.2 su
+69.5 -50.0 hd 20.5 su
+90.5 -50.0 hd 20.0 su
+-3.2 57.6 -4.2 119.5 -56.0 bm
+123.4 -32.0 hd -23.0 sd
+142.4 -38.0 hd -18.4 sd
+161.3 -38.0 hd -19.8 sd
+180.3 -41.0 hd -18.2 sd
+24.0 199.3 -50.0 bar 
+211.8 -38.0 hd -20.0 sd
+3.2 19.7 -2.4 241.6 -30.3 bm
+238.5 -50.0 hd 18.6 su
+257.4 -53.0 hd 19.4 su
+3.2 57.6 6.9 281.6 -28.7 bm
+278.5 -50.0 hd 20.4 su
+297.4 -47.0 hd 19.6 su
+316.4 -44.0 hd 18.9 su
+335.4 -41.0 hd 18.2 su
+24.0 354.4 -50.0 bar 
+366.9 -38.0 hd 20.0 su
+-3.2 19.7 -3.8 395.9 -53.5 bm
+399.8 -32.0 hd -20.5 sd
+418.8 -38.0 hd -18.2 sd
+3.2 57.6 -3.8 440.9 -21.8 bm
+437.7 -41.0 hd 18.2 su
+456.7 -47.0 hd 22.9 su
+475.7 -53.0 hd 27.7 su
+494.7 -47.0 hd 20.4 su
+24.0 513.7 -50.0 bar 
+3.2 57.6 -0.0 529.3 -29.0 bm
+526.2 -47.0 hd 17.0 su
+545.2 -50.0 hd 20.0 su
+564.1 -50.0 hd 20.0 su
+583.1 -53.0 hd 23.0 su
+3.2 57.6 -0.0 607.3 -29.0 bm
+604.2 -50.0 hd 20.0 su
+623.1 -50.0 hd 20.0 su
+642.1 -50.0 hd 20.0 su
+661.1 -47.0 hd 17.0 su
+24.0 678.6 -50.0 thbar 24.0 675.6 -50.0 bar 671.6 -50.0 rdots 
+0 -73.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(41)show 187.6 33.0 y0 M(42)show 340.4 32.0 y0 M(43)show 505.1 41.0 y0 M(44)show
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+50.5 -55.0 hd 20.0 su
+3.2 20.2 3.8 84.1 -27.6 bm
+81.0 -49.0 hd 20.5 su
+100.5 -43.0 hd 18.2 su
+-3.2 20.2 -4.8 120.7 -57.4 bm
+124.6 -34.0 hd -22.5 sd
+144.1 -43.0 hd -18.2 sd
+165.8 -43.0 hd -20.0 sd
+24.0 193.2 -55.0 bar 
+-3.2 20.2 -6.1 201.9 -56.2 bm
+205.7 -28.0 hd -27.3 sd
+225.3 -43.0 hd -18.2 sd
+246.9 -43.0 hd -20.0 sd
+-3.2 20.2 -4.8 273.5 -57.4 bm
+277.4 -34.0 hd -22.5 sd
+296.9 -43.0 hd -18.2 sd
+318.5 -43.0 hd -20.0 sd
+24.0 346.0 -55.0 bar 
+358.5 -58.0 hd 20.0 su
+3.2 20.2 3.8 392.1 -30.6 bm
+389.0 -52.0 hd 20.5 su
+408.5 -46.0 hd 18.2 su
+-3.2 59.3 -0.0 428.8 -58.0 bm
+432.6 -37.0 hd -20.0 sd
+452.1 -31.0 hd -26.0 sd
+471.7 -34.0 hd -23.0 sd
+491.2 -40.0 hd -17.0 sd
+24.0 510.7 -55.0 bar 
+3.2 59.3 -6.7 526.4 -17.8 bm
+523.2 -37.0 hd 18.2 su
+542.8 -43.0 hd 22.0 su
+562.3 -46.0 hd 22.8 su
+581.8 -52.0 hd 26.5 su
+3.2 59.3 -0.0 606.6 -34.0 bm
+603.5 -52.0 hd 17.0 su
+623.0 -55.0 hd 20.0 su
+642.5 -55.0 hd 20.0 su
+662.1 -58.0 hd 23.0 su
+24.0 681.6 -55.0 bar 
+0 -78.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 2 2
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (2)show 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(45)show 186.3 33.0 y0 M(46)show 323.0 32.0 y0 M(47)show 484.0 32.0 y0 M(48)show 646.1 32.0 y0 M(49)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 32.5 -32.0 sh0 
+50.5 -47.0 hd 20.0 su
+3.2 20.1 3.8 83.6 -19.6 bm
+80.5 -41.0 hd 20.5 su
+99.9 -35.0 hd 18.2 su
+-3.2 20.1 -4.8 120.0 -49.4 bm
+123.9 -26.0 hd -22.5 sd
+143.3 -35.0 hd -18.2 sd
+164.7 -35.0 hd -20.0 sd
+24.0 191.9 -47.0 bar 
+204.4 -20.0 hd 8.0 0 dt -20.0 sd
+239.1 -35.0 hd 1 -20.0 sfd
+-3.2 20.1 -4.8 256.7 -49.4 bm
+260.6 -26.0 hd -22.5 sd
+280.0 -35.0 hd -18.2 sd
+301.4 -35.0 hd -20.0 sd
+24.0 328.6 -47.0 bar 
+341.1 -50.0 hd 20.0 su
+3.2 20.1 3.8 374.2 -22.6 bm
+371.0 -44.0 hd 20.5 su
+390.4 -38.0 hd 18.2 su
+3.2 58.9 -6.7 415.1 -9.8 bm
+411.9 -29.0 hd 18.2 su
+431.3 -35.0 hd 22.0 su
+450.7 -38.0 hd 22.8 su
+470.1 -44.0 hd 26.5 su
+24.0 489.6 -47.0 bar 
+3.2 58.9 -0.0 505.2 -26.0 bm
+502.1 -44.0 hd 17.0 su
+521.5 -47.0 hd 20.0 su
+540.9 -47.0 hd 20.0 su
+560.3 -50.0 hd 23.0 su
+581.8 -47.0 hd 20.0 su
+3.2 20.1 2.4 614.9 -26.7 bm
+611.8 -47.0 hd 19.4 su
+631.2 -44.0 hd 18.6 su
+24.0 648.7 -47.0 thbar 24.0 645.7 -47.0 bar 641.7 -47.0 rdots 
+662.7 -32.0 nt0 671.2 -23.0 sh0 
+0 -70.00 T
+15.0 F2 35.0 -17.0 M(D)show 
+33.0 -21.0 14.8 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(49)show 226.0 32.0 y0 M(50)show 371.7 35.0 y0 M(51)show 522.3 38.0 y0 M(52)show
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+-3.2 18.7 -2.3 41.2 -72.3 bm
+45.0 -52.0 hd -19.4 sd
+63.0 -55.0 hd -18.6 sd
+24.0 81.1 -70.0 bar 
+3.2 18.7 -3.7 96.7 -38.7 bm
+93.6 -58.0 hd 18.2 su
+111.6 -64.0 hd 20.6 su
+131.5 -64.0 hd 20.0 su
+3.2 54.7 -0.0 162.7 -43.0 bm
+159.5 -61.0 hd 17.0 su
+177.5 -64.0 hd 20.0 su
+195.6 -67.0 hd 23.0 su
+213.6 -64.0 hd 20.0 su
+24.0 231.6 -70.0 bar 
+3.2 18.7 4.7 247.3 -49.4 bm
+244.1 -73.0 hd 22.7 su
+262.1 -64.0 hd 18.2 su
+282.1 -64.0 hd 20.0 su
+310.1 -61.0 hd 20.0 su
+-3.2 18.7 -2.3 337.4 -72.3 bm
+341.2 -52.0 hd -19.4 sd
+359.3 -55.0 hd -18.6 sd
+24.0 377.3 -70.0 bar 
+3.2 18.7 -3.7 393.0 -38.7 bm
+389.8 -58.0 hd 18.2 su
+407.8 -64.0 hd 20.6 su
+427.8 -64.0 hd 20.0 su
+3.2 54.7 -0.0 458.9 -38.8 bm
+455.8 -61.0 hd 21.2 su
+473.8 -64.0 hd 24.2 su
+491.8 -61.0 hd 21.2 su
+509.8 -58.0 hd 18.2 su
+24.0 527.9 -70.0 bar 
+3.2 54.7 -3.8 543.5 -35.8 bm
+540.4 -55.0 hd 18.2 su
+558.4 -61.0 hd 23.0 su
+576.4 -58.0 hd 18.7 su
+594.4 -64.0 hd 23.5 su
+614.4 -61.0 hd 20.0 su
+-3.2 18.7 -2.3 641.7 -72.3 bm
+645.5 -52.0 hd -19.4 sd
+663.6 -55.0 hd -18.6 sd
+24.0 681.6 -70.0 bar 
+0 -93.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 35.0 y0 M(53)show 189.6 32.0 y0 M(54)show 347.1 35.0 y0 M(55)show 509.9 38.0 y0 M(56)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+3.2 20.3 -3.8 48.2 -20.7 bm
+45.0 -40.0 hd 18.2 su
+64.6 -46.0 hd 20.5 su
+86.3 -46.0 hd 20.0 su
+3.2 59.4 -0.0 120.0 -25.0 bm
+116.9 -43.0 hd 17.0 su
+136.4 -46.0 hd 20.0 su
+156.0 -49.0 hd 23.0 su
+175.6 -46.0 hd 20.0 su
+24.0 195.2 -52.0 bar 
+3.2 20.3 4.9 210.9 -31.6 bm
+207.7 -55.0 hd 22.5 su
+227.3 -46.0 hd 18.2 su
+249.0 -46.0 hd 20.0 su
+279.6 -43.0 hd 20.0 su
+-3.2 20.3 -2.4 309.7 -54.3 bm
+313.6 -34.0 hd -19.4 sd
+333.1 -37.0 hd -18.6 sd
+24.0 352.7 -52.0 bar 
+3.2 20.3 -3.8 368.4 -20.7 bm
+365.2 -40.0 hd 18.2 su
+384.8 -46.0 hd 20.5 su
+406.6 -46.0 hd 20.0 su
+3.2 59.4 -0.0 440.3 -20.8 bm
+437.1 -43.0 hd 21.2 su
+456.7 -46.0 hd 24.2 su
+476.3 -43.0 hd 21.2 su
+495.9 -40.0 hd 18.2 su
+24.0 515.5 -52.0 bar 
+3.2 59.4 -3.8 531.1 -17.8 bm
+528.0 -37.0 hd 18.2 su
+547.5 -43.0 hd 22.9 su
+567.1 -40.0 hd 18.7 su
+586.7 -46.0 hd 23.4 su
+608.4 -43.0 hd 20.0 su
+-3.2 20.3 3.8 638.6 -59.3 bm
+642.4 -40.0 hd -18.2 sd
+662.0 -34.0 hd -20.5 sd
+24.0 681.6 -52.0 bar 
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(57)show 186.0 32.0 y0 M(58)show 346.4 32.0 y0 M(59)show 504.5 38.0 y0 M(60)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -31.0 hd -20.0 sd
+-3.2 20.9 4.9 72.8 -53.3 bm
+76.7 -34.0 hd -18.2 sd
+96.9 -25.0 hd -22.4 sd
+119.4 -31.0 hd -20.0 sd
+-3.2 20.9 4.9 147.2 -53.3 bm
+151.0 -34.0 hd -18.2 sd
+171.3 -25.0 hd -22.4 sd
+24.0 191.6 -52.0 bar 
+204.1 -31.0 hd -20.0 sd
+-3.2 20.9 -3.9 231.9 -55.4 bm
+235.7 -34.0 hd -20.4 sd
+256.0 -40.0 hd -18.2 sd
+276.3 -43.0 hd 20.0 su
+-3.2 20.9 3.9 307.6 -59.3 bm
+311.4 -40.0 hd -18.2 sd
+331.7 -34.0 hd -20.4 sd
+24.0 352.0 -52.0 bar 
+-3.2 20.9 -4.9 360.6 -54.4 bm
+364.5 -31.0 hd -22.4 sd
+384.7 -40.0 hd -18.2 sd
+407.2 -40.0 hd -20.0 sd
+-3.2 20.9 -6.2 435.0 -53.1 bm
+438.9 -25.0 hd -27.2 sd
+459.1 -40.0 hd -18.2 sd
+481.6 -40.0 hd -20.0 sd
+24.0 510.1 -52.0 bar 
+3.2 61.5 -3.8 525.8 -17.8 bm
+522.6 -37.0 hd 18.2 su
+542.9 -43.0 hd 22.9 su
+563.1 -40.0 hd 18.7 su
+583.4 -46.0 hd 23.4 su
+605.9 -43.0 hd 20.0 su
+-3.2 20.9 3.9 637.2 -59.3 bm
+641.1 -40.0 hd -18.2 sd
+661.3 -34.0 hd -20.4 sd
+24.0 681.6 -52.0 bar 
+0 -75.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(61)show 179.7 33.0 y0 M(62)show 348.3 32.0 y0 M(63)show 505.3 36.0 y0 M(64)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+45.0 -29.0 hd -20.0 sd
+-3.2 20.2 -2.4 71.6 -49.3 bm
+75.4 -29.0 hd -19.4 sd
+95.0 -32.0 hd -18.6 sd
+-3.2 20.2 4.8 112.8 -48.3 bm
+116.6 -29.0 hd -18.2 sd
+136.1 -20.0 hl 136.1 -20.0 hd -22.5 sd
+157.8 -20.0 hl 157.8 -20.0 hd -20.0 sd
+24.0 185.3 -50.0 bar 
+-3.2 59.2 -6.7 193.9 -50.5 bm
+197.8 -23.0 hd -26.5 sd
+217.3 -29.0 hd -22.8 sd
+236.8 -32.0 hd -22.0 sd
+256.3 -38.0 hd -18.2 sd
+3.2 59.2 -0.0 279.0 -15.8 bm
+275.8 -41.0 hd 24.2 su
+295.3 -35.0 hd 18.2 su
+314.8 -38.0 hd 21.2 su
+334.3 -41.0 hd 24.2 su
+24.0 353.9 -50.0 bar 
+366.4 -44.0 hd 20.0 su
+-3.2 20.2 3.8 396.4 -57.3 bm
+400.2 -38.0 hd -18.2 sd
+419.7 -32.0 hd -20.5 sd
+441.4 -23.0 hd -20.0 sd
+-3.2 20.2 3.4 468.0 -42.3 bm
+471.8 -23.0 hd -18.2 sd
+491.3 -20.0 hl 491.3 -17.0 hd -20.9 sd
+24.0 510.9 -50.0 bar 
+-3.2 59.2 -3.8 519.5 -45.7 bm
+523.4 -20.0 hl 523.4 -20.0 hd -24.7 sd
+542.9 -23.0 hd -22.9 sd
+562.4 -29.0 hd -18.2 sd
+581.9 -26.0 hd -22.5 sd
+-3.2 59.2 -5.7 599.7 -48.5 bm
+603.5 -23.0 hd -24.5 sd
+623.0 -29.0 hd -20.4 sd
+642.6 -32.0 hd -19.3 sd
+662.1 -35.0 hd -18.2 sd
+24.0 681.6 -50.0 bar 
+0 -73.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 3 3
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (3)showr 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Palm Sunday - Willie Clancy's - The Rolling Waves)showc 
+0 -25.34 T
+% --- 2 (Palm Sunday - Willie Clancy's - The Rolling Waves) ---
+% --- font 20.0 F2 
+[/Title(Palm Sunday - Willie Clancy's - The Rolling Waves)/OUT pdfmark
+15.0 F2 51.0 -17.0 M(A)show 
+49.0 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  236.4 32.0 y0 M(2)show 379.4 32.0 y0 M(3)show 525.3 32.0 y0 M(4)show
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(6)(8) 43.0 -57.0 tsig
+61.0 -45.0 hd 1 -20.0 sfd
+84.7 -57.0 rdots 24.0 80.7 -57.0 bar 24.0 74.7 -57.0 thbar 
+3.2 49.9 -4.5 102.5 -28.8 bm
+99.4 -48.0 hd 18.2 su
+124.0 -51.0 hd 19.0 su
+148.6 -57.0 hd 22.8 su
+175.9 -51.0 hd 20.0 su
+214.5 -57.0 hd 1 20.0 sfu
+24.0 239.2 -57.0 bar 
+252.9 -51.0 hd 20.0 su
+291.5 -57.0 hd 1 20.0 sfu
+318.9 -51.0 hd 20.0 su
+357.5 -57.0 hd 1 20.0 sfu
+24.0 382.2 -57.0 bar 
+395.9 -48.0 hd 20.0 su
+434.5 -45.0 hd 1 20.0 sfu
+464.9 -42.0 hd -20.0 sd
+503.5 -39.0 hd 1 -20.0 sfd
+24.0 528.1 -57.0 bar 
+541.8 -36.0 hd -20.0 sd
+580.4 -39.0 hd 1 -20.0 sfd
+-3.2 49.9 4.9 603.9 -55.4 bm
+607.8 -36.0 hd -18.4 sd
+632.4 -33.0 hd -19.0 sd
+657.0 -30.0 hd -19.6 sd
+24.0 681.6 -57.0 bar 
+0 -80.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 167.5 32.0 y0 M(6)show 345.3 32.0 y0 M(7)show 516.9 32.0 y0 M(8)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+45.0 -26.0 hd 8.0 0 dt -20.0 sd
+-3.2 53.0 -4.5 88.0 -52.7 bm
+91.8 -29.0 hd -22.7 sd
+118.0 -35.0 hd -19.0 sd
+144.2 -38.0 hd -18.2 sd
+24.0 170.3 -47.0 bar 
+3.2 53.0 -4.9 188.0 -15.5 bm
+184.9 -35.0 hd 18.4 su
+211.1 -38.0 hd 19.0 su
+237.2 -41.0 hd 19.6 su
+-3.2 53.0 4.9 265.7 -54.5 bm
+269.5 -35.0 hd -18.4 sd
+295.7 -32.0 hd -19.0 sd
+321.9 -29.0 hd -19.6 sd
+24.0 348.1 -47.0 bar 
+-3.2 53.0 -4.9 358.8 -46.5 bm
+362.6 -26.0 hd -19.6 sd
+388.8 -29.0 hd -19.0 sd
+415.0 -32.0 hd -18.4 sd
+3.2 53.0 -4.9 444.3 -15.5 bm
+441.1 -35.0 hd 18.4 su
+467.3 -38.0 hd 19.0 su
+493.5 -41.0 hd 19.6 su
+24.0 519.7 -47.0 bar 
+534.2 -35.0 hd 20.0 su
+575.3 -38.0 hd 1 20.0 sfu
+604.4 -38.0 hd 20.0 su
+645.5 -35.0 hd 1 20.0 sfu
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+45.0 -21.0 grm
+0 -70.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 179.5 36.0 y0 M(10)show 345.0 33.0 y0 M(11)show 510.5 32.0 y0 M(12)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+51.5 -50.0 rdots 24.0 47.5 -50.0 bar 24.0 41.5 -50.0 thbar 
+66.3 -20.0 hl 66.3 -20.0 hd 8.0 3 dt -20.0 sd
+-3.2 50.3 4.9 106.8 -48.4 bm
+110.7 -29.0 hd -18.4 sd
+135.5 -26.0 hd -19.0 sd
+160.3 -23.0 hd -19.6 sd
+24.0 185.1 -50.0 bar 
+-3.2 50.3 -0.0 195.1 -41.0 bm
+199.0 -20.0 hl 199.0 -20.0 hd -20.0 sd
+223.8 -23.0 hd -17.0 sd
+248.6 -20.0 hl 248.6 -20.0 hd -20.0 sd
+-3.2 50.3 -7.7 272.3 -40.5 bm
+276.2 -20.0 hl 276.2 -17.0 hd -22.6 sd
+301.0 -23.0 hd -20.4 sd
+325.8 -29.0 hd -18.2 sd
+24.0 350.6 -50.0 bar 
+-3.2 50.3 -0.0 360.6 -44.2 bm
+364.4 -23.0 hd -20.2 sd
+389.3 -26.0 hd -17.2 sd
+414.1 -23.0 hd -20.2 sd
+-3.2 50.3 -4.9 437.8 -43.6 bm
+441.7 -23.0 hd -19.6 sd
+466.5 -26.0 hd -19.0 sd
+491.3 -29.0 hd -18.4 sd
+24.0 516.1 -50.0 bar 
+-3.2 50.3 -4.5 526.1 -55.7 bm
+529.9 -32.0 hd -22.8 sd
+554.7 -38.0 hd -19.0 sd
+579.6 -41.0 hd -18.2 sd
+-3.2 50.3 8.2 603.3 -63.3 bm
+607.1 -44.0 hd -18.2 sd
+632.0 -38.0 hd -20.2 sd
+656.8 -32.0 hd -22.1 sd
+24.0 681.6 -50.0 bar 
+66.3 -16.0 grm
+0 -73.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 192.7 32.0 y0 M(14)show 363.0 32.0 y0 M(15)show 527.4 36.0 y0 M(16)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+-3.2 50.8 4.9 41.2 -48.5 bm
+45.0 -29.0 hd -18.4 sd
+70.1 -26.0 hd -19.0 sd
+95.2 -23.0 hd -19.6 sd
+-3.2 50.8 -0.0 119.2 -50.2 bm
+123.0 -32.0 hd -17.2 sd
+148.1 -29.0 hd -20.2 sd
+173.2 -32.0 hd -17.2 sd
+24.0 198.3 -50.0 bar 
+3.2 50.8 -4.9 215.4 -18.5 bm
+212.2 -38.0 hd 18.4 su
+237.3 -41.0 hd 19.0 su
+262.4 -44.0 hd 19.6 su
+-3.2 50.8 4.9 289.5 -57.5 bm
+293.3 -38.0 hd -18.4 sd
+318.4 -35.0 hd -19.0 sd
+343.5 -32.0 hd -19.6 sd
+24.0 368.6 -50.0 bar 
+-3.2 50.8 -4.9 378.7 -49.5 bm
+382.5 -29.0 hd -19.6 sd
+407.6 -32.0 hd -19.0 sd
+432.7 -35.0 hd -18.4 sd
+3.2 50.8 -4.9 460.9 -18.5 bm
+457.8 -38.0 hd 18.4 su
+482.8 -41.0 hd 19.0 su
+507.9 -44.0 hd 19.6 su
+24.0 533.0 -50.0 bar 
+547.0 -38.0 hd 20.0 su
+586.3 -41.0 hd 1 20.0 sfu
+614.2 -41.0 hd 20.0 su
+653.6 -38.0 hd 1 20.0 sfu
+24.0 678.6 -50.0 thbar 24.0 675.6 -50.0 bar 671.6 -50.0 rdots 
+0 -73.00 T
+15.0 F2 33.0 -17.0 M(B)show 
+31.0 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 36.5 32.0 y0 M(17)show 236.9 35.0 y0 M(18)show 375.5 32.0 y0 M(19)show 523.9 33.0 y0 M(20)show
+(3)553.5 -10.7 y0 bnum
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+(4)(4) 43.0 -70.0 tsig
+3.2 17.2 -2.3 64.2 -41.4 bm
+61.0 -61.0 hd 18.6 su
+77.5 -64.0 hd 19.4 su
+24.0 94.0 -70.0 bar 
+3.2 50.2 5.2 109.7 -43.5 bm
+106.5 -70.0 hd 25.5 su
+123.0 -61.0 hd 18.2 su
+139.5 -61.0 hd 19.9 su
+156.0 -58.0 hd 18.6 su
+-3.2 50.2 -0.0 172.6 -72.9 bm
+176.4 -55.0 hd -17.0 sd
+192.9 -49.0 hd -23.0 sd
+209.4 -52.0 hd -20.0 sd
+225.9 -55.0 hd -17.0 sd
+24.0 242.5 -70.0 bar 
+3.2 17.2 -3.6 258.1 -38.7 bm
+255.0 -58.0 hd 18.2 su
+271.5 -64.0 hd 20.7 su
+289.7 -64.0 hd 20.0 su
+3.2 50.2 -0.0 318.2 -38.8 bm
+315.0 -58.0 hd 18.2 su
+331.5 -64.0 hd 24.2 su
+348.0 -61.0 hd 21.2 su
+364.5 -64.0 hd 24.2 su
+24.0 381.1 -70.0 bar 
+3.2 50.2 5.2 396.7 -43.5 bm
+393.6 -70.0 hd 25.5 su
+410.1 -61.0 hd 18.2 su
+426.6 -61.0 hd 19.9 su
+443.1 -58.0 hd 18.6 su
+-3.2 50.2 6.7 459.6 -74.2 bm
+463.4 -55.0 hd -18.2 sd
+479.9 -52.0 hd -19.0 sd
+496.4 -49.0 hd -19.8 sd
+512.9 -46.0 hd -20.6 sd
+24.0 529.5 -70.0 bar 
+-3.2 26.8 -4.2 538.1 -64.0 bm
+542.0 -43.0 hd -20.1 sd
+555.1 -46.0 hd -19.1 sd
+568.1 -49.0 hd -18.2 sd
+-3.2 17.2 -3.6 578.7 -73.7 bm
+582.6 -52.0 hd -20.7 sd
+599.1 -58.0 hd -18.2 sd
+3.2 50.2 -0.0 618.7 -38.8 bm
+615.6 -58.0 hd 18.2 su
+632.1 -61.0 hd 21.2 su
+648.6 -61.0 hd 21.2 su
+665.1 -64.0 hd 24.2 su
+24.0 681.6 -70.0 bar 
+0 -93.00 T
+/y0{-49.0 add}!
+681.6 5 0.0 -49.0 staff
+14.0 F1 24.0 32.0 y0 M(21)show 190.8 35.0 y0 M(22)show 344.3 32.0 y0 M(23)show 508.2 33.0 y0 M(24)show
+(3)539.2 -10.8 y0 bnum
+12.0 -49.0  tclef
+27.0 -25.0 sh0 
+3.2 55.8 5.3 48.2 -22.6 bm
+45.0 -49.0 hd 25.5 su
+63.4 -40.0 hd 18.2 su
+81.8 -40.0 hd 19.9 su
+100.2 -37.0 hd 18.7 su
+-3.2 55.8 -0.0 119.0 -52.0 bm
+122.9 -34.0 hd -17.0 sd
+141.3 -28.0 hd -23.0 sd
+159.6 -31.0 hd -20.0 sd
+178.0 -34.0 hd -17.0 sd
+24.0 196.4 -49.0 bar 
+3.2 19.1 -3.8 212.1 -17.7 bm
+208.9 -37.0 hd 18.2 su
+227.3 -43.0 hd 20.6 su
+247.7 -43.0 hd 20.0 su
+3.2 55.8 -0.0 279.5 -17.8 bm
+276.3 -37.0 hd 18.2 su
+294.7 -43.0 hd 24.2 su
+313.1 -40.0 hd 21.2 su
+331.5 -43.0 hd 24.2 su
+24.0 349.9 -49.0 bar 
+3.2 55.8 5.3 365.6 -22.6 bm
+362.4 -49.0 hd 25.5 su
+380.8 -40.0 hd 18.2 su
+399.2 -40.0 hd 19.9 su
+417.6 -37.0 hd 18.7 su
+-3.2 55.8 6.9 436.4 -53.2 bm
+440.3 -34.0 hd -18.2 sd
+458.6 -31.0 hd -18.9 sd
+477.0 -28.0 hd -19.7 sd
+495.4 -25.0 hd -20.4 sd
+24.0 513.8 -49.0 bar 
+-3.2 29.6 -4.3 522.5 -42.9 bm
+526.3 -22.0 hd -20.0 sd
+540.8 -25.0 hd -19.1 sd
+555.2 -28.0 hd -18.2 sd
+-3.2 19.1 -3.8 567.4 -52.5 bm
+571.2 -31.0 hd -20.6 sd
+589.6 -37.0 hd -18.2 sd
+3.2 55.8 -0.0 611.2 -17.8 bm
+608.0 -37.0 hd 18.2 su
+626.4 -40.0 hd 21.2 su
+644.8 -40.0 hd 21.2 su
+663.2 -43.0 hd 24.2 su
+24.0 681.6 -49.0 bar 
+0 -72.00 T
+/y0{-49.0 add}!
+681.6 5 0.0 -49.0 staff
+14.0 F1 24.0 32.0 y0 M(25)show 171.2 35.0 y0 M(26)show 330.9 32.0 y0 M(27)show 501.5 33.0 y0 M(28)show
+(3)533.1 -10.8 y0 bnum
+12.0 -49.0  tclef
+27.0 -25.0 sh0 
+3.2 58.3 5.4 48.2 -22.6 bm
+45.0 -49.0 hd 25.4 su
+64.2 -40.0 hd 18.2 su
+83.4 -40.0 hd 20.0 su
+102.6 -37.0 hd 18.7 su
+126.3 -34.0 hd 8.0 0 dt -20.0 sd
+157.3 -40.0 hd 1 20.0 sfu
+24.0 176.8 -49.0 bar 
+3.2 19.9 -3.8 192.5 -17.7 bm
+189.3 -37.0 hd 18.2 su
+208.5 -43.0 hd 20.5 su
+229.8 -43.0 hd 20.0 su
+3.2 58.3 -0.0 262.9 -17.8 bm
+259.7 -37.0 hd 18.2 su
+278.9 -43.0 hd 24.2 su
+298.1 -40.0 hd 21.2 su
+317.3 -43.0 hd 24.2 su
+24.0 336.5 -49.0 bar 
+3.2 58.3 5.4 352.2 -22.6 bm
+349.0 -49.0 hd 25.4 su
+368.2 -40.0 hd 18.2 su
+387.4 -40.0 hd 20.0 su
+406.6 -37.0 hd 18.7 su
+-3.2 58.3 6.9 426.4 -53.2 bm
+430.3 -34.0 hd -18.2 sd
+449.5 -31.0 hd -18.9 sd
+468.7 -28.0 hd -19.6 sd
+487.9 -25.0 hd -20.3 sd
+24.0 507.1 -49.0 bar 
+-3.2 30.8 -4.4 515.7 -42.9 bm
+519.6 -22.0 hd -19.9 sd
+534.7 -25.0 hd -19.1 sd
+549.7 -28.0 hd -18.2 sd
+-3.2 19.9 -3.8 562.6 -52.4 bm
+566.4 -31.0 hd -20.5 sd
+585.6 -37.0 hd -18.2 sd
+3.2 58.3 -0.0 608.0 -17.8 bm
+604.8 -37.0 hd 18.2 su
+624.0 -40.0 hd 21.2 su
+643.2 -40.0 hd 21.2 su
+662.4 -43.0 hd 24.2 su
+24.0 681.6 -49.0 bar 
+0 -72.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(29)show 183.1 35.0 y0 M(30)show 340.2 32.0 y0 M(31)show 508.0 41.0 y0 M(32)show
+12.0 -55.0  tclef
+27.0 -31.0 sh0 
+3.2 57.3 5.3 48.2 -28.6 bm
+45.0 -55.0 hd 25.4 su
+63.9 -46.0 hd 18.2 su
+82.7 -46.0 hd 20.0 su
+101.6 -43.0 hd 18.7 su
+3.2 19.5 -3.8 125.6 -20.7 bm
+122.5 -40.0 hd 18.2 su
+141.3 -46.0 hd 20.5 su
+162.2 -46.0 hd 20.0 su
+24.0 188.7 -55.0 bar 
+3.2 19.5 -3.8 204.4 -23.7 bm
+201.2 -43.0 hd 18.2 su
+220.1 -49.0 hd 20.5 su
+241.0 -49.0 hd 20.0 su
+3.2 57.3 -4.2 273.5 -20.8 bm
+270.4 -40.0 hd 18.2 su
+289.2 -46.0 hd 22.8 su
+308.1 -46.0 hd 21.4 su
+327.0 -49.0 hd 23.1 su
+24.0 345.8 -55.0 bar 
+3.2 57.3 5.3 361.5 -28.6 bm
+358.3 -55.0 hd 25.4 su
+377.2 -46.0 hd 18.2 su
+396.1 -46.0 hd 20.0 su
+414.9 -43.0 hd 18.7 su
+-3.2 57.3 -0.0 434.3 -62.2 bm
+438.2 -40.0 hd -21.2 sd
+457.0 -43.0 hd -18.2 sd
+475.9 -40.0 hd -21.2 sd
+494.8 -34.0 hd -27.2 sd
+24.0 513.6 -55.0 bar 
+3.2 57.3 -5.0 529.3 -17.8 bm
+526.1 -37.0 hd 18.2 su
+545.0 -43.0 hd 22.6 su
+563.9 -49.0 hd 26.9 su
+582.7 -46.0 hd 22.3 su
+-3.2 57.3 6.4 602.2 -69.4 bm
+606.0 -43.0 hd -25.4 sd
+624.9 -46.0 hd -20.3 sd
+643.7 -46.0 hd -18.2 sd
+662.6 -28.0 hd -34.1 sd
+24.0 681.6 -55.0 bar 24.0 678.6 -55.0 bar 
+0 -78.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(33)show 198.2 32.0 y0 M(34)show 357.4 32.0 y0 M(35)show 508.7 33.0 y0 M(36)show
+(3)229.0 -19.2 y0 bnum
+(3)539.4 -10.8 y0 bnum
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+-3.2 18.8 4.7 61.2 -45.3 bm
+65.0 -26.0 hd -18.2 sd
+83.1 -17.0 hl 83.1 -17.0 hd -22.7 sd
+103.2 -17.0 hl 103.2 -17.0 hd -20.0 sd
+-3.2 55.0 -6.0 127.6 -42.3 bm
+131.4 -17.0 hl 131.4 -17.0 hd -24.3 sd
+149.5 -20.0 hd -23.3 sd
+167.6 -26.0 hd -19.2 sd
+185.7 -29.0 hd -18.2 sd
+24.0 203.8 -47.0 bar 
+-3.2 29.2 4.3 212.5 -54.3 bm
+216.3 -35.0 hd -18.2 sd
+230.6 -32.0 hd -19.1 sd
+244.8 -29.0 hd -20.0 sd
+-3.2 18.8 2.3 256.7 -45.7 bm
+260.6 -26.0 hd -18.6 sd
+278.7 -23.0 hd -19.4 sd
+298.7 -20.0 hd -20.0 sd
+-3.2 18.8 2.3 322.9 -42.7 bm
+326.8 -23.0 hd -18.6 sd
+344.9 -20.0 hd -19.4 sd
+24.0 363.0 -47.0 bar 
+-3.2 18.8 4.7 371.6 -45.3 bm
+375.5 -26.0 hd -18.2 sd
+393.6 -17.0 hl 393.6 -17.0 hd -22.7 sd
+413.7 -17.0 hl 413.7 -17.0 hd -20.0 sd
+-3.2 55.0 -3.8 438.0 -42.7 bm
+441.9 -17.0 hl 441.9 -17.0 hd -24.7 sd
+460.0 -20.0 hd -23.0 sd
+478.1 -26.0 hd -18.2 sd
+496.2 -23.0 hd -22.4 sd
+24.0 514.3 -47.0 bar 
+-3.2 29.2 -4.3 522.9 -40.9 bm
+526.8 -20.0 hd -20.0 sd
+541.0 -23.0 hd -19.1 sd
+555.3 -26.0 hd -18.2 sd
+-3.2 18.8 -3.7 567.2 -50.5 bm
+571.1 -29.0 hd -20.6 sd
+589.2 -35.0 hd -18.2 sd
+-3.2 55.0 6.3 605.3 -61.4 bm
+609.2 -35.0 hd -25.4 sd
+627.3 -38.0 hd -20.3 sd
+645.4 -38.0 hd -18.2 sd
+663.5 -20.0 hd -34.1 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(37)show 171.1 32.0 y0 M(38)show 323.0 36.0 y0 M(39)show 482.9 33.0 y0 M(40)show 646.1 32.0 y0 M(41)show
+(3)201.3 -19.2 y0 bnum
+(3)389.3 -10.8 y0 bnum
+(3)513.1 -10.8 y0 bnum
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+-3.2 17.9 4.6 41.2 -48.3 bm
+45.0 -29.0 hd -18.2 sd
+62.2 -20.0 hl 62.2 -20.0 hd -22.8 sd
+81.4 -20.0 hl 81.4 -20.0 hd -20.0 sd
+-3.2 52.3 -5.9 104.0 -45.3 bm
+107.9 -20.0 hl 107.9 -20.0 hd -24.4 sd
+125.1 -23.0 hd -23.3 sd
+142.2 -29.0 hd -19.3 sd
+159.4 -32.0 hd -18.2 sd
+24.0 176.7 -50.0 bar 
+-3.2 28.1 4.3 185.4 -57.3 bm
+189.2 -38.0 hd -18.2 sd
+202.9 -35.0 hd -19.1 sd
+216.6 -32.0 hd -20.0 sd
+-3.2 17.9 2.3 227.8 -48.7 bm
+231.7 -29.0 hd -18.6 sd
+248.9 -26.0 hd -19.4 sd
+267.8 -23.0 hd -20.0 sd
+-3.2 17.9 2.3 290.3 -45.7 bm
+294.1 -26.0 hd -18.6 sd
+311.3 -23.0 hd -19.4 sd
+24.0 328.6 -50.0 bar 
+-3.2 17.9 -3.7 337.2 -41.6 bm
+341.1 -20.0 hl 341.1 -20.0 hd -20.7 sd
+358.3 -26.0 hd -18.2 sd
+-3.2 28.1 -4.3 373.4 -44.0 bm
+377.2 -23.0 hd -20.0 sd
+390.9 -26.0 hd -19.1 sd
+404.6 -29.0 hd -18.2 sd
+-3.2 52.3 -0.0 415.8 -50.2 bm
+419.7 -26.0 hd -23.2 sd
+436.9 -32.0 hd -17.2 sd
+454.1 -29.0 hd -20.2 sd
+471.3 -26.0 hd -23.2 sd
+24.0 488.5 -50.0 bar 
+-3.2 28.1 -4.3 497.2 -44.0 bm
+501.0 -23.0 hd -20.0 sd
+514.7 -26.0 hd -19.1 sd
+528.4 -29.0 hd -18.2 sd
+-3.2 17.9 5.5 539.7 -51.3 bm
+543.5 -32.0 hd -18.2 sd
+560.7 -20.0 hl 560.7 -17.0 hd -27.9 sd
+-3.2 52.3 6.2 575.8 -64.4 bm
+579.7 -38.0 hd -25.3 sd
+596.9 -41.0 hd -20.3 sd
+614.0 -41.0 hd -18.2 sd
+631.2 -23.0 hd -34.1 sd
+24.0 648.7 -50.0 thbar 24.0 645.7 -50.0 bar 641.7 -50.0 rdots 
+662.7 -26.0 sh0 668.2 -35.0 sh0 
+0 -73.00 T
+15.0 F2 38.5 -17.0 M(C)show 
+36.5 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 42.0 32.0 y0 M(41)show 228.0 32.0 y0 M(42)show 374.9 32.0 y0 M(43)show 530.4 33.0 y0 M(44)show
+12.0 -70.0  tclef
+27.0 -46.0 sh0 32.5 -55.0 sh0 
+(6)(8) 48.5 -70.0 tsig
+77.0 -70.0 rdots 24.0 73.0 -70.0 bar 24.0 67.0 -70.0 thbar 
+3.2 47.3 -0.0 94.2 -49.0 bm
+91.1 -67.0 hd 17.0 su
+114.4 -70.0 hd 20.0 su
+137.7 -67.0 hd 17.0 su
+3.2 47.3 -0.0 166.8 -51.8 bm
+163.6 -73.0 hd 20.2 su
+186.9 -70.0 hd 17.2 su
+210.2 -73.0 hd 20.2 su
+24.0 233.6 -70.0 bar 
+246.6 -73.0 hd 20.0 su
+287.2 -52.0 hd 1 -20.0 sfd
+3.2 47.3 -4.4 313.7 -35.8 bm
+310.5 -55.0 hd 18.2 su
+333.8 -61.0 hd 22.0 su
+357.1 -64.0 hd 22.8 su
+24.0 380.5 -70.0 bar 
+3.2 47.3 -0.0 396.7 -49.0 bm
+393.6 -67.0 hd 17.0 su
+416.9 -70.0 hd 20.0 su
+440.2 -67.0 hd 17.0 su
+3.2 47.3 -4.8 469.2 -47.6 bm
+466.1 -67.0 hd 18.4 su
+489.4 -70.0 hd 19.0 su
+512.7 -73.0 hd 19.6 su
+24.0 536.0 -70.0 bar 
+549.1 -61.0 hd 20.0 su
+585.6 -67.0 hd 1 20.0 sfu
+3.2 47.3 -4.8 614.8 -44.6 bm
+611.6 -64.0 hd 18.4 su
+635.0 -67.0 hd 19.0 su
+658.3 -70.0 hd 19.6 su
+24.0 681.6 -70.0 bar 
+0 -93.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 4 4
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (4)show 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(45)show 197.2 32.0 y0 M(46)show 354.3 32.0 y0 M(47)show 520.5 33.0 y0 M(48)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 32.5 -32.0 sh0 
+3.2 50.5 -0.0 53.7 -26.0 bm
+50.5 -44.0 hd 17.0 su
+75.4 -47.0 hd 20.0 su
+100.4 -44.0 hd 17.0 su
+3.2 50.5 -0.0 131.2 -28.8 bm
+128.1 -50.0 hd 20.2 su
+153.0 -47.0 hd 17.2 su
+177.9 -50.0 hd 20.2 su
+24.0 202.8 -47.0 bar 
+216.7 -50.0 hd 20.0 su
+260.1 -29.0 hd 1 -20.0 sfd
+3.2 50.5 -4.5 288.2 -12.8 bm
+285.1 -32.0 hd 18.2 su
+310.0 -38.0 hd 22.0 su
+334.9 -41.0 hd 22.8 su
+24.0 359.9 -47.0 bar 
+3.2 50.5 -0.0 376.9 -20.0 bm
+373.7 -44.0 hd 23.0 su
+398.7 -38.0 hd 17.0 su
+423.6 -44.0 hd 23.0 su
+3.2 50.5 -0.0 454.4 -15.8 bm
+451.3 -41.0 hd 24.2 su
+476.2 -35.0 hd 18.2 su
+501.1 -41.0 hd 24.2 su
+24.0 526.1 -47.0 bar 
+539.9 -38.0 hd 20.0 su
+579.1 -44.0 hd 1 20.0 sfu
+3.2 50.5 -4.9 609.9 -21.5 bm
+606.8 -41.0 hd 18.4 su
+631.7 -44.0 hd 19.0 su
+656.6 -47.0 hd 19.6 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(49)show 190.1 32.0 y0 M(50)show 352.8 32.0 y0 M(51)show 521.2 33.0 y0 M(52)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 32.5 -32.0 sh0 
+50.5 -50.0 hd 20.0 su
+93.7 -29.0 hd 1 -20.0 sfd
+-3.2 50.3 -0.0 117.5 -57.2 bm
+121.3 -32.0 hd -24.2 sd
+146.1 -38.0 hd -18.2 sd
+170.9 -29.0 hd -27.2 sd
+24.0 195.7 -47.0 bar 
+-3.2 50.3 -0.0 205.7 -57.2 bm
+209.5 -32.0 hd -24.2 sd
+234.3 -38.0 hd -18.2 sd
+259.1 -29.0 hd -27.2 sd
+3.2 50.3 -4.5 287.1 -12.8 bm
+284.0 -32.0 hd 18.2 su
+308.8 -38.0 hd 22.0 su
+333.6 -41.0 hd 22.8 su
+24.0 358.4 -47.0 bar 
+3.2 50.3 -0.0 375.4 -26.0 bm
+372.2 -44.0 hd 17.0 su
+397.0 -47.0 hd 20.0 su
+421.8 -44.0 hd 17.0 su
+-3.2 50.3 -0.0 448.6 -57.2 bm
+452.4 -32.0 hd -24.2 sd
+477.2 -38.0 hd -18.2 sd
+502.0 -29.0 hd -27.2 sd
+24.0 526.8 -47.0 bar 
+540.6 -38.0 hd 20.0 su
+579.6 -44.0 hd 1 20.0 sfu
+3.2 50.3 -4.9 610.3 -21.6 bm
+607.2 -41.0 hd 18.4 su
+632.0 -44.0 hd 19.0 su
+656.8 -47.0 hd 19.6 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(53)show 190.8 32.0 y0 M(54)show 354.3 32.0 y0 M(55)show 520.5 33.0 y0 M(56)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 32.5 -32.0 sh0 
+50.5 -50.0 hd 20.0 su
+93.9 -29.0 hd 1 -20.0 sfd
+-3.2 50.5 -0.0 117.8 -57.2 bm
+121.6 -32.0 hd -24.2 sd
+146.6 -38.0 hd -18.2 sd
+171.5 -29.0 hd -27.2 sd
+24.0 196.4 -47.0 bar 
+-3.2 50.5 -4.9 206.5 -43.5 bm
+210.3 -23.0 hd -19.6 sd
+235.2 -26.0 hd -19.0 sd
+260.1 -29.0 hd -18.4 sd
+3.2 50.5 -4.5 288.2 -12.8 bm
+285.1 -32.0 hd 18.2 su
+310.0 -38.0 hd 22.0 su
+334.9 -41.0 hd 22.8 su
+24.0 359.9 -47.0 bar 
+3.2 50.5 -0.0 376.9 -20.0 bm
+373.7 -44.0 hd 23.0 su
+398.7 -38.0 hd 17.0 su
+423.6 -44.0 hd 23.0 su
+3.2 50.5 -0.0 454.4 -15.8 bm
+451.3 -41.0 hd 24.2 su
+476.2 -35.0 hd 18.2 su
+501.1 -41.0 hd 24.2 su
+24.0 526.1 -47.0 bar 
+539.9 -38.0 hd 20.0 su
+579.1 -44.0 hd 1 20.0 sfu
+3.2 50.5 -4.9 609.9 -21.5 bm
+606.8 -41.0 hd 18.4 su
+631.7 -44.0 hd 19.0 su
+656.6 -47.0 hd 19.6 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Doinna)showc 
+0 -25.34 T
+% --- 3 (Doinna) ---
+% --- font 20.0 F2 
+[/Title(Doinna)/OUT pdfmark
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1  234.5 32.0 y0 M(2)show 399.4 32.0 y0 M(3)show 528.6 32.0 y0 M(4)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+(3)(4) 43.0 -47.0 tsig
+71.5 -47.0 rdots 24.0 67.5 -47.0 bar 24.0 61.5 -47.0 thbar 
+89.6 -26.0 hd 8.0 0 dt -20.0 sd
+-3.2 62.4 5.1 140.9 -48.5 bm
+144.8 -29.0 hd -18.5 sd
+175.6 -26.0 hd -19.0 sd
+206.5 -23.0 hd -19.5 sd
+24.0 237.3 -47.0 bar 
+254.5 -20.0 hd 8.0 0 dt -20.0 sd
+-3.2 62.4 -5.9 305.8 -51.3 bm
+309.6 -26.0 hd -24.4 sd
+340.5 -29.0 hd -24.3 sd
+371.3 -38.0 hd -18.2 sd
+24.0 402.2 -47.0 bar 
+419.3 -35.0 Hd -20.0 sd
+487.8 -38.0 hd 20.0 su
+24.0 531.4 -47.0 bar 
+548.6 -38.0 hd 8.0 0 dt 20.0 su
+603.7 -41.0 hd 1 20.0 sfu
+638.0 -44.0 hd 629.0 y nt0 20.0 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 172.8 32.0 y0 M(6)show 315.4 32.0 y0 M(7)show 497.1 32.0 y0 M(8)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+52.0 -23.0 Hd 42.0 y nt0 -20.0 sd
+127.6 -26.0 hd -20.0 sd
+24.0 175.6 -47.0 bar 
+194.5 -26.0 Hd -20.0 sd
+270.1 -38.0 hd 20.0 su
+24.0 318.2 -47.0 bar 
+337.1 -26.0 hd 8.0 0 dt -20.0 sd
+-3.2 68.7 5.2 394.0 -48.6 bm
+397.9 -29.0 hd -18.6 sd
+431.9 -26.0 hd -19.0 sd
+465.9 -23.0 hd -19.4 sd
+24.0 499.9 -47.0 bar 
+518.8 -20.0 hd 8.0 0 dt -20.0 sd
+-3.2 68.7 -6.0 575.7 -51.2 bm
+579.6 -26.0 hd -24.3 sd
+613.6 -29.0 hd -24.2 sd
+647.6 -38.0 hd -18.2 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 190.9 32.0 y0 M(10)show 371.9 32.0 y0 M(11)show 524.0 32.0 y0 M(12)show
+13.0 F2 (1)-11.4 2 629.1 44.5 50.0 y0 repbra
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+64.7 -40.0 Hd -20.0 sd
+145.3 -52.0 hd 20.0 su
+24.0 196.5 -52.0 bar 
+216.7 -43.0 hd 8.0 0 dt 20.0 su
+281.5 -40.0 hd 1 20.0 sfu
+326.3 -37.0 hd -20.0 sd
+24.0 377.5 -52.0 bar 
+397.7 -40.0 Hd -20.0 sd
+478.3 -43.0 hd 20.0 su
+24.0 529.6 -52.0 bar 
+549.7 -43.0 Hd 20.0 su
+630.3 -43.0 hd 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 152.1 33.0 y0 M(10)show 286.9 32.0 y0 M(11)show 431.3 32.0 y0 M(12)show 562.8 33.0 y0 M(13)show
+13.0 F2 (2)-11.4 0 240.0 44.5 50.0 y0 repbra
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+59.5 -40.0 Hd 20.0 su
+119.5 -52.0 hd 20.0 su
+24.0 157.7 -52.0 bar 
+172.7 -43.0 hd 8.0 0 dt 20.0 su
+221.0 -40.0 hd 1 20.0 sfu
+254.3 -37.0 hd -20.0 sd
+24.0 292.5 -52.0 bar 
+307.5 -40.0 hd 8.0 3 dt -20.0 sd
+-3.2 54.7 5.0 352.0 -62.5 bm
+355.8 -43.0 hd -18.5 sd
+382.8 -40.0 hd -19.0 sd
+409.9 -37.0 hd -19.5 sd
+24.0 436.9 -52.0 bar 
+451.9 -34.0 hd 8.0 3 dt -20.0 sd
+500.2 -37.0 hd 1 -20.0 sfd
+530.2 -40.0 hd -20.0 sd
+24.0 568.4 -52.0 bar 
+583.4 -43.0 Hd 20.0 su
+643.4 -52.0 hd 20.0 su
+24.0 681.6 -52.0 bar 24.0 678.6 -52.0 bar 
+0 -75.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(14)show 188.4 32.0 y0 M(15)show 308.2 33.0 y0 M(16)show 415.2 32.0 y0 M(17)show 539.5 32.0 y0 M(18)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+66.7 -38.0 hd 8.0 0 dt 20.0 su
+-3.2 51.8 4.5 113.5 -54.2 bm
+117.4 -35.0 hd -18.2 sd
+142.9 -32.0 hd -19.0 sd
+168.5 -26.0 hd -22.7 sd
+24.0 194.0 -47.0 bar 
+208.2 -35.0 hd 8.0 3 dt -20.0 sd
+249.3 -38.0 hd 1 20.0 sfu
+277.7 -41.0 hd 20.0 su
+24.0 313.8 -47.0 bar 
+327.9 -20.0 Hd -20.0 sd
+384.7 -17.0 hl 384.7 -17.0 hd -20.0 sd
+24.0 420.8 -47.0 bar 
+435.0 -26.0 hd 8.0 0 dt -20.0 sd
+480.7 -29.0 hd 1 -20.0 sfd
+509.0 -32.0 hd 500.0 y sh0 -20.0 sd
+24.0 545.1 -47.0 bar 
+559.3 -29.0 hd 8.0 3 dt -20.0 sd
+-3.2 51.8 5.7 601.1 -57.2 bm
+605.0 -38.0 hd -18.2 sd
+630.5 -29.0 hd -24.4 sd
+656.1 -26.0 hd -24.6 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(19)show 104.6 32.0 y0 M(20)show 220.4 32.0 y0 M(21)show 306.6 36.0 y0 M(22)show 392.9 32.0 y0 M(23)show 502.9 36.0 y0 M(24)show 589.2 33.0 y0 M(25)show
+13.0 F2 (1)-11.4 0 173.5 44.5 50.0 y0 repbra
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+64.0 -28.0 Hd 10.0 3 dt 54.0 y nt0 -20.0 sd
+24.0 110.2 -52.0 bar 
+123.2 -31.0 Hd -20.0 sd
+-3.2 44.2 -0.0 164.0 -60.0 bm
+-3.2 43.6 -0.0 164.4 -55.0 bm
+167.9 -34.0 hd -25.0 sd
+182.4 -37.0 hd -22.0 sd
+196.9 -40.0 hd -19.0 sd
+211.4 -34.0 hd -25.0 sd
+24.0 226.0 -52.0 bar 
+239.0 -37.0 Hd -20.0 sd
+283.6 -43.0 hd 20.0 su
+24.0 312.2 -52.0 bar 
+325.2 -40.0 Hd 20.0 su
+369.9 -43.0 hd 20.0 su
+24.0 398.5 -52.0 bar 
+411.0 -46.0 hd 8.0 3 dt 20.0 su
+3.2 41.4 -0.0 450.6 -17.8 bm
+447.4 -40.0 hd 21.2 su
+467.8 -37.0 hd 18.2 su
+488.1 -43.0 hd 24.2 su
+24.0 508.5 -52.0 bar 
+521.5 -40.0 Hd 20.0 su
+566.2 -43.0 hd 20.0 su
+24.0 594.8 -52.0 bar 
+607.8 -43.0 Hd 20.0 su
+652.4 -52.0 hd 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(19)show 128.1 32.0 y0 M(20)show 239.3 32.0 y0 M(21)show 322.0 36.0 y0 M(22)show 404.8 32.0 y0 M(23)show 510.3 36.0 y0 M(24)show 593.1 33.0 y0 M(25)show
+13.0 F2 (2)-11.4 0 192.4 44.5 50.0 y0 repbra
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+64.0 -28.0 Hd 54.0 y nt0 -20.0 sd
+106.5 -22.0 hl 106.5 -22.0 hd -20.0 sd
+24.0 133.7 -52.0 bar 
+146.7 -31.0 Hd -20.0 sd
+-3.2 42.4 -0.0 185.4 -60.0 bm
+-3.2 41.7 -0.0 185.7 -55.0 bm
+189.2 -34.0 hd -25.0 sd
+203.1 -37.0 hd -22.0 sd
+217.0 -40.0 hd -19.0 sd
+230.9 -34.0 hd -25.0 sd
+24.0 244.9 -52.0 bar 
+257.9 -37.0 Hd -20.0 sd
+300.4 -43.0 hd 20.0 su
+24.0 327.6 -52.0 bar 
+340.6 -40.0 Hd 20.0 su
+383.1 -43.0 hd 20.0 su
+24.0 410.4 -52.0 bar 
+422.9 -46.0 hd 8.0 3 dt 20.0 su
+3.2 39.5 -0.0 460.8 -17.8 bm
+457.6 -40.0 hd 21.2 su
+477.0 -37.0 hd 18.2 su
+496.5 -43.0 hd 24.2 su
+24.0 515.9 -52.0 bar 
+528.9 -40.0 Hd 20.0 su
+571.4 -43.0 hd 20.0 su
+24.0 598.7 -52.0 bar 
+611.7 -43.0 Hd 20.0 su
+654.2 -43.0 hd 20.0 su
+24.0 681.6 -52.0 bar 24.0 678.6 -52.0 bar 
+0 -75.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 5 5
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (5)showr 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Donald Blue - Ornette's Trip To Belfast)showc 
+0 -25.34 T
+% --- 4 (Donald Blue - Ornette's Trip To Belfast) ---
+% --- font 20.0 F2 
+[/Title(Donald Blue - Ornette's Trip To Belfast)/OUT pdfmark
+15.0 F2 68.0 -17.0 M(A)show 
+66.0 -21.0 14.8 19.0 box
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1  235.4 32.0 y0 M(2)show 376.3 32.0 y0 M(3)show 536.6 36.0 y0 M(4)show
+12.0 -63.0  tclef
+27.0 -39.0 sh0 32.5 -48.0 sh0 
+(4)(4) 48.5 -63.0 tsig
+77.0 -63.0 rdots 24.0 73.0 -63.0 bar 24.0 67.0 -63.0 thbar 
+3.2 55.3 -6.6 93.7 -25.8 bm
+90.5 -45.0 hd 18.2 su
+108.7 -51.0 hd 22.0 su
+126.9 -54.0 hd 22.8 su
+145.2 -60.0 hd 26.6 su
+3.2 55.3 -0.0 168.5 -31.8 bm
+165.3 -54.0 hd 21.2 su
+183.5 -60.0 hd 27.2 su
+201.8 -54.0 hd 21.2 su
+220.0 -51.0 hd 18.2 su
+24.0 238.2 -63.0 bar 
+3.2 55.3 -6.6 253.9 -25.8 bm
+250.7 -45.0 hd 18.2 su
+269.0 -51.0 hd 22.0 su
+287.2 -54.0 hd 22.8 su
+305.4 -60.0 hd 26.6 su
+325.6 -63.0 hd 20.0 su
+353.7 -66.0 hd 20.0 su
+24.0 379.1 -63.0 bar 
+3.2 55.3 -6.6 394.8 -25.8 bm
+391.6 -45.0 hd 18.2 su
+409.9 -51.0 hd 22.0 su
+428.1 -54.0 hd 22.8 su
+446.3 -60.0 hd 26.6 su
+3.2 55.3 4.9 469.6 -30.7 bm
+466.5 -54.0 hd 22.3 su
+484.7 -60.0 hd 29.9 su
+502.9 -54.0 hd 25.6 su
+521.1 -45.0 hd 18.2 su
+24.0 539.4 -63.0 bar 
+551.9 -51.0 hd 1 20.0 sfu
+572.7 -51.0 hd 20.0 su
+600.9 -54.0 hd 1 20.0 sfu
+621.7 -51.0 hd 20.0 su
+653.1 -42.0 hd -20.0 sd
+24.0 678.6 -63.0 thbar 24.0 675.6 -63.0 bar 671.6 -63.0 rdots 
+0 -86.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 219.5 32.0 y0 M(6)show 374.5 32.0 y0 M(7)show 538.8 32.0 y0 M(8)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 32.5 -32.0 sh0 
+57.0 -47.0 rdots 24.0 53.0 -47.0 bar 24.0 47.0 -47.0 thbar 
+-3.2 56.8 6.0 66.7 -57.2 bm
+70.5 -38.0 hd -18.2 sd
+89.2 -35.0 hd -19.2 sd
+107.9 -29.0 hd -23.2 sd
+126.6 -26.0 hd -24.2 sd
+-3.2 56.8 -3.8 143.5 -44.4 bm
+147.4 -23.0 hd -20.5 sd
+166.1 -17.0 hl 166.1 -17.0 hd -27.7 sd
+184.8 -23.0 hd -23.0 sd
+203.5 -29.0 hd -18.2 sd
+24.0 222.3 -47.0 bar 
+-3.2 56.8 -3.8 230.9 -44.4 bm
+234.8 -23.0 hd -20.5 sd
+253.5 -17.0 hl 253.5 -17.0 hd -27.7 sd
+272.2 -23.0 hd -23.0 sd
+290.9 -29.0 hd -18.2 sd
+-3.2 19.4 -2.4 307.8 -46.3 bm
+311.7 -26.0 hd -19.4 sd
+330.4 -29.0 hd -18.6 sd
+351.1 -35.0 hd -20.0 sd
+24.0 377.3 -47.0 bar 
+-3.2 56.8 6.0 386.0 -57.2 bm
+389.8 -38.0 hd -18.2 sd
+408.6 -35.0 hd -19.2 sd
+427.3 -29.0 hd -23.2 sd
+446.0 -26.0 hd -24.2 sd
+-3.2 56.8 -3.8 462.9 -44.4 bm
+466.7 -23.0 hd -20.5 sd
+485.4 -17.0 hl 485.4 -17.0 hd -27.7 sd
+504.2 -23.0 hd -23.0 sd
+522.9 -29.0 hd -18.2 sd
+24.0 541.6 -47.0 bar 
+554.1 -35.0 hd 1 -20.0 sfd
+574.9 -35.0 hd -20.0 sd
+601.1 -38.0 hd 1 20.0 sfu
+622.3 -35.0 hd 20.0 su
+654.6 -29.0 hd -20.0 sd
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+15.0 F2 37.0 -17.0 M(B)show 
+35.0 -21.0 14.0 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 215.3 32.0 y0 M(10)show 356.1 32.0 y0 M(11)show 509.6 32.0 y0 M(12)show
+37.9 0.0 466.2 32.0 y0 tubr(3)485.2 28.0 y0 bnumb
+12.0 -57.0  tclef
+27.0 -33.0 sh0 32.5 -42.0 sh0 
+24.0 47.0 -57.0 bar 
+58.0 -33.0 nt0 63.5 -42.0 nt0 72.0 -45.0 ft0 
+90.0 -39.0 hd 8.0 3 dt -20.0 sd
+124.0 -36.0 hd 1 -20.0 sfd
+-3.2 57.6 -0.0 141.1 -57.2 bm
+145.0 -33.0 hd -23.2 sd
+164.0 -36.0 hd -20.2 sd
+182.9 -39.0 hd -17.2 sd
+201.9 -36.0 hd -20.2 sd
+24.0 220.9 -57.0 bar 
+233.4 -42.0 hd 8.0 0 dt -20.0 sd
+264.1 -48.0 hd 1 20.0 sfu
+3.2 57.6 -6.0 288.9 -19.8 bm
+285.8 -39.0 hd 18.2 su
+304.8 -42.0 hd 19.2 su
+323.7 -48.0 hd 23.2 su
+342.7 -51.0 hd 24.2 su
+24.0 361.7 -57.0 bar 
+374.2 -54.0 hd 8.0 0 dt 20.0 su
+408.2 -51.0 hd 1 20.0 sfu
+-3.2 68.6 -0.0 428.4 -67.2 bm
+432.3 -48.0 hd -18.2 sd
+451.3 -42.0 hd -24.2 sd
+470.2 -42.0 hd -24.2 sd
+485.2 -42.0 hd -24.2 sd
+500.2 -42.0 hd -24.2 sd
+24.0 515.2 -57.0 bar 
+-3.2 57.6 6.0 523.8 -61.2 bm
+527.7 -42.0 hd -18.2 sd
+546.7 -39.0 hd -19.2 sd
+565.6 -33.0 hd -23.2 sd
+584.6 -30.0 hd -24.2 sd
+-3.2 57.6 -6.9 601.8 -48.3 bm
+605.6 -27.0 hl 605.6 -27.0 hd -20.4 sd
+624.6 -30.0 hd -19.6 sd
+643.6 -33.0 hd -18.9 sd
+662.6 -36.0 hd -18.2 sd
+24.0 681.6 -57.0 bar 
+0 -80.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 183.5 32.0 y0 M(14)show 336.6 32.0 y0 M(15)show 503.2 32.0 y0 M(16)show
+40.7 0.0 455.8 32.0 y0 tubr(3)476.1 28.0 y0 bnumb
+12.0 -47.0  tclef
+27.0 -35.0 ft0 
+45.0 -29.0 hd 8.0 3 dt -20.0 sd
+82.3 -26.0 hd 1 -20.0 sfd
+-3.2 63.3 -0.0 101.7 -47.2 bm
+105.5 -23.0 hd -23.2 sd
+126.4 -26.0 hd -20.2 sd
+147.3 -29.0 hd -17.2 sd
+168.2 -26.0 hd -20.2 sd
+24.0 189.1 -47.0 bar 
+201.6 -32.0 hd 8.0 0 dt -20.0 sd
+235.2 -38.0 hd 1 20.0 sfu
+3.2 63.3 -6.2 261.8 -9.8 bm
+258.6 -29.0 hd 18.2 su
+279.5 -32.0 hd 19.2 su
+300.4 -38.0 hd 23.1 su
+321.3 -41.0 hd 24.1 su
+24.0 342.2 -47.0 bar 
+354.7 -44.0 hd 8.0 0 dt 20.0 su
+392.0 -41.0 hd 1 20.0 sfu
+-3.2 75.1 -0.0 414.2 -57.2 bm
+418.0 -38.0 hd -18.2 sd
+438.9 -32.0 hd -24.2 sd
+459.8 -32.0 hd -24.2 sd
+476.1 -32.0 hd -24.2 sd
+492.5 -32.0 hd -24.2 sd
+24.0 508.8 -47.0 bar 
+-3.2 63.3 6.2 517.5 -51.2 bm
+521.3 -32.0 hd -18.2 sd
+542.2 -29.0 hd -19.2 sd
+563.1 -23.0 hd -23.1 sd
+584.0 -20.0 hd -24.1 sd
+607.2 -23.0 hd -20.0 sd
+-3.2 21.6 -2.4 636.0 -43.3 bm
+639.8 -23.0 hd -19.3 sd
+660.7 -26.0 hd -18.7 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 175.6 32.0 y0 M(18)show 321.2 38.0 y0 M(19)show 503.3 32.0 y0 M(20)show
+39.0 0.0 458.5 32.0 y0 tubr(3)477.9 28.0 y0 bnumb
+12.0 -52.0  tclef
+27.0 -40.0 ft0 
+45.0 -34.0 hd 8.0 3 dt -20.0 sd
+80.3 -31.0 hd 1 -20.0 sfd
+-3.2 59.9 -0.0 98.4 -52.2 bm
+102.2 -28.0 hd -23.2 sd
+122.0 -31.0 hd -20.2 sd
+141.7 -34.0 hd -17.2 sd
+161.5 -31.0 hd -20.2 sd
+24.0 181.2 -52.0 bar 
+193.7 -37.0 hd 8.0 0 dt -20.0 sd
+225.6 -43.0 hd 1 20.0 sfu
+3.2 59.9 -6.1 251.0 -14.8 bm
+247.8 -34.0 hd 18.2 su
+267.6 -37.0 hd 19.2 su
+287.3 -43.0 hd 23.2 su
+307.1 -46.0 hd 24.2 su
+24.0 326.8 -52.0 bar 
+3.2 59.9 -0.0 342.5 -17.8 bm
+339.3 -49.0 hd 30.2 su
+359.1 -37.0 hd 18.2 su
+378.8 -46.0 hd 27.2 su
+398.6 -49.0 hd 30.2 su
+-3.2 71.2 -0.0 419.1 -62.2 bm
+423.0 -43.0 hd -18.2 sd
+442.7 -37.0 hd -24.2 sd
+462.5 -37.0 hd -24.2 sd
+477.9 -37.0 hd -24.2 sd
+493.4 -37.0 hd -24.2 sd
+24.0 508.9 -52.0 bar 
+-3.2 59.9 6.1 517.6 -56.2 bm
+521.4 -37.0 hd -18.2 sd
+541.2 -34.0 hd -19.2 sd
+560.9 -28.0 hd -23.2 sd
+580.7 -25.0 hd -24.2 sd
+-3.2 59.9 -7.0 598.7 -43.3 bm
+602.6 -22.0 hl 602.6 -22.0 hd -20.3 sd
+622.3 -25.0 hd -19.6 sd
+642.1 -28.0 hd -18.9 sd
+661.8 -31.0 hd -18.2 sd
+24.0 681.6 -52.0 bar 
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(21)show 185.4 32.0 y0 M(22)show 340.3 38.0 y0 M(23)show 534.4 32.0 y0 M(24)show
+41.1 0.0 486.3 32.0 y0 tubr(3)506.9 28.0 y0 bnumb
+12.0 -52.0  tclef
+27.0 -40.0 ft0 
+45.0 -34.0 hd 8.0 3 dt -20.0 sd
+82.8 -31.0 hd 1 -20.0 sfd
+-3.2 64.2 -0.0 102.5 -52.2 bm
+106.3 -28.0 hd -23.2 sd
+127.5 -31.0 hd -20.2 sd
+148.6 -34.0 hd -17.2 sd
+169.8 -31.0 hd -20.2 sd
+24.0 191.0 -52.0 bar 
+203.5 -37.0 hd 8.0 0 dt -20.0 sd
+237.6 -43.0 hd 1 20.0 sfu
+3.2 64.2 -6.2 264.4 -14.8 bm
+261.3 -34.0 hd 18.2 su
+282.4 -37.0 hd 19.2 su
+303.6 -43.0 hd 23.1 su
+324.7 -46.0 hd 24.1 su
+24.0 345.9 -52.0 bar 
+3.2 64.2 -0.0 361.6 -17.8 bm
+358.4 -49.0 hd 30.2 su
+379.6 -37.0 hd 18.2 su
+400.7 -46.0 hd 27.2 su
+421.9 -49.0 hd 30.2 su
+-3.2 76.1 -0.0 444.2 -62.2 bm
+448.0 -43.0 hd -18.2 sd
+469.2 -37.0 hd -24.2 sd
+490.3 -37.0 hd -24.2 sd
+506.9 -37.0 hd -24.2 sd
+523.4 -37.0 hd -24.2 sd
+24.0 540.0 -52.0 bar 
+-3.2 64.2 6.2 548.7 -56.2 bm
+552.5 -37.0 hd -18.2 sd
+573.7 -34.0 hd -19.2 sd
+594.8 -28.0 hd -23.1 sd
+616.0 -25.0 hd -24.1 sd
+639.5 -28.0 Hd -20.0 sd
+24.0 681.6 -52.0 bar 
+0 -75.00 T
+/y0{-56.0 add}!
+681.6 5 0.0 -56.0 staff
+14.0 F1 24.0 32.0 y0 M(25)show 199.1 42.0 y0 M(26)show 365.5 36.0 y0 M(27)show 517.7 42.0 y0 M(28)show
+36.6 0.0 324.2 32.0 y0 tubr(3)342.5 28.0 y0 bnumb
+(3)651.4 -13.2 y0 bnum
+12.0 -56.0  tclef
+27.0 -44.0 ft0 
+51.5 -56.0 rdots 24.0 47.5 -56.0 bar 24.0 41.5 -56.0 thbar 
+65.0 -26.0 hl 65.0 -26.0 hd -20.0 sd
+-3.2 18.9 -1.7 89.4 -44.1 bm
+93.2 -26.0 hl 93.2 -20.0 hl 93.2 -20.0 hd -23.2 sd
+111.5 -26.0 hl 111.5 -26.0 hd -18.8 sd
+-3.2 55.5 -0.0 127.9 -44.2 bm
+131.7 -26.0 hl 131.7 -26.0 hd -17.2 sd
+150.0 -26.0 hl 150.0 -20.0 hl 150.0 -17.0 hd -26.2 sd
+168.2 -26.0 hl 168.2 -20.0 hl 168.2 -20.0 hd -23.2 sd
+186.5 -26.0 hl 186.5 -26.0 hd -17.2 sd
+24.0 204.7 -56.0 bar 
+-3.2 55.3 -0.0 213.4 -47.0 bm
+217.2 -26.0 hl 217.2 -20.0 hl 217.2 -20.0 hd -26.0 sd
+235.5 -26.0 hl 235.5 -26.0 hd -20.0 sd
+253.6 -29.0 hd -17.0 sd
+271.8 -26.0 hl 271.8 -26.0 hd -20.0 sd
+-3.2 65.6 -0.0 288.0 -56.2 bm
+291.9 -32.0 hd -23.2 sd
+310.0 -38.0 hd -17.2 sd
+328.2 -38.0 hd -17.2 sd
+342.5 -38.0 hd -17.2 sd
+356.8 -38.0 hd -17.2 sd
+24.0 371.1 -56.0 bar 
+383.6 -26.0 hl 383.6 -26.0 hd -20.0 sd
+-3.2 18.9 -1.7 408.0 -44.1 bm
+411.9 -26.0 hl 411.9 -20.0 hl 411.9 -20.0 hd -23.2 sd
+430.1 -26.0 hl 430.1 -26.0 hd -18.8 sd
+-3.2 55.5 -0.0 446.5 -44.2 bm
+450.4 -26.0 hl 450.4 -26.0 hd -17.2 sd
+468.6 -26.0 hl 468.6 -20.0 hl 468.6 -17.0 hd -26.2 sd
+486.9 -26.0 hl 486.9 -20.0 hl 486.9 -20.0 hd -23.2 sd
+505.1 -26.0 hl 505.1 -26.0 hd -17.2 sd
+24.0 523.3 -56.0 bar 
+-3.2 55.3 -0.0 532.0 -47.0 bm
+535.8 -26.0 hl 535.8 -20.0 hl 535.8 -20.0 hd -26.0 sd
+554.1 -26.0 hl 554.1 -26.0 hd -20.0 sd
+572.3 -29.0 hd -17.0 sd
+590.4 -26.0 hl 590.4 -26.0 hd -20.0 sd
+610.5 -32.0 hd -20.0 sd
+-3.2 29.3 4.3 634.8 -57.3 bm
+638.6 -38.0 hd -18.2 sd
+653.0 -35.0 hd -19.1 sd
+667.3 -32.0 hd -20.0 sd
+24.0 681.6 -56.0 bar 
+0 -79.00 T
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1 24.0 36.0 y0 M(29)show 148.5 32.0 y0 M(30)show 268.2 38.0 y0 M(31)show 416.7 32.0 y0 M(32)show 542.7 32.0 y0 M(32)show
+33.1 0.0 380.6 32.0 y0 tubr(3)397.2 28.0 y0 bnumb
+13.0 F2 (1)-11.4 2 118.0 422.3 61.0 y0 repbra
+(2)-11.4 2 133.3 548.3 61.0 y0 repbra
+12.0 -63.0  tclef
+27.0 -51.0 ft0 
+-3.2 48.4 -0.0 41.2 -57.2 bm
+45.0 -33.0 hl 45.0 -33.0 hd -23.2 sd
+61.0 -33.0 hl 61.0 -30.0 hd -26.2 sd
+76.9 -33.0 hl 76.9 -33.0 hd -23.2 sd
+92.7 -39.0 hd -17.2 sd
+110.1 -45.0 hd 8.0 3 dt -20.0 sd
+138.3 -39.0 hd 1 -20.0 sfd
+24.0 154.1 -63.0 bar 
+166.6 -48.0 hd 8.0 0 dt -20.0 sd
+194.9 -51.0 hd 1 -20.0 sfd
+3.2 48.0 -0.0 213.8 -28.8 bm
+210.7 -54.0 hd 24.2 su
+226.4 -51.0 hd 21.2 su
+242.2 -48.0 hd 18.2 su
+258.0 -54.0 hd 24.2 su
+24.0 273.8 -63.0 bar 
+3.2 48.0 -0.0 289.5 -28.8 bm
+286.3 -60.0 hd 30.2 su
+302.1 -48.0 hd 18.2 su
+317.8 -57.0 hd 27.2 su
+333.6 -60.0 hd 30.2 su
+-3.2 57.3 -0.0 349.3 -73.2 bm
+353.1 -54.0 hd -18.2 sd
+368.9 -48.0 hd -24.2 sd
+384.6 -48.0 hd -24.2 sd
+397.2 -48.0 hd -24.2 sd
+409.7 -48.0 hd -24.2 sd
+24.0 422.3 -63.0 bar 
+-3.2 48.0 5.8 431.0 -67.2 bm
+434.8 -48.0 hd -18.2 sd
+450.6 -45.0 hd -19.3 sd
+466.4 -39.0 hd -23.4 sd
+482.1 -36.0 hd -24.5 sd
+499.5 -39.0 hd 8.0 3 dt -20.0 sd
+527.8 -36.0 hd 1 -20.0 sfd
+24.0 545.3 -63.0 thbar 24.0 542.3 -63.0 bar 538.3 -63.0 rdots 
+-3.2 48.0 5.8 556.9 -67.2 bm
+560.8 -48.0 hd -18.2 sd
+576.5 -45.0 hd -19.3 sd
+592.3 -39.0 hd -23.4 sd
+608.1 -36.0 hd -24.5 sd
+625.5 -39.0 hd -20.0 sd
+-3.2 16.5 -2.3 645.8 -62.4 bm
+649.6 -42.0 hd -19.4 sd
+665.4 -45.0 hd -18.6 sd
+24.0 681.6 -63.0 bar 24.0 678.6 -63.0 bar 
+0 -86.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 6 6
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (6)show 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (John Nee's - Lucy Campbell's)showc 
+0 -25.34 T
+% --- 5 (John Nee's - Lucy Campbell's) ---
+% --- font 20.0 F2 
+[/Title(John Nee's - Lucy Campbell's)/OUT pdfmark
+15.0 F2 62.5 -17.0 M(A)show 
+60.5 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  238.1 32.0 y0 M(2)show 388.2 32.0 y0 M(3)show 538.0 32.0 y0 M(4)show
+(3)362.7 -19.2 y0 bnum
+(3)477.6 -19.2 y0 bnum
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(4)(4) 43.0 -57.0 tsig
+71.5 -57.0 rdots 24.0 67.5 -57.0 bar 24.0 61.5 -57.0 thbar 
+85.0 -39.0 hd 1 -20.0 sfd
+24.0 101.8 -57.0 bar 
+-3.2 17.5 -5.1 110.5 -62.2 bm
+114.3 -36.0 hd -25.3 sd
+131.1 -48.0 hd -18.2 sd
+147.9 -48.0 hd 20.0 su
+3.2 51.0 -0.0 176.8 -22.8 bm
+173.7 -48.0 hd 24.2 su
+190.4 -42.0 hd 18.2 su
+207.2 -45.0 hd 21.2 su
+224.0 -48.0 hd 24.2 su
+24.0 240.9 -57.0 bar 
+3.2 51.0 -0.0 256.5 -32.8 bm
+253.4 -51.0 hd 17.2 su
+270.1 -57.0 hd 23.2 su
+286.9 -60.0 hd 26.2 su
+303.7 -57.0 hd 23.2 su
+322.2 -51.0 hd 20.0 su
+-3.2 27.3 4.2 347.2 -64.3 bm
+351.0 -45.0 hd -18.2 sd
+364.3 -42.0 hd -19.1 sd
+377.7 -39.0 hd -20.1 sd
+24.0 391.0 -57.0 bar 
+-3.2 17.5 -5.1 399.7 -62.2 bm
+403.5 -36.0 hd -25.3 sd
+420.3 -48.0 hd -18.2 sd
+437.1 -48.0 hd 20.0 su
+-3.2 27.3 4.2 462.0 -64.3 bm
+465.9 -45.0 hd -18.2 sd
+479.2 -42.0 hd -19.1 sd
+492.5 -39.0 hd -20.1 sd
+-3.2 17.5 3.6 503.4 -55.3 bm
+507.2 -36.0 hd -18.2 sd
+524.0 -30.0 hd -20.7 sd
+24.0 540.8 -57.0 bar 
+553.3 -27.0 hl 553.3 -27.0 hd -20.0 sd
+-3.2 17.5 -3.6 575.3 -51.6 bm
+579.1 -30.0 hd -20.7 sd
+595.9 -36.0 hd -18.2 sd
+-3.2 51.0 -0.0 610.6 -57.2 bm
+614.4 -39.0 hd -17.2 sd
+631.2 -30.0 hd -26.2 sd
+648.0 -36.0 hd -20.2 sd
+664.8 -39.0 hd -17.2 sd
+24.0 681.6 -57.0 bar 
+147.9 -26.0 grm
+437.1 -26.0 grm
+0 -80.00 T
+/y0{-51.0 add}!
+681.6 5 0.0 -51.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 190.4 32.0 y0 M(6)show 363.7 32.0 y0 M(7)show 511.5 32.0 y0 M(8)show
+(3)334.0 -19.2 y0 bnum
+38.8 0.0 565.0 47.0 y0 tubr(3)584.4 43.0 y0 bnumb
+12.0 -51.0  tclef
+27.0 -27.0 sh0 
+-3.2 20.3 -5.6 41.2 -55.7 bm
+45.0 -30.0 hd -24.8 sd
+64.6 -42.0 hd -18.2 sd
+84.2 -42.0 hd 20.0 su
+3.2 59.5 -0.0 117.9 -16.8 bm
+114.7 -42.0 hd 24.2 su
+134.3 -36.0 hd 18.2 su
+153.9 -39.0 hd 21.2 su
+173.6 -42.0 hd 24.2 su
+24.0 193.2 -51.0 bar 
+3.2 59.5 -0.0 208.9 -26.8 bm
+205.7 -45.0 hd 17.2 su
+225.3 -51.0 hd 23.2 su
+244.9 -54.0 hd 26.2 su
+264.5 -51.0 hd 23.2 su
+286.3 -45.0 hd 20.0 su
+-3.2 31.5 4.4 316.4 -58.2 bm
+320.2 -39.0 hd -18.2 sd
+335.6 -36.0 hd -19.0 sd
+351.0 -33.0 hd -19.9 sd
+24.0 366.5 -51.0 bar 
+379.0 -30.0 hd 8.0 0 dt -20.0 sd
+414.1 -21.0 hl 414.1 -21.0 hd 1 -20.0 sfd
+-3.2 59.5 -6.8 432.0 -51.5 bm
+435.8 -24.0 hd -26.5 sd
+455.4 -30.0 hd -22.7 sd
+475.0 -33.0 hd -22.0 sd
+494.6 -39.0 hd -18.2 sd
+24.0 514.3 -51.0 bar 
+3.2 70.7 -0.0 529.9 -13.8 bm
+526.8 -45.0 hd 30.2 su
+546.4 -33.0 hd 18.2 su
+566.0 -39.0 hd 24.2 su
+581.4 -42.0 hd 27.2 su
+596.8 -45.0 hd 30.2 su
+3.2 39.9 -0.0 617.0 -19.8 bm
+613.9 -39.0 hd 18.2 su
+633.5 -42.0 hd 21.2 su
+653.1 -42.0 hd 21.2 su
+24.0 678.6 -51.0 thbar 24.0 675.6 -51.0 bar 671.6 -51.0 rdots 
+84.2 -20.0 grm
+0 -74.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(8)show 80.9 32.0 y0 M(9)show 206.2 32.0 y0 M(10)show 357.0 32.0 y0 M(11)show 517.1 36.0 y0 M(12)show
+(3)455.0 -19.2 y0 bnum
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+51.5 -50.0 rdots 24.0 47.5 -50.0 bar 24.0 41.5 -50.0 thbar 
+65.0 -38.0 hd 1 20.0 sfu
+24.0 83.7 -50.0 bar 
+96.2 -35.0 hd 8.0 0 dt -20.0 sd
+128.5 -32.0 hd 1 -20.0 sfd
+-3.2 18.7 3.7 144.6 -48.3 bm
+148.5 -29.0 hd -18.2 sd
+166.5 -23.0 hd -20.6 sd
+186.5 -23.0 hd -20.0 sd
+24.0 211.8 -50.0 bar 
+-3.2 55.0 -0.0 220.4 -47.0 bm
+224.3 -29.0 hd -17.0 sd
+242.3 -20.0 hl 242.3 -20.0 hd -26.0 sd
+260.5 -20.0 hl 260.5 -20.0 hd -26.0 sd
+278.5 -26.0 hd -20.0 sd
+298.5 -23.0 hd -20.0 sd
+-3.2 18.7 -2.3 322.6 -49.3 bm
+326.5 -29.0 hd -19.4 sd
+344.5 -32.0 hd -18.6 sd
+24.0 362.6 -50.0 bar 
+-3.2 18.7 -5.3 371.3 -55.0 bm
+375.1 -29.0 hd -25.0 sd
+393.2 -41.0 hd -18.2 sd
+411.2 -41.0 hd 20.0 su
+-3.2 29.2 4.3 438.5 -57.3 bm
+442.4 -38.0 hd -18.2 sd
+456.6 -35.0 hd -19.1 sd
+470.8 -32.0 hd -20.0 sd
+-3.2 18.7 3.7 482.7 -48.3 bm
+486.6 -29.0 hd -18.2 sd
+504.6 -23.0 hd -20.6 sd
+24.0 522.7 -50.0 bar 
+-3.2 54.8 -4.2 531.4 -44.1 bm
+535.2 -20.0 hl 535.2 -20.0 hd -23.1 sd
+553.3 -23.0 hd -21.5 sd
+571.3 -23.0 hd -22.8 sd
+589.4 -29.0 hd -18.2 sd
+-3.2 54.8 -0.0 605.5 -50.2 bm
+609.4 -32.0 hd -17.2 sd
+627.4 -23.0 hd -26.2 sd
+645.5 -29.0 hd -20.2 sd
+663.5 -32.0 hd -17.2 sd
+24.0 681.6 -50.0 bar 
+96.2 -24.0 grm
+186.5 -19.0 grm
+411.2 -19.0 grm
+0 -73.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 177.3 32.0 y0 M(14)show 364.0 38.0 y0 M(15)show 540.4 35.0 y0 M(16)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -37.0 hd 8.0 0 dt -20.0 sd
+83.4 -34.0 hd 1 -20.0 sfd
+-3.2 22.2 4.0 103.4 -50.3 bm
+107.2 -31.0 hd -18.2 sd
+128.7 -25.0 hd -20.4 sd
+152.6 -25.0 hd -20.0 sd
+24.0 182.9 -52.0 bar 
+-3.2 65.1 -0.0 191.5 -49.0 bm
+195.4 -31.0 hd -17.0 sd
+216.8 -22.0 hl 216.8 -22.0 hd -26.0 sd
+238.3 -22.0 hl 238.3 -22.0 hd -26.0 sd
+259.8 -28.0 hd -20.0 sd
+-3.2 65.1 -6.9 279.8 -52.4 bm
+283.7 -25.0 hd -26.4 sd
+305.1 -31.0 hd -22.7 sd
+326.6 -34.0 hd -21.9 sd
+348.1 -40.0 hd -18.2 sd
+24.0 369.6 -52.0 bar 
+3.2 65.1 -0.0 385.2 -17.8 bm
+382.1 -37.0 hd 18.2 su
+403.6 -43.0 hd 24.2 su
+425.0 -40.0 hd 21.2 su
+446.5 -43.0 hd 24.2 su
+3.2 22.2 -4.0 473.5 -26.7 bm
+470.4 -46.0 hd 18.2 su
+491.8 -52.0 hd 20.4 su
+515.7 -52.0 hd 20.0 su
+24.0 546.0 -52.0 bar 
+3.2 65.1 -0.0 561.6 -20.8 bm
+558.5 -46.0 hd 24.2 su
+579.9 -43.0 hd 21.2 su
+601.4 -40.0 hd 18.2 su
+622.9 -46.0 hd 24.2 su
+646.7 -43.0 hd 8.0 0 dt 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+45.0 -6.0 grm
+152.6 -21.0 grm
+515.7 -26.0 grm
+646.7 -21.0 grm
+0 -75.00 T
+15.0 F2 31.5 -17.0 M(B)show 
+29.5 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(16)show 210.5 33.0 y0 M(17)show 358.9 33.0 y0 M(18)show 519.1 41.0 y0 M(19)show
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+24.0 41.5 -70.0 bar 
+52.5 -46.0 sh0 58.0 -55.0 sh0 
+76.0 -61.0 hd 20.0 su
+3.2 19.6 3.8 108.6 -45.5 bm
+105.4 -67.0 hd 20.5 su
+124.4 -61.0 hd 18.2 su
+145.4 -61.0 hd 20.0 su
+-3.2 19.6 -3.8 174.3 -73.5 bm
+178.2 -52.0 hd -20.5 sd
+197.1 -58.0 hd -18.2 sd
+24.0 216.1 -70.0 bar 
+228.6 -61.0 hd 20.0 su
+3.2 19.6 3.8 261.2 -45.5 bm
+258.1 -67.0 hd 20.5 su
+277.0 -61.0 hd 18.2 su
+3.2 19.6 -5.5 301.2 -38.7 bm
+298.0 -58.0 hd 18.2 su
+317.0 -70.0 hd 24.9 su
+338.0 -70.0 hd 20.0 su
+24.0 364.5 -70.0 bar 
+377.0 -61.0 hd 20.0 su
+3.2 19.6 3.8 409.6 -45.5 bm
+406.5 -67.0 hd 20.5 su
+425.4 -61.0 hd 18.2 su
+-3.2 57.5 -0.0 445.0 -70.2 bm
+448.8 -52.0 hd -17.2 sd
+467.8 -49.0 hd -20.2 sd
+486.8 -46.0 hd -23.2 sd
+505.7 -49.0 hd -20.2 sd
+24.0 524.7 -70.0 bar 
+3.2 57.5 -6.7 540.4 -32.8 bm
+537.2 -52.0 hd 18.2 su
+556.2 -58.0 hd 22.0 su
+575.1 -61.0 hd 22.8 su
+594.1 -67.0 hd 26.6 su
+3.2 19.6 -5.5 618.2 -41.7 bm
+615.1 -61.0 hd 18.2 su
+634.0 -73.0 hd 24.9 su
+655.0 -73.0 hd 20.0 su
+24.0 681.6 -70.0 bar 
+0 -93.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(20)show 197.5 35.0 y0 M(21)show 358.6 32.0 y0 M(22)show 522.9 41.0 y0 M(23)show
+(3)105.4 25.8 y0 bnum
+(3)231.7 37.0 y0 bnum
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+3.2 19.1 -5.4 53.7 -26.7 bm
+50.5 -46.0 hd 18.2 su
+68.9 -58.0 hd 25.0 su
+3.2 29.7 -4.3 92.5 -32.8 bm
+89.3 -52.0 hd 18.2 su
+103.8 -55.0 hd 19.1 su
+118.3 -58.0 hd 20.0 su
+134.4 -46.0 hd 20.0 su
+-3.2 19.1 -3.8 162.4 -58.5 bm
+166.3 -37.0 hd -20.6 sd
+184.7 -43.0 hd -18.2 sd
+24.0 203.1 -55.0 bar 
+3.2 29.7 -0.0 218.8 -23.8 bm
+215.6 -46.0 hd 21.2 su
+230.1 -43.0 hd 18.2 su
+244.6 -46.0 hd 21.2 su
+3.2 19.1 3.8 263.8 -30.5 bm
+260.7 -52.0 hd 20.6 su
+279.1 -46.0 hd 18.2 su
+3.2 19.1 -5.4 302.7 -23.7 bm
+299.5 -43.0 hd 18.2 su
+317.9 -55.0 hd 25.0 su
+338.4 -55.0 hd 20.0 su
+24.0 364.2 -55.0 bar 
+3.2 56.0 -0.0 379.9 -28.0 bm
+376.7 -46.0 hd 17.0 su
+395.2 -58.0 hd 29.0 su
+413.6 -52.0 hd 23.0 su
+432.0 -46.0 hd 17.0 su
+-3.2 56.0 -0.0 450.9 -55.2 bm
+454.8 -37.0 hd -17.2 sd
+473.2 -34.0 hd -20.2 sd
+491.6 -31.0 hd -23.2 sd
+510.1 -34.0 hd -20.2 sd
+24.0 528.5 -55.0 bar 
+3.2 56.0 -6.7 544.2 -17.8 bm
+541.0 -37.0 hd 18.2 su
+559.4 -43.0 hd 22.0 su
+577.9 -46.0 hd 22.8 su
+596.3 -52.0 hd 26.6 su
+3.2 19.1 -5.4 619.9 -26.7 bm
+616.7 -46.0 hd 18.2 su
+635.1 -58.0 hd 25.0 su
+655.6 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 24.0 678.6 -55.0 bar 
+0 -78.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(24)show 201.4 32.0 y0 M(25)show 347.4 32.0 y0 M(26)show 516.4 41.0 y0 M(27)show
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+-3.2 58.6 -0.0 46.7 -65.2 bm
+50.5 -37.0 hd -27.2 sd
+69.8 -43.0 hd -21.2 sd
+89.1 -46.0 hd -18.2 sd
+108.4 -43.0 hd -21.2 sd
+-3.2 58.6 -0.0 125.9 -55.2 bm
+129.8 -37.0 hd -17.2 sd
+149.1 -34.0 hd -20.2 sd
+168.4 -31.0 hd -23.2 sd
+187.7 -34.0 hd -20.2 sd
+24.0 207.0 -55.0 bar 
+219.5 -37.0 hd -20.0 sd
+3.2 58.6 -6.1 249.8 -19.8 bm
+246.6 -40.0 hd 19.2 su
+265.9 -46.0 hd 23.2 su
+285.2 -43.0 hd 18.2 su
+304.5 -55.0 hd 28.2 su
+325.9 -55.0 hd 20.0 su
+24.0 353.0 -55.0 bar 
+-3.2 58.6 -0.0 361.7 -65.2 bm
+365.5 -37.0 hd -27.2 sd
+384.8 -43.0 hd -21.2 sd
+404.1 -46.0 hd -18.2 sd
+423.4 -43.0 hd -21.2 sd
+-3.2 58.6 -0.0 441.0 -55.2 bm
+444.8 -37.0 hd -17.2 sd
+464.1 -34.0 hd -20.2 sd
+483.4 -31.0 hd -23.2 sd
+502.7 -34.0 hd -20.2 sd
+24.0 522.0 -55.0 bar 
+3.2 58.6 -6.7 537.7 -17.8 bm
+534.5 -37.0 hd 18.2 su
+553.8 -43.0 hd 22.0 su
+573.1 -46.0 hd 22.8 su
+592.4 -52.0 hd 26.5 su
+3.2 20.0 -5.5 616.9 -26.7 bm
+613.8 -46.0 hd 18.2 su
+633.1 -58.0 hd 24.9 su
+654.5 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 
+0 -78.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(28)show 195.0 32.0 y0 M(29)show 365.6 33.0 y0 M(30)show 522.3 41.0 y0 M(31)show
+(3)266.3 37.0 y0 bnum
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+-3.2 56.2 -0.0 46.7 -65.2 bm
+50.5 -37.0 hd -27.2 sd
+69.0 -43.0 hd -21.2 sd
+87.5 -46.0 hd -18.2 sd
+106.0 -43.0 hd -21.2 sd
+-3.2 56.2 -0.0 122.7 -55.2 bm
+126.5 -37.0 hd -17.2 sd
+145.0 -34.0 hd -20.2 sd
+163.5 -31.0 hd -23.2 sd
+182.1 -34.0 hd -20.2 sd
+24.0 200.6 -55.0 bar 
+-3.2 19.2 -3.8 209.2 -58.5 bm
+213.1 -37.0 hd -20.6 sd
+231.6 -43.0 hd -18.2 sd
+3.2 29.8 -0.0 253.3 -23.8 bm
+250.1 -43.0 hd 18.2 su
+264.7 -46.0 hd 21.2 su
+279.2 -43.0 hd 18.2 su
+-3.2 56.2 -5.7 293.3 -60.3 bm
+297.2 -28.0 hd -31.3 sd
+315.7 -43.0 hd -18.2 sd
+334.2 -37.0 hd -26.1 sd
+352.7 -43.0 hd -21.9 sd
+24.0 371.2 -55.0 bar 
+383.7 -46.0 hd 20.0 su
+3.2 19.2 3.8 415.7 -30.5 bm
+412.5 -52.0 hd 20.6 su
+431.0 -46.0 hd 18.2 su
+-3.2 56.2 -0.0 450.0 -55.2 bm
+453.9 -37.0 hd -17.2 sd
+472.4 -34.0 hd -20.2 sd
+490.9 -31.0 hd -23.2 sd
+509.4 -34.0 hd -20.2 sd
+24.0 527.9 -55.0 bar 
+3.2 56.2 -6.7 543.6 -17.8 bm
+540.4 -37.0 hd 18.2 su
+558.9 -43.0 hd 22.0 su
+577.4 -46.0 hd 22.8 su
+595.9 -52.0 hd 26.6 su
+3.2 19.2 -5.4 619.6 -26.7 bm
+616.4 -46.0 hd 18.2 su
+634.9 -58.0 hd 25.0 su
+655.5 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 24.0 678.6 -55.0 bar 
+0 -78.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 36.0 y0 M(32)show 188.0 36.0 y0 M(33)show 349.7 36.0 y0 M(34)show 505.3 41.0 y0 M(35)show
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+50.5 -25.0 hl 50.5 -25.0 hd 8.0 3 dt -20.0 sd
+87.6 -31.0 hd 1 -20.0 sfd
+-3.2 62.9 7.1 106.8 -56.2 bm
+110.6 -37.0 hd -18.2 sd
+131.4 -34.0 hd -18.9 sd
+152.1 -31.0 hd -19.5 sd
+172.8 -28.0 hd -20.2 sd
+24.0 193.6 -55.0 bar 
+206.1 -25.0 hl 206.1 -25.0 hd -20.0 sd
+-3.2 21.4 3.9 234.7 -50.3 bm
+238.5 -31.0 hd -18.2 sd
+259.3 -25.0 hl 259.3 -25.0 hd -20.4 sd
+-3.2 21.4 -5.5 278.5 -47.8 bm
+282.3 -25.0 hl 282.3 -22.0 hd -24.9 sd
+303.1 -34.0 hd -18.2 sd
+326.1 -34.0 hd -20.0 sd
+24.0 355.3 -55.0 bar 
+367.8 -25.0 hl 367.8 -25.0 hd 8.0 3 dt -20.0 sd
+404.9 -31.0 hd 1 -20.0 sfd
+-3.2 62.9 -0.0 424.1 -55.2 bm
+427.9 -37.0 hd -17.2 sd
+448.6 -34.0 hd -20.2 sd
+469.4 -31.0 hd -23.2 sd
+490.1 -34.0 hd -20.2 sd
+24.0 510.9 -55.0 bar 
+3.2 62.9 -6.8 526.5 -17.8 bm
+523.4 -37.0 hd 18.2 su
+544.1 -43.0 hd 21.9 su
+564.9 -46.0 hd 22.7 su
+585.6 -52.0 hd 26.4 su
+3.2 21.4 -5.7 611.8 -26.7 bm
+608.6 -46.0 hd 18.2 su
+629.4 -58.0 hd 24.6 su
+652.4 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 
+0 -78.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 36.0 y0 M(36)show 187.2 36.0 y0 M(37)show 376.2 33.0 y0 M(38)show 506.0 41.0 y0 M(39)show
+(3)219.9 -3.0 y0 bnum
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+50.5 -25.0 hl 50.5 -25.0 hd 8.0 3 dt -20.0 sd
+87.4 -31.0 hd 1 -20.0 sfd
+-3.2 62.6 7.0 106.4 -56.2 bm
+110.3 -37.0 hd -18.2 sd
+130.9 -34.0 hd -18.9 sd
+151.6 -31.0 hd -19.6 sd
+172.2 -28.0 hd -20.2 sd
+24.0 192.8 -55.0 bar 
+-3.2 33.1 -0.0 201.5 -43.2 bm
+205.3 -25.0 hl 205.3 -25.0 hd -17.2 sd
+221.5 -25.0 hl 221.5 -22.0 hd -20.2 sd
+237.8 -25.0 hl 237.8 -25.0 hd -17.2 sd
+-3.2 21.3 3.9 251.8 -50.3 bm
+255.7 -31.0 hd -18.2 sd
+276.3 -25.0 hl 276.3 -25.0 hd -20.4 sd
+-3.2 62.6 -3.8 295.4 -51.9 bm
+299.2 -25.0 hl 299.2 -22.0 hd -28.9 sd
+319.9 -34.0 hd -18.2 sd
+340.5 -34.0 hd -19.5 sd
+361.1 -31.0 hd -23.7 sd
+24.0 381.8 -55.0 bar 
+394.3 -28.0 hd 8.0 0 dt -20.0 sd
+431.2 -34.0 hd 1 -20.0 sfd
+454.1 -31.0 hd 8.0 3 dt -20.0 sd
+491.0 -34.0 hd 1 -20.0 sfd
+24.0 511.6 -55.0 bar 
+3.2 62.6 -6.8 527.3 -17.8 bm
+524.1 -37.0 hd 18.2 su
+544.8 -43.0 hd 21.9 su
+565.4 -46.0 hd 22.7 su
+586.0 -52.0 hd 26.4 su
+3.2 21.3 -5.7 612.1 -26.7 bm
+608.9 -46.0 hd 18.2 su
+629.6 -58.0 hd 24.7 su
+652.4 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 24.0 678.6 -55.0 bar 
+0 -78.00 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(40)show 205.4 32.0 y0 M(41)show 378.4 32.0 y0 M(42)show 520.4 41.0 y0 M(43)show
+(3)103.2 -12.0 y0 bnum
+(3)276.2 -12.0 y0 bnum
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+-3.2 19.5 3.8 46.7 -56.3 bm
+50.5 -37.0 hd -18.2 sd
+69.3 -31.0 hd -20.5 sd
+-3.2 30.2 -0.0 86.2 -52.0 bm
+90.1 -31.0 hd -20.0 sd
+104.8 -34.0 hd -17.0 sd
+119.6 -31.0 hd -20.0 sd
+-3.2 57.0 -0.0 132.1 -55.2 bm
+135.9 -37.0 hd -17.2 sd
+154.7 -31.0 hd -23.2 sd
+173.5 -34.0 hd -20.2 sd
+192.2 -31.0 hd -23.2 sd
+24.0 211.0 -55.0 bar 
+-3.2 19.5 3.8 219.7 -56.3 bm
+223.5 -37.0 hd -18.2 sd
+242.3 -31.0 hd -20.5 sd
+-3.2 30.2 -0.0 259.3 -52.0 bm
+263.1 -31.0 hd -20.0 sd
+277.8 -34.0 hd -17.0 sd
+292.6 -31.0 hd -20.0 sd
+-3.2 57.0 -0.0 305.1 -52.0 bm
+308.9 -25.0 hl 308.9 -25.0 hd -26.0 sd
+327.7 -31.0 hd -20.0 sd
+346.5 -34.0 hd -17.0 sd
+365.2 -31.0 hd -20.0 sd
+24.0 384.0 -55.0 bar 
+-3.2 57.0 -0.0 392.7 -55.2 bm
+396.5 -37.0 hd -17.2 sd
+415.3 -31.0 hd -23.2 sd
+434.1 -31.0 hd -23.2 sd
+452.9 -34.0 hd -20.2 sd
+473.7 -31.0 hd 8.0 3 dt -20.0 sd
+507.2 -34.0 hd 1 -20.0 sfd
+24.0 526.0 -55.0 bar 
+3.2 57.0 -6.7 541.7 -17.8 bm
+538.5 -37.0 hd 18.2 su
+557.3 -43.0 hd 22.0 su
+576.1 -46.0 hd 22.8 su
+594.9 -52.0 hd 26.6 su
+3.2 19.5 -5.5 618.8 -26.7 bm
+615.7 -46.0 hd 18.2 su
+634.4 -58.0 hd 24.9 su
+655.2 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 
+0 -78.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 7 7
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (7)showr 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+/y0{-55.0 add}!
+681.6 5 0.0 -55.0 staff
+14.0 F1 24.0 32.0 y0 M(44)show 211.7 32.0 y0 M(45)show 391.1 33.0 y0 M(46)show 514.6 41.0 y0 M(47)show
+(3)105.4 -12.0 y0 bnum
+(3)284.7 -12.0 y0 bnum
+12.0 -55.0  tclef
+27.0 -31.0 sh0 32.5 -40.0 sh0 
+-3.2 20.2 3.8 46.7 -56.3 bm
+50.5 -37.0 hd -18.2 sd
+70.0 -31.0 hd -20.5 sd
+-3.2 31.3 -0.0 87.8 -52.0 bm
+91.7 -31.0 hd -20.0 sd
+107.0 -34.0 hd -17.0 sd
+122.3 -31.0 hd -20.0 sd
+-3.2 59.2 -0.0 135.4 -55.2 bm
+139.3 -37.0 hd -17.2 sd
+158.8 -31.0 hd -23.2 sd
+178.3 -34.0 hd -20.2 sd
+197.8 -31.0 hd -23.2 sd
+24.0 217.3 -55.0 bar 
+-3.2 20.2 3.8 226.0 -56.3 bm
+229.8 -37.0 hd -18.2 sd
+249.4 -31.0 hd -20.5 sd
+-3.2 31.3 -0.0 267.2 -52.0 bm
+271.0 -31.0 hd -20.0 sd
+286.3 -34.0 hd -17.0 sd
+301.6 -31.0 hd -20.0 sd
+-3.2 59.2 -0.0 314.8 -52.0 bm
+318.6 -25.0 hl 318.6 -25.0 hd -26.0 sd
+338.1 -31.0 hd -20.0 sd
+357.6 -34.0 hd -17.0 sd
+377.1 -31.0 hd -20.0 sd
+24.0 396.7 -55.0 bar 
+409.2 -28.0 hd 8.0 0 dt -20.0 sd
+444.1 -34.0 hd 1 -20.0 sfd
+465.7 -31.0 hd 8.0 3 dt -20.0 sd
+500.6 -34.0 hd 1 -20.0 sfd
+24.0 520.2 -55.0 bar 
+3.2 59.2 -6.7 535.8 -17.8 bm
+532.7 -37.0 hd 18.2 su
+552.2 -43.0 hd 22.0 su
+571.7 -46.0 hd 22.8 su
+591.2 -52.0 hd 26.5 su
+3.2 20.2 -5.6 616.0 -26.7 bm
+612.9 -46.0 hd 18.2 su
+632.4 -58.0 hd 24.8 su
+654.0 -58.0 hd 20.0 su
+24.0 681.6 -55.0 bar 24.0 678.6 -55.0 bar 
+0 -78.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 8 8
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (8)show 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Lady Lane - Farewell To Whalley Range - Michael Russell's)showc 
+0 -25.34 T
+% --- 6 (Lady Lane - Farewell To Whalley Range - Michael Russell's) ---
+% --- font 20.0 F2 
+[/Title(Lady Lane - Farewell To Whalley Range - Michael Russell's)/OUT pdfmark
+15.0 F2 51.0 -17.0 M(A)show 
+49.0 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  243.1 32.0 y0 M(2)show 385.2 32.0 y0 M(3)show 536.7 32.0 y0 M(4)show
+(3)442.5 24.0 y0 bnum
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(6)(8) 43.0 -57.0 tsig
+-3.2 21.9 2.4 57.2 -64.7 bm
+61.0 -45.0 hd -18.7 sd
+82.2 -42.0 hd -19.3 sd
+102.8 -57.0 rdots 24.0 98.8 -57.0 bar 24.0 92.8 -57.0 thbar 
+-3.2 43.1 -7.8 112.5 -62.5 bm
+116.3 -39.0 hd -22.5 sd
+137.5 -45.0 hd -20.4 sd
+158.7 -51.0 hd -18.2 sd
+-3.2 43.1 7.8 178.4 -70.3 bm
+182.3 -51.0 hd -18.2 sd
+203.5 -45.0 hd -20.4 sd
+224.7 -39.0 hd -22.5 sd
+24.0 245.9 -57.0 bar 
+3.2 43.1 -5.5 261.5 -19.8 bm
+258.4 -39.0 hd 18.2 su
+279.6 -48.0 hd 24.5 su
+300.8 -51.0 hd 24.8 su
+3.2 43.1 -3.1 327.5 -27.2 bm
+324.3 -54.0 hd 25.7 su
+345.5 -48.0 hd 18.2 su
+366.7 -60.0 hd 28.7 su
+24.0 388.0 -57.0 bar 
+400.5 -60.0 hd 1 20.0 sfu
+3.2 33.9 -0.0 427.4 -38.8 bm
+424.2 -60.0 hd 20.2 su
+440.9 -60.0 hd 20.2 su
+457.5 -60.0 hd 20.2 su
+3.2 43.1 -3.1 479.1 -27.2 bm
+475.9 -54.0 hd 25.7 su
+497.1 -48.0 hd 18.2 su
+518.3 -60.0 hd 28.7 su
+24.0 539.5 -57.0 bar 
+3.2 43.1 4.8 555.2 -33.4 bm
+552.0 -54.0 hd 19.7 su
+573.2 -51.0 hd 19.0 su
+594.4 -48.0 hd 18.3 su
+3.2 43.1 4.8 621.1 -27.4 bm
+618.0 -48.0 hd 19.7 su
+639.2 -45.0 hd 19.0 su
+660.4 -42.0 hd 18.3 su
+24.0 681.6 -57.0 bar 
+0 -80.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 196.9 32.0 y0 M(6)show 365.7 32.0 y0 M(7)show 545.2 32.0 y0 M(8)show
+(3)432.0 24.0 y0 bnum
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 51.3 -8.3 48.2 -9.7 bm
+45.0 -29.0 hd 18.2 su
+70.3 -35.0 hd 20.1 su
+95.6 -41.0 hd 22.1 su
+3.2 51.3 8.3 126.9 -18.0 bm
+123.8 -41.0 hd 22.1 su
+149.1 -35.0 hd 20.1 su
+174.4 -29.0 hd 18.2 su
+24.0 199.7 -47.0 bar 
+3.2 51.3 -4.5 216.9 -12.8 bm
+213.8 -32.0 hd 18.2 su
+239.1 -38.0 hd 22.0 su
+264.4 -41.0 hd 22.7 su
+3.2 51.3 -3.2 295.7 -17.2 bm
+292.5 -44.0 hd 25.8 su
+317.8 -38.0 hd 18.2 su
+343.1 -50.0 hd 28.6 su
+24.0 368.5 -47.0 bar 
+382.5 -50.0 hd 1 20.0 sfu
+3.2 40.2 -0.0 413.8 -28.8 bm
+410.7 -50.0 hd 20.2 su
+430.4 -50.0 hd 20.2 su
+450.2 -50.0 hd 20.2 su
+3.2 51.3 6.7 475.3 -16.5 bm
+472.1 -44.0 hd 26.6 su
+497.4 -38.0 hd 23.9 su
+522.7 -29.0 hd 18.2 su
+24.0 548.0 -47.0 bar 
+3.2 51.3 -8.3 565.3 -12.7 bm
+562.1 -32.0 hd 18.2 su
+587.4 -38.0 hd 20.1 su
+612.7 -44.0 hd 22.1 su
+640.9 -41.0 hd 8.0 3 dt 20.0 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+640.9 -19.0 grm
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 202.2 32.0 y0 M(10)show 357.5 32.0 y0 M(11)show 510.0 32.0 y0 M(12)show
+(3)90.5 -19.2 y0 bnum
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -34.0 hd 1 -20.0 sfd
+-3.2 39.5 4.7 68.8 -59.3 bm
+72.7 -40.0 hd -18.3 sd
+92.1 -37.0 hd -19.0 sd
+111.5 -34.0 hd -19.7 sd
+-3.2 50.5 -6.7 129.3 -52.5 bm
+133.1 -25.0 hd -26.6 sd
+158.0 -34.0 hd -20.9 sd
+182.9 -40.0 hd -18.2 sd
+24.0 207.8 -52.0 bar 
+221.6 -37.0 hd -20.0 sd
+260.7 -31.0 hd 1 -20.0 sfd
+-3.2 50.5 -0.0 284.5 -52.2 bm
+288.4 -34.0 hd -17.2 sd
+313.3 -25.0 hd -26.2 sd
+338.2 -31.0 hd -20.2 sd
+24.0 363.1 -52.0 bar 
+-3.2 50.5 -8.2 373.1 -57.0 bm
+376.9 -34.0 hd -22.1 sd
+401.8 -40.0 hd -20.2 sd
+426.7 -46.0 hd -18.2 sd
+451.6 -46.0 hd 20.0 su
+490.7 -52.0 hd 1 20.0 sfu
+24.0 515.6 -52.0 bar 
+3.2 50.5 -0.0 532.6 -25.0 bm
+529.5 -49.0 hd 23.0 su
+554.4 -43.0 hd 17.0 su
+579.2 -46.0 hd 20.0 su
+3.2 50.5 -3.2 610.1 -22.2 bm
+606.9 -49.0 hd 25.8 su
+631.8 -43.0 hd 18.2 su
+656.7 -55.0 hd 28.6 su
+24.0 681.6 -52.0 bar 
+221.6 -6.0 grm
+451.6 -24.0 grm
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 205.0 32.0 y0 M(14)show 363.0 32.0 y0 M(15)show 542.3 38.0 y0 M(16)show
+(3)91.3 -19.2 y0 bnum
+(3)429.4 34.8 y0 bnum
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -34.0 hd 1 -20.0 sfd
+-3.2 40.2 4.7 69.3 -59.3 bm
+73.1 -40.0 hd -18.3 sd
+92.9 -37.0 hd -19.0 sd
+112.7 -34.0 hd -19.7 sd
+-3.2 51.3 -6.7 130.8 -52.5 bm
+134.6 -25.0 hd -26.6 sd
+160.0 -34.0 hd -20.9 sd
+185.3 -40.0 hd -18.2 sd
+24.0 210.6 -52.0 bar 
+224.7 -37.0 hd -20.0 sd
+264.5 -31.0 hd 1 -20.0 sfd
+-3.2 51.3 -0.0 288.8 -52.2 bm
+292.6 -34.0 hd -17.2 sd
+318.0 -25.0 hd -26.2 sd
+343.3 -31.0 hd -20.2 sd
+24.0 368.6 -52.0 bar 
+382.7 -34.0 hd 1 -20.0 sfd
+3.2 40.2 -4.7 411.2 -20.7 bm
+408.0 -40.0 hd 18.3 su
+427.8 -43.0 hd 19.0 su
+447.6 -46.0 hd 19.7 su
+-3.2 51.3 -0.0 468.1 -59.2 bm
+471.9 -40.0 hd -18.2 sd
+497.3 -34.0 hd -24.2 sd
+522.6 -40.0 hd -18.2 sd
+24.0 547.9 -52.0 bar 
+3.2 51.3 -8.3 565.2 -17.7 bm
+562.0 -37.0 hd 18.2 su
+587.4 -43.0 hd 20.1 su
+612.7 -49.0 hd 22.1 su
+640.8 -46.0 hd 8.0 3 dt 20.0 su
+24.0 681.6 -52.0 bar 
+640.8 -24.0 grm
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 196.1 32.0 y0 M(18)show 345.6 32.0 y0 M(19)show 516.2 32.0 y0 M(20)show
+(3)88.7 -19.2 y0 bnum
+(3)482.8 -18.8 y0 bnum
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -34.0 hd 1 -20.0 sfd
+-3.2 38.1 4.6 67.8 -59.3 bm
+71.6 -40.0 hd -18.3 sd
+90.3 -37.0 hd -19.0 sd
+109.0 -34.0 hd -19.7 sd
+-3.2 48.6 -6.6 126.0 -52.6 bm
+129.8 -25.0 hd -26.7 sd
+153.8 -34.0 hd -20.9 sd
+177.7 -40.0 hd -18.2 sd
+24.0 201.7 -52.0 bar 
+215.1 -37.0 hd -20.0 sd
+252.7 -31.0 hd 1 -20.0 sfd
+-3.2 48.6 -0.0 275.4 -52.2 bm
+279.3 -34.0 hd -17.2 sd
+303.2 -25.0 hd -26.2 sd
+327.2 -31.0 hd -20.2 sd
+24.0 351.2 -52.0 bar 
+-3.2 48.6 4.5 360.7 -61.4 bm
+364.5 -34.0 hd -26.4 sd
+388.5 -40.0 hd -18.2 sd
+412.5 -25.0 hd -31.0 sd
+439.1 -31.0 hd 1 -20.0 sfd
+-3.2 38.1 -4.6 461.8 -54.7 bm
+465.7 -34.0 hd -19.7 sd
+484.4 -37.0 hd -19.0 sd
+503.1 -40.0 hd -18.3 sd
+24.0 521.8 -52.0 bar 
+-3.2 48.6 4.9 531.3 -62.4 bm
+535.2 -43.0 hd -18.4 sd
+559.1 -40.0 hd -19.0 sd
+583.1 -37.0 hd -19.6 sd
+-3.2 48.6 4.9 605.9 -53.4 bm
+609.7 -34.0 hd -18.4 sd
+633.7 -31.0 hd -19.0 sd
+657.6 -28.0 hd -19.6 sd
+24.0 681.6 -52.0 bar 
+215.1 -6.0 grm
+0 -75.00 T
+/y0{-53.0 add}!
+681.6 5 0.0 -53.0 staff
+14.0 F1 24.0 33.0 y0 M(21)show 179.4 32.0 y0 M(22)show 333.7 32.0 y0 M(23)show 509.5 38.0 y0 M(24)show 640.6 32.0 y0 M(25)show
+(3)399.2 34.8 y0 bnum
+12.0 -53.0  tclef
+27.0 -29.0 sh0 
+45.0 -26.0 hd -20.0 sd
+83.5 -23.0 hl 83.5 -20.0 hd 1 -21.0 sfd
+-3.2 50.1 -6.7 107.0 -53.6 bm
+110.9 -26.0 hd -26.6 sd
+135.6 -35.0 hd -20.9 sd
+160.3 -41.0 hd -18.2 sd
+24.0 185.0 -53.0 bar 
+199.2 -38.0 hd -20.0 sd
+237.7 -32.0 hd 1 -20.0 sfd
+-3.2 50.1 -0.0 261.3 -53.2 bm
+265.1 -35.0 hd -17.2 sd
+289.8 -26.0 hd -26.2 sd
+314.5 -32.0 hd -20.2 sd
+24.0 339.3 -53.0 bar 
+353.5 -35.0 hd 1 -20.0 sfd
+3.2 39.5 -4.7 381.3 -21.7 bm
+378.2 -41.0 hd 18.3 su
+397.6 -44.0 hd 19.0 su
+417.0 -47.0 hd 19.7 su
+-3.2 50.1 -0.0 437.1 -60.2 bm
+440.9 -41.0 hd -18.2 sd
+465.6 -35.0 hd -24.2 sd
+490.3 -41.0 hd -18.2 sd
+24.0 515.1 -53.0 bar 
+3.2 50.1 -8.2 532.4 -18.7 bm
+529.3 -38.0 hd 18.2 su
+554.0 -44.0 hd 20.2 su
+578.7 -50.0 hd 22.1 su
+606.1 -47.0 hd 8.0 3 dt 20.0 su
+24.0 646.2 -53.0 bar 24.0 643.2 -53.0 bar 
+657.2 -29.0 sh0 662.7 -38.0 sh0 668.2 -26.0 sh0 
+45.0 -6.0 grm
+199.2 -7.0 grm
+0 -76.00 T
+15.0 F2 44.0 -17.0 M(B)show 
+42.0 -21.0 14.0 19.0 box
+/y0{-73.0 add}!
+681.6 5 0.0 -73.0 staff
+14.0 F1 47.5 32.0 y0 M(25)show 184.4 32.0 y0 M(26)show 315.9 32.0 y0 M(27)show 429.1 36.0 y0 M(28)show 554.6 36.0 y0 M(28)show
+13.0 F2 (1)-11.4 2 117.5 434.7 71.0 y0 repbra
+(2)-11.4 2 121.4 560.2 71.0 y0 repbra
+12.0 -73.0  tclef
+27.0 -49.0 sh0 32.5 -58.0 sh0 38.0 -46.0 sh0 
+(9)(8) 54.0 -73.0 tsig
+72.0 -70.0 hd 20.0 su
+94.4 -58.0 hd 1 -20.0 sfd
+3.2 27.6 -3.9 111.0 -41.8 bm
+107.8 -61.0 hd 18.2 su
+121.2 -64.0 hd 19.3 su
+134.7 -70.0 hd 23.3 su
+153.2 -70.0 hd 20.0 su
+173.0 -73.0 hd 1 20.0 sfu
+24.0 190.0 -73.0 bar 
+202.5 -70.0 hd 20.0 su
+224.8 -58.0 hd 1 -20.0 sfd
+-3.2 27.6 -0.0 235.7 -83.2 bm
+239.5 -61.0 hd -21.2 sd
+252.9 -64.0 hd -18.2 sd
+266.4 -58.0 hd -24.2 sd
+-3.2 27.6 -3.9 277.2 -73.3 bm
+281.0 -49.0 hd -23.3 sd
+294.5 -52.0 hd -22.3 sd
+307.9 -58.0 hd -18.2 sd
+24.0 321.5 -73.0 bar 
+334.0 -61.0 hd 8.0 3 dt -20.0 sd
+3.2 27.6 -0.0 359.3 -41.8 bm
+356.1 -61.0 hd 18.2 su
+369.5 -64.0 hd 21.2 su
+383.0 -61.0 hd 18.2 su
+399.7 -58.0 hd -20.0 sd
+417.7 -64.0 hd 1 20.0 sfu
+24.0 434.7 -73.0 bar 
+447.2 -61.0 hd 8.0 3 dt 20.0 su
+3.2 27.6 -0.0 474.5 -41.8 bm
+471.3 -61.0 hd 18.2 su
+484.8 -64.0 hd 21.2 su
+498.2 -61.0 hd 18.2 su
+3.2 27.6 -4.3 516.0 -38.7 bm
+512.9 -58.0 hd 18.2 su
+526.3 -61.0 hd 19.1 su
+539.7 -64.0 hd 20.1 su
+24.0 557.2 -73.0 thbar 24.0 554.2 -73.0 bar 550.2 -73.0 rdots 
+572.7 -61.0 hd 8.0 3 dt 20.0 su
+3.2 27.6 -0.0 600.0 -41.8 bm
+596.9 -61.0 hd 18.2 su
+610.3 -64.0 hd 21.2 su
+623.7 -61.0 hd 18.2 su
+-3.2 27.6 3.9 636.6 -77.2 bm
+640.4 -58.0 hd -18.2 sd
+653.8 -52.0 hd -22.3 sd
+667.3 -49.0 hd -23.3 sd
+24.0 681.6 -73.0 bar 24.0 678.6 -73.0 bar 
+-3.47 -4.71 -15.03 -4.71 -18.50 0.22 0 -0.22 2.91 -3.93 15.59 -3.93 18.50 0.00 134.7 -75.0 SL
+134.7 -44.0 grm
+447.2 -23.0 grm
+572.7 -23.0 grm
+0 -96.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(29)show 191.7 32.0 y0 M(30)show 344.7 36.0 y0 M(31)show 498.6 32.0 y0 M(32)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 32.5 -35.0 sh0 38.0 -23.0 sh0 
+56.0 -20.0 hl 56.0 -20.0 hd 8.0 3 dt -20.0 sd
+-3.2 36.5 -4.2 84.2 -50.0 bm
+88.0 -26.0 hd -23.1 sd
+105.9 -29.0 hd -22.1 sd
+123.8 -35.0 hd -18.2 sd
+-3.2 36.5 -4.2 139.7 -50.0 bm
+143.6 -26.0 hd -23.1 sd
+161.5 -29.0 hd -22.1 sd
+179.4 -35.0 hd -18.2 sd
+24.0 197.3 -50.0 bar 
+209.8 -38.0 hd 8.0 3 dt -20.0 sd
+3.2 36.5 -0.0 241.9 -18.8 bm
+238.7 -38.0 hd 18.2 su
+256.6 -41.0 hd 21.2 su
+274.5 -38.0 hd 18.2 su
+-3.2 36.5 4.2 292.7 -54.2 bm
+296.6 -35.0 hd -18.2 sd
+314.4 -29.0 hd -22.1 sd
+332.3 -26.0 hd -23.1 sd
+24.0 350.3 -50.0 bar 
+362.8 -20.0 hl 362.8 -20.0 hd 8.0 3 dt -20.0 sd
+-3.2 36.6 -3.9 391.0 -41.4 bm
+394.9 -20.0 hl 394.9 -17.0 hd -23.4 sd
+412.9 -20.0 hl 412.9 -20.0 hd -22.3 sd
+430.7 -26.0 hd -18.2 sd
+-3.2 36.5 -4.2 446.7 -44.0 bm
+450.6 -20.0 hl 450.6 -20.0 hd -23.1 sd
+468.4 -26.0 hd -19.1 sd
+486.3 -29.0 hd -18.2 sd
+24.0 504.2 -50.0 bar 
+-3.2 36.5 -4.2 512.9 -50.0 bm
+516.7 -26.0 hd -23.1 sd
+534.6 -29.0 hd -22.1 sd
+552.5 -35.0 hd -18.2 sd
+-3.2 36.5 4.2 568.5 -57.2 bm
+572.3 -38.0 hd -18.2 sd
+590.2 -35.0 hd -19.1 sd
+608.1 -29.0 hd -23.1 sd
+-3.2 36.5 -4.2 624.1 -50.0 bm
+627.9 -26.0 hd -23.1 sd
+645.8 -29.0 hd -22.1 sd
+663.7 -35.0 hd -18.2 sd
+24.0 681.6 -50.0 bar 
+0 -73.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(33)show 193.6 32.0 y0 M(34)show 335.4 36.0 y0 M(35)show 478.1 32.0 y0 M(36)show 640.7 32.0 y0 M(37)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 32.5 -35.0 sh0 38.0 -23.0 sh0 
+56.0 -20.0 hl 56.0 -20.0 hd -20.0 sd
+80.9 -26.0 hd 1 -20.0 sfd
+-3.2 33.5 -4.1 95.1 -50.1 bm
+99.0 -26.0 hd -23.1 sd
+115.4 -29.0 hd -22.2 sd
+131.8 -35.0 hd -18.2 sd
+-3.2 33.5 -4.1 146.1 -50.1 bm
+149.9 -26.0 hd -23.1 sd
+166.3 -29.0 hd -22.2 sd
+182.7 -35.0 hd -18.2 sd
+24.0 199.2 -50.0 bar 
+211.7 -38.0 hd 8.0 3 dt -20.0 sd
+3.2 33.5 -0.0 241.7 -18.8 bm
+238.5 -38.0 hd 18.2 su
+254.9 -41.0 hd 21.2 su
+271.4 -38.0 hd 18.2 su
+-3.2 33.5 4.1 287.8 -54.2 bm
+291.7 -35.0 hd -18.2 sd
+308.1 -29.0 hd -22.2 sd
+324.5 -26.0 hd -23.1 sd
+24.0 341.0 -50.0 bar 
+353.5 -20.0 hl 353.5 -20.0 hd 8.0 3 dt -20.0 sd
+-3.2 33.8 -3.8 379.4 -41.4 bm
+383.2 -20.0 hl 383.2 -17.0 hd -23.5 sd
+399.9 -20.0 hl 399.9 -20.0 hd -22.4 sd
+416.3 -26.0 hd -18.2 sd
+-3.2 33.5 -4.1 430.5 -44.1 bm
+434.4 -20.0 hl 434.4 -20.0 hd -23.1 sd
+450.8 -26.0 hd -19.2 sd
+467.2 -29.0 hd -18.2 sd
+24.0 483.7 -50.0 bar 
+-3.2 33.5 -4.1 492.4 -50.1 bm
+496.2 -26.0 hd -23.1 sd
+512.7 -29.0 hd -22.2 sd
+529.1 -35.0 hd -18.2 sd
+-3.2 33.5 -4.1 543.3 -50.1 bm
+547.1 -26.0 hd -23.1 sd
+563.6 -29.0 hd -22.2 sd
+580.0 -35.0 hd -18.2 sd
+3.2 33.5 -0.0 599.6 -18.8 bm
+596.4 -38.0 hd 18.2 su
+612.8 -41.0 hd 21.2 su
+629.2 -38.0 hd 18.2 su
+24.0 646.3 -50.0 bar 24.0 643.3 -50.0 bar 
+657.3 -23.0 nt0 665.8 -26.0 sh0 671.3 -35.0 sh0 
+0 -73.00 T
+15.0 F2 45.0 -17.0 M(C)show 
+43.0 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 42.0 32.0 y0 M(37)show 181.4 32.0 y0 M(38)show 300.4 32.0 y0 M(39)show 418.7 38.0 y0 M(40)show 558.1 32.0 y0 M(40)show
+13.0 F2 (1)-11.4 2 131.4 424.3 67.0 y0 repbra
+(2)-11.4 2 117.9 563.7 67.0 y0 repbra
+12.0 -70.0  tclef
+27.0 -46.0 sh0 32.5 -55.0 sh0 
+(12)(8) 55.0 -70.0 tsig
+79.5 -61.0 hd 8.0 0 dt 20.0 su
+97.7 -61.0 hd 20.0 su
+110.3 -67.0 hd 1 20.0 sfu
+3.2 20.7 -0.0 130.0 -38.8 bm
+126.8 -61.0 hd 21.2 su
+136.8 -58.0 hd 18.2 su
+146.8 -61.0 hd 21.2 su
+157.4 -67.0 hd 20.0 su
+170.0 -70.0 hd 1 20.0 sfu
+24.0 187.0 -70.0 bar 
+3.2 20.7 5.6 202.7 -47.4 bm
+199.5 -73.0 hd 24.7 su
+209.5 -67.0 hd 21.5 su
+219.5 -61.0 hd 18.2 su
+230.1 -58.0 hd 20.0 su
+242.7 -61.0 hd 1 20.0 sfu
+259.2 -58.0 hd 20.0 su
+271.9 -61.0 hd 1 20.0 sfu
+288.4 -67.0 hd 8.0 0 dt 20.0 su
+24.0 306.0 -70.0 bar 
+-3.2 20.7 -0.0 314.6 -72.9 bm
+318.5 -52.0 hd -20.0 sd
+328.5 -55.0 hd -17.0 sd
+338.5 -52.0 hd -20.0 sd
+349.1 -40.0 hl 349.1 -40.0 hd -20.0 sd
+361.7 -43.0 hd 1 -20.0 sfd
+372.2 -46.0 hd -20.0 sd
+384.9 -52.0 hd 1 -20.0 sfd
+395.4 -58.0 hd -20.0 sd
+407.3 -61.0 hd 1 20.0 sfu
+24.0 424.3 -70.0 bar 
+3.2 20.7 -0.0 440.0 -35.8 bm
+436.8 -58.0 hd 21.2 su
+446.8 -55.0 hd 18.2 su
+456.9 -61.0 hd 24.2 su
+3.2 20.7 -0.0 470.5 -38.8 bm
+467.4 -58.0 hd 18.2 su
+477.4 -61.0 hd 21.2 su
+487.4 -58.0 hd 18.2 su
+500.0 -52.0 hd -20.0 sd
+512.7 -52.0 hd 1 -20.0 sfd
+-3.2 20.7 -3.9 519.3 -73.4 bm
+523.2 -52.0 hd -20.4 sd
+533.2 -55.0 hd -19.3 sd
+543.2 -58.0 hd -18.2 sd
+24.0 560.7 -70.0 thbar 24.0 557.7 -70.0 bar 553.7 -70.0 rdots 
+-3.2 20.7 -0.0 572.4 -80.2 bm
+576.2 -58.0 hd -21.2 sd
+586.2 -55.0 hd -24.2 sd
+596.3 -61.0 hd -18.2 sd
+3.2 20.7 -0.0 609.4 -38.8 bm
+606.3 -58.0 hd 18.2 su
+616.3 -61.0 hd 21.2 su
+626.3 -58.0 hd 18.2 su
+638.9 -52.0 hd 8.0 3 dt -20.0 sd
+657.0 -52.0 hd 1 -20.0 sfd
+667.6 -58.0 r4 
+24.0 681.6 -70.0 bar 24.0 678.6 -70.0 bar 
+0 -93.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(41)show 195.4 38.0 y0 M(42)show 353.2 32.0 y0 M(43)show 516.2 38.0 y0 M(44)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 32.5 -37.0 sh0 
+-3.2 28.2 -0.0 46.7 -55.0 bm
+50.5 -34.0 hd -20.0 sd
+64.3 -37.0 hd -17.0 sd
+78.0 -34.0 hd -20.0 sd
+93.2 -22.0 hl 93.2 -22.0 hd -20.0 sd
+114.0 -25.0 hd 1 -20.0 sfd
+129.2 -28.0 hd -20.0 sd
+150.0 -34.0 hd 1 -20.0 sfd
+165.2 -40.0 hd -20.0 sd
+184.0 -43.0 hd 1 20.0 sfu
+24.0 201.0 -52.0 bar 
+3.2 28.2 -0.0 216.7 -17.8 bm
+213.5 -40.0 hd 21.2 su
+227.3 -37.0 hd 18.2 su
+241.1 -43.0 hd 24.2 su
+3.2 28.2 -0.0 259.4 -17.8 bm
+256.2 -40.0 hd 21.2 su
+270.0 -37.0 hd 18.2 su
+283.8 -43.0 hd 24.2 su
+298.9 -40.0 hd 20.0 su
+319.7 -43.0 hd 1 20.0 sfu
+336.2 -49.0 hd 8.0 0 dt 20.0 su
+24.0 358.8 -52.0 bar 
+-3.2 28.2 -0.0 367.4 -55.0 bm
+371.3 -34.0 hd -20.0 sd
+385.1 -37.0 hd -17.0 sd
+398.8 -34.0 hd -20.0 sd
+414.0 -22.0 hl 414.0 -22.0 hd -20.0 sd
+434.8 -25.0 hd 1 -20.0 sfd
+449.9 -28.0 hd -20.0 sd
+470.8 -34.0 hd 1 -20.0 sfd
+485.9 -40.0 hd -20.0 sd
+504.8 -43.0 hd 1 20.0 sfu
+24.0 521.8 -52.0 bar 
+3.2 28.2 -0.0 537.5 -17.8 bm
+534.3 -40.0 hd 21.2 su
+548.1 -37.0 hd 18.2 su
+561.9 -43.0 hd 24.2 su
+3.2 28.2 -0.0 580.2 -20.8 bm
+577.0 -40.0 hd 18.2 su
+590.8 -43.0 hd 21.2 su
+604.5 -40.0 hd 18.2 su
+621.6 -34.0 hd 8.0 3 dt -20.0 sd
+646.3 -34.0 hd 1 -20.0 sfd
+661.4 -40.0 r4 
+24.0 681.6 -52.0 bar 24.0 678.6 -52.0 bar 674.6 -52.0 rdots 
+0 -75.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 9 9
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (9)showr 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (The Trip To Ireland - Jutland)showc 
+0 -25.34 T
+% --- 7 (The Trip To Ireland - Jutland) ---
+% --- font 20.0 F2 
+[/Title(The Trip To Ireland - Jutland)/OUT pdfmark
+15.0 F2 62.5 -17.0 M(A)show 
+60.5 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  193.9 32.0 y0 M(2)show 357.6 32.0 y0 M(3)show 519.2 32.0 y0 M(4)show
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(4)(4) 43.0 -57.0 tsig
+71.5 -57.0 rdots 24.0 67.5 -57.0 bar 24.0 61.5 -57.0 thbar 
+3.2 55.8 6.9 88.2 -35.6 bm
+85.0 -57.0 hd 20.4 su
+103.4 -54.0 hd 19.7 su
+121.8 -51.0 hd 18.9 su
+140.2 -48.0 hd 18.2 su
+160.5 -45.0 Hd 20.0 su
+24.0 196.7 -57.0 bar 
+-3.2 55.8 -0.0 205.3 -57.2 bm
+209.2 -36.0 hd -20.2 sd
+227.6 -36.0 hd -20.2 sd
+245.9 -39.0 hd -17.2 sd
+264.3 -36.0 hd -20.2 sd
+282.7 -45.0 r8 
+-3.2 37.4 4.6 301.4 -58.3 bm
+305.2 -39.0 hd -18.3 sd
+323.6 -36.0 hd -19.0 sd
+342.0 -33.0 hd -19.7 sd
+24.0 360.4 -57.0 bar 
+-3.2 55.8 -0.0 369.1 -51.2 bm
+372.9 -30.0 hd -20.2 sd
+391.3 -33.0 hd -17.2 sd
+409.7 -30.0 hd -20.2 sd
+428.1 -27.0 hl 428.1 -27.0 hd -23.2 sd
+-3.2 55.8 -5.7 444.6 -58.6 bm
+448.4 -33.0 hd -24.6 sd
+466.8 -36.0 hd -23.5 sd
+485.2 -39.0 hd -22.3 sd
+503.6 -45.0 hd -18.2 sd
+24.0 522.0 -57.0 bar 
+-3.2 55.8 -6.0 530.6 -61.2 bm
+534.5 -36.0 hd -24.3 sd
+552.9 -39.0 hd -23.2 sd
+571.3 -45.0 hd -19.2 sd
+589.6 -48.0 hd -18.2 sd
+3.2 55.8 -6.0 611.2 -25.8 bm
+608.0 -45.0 hd 18.2 su
+626.4 -57.0 hd 28.2 su
+644.8 -54.0 hd 23.2 su
+663.2 -60.0 hd 27.3 su
+24.0 681.6 -57.0 bar 
+0 -80.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 203.5 32.0 y0 M(6)show 360.3 32.0 y0 M(7)show 515.0 32.0 y0 M(8)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 38.6 -0.0 48.2 -21.0 bm
+3.2 37.9 -0.0 48.5 -26.0 bm
+45.0 -47.0 hd 25.0 su
+57.6 -50.0 hd 28.0 su
+70.3 -47.0 hd 25.0 su
+82.9 -44.0 hd 22.0 su
+3.2 18.2 2.3 100.0 -20.7 bm
+96.9 -41.0 hd 19.4 su
+114.4 -38.0 hd 18.6 su
+-3.2 53.3 -0.0 132.2 -54.2 bm
+136.1 -35.0 hd -18.2 sd
+153.6 -20.0 hd -33.2 sd
+171.2 -23.0 hd -30.2 sd
+188.7 -29.0 hd -24.2 sd
+24.0 206.3 -47.0 bar 
+-3.2 53.3 -0.0 215.0 -47.2 bm
+218.8 -26.0 hd -20.2 sd
+236.3 -26.0 hd -20.2 sd
+253.9 -29.0 hd -17.2 sd
+271.4 -26.0 hd -20.2 sd
+289.0 -35.0 r8 
+-3.2 35.8 4.6 306.6 -48.3 bm
+310.4 -29.0 hd -18.2 sd
+327.9 -26.0 hd -19.0 sd
+345.5 -23.0 hd -19.8 sd
+24.0 363.1 -47.0 bar 
+-3.2 53.3 -0.0 371.7 -41.2 bm
+375.6 -20.0 hd -20.2 sd
+393.1 -23.0 hd -17.2 sd
+410.7 -20.0 hd -20.2 sd
+428.2 -17.0 hl 428.2 -17.0 hd -23.2 sd
+-3.2 53.3 -5.6 443.8 -48.6 bm
+447.6 -23.0 hd -24.7 sd
+465.1 -26.0 hd -23.5 sd
+482.7 -29.0 hd -22.4 sd
+500.2 -35.0 hd -18.2 sd
+24.0 517.8 -47.0 bar 
+-3.2 53.3 -5.9 526.5 -51.3 bm
+530.3 -26.0 hd -24.3 sd
+547.9 -29.0 hd -23.3 sd
+565.4 -35.0 hd -19.2 sd
+582.9 -38.0 hd -18.2 sd
+3.2 53.3 -5.9 603.6 -15.8 bm
+600.5 -35.0 hd 18.2 su
+618.0 -47.0 hd 28.2 su
+635.6 -44.0 hd 23.3 su
+653.1 -50.0 hd 27.3 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 216.5 32.0 y0 M(10)show 386.2 36.0 y0 M(11)show 521.6 32.0 y0 M(12)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+51.5 -50.0 rdots 24.0 47.5 -50.0 bar 24.0 41.5 -50.0 thbar 
+3.2 59.6 -0.0 68.2 -18.8 bm
+65.0 -50.0 hd 30.2 su
+84.6 -50.0 hd 30.2 su
+104.3 -38.0 hd 18.2 su
+123.9 -50.0 hd 30.2 su
+143.6 -38.0 r8 
+3.2 40.0 -0.0 166.4 -18.8 bm
+163.2 -44.0 hd 24.2 su
+182.8 -38.0 hd 18.2 su
+202.5 -44.0 hd 24.2 su
+24.0 222.1 -50.0 bar 
+3.2 59.6 -0.0 237.8 -23.0 bm
+234.6 -41.0 hd 17.0 su
+254.3 -41.0 hd 17.0 su
+273.9 -44.0 hd 20.0 su
+293.6 -41.0 hd 17.0 su
+313.2 -38.0 r8 
+3.2 40.0 4.3 336.0 -26.1 bm
+332.8 -50.0 hd 23.0 su
+352.5 -44.0 hd 19.1 su
+372.1 -41.0 hd 18.2 su
+24.0 391.8 -50.0 bar 
+404.3 -38.0 hd 20.0 su
+438.3 -29.0 hd -20.0 sd
+468.9 -29.0 hd -20.0 sd
+499.5 -29.0 hd -20.0 sd
+24.0 527.2 -50.0 bar 
+539.7 -32.0 hd -20.0 sd
+-3.2 20.3 3.9 566.4 -57.3 bm
+570.3 -38.0 hd -18.2 sd
+589.9 -32.0 hd -20.5 sd
+611.7 -29.0 hd -20.0 sd
+-3.2 20.3 -2.4 638.5 -49.3 bm
+642.3 -29.0 hd -19.4 sd
+661.9 -32.0 hd -18.6 sd
+24.0 681.6 -50.0 bar 
+0 -73.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 196.7 32.0 y0 M(14)show 364.5 36.0 y0 M(15)show 525.8 32.0 y0 M(16)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+-3.2 58.9 -0.0 41.2 -50.2 bm
+45.0 -29.0 hd -20.2 sd
+64.4 -32.0 hd -17.2 sd
+83.8 -29.0 hd -20.2 sd
+103.2 -26.0 hd -23.2 sd
+-3.2 58.9 -7.1 120.9 -56.2 bm
+124.7 -29.0 hd -26.2 sd
+144.1 -32.0 hd -25.5 sd
+163.5 -38.0 hd -21.9 sd
+182.9 -44.0 hd -18.2 sd
+24.0 202.3 -50.0 bar 
+3.2 58.9 -0.0 218.0 -23.0 bm
+214.8 -41.0 hd 17.0 su
+234.2 -41.0 hd 17.0 su
+253.6 -44.0 hd 20.0 su
+273.1 -41.0 hd 17.0 su
+292.5 -38.0 r8 
+3.2 39.5 4.3 315.0 -26.1 bm
+311.9 -50.0 hd 23.0 su
+331.3 -44.0 hd 19.1 su
+350.7 -41.0 hd 18.2 su
+24.0 370.1 -50.0 bar 
+382.6 -38.0 hd 20.0 su
+3.2 20.1 -2.4 416.0 -21.3 bm
+412.8 -41.0 hd 18.6 su
+432.2 -44.0 hd 19.4 su
+3.2 58.9 -6.1 456.9 -21.8 bm
+453.7 -41.0 hd 18.2 su
+473.2 -44.0 hd 19.2 su
+492.6 -50.0 hd 23.2 su
+512.0 -53.0 hd 24.2 su
+24.0 531.4 -50.0 bar 
+3.2 58.9 -0.0 547.0 -31.8 bm
+543.9 -50.0 hd 17.2 su
+563.3 -50.0 hd 17.2 su
+582.7 -53.0 hd 20.2 su
+602.1 -50.0 hd 17.2 su
+623.6 -50.0 hd 20.0 su
+653.8 -38.0 r4 
+24.0 678.6 -50.0 thbar 24.0 675.6 -50.0 bar 671.6 -50.0 rdots 
+0 -73.00 T
+15.0 F2 35.0 -17.0 M(B)show 
+33.0 -21.0 14.0 19.0 box
+/y0{-74.0 add}!
+681.6 5 0.0 -74.0 staff
+14.0 F1 24.0 36.0 y0 M(17)show 238.0 32.0 y0 M(18)show 391.4 32.0 y0 M(19)show 548.6 32.0 y0 M(20)show
+12.0 -74.0  tclef
+27.0 -50.0 sh0 
+3.2 21.1 -2.4 48.2 -42.3 bm
+45.0 -62.0 hd 18.7 su
+65.4 -65.0 hd 19.3 su
+24.0 85.8 -74.0 bar 
+98.3 -62.0 hd 20.0 su
+130.1 -74.0 hd 20.0 su
+3.2 61.8 4.2 165.1 -44.2 bm
+162.0 -74.0 hd 28.8 su
+182.4 -62.0 hd 18.2 su
+202.8 -62.0 hd 19.6 su
+223.1 -65.0 hd 24.0 su
+24.0 243.6 -74.0 bar 
+3.2 61.8 -0.0 259.2 -49.8 bm
+256.1 -68.0 hd 17.2 su
+276.4 -71.0 hd 20.2 su
+296.8 -74.0 hd 23.2 su
+317.2 -68.0 hd 17.2 su
+339.8 -68.0 hd 8.0 3 dt 20.0 su
+376.3 -65.0 hd 1 20.0 sfu
+24.0 397.0 -74.0 bar 
+3.2 61.8 -0.0 412.6 -49.8 bm
+409.5 -68.0 hd 17.2 su
+429.9 -71.0 hd 20.2 su
+450.3 -74.0 hd 23.2 su
+470.6 -71.0 hd 20.2 su
+493.3 -71.0 hd 8.0 0 dt 20.0 su
+533.8 -62.0 hd 1 -20.0 sfd
+24.0 554.2 -74.0 bar 
+567.2 -62.0 Hd -20.0 sd
+612.1 -62.0 hd -20.0 sd
+3.2 21.1 -2.4 644.0 -42.3 bm
+640.8 -62.0 hd 18.7 su
+661.2 -65.0 hd 19.3 su
+24.0 681.6 -74.0 bar 
+0 -97.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 36.0 y0 M(21)show 218.0 32.0 y0 M(22)show 404.4 32.0 y0 M(23)show 571.2 32.0 y0 M(24)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+45.0 -38.0 hd 20.0 su
+84.3 -50.0 hd 20.0 su
+3.2 75.7 4.3 126.7 -20.3 bm
+123.5 -50.0 hd 28.8 su
+148.5 -38.0 hd 18.2 su
+173.6 -38.0 hd 19.6 su
+198.6 -41.0 hd 24.1 su
+24.0 223.6 -50.0 bar 
+3.2 75.7 -0.0 240.6 -25.8 bm
+237.5 -44.0 hd 17.2 su
+262.5 -47.0 hd 20.2 su
+287.5 -50.0 hd 23.2 su
+312.5 -44.0 hd 17.2 su
+340.3 -44.0 hd 8.0 3 dt 20.0 su
+385.0 -41.0 hd 1 20.0 sfu
+24.0 410.0 -50.0 bar 
+3.2 75.7 -0.0 427.1 -25.8 bm
+424.0 -44.0 hd 17.2 su
+449.0 -47.0 hd 20.2 su
+474.0 -50.0 hd 23.2 su
+499.0 -47.0 hd 20.2 su
+526.8 -47.0 Hd 20.0 su
+24.0 576.8 -50.0 bar 
+590.7 -47.0 Hd 20.0 su
+646.2 -47.0 hd 20.0 su
+24.0 681.6 -50.0 bar 24.0 678.6 -50.0 bar 
+0 -73.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 36.0 y0 M(24)show 80.2 36.0 y0 M(25)show 238.0 32.0 y0 M(26)show 391.4 32.0 y0 M(27)show 548.6 32.0 y0 M(28)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+3.2 21.1 -2.4 48.2 -18.3 bm
+45.0 -38.0 hd 18.7 su
+65.4 -41.0 hd 19.3 su
+24.0 85.8 -50.0 bar 
+98.3 -38.0 hd 20.0 su
+130.1 -50.0 hd 20.0 su
+3.2 61.8 4.2 165.1 -20.2 bm
+162.0 -50.0 hd 28.8 su
+182.4 -38.0 hd 18.2 su
+202.8 -38.0 hd 19.6 su
+223.1 -41.0 hd 24.0 su
+24.0 243.6 -50.0 bar 
+3.2 61.8 -0.0 259.2 -25.8 bm
+256.1 -44.0 hd 17.2 su
+276.4 -47.0 hd 20.2 su
+296.8 -50.0 hd 23.2 su
+317.2 -44.0 hd 17.2 su
+339.8 -44.0 hd 8.0 3 dt 20.0 su
+376.3 -41.0 hd 1 20.0 sfu
+24.0 397.0 -50.0 bar 
+3.2 61.8 -0.0 412.6 -25.8 bm
+409.5 -44.0 hd 17.2 su
+429.9 -47.0 hd 20.2 su
+450.3 -50.0 hd 23.2 su
+470.6 -47.0 hd 20.2 su
+493.3 -47.0 hd 8.0 0 dt 20.0 su
+533.8 -38.0 hd 1 -20.0 sfd
+24.0 554.2 -50.0 bar 
+567.2 -38.0 Hd -20.0 sd
+612.1 -38.0 hd -20.0 sd
+3.2 21.1 -2.4 644.0 -18.3 bm
+640.8 -38.0 hd 18.7 su
+661.2 -41.0 hd 19.3 su
+24.0 681.6 -50.0 bar 
+0 -73.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 36.0 y0 M(29)show 179.3 32.0 y0 M(30)show 327.7 33.0 y0 M(31)show 479.2 32.0 y0 M(32)show 592.0 32.0 y0 M(33)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+45.0 -38.0 hd 20.0 su
+75.6 -50.0 hd 20.0 su
+3.2 59.6 4.2 109.5 -20.2 bm
+106.3 -50.0 hd 28.8 su
+125.9 -38.0 hd 18.2 su
+145.6 -38.0 hd 19.6 su
+165.2 -41.0 hd 24.0 su
+24.0 184.9 -50.0 bar 
+3.2 59.6 -0.0 200.6 -25.8 bm
+197.4 -44.0 hd 17.2 su
+217.1 -47.0 hd 20.2 su
+236.7 -50.0 hd 23.2 su
+256.4 -44.0 hd 17.2 su
+278.2 -44.0 hd 8.0 3 dt 20.0 su
+313.3 -41.0 hd 1 20.0 sfu
+24.0 333.3 -50.0 bar 
+3.2 59.6 -0.0 348.9 -25.8 bm
+345.8 -44.0 hd 17.2 su
+365.4 -47.0 hd 20.2 su
+385.1 -50.0 hd 23.2 su
+404.7 -47.0 hd 20.2 su
+426.5 -47.0 hd 20.0 su
+457.2 -47.0 hd 20.0 su
+24.0 484.8 -50.0 bar 
+497.3 -50.0 hd 20.0 su
+528.0 -53.0 hd 20.0 su
+558.6 -50.0 Hd 20.0 su
+24.0 597.6 -50.0 bar 
+610.6 -50.0 Hd 20.0 su
+653.8 -50.0 hd 20.0 su
+24.0 681.6 -50.0 bar 24.0 678.6 -50.0 bar 
+0 -73.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 33.0 y0 M(33)show 94.3 32.0 y0 M(34)show 283.0 32.0 y0 M(35)show 487.3 32.0 y0 M(36)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 28.2 2.5 48.2 -17.8 bm
+45.0 -38.0 hd 19.3 su
+72.5 -35.0 hd 18.7 su
+24.0 99.9 -47.0 bar 
+115.2 -32.0 hd 8.0 0 dt -20.0 sd
+164.3 -35.0 hd 1 -20.0 sfd
+194.8 -35.0 hd -20.0 sd
+3.2 28.2 -2.5 236.8 -18.2 bm
+233.7 -38.0 hd 18.7 su
+261.1 -41.0 hd 19.3 su
+24.0 288.6 -47.0 bar 
+303.9 -35.0 hd 8.0 3 dt 20.0 su
+353.0 -41.0 hd 1 20.0 sfu
+383.5 -47.0 hd 20.0 su
+3.2 47.6 5.7 429.8 -18.4 bm
+3.2 19.4 2.3 457.6 -20.1 bm
+426.6 -47.0 hd 27.6 su
+454.1 -38.0 hd 21.9 su
+473.5 -35.0 hd 21.2 su
+24.0 492.9 -47.0 bar 
+508.2 -32.0 hd 8.0 0 dt -20.0 sd
+557.3 -35.0 hd 1 -20.0 sfd
+587.8 -35.0 hd -20.0 sd
+3.2 28.2 -2.5 629.8 -18.2 bm
+626.7 -38.0 hd 18.7 su
+654.1 -41.0 hd 19.3 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 36.0 y0 M(37)show 265.4 32.0 y0 M(38)show 441.7 32.0 y0 M(39)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+45.0 -38.0 hd 20.0 su
+103.0 -38.0 hd 20.0 su
+160.9 -41.0 hd 20.0 su
+218.9 -44.0 hd 20.0 su
+24.0 271.0 -50.0 bar 
+291.5 -47.0 Hd 20.0 su
+373.5 -47.0 Hd 20.0 su
+24.0 447.3 -50.0 bar 
+467.8 -47.0 Hd 20.0 su
+549.8 -47.0 hd 20.0 su
+3.2 37.6 -2.6 611.0 -18.2 bm
+607.8 -38.0 hd 18.8 su
+644.7 -41.0 hd 19.2 su
+24.0 681.6 -50.0 bar 24.0 678.6 -50.0 bar 
+0 -73.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 36.0 y0 M(40)show 179.3 32.0 y0 M(41)show 327.7 33.0 y0 M(42)show 479.2 32.0 y0 M(43)show 592.0 32.0 y0 M(44)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+45.0 -38.0 hd 20.0 su
+75.6 -50.0 hd 20.0 su
+3.2 59.6 4.2 109.5 -20.2 bm
+106.3 -50.0 hd 28.8 su
+125.9 -38.0 hd 18.2 su
+145.6 -38.0 hd 19.6 su
+165.2 -41.0 hd 24.0 su
+24.0 184.9 -50.0 bar 
+3.2 59.6 -0.0 200.6 -25.8 bm
+197.4 -44.0 hd 17.2 su
+217.1 -47.0 hd 20.2 su
+236.7 -50.0 hd 23.2 su
+256.4 -44.0 hd 17.2 su
+278.2 -44.0 hd 8.0 3 dt 20.0 su
+313.3 -41.0 hd 1 20.0 sfu
+24.0 333.3 -50.0 bar 
+3.2 59.6 -0.0 348.9 -25.8 bm
+345.8 -44.0 hd 17.2 su
+365.4 -47.0 hd 20.2 su
+385.1 -50.0 hd 23.2 su
+404.7 -47.0 hd 20.2 su
+426.5 -47.0 hd 20.0 su
+457.2 -47.0 hd 20.0 su
+24.0 484.8 -50.0 bar 
+497.3 -50.0 hd 20.0 su
+528.0 -53.0 hd 20.0 su
+558.6 -50.0 Hd 20.0 su
+24.0 597.6 -50.0 bar 
+610.6 -50.0 Hd 20.0 su
+653.8 -50.0 hd 20.0 su
+24.0 681.6 -50.0 bar 24.0 678.6 -50.0 bar 
+0 -73.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 10 10
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (10)show 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+/y0{-56.0 add}!
+681.6 5 0.0 -56.0 staff
+14.0 F1 24.0 36.0 y0 M(44)show 81.5 42.0 y0 M(45)show 229.8 39.0 y0 M(46)show 386.9 42.0 y0 M(47)show 535.3 39.0 y0 M(48)show
+12.0 -56.0  tclef
+27.0 -32.0 sh0 
+-3.2 21.7 1.7 41.2 -45.9 bm
+45.0 -26.0 hl 45.0 -26.0 hd -18.8 sd
+66.0 -26.0 hl 66.0 -23.0 hd -20.2 sd
+24.0 87.1 -56.0 bar 
+99.6 -26.0 hl 99.6 -20.0 hl 99.6 -20.0 hd 8.0 3 dt -24.0 sd
+137.2 -26.0 hl 137.2 -23.0 hd 1 -21.0 sfd
+160.5 -26.0 hl 160.5 -23.0 hd -21.0 sd
+-3.2 21.7 -2.4 189.6 -46.3 bm
+193.4 -26.0 hl 193.4 -26.0 hd -19.3 sd
+214.4 -29.0 hd -18.7 sd
+24.0 235.4 -56.0 bar 
+247.9 -26.0 hl 247.9 -23.0 hd 8.0 0 dt -21.0 sd
+285.5 -29.0 hd 1 -20.0 sfd
+308.8 -35.0 hd -20.0 sd
+-3.2 36.6 5.3 337.8 -54.2 bm
+-3.2 15.0 2.2 359.1 -46.2 bm
+341.6 -35.0 hd -18.2 sd
+362.6 -26.0 hl 362.6 -26.0 hd -24.2 sd
+377.6 -26.0 hl 377.6 -23.0 hd -25.0 sd
+24.0 392.5 -56.0 bar 
+405.0 -26.0 hl 405.0 -20.0 hl 405.0 -20.0 hd 8.0 3 dt -24.0 sd
+442.6 -26.0 hl 442.6 -23.0 hd 1 -21.0 sfd
+466.0 -26.0 hl 466.0 -23.0 hd -21.0 sd
+-3.2 21.7 -2.4 495.0 -46.3 bm
+498.9 -26.0 hl 498.9 -26.0 hd -19.3 sd
+519.9 -29.0 hd -18.7 sd
+24.0 540.9 -56.0 bar 
+553.4 -26.0 hl 553.4 -23.0 hd -21.0 sd
+586.3 -26.0 hl 586.3 -23.0 hd -21.0 sd
+619.2 -26.0 hl 619.2 -26.0 hd -20.0 sd
+652.0 -29.0 hd -20.0 sd
+24.0 681.6 -56.0 bar 
+0 -79.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(49)show 144.9 32.0 y0 M(50)show 299.0 36.0 y0 M(51)show 490.5 32.0 y0 M(52)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+45.5 -26.0 Hd -20.0 sd
+100.8 -26.0 Hd -20.0 sd
+24.0 150.5 -50.0 bar 
+164.4 -26.0 Hd -20.0 sd
+219.6 -26.0 hd -20.0 sd
+3.2 25.6 -2.5 258.0 -18.3 bm
+254.8 -38.0 hd 18.7 su
+279.7 -41.0 hd 19.3 su
+24.0 304.6 -50.0 bar 
+318.4 -38.0 hd 20.0 su
+357.5 -50.0 hd 20.0 su
+3.2 75.3 4.3 399.7 -20.3 bm
+396.5 -50.0 hd 28.8 su
+421.4 -38.0 hd 18.2 su
+446.3 -38.0 hd 19.6 su
+471.2 -41.0 hd 24.1 su
+24.0 496.1 -50.0 bar 
+3.2 75.3 -0.0 513.1 -25.8 bm
+509.9 -44.0 hd 17.2 su
+534.8 -47.0 hd 20.2 su
+559.7 -50.0 hd 23.2 su
+584.6 -44.0 hd 17.2 su
+612.2 -44.0 hd 8.0 3 dt 20.0 su
+656.7 -41.0 hd 1 20.0 sfu
+24.0 681.6 -50.0 bar 
+0 -73.00 T
+/y0{-47.0 add}!
+492.5 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(53)show 220.1 32.0 y0 M(54)show 365.2 32.0 y0 M(55)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 77.1 -0.0 48.2 -22.8 bm
+45.0 -41.0 hd 17.2 su
+70.5 -44.0 hd 20.2 su
+95.9 -47.0 hd 23.2 su
+121.4 -44.0 hd 20.2 su
+149.7 -44.0 hd 20.0 su
+189.7 -44.0 hd 20.0 su
+24.0 225.7 -47.0 bar 
+239.9 -47.0 hd 20.0 su
+279.9 -50.0 hd 20.0 su
+319.9 -47.0 Hd 20.0 su
+24.0 370.8 -47.0 bar 
+384.9 -47.0 Hd 20.0 su
+441.5 -47.0 Hd 20.0 su
+24.0 492.5 -47.0 bar 24.0 489.5 -47.0 bar 
+0 -70.00 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Jimmy Batty's - The Bloom Of Youth)showc 
+0 -25.34 T
+% --- 8 (Jimmy Batty's - The Bloom Of Youth) ---
+% --- font 20.0 F2 
+[/Title(Jimmy Batty's - The Bloom Of Youth)/OUT pdfmark
+15.0 F2 68.0 -17.0 M(A)show 
+66.0 -21.0 14.8 19.0 box
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1  227.5 32.0 y0 M(2)show 371.9 35.0 y0 M(3)show 526.5 33.0 y0 M(4)show
+12.0 -63.0  tclef
+27.0 -39.0 sh0 32.5 -48.0 sh0 
+(4)(4) 48.5 -63.0 tsig
+77.0 -63.0 rdots 24.0 73.0 -63.0 bar 24.0 67.0 -63.0 thbar 
+3.2 52.4 -0.0 93.7 -25.8 bm
+90.5 -45.0 hd 18.2 su
+107.7 -60.0 hd 33.2 su
+125.0 -60.0 hd 33.2 su
+142.2 -51.0 hd 24.2 su
+3.2 52.4 -0.0 164.5 -36.0 bm
+161.3 -54.0 hd 17.0 su
+178.5 -60.0 hd 23.0 su
+195.8 -63.0 hd 26.0 su
+213.0 -60.0 hd 23.0 su
+24.0 230.3 -63.0 bar 
+242.8 -66.0 hd 20.0 su
+3.2 17.9 3.7 272.5 -44.4 bm
+269.4 -66.0 hd 20.7 su
+286.6 -60.0 hd 18.2 su
+3.2 52.4 -0.0 308.8 -36.0 bm
+305.7 -54.0 hd 17.0 su
+322.9 -66.0 hd 29.0 su
+340.2 -60.0 hd 23.0 su
+357.4 -54.0 hd 17.0 su
+24.0 374.7 -63.0 bar 
+3.2 52.4 -5.2 390.4 -31.8 bm
+387.2 -51.0 hd 18.2 su
+404.4 -63.0 hd 28.5 su
+421.7 -63.0 hd 26.7 su
+438.9 -63.0 hd 25.0 su
+-3.2 52.4 5.6 456.4 -70.2 bm
+460.2 -51.0 hd -18.2 sd
+477.5 -45.0 hd -22.4 sd
+494.7 -42.0 hd -23.5 sd
+512.0 -39.0 hd -24.7 sd
+24.0 529.3 -63.0 bar 
+-3.2 52.4 -3.8 537.9 -60.5 bm
+541.8 -36.0 hd -23.5 sd
+559.0 -42.0 hd -18.7 sd
+576.3 -39.0 hd -23.0 sd
+593.5 -45.0 hd -18.2 sd
+-3.2 52.4 -3.8 608.7 -67.7 bm
+612.6 -42.0 hd -24.7 sd
+629.8 -45.0 hd -23.0 sd
+647.1 -51.0 hd -18.2 sd
+664.3 -48.0 hd -22.4 sd
+24.0 681.6 -63.0 bar 
+242.8 -17.0 grm
+0 -86.00 T
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 172.3 32.0 y0 M(6)show 291.8 35.0 y0 M(7)show 438.2 32.0 y0 M(8)show 573.1 32.0 y0 M(8)show
+(3)382.9 -19.3 y0 bnum
+13.0 F2 (1)-11.4 2 126.9 441.0 61.0 y0 repbra
+(2)-11.4 2 105.7 575.9 61.0 y0 repbra
+12.0 -63.0  tclef
+27.0 -39.0 sh0 32.5 -48.0 sh0 
+3.2 46.8 -0.0 53.7 -25.8 bm
+50.5 -45.0 hd 18.2 su
+65.9 -60.0 hd 33.2 su
+81.2 -60.0 hd 33.2 su
+96.6 -51.0 hd 24.2 su
+3.2 46.8 -0.0 116.7 -36.0 bm
+113.6 -54.0 hd 17.0 su
+128.9 -60.0 hd 23.0 su
+144.3 -63.0 hd 26.0 su
+159.7 -60.0 hd 23.0 su
+24.0 175.1 -63.0 bar 
+187.6 -66.0 hd 8.0 0 dt 20.0 su
+215.1 -60.0 hd 1 20.0 sfu
+3.2 46.8 -0.0 236.2 -36.0 bm
+233.1 -54.0 hd 17.0 su
+248.5 -66.0 hd 29.0 su
+263.8 -60.0 hd 23.0 su
+279.2 -54.0 hd 17.0 su
+24.0 294.6 -63.0 bar 
+3.2 46.8 -5.1 310.3 -31.8 bm
+307.1 -51.0 hd 18.2 su
+322.5 -63.0 hd 28.5 su
+337.9 -63.0 hd 26.8 su
+353.2 -63.0 hd 25.1 su
+-3.2 25.2 4.1 368.4 -70.3 bm
+372.2 -51.0 hd -18.2 sd
+384.5 -48.0 hd -19.2 sd
+396.8 -45.0 hd -20.2 sd
+-3.2 16.0 2.3 406.4 -61.6 bm
+410.2 -42.0 hd -18.6 sd
+425.6 -39.0 hd -19.4 sd
+24.0 441.0 -63.0 bar 
+-3.2 46.8 -4.8 449.7 -62.6 bm
+453.5 -36.0 hd -25.6 sd
+468.9 -45.0 hd -18.2 sd
+484.3 -42.0 hd -22.8 sd
+499.7 -48.0 hd -18.3 sd
+516.6 -45.0 hd -20.0 sd
+-3.2 16.0 -2.3 536.2 -59.4 bm
+540.0 -39.0 hd -19.4 sd
+555.4 -42.0 hd -18.6 sd
+24.0 572.9 -63.0 thbar 24.0 569.9 -63.0 bar 565.9 -63.0 rdots 
+-3.2 46.8 -4.8 584.6 -62.6 bm
+588.4 -36.0 hd -25.6 sd
+603.8 -45.0 hd -18.2 sd
+619.2 -42.0 hd -22.8 sd
+634.5 -48.0 hd -18.3 sd
+651.5 -45.0 Hd -20.0 sd
+24.0 681.6 -63.0 bar 24.0 678.6 -63.0 bar 
+187.6 -37.0 grm
+651.5 -37.0 grm
+0 -86.00 T
+/y0{-53.0 add}!
+681.6 5 0.0 -53.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 191.5 32.0 y0 M(10)show 355.0 32.0 y0 M(11)show 503.4 33.0 y0 M(12)show
+(3)649.1 -19.2 y0 bnum
+12.0 -53.0  tclef
+27.0 -29.0 sh0 32.5 -38.0 sh0 
+57.0 -53.0 rdots 24.0 53.0 -53.0 bar 24.0 47.0 -53.0 thbar 
+70.5 -44.0 hd 8.0 0 dt 20.0 su
+105.7 -41.0 hd 1 20.0 sfu
+3.2 20.4 -3.9 131.1 -24.7 bm
+127.9 -44.0 hd 18.2 su
+147.6 -50.0 hd 20.5 su
+169.5 -50.0 hd 20.0 su
+24.0 197.1 -53.0 bar 
+-3.2 59.8 6.1 205.8 -63.2 bm
+209.6 -44.0 hd -18.2 sd
+229.3 -41.0 hd -19.2 sd
+249.0 -35.0 hd -23.2 sd
+268.7 -32.0 hd -24.2 sd
+290.5 -29.0 hd -20.0 sd
+-3.2 20.4 -2.4 317.4 -52.3 bm
+321.2 -32.0 hd -19.4 sd
+340.9 -35.0 hd -18.6 sd
+24.0 360.6 -53.0 bar 
+-3.2 59.8 -0.0 369.3 -60.2 bm
+373.1 -41.0 hd -18.2 sd
+392.8 -32.0 hd -27.2 sd
+412.5 -32.0 hd -27.2 sd
+432.2 -35.0 hd -24.2 sd
+454.0 -32.0 hd 8.0 0 dt -20.0 sd
+489.3 -29.0 hd 1 -20.0 sfd
+24.0 509.0 -53.0 bar 
+521.5 -26.0 hd -20.0 sd
+-3.2 20.4 -3.9 548.3 -50.4 bm
+552.1 -29.0 hd -20.5 sd
+571.8 -35.0 hd -18.2 sd
+-3.2 20.4 -2.4 589.8 -52.3 bm
+593.7 -32.0 hd -19.3 sd
+613.4 -35.0 hd -18.7 sd
+-3.2 31.6 4.4 631.3 -60.2 bm
+635.2 -41.0 hd -18.2 sd
+650.7 -38.0 hd -19.0 sd
+666.1 -35.0 hd -19.9 sd
+24.0 681.6 -53.0 bar 
+70.5 -22.0 grm
+290.5 -25.0 grm
+454.0 -27.0 grm
+521.5 -6.0 grm
+0 -76.00 T
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1 24.0 33.0 y0 M(13)show 144.6 32.0 y0 M(14)show 264.7 32.0 y0 M(15)show 392.0 32.0 y0 M(16)show 518.2 32.0 y0 M(16)show 646.2 32.0 y0 M(17)show
+13.0 F2 (1)-11.4 2 118.3 397.6 61.0 y0 repbra
+(2)-11.4 2 128.0 523.8 61.0 y0 repbra
+12.0 -63.0  tclef
+27.0 -39.0 sh0 32.5 -48.0 sh0 
+50.5 -54.0 hd 20.0 su
+3.2 14.8 2.2 74.7 -33.6 bm
+71.6 -54.0 hd 19.4 su
+85.7 -51.0 hd 18.6 su
+3.2 14.8 -3.4 104.4 -34.7 bm
+101.3 -54.0 hd 18.2 su
+115.4 -60.0 hd 21.0 su
+130.9 -60.0 hd 20.0 su
+24.0 150.2 -63.0 bar 
+-3.2 43.2 -0.0 158.9 -73.2 bm
+162.7 -54.0 hd -18.2 sd
+176.9 -51.0 hd -21.2 sd
+191.1 -45.0 hd -27.2 sd
+205.2 -51.0 hd -21.2 sd
+220.7 -39.0 hd -20.0 sd
+-3.2 14.8 -2.2 238.0 -62.4 bm
+241.8 -42.0 hd -19.4 sd
+256.0 -45.0 hd -18.6 sd
+24.0 270.3 -63.0 bar 
+-3.2 43.2 -0.0 278.9 -70.2 bm
+282.8 -51.0 hd -18.2 sd
+296.9 -42.0 hd -27.2 sd
+311.1 -42.0 hd -27.2 sd
+325.3 -45.0 hd -24.2 sd
+-3.2 43.2 -0.0 337.0 -70.2 bm
+340.8 -51.0 hd -18.2 sd
+355.0 -48.0 hd -21.2 sd
+369.1 -45.0 hd -24.2 sd
+383.3 -51.0 hd -18.2 sd
+24.0 397.6 -63.0 bar 
+3.2 43.2 -0.0 413.2 -36.0 bm
+410.1 -54.0 hd 17.0 su
+424.2 -60.0 hd 23.0 su
+438.4 -63.0 hd 26.0 su
+452.6 -60.0 hd 23.0 su
+468.1 -66.0 hd 20.0 su
+3.2 14.8 -5.0 492.3 -31.7 bm
+489.2 -51.0 hd 18.2 su
+503.3 -66.0 hd 28.4 su
+24.0 520.8 -63.0 thbar 24.0 517.8 -63.0 bar 513.8 -63.0 rdots 
+3.2 43.2 -0.0 539.5 -36.0 bm
+536.3 -54.0 hd 17.0 su
+550.5 -60.0 hd 23.0 su
+564.7 -63.0 hd 26.0 su
+578.8 -60.0 hd 23.0 su
+3.2 43.2 6.5 597.5 -38.3 bm
+594.4 -66.0 hd 26.8 su
+608.5 -60.0 hd 22.9 su
+622.7 -54.0 hd 19.1 su
+636.9 -51.0 hd 18.2 su
+24.0 651.8 -63.0 bar 24.0 648.8 -63.0 bar 
+662.8 -48.0 nt0 671.3 -39.0 sh0 
+50.5 -32.0 grm
+130.9 -37.0 grm
+220.7 -35.0 grm
+0 -86.00 T
+15.0 F2 35.0 -17.0 M(B)show 
+33.0 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 156.5 32.0 y0 M(18)show 278.3 32.0 y0 M(19)show 407.9 32.0 y0 M(20)show 548.3 32.0 y0 M(20)show
+13.0 F2 (1)-11.4 2 132.3 413.5 61.0 y0 repbra
+(2)-11.4 2 127.7 553.9 61.0 y0 repbra
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+45.0 -64.0 hd 20.0 su
+3.2 16.0 4.3 71.6 -49.0 bm
+68.5 -73.0 hd 23.1 su
+83.8 -64.0 hd 18.2 su
+3.2 46.7 -0.0 103.9 -45.8 bm
+100.7 -70.0 hd 23.2 su
+116.1 -64.0 hd 17.2 su
+131.4 -73.0 hd 26.2 su
+146.7 -70.0 hd 23.2 su
+24.0 162.1 -70.0 bar 
+174.6 -64.0 hd 20.0 su
+3.2 16.0 -3.5 201.3 -38.7 bm
+198.1 -58.0 hd 18.2 su
+213.4 -64.0 hd 20.8 su
+3.2 16.0 -4.3 233.5 -41.7 bm
+230.3 -61.0 hd 18.2 su
+245.7 -70.0 hd 23.1 su
+262.6 -70.0 hd 20.0 su
+24.0 283.9 -70.0 bar 
+296.4 -64.0 hd 20.0 su
+3.2 16.0 4.3 323.0 -49.0 bm
+319.9 -73.0 hd 23.1 su
+335.2 -64.0 hd 18.2 su
+3.2 46.7 5.5 355.3 -44.2 bm
+352.1 -70.0 hd 24.8 su
+367.4 -64.0 hd 20.6 su
+382.8 -61.0 hd 19.4 su
+398.1 -58.0 hd 18.2 su
+24.0 413.5 -70.0 bar 
+-3.2 46.7 -0.0 422.2 -72.9 bm
+426.0 -55.0 hd -17.0 sd
+441.3 -49.0 hd -23.0 sd
+456.7 -52.0 hd -20.0 sd
+472.0 -55.0 hd -17.0 sd
+3.2 46.7 -3.7 490.5 -38.8 bm
+487.4 -58.0 hd 18.2 su
+502.7 -64.0 hd 23.0 su
+518.0 -61.0 hd 18.8 su
+533.4 -67.0 hd 23.6 su
+24.0 550.9 -70.0 thbar 24.0 547.9 -70.0 bar 543.9 -70.0 rdots 
+-3.2 46.7 -0.0 562.5 -72.9 bm
+566.4 -55.0 hd -17.0 sd
+581.7 -49.0 hd -23.0 sd
+597.0 -52.0 hd -20.0 sd
+612.4 -55.0 hd -17.0 sd
+3.2 16.0 -3.5 630.9 -38.7 bm
+627.7 -58.0 hd 18.2 su
+643.0 -64.0 hd 20.8 su
+660.0 -64.0 hd 20.0 su
+24.0 681.6 -70.0 bar 24.0 678.6 -70.0 bar 
+262.6 -44.0 grm
+660.0 -42.0 grm
+0 -93.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 33.0 y0 M(21)show 183.5 32.0 y0 M(22)show 346.6 33.0 y0 M(23)show 512.9 32.0 y0 M(24)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+-3.2 20.7 -4.9 41.2 -43.4 bm
+45.0 -20.0 hd -22.5 sd
+65.0 -29.0 hd -18.2 sd
+87.3 -29.0 hd -20.0 sd
+-3.2 20.7 -4.9 114.7 -49.4 bm
+118.6 -26.0 hd -22.5 sd
+138.6 -35.0 hd -18.2 sd
+160.8 -35.0 hd -20.0 sd
+24.0 189.1 -47.0 bar 
+-3.2 60.8 -0.0 197.7 -57.2 bm
+201.6 -32.0 hd -24.2 sd
+221.6 -35.0 hd -21.2 sd
+241.6 -38.0 hd -18.2 sd
+261.7 -32.0 hd -24.2 sd
+3.2 20.7 -5.6 284.9 -15.7 bm
+281.7 -35.0 hd 18.2 su
+301.8 -47.0 hd 24.7 su
+324.0 -47.0 hd 20.0 su
+24.0 352.2 -47.0 bar 
+364.7 -20.0 hd -20.0 sd
+-3.2 20.7 -4.9 392.2 -43.4 bm
+396.0 -20.0 hd -22.5 sd
+416.0 -29.0 hd -18.2 sd
+-3.2 60.8 -6.1 434.4 -51.1 bm
+438.3 -26.0 hd -24.2 sd
+458.3 -29.0 hd -23.2 sd
+478.4 -35.0 hd -19.2 sd
+498.4 -38.0 hd -18.2 sd
+24.0 518.5 -47.0 bar 
+-3.2 60.8 4.2 527.1 -54.2 bm
+531.0 -35.0 hd -18.2 sd
+551.0 -29.0 hd -22.8 sd
+571.0 -20.0 hd -30.4 sd
+591.1 -29.0 hd -20.0 sd
+3.2 20.7 -3.9 614.3 -15.7 bm
+611.1 -35.0 hd 18.2 su
+631.2 -41.0 hd 20.4 su
+653.4 -41.0 hd 20.0 su
+24.0 681.6 -47.0 bar 
+87.3 -21.0 grm
+160.8 -21.0 grm
+324.0 -21.0 grm
+653.4 -19.0 grm
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 33.0 y0 M(25)show 181.1 32.0 y0 M(26)show 341.8 32.0 y0 M(27)show 505.6 33.0 y0 M(28)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+45.0 -20.0 hd -20.0 sd
+-3.2 20.4 -3.4 71.9 -35.8 bm
+75.8 -17.0 hl 75.8 -14.0 hd -20.9 sd
+95.5 -20.0 hd -18.2 sd
+-3.2 20.4 -4.9 113.5 -49.4 bm
+117.4 -26.0 hd -22.5 sd
+137.1 -35.0 hd -18.2 sd
+159.0 -35.0 hd -20.0 sd
+24.0 186.7 -47.0 bar 
+-3.2 59.8 -0.0 195.4 -57.2 bm
+199.2 -32.0 hd -24.2 sd
+218.9 -35.0 hd -21.2 sd
+238.7 -38.0 hd -18.2 sd
+258.4 -32.0 hd -24.2 sd
+3.2 20.4 -3.9 281.3 -15.7 bm
+278.1 -35.0 hd 18.2 su
+297.8 -41.0 hd 20.5 su
+319.7 -41.0 hd 20.0 su
+24.0 347.4 -47.0 bar 
+359.9 -32.0 hd -20.0 sd
+-3.2 20.4 -2.4 386.9 -52.3 bm
+390.7 -32.0 hd -19.4 sd
+410.4 -35.0 hd -18.6 sd
+-3.2 59.8 7.0 428.5 -51.2 bm
+432.3 -32.0 hd -18.2 sd
+452.0 -29.0 hd -18.9 sd
+471.8 -26.0 hd -19.6 sd
+491.5 -23.0 hd -20.3 sd
+24.0 511.2 -47.0 bar 
+-3.2 59.8 -5.7 519.9 -45.5 bm
+523.7 -20.0 hd -24.5 sd
+543.4 -26.0 hd -20.4 sd
+563.1 -29.0 hd -19.3 sd
+582.9 -32.0 hd -18.2 sd
+3.2 59.8 -3.8 605.7 -15.8 bm
+602.6 -35.0 hd 18.2 su
+622.3 -41.0 hd 22.9 su
+642.0 -38.0 hd 18.7 su
+661.7 -44.0 hd 23.4 su
+24.0 681.6 -47.0 bar 24.0 678.6 -47.0 bar 
+159.0 -21.0 grm
+319.7 -19.0 grm
+0 -70.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 11 11
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (11)showr 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (Lacey's - Michael Dwyer's)showc 
+0 -25.34 T
+% --- 1 (Lacey's - Michael Dwyer's) ---
+% --- font 20.0 F2 
+[/Title(Lacey's - Michael Dwyer's)/OUT pdfmark
+15.0 F2 62.5 -17.0 M(A)show 
+60.5 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  238.2 32.0 y0 M(2)show 393.0 32.0 y0 M(3)show 547.9 32.0 y0 M(4)show
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(6)(8) 43.0 -57.0 tsig
+71.5 -57.0 rdots 24.0 67.5 -57.0 bar 24.0 61.5 -57.0 thbar 
+3.2 50.3 4.5 89.5 -31.0 bm
+86.3 -57.0 hd 25.0 su
+111.1 -48.0 hd 18.2 su
+135.9 -48.0 hd 20.4 su
+-3.2 50.3 8.2 162.7 -67.3 bm
+166.6 -48.0 hd -18.2 sd
+191.4 -42.0 hd 182.4 y sh0 -20.2 sd
+216.2 -36.0 hd -22.1 sd
+24.0 241.0 -57.0 bar 
+254.9 -39.0 hd -20.0 sd
+293.8 -39.0 hd 1 -20.0 sfd
+-3.2 50.3 -8.2 317.5 -59.1 bm
+321.4 -36.0 hd -22.1 sd
+346.2 -42.0 hd 337.2 y sh0 -20.2 sd
+371.0 -48.0 hd -18.2 sd
+24.0 395.8 -57.0 bar 
+409.7 -57.0 hd 20.0 su
+448.6 -57.0 hd 1 20.0 sfu
+3.2 50.3 4.9 479.4 -27.4 bm
+476.2 -48.0 hd 19.6 su
+501.0 -45.0 hd 19.0 su
+525.8 -42.0 hd 18.4 su
+24.0 550.7 -57.0 bar 
+3.2 50.3 4.9 567.6 -39.4 bm
+564.5 -60.0 hd 19.6 su
+589.3 -57.0 hd 19.0 su
+614.1 -54.0 hd 18.4 su
+641.7 -51.0 hd 8.0 3 dt 20.0 su
+24.0 681.6 -57.0 bar 
+0 -80.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 193.1 32.0 y0 M(6)show 344.1 32.0 y0 M(7)show 513.1 32.0 y0 M(8)show
+45.8 0.0 380.6 32.0 y0 tubr(3)403.5 28.0 y0 bnumb
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 49.1 4.5 48.2 -21.0 bm
+45.0 -47.0 hd 25.0 su
+69.2 -38.0 hd 18.2 su
+93.4 -38.0 hd 20.4 su
+-3.2 49.2 8.1 119.4 -57.3 bm
+123.2 -38.0 hd -18.2 sd
+147.5 -32.0 hd 138.5 y sh0 -20.2 sd
+171.7 -26.0 hd -22.2 sd
+24.0 195.9 -47.0 bar 
+209.4 -20.0 hd -20.0 sd
+247.4 -17.0 hl 247.4 -14.0 hd 1 -21.0 sfd
+-3.2 49.1 -4.5 270.4 -40.8 bm
+274.3 -17.0 hl 274.3 -17.0 hd -22.8 sd
+298.5 -20.0 hd -22.0 sd
+322.7 -26.0 hd -18.2 sd
+24.0 346.9 -47.0 bar 
+-3.2 62.7 -0.0 356.5 -54.2 bm
+360.4 -29.0 hd -24.2 sd
+384.6 -35.0 hd -18.2 sd
+403.5 -32.0 hd -21.2 sd
+422.4 -29.0 hd -24.2 sd
+-3.2 49.1 2.7 439.5 -49.6 bm
+443.3 -20.0 hd -28.5 sd
+467.5 -29.0 hd -18.2 sd
+491.7 -17.0 hl 491.7 -14.0 hd -31.9 sd
+24.0 515.9 -47.0 bar 
+3.2 49.1 -4.5 532.6 -18.8 bm
+529.4 -38.0 hd 18.2 su
+553.6 -41.0 hd 19.0 su
+577.8 -47.0 hd 22.8 su
+3.2 49.1 4.5 607.9 -21.0 bm
+604.7 -47.0 hd 25.0 su
+628.9 -38.0 hd 18.2 su
+653.1 -38.0 hd 20.4 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 199.6 32.0 y0 M(10)show 360.1 32.0 y0 M(11)show 512.8 32.0 y0 M(12)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+-3.2 49.6 4.5 62.3 -45.2 bm
+66.1 -26.0 hd -18.2 sd
+90.6 -17.0 hl 90.6 -17.0 hd -25.0 sd
+115.1 -17.0 hl 115.1 -17.0 hd -22.8 sd
+142.3 -17.0 hl 142.3 -14.0 hd -21.0 sd
+180.7 -17.0 hl 180.7 -17.0 hd 1 -20.0 sfd
+24.0 205.2 -47.0 bar 
+-3.2 49.6 -4.5 215.0 -49.7 bm
+218.8 -26.0 hd -22.8 sd
+243.3 -29.0 hd -22.0 sd
+267.8 -35.0 hd -18.2 sd
+3.2 49.6 4.5 295.4 -14.3 bm
+292.3 -38.0 hd 22.8 su
+316.7 -47.0 hd 34.0 su
+341.2 -29.0 hd 18.2 su
+24.0 365.7 -47.0 bar 
+-3.2 49.6 4.9 375.5 -45.4 bm
+379.3 -26.0 hd -18.4 sd
+403.8 -23.0 hd -19.0 sd
+428.3 -20.0 hd -19.6 sd
+455.5 -26.0 hd -20.0 sd
+493.9 -29.0 hd 1 -20.0 sfd
+24.0 518.4 -47.0 bar 
+3.2 49.6 -4.9 535.2 -15.6 bm
+532.0 -35.0 hd 18.4 su
+556.5 -38.0 hd 19.0 su
+581.0 -41.0 hd 19.6 su
+3.2 49.6 5.6 611.3 -21.4 bm
+608.2 -47.0 hd 24.6 su
+632.6 -50.0 hd 30.4 su
+657.1 -35.0 hd 18.2 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(13)show 183.2 32.0 y0 M(14)show 349.1 32.0 y0 M(15)show 510.1 32.0 y0 M(16)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+-3.2 51.3 4.5 41.2 -45.2 bm
+45.0 -26.0 hd -18.2 sd
+70.3 -17.0 hl 70.3 -17.0 hd -25.0 sd
+95.6 -17.0 hl 95.6 -17.0 hd -22.7 sd
+123.7 -17.0 hl 123.7 -14.0 hd -21.0 sd
+163.5 -17.0 hl 163.5 -17.0 hd 1 -20.0 sfd
+24.0 188.8 -47.0 bar 
+-3.2 51.3 -4.5 199.0 -49.7 bm
+202.9 -26.0 hd -22.7 sd
+228.2 -29.0 hd -22.0 sd
+253.5 -35.0 hd -18.2 sd
+3.2 51.3 -5.7 281.9 -18.8 bm
+278.8 -38.0 hd 18.2 su
+304.1 -41.0 hd 18.4 su
+329.4 -50.0 hd 24.6 su
+24.0 354.7 -47.0 bar 
+3.2 51.3 4.9 371.9 -20.5 bm
+368.8 -41.0 hd 19.6 su
+394.1 -38.0 hd 19.0 su
+419.4 -35.0 hd 18.4 su
+450.6 -29.0 hd -20.0 sd
+490.4 -26.0 hd 1 -20.0 sfd
+24.0 515.7 -47.0 bar 
+-3.2 51.3 -4.5 525.9 -52.7 bm
+529.7 -29.0 hd -22.7 sd
+555.0 -35.0 hd -19.0 sd
+580.4 -38.0 hd -18.2 sd
+3.2 51.3 4.5 608.8 -21.1 bm
+605.7 -47.0 hd 25.0 su
+631.0 -38.0 hd 18.2 su
+656.3 -38.0 hd 20.4 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+15.0 F2 42.5 -17.0 M(B)show 
+40.5 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 204.5 32.0 y0 M(18)show 356.3 36.0 y0 M(19)show 510.8 32.0 y0 M(20)show
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+51.5 -70.0 rdots 24.0 47.5 -70.0 bar 24.0 41.5 -70.0 thbar 
+66.3 -58.0 hd 20.0 su
+105.2 -64.0 hd 1 20.0 sfu
+-3.2 50.2 3.2 131.9 -80.2 bm
+135.8 -61.0 hd -18.2 sd
+160.5 -52.0 hd -25.6 sd
+185.3 -55.0 hd -21.1 sd
+24.0 210.1 -70.0 bar 
+223.9 -58.0 hd -20.0 sd
+262.8 -58.0 hd 1 -20.0 sfd
+3.2 50.2 -4.9 290.7 -38.6 bm
+287.5 -58.0 hd 18.4 su
+312.3 -61.0 hd 19.0 su
+337.1 -64.0 hd 19.6 su
+24.0 361.9 -70.0 bar 
+375.7 -58.0 hd 20.0 su
+414.5 -64.0 hd 1 20.0 sfu
+3.2 50.2 -8.2 445.3 -41.7 bm
+442.1 -61.0 hd 18.2 su
+466.9 -67.0 hd 20.2 su
+491.6 -73.0 hd 22.1 su
+24.0 516.4 -70.0 bar 
+3.2 50.2 -0.0 533.4 -45.8 bm
+530.2 -67.0 hd 20.2 su
+555.0 -64.0 hd 17.2 su
+579.8 -64.0 hd 17.2 su
+3.2 50.2 -4.5 610.4 -44.8 bm
+607.3 -64.0 hd 18.2 su
+632.1 -67.0 hd 19.0 su
+656.8 -73.0 hd 22.8 su
+24.0 681.6 -70.0 bar 
+66.3 -36.0 grm
+223.9 -24.0 grm
+375.7 -20.0 grm
+607.3 -43.0 grm
+0 -93.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(21)show 194.1 32.0 y0 M(22)show 360.6 32.0 y0 M(23)show 531.5 38.0 y0 M(24)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -40.0 hd -20.0 sd
+83.7 -46.0 hd 1 20.0 sfu
+-3.2 55.5 3.2 113.7 -62.2 bm
+117.5 -43.0 hd -18.2 sd
+144.9 -34.0 hd -25.6 sd
+172.3 -37.0 hd -21.0 sd
+24.0 199.7 -52.0 bar 
+214.9 -40.0 hd -20.0 sd
+253.6 -46.0 hd 1 20.0 sfu
+3.2 55.5 5.0 287.2 -22.5 bm
+284.1 -43.0 hd 19.5 su
+311.4 -40.0 hd 19.0 su
+338.8 -37.0 hd 18.5 su
+24.0 366.2 -52.0 bar 
+-3.2 55.5 -0.0 377.6 -52.2 bm
+381.5 -34.0 hd -17.2 sd
+408.8 -25.0 hd -26.2 sd
+436.2 -31.0 hd -20.2 sd
+466.7 -28.0 hd -20.0 sd
+509.7 -34.0 hd 1 -20.0 sfd
+24.0 537.1 -52.0 bar 
+3.2 55.5 -8.4 555.5 -17.7 bm
+552.3 -37.0 hd 18.2 su
+579.7 -43.0 hd 20.0 su
+607.1 -49.0 hd 21.9 su
+637.5 -46.0 hd 8.0 3 dt 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+45.0 -6.0 grm
+466.7 -24.0 grm
+637.5 -24.0 grm
+0 -75.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(25)show 197.0 32.0 y0 M(26)show 379.2 32.0 y0 M(27)show 529.3 32.0 y0 M(28)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+3.2 56.3 8.5 71.1 -18.2 bm
+67.9 -41.0 hd 21.8 su
+95.7 -35.0 hd 20.0 su
+123.6 -29.0 hd 18.2 su
+157.8 -20.0 hd 8.0 0 dt -20.0 sd
+24.0 202.6 -47.0 bar 
+-3.2 56.3 -5.0 214.2 -43.5 bm
+218.0 -23.0 hd -19.5 sd
+245.8 -26.0 hd -19.0 sd
+273.6 -29.0 hd -18.5 sd
+3.2 56.3 -8.5 304.6 -12.7 bm
+301.4 -32.0 hd 18.2 su
+329.2 -38.0 hd 20.0 su
+357.0 -44.0 hd 21.8 su
+24.0 384.8 -47.0 bar 
+3.2 56.3 8.5 403.4 -18.2 bm
+400.3 -41.0 hd 21.8 su
+428.1 -35.0 hd 20.0 su
+455.9 -29.0 hd 18.2 su
+490.2 -20.0 hd 8.0 0 dt -20.0 sd
+24.0 534.9 -47.0 bar 
+-3.2 56.3 -0.0 546.5 -41.2 bm
+550.4 -23.0 hd -17.2 sd
+578.2 -17.0 hl 578.2 -17.0 hd -23.2 sd
+606.0 -23.0 hd -17.2 sd
+636.9 -20.0 hd 8.0 0 dt -20.0 sd
+24.0 681.6 -47.0 bar 
+157.8 -16.0 grm
+490.2 -16.0 grm
+636.9 -16.0 grm
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(29)show 178.2 32.0 y0 M(30)show 338.4 32.0 y0 M(31)show 501.3 32.0 y0 M(32)show
+(3)538.0 -19.2 y0 bnum
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+-3.2 49.5 -0.0 41.2 -41.2 bm
+45.0 -23.0 hd -17.2 sd
+69.4 -17.0 hl 69.4 -17.0 hd -23.2 sd
+93.9 -23.0 hd -17.2 sd
+121.0 -20.0 hd -20.0 sd
+159.3 -26.0 hd 1 -20.0 sfd
+24.0 183.8 -47.0 bar 
+-3.2 49.5 -4.9 193.5 -43.6 bm
+197.4 -23.0 hd -19.6 sd
+221.8 -26.0 hd -19.0 sd
+246.2 -29.0 hd -18.4 sd
+3.2 49.5 -8.2 273.8 -12.7 bm
+270.7 -32.0 hd 18.2 su
+295.1 -38.0 hd 20.2 su
+319.5 -44.0 hd 22.2 su
+24.0 344.0 -47.0 bar 
+3.2 49.5 6.7 360.7 -19.1 bm
+357.6 -50.0 hd 29.9 su
+382.0 -35.0 hd 18.2 su
+406.4 -35.0 hd 21.5 su
+3.2 49.5 -4.9 436.7 -15.6 bm
+433.6 -35.0 hd 18.4 su
+458.0 -38.0 hd 19.0 su
+482.4 -41.0 hd 19.6 su
+24.0 506.9 -47.0 bar 
+-3.2 38.8 4.6 516.7 -54.3 bm
+520.5 -35.0 hd -18.3 sd
+539.6 -32.0 hd -19.0 sd
+558.6 -29.0 hd -19.7 sd
+579.8 -35.0 hd 1 -20.0 sfd
+3.2 49.5 -8.2 607.4 -12.7 bm
+604.2 -32.0 hd 18.2 su
+628.7 -38.0 hd 20.2 su
+653.1 -44.0 hd 22.2 su
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+121.0 -16.0 grm
+433.6 -14.0 grm
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(33)show 202.8 38.0 y0 M(34)show 364.9 32.0 y0 M(35)show 516.6 32.0 y0 M(36)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+51.5 -52.0 rdots 24.0 47.5 -52.0 bar 24.0 41.5 -52.0 thbar 
+3.2 49.3 6.7 69.2 -24.1 bm
+66.1 -55.0 hd 29.9 su
+90.4 -40.0 hd 18.2 su
+114.7 -40.0 hd 21.5 su
+141.7 -40.0 hd 20.0 su
+184.0 -34.0 hd 1 -20.0 sfd
+24.0 208.4 -52.0 bar 
+3.2 49.3 -3.2 225.1 -17.8 bm
+221.9 -37.0 hd 18.2 su
+246.2 -43.0 hd 22.6 su
+270.5 -43.0 hd 21.1 su
+3.2 49.3 -4.9 300.7 -23.6 bm
+297.5 -43.0 hd 18.4 su
+321.9 -46.0 hd 19.0 su
+346.2 -49.0 hd 19.6 su
+24.0 370.5 -52.0 bar 
+384.0 -46.0 hd 20.0 su
+422.2 -46.0 hd 1 20.0 sfu
+3.2 49.3 -4.9 452.4 -20.6 bm
+449.2 -40.0 hd 18.4 su
+473.5 -43.0 hd 19.0 su
+497.9 -46.0 hd 19.6 su
+24.0 522.2 -52.0 bar 
+-3.2 49.3 -0.0 531.9 -59.2 bm
+535.7 -40.0 hd -18.2 sd
+560.0 -34.0 hd -24.2 sd
+584.3 -40.0 hd -18.2 sd
+3.2 49.3 -8.1 611.8 -17.7 bm
+608.7 -37.0 hd 18.2 su
+633.0 -43.0 hd 20.2 su
+657.3 -49.0 hd 22.2 su
+24.0 681.6 -52.0 bar 
+141.7 -18.0 grm
+384.0 -6.0 grm
+0 -75.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(37)show 194.5 38.0 y0 M(38)show 371.1 32.0 y0 M(39)show 536.3 38.0 y0 M(40)show
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+3.2 53.7 6.8 48.2 -24.2 bm
+45.0 -55.0 hd 29.8 su
+71.5 -40.0 hd 18.2 su
+98.0 -40.0 hd 21.6 su
+127.4 -40.0 hd 20.0 su
+173.6 -34.0 hd 1 -20.0 sfd
+24.0 200.1 -52.0 bar 
+3.2 53.7 -3.2 217.9 -17.8 bm
+214.8 -37.0 hd 18.2 su
+241.3 -43.0 hd 22.6 su
+267.8 -43.0 hd 21.0 su
+3.2 53.7 5.0 300.3 -22.5 bm
+297.2 -43.0 hd 19.6 su
+323.7 -40.0 hd 19.0 su
+350.2 -37.0 hd 18.4 su
+24.0 376.7 -52.0 bar 
+-3.2 53.7 -0.0 387.5 -52.2 bm
+391.4 -34.0 hd -17.2 sd
+417.9 -25.0 hd -26.2 sd
+444.3 -31.0 hd -20.2 sd
+473.8 -28.0 hd -20.0 sd
+515.4 -34.0 hd 1 -20.0 sfd
+24.0 541.9 -52.0 bar 
+3.2 53.7 -8.4 559.7 -17.7 bm
+556.6 -37.0 hd 18.2 su
+583.1 -43.0 hd 20.1 su
+609.6 -49.0 hd 21.9 su
+639.0 -46.0 hd 8.0 3 dt 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+127.4 -18.0 grm
+473.8 -24.0 grm
+639.0 -24.0 grm
+0 -75.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 12 12
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (12)show 
+15.0 F2
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (The Braes Of Busby - Philis's Birthday - The Graf Spee)showc 
+0 -25.34 T
+% --- 10 (The Braes Of Busby - Philis's Birthday - The Graf Spee) ---
+% --- font 20.0 F2 
+[/Title(The Braes Of Busby - Philis's Birthday - The Graf Spee)/OUT pdfmark
+15.0 F2 51.0 -17.0 M(A)show 
+49.0 -21.0 14.8 19.0 box
+/y0{-57.0 add}!
+681.6 5 0.0 -57.0 staff
+14.0 F1  213.1 32.0 y0 M(2)show 378.8 32.0 y0 M(3)show 524.4 32.0 y0 M(4)show
+(3)146.8 -19.2 y0 bnum
+12.0 -57.0  tclef
+27.0 -33.0 sh0 
+(4)(4) 43.0 -57.0 tsig
+3.2 19.6 4.8 64.2 -36.5 bm
+61.0 -60.0 hd 22.6 su
+79.9 -51.0 hd 18.2 su
+100.8 -51.0 hd 20.0 su
+-3.2 30.4 4.4 129.7 -64.2 bm
+133.5 -45.0 hd -18.2 sd
+148.4 -42.0 hd -19.1 sd
+163.2 -39.0 hd -19.9 sd
+3.2 19.6 -3.8 181.2 -28.7 bm
+178.1 -48.0 hd 18.2 su
+196.9 -54.0 hd 20.5 su
+24.0 215.9 -57.0 bar 
+3.2 57.4 -0.0 231.5 -30.0 bm
+228.4 -60.0 hd 29.0 su
+247.3 -48.0 hd 17.0 su
+266.1 -60.0 hd 29.0 su
+285.0 -54.0 hd 23.0 su
+3.2 57.4 -5.7 309.1 -28.8 bm
+306.0 -48.0 hd 18.2 su
+324.9 -51.0 hd 19.3 su
+343.7 -54.0 hd 20.4 su
+362.6 -60.0 hd 24.6 su
+24.0 381.6 -57.0 bar 
+394.1 -51.0 hd 8.0 3 dt 20.0 su
+427.9 -45.0 hd 1 20.0 sfu
+-3.2 57.4 -0.0 447.8 -70.2 bm
+451.6 -39.0 hd -30.2 sd
+470.5 -51.0 hd -18.2 sd
+489.4 -45.0 hd -24.2 sd
+508.3 -39.0 hd -30.2 sd
+24.0 527.2 -57.0 bar 
+-3.2 57.4 -0.0 535.9 -67.2 bm
+539.7 -42.0 hd -24.2 sd
+558.6 -48.0 hd -18.2 sd
+577.5 -39.0 hd -27.2 sd
+596.4 -42.0 hd -24.2 sd
+3.2 19.6 -2.4 618.4 -28.3 bm
+615.3 -48.0 hd 18.6 su
+634.2 -51.0 hd 19.4 su
+655.1 -51.0 hd 20.0 su
+24.0 681.6 -57.0 bar 
+0 -80.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 201.3 32.0 y0 M(6)show 371.2 32.0 y0 M(7)show 520.4 32.0 y0 M(8)show
+(3)133.2 -19.2 y0 bnum
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 20.1 4.8 48.2 -26.6 bm
+45.0 -50.0 hd 22.5 su
+64.4 -41.0 hd 18.2 su
+85.9 -41.0 hd 20.0 su
+-3.2 31.1 4.4 115.8 -54.2 bm
+119.6 -35.0 hd -18.2 sd
+134.8 -32.0 hd -19.0 sd
+150.0 -29.0 hd -19.9 sd
+3.2 20.1 -3.8 168.4 -18.7 bm
+165.3 -38.0 hd 18.2 su
+184.7 -44.0 hd 20.5 su
+24.0 204.1 -47.0 bar 
+3.2 58.9 7.0 219.8 -28.7 bm
+216.6 -50.0 hd 20.3 su
+236.0 -47.0 hd 19.6 su
+255.4 -44.0 hd 18.9 su
+274.9 -41.0 hd 18.2 su
+3.2 58.9 -5.7 299.5 -18.8 bm
+296.4 -38.0 hd 18.2 su
+315.8 -41.0 hd 19.3 su
+335.2 -44.0 hd 20.4 su
+354.6 -50.0 hd 24.5 su
+24.0 374.0 -47.0 bar 
+386.5 -41.0 hd 8.0 3 dt 20.0 su
+421.3 -35.0 hd 1 20.0 sfu
+-3.2 58.9 -0.0 441.7 -60.2 bm
+445.6 -29.0 hd -30.2 sd
+465.0 -41.0 hd -18.2 sd
+484.4 -35.0 hd -24.2 sd
+503.8 -29.0 hd -30.2 sd
+24.0 523.2 -47.0 bar 
+-3.2 58.9 -0.0 531.9 -57.2 bm
+535.7 -32.0 hd -24.2 sd
+555.1 -38.0 hd -18.2 sd
+574.5 -29.0 hd -27.2 sd
+594.0 -32.0 hd -24.2 sd
+3.2 20.1 -2.4 616.5 -18.3 bm
+613.4 -38.0 hd 18.6 su
+632.8 -41.0 hd 19.4 su
+654.3 -41.0 hd 20.0 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 187.6 32.0 y0 M(10)show 348.2 33.0 y0 M(11)show 508.9 32.0 y0 M(12)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+45.0 -20.0 hd -20.0 sd
+-3.2 20.0 -3.8 71.3 -50.4 bm
+75.1 -29.0 hd -20.5 sd
+94.4 -35.0 hd -18.2 sd
+-3.2 58.6 4.9 112.0 -48.2 bm
+115.9 -29.0 hd -18.2 sd
+135.2 -20.0 hd -25.6 sd
+154.5 -17.0 hl 154.5 -14.0 hd -30.0 sd
+173.8 -20.0 hd -22.4 sd
+24.0 193.2 -47.0 bar 
+205.7 -23.0 hd -20.0 sd
+-3.2 20.0 -2.4 232.0 -52.3 bm
+235.8 -32.0 hd -19.4 sd
+255.1 -35.0 hd -18.6 sd
+-3.2 58.6 5.0 272.7 -51.2 bm
+276.5 -32.0 hd -18.2 sd
+295.9 -23.0 hd -25.6 sd
+315.2 -17.0 hl 315.2 -17.0 hd -29.9 sd
+334.5 -23.0 hd -22.3 sd
+24.0 353.8 -47.0 bar 
+366.3 -20.0 hd -20.0 sd
+-3.2 20.0 2.4 392.6 -48.7 bm
+396.5 -29.0 hd -18.6 sd
+415.8 -26.0 hd -19.4 sd
+-3.2 58.6 -0.0 433.4 -60.2 bm
+437.2 -29.0 hd -30.2 sd
+456.5 -41.0 hd -18.2 sd
+475.9 -35.0 hd -24.2 sd
+495.2 -29.0 hd -30.2 sd
+24.0 514.5 -47.0 bar 
+-3.2 58.6 -0.0 523.2 -57.2 bm
+527.0 -32.0 hd -24.2 sd
+546.3 -38.0 hd -18.2 sd
+565.7 -29.0 hd -27.2 sd
+585.0 -32.0 hd -24.2 sd
+3.2 58.6 6.4 607.5 -10.2 bm
+604.3 -38.0 hd 26.9 su
+623.6 -41.0 hd 32.0 su
+642.9 -41.0 hd 34.1 su
+662.3 -23.0 hd 18.2 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 33.0 y0 M(13)show 185.2 32.0 y0 M(14)show 343.5 33.0 y0 M(15)show 518.6 38.0 y0 M(16)show
+(3)374.9 -10.8 y0 bnum
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+45.0 -25.0 hd -20.0 sd
+-3.2 19.7 -3.8 70.8 -55.5 bm
+74.6 -34.0 hd -20.5 sd
+93.6 -40.0 hd -18.2 sd
+-3.2 57.7 4.8 110.9 -53.2 bm
+114.7 -34.0 hd -18.2 sd
+133.7 -25.0 hd -25.6 sd
+152.8 -22.0 hl 152.8 -19.0 hd -30.0 sd
+171.8 -25.0 hd -22.4 sd
+24.0 190.8 -52.0 bar 
+203.3 -28.0 hd -20.0 sd
+-3.2 19.7 -2.4 229.1 -57.3 bm
+232.9 -37.0 hd -19.4 sd
+251.9 -40.0 hd -18.6 sd
+-3.2 57.7 5.0 269.2 -56.2 bm
+273.0 -37.0 hd -18.2 sd
+292.0 -28.0 hd -25.6 sd
+311.1 -22.0 hl 311.1 -22.0 hd -29.9 sd
+330.1 -28.0 hd -22.3 sd
+24.0 349.1 -52.0 bar 
+-3.2 30.5 -4.4 357.8 -45.9 bm
+361.6 -25.0 hd -19.9 sd
+376.5 -28.0 hd -19.1 sd
+391.4 -31.0 hd -18.2 sd
+-3.2 19.7 -3.8 404.1 -49.5 bm
+408.0 -28.0 hd -20.5 sd
+427.0 -34.0 hd -18.2 sd
+-3.2 57.7 -3.8 444.2 -55.4 bm
+448.1 -31.0 hd -23.4 sd
+467.1 -37.0 hd -18.7 sd
+486.1 -34.0 hd -22.9 sd
+505.1 -40.0 hd -18.2 sd
+24.0 524.2 -52.0 bar 
+3.2 57.7 -5.0 539.8 -17.8 bm
+536.7 -37.0 hd 18.2 su
+555.7 -43.0 hd 22.6 su
+574.7 -49.0 hd 26.9 su
+593.7 -46.0 hd 22.3 su
+3.2 19.7 -2.4 617.9 -23.3 bm
+614.8 -43.0 hd 18.6 su
+633.8 -46.0 hd 19.4 su
+654.9 -46.0 hd 20.0 su
+24.0 681.6 -52.0 bar 
+0 -75.00 T
+/y0{-48.0 add}!
+681.6 5 0.0 -48.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 192.6 34.0 y0 M(18)show 359.7 32.0 y0 M(19)show 527.7 32.0 y0 M(20)show
+(3)57.6 -19.2 y0 bnum
+(3)226.5 38.2 y0 bnum
+(3)390.5 -19.2 y0 bnum
+12.0 -48.0  tclef
+27.0 -24.0 sh0 
+-3.2 29.1 4.3 41.2 -55.3 bm
+45.0 -36.0 hd -18.2 sd
+59.2 -33.0 hd -19.1 sd
+73.4 -30.0 hd -20.0 sd
+3.2 18.8 3.7 90.8 -20.5 bm
+87.7 -42.0 hd 20.6 su
+105.8 -36.0 hd 18.2 su
+3.2 54.9 -0.0 129.0 -10.8 bm
+125.8 -42.0 hd 30.2 su
+143.9 -36.0 hd 24.2 su
+162.0 -30.0 hd 18.2 su
+180.0 -42.0 hd 30.2 su
+24.0 198.2 -48.0 bar 
+3.2 29.1 4.3 213.8 -18.1 bm
+210.7 -39.0 hd 20.0 su
+224.9 -36.0 hd 19.1 su
+239.1 -33.0 hd 18.2 su
+3.2 18.8 3.7 258.0 -23.5 bm
+254.9 -45.0 hd 20.6 su
+272.9 -39.0 hd 18.2 su
+3.2 54.9 3.8 296.1 -16.3 bm
+293.0 -45.0 hd 27.7 su
+311.1 -39.0 hd 23.0 su
+329.1 -33.0 hd 18.2 su
+347.2 -39.0 hd 25.4 su
+24.0 365.3 -48.0 bar 
+-3.2 29.1 4.3 374.0 -55.3 bm
+377.8 -36.0 hd -18.2 sd
+392.1 -33.0 hd -19.1 sd
+406.3 -30.0 hd -20.0 sd
+3.2 18.8 3.7 423.7 -20.5 bm
+420.5 -42.0 hd 20.6 su
+438.6 -36.0 hd 18.2 su
+-3.2 54.9 -0.0 457.1 -61.2 bm
+460.9 -30.0 hd -30.2 sd
+479.0 -42.0 hd -18.2 sd
+497.1 -36.0 hd -24.2 sd
+515.2 -30.0 hd -30.2 sd
+24.0 533.3 -48.0 bar 
+-3.2 54.9 -0.0 541.9 -58.2 bm
+545.8 -33.0 hd -24.2 sd
+563.9 -39.0 hd -18.2 sd
+581.9 -30.0 hd -27.2 sd
+600.0 -33.0 hd -24.2 sd
+3.2 18.8 -2.3 621.3 -19.3 bm
+618.1 -39.0 hd 18.6 su
+636.2 -42.0 hd 19.4 su
+656.2 -42.0 hd 20.0 su
+24.0 681.6 -48.0 bar 
+0 -71.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(21)show 194.2 34.0 y0 M(22)show 363.1 38.0 y0 M(23)show 526.2 32.0 y0 M(24)show
+(3)57.8 -19.2 y0 bnum
+(3)228.3 38.2 y0 bnum
+12.0 -52.0  tclef
+27.0 -28.0 sh0 
+-3.2 29.4 4.3 41.2 -59.3 bm
+45.0 -40.0 hd -18.2 sd
+59.4 -37.0 hd -19.1 sd
+73.7 -34.0 hd -20.0 sd
+3.2 19.0 3.8 91.3 -24.5 bm
+88.1 -46.0 hd 20.6 su
+106.4 -40.0 hd 18.2 su
+3.2 55.5 -0.0 129.8 -14.8 bm
+126.7 -46.0 hd 30.2 su
+144.9 -40.0 hd 24.2 su
+163.2 -34.0 hd 18.2 su
+181.5 -46.0 hd 30.2 su
+24.0 199.8 -52.0 bar 
+3.2 29.4 4.3 215.5 -22.1 bm
+212.3 -43.0 hd 20.0 su
+226.7 -40.0 hd 19.1 su
+241.1 -37.0 hd 18.2 su
+3.2 19.0 3.8 260.1 -27.5 bm
+257.0 -49.0 hd 20.6 su
+275.3 -43.0 hd 18.2 su
+3.2 55.5 -0.0 298.7 -14.8 bm
+295.5 -34.0 hd 18.2 su
+313.8 -49.0 hd 33.2 su
+332.1 -43.0 hd 27.2 su
+350.4 -34.0 hd 18.2 su
+24.0 368.7 -52.0 bar 
+3.2 55.5 -0.0 384.3 -17.8 bm
+381.2 -40.0 hd 21.2 su
+399.5 -46.0 hd 27.2 su
+417.8 -40.0 hd 21.2 su
+436.0 -37.0 hd 18.2 su
+-3.2 55.5 -0.0 454.8 -65.2 bm
+458.6 -34.0 hd -30.2 sd
+476.9 -46.0 hd -18.2 sd
+495.2 -40.0 hd -24.2 sd
+513.5 -34.0 hd -30.2 sd
+24.0 531.8 -52.0 bar 
+-3.2 55.5 -0.0 540.4 -62.2 bm
+544.3 -37.0 hd -24.2 sd
+562.5 -43.0 hd -18.2 sd
+580.8 -34.0 hd -27.2 sd
+599.1 -37.0 hd -24.2 sd
+3.2 19.0 -2.3 620.6 -23.3 bm
+617.4 -43.0 hd 18.6 su
+635.7 -46.0 hd 19.4 su
+655.9 -46.0 hd 20.0 su
+24.0 681.6 -52.0 bar 
+0 -75.00 T
+15.0 F2 35.0 -17.0 M(B)show 
+33.0 -21.0 14.0 19.0 box
+/y0{-73.0 add}!
+681.6 5 0.0 -73.0 staff
+14.0 F1 24.0 35.0 y0 M(25)show 191.1 32.0 y0 M(26)show 349.8 32.0 y0 M(27)show 513.9 32.0 y0 M(28)show
+12.0 -73.0  tclef
+27.0 -49.0 sh0 
+3.2 20.0 -3.8 48.2 -41.7 bm
+45.0 -61.0 hd 18.2 su
+64.3 -67.0 hd 20.5 su
+85.8 -67.0 hd 20.0 su
+-3.2 58.7 -0.0 115.5 -80.2 bm
+119.3 -61.0 hd -18.2 sd
+138.6 -55.0 hd -24.2 sd
+158.0 -52.0 hd -27.2 sd
+177.3 -55.0 hd -24.2 sd
+24.0 196.7 -73.0 bar 
+209.2 -61.0 hd -20.0 sd
+-3.2 20.0 3.8 235.5 -83.3 bm
+239.3 -64.0 hd -18.2 sd
+258.7 -58.0 hd -20.5 sd
+3.2 58.7 -5.7 281.2 -41.8 bm
+278.0 -61.0 hd 18.2 su
+297.3 -64.0 hd 19.3 su
+316.7 -67.0 hd 20.4 su
+336.0 -73.0 hd 24.5 su
+24.0 355.4 -73.0 bar 
+3.2 58.7 6.1 371.0 -50.8 bm
+367.9 -76.0 hd 24.2 su
+387.2 -73.0 hd 23.2 su
+406.5 -67.0 hd 19.2 su
+425.9 -64.0 hd 18.2 su
+447.3 -61.0 hd 20.0 su
+-3.2 20.0 3.8 477.0 -80.3 bm
+480.8 -61.0 hd -18.2 sd
+500.2 -55.0 hd -20.5 sd
+24.0 519.5 -73.0 bar 
+-3.2 58.7 -7.1 528.2 -79.2 bm
+532.0 -52.0 hd -26.2 sd
+551.4 -55.0 hd -25.6 sd
+570.7 -61.0 hd -21.9 sd
+590.0 -67.0 hd -18.2 sd
+609.4 -64.0 hd 20.0 su
+-3.2 20.0 -2.4 639.1 -72.3 bm
+642.9 -52.0 hd -19.4 sd
+662.2 -55.0 hd -18.6 sd
+24.0 681.6 -73.0 bar 
+85.8 -45.0 grm
+0 -96.00 T
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1 24.0 35.0 y0 M(29)show 158.2 32.0 y0 M(30)show 285.2 32.0 y0 M(31)show 423.0 32.0 y0 M(32)show 558.0 32.0 y0 M(32)show
+13.0 F2 (1)-11.4 2 127.0 428.6 61.0 y0 repbra
+(2)-11.4 2 118.0 563.6 61.0 y0 repbra
+12.0 -63.0  tclef
+27.0 -39.0 sh0 
+3.2 15.9 -3.5 48.2 -31.7 bm
+45.0 -51.0 hd 18.2 su
+60.2 -57.0 hd 20.8 su
+77.0 -57.0 hd 20.0 su
+-3.2 46.3 -0.0 99.1 -70.2 bm
+102.9 -51.0 hd -18.2 sd
+118.2 -45.0 hd -24.2 sd
+133.4 -42.0 hd -27.2 sd
+148.6 -45.0 hd -24.2 sd
+24.0 163.8 -63.0 bar 
+176.3 -51.0 hd -20.0 sd
+-3.2 15.9 3.5 195.7 -73.3 bm
+199.6 -54.0 hd -18.2 sd
+214.8 -48.0 hd -20.8 sd
+3.2 46.3 -5.4 233.1 -31.8 bm
+230.0 -51.0 hd 18.2 su
+245.2 -54.0 hd 19.4 su
+260.4 -57.0 hd 20.6 su
+275.6 -63.0 hd 24.8 su
+24.0 290.8 -63.0 bar 
+3.2 46.3 5.8 306.5 -40.5 bm
+303.3 -66.0 hd 24.5 su
+318.5 -63.0 hd 23.4 su
+333.7 -57.0 hd 19.3 su
+348.9 -54.0 hd 18.2 su
+-3.2 46.3 -0.0 363.9 -73.2 bm
+367.7 -51.0 hd -21.2 sd
+382.9 -54.0 hd -18.2 sd
+398.1 -51.0 hd -21.2 sd
+413.3 -45.0 hd -27.2 sd
+24.0 428.6 -63.0 bar 
+-3.2 46.3 -5.1 437.3 -68.1 bm
+441.1 -45.0 hd -22.2 sd
+456.3 -42.0 hd -26.8 sd
+471.5 -51.0 hd -19.5 sd
+486.7 -54.0 hd -18.2 sd
+501.9 -57.0 hd 20.0 su
+-3.2 15.9 -2.2 524.1 -62.4 bm
+527.9 -42.0 hd -19.4 sd
+543.1 -45.0 hd -18.6 sd
+24.0 560.6 -63.0 thbar 24.0 557.6 -63.0 bar 553.6 -63.0 rdots 
+-3.2 46.3 -5.1 572.3 -68.1 bm
+576.1 -45.0 hd -22.2 sd
+591.3 -42.0 hd -26.8 sd
+606.5 -51.0 hd -19.5 sd
+621.7 -54.0 hd -18.2 sd
+636.9 -57.0 hd 20.0 su
+660.1 -51.0 r4 
+24.0 681.6 -63.0 bar 24.0 678.6 -63.0 bar 
+77.0 -35.0 grm
+0 -86.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(33)show 190.0 32.0 y0 M(34)show 349.9 32.0 y0 M(35)show 513.0 32.0 y0 M(36)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+-3.2 59.5 6.1 41.2 -48.2 bm
+45.0 -29.0 hd -18.2 sd
+64.6 -26.0 hd -19.2 sd
+84.2 -20.0 hd -23.2 sd
+103.8 -17.0 hl 103.8 -17.0 hd -24.2 sd
+125.7 -17.0 hl 125.7 -14.0 hd -21.0 sd
+-3.2 20.3 -2.4 152.5 -37.3 bm
+156.3 -17.0 hl 156.3 -17.0 hd -19.4 sd
+175.9 -20.0 hd -18.6 sd
+24.0 195.6 -47.0 bar 
+-3.2 59.5 -4.2 204.2 -47.0 bm
+208.1 -26.0 hd -20.0 sd
+227.7 -20.0 hd -27.4 sd
+247.3 -29.0 hd -19.8 sd
+266.9 -32.0 hd -18.2 sd
+3.2 20.3 -3.9 289.7 -15.7 bm
+286.5 -35.0 hd 18.2 su
+306.2 -41.0 hd 20.5 su
+327.9 -41.0 hd 20.0 su
+24.0 355.5 -47.0 bar 
+-3.2 59.5 6.1 364.2 -48.2 bm
+368.0 -29.0 hd -18.2 sd
+387.6 -26.0 hd -19.2 sd
+407.2 -20.0 hd -23.2 sd
+426.9 -17.0 hl 426.9 -17.0 hd -24.2 sd
+448.7 -17.0 hl 448.7 -14.0 hd -21.0 sd
+-3.2 20.3 -2.4 475.5 -37.3 bm
+479.3 -17.0 hl 479.3 -17.0 hd -19.4 sd
+498.9 -20.0 hd -18.6 sd
+24.0 518.6 -47.0 bar 
+-3.2 59.6 -0.0 527.2 -44.0 bm
+531.1 -26.0 hd -17.0 sd
+550.7 -17.0 hl 550.7 -17.0 hd -26.0 sd
+570.4 -17.0 hl 570.4 -17.0 hd -26.0 sd
+590.0 -20.0 hd -23.0 sd
+611.7 -17.0 hl 611.7 -17.0 hd -20.0 sd
+-3.2 20.3 -3.9 638.5 -41.4 bm
+642.3 -20.0 hd -20.5 sd
+662.0 -26.0 hd -18.2 sd
+24.0 681.6 -47.0 bar 
+327.9 -19.0 grm
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(37)show 183.4 32.0 y0 M(38)show 348.2 32.0 y0 M(39)show 515.3 32.0 y0 M(40)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+-3.2 57.0 6.0 41.2 -48.2 bm
+45.0 -29.0 hd -18.2 sd
+63.8 -26.0 hd -19.2 sd
+82.6 -20.0 hd -23.2 sd
+101.3 -17.0 hl 101.3 -17.0 hd -24.2 sd
+122.2 -17.0 hl 122.2 -14.0 hd -21.0 sd
+-3.2 19.5 -2.4 147.6 -37.3 bm
+151.5 -17.0 hl 151.5 -17.0 hd -19.4 sd
+170.2 -20.0 hd -18.6 sd
+24.0 189.0 -47.0 bar 
+-3.2 57.0 -4.2 197.7 -47.0 bm
+201.5 -26.0 hd -20.1 sd
+220.3 -20.0 hd -27.4 sd
+239.1 -29.0 hd -19.8 sd
+257.9 -32.0 hd -18.2 sd
+3.2 19.5 -3.8 279.8 -15.7 bm
+276.6 -35.0 hd 18.2 su
+295.4 -41.0 hd 20.5 su
+3.2 19.5 -2.4 319.4 -21.3 bm
+316.2 -41.0 hd 18.6 su
+335.0 -44.0 hd 19.4 su
+24.0 353.8 -47.0 bar 
+3.2 57.0 6.0 369.5 -24.8 bm
+366.3 -50.0 hd 24.2 su
+385.1 -47.0 hd 23.2 su
+403.8 -41.0 hd 19.2 su
+422.6 -38.0 hd 18.2 su
+-3.2 57.0 -0.0 442.0 -57.2 bm
+445.8 -35.0 hd -21.2 sd
+464.6 -38.0 hd -18.2 sd
+483.4 -35.0 hd -21.2 sd
+502.1 -29.0 hd -27.2 sd
+24.0 520.9 -47.0 bar 
+-3.2 57.0 -5.3 529.6 -51.9 bm
+533.4 -29.0 hd -21.9 sd
+552.2 -26.0 hd -26.7 sd
+571.0 -35.0 hd -19.4 sd
+589.8 -38.0 hd -18.2 sd
+608.5 -41.0 hd 20.0 su
+634.8 -35.0 r8 
+653.6 -41.0 hd 1 20.0 sfu
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+122.2 -10.0 grm
+0 -70.00 T
+15.0 F2 42.5 -17.0 M(C)show 
+40.5 -21.0 14.0 19.0 box
+/y0{-70.0 add}!
+681.6 5 0.0 -70.0 staff
+14.0 F1 24.0 32.0 y0 M(41)show 200.1 38.0 y0 M(42)show 369.8 32.0 y0 M(43)show 515.2 38.0 y0 M(44)show
+12.0 -70.0  tclef
+27.0 -46.0 sh0 
+51.5 -70.0 rdots 24.0 47.5 -70.0 bar 24.0 41.5 -70.0 thbar 
+63.5 -46.0 nt0 
+81.5 -70.0 hd 20.0 su
+3.2 20.1 2.4 114.7 -55.7 bm
+111.6 -76.0 hl 111.6 -76.0 hd 19.4 su
+131.0 -73.0 hd 18.6 su
+152.4 -70.0 hd 1 20.0 sfu
+174.4 -64.0 hd 8.0 3 dt 20.0 su
+24.0 205.7 -70.0 bar 
+3.2 58.8 -0.0 221.4 -35.8 bm
+218.2 -61.0 hd 24.2 su
+237.6 -64.0 hd 27.2 su
+257.0 -55.0 hd 18.2 su
+276.4 -64.0 hd 27.2 su
+3.2 58.8 -0.0 301.0 -35.8 bm
+297.8 -61.0 hd 24.2 su
+317.2 -64.0 hd 27.2 su
+336.6 -55.0 hd 18.2 su
+355.9 -64.0 hd 27.2 su
+24.0 375.4 -70.0 bar 
+3.2 58.8 -0.0 391.0 -51.8 bm
+387.9 -70.0 hd 17.2 su
+407.2 -73.0 hd 20.2 su
+426.6 -76.0 hl 426.6 -76.0 hd 23.2 su
+446.0 -73.0 hd 20.2 su
+467.4 -70.0 hd 1 20.0 sfu
+489.4 -64.0 hd 8.0 3 dt 20.0 su
+24.0 520.8 -70.0 bar 
+3.2 58.8 -0.0 536.4 -35.8 bm
+533.3 -61.0 hd 24.2 su
+552.6 -64.0 hd 27.2 su
+572.0 -55.0 hd 18.2 su
+591.4 -64.0 hd 27.2 su
+3.2 20.1 -2.4 616.0 -50.3 bm
+612.8 -70.0 hd 18.6 su
+632.2 -73.0 hd 19.4 su
+653.7 -73.0 hd 20.0 su
+24.0 678.6 -70.0 thbar 24.0 675.6 -70.0 bar 671.6 -70.0 rdots 
+174.4 -42.0 grm
+489.4 -42.0 grm
+0 -93.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 13 13
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 561.6 2.0 M (13)showr 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(45)show 194.8 32.0 y0 M(46)show 342.7 32.0 y0 M(47)show 514.1 32.0 y0 M(48)show
+12.0 -47.0  tclef
+24.0 29.0 -47.0 bar 
+-3.2 59.5 -0.0 37.7 -47.2 bm
+41.5 -26.0 hd -20.2 sd
+61.1 -23.0 hd -23.2 sd
+80.7 -26.0 hd -20.2 sd
+100.3 -29.0 hd -17.2 sd
+-3.2 59.5 -0.0 118.2 -57.2 bm
+122.0 -32.0 hd -24.2 sd
+141.6 -35.0 hd -21.2 sd
+161.2 -32.0 hd -24.2 sd
+180.8 -38.0 hd -18.2 sd
+24.0 200.4 -47.0 bar 
+212.9 -41.0 hd 1 20.0 sfu
+234.9 -47.0 hd 8.0 3 dt 20.0 su
+3.2 59.5 6.1 273.1 -15.8 bm
+269.9 -41.0 hd 24.2 su
+289.5 -38.0 hd 23.2 su
+309.1 -32.0 hd 19.2 su
+328.7 -29.0 hd 18.2 su
+24.0 348.3 -47.0 bar 
+-3.2 59.5 -0.0 357.0 -47.2 bm
+360.8 -26.0 hd -20.2 sd
+380.4 -23.0 hd -23.2 sd
+400.0 -26.0 hd -20.2 sd
+419.6 -29.0 hd -17.2 sd
+-3.2 59.5 -0.0 437.5 -57.2 bm
+441.3 -32.0 hd -24.2 sd
+460.9 -35.0 hd -21.2 sd
+480.5 -32.0 hd -24.2 sd
+500.1 -38.0 hd -18.2 sd
+24.0 519.7 -47.0 bar 
+3.2 59.5 -5.0 535.4 -21.8 bm
+532.2 -41.0 hd 18.2 su
+551.8 -47.0 hd 22.6 su
+571.4 -53.0 hl 571.4 -53.0 hd 26.9 su
+591.0 -50.0 hd 22.3 su
+3.2 20.3 -2.4 615.9 -27.3 bm
+612.7 -47.0 hd 18.6 su
+632.3 -50.0 hd 19.4 su
+654.0 -50.0 hd 20.0 su
+24.0 681.6 -47.0 bar 
+234.9 -21.0 grm
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(49)show 191.1 32.0 y0 M(50)show 340.1 32.0 y0 M(51)show 512.9 38.0 y0 M(52)show
+12.0 -52.0  tclef
+-3.2 59.9 -0.0 32.7 -52.2 bm
+36.5 -31.0 hd -20.2 sd
+56.3 -28.0 hd -23.2 sd
+76.0 -31.0 hd -20.2 sd
+95.8 -34.0 hd -17.2 sd
+-3.2 59.9 -0.0 113.8 -62.2 bm
+117.7 -37.0 hd -24.2 sd
+137.4 -40.0 hd -21.2 sd
+157.2 -37.0 hd -24.2 sd
+176.9 -43.0 hd -18.2 sd
+24.0 196.7 -52.0 bar 
+209.2 -46.0 hd 1 20.0 sfu
+231.4 -52.0 hd 8.0 3 dt 20.0 su
+3.2 59.9 6.1 269.8 -20.9 bm
+266.7 -46.0 hd 24.2 su
+286.4 -43.0 hd 23.2 su
+306.2 -37.0 hd 19.2 su
+325.9 -34.0 hd 18.2 su
+24.0 345.7 -52.0 bar 
+-3.2 60.0 -0.0 354.4 -49.0 bm
+358.2 -31.0 hd -17.0 sd
+378.0 -22.0 hl 378.0 -22.0 hd -26.0 sd
+397.8 -22.0 hl 397.8 -22.0 hd -26.0 sd
+417.5 -25.0 hd -23.0 sd
+-3.2 59.9 -0.0 435.6 -52.2 bm
+439.4 -31.0 hd -20.2 sd
+459.2 -28.0 hd -23.2 sd
+478.9 -31.0 hd -20.2 sd
+498.7 -34.0 hd -17.2 sd
+24.0 518.5 -52.0 bar 
+3.2 59.9 -6.8 534.1 -17.8 bm
+531.0 -37.0 hd 18.2 su
+550.7 -43.0 hd 22.0 su
+570.5 -46.0 hd 22.7 su
+590.2 -52.0 hd 26.5 su
+3.2 20.4 -2.4 615.3 -32.3 bm
+612.1 -52.0 hd 18.7 su
+631.9 -55.0 hd 19.3 su
+653.8 -55.0 hd 20.0 su
+24.0 681.6 -52.0 bar 
+231.4 -26.0 grm
+0 -75.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(53)show 202.5 32.0 y0 M(54)show 347.5 32.0 y0 M(55)show 515.7 32.0 y0 M(56)show
+12.0 -47.0  tclef
+39.0 -47.0 rdots 24.0 35.0 -47.0 bar 24.0 29.0 -47.0 thbar 
+-3.2 58.3 -0.0 48.7 -44.0 bm
+52.5 -26.0 hd -17.0 sd
+71.7 -20.0 hd -23.0 sd
+90.9 -20.0 hd -23.0 sd
+110.1 -23.0 hd -20.0 sd
+-3.2 58.3 -0.0 127.5 -47.2 bm
+131.4 -20.0 hd -26.2 sd
+150.5 -26.0 hd -20.2 sd
+169.7 -29.0 hd -17.2 sd
+188.9 -20.0 hd -26.2 sd
+24.0 208.1 -47.0 bar 
+-3.2 58.3 -0.0 216.8 -44.0 bm
+220.6 -26.0 hd -17.0 sd
+239.8 -17.0 hl 239.8 -17.0 hd -26.0 sd
+259.1 -17.0 hl 259.1 -17.0 hd -26.0 sd
+278.3 -20.0 hd -23.0 sd
+299.6 -17.0 hl 299.6 -17.0 hd 8.0 3 dt -20.0 sd
+333.9 -20.0 hd 1 -20.0 sfd
+24.0 353.1 -47.0 bar 
+-3.2 58.3 -0.0 361.8 -47.2 bm
+365.6 -26.0 hd -20.2 sd
+384.8 -23.0 hd -23.2 sd
+404.0 -26.0 hd -20.2 sd
+423.2 -29.0 hd -17.2 sd
+-3.2 58.3 -0.0 440.6 -54.2 bm
+444.5 -32.0 hd -21.2 sd
+463.7 -35.0 hd -18.2 sd
+482.9 -32.0 hd -21.2 sd
+502.1 -29.0 hd -24.2 sd
+24.0 521.3 -47.0 bar 
+-3.2 58.3 -0.0 529.9 -47.2 bm
+533.8 -26.0 hd -20.2 sd
+553.0 -29.0 hd -17.2 sd
+572.2 -20.0 hd -26.2 sd
+591.4 -26.0 hd -20.2 sd
+-3.2 19.9 -2.4 608.8 -46.3 bm
+612.6 -26.0 hd -19.4 sd
+631.8 -29.0 hd -18.6 sd
+653.1 -29.0 hd -20.0 sd
+24.0 678.6 -47.0 thbar 24.0 675.6 -47.0 bar 671.6 -47.0 rdots 
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 32.0 y0 M(57)show 201.2 35.0 y0 M(58)show 361.5 35.0 y0 M(59)show 524.0 38.0 y0 M(60)show
+(3)103.6 -20.0 y0 bnum
+12.0 -52.0  tclef
+39.0 -52.0 rdots 24.0 35.0 -52.0 bar 24.0 29.0 -52.0 thbar 
+-3.2 18.9 -3.8 48.7 -52.5 bm
+52.5 -31.0 hd -20.6 sd
+70.7 -37.0 hd -18.2 sd
+-3.2 29.3 -0.0 87.1 -58.2 bm
+90.9 -37.0 hd -20.2 sd
+105.2 -37.0 hd -20.2 sd
+119.6 -37.0 hd -20.2 sd
+3.2 55.3 -6.6 137.1 -17.8 bm
+133.9 -37.0 hd 18.2 su
+152.1 -43.0 hd 22.0 su
+170.3 -46.0 hd 22.8 su
+188.6 -52.0 hd 26.6 su
+24.0 206.8 -52.0 bar 
+3.2 55.3 6.0 222.5 -20.8 bm
+219.3 -46.0 hd 24.3 su
+237.5 -43.0 hd 23.3 su
+255.8 -37.0 hd 19.2 su
+274.0 -34.0 hd 18.2 su
+3.2 55.3 -6.6 297.3 -17.8 bm
+294.2 -37.0 hd 18.2 su
+312.4 -43.0 hd 22.0 su
+330.6 -46.0 hd 22.8 su
+348.8 -52.0 hd 26.6 su
+24.0 367.1 -52.0 bar 
+3.2 55.3 6.0 382.7 -20.8 bm
+379.6 -46.0 hd 24.3 su
+397.8 -43.0 hd 23.3 su
+416.0 -37.0 hd 19.2 su
+434.2 -34.0 hd 18.2 su
+-3.2 55.3 -0.0 452.9 -55.0 bm
+456.7 -31.0 hd -23.0 sd
+474.9 -37.0 hd -17.0 sd
+493.2 -34.0 hd -20.0 sd
+511.4 -37.0 hd -17.0 sd
+24.0 529.6 -52.0 bar 
+3.2 55.3 -6.6 545.3 -17.8 bm
+542.1 -37.0 hd 18.2 su
+560.3 -43.0 hd 22.0 su
+578.6 -46.0 hd 22.8 su
+596.8 -52.0 hd 26.6 su
+3.2 18.9 -2.3 620.1 -32.3 bm
+617.0 -52.0 hd 18.6 su
+635.2 -55.0 hd 19.4 su
+655.4 -55.0 hd 20.0 su
+24.0 678.6 -52.0 thbar 24.0 675.6 -52.0 bar 671.6 -52.0 rdots 
+0 -75.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(61)show 190.4 32.0 y0 M(62)show 357.4 32.0 y0 M(63)show 524.4 32.0 y0 M(64)show
+(3)53.4 -11.2 y0 bnum
+(3)131.6 -11.2 y0 bnum
+(3)220.4 -8.2 y0 bnum
+(3)298.6 -8.2 y0 bnum
+(3)387.4 -11.2 y0 bnum
+(3)465.5 -11.2 y0 bnum
+12.0 -47.0  tclef
+24.0 29.0 -47.0 bar 
+-3.2 27.7 4.3 37.7 -45.3 bm
+41.5 -26.0 hd -18.2 sd
+55.0 -23.0 hd -19.1 sd
+68.5 -20.0 hd -20.0 sd
+-3.2 17.8 5.2 79.7 -51.3 bm
+83.5 -32.0 hd -18.2 sd
+100.7 -20.0 hd -25.2 sd
+-3.2 27.7 4.3 115.8 -45.3 bm
+119.6 -26.0 hd -18.2 sd
+133.2 -23.0 hd -19.1 sd
+146.7 -20.0 hd -20.0 sd
+-3.2 17.8 5.2 157.8 -51.3 bm
+161.6 -32.0 hd -18.2 sd
+178.8 -20.0 hd -25.2 sd
+24.0 196.0 -47.0 bar 
+-3.2 27.7 4.3 204.7 -42.3 bm
+208.5 -23.0 hd -18.2 sd
+222.0 -20.0 hd -19.1 sd
+235.5 -17.0 hl 235.5 -17.0 hd -20.0 sd
+-3.2 17.8 5.2 246.6 -48.3 bm
+250.5 -29.0 hd -18.2 sd
+267.6 -17.0 hl 267.6 -17.0 hd -25.2 sd
+-3.2 27.7 4.3 282.8 -42.3 bm
+286.6 -23.0 hd -18.2 sd
+300.2 -20.0 hd -19.1 sd
+313.7 -17.0 hl 313.7 -17.0 hd -20.0 sd
+-3.2 17.8 5.2 324.8 -48.3 bm
+328.6 -29.0 hd -18.2 sd
+345.8 -17.0 hl 345.8 -17.0 hd -25.2 sd
+24.0 363.0 -47.0 bar 
+-3.2 27.7 4.3 371.6 -45.3 bm
+375.5 -26.0 hd -18.2 sd
+389.0 -23.0 hd -19.1 sd
+402.5 -20.0 hd -20.0 sd
+-3.2 17.8 5.2 413.6 -51.3 bm
+417.5 -32.0 hd -18.2 sd
+434.6 -20.0 hd -25.2 sd
+-3.2 27.7 4.3 449.8 -45.3 bm
+453.6 -26.0 hd -18.2 sd
+467.1 -23.0 hd -19.1 sd
+480.7 -20.0 hd -20.0 sd
+-3.2 17.8 5.2 491.8 -51.3 bm
+495.6 -32.0 hd -18.2 sd
+512.8 -20.0 hd -25.2 sd
+24.0 530.0 -47.0 bar 
+-3.2 52.2 6.8 538.6 -57.2 bm
+542.5 -38.0 hd -18.2 sd
+559.6 -35.0 hd -19.0 sd
+576.8 -32.0 hd -19.8 sd
+593.9 -29.0 hd -20.5 sd
+-3.2 52.2 -0.0 609.1 -47.2 bm
+612.9 -26.0 hd -20.2 sd
+630.1 -29.0 hd -17.2 sd
+647.3 -29.0 hd -17.2 sd
+664.4 -26.0 hd -20.2 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-52.0 add}!
+681.6 5 0.0 -52.0 staff
+14.0 F1 24.0 33.0 y0 M(65)show 178.7 32.0 y0 M(66)show 345.3 35.0 y0 M(67)show 516.5 38.0 y0 M(68)show
+12.0 -52.0  tclef
+36.5 -25.0 hd -20.0 sd
+-3.2 19.9 -3.8 62.7 -43.4 bm
+66.6 -22.0 hl 66.6 -22.0 hd -20.5 sd
+85.8 -28.0 hd -18.2 sd
+-3.2 58.5 -3.8 103.4 -49.4 bm
+107.2 -25.0 hd -23.4 sd
+126.5 -31.0 hd -18.7 sd
+145.7 -28.0 hd -22.9 sd
+165.0 -34.0 hd -18.2 sd
+24.0 184.3 -52.0 bar 
+-3.2 58.5 -3.8 192.9 -55.4 bm
+196.8 -31.0 hd -23.4 sd
+216.0 -37.0 hd -18.7 sd
+235.3 -34.0 hd -22.9 sd
+254.6 -40.0 hd -18.2 sd
+3.2 58.5 -6.7 277.0 -17.8 bm
+273.8 -37.0 hd 18.2 su
+293.1 -43.0 hd 22.0 su
+312.4 -46.0 hd 22.8 su
+331.6 -52.0 hd 26.5 su
+24.0 350.9 -52.0 bar 
+3.2 58.5 6.1 366.6 -20.8 bm
+363.4 -46.0 hd 24.2 su
+382.7 -43.0 hd 23.2 su
+402.0 -37.0 hd 19.2 su
+421.2 -34.0 hd 18.2 su
+-3.2 58.5 -3.8 441.2 -55.4 bm
+445.0 -31.0 hd -23.4 sd
+464.3 -37.0 hd -18.7 sd
+483.5 -34.0 hd -22.9 sd
+502.8 -40.0 hd -18.2 sd
+24.0 522.1 -52.0 bar 
+3.2 58.5 -6.7 537.7 -17.8 bm
+534.6 -37.0 hd 18.2 su
+553.8 -43.0 hd 22.0 su
+573.1 -46.0 hd 22.8 su
+592.4 -52.0 hd 26.5 su
+3.2 19.9 -2.4 616.9 -32.3 bm
+613.7 -52.0 hd 18.6 su
+633.0 -55.0 hd 19.4 su
+654.4 -55.0 hd 20.0 su
+24.0 681.6 -52.0 bar 24.0 678.6 -52.0 bar 
+0 -75.00 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 14 14
+gsave 0 763.7 T
+% --- width 681.6
+12.0 F2 50.4 2.0 M (14)show 
+0.750 dup scale
+67.20 0 T
+0 -22.68 T
+0 -22.68 T
+0 -25.67 T
+340.8 0 M 20.0 F2 (The Road To Taynuilt)showc 
+0 -25.34 T
+% --- 11 (The Road To Taynuilt) ---
+% --- font 20.0 F2 
+[/Title(The Road To Taynuilt)/OUT pdfmark
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1  222.4 32.0 y0 M(2)show 384.8 32.0 y0 M(3)show 516.4 32.0 y0 M(4)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+(4)(4) 43.0 -47.0 tsig
+61.0 -20.0 hd 1 -20.0 sfd
+80.5 -47.0 rdots 24.0 76.5 -47.0 bar 24.0 70.5 -47.0 thbar 
+3.2 56.1 -7.6 97.2 -9.8 bm
+94.0 -29.0 hd 18.2 su
+112.5 -35.0 hd 21.7 su
+131.0 -38.0 hd 22.2 su
+149.4 -47.0 hd 28.7 su
+169.9 -41.0 hd 8.0 3 dt 20.0 su
+206.7 -20.0 hd 1 -20.0 sfd
+24.0 225.2 -47.0 bar 
+-3.2 56.1 6.0 233.8 -56.2 bm
+237.7 -29.0 hd -26.2 sd
+256.2 -35.0 hd -18.2 sd
+274.6 -20.0 hd -31.2 sd
+293.1 -20.0 hd -29.2 sd
+-3.2 56.1 -0.0 309.8 -54.2 bm
+313.6 -29.0 hd -24.2 sd
+332.1 -35.0 hd -18.2 sd
+350.6 -32.0 hd -21.2 sd
+369.0 -29.0 hd -24.2 sd
+24.0 387.6 -47.0 bar 
+400.1 -26.0 hd -20.0 sd
+-3.2 19.2 -2.3 424.9 -52.3 bm
+428.7 -32.0 hd -19.4 sd
+447.2 -35.0 hd -18.6 sd
+467.6 -32.0 hd 8.0 0 dt -20.0 sd
+500.7 -35.0 hd 1 -20.0 sfd
+24.0 519.2 -47.0 bar 
+-3.2 56.1 6.9 527.9 -57.2 bm
+531.7 -38.0 hd -18.2 sd
+550.2 -35.0 hd -18.9 sd
+568.7 -32.0 hd -19.7 sd
+587.2 -29.0 hd -20.4 sd
+-3.2 56.1 -0.0 603.8 -47.2 bm
+607.6 -26.0 hd -20.2 sd
+626.1 -29.0 hd -17.2 sd
+644.6 -20.0 hd -26.2 sd
+663.1 -26.0 hd -20.2 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-63.0 add}!
+681.6 5 0.0 -63.0 staff
+14.0 F1 24.0 32.0 y0 M(5)show 152.2 32.0 y0 M(6)show 290.3 32.0 y0 M(7)show 421.3 32.0 y0 M(8)show 545.5 32.0 y0 M(8)show
+13.0 F2 (1)-11.4 2 116.2 424.1 61.0 y0 repbra
+(2)-11.4 2 133.3 548.3 61.0 y0 repbra
+12.0 -63.0  tclef
+27.0 -39.0 sh0 
+3.2 47.2 -7.2 48.2 -25.7 bm
+45.0 -45.0 hd 18.2 su
+60.5 -51.0 hd 21.8 su
+76.0 -54.0 hd 22.5 su
+91.5 -63.0 hd 29.1 su
+108.6 -57.0 hd 8.0 3 dt 20.0 su
+139.5 -36.0 hd 1 -20.0 sfd
+24.0 155.0 -63.0 bar 
+-3.2 47.2 5.8 163.7 -72.1 bm
+167.5 -45.0 hd -26.1 sd
+183.0 -51.0 hd -18.2 sd
+198.5 -36.0 hd -31.3 sd
+214.0 -36.0 hd -29.4 sd
+-3.2 47.2 -0.0 227.3 -70.2 bm
+231.1 -45.0 hd -24.2 sd
+246.6 -51.0 hd -18.2 sd
+262.1 -48.0 hd -21.2 sd
+277.6 -45.0 hd -24.2 sd
+24.0 293.1 -63.0 bar 
+305.6 -42.0 hd -20.0 sd
+-3.2 16.2 -3.5 325.6 -66.7 bm
+329.4 -45.0 hd -20.8 sd
+344.9 -51.0 hd -18.2 sd
+-3.2 47.2 -4.1 358.2 -66.2 bm
+362.0 -45.0 hd -20.2 sd
+377.5 -36.0 hd -30.5 sd
+393.0 -45.0 hd -22.9 sd
+408.5 -51.0 hd -18.2 sd
+24.0 424.1 -63.0 bar 
+436.6 -54.0 hd 20.0 su
+3.2 16.2 2.3 463.5 -36.6 bm
+460.4 -57.0 hd 19.4 su
+475.9 -54.0 hd 18.6 su
+3.2 16.2 -3.5 496.1 -31.7 bm
+493.0 -51.0 hd 18.2 su
+508.5 -57.0 hd 20.8 su
+525.6 -57.0 hd 20.0 su
+24.0 545.3 -63.0 thbar 24.0 542.3 -63.0 bar 538.3 -63.0 rdots 
+560.8 -54.0 hd 20.0 su
+3.2 16.2 2.3 587.8 -36.6 bm
+584.6 -57.0 hd 19.4 su
+600.1 -54.0 hd 18.6 su
+-3.2 47.2 -0.0 615.4 -70.2 bm
+619.2 -51.0 hd -18.2 sd
+634.7 -45.0 hd -24.2 sd
+650.2 -42.0 hd -27.2 sd
+665.7 -45.0 hd -24.2 sd
+24.0 681.6 -63.0 bar 24.0 678.6 -63.0 bar 
+0 -86.00 T
+/y0{-50.0 add}!
+681.6 5 0.0 -50.0 staff
+14.0 F1 24.0 32.0 y0 M(9)show 193.9 36.0 y0 M(10)show 367.0 32.0 y0 M(11)show 505.4 32.0 y0 M(12)show
+12.0 -50.0  tclef
+27.0 -26.0 sh0 
+51.5 -50.0 rdots 24.0 47.5 -50.0 bar 24.0 41.5 -50.0 thbar 
+65.0 -23.0 hd 8.0 0 dt -20.0 sd
+99.9 -32.0 hd 1 -20.0 sfd
+-3.2 59.2 -5.4 117.7 -51.9 bm
+121.5 -29.0 hd -21.9 sd
+141.0 -23.0 hd -29.7 sd
+160.5 -32.0 hd -22.4 sd
+180.0 -38.0 hd -18.2 sd
+24.0 199.5 -50.0 bar 
+3.2 59.2 5.7 215.2 -18.5 bm
+212.0 -44.0 hd 24.5 su
+231.5 -41.0 hd 23.4 su
+251.0 -38.0 hd 22.3 su
+270.5 -32.0 hd 18.2 su
+-3.2 59.2 -0.0 290.7 -57.2 bm
+294.6 -29.0 hd -27.2 sd
+314.1 -32.0 hd -24.2 sd
+333.6 -38.0 hd -18.2 sd
+353.1 -32.0 hd -24.2 sd
+24.0 372.6 -50.0 bar 
+385.1 -29.0 hd -20.0 sd
+-3.2 20.2 -2.4 411.6 -55.3 bm
+415.5 -35.0 hd -19.4 sd
+435.0 -38.0 hd -18.6 sd
+456.6 -35.0 hd 8.0 0 dt -20.0 sd
+491.4 -38.0 hd 1 -20.0 sfd
+24.0 511.0 -50.0 bar 
+-3.2 59.2 7.0 519.6 -60.2 bm
+523.5 -41.0 hd -18.2 sd
+543.0 -38.0 hd -18.9 sd
+562.5 -35.0 hd -19.6 sd
+582.0 -32.0 hd -20.3 sd
+-3.2 59.2 -0.0 599.7 -57.2 bm
+603.6 -29.0 hd -27.2 sd
+623.1 -32.0 hd -24.2 sd
+642.6 -38.0 hd -18.2 sd
+662.1 -32.0 hd -24.2 sd
+24.0 681.6 -50.0 bar 
+0 -73.00 T
+/y0{-64.0 add}!
+681.6 5 0.0 -64.0 staff
+14.0 F1 24.0 33.0 y0 M(13)show 144.0 36.0 y0 M(14)show 281.5 32.0 y0 M(15)show 409.7 33.0 y0 M(16)show 545.3 33.0 y0 M(16)show
+13.0 F2 (1)-11.4 2 127.6 415.3 62.0 y0 repbra
+(2)-11.4 2 130.7 550.9 62.0 y0 repbra
+12.0 -64.0  tclef
+27.0 -40.0 sh0 
+45.0 -37.0 hd 8.0 0 dt -20.0 sd
+72.2 -46.0 hd 1 -20.0 sfd
+-3.2 46.2 -5.1 85.0 -66.1 bm
+88.9 -43.0 hd -22.2 sd
+104.0 -37.0 hd -29.8 sd
+119.2 -46.0 hd -22.5 sd
+134.4 -52.0 hd -18.2 sd
+24.0 149.6 -64.0 bar 
+3.2 46.2 5.4 165.3 -32.2 bm
+162.1 -58.0 hd 24.8 su
+177.3 -55.0 hd 23.6 su
+192.4 -52.0 hd 22.4 su
+207.6 -46.0 hd 18.2 su
+-3.2 46.2 -0.0 222.5 -71.2 bm
+226.4 -43.0 hd -27.2 sd
+241.5 -46.0 hd -24.2 sd
+256.7 -52.0 hd -18.2 sd
+271.9 -46.0 hd -24.2 sd
+24.0 287.1 -64.0 bar 
+299.6 -43.0 hd -20.0 sd
+-3.2 15.8 -3.5 318.9 -67.8 bm
+322.7 -46.0 hd -20.9 sd
+337.9 -52.0 hd -18.2 sd
+-3.2 46.2 -4.1 350.8 -67.2 bm
+354.6 -46.0 hd -20.2 sd
+369.8 -37.0 hd -30.5 sd
+385.0 -46.0 hd -22.9 sd
+400.1 -52.0 hd -18.2 sd
+24.0 415.3 -64.0 bar 
+427.8 -55.0 hd 20.0 su
+3.2 15.8 2.2 454.2 -37.6 bm
+451.0 -58.0 hd 19.4 su
+466.2 -55.0 hd 18.6 su
+-3.2 46.2 -0.0 481.1 -71.2 bm
+484.9 -52.0 hd -18.2 sd
+500.1 -46.0 hd -24.2 sd
+515.3 -43.0 hd -27.2 sd
+530.4 -46.0 hd -24.2 sd
+24.0 547.9 -64.0 thbar 24.0 544.9 -64.0 bar 540.9 -64.0 rdots 
+563.4 -55.0 hd 20.0 su
+3.2 15.8 2.2 589.7 -37.6 bm
+586.6 -58.0 hd 19.4 su
+601.7 -55.0 hd 18.6 su
+-3.2 46.2 6.1 616.7 -81.2 bm
+620.5 -52.0 hd -28.2 sd
+635.7 -58.0 hd -20.2 sd
+650.8 -58.0 hd -18.2 sd
+666.0 -37.0 hd -37.2 sd
+24.0 681.6 -64.0 bar 24.0 678.6 -64.0 bar 
+0 -87.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(17)show 185.8 32.0 y0 M(18)show 346.4 32.0 y0 M(19)show 509.9 33.0 y0 M(20)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+65.0 -17.0 hl 65.0 -14.0 hd 8.0 0 dt -21.0 sd
+100.2 -20.0 hd 1 -20.0 sfd
+-3.2 20.5 1.7 118.2 -36.9 bm
+122.1 -17.0 hl 122.1 -17.0 hd -18.8 sd
+141.9 -17.0 hl 141.9 -14.0 hd -20.2 sd
+163.7 -20.0 hd -20.0 sd
+24.0 191.4 -47.0 bar 
+-3.2 20.4 -2.4 200.1 -46.3 bm
+203.9 -26.0 hd -19.4 sd
+223.6 -29.0 hd -18.6 sd
+245.4 -35.0 hd -20.0 sd
+3.2 59.8 5.0 276.3 -14.8 bm
+273.1 -38.0 hd 22.3 su
+292.8 -41.0 hd 26.9 su
+312.5 -35.0 hd 22.6 su
+332.2 -29.0 hd 18.2 su
+24.0 352.0 -47.0 bar 
+364.5 -26.0 hd -20.0 sd
+-3.2 20.4 -3.9 391.3 -50.4 bm
+395.2 -29.0 hd -20.5 sd
+414.9 -35.0 hd -18.2 sd
+-3.2 59.8 -4.2 432.9 -50.0 bm
+436.7 -29.0 hd -20.0 sd
+456.4 -20.0 hd -30.4 sd
+476.1 -29.0 hd -22.8 sd
+495.8 -35.0 hd -18.2 sd
+24.0 515.5 -47.0 bar 
+528.0 -38.0 hd 20.0 su
+3.2 20.4 2.4 561.9 -20.7 bm
+558.7 -41.0 hd 19.4 su
+578.5 -38.0 hd 18.6 su
+-3.2 59.8 6.8 598.9 -54.2 bm
+602.8 -35.0 hd -18.2 sd
+622.5 -29.0 hd -22.0 sd
+642.2 -26.0 hd -22.7 sd
+661.9 -20.0 hd -26.5 sd
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-53.0 add}!
+681.6 5 0.0 -53.0 staff
+14.0 F1 24.0 39.0 y0 M(21)show 170.7 32.0 y0 M(22)show 337.0 32.0 y0 M(23)show 506.5 33.0 y0 M(24)show
+12.0 -53.0  tclef
+27.0 -29.0 sh0 
+45.0 -23.0 hl 45.0 -20.0 hd 8.0 0 dt -21.0 sd
+81.6 -26.0 hd 1 -20.0 sfd
+-3.2 21.2 1.7 100.4 -42.9 bm
+104.3 -23.0 hl 104.3 -23.0 hd -18.8 sd
+124.8 -23.0 hl 124.8 -20.0 hd -20.2 sd
+147.5 -26.0 hd -20.0 sd
+24.0 176.3 -53.0 bar 
+-3.2 21.1 -2.4 185.0 -52.3 bm
+188.8 -32.0 hd -19.3 sd
+209.3 -35.0 hd -18.7 sd
+232.0 -41.0 hd -20.0 sd
+3.2 62.1 5.0 263.9 -20.8 bm
+260.8 -44.0 hd 22.2 su
+281.2 -47.0 hd 26.9 su
+301.7 -41.0 hd 22.5 su
+322.2 -35.0 hd 18.2 su
+24.0 342.6 -53.0 bar 
+355.1 -32.0 hd -20.0 sd
+-3.2 21.1 -3.9 383.3 -56.4 bm
+387.1 -35.0 hd -20.4 sd
+407.6 -41.0 hd -18.2 sd
+-3.2 62.1 -4.2 426.4 -56.0 bm
+430.3 -35.0 hd -20.0 sd
+450.7 -26.0 hd -30.4 sd
+471.2 -35.0 hd -22.8 sd
+491.6 -41.0 hd -18.2 sd
+24.0 512.1 -53.0 bar 
+524.6 -44.0 hd 20.0 su
+3.2 21.1 2.4 559.7 -26.7 bm
+556.6 -47.0 hd 19.3 su
+577.0 -44.0 hd 18.7 su
+3.2 62.1 -0.0 602.9 -21.8 bm
+599.7 -41.0 hd 18.2 su
+620.2 -47.0 hd 24.2 su
+640.7 -47.0 hd 24.2 su
+661.1 -44.0 hd 21.2 su
+24.0 681.6 -53.0 bar 
+0 -76.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(25)show 200.1 32.0 y0 M(26)show 361.4 32.0 y0 M(27)show 514.6 32.0 y0 M(28)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+51.5 -47.0 rdots 24.0 47.5 -47.0 bar 24.0 41.5 -47.0 thbar 
+3.2 55.8 -0.0 68.2 -28.8 bm
+65.0 -47.0 hd 17.2 su
+83.4 -47.0 hd 17.2 su
+101.7 -50.0 hd 20.2 su
+120.1 -47.0 hd 17.2 su
+140.4 -47.0 hd 20.0 su
+3.2 19.0 3.8 172.1 -19.5 bm
+168.9 -41.0 hd 20.6 su
+187.3 -35.0 hd 18.2 su
+24.0 205.7 -47.0 bar 
+3.2 55.8 -0.0 221.3 -20.0 bm
+218.2 -38.0 hd 17.0 su
+236.5 -38.0 hd 17.0 su
+254.9 -41.0 hd 20.0 su
+273.2 -38.0 hd 17.0 su
+3.2 55.8 -6.0 296.7 -18.8 bm
+293.6 -38.0 hd 18.2 su
+311.9 -41.0 hd 19.2 su
+330.3 -47.0 hd 23.2 su
+348.7 -50.0 hd 24.3 su
+24.0 367.0 -47.0 bar 
+3.2 55.8 -0.0 382.7 -28.8 bm
+379.5 -47.0 hd 17.2 su
+397.9 -47.0 hd 17.2 su
+416.3 -50.0 hd 20.2 su
+434.6 -47.0 hd 17.2 su
+455.0 -47.0 hd 20.0 su
+3.2 19.0 3.8 486.6 -19.5 bm
+483.5 -41.0 hd 20.6 su
+501.8 -35.0 hd 18.2 su
+24.0 520.2 -47.0 bar 
+3.2 55.8 -0.0 535.9 -20.0 bm
+532.7 -38.0 hd 17.0 su
+551.1 -38.0 hd 17.0 su
+569.4 -41.0 hd 20.0 su
+587.8 -38.0 hd 17.0 su
+3.2 55.8 -6.0 611.3 -18.8 bm
+608.1 -38.0 hd 18.2 su
+626.5 -41.0 hd 19.2 su
+644.8 -47.0 hd 23.2 su
+663.2 -50.0 hd 24.3 su
+24.0 681.6 -47.0 bar 
+0 -70.00 T
+/y0{-47.0 add}!
+681.6 5 0.0 -47.0 staff
+14.0 F1 24.0 32.0 y0 M(29)show 184.9 32.0 y0 M(30)show 351.4 32.0 y0 M(31)show 509.4 32.0 y0 M(32)show
+12.0 -47.0  tclef
+27.0 -23.0 sh0 
+3.2 57.6 -0.0 48.2 -28.8 bm
+45.0 -47.0 hd 17.2 su
+64.0 -47.0 hd 17.2 su
+83.0 -50.0 hd 20.2 su
+101.9 -47.0 hd 17.2 su
+123.0 -47.0 hd 20.0 su
+3.2 19.7 3.8 155.7 -19.5 bm
+152.6 -41.0 hd 20.5 su
+171.5 -35.0 hd 18.2 su
+24.0 190.5 -47.0 bar 
+3.2 57.6 -0.0 206.2 -20.0 bm
+203.0 -38.0 hd 17.0 su
+222.0 -38.0 hd 17.0 su
+241.0 -41.0 hd 20.0 su
+260.0 -38.0 hd 17.0 su
+3.2 57.6 -6.0 284.2 -18.8 bm
+281.0 -38.0 hd 18.2 su
+300.0 -41.0 hd 19.2 su
+319.0 -47.0 hd 23.2 su
+338.0 -50.0 hd 24.2 su
+24.0 357.0 -47.0 bar 
+3.2 57.6 -0.0 372.6 -28.8 bm
+369.5 -47.0 hd 17.2 su
+388.5 -47.0 hd 17.2 su
+407.4 -50.0 hd 20.2 su
+426.4 -47.0 hd 17.2 su
+447.5 -47.0 hd 20.0 su
+3.2 19.7 3.8 480.2 -19.5 bm
+477.0 -41.0 hd 20.5 su
+496.0 -35.0 hd 18.2 su
+24.0 515.0 -47.0 bar 
+3.2 57.6 -0.0 530.7 -20.0 bm
+527.5 -38.0 hd 17.0 su
+546.5 -38.0 hd 17.0 su
+565.5 -41.0 hd 20.0 su
+584.5 -38.0 hd 17.0 su
+3.2 57.6 -6.0 608.7 -18.8 bm
+605.5 -38.0 hd 18.2 su
+624.5 -41.0 hd 19.2 su
+643.5 -47.0 hd 23.2 su
+662.5 -50.0 hd 24.2 su
+24.0 681.6 -47.0 bar 24.0 678.6 -47.0 bar 
+0 -70.00 T
+%%PageTrailer
+grestore
+showpage
+%%Trailer
+%%Pages: 14
+%EOF

@@ -1,0 +1,67 @@
+%%%%%%%
+beginps
+%%%%%%%
+
+
+/ISOLatin0Encoding ISOLatin1Encoding dup length array copy def
+ISOLatin0Encoding
+dup 8#201 /sharpchar put
+dup 8#202 /flatchar put
+dup 8#203 /natchar put
+dup 8#204 /dsharpchar put
+8#205 /dflatchar put
+
+/accfont{
+	/CharStrings CharStrings dup length 5 add dict copy def
+	FontMatrix 0 get 1 eq{
+	 CharStrings /sharpchar{pop
+		.650 0 0 -.050 .650 .750 setcachedevice
+		.050 dup scale 5.8 7 sh0}bind put
+	 CharStrings /flatchar{pop
+		.600 0 0 0 .600 .750 setcachedevice
+		.050 dup scale 5.8 6 ft0}bind put
+	 CharStrings /natchar{pop
+		.600 0 0 0 .600 .750 setcachedevice
+		.050 dup scale 5.8 7 nt0}bind put
+	 CharStrings /dsharpchar{pop
+		.650 0 0 -.050 .650 .750 setcachedevice
+		.050 dup scale 5.8 7 dsh0}bind put
+	 CharStrings /dflatchar{pop
+		.600 0 0 0 .600 .750 setcachedevice
+		.050 dup scale 5.8 6 dft0}bind put
+	}{
+	 CharStrings /sharpchar{pop
+		650 0 0 -50 650 750 setcachedevice
+		50 dup scale 5.8 7 sh0}bind put
+	 CharStrings /flatchar{pop
+		600 0 0 0 600 750 setcachedevice
+		50 dup scale 5.8 6 ft0}bind put
+	 CharStrings /natchar{pop
+		600 0 0 0 600 750 setcachedevice
+		50 dup scale 5.8 7 nt0}bind put
+	 CharStrings /dsharpchar{pop
+		650 0 0 -50 650 750 setcachedevice
+		50 dup scale 5.8 7 dsh0}bind put
+	 CharStrings /dflatchar{pop
+		600 0 0 0 600 750 setcachedevice
+		50 dup scale 5.8 6 dft0}bind put
+	 }ifelse
+	product(RoPS)eq FontType 3 eq and{
+		/TTBuildChar /BuildChar load def
+		/BuildChar{1 index begin
+			dup Encoding exch get
+			CharStrings exch get
+			end
+			dup type/integertype eq{
+				pop 1 index/TTBuildChar get exec
+			}{
+				exec pop
+			}ifelse
+		}bind def
+	}if
+	}!
+
+%%%%%
+endps
+%%%%%
+

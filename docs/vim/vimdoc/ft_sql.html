@@ -1,0 +1,798 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: ft_sql</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: ft_sql</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="ft_sql.txt"></A><b>ft_sql.txt</b>*	For Vim version 7.3.  Last change: 2010 Jul 20
+
+by David Fishburn
+
+This is a <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> to work with SQL files.
+
+The Structured Query Language (SQL) is a standard which specifies statements
+that allow a user to interact with a relational database.  Vim includes
+features for <a href="motion.html#navigation">navigation</a>, indentation and <a href="syntax.html#syntax">syntax</a> highlighting.
+
+1. Navigation					|<a href="ft_sql.html#sql-navigation">sql-navigation</a>|
+    1.1 Matchit					|<a href="ft_sql.html#sql-matchit">sql-matchit</a>|
+    1.2 Text Object Motions			|<a href="ft_sql.html#sql-object-motions">sql-object-motions</a>|
+    1.3 Predefined Object Motions		|<a href="ft_sql.html#sql-predefined-objects">sql-predefined-objects</a>|
+    1.4 Macros					|<a href="ft_sql.html#sql-macros">sql-macros</a>|
+2. SQL Dialects					|<a href="ft_sql.html#sql-dialects">sql-dialects</a>|
+    2.1 SQLSetType				|<a href="ft_sql.html#SQLSetType">SQLSetType</a>|
+    2.2 SQLGetType				|<a href="ft_sql.html#SQLGetType">SQLGetType</a>|
+    2.3 SQL Dialect Default			|<a href="ft_sql.html#sql-type-default">sql-type-default</a>|
+3. Adding new SQL Dialects			|<a href="ft_sql.html#sql-adding-dialects">sql-adding-dialects</a>|
+4. OMNI SQL Completion				|<a href="ft_sql.html#sql-completion">sql-completion</a>|
+    4.1 Static mode				|<a href="ft_sql.html#sql-completion-static">sql-completion-static</a>|
+    4.2 Dynamic mode				|<a href="ft_sql.html#sql-completion-dynamic">sql-completion-dynamic</a>|
+    4.3 Tutorial				|<a href="ft_sql.html#sql-completion-tutorial">sql-completion-tutorial</a>|
+	4.3.1 Complete Tables			|<a href="ft_sql.html#sql-completion-tables">sql-completion-tables</a>|
+	4.3.2 Complete Columns			|<a href="ft_sql.html#sql-completion-columns">sql-completion-columns</a>|
+	4.3.3 Complete Procedures		|<a href="ft_sql.html#sql-completion-procedures">sql-completion-procedures</a>|
+	4.3.4 Complete Views			|<a href="ft_sql.html#sql-completion-views">sql-completion-views</a>|
+    4.4 Completion Customization		|<a href="ft_sql.html#sql-completion-customization">sql-completion-customization</a>|
+    4.5 SQL Maps				|<a href="ft_sql.html#sql-completion-maps">sql-completion-maps</a>|
+    4.6 Using with other filetypes		|<a href="ft_sql.html#sql-completion-filetypes">sql-completion-filetypes</a>|
+
+==============================================================================
+
+1. Navigation					*<a name="sql-navigation"></A><b>sql-navigation</b>*
+
+The SQL <a href="usr_41.html#ftplugin">ftplugin</a> provides a number of <a href="options.html#options">options</a> to assist with file
+<a href="motion.html#navigation">navigation</a>.
+
+
+
+1.1 Matchit					*<a name="sql-matchit"></A><b>sql-matchit</b>*
+ The matchit plugin	<a href="http://www.vim.org/scripts/script.php?script_id=39">http://www.vim.org/scripts/script.php?script_id=39</a>
+provides many additional features and can be customized for different
+languages.  The matchit <a href="usr_05.html#plugin">plugin</a> is configured by defining a local
+buffer variable, b:match_words.  Pressing the <a href="motion.html#&#37;">&#37;</a> key while on various
+keywords will move the cursor to its match.  For example, if the cursor
+is on an &quot;if&quot;, pressing <a href="motion.html#&#37;">&#37;</a> will cycle between the &quot;else&quot;, &quot;elseif&quot; and
+&quot;end if&quot; keywords.
+
+The following keywords are supported:
+<b>    if</b>
+<b>    elseif | elsif</b>
+<b>    else [if]</b>
+<b>    end if</b>
+
+<b>    [while condition] loop</b>
+<b>	leave</b>
+<b>	break</b>
+<b>	continue</b>
+<b>	exit</b>
+<b>    end loop</b>
+
+<b>    for</b>
+<b>	leave</b>
+<b>	break</b>
+<b>	continue</b>
+<b>	exit</b>
+<b>    end loop</b>
+
+<b>    do</b>
+<b>	statements</b>
+<b>    doend</b>
+
+<b>    case</b>
+<b>    when</b>
+<b>    when</b>
+<b>    default</b>
+<b>    end case</b>
+
+<b>    merge</b>
+<b>    when not matched</b>
+<b>    when matched</b>
+
+<b>    create[ or replace] procedure|function|event</b>
+<b>    returns</b>
+
+
+
+1.2 Text Object Motions				*<a name="sql-object-motions"></A><b>sql-object-motions</b>*
+Vim has a number of predefined keys for working with text |<a href="motion.html#object-motions">object-motions</a>|.
+This <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> attempts to translate these keys to maps which make sense
+for the SQL language.
+
+The following |<a href="intro.html#Normal">Normal</a>| mode and |<a href="visual.html#Visual">Visual</a>| mode maps exist (when you edit a SQL
+file):
+<b>    ]]		    move forward to the next 'begin'</b>
+<b>    [[		    move backwards to the previous 'begin'</b>
+<b>    ][		    move forward to the next 'end'</b>
+<b>    []		    move backwards to the previous 'end'</b>
+
+
+
+1.3 Predefined Object Motions			*<a name="sql-predefined-objects"></A><b>sql-predefined-objects</b>*
+Most relational databases support various standard features, tables, indices,
+triggers and stored procedures.  Each vendor also has a variety of proprietary
+<a href="index.html#objects">objects</a>.  The next set of maps have been created to help move between these
+<a href="index.html#objects">objects</a>.  Depends on which database vendor you are using, the list of <a href="index.html#objects">objects</a>
+must be configurable.  The <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> attempts to define many of the
+standard <a href="index.html#objects">objects</a>, plus many additional ones.  In order to make this <a href="motion.html#as">as</a>
+flexible <a href="motion.html#as">as</a> possible, you can override the list of <a href="index.html#objects">objects</a> from within your
+|<a href="starting.html#vimrc">vimrc</a>| with the following:
+<b>    let g:ftplugin_sql_objects = 'function,procedure,event,table,trigger' .</b>
+<b>		\ ',schema,service,publication,database,datatype,domain' .</b>
+<b>		\ ',index,subscription,synchronization,view,variable'</b>
+
+The following |<a href="intro.html#Normal">Normal</a>| mode and |<a href="visual.html#Visual">Visual</a>| mode maps have been created which use
+the above list:
+<b>    ]}		    move forward to the next 'create &lt;object name&gt;'</b>
+<b>    [{		    move backward to the previous 'create &lt;object name&gt;'</b>
+
+Repeatedly pressing <a href="motion.html#]}">]}</a> will cycle through each of these create statements:
+<b>    create table t1 (</b>
+<b>	...</b>
+<b>    );</b>
+
+<b>    create procedure p1</b>
+<b>    begin</b>
+<b>	...</b>
+<b>    end;</b>
+
+<b>    create index i1 on t1 (c1);</b>
+
+The default setting for g:ftplugin_sql_objects is:
+<b>    let g:ftplugin_sql_objects = 'function,procedure,event,' .</b>
+<b>		\ '\\(existing\\\\|global\\s\\+temporary\\s\\+\\)\\\{,1}' .</b>
+<b>		\ 'table,trigger' .</b>
+<b>		\ ',schema,service,publication,database,datatype,domain' .</b>
+<b>		\ ',index,subscription,synchronization,view,variable'</b>
+
+The above will also handle these cases:
+<b>    create table t1 (</b>
+<b>	...</b>
+<b>    );</b>
+<b>    create existing table t2 (</b>
+<b>	...</b>
+<b>    );</b>
+<b>    create global temporary table t3 (</b>
+<b>	...</b>
+<b>    );</b>
+
+By default, the <a href="usr_41.html#ftplugin">ftplugin</a> only searches for CREATE statements.  You can also
+override this via your |<a href="starting.html#vimrc">vimrc</a>| with the following:
+<b>    let g:ftplugin_sql_statements = 'create,alter'</b>
+
+The <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> defines three types of comments:
+<b>    1.  --</b>
+<b>    2.  //</b>
+<b>    3.  /*</b>
+<b>	 *</b>
+<b>	 */</b>
+
+The following |<a href="intro.html#Normal">Normal</a>| mode and |<a href="visual.html#Visual">Visual</a>| mode maps have been created to work
+with comments:
+<b>    ]"		    move forward to the beginning of a comment</b>
+<b>    ["		    move forward to the end of a comment</b>
+
+
+
+
+1.4 Macros					   *<a name="sql-macros"></A><b>sql-macros</b>*
+Vim's feature to find <a href="map.html#macro">macro</a> <a href="intro.html#definitions">definitions</a>, |<a href="options.html#'define'">'define'</a>|, is supported using this
+regular <a href="eval.html#expression">expression</a>:
+<b>    \c\&lt;\(VARIABLE\|DECLARE\|IN\|OUT\|INOUT\)\&gt;</b>
+
+This addresses the following code:
+<b>    CREATE VARIABLE myVar1 INTEGER;</b>
+
+<b>    CREATE PROCEDURE sp_test(</b>
+<b>	IN myVar2 INTEGER,</b>
+<b>	OUT myVar3 CHAR(30),</b>
+<b>	INOUT myVar4 NUMERIC(20,0)</b>
+<b>    )</b>
+<b>    BEGIN</b>
+<b>	DECLARE myVar5 INTEGER;</b>
+
+<b>	SELECT c1, c2, c3</b>
+<b>	  INTO myVar2, myVar3, myVar4</b>
+<b>	  FROM T1</b>
+<b>	 WHERE c4 = myVar1;</b>
+<b>    END;</b>
+
+Place your cursor on &quot;myVar1&quot; on this line:
+<b>	 WHERE c4 = myVar1;</b>
+<b>		     ^</b>
+
+Press any of the following keys:
+<b>    [d</b>
+<b>    [D</b>
+<b>    [CTRL-D</b>
+
+
+==============================================================================
+
+2. SQL Dialects					*<a name="sql-dialects"></A><b>sql-dialects</b>* *<a name="sql-types"></A><b>sql-types</b>*
+
+						*<a name="sybase"></A><b>sybase</b>* *<a name="TSQL"></A><b>TSQL</b>* *<a name="Transact-SQL"></A><b>Transact-SQL</b>*
+
+						*<a name="sqlanywhere"></A><b>sqlanywhere</b>*
+
+						*<a name="oracle"></A><b>oracle</b>* *<a name="plsql"></A><b>plsql</b>* *<a name="sqlj"></A><b>sqlj</b>*
+
+						*<a name="sqlserver"></A><b>sqlserver</b>*
+
+						*<a name="mysql"></A><b>mysql</b>* *<a name="postgresql"></A><b>postgresql</b>* *<a name="psql"></A><b>psql</b>*
+
+						*<a name="informix"></A><b>informix</b>*
+
+All relational databases support SQL.  There is a portion of SQL that is
+portable across vendors (ex. CREATE TABLE, CREATE INDEX), but there is a
+great deal of vendor specific extensions to SQL.  Oracle supports the
+&quot;CREATE OR REPLACE&quot; <a href="syntax.html#syntax">syntax</a>, column defaults specified in the CREATE TABLE
+statement and the procedural language (for stored procedures and triggers).
+
+The default Vim <a href="intro.html#distribution">distribution</a> ships with <a href="syntax.html#syntax">syntax</a> highlighting based on Oracle's
+PL/SQL.  The default SQL indent <a href="usr_41.html#script">script</a> works for Oracle and SQL Anywhere.
+The default <a href="filetype.html#filetype">filetype</a> <a href="usr_05.html#plugin">plugin</a> works for all vendors and should remain vendor
+neutral, but extendable.
+
+Vim currently has support for a variety of different vendors, currently this
+is via <a href="syntax.html#syntax">syntax</a> scripts. Unfortunately, to flip between different <a href="syntax.html#syntax">syntax</a> rules
+you must either create:
+    1.  New <a href="filetype.html#filetypes">filetypes</a>
+    2.  Custom autocmds
+    3.  Manual steps / commands
+
+The majority of people work with only one vendor's database product, it would
+be <a href="todo.html#nice">nice</a> to specify a default in your |<a href="starting.html#vimrc">vimrc</a>|.
+
+
+
+2.1 <a href="ft_sql.html#SQLSetType">SQLSetType</a>					*<a name="sqlsettype"></A><b>sqlsettype</b>* *<a name="SQLSetType"></A><b>SQLSetType</b>*
+For the people that work with many different databases, it is <a href="todo.html#nice">nice</a> to be
+able to flip between the various vendors rules (indent, <a href="syntax.html#syntax">syntax</a>) on a per
+buffer basis, at any time.  The ftplugin/sql.vim file defines this function:
+<b>    SQLSetType</b>
+
+Executing this function without any parameters will set the indent and <a href="syntax.html#syntax">syntax</a>
+scripts back to their defaults, see |<a href="ft_sql.html#sql-type-default">sql-type-default</a>|.  If you have turned
+off Vi's compatibility mode, |<a href="options.html#'compatible'">'compatible'</a>|, you can use the <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> key to
+complete the optional parameter.
+
+After typing the function name and a space, you can use the completion to
+supply a parameter.  The function takes the name of the Vim <a href="usr_41.html#script">script</a> you want to
+source.  Using the |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>| feature, the <a href="ft_sql.html#SQLSetType">SQLSetType</a> function will
+search the |<a href="options.html#'runtimepath'">'runtimepath'</a>| for all Vim scripts with a name containing 'sql'.
+This takes the guess work out of the spelling of the names.  The following are
+examples:
+<b>    :SQLSetType</b>
+<b>    :SQLSetType sqloracle</b>
+<b>    :SQLSetType sqlanywhere</b>
+<b>    :SQLSetType sqlinformix</b>
+<b>    :SQLSetType mysql</b>
+
+The easiest approach is to the use <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> character which will first complete
+the command name (SQLSetType), after a space and another <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>, display a list
+of available Vim <a href="usr_41.html#script">script</a> names:
+<b>    :SQL&lt;Tab&gt;&lt;space&gt;&lt;Tab&gt;</b>
+
+
+
+2.2 <a href="ft_sql.html#SQLGetType">SQLGetType</a>					*<a name="sqlgettype"></A><b>sqlgettype</b>* *<a name="SQLGetType"></A><b>SQLGetType</b>*
+At anytime you can determine which SQL dialect you are using by calling the
+<a href="ft_sql.html#SQLGetType">SQLGetType</a> command.  The ftplugin/sql.vim file defines this function:
+<b>    SQLGetType</b>
+
+This will echo:
+<b>    Current SQL dialect in use:sqlanywhere</b>
+
+
+
+2.3 SQL Dialect Default				*<a name="sql-type-default"></A><b>sql-type-default</b>*
+As mentioned earlier, the default <a href="syntax.html#syntax">syntax</a> rules for Vim is based on Oracle
+(PL/SQL).  You can override this default by placing one of the following in
+your YXXYvimrc|:
+<b>    let g:sql_type_default = 'sqlanywhere'</b>
+<b>    let g:sql_type_default = 'sqlinformix'</b>
+<b>    let g:sql_type_default = 'mysql'</b>
+
+If you added the following to your YXXYvimrc|:
+<b>    let g:sql_type_default = 'sqlinformix'</b>
+
+The next time edit a SQL file the following scripts will be automatically
+loaded by Vim:
+<b>    ftplugin/sql.vim</b>
+<b>    syntax/sqlinformix.vim</b>
+<b>    indent/sql.vim</b>
+
+Notice indent/sqlinformix.sql was not loaded.  There is no indent file
+for Informix, Vim loads the default files if the specified files does not
+exist.
+
+
+==============================================================================
+
+3. Adding new SQL Dialects			*<a name="sql-adding-dialects"></A><b>sql-adding-dialects</b>*
+
+If you begin working with a SQL dialect which does not have any customizations
+ available with the default Vim distribution you can check	<a href="http://www.vim.org">http://www.vim.org</a>
+to see if any customization currently exist.  If not, you can begin by cloning
+an existing <a href="usr_41.html#script">script</a>.  Read |<a href="filetype.html#filetype-plugins">filetype-plugins</a>| for more details.
+
+To help identify these scripts, try to create the files with a &quot;sql&quot; prefix.
+If you decide you wish to create customizations for the SQLite database, you
+can create any of the following:
+<b>    Unix</b>
+<b>	~/.vim/syntax/sqlite.vim</b>
+<b>	~/.vim/indent/sqlite.vim</b>
+<b>    Windows</b>
+<b>	$VIM/vimfiles/syntax/sqlite.vim</b>
+<b>	$VIM/vimfiles/indent/sqlite.vim</b>
+
+No changes are necessary to the <a href="ft_sql.html#SQLSetType">SQLSetType</a> function.  It will automatically
+pickup the new SQL files and load them when you issue the <a href="ft_sql.html#SQLSetType">SQLSetType</a> command.
+
+
+==============================================================================
+
+4. OMNI SQL Completion				*<a name="sql-completion"></A><b>sql-completion</b>*
+
+						*<a name="omni-sql-completion"></A><b>omni-sql-completion</b>*
+
+Vim 7 includes a code completion interface and <a href="eval.html#functions">functions</a> which allows <a href="usr_05.html#plugin">plugin</a>
+developers to build in code completion for any language.  Vim 7 includes
+code completion for the SQL language.
+
+There are two modes to the SQL completion <a href="usr_05.html#plugin">plugin</a>, static and dynamic.  The
+static mode populates the popups with the data generated from current <a href="syntax.html#syntax">syntax</a>
+highlight rules.  The dynamic mode populates the popups with data retrieved
+directly from a database.  This includes, table lists, column lists,
+procedures names and more.
+
+
+4.1 Static Mode					*<a name="sql-completion-static"></A><b>sql-completion-static</b>*
+The static popups created contain items defined by the active <a href="syntax.html#syntax">syntax</a> rules
+while editing a file with a <a href="filetype.html#filetype">filetype</a> of SQL.  The <a href="usr_05.html#plugin">plugin</a> defines (by default)
+various maps to help the user refine the list of items to be displayed.
+The defaults static maps are:
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;a &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('syntax')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;k &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlKeyword')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;f &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlFunction')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;o &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlOption')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;T &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlType')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;s &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlStatement')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+
+The use of &quot;&lt;C-C&gt;&quot; can be user chosen by using the following in your |<a href="starting.html#.vimrc">.vimrc</a>| <a href="motion.html#as">as</a> it 
+may not work properly on all platforms:
+<b>    let g:ftplugin_sql_omni_key = '&lt;C-C&gt;'</b>
+
+The static maps (which are based on the <a href="syntax.html#syntax">syntax</a> highlight groups) follow this
+format:
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;k &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlKeyword')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+
+This command breaks down <a href="motion.html#as">as</a>:
+<b>    imap		   - Create an insert map</b>
+<b>    &lt;buffer&gt;		   - Only for this buffer</b>
+<b>    &lt;C-C&gt;k		   - Your choice of key map</b>
+<b>    &lt;C-\&gt;&lt;C-O&gt;		   - Execute one command, return to Insert mode</b>
+<b>    :call sqlcomplete#Map( - Allows the SQL completion plugin to perform some</b>
+<b>			     housekeeping functions to allow it to be used in</b>
+<b>			     conjunction with other completion plugins.</b>
+<b>			     Indicate which item you want the SQL completion</b>
+<b>			     plugin to complete.</b>
+<b>			     In this case we are asking the plugin to display</b>
+<b>			     items from the syntax highlight group</b>
+<b>			     'sqlKeyword'.</b>
+<b>			     You can view a list of highlight group names to</b>
+<b>			     choose from by executing the</b>
+<b>				 :syntax list</b>
+<b>			     command while editing a SQL file.</b>
+<b>    'sqlKeyword'	   - Display the items for the sqlKeyword highlight</b>
+<b>			     group</b>
+<b>    )&lt;CR&gt;		   - Execute the :let command</b>
+<b>    &lt;C-X&gt;&lt;C-O&gt;		   - Trigger the standard omni completion key stroke.</b>
+<b>			     Passing in 'sqlKeyword' instructs the SQL</b>
+<b>			     completion plugin to populate the popup with</b>
+<b>			     items from the sqlKeyword highlight group.  The</b>
+<b>			     plugin will also cache this result until Vim is</b>
+<b>			     restarted.  The syntax list is retrieved using</b>
+<b>			     the syntaxcomplete plugin.</b>
+
+Using the <a href="options.html#'syntax'">'syntax'</a> keyword is a special <a href="change.html#case">case</a>.  This instructs the
+syntaxcomplete <a href="usr_05.html#plugin">plugin</a> to retrieve all <a href="syntax.html#syntax">syntax</a> items.  So this will effectively
+work for any of Vim's SQL <a href="syntax.html#syntax">syntax</a> files.  At the time of <a href="editing.html#writing">writing</a> this includes
+10 different <a href="syntax.html#syntax">syntax</a> files for the different dialects of SQL (see section 3
+above, |<a href="ft_sql.html#sql-dialects">sql-dialects</a>|).
+
+Here are some examples of the entries which are pulled from the <a href="syntax.html#syntax">syntax</a> files:
+<b>     All</b>
+<b>	 - Contains the contents of all syntax highlight groups</b>
+<b>     Statements</b>
+<b>	 - Select, Insert, Update, Delete, Create, Alter, ...</b>
+<b>     Functions</b>
+<b>	 - Min, Max, Trim, Round, Date, ...</b>
+<b>     Keywords</b>
+<b>	 - Index, Database, Having, Group, With</b>
+<b>     Options</b>
+<b>	 - Isolation_level, On_error, Qualify_owners, Fire_triggers, ...</b>
+<b>     Types</b>
+<b>	 - Integer, Char, Varchar, Date, DateTime, Timestamp, ...</b>
+
+
+
+4.2 Dynamic Mode				*<a name="sql-completion-dynamic"></A><b>sql-completion-dynamic</b>*
+Dynamic mode populates the popups with data directly from a database.  In
+order for the dynamic feature to be enabled you must have the dbext.vim
+ plugin installed,	<a href="http://vim.sourceforge.net/script.php?script_id=356">http://vim.sourceforge.net/script.php?script_id=356</a>.
+
+Dynamic mode is used by several features of the SQL completion <a href="usr_05.html#plugin">plugin</a>.
+After installing the dbext <a href="usr_05.html#plugin">plugin</a> see the dbext-tutorial for additional
+configuration and usage.  The dbext <a href="usr_05.html#plugin">plugin</a> allows the SQL completion <a href="usr_05.html#plugin">plugin</a>
+to display a list of tables, procedures, views and columns.
+<b>     Table List</b>
+<b>	 - All tables for all schema owners</b>
+<b>     Procedure List</b>
+<b>	 - All stored procedures for all schema owners</b>
+<b>     View List</b>
+<b>	 - All stored procedures for all schema owners</b>
+<b>     Column List</b>
+<b>	 - For the selected table, the columns that are part of the table</b>
+
+To enable the popup, while in INSERT mode, use the following key combinations
+for each group (where &lt;C-C&gt; means hold the CTRL key down while pressing
+the space bar):
+     Table <a href="eval.html#List">List</a>		   - &lt;C-C&gt;t
+			   - &lt;C-X&gt;&lt;C-O&gt; (the default map assumes tables)
+     Stored Procedure <a href="eval.html#List">List</a> - &lt;C-C&gt;p
+     <a href="starting.html#View">View</a> <a href="eval.html#List">List</a>		   - &lt;C-C&gt;v
+     Column <a href="eval.html#List">List</a>	   - &lt;C-C&gt;c
+
+     Drilling In / Out     - When viewing a popup <a href="windows.html#window">window</a> displaying the list
+			     of tables, you can press <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>, this will
+			     replace the table currently highlighted with
+			     the column list for that table.
+			   - When viewing a popup <a href="windows.html#window">window</a> displaying the list
+			     of columns, you can press <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>, this will
+			     replace the column list with the list of tables.
+			   - This allows you to quickly drill down into a
+			     table to <a href="starting.html#view">view</a> it's columns and back again.
+			   - <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> and <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> can be also be chosen via
+			     your |<a href="starting.html#.vimrc">.vimrc</a>|
+<b>                                let g:ftplugin_sql_omni_key_right = '&lt;Right&gt;'</b>
+<b>                                let g:ftplugin_sql_omni_key_left  = '&lt;Left&gt;'</b>
+
+The SQL completion <a href="usr_05.html#plugin">plugin</a> caches various lists that are displayed in
+the popup <a href="windows.html#window">window</a>.  This makes the re-displaying of these lists very
+fast.  If new tables or columns are added to the database it may become
+necessary to clear the plugins cache.  The default map for this is:
+<b>    imap &lt;buffer&gt; &lt;C-C&gt;R &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('ResetCache')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</b>
+
+
+
+4.3 SQL Tutorial				*<a name="sql-completion-tutorial"></A><b>sql-completion-tutorial</b>*
+
+This tutorial is designed to take you through the common features of the SQL
+completion <a href="usr_05.html#plugin">plugin</a> so that:
+<b>     a) You gain familiarity with the plugin</b>
+<b>     b) You are introduced to some of the more common features</b>
+<b>     c) Show how to customize it to your preferences</b>
+<b>     d) Demonstrate "Best of Use" of the plugin (easiest way to configure).</b>
+
+First, create a new buffer:
+<b>     :e tutorial.sql</b>
+
+
+Static features
+To take you through the various lists, simply enter insert mode, hit:
+    &lt;C-C&gt;s   (show SQL statements)
+At this point, you can page down through the list until you find &quot;select&quot;.
+If you are familiar with the item you are looking for, for example you know
+the statement begins with the <a href="print.html#letter">letter</a> &quot;<a href="change.html#s">s</a>&quot;.  You can type ahead (without the
+<a href="quotes.html#quotes">quotes</a>) &quot;se&quot; then press:
+    &lt;C-Space&gt;t
+Assuming &quot;select&quot; is highlighted in the popup list press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> to choose
+the entry.  Now type:
+    &#42; fr&lt;C-C&gt;a (show all <a href="syntax.html#syntax">syntax</a> items)
+choose &quot;from&quot; from the popup list.
+
+When <a href="editing.html#writing">writing</a> stored procedures using the &quot;type&quot; list is useful.  It contains
+a list of all the database supported types.  This may or may not be true
+depending on the <a href="syntax.html#syntax">syntax</a> file you are using.  The SQL Anywhere <a href="syntax.html#syntax">syntax</a> file
+(sqlanywhere.vim) has support for this:
+<b>     BEGIN</b>
+<b>	DECLARE customer_id &lt;C-C&gt;T &lt;-- Choose a type from the list</b>
+
+
+Dynamic features
+To take advantage of the dynamic features you must first <a href="usr_90.html#install">install</a> the
+ dbext.vim plugin	<a href="http://vim.sourceforge.net/script.php?script_id=356">http://vim.sourceforge.net/script.php?script_id=356</a>. It
+also comes with a tutorial.  From the SQL completion plugin's perspective,
+the main feature dbext provides is a connection to a database.  dbext
+connection profiles are the most efficient mechanism to define connection
+information.  Once connections have been setup, the SQL completion <a href="usr_05.html#plugin">plugin</a>
+uses the features of dbext in the background to populate the popups.
+
+What follows assumes dbext.vim has been correctly configured, a simple test
+is to run the command, :DBListTable.  If a list of tables is shown, you know
+dbext.vim is working <a href="motion.html#as">as</a> expected.  If not, please consult the dbext.txt
+documentation.
+
+Assuming you have followed the dbext-tutorial you can press &lt;C-C&gt;t to
+display a list of tables.  There is a delay while dbext is creating the table
+list.  After the list is displayed press &lt;C-W&gt;.  This will remove both the
+popup <a href="windows.html#window">window</a> and the table name already chosen when the list became active.
+
+<b> 4.3.1 Table Completion:			*sql-completion-tables*</b>
+
+Press &lt;C-C&gt;t to display a list of tables from within the database you
+have connected via the dbext <a href="usr_05.html#plugin">plugin</a>.
+NOTE: All of the SQL completion popups support typing a prefix before pressing
+the key map.  This will limit the contents of the popup <a href="windows.html#window">window</a> to just items
+beginning with those characters. 
+
+<b> 4.3.2 Column Completion:			*sql-completion-columns*</b>
+
+The SQL completion <a href="usr_05.html#plugin">plugin</a> can also display a list of columns for particular
+tables.  The column completion is trigger via &lt;C-C&gt;c.
+
+NOTE: The following example uses <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> to trigger a column list while
+      the popup <a href="windows.html#window">window</a> is active.  
+
+Example of using column completion:
+     - Press &lt;C-C&gt;t again to display the list of tables.
+     - When the list is displayed in the completion <a href="windows.html#window">window</a>, press <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>,
+       this will replace the list of tables, with a list of columns for the
+       table highlighted (after the same short delay).
+     - If you press <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>, this will again replace the column list with the
+       list of tables.  This allows you to drill into tables and column lists
+       very quickly.
+     - Press <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> again while the same table is highlighted.  You will
+       notice there is no delay since the column list has been cached.  If you
+       change the schema of a cached table you can press &lt;C-C&gt;R, which
+       clears the SQL completion cache.
+     - NOTE: <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> and <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> have been designed to work while the
+       completion <a href="windows.html#window">window</a> is active.  If the completion popup <a href="windows.html#window">window</a> is
+       not active, a normal <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> or <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> will be executed.
+
+Let's look at how we can build a SQL statement dynamically.  A select statement
+requires a list of columns.  There are two ways to build a column list using
+the SQL completion <a href="usr_05.html#plugin">plugin</a>.
+<b>    One column at a time:</b>
+        1. After typing SELECT press &lt;C-C&gt;t to display a list of tables.
+	2. Choose a table from the list.
+	3. Press <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> to display a list of columns.
+	4. Choose the column from the list and press enter.
+	5. Enter a &quot;<a href="motion.html#,">,</a>&quot; and press &lt;C-C&gt;c.  Generating a column list
+	   generally requires having the cursor on a table name.  The <a href="usr_05.html#plugin">plugin</a>
+	   uses this name to determine what table to retrieve the column list.
+	   In this step, since we are pressing &lt;C-C&gt;c without the cursor
+	   on a table name the column list displayed will be for the previous
+	   table.  Choose a different column and move on.
+	6. Repeat step 5 <a href="motion.html#as">as</a> often <a href="motion.html#as">as</a> necessary.
+<b>    All columns for a table:</b>
+ 	1. After typing SELECT press &lt;C-C&gt;t to display a list of tables.
+	2. Highlight the table you need the column list for.
+	3. Press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> to choose the table from the list.
+	4. Press &lt;C-C&gt;l to request a comma separated list of all columns
+	   for this table.
+	5. Based on the table name chosen in step 3, the <a href="usr_05.html#plugin">plugin</a> attempts to
+	   decide on a reasonable table alias.	You are then prompted to
+	   either accept of change the alias.  Press OK.
+	6. The table name is replaced with the column list of the table is
+	   replaced with the comma separate list of columns with the alias
+	   prepended to each of the columns.
+	7. Step 3 and 4 can be replaced by pressing &lt;C-C&gt;L, which has
+	   a &lt;C-Y&gt; embedded in the map to choose the currently highlighted
+	   table in the list.
+
+There is a special provision when <a href="editing.html#writing">writing</a> select statements.  Consider the
+following statement:
+<b>     select *</b>
+<b>       from customer c,</b>
+<b>	    contact cn,</b>
+<b>	    department as dp,</b>
+<b>	    employee e,</b>
+<b>	    site_options so</b>
+<b>      where c.</b>
+
+In INSERT mode after typing the final &quot;c.&quot; which is an alias for the
+&quot;customer&quot; table, you can press either &lt;C-C&gt;c or &lt;C-X&gt;&lt;C-O&gt;.  This will
+popup a list of columns for the customer table.  It does this by looking back
+to the beginning of the select statement and finding a list of the tables
+specified in the FROM clause.  In this <a href="change.html#case">case</a> it notes that in the string
+&quot;customer c&quot;, &quot;<a href="change.html#c">c</a>&quot; is an alias for the customer table.  The optional &quot;AS&quot;
+keyword is also supported, &quot;customer AS c&quot;.
+
+
+<b> 4.3.3 Procedure Completion:			*sql-completion-procedures*</b>
+
+Similar to the table list, &lt;C-C&gt;p, will display a list of stored
+procedures stored within the database.
+
+<b> 4.3.4 View Completion:				*sql-completion-views*</b>
+
+Similar to the table list, &lt;C-C&gt;v, will display a list of views in the
+database.
+
+
+
+4.4 Completion Customization			*<a name="sql-completion-customization"></A><b>sql-completion-customization</b>*
+
+The SQL completion <a href="usr_05.html#plugin">plugin</a> can be customized through various <a href="options.html#options">options</a> set in
+your YXXYvimrc|:
+<b>    omni_sql_no_default_maps</b>
+        - Default: This variable is not defined
+	- If this variable is defined, no maps are created for OMNI
+	  completion.  See |<a href="ft_sql.html#sql-completion-maps">sql-completion-maps</a>| for further discussion.
+
+<b>    omni_sql_use_tbl_alias</b>
+ 	- Default: a
+	- This setting is only used when generating a comma separated
+	  column list.	By default the map is &lt;C-C&gt;l.  When generating
+	  a column list, an alias can be prepended to the beginning of each
+	  column, for example:	e.emp_id, e.emp_name.  This option has three
+	  settings:
+<b>		n - do not use an alias</b>
+<b>		d - use the default (calculated) alias</b>
+<b>		a - ask to confirm the alias name</b>
+ 
+	  An alias is determined following a few rules:
+	       1.  If the table name has an '<a href="motion.html#_">_</a>', then use it <a href="motion.html#as">as</a> a separator:
+<b>		   MY_TABLE_NAME --&gt; MTN</b>
+<b>		   my_table_name --&gt; mtn</b>
+<b>		   My_table_NAME --&gt; MtN</b>
+ 	       2.  If the table name does NOT contain an '<a href="motion.html#_">_</a>', but DOES use
+		   mixed <a href="change.html#case">case</a> then the <a href="change.html#case">case</a> is used <a href="motion.html#as">as</a> a separator:
+<b>		   MyTableName --&gt; MTN</b>
+ 	       3.  If the table name does NOT contain an '<a href="motion.html#_">_</a>', and does NOT
+		   use mixed <a href="change.html#case">case</a> then the first <a href="print.html#letter">letter</a> of the table is used:
+<b>		   mytablename --&gt; m</b>
+<b>		   MYTABLENAME --&gt; M</b>
+
+<b>    omni_sql_ignorecase</b>
+ 	- Default: Current setting for <a href="options.html#'ignorecase'">'ignorecase'</a>
+	- Valid settings are 0 or 1.
+	- When entering a few letters before initiating completion, the list
+	  will be filtered to display only the entries which begin with the
+	  list of characters.  When this option is set to 0, the list will be
+	  filtered using <a href="change.html#case">case</a> sensitivity.
+
+<b>    omni_sql_include_owner</b>
+ 	- Default: 0, unless dbext.vim 3.00 has been installed
+	- Valid settings are 0 or 1.
+	- When completing tables, procedure or views and using dbext.vim 3.00
+	  or higher the list of <a href="index.html#objects">objects</a> will also include the owner name.
+	  When completing these <a href="index.html#objects">objects</a> and omni_sql_include_owner is enabled
+	  the owner name will be be replaced.
+
+<b>    omni_sql_precache_syntax_groups</b>
+ 	- Default:
+	  ['syntax','sqlKeyword','sqlFunction','sqlOption','sqlType','sqlStatement']
+	- sqlcomplete can be used in conjunction with other completion
+	  plugins.  This is outlined at |<a href="ft_sql.html#sql-completion-filetypes">sql-completion-filetypes</a>|.  When the
+	  <a href="filetype.html#filetype">filetype</a> is changed temporarily to SQL, the sqlcompletion <a href="usr_05.html#plugin">plugin</a>
+	  will cache the <a href="syntax.html#syntax">syntax</a> groups listed in the <a href="eval.html#List">List</a> specified in this
+	  option.
+
+
+
+4.5 SQL Maps					*<a name="sql-completion-maps"></A><b>sql-completion-maps</b>*
+
+The default SQL maps have been described in other sections of this document in
+greater detail.  Here is a list of the maps with a brief description of each.
+
+Static Maps
+These are maps which use populate the completion list using Vim's <a href="syntax.html#syntax">syntax</a>
+highlighting rules.
+<b>    &lt;C-C&gt;a</b>
+        - Displays all SQL <a href="syntax.html#syntax">syntax</a> items.
+<b>    &lt;C-C&gt;k</b>
+        - Displays all SQL <a href="syntax.html#syntax">syntax</a> items defined <a href="motion.html#as">as</a> 'sqlKeyword'.
+<b>    &lt;C-C&gt;f</b>
+        - Displays all SQL <a href="syntax.html#syntax">syntax</a> items defined <a href="motion.html#as">as</a> 'sqlFunction.
+<b>    &lt;C-C&gt;o</b>
+        - Displays all SQL <a href="syntax.html#syntax">syntax</a> items defined <a href="motion.html#as">as</a> 'sqlOption'.
+<b>    &lt;C-C&gt;T</b>
+        - Displays all SQL <a href="syntax.html#syntax">syntax</a> items defined <a href="motion.html#as">as</a> 'sqlType'.
+<b>    &lt;C-C&gt;s</b>
+        - Displays all SQL <a href="syntax.html#syntax">syntax</a> items defined <a href="motion.html#as">as</a> 'sqlStatement'.
+
+Dynamic Maps
+These are maps which use populate the completion list using the dbext.vim
+<a href="usr_05.html#plugin">plugin</a>.
+<b>    &lt;C-C&gt;t</b>
+        - Displays a list of tables.
+<b>    &lt;C-C&gt;p</b>
+        - Displays a list of procedures.
+<b>    &lt;C-C&gt;v</b>
+        - Displays a list of views.
+<b>    &lt;C-C&gt;c</b>
+        - Displays a list of columns for a specific table.
+<b>    &lt;C-C&gt;l</b>
+        - Displays a comma separated list of columns for a specific table.
+<b>    &lt;C-C&gt;L</b>
+        - Displays a comma separated list of columns for a specific table.
+	  This should only be used when the completion <a href="windows.html#window">window</a> is active.
+<b>    &lt;Right&gt;</b>
+ 	- Displays a list of columns for the table currently highlighted in
+	  the completion <a href="windows.html#window">window</a>.  <a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a> is not recognized on most <a href="os_unix.html#Unix">Unix</a>
+	  systems, so this maps is only created on the Windows platform.
+	  If you would like the same feature on <a href="os_unix.html#Unix">Unix</a>, choose a different key
+	  and make the same map in your <a href="starting.html#vimrc">vimrc</a>.
+<b>    &lt;Left&gt;</b>
+ 	- Displays the list of tables.
+	  <a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a> is not recognized on most <a href="os_unix.html#Unix">Unix</a> systems, so this maps is
+	  only created on the Windows platform.  If you would like the same
+	  feature on <a href="os_unix.html#Unix">Unix</a>, choose a different key and make the same map in
+	  your <a href="starting.html#vimrc">vimrc</a>.
+<b>    &lt;C-C&gt;R</b>
+ 	- This maps removes all cached items and forces the SQL completion
+	  to regenerate the list of items.
+
+Customizing Maps
+You can create <a href="motion.html#as">as</a> many additional key maps <a href="motion.html#as">as</a> you like.  Generally, the maps
+will be specifying different <a href="syntax.html#syntax">syntax</a> highlight groups.
+
+If you <a href="diff.html#do">do</a> not wish the default maps created or the key choices <a href="diff.html#do">do</a> not work on
+your platform (often a <a href="change.html#case">case</a> on *nix) you define the following variable in
+your YXXYvimrc|:
+<b>    let g:omni_sql_no_default_maps = 1</b>
+
+Do no edit ftplugin/sql.vim directly!  If you change this file your changes
+will be over written on future updates.  Vim has a special directory structure
+which allows you to make customizations without <a href="change.html#changing">changing</a> the files that are
+included with the Vim <a href="intro.html#distribution">distribution</a>.  If you wish to customize the maps
+create an after/ftplugin/sql.vim (see |<a href="options.html#after-directory">after-directory</a>|) and place the same
+maps from the ftplugin/sql.vim in it using your own key strokes.  &lt;C-C&gt; was
+chosen since it will work on both Windows and *nix platforms.  On the <a href="windows.html#windows">windows</a>
+platform you can also use &lt;C-Space&gt; or ALT keys.
+
+
+
+4.6 Using with other <a href="filetype.html#filetypes">filetypes</a>			*<a name="sql-completion-filetypes"></A><b>sql-completion-filetypes</b>*
+
+Many times SQL can be used with different <a href="filetype.html#filetypes">filetypes</a>.  For example <a href="if_perl.html#Perl">Perl</a>, Java,
+PHP, Javascript can all interact with a database.  Often you need both the SQL
+completion and the completion capabilities for the current language you are
+editing.
+
+This can be enabled easily with the following steps (assuming a <a href="if_perl.html#Perl">Perl</a> file):
+<b>    1.  :e test.pl</b>
+<b>    2.  :set filetype=sql</b>
+<b>    3.  :set ft=perl</b>
+
+Step 1
+Begins by editing a <a href="if_perl.html#Perl">Perl</a> file.  Vim automatically sets the <a href="filetype.html#filetype">filetype</a> to
+&quot;<a href="if_perl.html#perl">perl</a>&quot;.  By default, Vim runs the appropriate <a href="filetype.html#filetype">filetype</a> file
+ftplugin/perl.vim.  If you are using the <a href="syntax.html#syntax">syntax</a> completion <a href="usr_05.html#plugin">plugin</a> by following
+the directions at |<a href="insert.html#ft-syntax-omni">ft-syntax-omni</a>| then the |<a href="options.html#'omnifunc'">'omnifunc'</a>| option has been set to
+&quot;syntax#Complete&quot;.  Pressing &lt;C-X&gt;&lt;C-O&gt; will display the omni popup containing
+the <a href="syntax.html#syntax">syntax</a> items for <a href="if_perl.html#Perl">Perl</a>.
+
+Step 2
+Manually setting the <a href="filetype.html#filetype">filetype</a> to 'sql' will also fire the appropriate <a href="filetype.html#filetype">filetype</a>
+files ftplugin/sql.vim.  This file will define a number of buffer specific
+maps for SQL completion, see |<a href="ft_sql.html#sql-completion-maps">sql-completion-maps</a>|.  Now these maps have
+been created and the SQL completion <a href="usr_05.html#plugin">plugin</a> has been initialized.  All SQL
+<a href="syntax.html#syntax">syntax</a> items have been cached in preparation.  The SQL <a href="filetype.html#filetype">filetype</a> <a href="usr_41.html#script">script</a> detects
+we are attempting to use two different completion plugins.  Since the SQL maps
+begin with &lt;C-C&gt;, the maps will toggle the |<a href="options.html#'omnifunc'">'omnifunc'</a>| when in use.  So you
+can use &lt;C-X&gt;&lt;C-O&gt; to continue using the completion for <a href="if_perl.html#Perl">Perl</a> (using the <a href="syntax.html#syntax">syntax</a>
+completion <a href="usr_05.html#plugin">plugin</a>) and &lt;C-C&gt; to use the SQL completion features.
+
+Step 3
+Setting the <a href="filetype.html#filetype">filetype</a> back to <a href="if_perl.html#Perl">Perl</a> sets all the usual &quot;<a href="if_perl.html#perl">perl</a>&quot; related items back
+<a href="motion.html#as">as</a> they were.
+
+
+<a href="ft_sql.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

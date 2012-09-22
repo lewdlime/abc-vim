@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: hangulin</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: hangulin</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="hangulin.txt"></A><b>hangulin.txt</b>*  For Vim version 7.3.  Last change: 2009 Jun 24
+
+
+		  VIM REFERENCE MANUAL    by Chi-Deok Hwang and Sung-Hyun Nam
+
+NOTE: The |<a href="various.html#+hangul_input">+hangul_input</a>| feature is scheduled to be removed.  If you want to
+keep it, please send a message to the Vim user <a href="intro.html#maillist">maillist</a>.
+
+
+
+Introduction					*<a name="hangul"></A><b>hangul</b>*
+It is to input <a href="hangulin.html#hangul">hangul</a>, the <a href="mbyte.html#Korean">Korean</a> language, with VIM <a href="gui.html#GUI">GUI</a> version.
+If you have a <a href="mbyte.html#XIM">XIM</a> program, you can use another |<a href="various.html#+xim">+xim</a>| feature.
+Basically, it is for anybody who has no <a href="mbyte.html#XIM">XIM</a> program.
+
+Compile
+Next is a basic option.  You can add any other configure option.
+
+<b>   ./configure --with-x --enable-multibyte --enable-fontset --enable-hangulinput</b>
+
+And you should check feature.h.  If |<a href="various.html#+hangul_input">+hangul_input</a>| feature is enabled
+by configure, you can select more <a href="options.html#options">options</a> such <a href="motion.html#as">as</a> keyboard type, 2 bulsik
+or 3 bulsik.  You can find keywords like next in there.
+
+<b>	#define HANGUL_DEFAULT_KEYBOARD 2</b>
+<b>	#define ESC_CHG_TO_ENG_MODE</b>
+<b>	/* #define X_LOCALE */</b>
+<b>	/* #define SLOW_XSERVER */</b>
+
+Environment <a href="eval.html#variables">variables</a>
+You should set LANG variable to <a href="mbyte.html#Korean">Korean</a> <a href="mbyte.html#locale">locale</a> such <a href="motion.html#as">as</a> ko or ko_KR.euc.
+If you set LC_ALL variable, it should be set to <a href="mbyte.html#Korean">Korean</a> <a href="mbyte.html#locale">locale</a> also.
+
+VIM resource
+You should add nexts to your global <a href="starting.html#vimrc">vimrc</a> ($HOME/.vimrc).
+
+<b>	:set fileencoding=korea</b>
+
+Keyboard
+You can change keyboard type (2 bulsik or 3 bulsik) using VIM_KEYBOARD
+or HANGUL_KEYBOARD_TYPE environment <a href="eval.html#variables">variables</a>.  For sh, just <a href="diff.html#do">do</a> (2 bulsik):
+
+<b>    export VIM_KEYBOARD="2"</b>
+or
+<b>    export HANGUL_KEYBOARD_TYPE="2"</b>
+
+If both are set, VIM_KEYBOARD has higher priority.
+
+Hangul Fonts
+You can set text font using $HOME/.Xdefaults or in your <a href="gui.html#gvimrc">gvimrc</a> file.
+But to use Hangul, you should set <a href="options.html#'guifontset'">'guifontset'</a> in your <a href="starting.html#vimrc">vimrc</a>.
+
+$HOME/.Xdefaults:
+<b>    Vim.font: english_font</b>
+
+<b>    ! Nexts are for hangul menu with Athena</b>
+<b>    *international: True</b>
+<b>    Vim*fontSet: english_font,hangul_font</b>
+
+<b>    ! Nexts are for hangul menu with Motif</b>
+<b>    *international: True</b>
+<b>    Vim*fontList: english_font;hangul_font:</b>
+
+$HOME/.gvimrc:
+<b>    set guifontset=english_font,hangul_font</b>
+
+attention! the , (comma) or ; (semicolon)
+
+And there should be no ':set guifont'.  If it exists, then Gvim ignores
+':set guifontset'.  It means VIM runs without <a href="mbyte.html#fontset">fontset</a> supporting.
+So, you can see only English.  Hangul does not be correctly displayed.
+
+After '<a href="mbyte.html#fontset">fontset</a>' feature is enabled, VIM does not allow using 'font'.
+For example, if you use
+<b>   :set guifontset=eng_font,your_font</b>
+in your <a href="gui.html#.gvimrc">.gvimrc</a>, then you should <a href="diff.html#do">do</a> for <a href="syntax.html#syntax">syntax</a>
+<b>   :hi Comment guifg=Cyan font=another_eng_font,another_your_font</b>
+If you just <a href="diff.html#do">do</a>
+<b>   :hi Comment font=another_eng_font</b>
+then you can see a GOOD error message.  Be careful!
+
+hangul_font width should be <a href="if_cscop.html#twice">twice</a> than english_font width.
+
+Unsupported Feature
+Johab font not yet supported.  And I don't have any plan.
+If you really want to use johab font, you can use the
+hanguldraw.c in gau package.
+
+Hanja input not yet supported.  And I don't have any plan.
+If you really want to input hanja, just use VIM with hanterm.
+
+Bug or Comment
+Send comments, patches and suggestions to:
+
+	Chi-Deok Hwang <a href="mailto:hwang@mizi.co.kr">&lt;hwang@mizi.co.kr&gt;</a> 
+	SungHyun Nam <a href="mailto:goweol@gmail.com">&lt;goweol@gmail.com&gt;</a> 
+
+<a href="hangulin.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

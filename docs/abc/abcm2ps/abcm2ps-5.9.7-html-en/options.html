@@ -1,0 +1,355 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>options.txt</title></head>
+<body bgcolor="#ffffaa"><hr><a name=inicio></a><a ref=inicio>
+<h1>options.txt</h1></a>
+<pre>
+
+		abcm2ps command line options
+		============================
+
+The list of the command line options may be known running:
+	'abcm2ps -h'
+
+The options may be grouped when they have no argument, except the
+last one (ex: "-lnGI20").
+
+The options may be disabled when starting with '+' or ending with '-'
+(ex: "+MT1" is the same as "-MT1-"
+
+List of the options
+-------------------
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-><h1><i>-</i></h1></a>
+
+<pre>-
+	Read the abc file from stdin.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=--><h1><i>--</i></h1></a>
+
+<pre>--&lt;format&gt; &lt;value&gt;
+	Set the format parameter to &lt;value&gt;. See format.txt.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-a><h1><i>-a</i></h1></a>
+
+<pre>-a&lt;float&gt;
+	See: format.txt - maxshrink &lt;float&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-B><h1><i>-B</i></h1></a>
+
+<pre>-B&lt;int&gt;, +B
+	See: format.txt - barsperstaff &lt;int&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-b><h1><i>-b</i></h1></a>
+
+<pre>-b&lt;int&gt;
+	See: format.txt - measurefirst &lt;int&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-c><h1><i>-c</i></h1></a>
+
+<pre>-c, +c
+	See: format.txt - continueall &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-D><h1><i>-D</i></h1></a>
+
+<pre>-D&lt;dir&gt;
+	Search the format files in the directory &lt;dir&gt;.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-d><h1><i>-d</i></h1></a>
+
+<pre>-d&lt;unit&gt;
+	See: format.txt - staffsep &lt;unit&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-E><h1><i>-E</i></h1></a>
+
+<pre>-E, +E
+	Produce EPS output instead of simple PS.
+	In this mode, each tune goes to a different file which
+	name is '&lt;name&gt;nnn.eps' or &lt;title&gt;.eps (see option '-O'
+	- 'nnn' is a sequence number incremented at each tune).
+	EPS files are normally embedded into Postscript documents,
+	but they may be a way to generate graphical images. For
+	example, using GhostScript:
+		abcm2ps voices -E -e7
+		gs -sDEVICE=pngmono -r80 -g590x174 \
+			-dBATCH -dNOPAUSE \
+			-sOutputFile=quitolis.png Out001.eps
+	(the values for -g are the values of the bounding box in
+	 the .eps, multiplied by (80 / 72), where 80 is the value
+	 for -r, and 72 is the default resolution)
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-e><h1><i>-e</i></h1></a>
+
+<pre>-e&lt;list&gt;
+	Select the tunes inside an ABC file.
+	&lt;list&gt; is a comma separated list of items (tune numbers).
+	Each selector applies to the previous associated ABC file.
+	An item may be a single index value (as indicated in the 'X:'
+	field), or a range of such values. A range is indicated as
+	&lt;first_index&gt;-&lt;last_index&gt;. The last index may be omitted
+	meaning 'last tune of file'.
+	Example:
+		abcm2ps voices -e 5,2-4 newfeatures -e5-
+	Note: Filtering may raise problems, mainly on global definitions.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-F><h1><i>-F</i></h1></a>
+
+<pre>-F&lt;file&gt;, +F
+	Read the format (or PostScript) file &lt;file&gt;.
+	When omitted, the default type of a format file is '.fmt'.
+	In the form '+F', the default format file ('default.fmt') is not
+	read.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-f><h1><i>-f</i></h1></a>
+
+<pre>-f
+	See: format.txt - flatbeams &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-G><h1><i>-G</i></h1></a>
+
+<pre>-G, +G
+	See: format.txt - graceslurs &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-H><h1><i>-H</i></h1></a>
+
+<pre>-H
+	Display the current format values.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-h><h1><i>-h</i></h1></a>
+
+<pre>-h
+	Quick help, equivalent to "abcm2ps" without any arguments.
+	This also shows the default settings for some parameters.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-I><h1><i>-I</i></h1></a>
+
+<pre>-I&lt;unit&gt;
+	See: format.txt - indent &lt;unit&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-i><h1><i>-i</i></h1></a>
+
+<pre>-i, +i
+	Insert a red cercle around the errors in the PostScript output.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-j><h1><i>-j</i></h1></a>
+
+<pre>-j&lt;int&gt;[b], +j
+	See: format.txt - measurenb &lt;int&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-k><h1><i>-k</i></h1></a>
+
+<pre>-k&lt;int&gt;[b], +k
+	See: format.txt - measurenb &lt;int&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-L><h1><i>-L</i></h1></a>
+
+<pre>-L&lt;int&gt;
+	See: format.txt - encoding &lt;int&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-l><h1><i>-l</i></h1></a>
+
+<pre>-l, +l
+	See: format.txt - landscape &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-M><h1><i>-M</i></h1></a>
+
+<pre>-M, +M
+	See: format.txt - musiconly &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-m><h1><i>-m</i></h1></a>
+
+<pre>-m&lt;unit&gt;
+	See: format.txt - leftmargin &lt;unit&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-N><h1><i>-N</i></h1></a>
+
+<pre>-N&lt;int&gt;, +N
+	Number the pages.
+	&lt;int&gt; indicates the mode:
+		0  no page numbers
+		1  at top left
+		2  at top right
+		3  at top left on even pages, top right on odd pages
+		4  at top right on even pages, top left on odd pages
+	For compatibility with previous versions, '+N' is the same as
+	'-N0', and '-N' is the same as '-N2'.
+	If a header is defined ('%%header'), this option is ignored.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-n><h1><i>-n</i></h1></a>
+
+<pre>-n, +n
+	See: format.txt - writehistory &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-O><h1><i>-O</i></h1></a>
+
+<pre>-O[&lt;directory&gt;][&lt;name&gt;], +O
+	Define the output file directory and/or name.
+	By default, the output file goes to the current directory
+	with a name 'Out.ps' for PS, and 'Outnnn.eps' for EPS (see
+	option '-E').
+	With this option, the file name may be &lt;name&gt; or &lt;name&gt;nnn.eps.
+	If &lt;name&gt; is '=', the output file is the name of the ABC
+	source file with the extension '.ps' for PS, or the title
+	of the tune for EPS.
+	If &lt;name&gt; is '-', the result is output on stdout (PS only).
+	'+O' resets the output file directory and name to their defaults.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-s><h1><i>-s</i></h1></a>
+
+<pre>-s&lt;float&gt;
+	See: format.txt - scale &lt;float&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-T><h1><i>-T</i></h1></a>
+
+<pre>-T&lt;int&gt;[&lt;voice&gt;], +T[&lt;int&gt;[&lt;voice&gt;]]
+	Activate or deactivate tablature drawing.
+	&lt;int&gt; is the tablature number as defined in %%tablature.
+	&lt;voice&gt; is the voice name, full name or subname as found in V:.
+		When absent, apply to all voices.
+	Up to 4 such commands may be defined.
+	Ex: '-T1flute +T2'
+	See: format.txt - tablature
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-u><h1><i>-u</i></h1></a>
+
+<pre>-u
+	See: format.txt - abc2pscompat &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-V><h1><i>-V</i></h1></a>
+
+<pre>-V
+	Show the version number.
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-w><h1><i>-w</i></h1></a>
+
+<pre>-w&lt;unit&gt;
+	See: format.txt - staffwidth &lt;unit&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-x><h1><i>-x</i></h1></a>
+
+<pre>-x, +x
+	See: format.txt - withxrefs &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-0><h1><i>-0</i></h1></a>
+
+<pre>-0, +0
+	See: format.txt - splittune &lt;bool&gt;
+
+ </pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=-1><h1><i>-1</i></h1></a>
+
+<pre>-1, +1
+	See: format.txt - oneperpage &lt;bool&gt;
+</pre><a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a><hr>
+
+<a name=indice><h1><i>Index</i></h1></a>
+<p><b>
+<a href=#->-</a> | 
+<a href=#-->--</a> | 
+<a href=#-0>-0</a> | 
+<a href=#-1>-1</a> | 
+<a href=#-a>-a</a> | 
+<a href=#-B>-B</a> | 
+<a href=#-b>-b</a> | 
+<a href=#-c>-c</a> | 
+<a href=#-D>-D</a> | 
+<a href=#-d>-d</a> | 
+<a href=#-E>-E</a> | 
+<a href=#-e>-e</a> | 
+<a href=#-F>-F</a> | 
+<a href=#-f>-f</a> | 
+<a href=#-G>-G</a> | 
+<a href=#-H>-H</a> | 
+<a href=#-h>-h</a> | 
+<a href=#-I>-I</a> | 
+<a href=#-i>-i</a> | 
+<a href=#-j>-j</a> | 
+<a href=#-k>-k</a> | 
+<a href=#-L>-L</a> | 
+<a href=#-l>-l</a> | 
+<a href=#-M>-M</a> | 
+<a href=#-m>-m</a> | 
+<a href=#-N>-N</a> | 
+<a href=#-n>-n</a> | 
+<a href=#-O>-O</a> | 
+<a href=#-s>-s</a> | 
+<a href=#-T>-T</a> | 
+<a href=#-u>-u</a> | 
+<a href=#-V>-V</a> | 
+<a href=#-w>-w</a> | 
+<a href=#-x>-x</a>   
+</b></p>
+
+<p>(34 topics)</p>
+
+<a href=#indice>GO TO INDEX</a> <a href=#inicio>GO TO TOP</a></pre>
+<hr>
+
+</body></html>

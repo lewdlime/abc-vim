@@ -1,0 +1,72 @@
+This file contains 3 airs (#1 - #3).
+You can find more abc tune files at http://home.swipnet.se/hnorbeck/abc.htm
+I've transcribed them as I have learnt them, which does not necessarily mean
+that I play them that way nowadays. Many of the tunes include variations and
+different versions. If there is a source (S:) or discography (D:) included the
+version transcribed might still not be exactly as that source played the tune,
+since I might have changed the tune around a bit when I learnt it.
+The tunes were learnt from sessions, from friends or from recordings.
+When I've included discography, it's often just a reference to what recordings
+the tune appears on.
+
+Last updated 11 October 2002.
+
+(c) Copyright 2002 Henrik Norbeck. This file:
+- May be distributed with restrictions below.
+- May not be used for commercial purposes (such as printing a tune book to sell).
+- This file (or parts of it) may not be made available on a web page for
+  download without permission from me.
+- This copyright notice must be kept, except when e-mailing individual tunes.
+- May be printed on paper for personal use.
+- Questions? E-mail: henrik@norbeck.nu
+
+
+Z:id:hn-air-%X
+X:1
+T:Down the Hill
+H:Originally in Gdor in O'Neill's
+Z:id:hn-air-1
+M:6/8
+L:1/8
+Q:1/8=160
+K:Ador
+B/A/G/ | EAA A3/E/A/B/ | c/B/A/B/c/A/ B/A/G/A/B/G/ | A/G/E/D/E/F/ G2A | 
+BcA GED | EAA A2B/c/ | B/A/G/A/B/c/ dBd | e/f/ge dBe | A3/B/A/G/ A3/ :|
+|: B/c/d/ | eaa a3/e/a/b/ | c'/b/a/b/c'/a/ bge | dgg g2a |
+b/a/g/a/b/g/ age/d/ | eaa a3/e/a/b/ | c'/b/a/b/c'/a/ b/a/g/a/b/g/ |
+age dBe |[1 A3/B/A/G/ A3/ :|[2 A3/B/A/G/ A^ce
+|: [M:9/8] ae^c A^c/e/A/c/ e/A/^c/e/^c/e/ | [M:6/8] gdB G3/B/d/B/ |
+G3/A/B/=c/ dcB | c/B/A/B/c/A/ d/c/B/c/d/B/ | ea^g a3/b/c'/b/ |
+a=ge dBe |[1 A3/B/A/G/ A^ce :|[2 A3/B/A/G/ A3/ ||
+
+X:2
+T:Eagle's Whistle, The
+S:EB
+Z:id:hn-air-2
+M:3/4
+L:1/8
+Q:1/4=100
+K:G
+GA | B2 dB AG | B{c}B dB AG | A2 {c}AB AG | A2 {c}AB AG | 
+B{c}B dB AG | B2 dB A/B/A | G2 {A}GB A/B/A | G2 {A}G2 :|
+|: Bd | {ef}e2 de gd | e2 dB AG | A2 {c}AB AG | A2 {c}A2 Bd | 
+e2 de gd | {ef}e2 dB A/B/A | G2 {A}GB A/B/A | G2 {A}G2 :|
+
+X:3
+T:Tabhair dom do l\'amh
+T:Give Me Your Hand
+C:Ruari Dall O'Cathain (17th century)
+Z:id:hn-air-3
+M:3/4
+L:1/8
+K:G
+D2 | E2G2G2 | G4D2 | E2G2G2 | G4D2 | E2G2G2 | G2A2B2 | 
+B2e2d2 | B4AG | A2A2ed | B2B2dB | A2ABAG | E4D2 | 
+E2G2G2 | G4D2 | E2G2G2 | G4 || D2 | E2G2G2 | G2A2B2 | 
+dedBAB | G4D2 | E2G2G2 | G2A2B2 | B2e2d2 | B4AG | 
+A2A2ed | B2B2dB | A3Bcd | e4dB | d2d2e2 | g4ed | 
+e2e2g2 | a4de | g2g2de | g2g2de | g2g2a2 | b6 || 
+b2b2b2 | b4ag | a2agab | a4gf | e2e2ge | d2d2ed | 
+B2B2dB | A4BA | G2GABd | =f4ed | e2e2g2 | e4dB | 
+d2d2ed | B2B2dB | A2AcBA | G4 || 
+

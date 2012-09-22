@@ -1,0 +1,99 @@
+# Hudson Lacerda (2006)
+
+# Trill glyph got from Feta font (lilypond.org),
+# exported to EPS with fontforge (fontforge.sourceforge.net),
+# and then edited to make a PS operator and decoration for abcm2ps.
+
+
+beginps
+
+/trill {
+gsave 2 add translate .022 dup scale
+	-17 534 moveto
+	 -13 537 -10 540 -10 540 curveto
+	 -37 406 lineto
+	 -64 273 lineto
+	 -61 275 lineto
+	 -48 282 2 310 10 313 curveto
+	 21 319 36 324 49 327 curveto
+	 64 330 89 330 101 327 curveto
+	 114 324 124 318 132 310 curveto
+	 139 303 lineto
+	 145 308 lineto
+	 156 317 166 323 180 327 curveto
+	 196 332 214 333 229 330 curveto
+	 251 324 269 307 274 285 curveto
+	 278 270 277 244 271 227 curveto
+	 260 193 235 171 209 173 curveto
+	 186 175 173 195 174 226 curveto
+	 175 244 180 256 191 267 curveto
+	 201 277 215 283 230 285 curveto
+	 238 286 lineto
+	 231 292 lineto
+	 228 295 224 299 221 300 curveto
+	 202 310 176 305 159 288 curveto
+	 147 276 149 286 118 131 curveto
+	 103 55 91 -7 90 -7 curveto
+	 90 -7 87 -6 84 -4 curveto
+	 73 1 66 2 51 2 curveto
+	 36 2 27 0 15 -5 curveto
+	 9 -7 lineto
+	 9 -6 21 55 36 130 curveto
+	 65 278 65 273 60 281 curveto
+	 53 293 34 298 19 292 curveto
+	 16 291 -5 280 -28 267 curveto
+	 -70 244 lineto
+	 -73 229 lineto
+	 -76 213 lineto
+	 -67 202 lineto
+	 -40 168 -28 140 -26 110 curveto
+	 -25 90 -29 71 -38 53 curveto
+	 -46 36 -63 15 -77 6 curveto
+	 -85 1 -98 -6 -105 -8 curveto
+	 -114 -10 -127 -10 -134 -9 curveto
+	 -161 -3 -178 26 -180 73 curveto
+	 -181 93 -179 105 -169 153 curveto
+	 -165 176 -161 196 -161 196 curveto
+	 -161 196 -165 195 -171 193 curveto
+	 -191 185 -215 178 -235 174 curveto
+	 -250 172 -275 172 -284 174 curveto
+	 -305 180 -318 193 -321 212 curveto
+	 -324 227 -320 246 -311 262 curveto
+	 -305 271 -293 283 -282 289 curveto
+	 -254 305 -215 307 -180 295 curveto
+	 -172 293 -152 283 -147 280 curveto
+	 -144 278 lineto
+	 -122 393 lineto
+	 -109 456 -99 508 -98 509 curveto
+	 -98 509 -95 509 -91 507 curveto
+	 -84 505 -82 505 -75 505 curveto
+	 -61 506 -49 511 -33 521 curveto
+	 -28 525 -21 530 -17 534 curveto
+	closepath
+	-202 274 moveto
+	 -211 277 -216 277 -227 278 curveto
+	 -235 278 -244 277 -247 277 curveto
+	 -262 275 -277 267 -285 258 curveto
+	 -296 245 -300 226 -294 213 curveto
+	 -290 205 -284 201 -271 198 curveto
+	 -257 195 -226 199 -196 209 curveto
+	 -186 212 -159 223 -157 224 curveto
+	 -156 225 -154 230 -153 237 curveto
+	 -150 249 lineto
+	 -154 252 lineto
+	 -167 262 -185 270 -202 274 curveto
+	closepath
+	-74 165 moveto
+	 -84 180 -82 183 -90 143 curveto
+	 -99 96 -100 89 -100 70 curveto
+	 -100 56 -100 53 -98 49 curveto
+	 -95 39 -86 37 -76 42 curveto
+	 -69 45 -65 50 -60 60 curveto
+	 -45 92 -49 130 -74 165 curveto
+	closepath
+fill grestore
+} bind def
+
+endps
+
+deco trill 3 trill 14 0 0

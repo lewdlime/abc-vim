@@ -1,0 +1,577 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: tips</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: tips</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="tips.txt"></A><b>tips.txt</b>*      For Vim version 7.3.  Last change: 2009 Nov 07
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Tips and ideas for using Vim				*<a name="tips"></A><b>tips</b>*
+
+These are just a few that we thought would be helpful for many users.
+You can find many more <a href="tips.html#tips">tips</a> on the wiki.  The URL can be found on
+	<a href="http://www.vim.org">http://www.vim.org</a>
+
+Don't forget to browse the user manual, it also contains lots of useful <a href="tips.html#tips">tips</a>
+|<a href="usr_toc.html">usr_toc.txt</a>|.
+
+Editing C programs				|<a href="tips.html#C-editing">C-editing</a>|
+Finding where identifiers are used		|<a href="tips.html#ident-search">ident-search</a>|
+Switching screens in an xterm			|<a href="tips.html#xterm-screens">xterm-screens</a>|
+Scrolling in <a href="insert.html#Insert">Insert</a> mode			|<a href="tips.html#scroll-insert">scroll-insert</a>|
+Smooth <a href="scroll.html#scrolling">scrolling</a>				|<a href="tips.html#scroll-smooth">scroll-smooth</a>|
+Correcting common typing mistakes		|<a href="tips.html#type-mistakes">type-mistakes</a>|
+Counting words, lines, etc.			|<a href="tips.html#count-items">count-items</a>|
+Restoring the cursor position			|<a href="tips.html#restore-position">restore-position</a>|
+Renaming files					|<a href="tips.html#rename-files">rename-files</a>|
+Change a name in multiple files			|<a href="tips.html#change-name">change-name</a>|
+Speeding up external commands			|<a href="tips.html#speed-up">speed-up</a>|
+Useful mappings					|<a href="tips.html#useful-mappings">useful-mappings</a>|
+Compressing the help files			|<a href="tips.html#gzip-helpfile">gzip-helpfile</a>|
+Executing shell commands in a window		|<a href="tips.html#shell-window">shell-window</a>|
+Hex editing					|<a href="tips.html#hex-editing">hex-editing</a>|
+Using &lt;&gt; <a href="intro.html#notation">notation</a> in autocommands		|<a href="tips.html#autocmd-&lt;&gt;">autocmd-&lt;&gt;</a>|
+Highlighting matching parens			|<a href="tips.html#match-parens">match-parens</a>|
+
+==============================================================================
+
+Editing C programs					*<a name="C-editing"></A><b>C-editing</b>*
+
+There are quite a few features in Vim to help you edit C program files.  Here
+is an overview with <a href="tagsrch.html#tags">tags</a> to jump to:
+
+|<a href="usr_29.html">usr_29.txt</a>|		Moving through programs chapter in the user manual.
+|<a href="usr_30.html">usr_30.txt</a>|		Editing programs chapter in the user manual.
+|<a href="indent.html#C-indenting">C-indenting</a>|		Automatically set the indent of a line while typing
+			text.
+|<a href="change.html#=">=</a>|			Re-indent a few lines.
+|<a href="change.html#format-comments">format-comments</a>|	Format comments.
+
+|<a href="tagsrch.html#:checkpath">:checkpath</a>|		Show all recursively included files.
+|<a href="tagsrch.html#[i">[i</a>|			Search for identifier under cursor in current and
+			included files.
+|<a href="tagsrch.html#[_CTRL-I">[_CTRL-I</a>|		Jump to match for &quot;<a href="tagsrch.html#[i">[i</a>&quot;
+|<a href="tagsrch.html#[I">[I</a>|			<a href="eval.html#List">List</a> all lines in current and included files where
+			identifier under the cursor matches.
+|<a href="tagsrch.html#[d">[d</a>|			Search for define under cursor in current and included
+			files.
+
+|<a href="tagsrch.html#CTRL-]">CTRL-]</a>|		Jump to <a href="tagsrch.html#tag">tag</a> under cursor (e.g., definition of a
+			function).
+|<a href="tagsrch.html#CTRL-T">CTRL-T</a>|		Jump back to before a <a href="tagsrch.html#CTRL-]">CTRL-]</a> command.
+|<a href="tagsrch.html#:tselect">:tselect</a>|		<a href="visual.html#Select">Select</a> one <a href="tagsrch.html#tag">tag</a> out of a list of matching <a href="tagsrch.html#tags">tags</a>.
+
+|<a href="pattern.html#gd">gd</a>|			Go to Declaration of local variable under cursor.
+|<a href="pattern.html#gD">gD</a>|			Go to Declaration of global variable under cursor.
+
+|<a href="editing.html#gf">gf</a>|			Go to file name under the cursor.
+
+|<a href="motion.html#&#37;">&#37;</a>|			Go to matching (), <a href="intro.html#{}">{}</a>, <a href="motion.html#[]">[]</a>, /* */, #if, #else, #endif.
+|<a href="motion.html#[/">[/</a>|			Go to previous start of comment.
+|<a href="motion.html#]/">]/</a>|			Go to next end of comment.
+|<a href="motion.html#[#">[#</a>|			Go back to unclosed #if, #ifdef, or #else.
+|<a href="motion.html#]#">]#</a>|			Go forward to unclosed #else or #endif.
+|<a href="motion.html#[(">[(</a>|			Go back to unclosed '('
+|<a href="motion.html#])">])</a>|			Go forward to unclosed ')'
+|<a href="motion.html#[{">[{</a>|			Go back to unclosed '{'
+|<a href="motion.html#]}">]}</a>|			Go forward to unclosed '}'
+
+|<a href="motion.html#v_ab">v_ab</a>|			<a href="visual.html#Select">Select</a> &quot;a block&quot; from &quot;<a href="motion.html#[(">[(</a>&quot; to &quot;<a href="motion.html#])">])</a>&quot;, including braces
+|<a href="motion.html#v_ib">v_ib</a>|			<a href="visual.html#Select">Select</a> &quot;inner block&quot; from &quot;<a href="motion.html#[(">[(</a>&quot; to &quot;<a href="motion.html#])">])</a>&quot;
+|<a href="motion.html#v_aB">v_aB</a>|			<a href="visual.html#Select">Select</a> &quot;a block&quot; from &quot;<a href="motion.html#[{">[{</a>&quot; to &quot;<a href="motion.html#]}">]}</a>&quot;, including brackets
+|<a href="motion.html#v_iB">v_iB</a>|			<a href="visual.html#Select">Select</a> &quot;inner block&quot; from &quot;<a href="motion.html#[{">[{</a>&quot; to &quot;<a href="motion.html#]}">]}</a>&quot;
+
+==============================================================================
+
+Finding where identifiers are used			*<a name="ident-search"></A><b>ident-search</b>*
+
+You probably already know that |<a href="tagsrch.html#tags">tags</a>| can be used to jump to the place where a
+function or variable is defined.  But sometimes you wish you could jump to all
+the places where a function or variable is being used.  This is possible in
+two ways:
+1. Using the |<a href="quickfix.html#:grep">:grep</a>| command.  This should work on most <a href="os_unix.html#Unix">Unix</a> systems,
+   but can be slow (it reads all files) and only searches in one directory.
+2. Using ID utils.  This is fast and works in multiple directories.  It uses a
+   database to store locations.  You will need some additional programs for
+   this to work.  And you need to keep the database up to date.
+
+Using the GNU id-tools:
+
+What you need:
+- The GNU id-tools installed (mkid is needed to create ID and <a href="quickfix.html#lid">lid</a> is needed to
+  use the macros).
+- An identifier database file called &quot;ID&quot; in the current directory.  You can
+  create it with the shell command &quot;mkid file1 file2 ..&quot;.
+
+Put this in your <a href="starting.html#.vimrc">.vimrc</a>:
+<b>	map _u :call ID_search()&lt;Bar&gt;execute "/\\&lt;" . g:word . "\\&gt;"&lt;CR&gt;</b>
+<b>	map _n :n&lt;Bar&gt;execute "/\\&lt;" . g:word . "\\&gt;"&lt;CR&gt;</b>
+
+<b>	function! ID_search()</b>
+<b>	  let g:word = expand("&lt;cword&gt;")</b>
+<b>	  let x = system("lid --key=none ". g:word)</b>
+<b>	  let x = substitute(x, "\n", " ", "g")</b>
+<b>	  execute "next " . x</b>
+<b>	endfun</b>
+
+To use it, place the cursor on a <a href="motion.html#word">word</a>, type &quot;_u&quot; and vim will load the file
+that contains the <a href="motion.html#word">word</a>.  Search for the next occurrence of the <a href="motion.html#word">word</a> in the
+same file with &quot;<a href="pattern.html#n">n</a>&quot;.  Go to the next file with &quot;_n&quot;.
+
+This has been tested with id-utils-3.2 (which is the name of the id-tools
+archive file on your closest gnu-ftp-mirror).
+
+[the idea for this comes from Andreas Kutschera]
+
+==============================================================================
+
+Switching screens in an xterm		*<a name="xterm-screens"></A><b>xterm-screens</b>* *<a name="xterm-save-screen"></A><b>xterm-save-screen</b>*
+
+(From comp.editors, by Juergen Weigert, in reply to a question)
+
+<a href="change.html#:&gt;">:&gt;</a> Another question is that after exiting vim, the screen is left <a href="motion.html#as">as</a> it
+<a href="change.html#:&gt;">:&gt;</a> was, i.e. the contents of the file I was viewing (editing) was left on
+<a href="change.html#:&gt;">:&gt;</a> the screen. The output from my previous like &quot;ls&quot; were lost,
+<a href="change.html#:&gt;">:&gt;</a> ie. no longer in the <a href="scroll.html#scrolling">scrolling</a> buffer. I know that there is a way to
+<a href="change.html#:&gt;">:&gt;</a> restore the screen after exiting vim or other <a href="intro.html#vi">vi</a> like editors,
+<a href="change.html#:&gt;">:&gt;</a> I just don't know how. Helps are appreciated. Thanks.
+:
+:I imagine someone else can answer this.  I assume though that vim and <a href="intro.html#vi">vi</a> <a href="diff.html#do">do</a>
+:the same thing <a href="motion.html#as">as</a> each other for a given xterm setup.
+
+They not necessarily <a href="diff.html#do">do</a> the same thing, <a href="motion.html#as">as</a> this may be a <a href="term.html#termcap">termcap</a> vs.
+<a href="term.html#terminfo">terminfo</a> problem.  You should be aware that there are two databases for
+describing attributes of a particular type of terminal: <a href="term.html#termcap">termcap</a> and
+<a href="term.html#terminfo">terminfo</a>.  This can cause differences when the entries differ AND when of
+the programs in question one uses <a href="term.html#terminfo">terminfo</a> and the other uses <a href="term.html#termcap">termcap</a>
+(also see |<a href="various.html#+terminfo">+terminfo</a>|).
+
+In your particular problem, you are looking for the <a href="intro.html#control">control</a> sequences
+^[[?47h and ^[[?47l.  These switch between xterms alternate and main screen
+buffer.  As a quick workaround a command sequence like
+<b>	echo -n "^[[?47h"; vim ... ; echo -n "^[[?47l"</b>
+may <a href="diff.html#do">do</a> what you want.  (My <a href="intro.html#notation">notation</a> ^[ means the ESC character, further down
+you'll see that the databases use \E instead).
+
+On <a href="starting.html#startup">startup</a>, vim echoes the value of the <a href="term.html#termcap">termcap</a> variable ti (terminfo:
+smcup) to the terminal.  When exiting, it echoes te (terminfo: rmcup).  Thus
+these two <a href="eval.html#variables">variables</a> are the correct place where the above mentioned <a href="intro.html#control">control</a>
+sequences should go.
+
+Compare your xterm <a href="term.html#termcap">termcap</a> entry (found in /etc/termcap) with your xterm
+<a href="term.html#terminfo">terminfo</a> entry (retrieved with &quot;infocmp <a href="starting.html#-C">-C</a> xterm&quot;).  Both should contain
+entries similar to:
+<b>	:te=\E[2J\E[?47l\E8:ti=\E7\E[?47h:</b>
+
+PS: If you find any difference, someone (your sysadmin?) should better check
+    the complete <a href="term.html#termcap">termcap</a> and <a href="term.html#terminfo">terminfo</a> database for consistency.
+
+NOTE 1: If you recompile Vim with FEAT_XTERM_SAVE defined in feature.h, the
+builtin xterm will include the mentioned &quot;te&quot; and &quot;ti&quot; entries.
+
+NOTE 2: If you want to disable the screen switching, and you don't want to
+change your <a href="term.html#termcap">termcap</a>, you can add these lines to your <a href="starting.html#.vimrc">.vimrc</a>:
+<b>	:set t_ti= t_te=</b>
+
+==============================================================================
+
+Scrolling in <a href="insert.html#Insert">Insert</a> mode				*<a name="scroll-insert"></A><b>scroll-insert</b>*
+
+If you are in insert mode and you want to see something that is just off the
+screen, you can use <a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-E">CTRL-E</a> and <a href="change.html#CTRL-X">CTRL-X</a> <a href="scroll.html#CTRL-Y">CTRL-Y</a> to scroll the screen.
+						|<a href="insert.html#i_CTRL-X_CTRL-E">i_CTRL-X_CTRL-E</a>|
+
+To make this easier, you could use these mappings:
+<b>	:inoremap &lt;C-E&gt; &lt;C-X&gt;&lt;C-E&gt;</b>
+<b>	:inoremap &lt;C-Y&gt; &lt;C-X&gt;&lt;C-Y&gt;</b>
+(Type this literally, make sure the '<a href="change.html#&lt;">&lt;</a>' flag is not in <a href="options.html#'cpoptions'">'cpoptions'</a>).
+You then lose the ability to copy text from the line above/below the cursor
+|<a href="insert.html#i_CTRL-E">i_CTRL-E</a>|.
+
+Also consider setting <a href="options.html#'scrolloff'">'scrolloff'</a> to a larger value, so that you can always see
+some context around the cursor.  If <a href="options.html#'scrolloff'">'scrolloff'</a> is bigger than half the <a href="windows.html#window">window</a>
+height, the cursor will always be in the middle and the text is scrolled when
+the cursor is moved up/down.
+
+==============================================================================
+
+Smooth <a href="scroll.html#scrolling">scrolling</a>					*<a name="scroll-smooth"></A><b>scroll-smooth</b>*
+
+If you like the <a href="scroll.html#scrolling">scrolling</a> to go a bit smoother, you can use these mappings:
+<b>	:map &lt;C-U&gt; &lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;&lt;C-Y&gt;</b>
+<b>	:map &lt;C-D&gt; &lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;&lt;C-E&gt;</b>
+
+(Type this literally, make sure the '<a href="change.html#&lt;">&lt;</a>' flag is not in <a href="options.html#'cpoptions'">'cpoptions'</a>).
+
+==============================================================================
+
+Correcting common typing mistakes			*<a name="type-mistakes"></A><b>type-mistakes</b>*
+
+When there are a few words that you keep on typing in the wrong way, make
+<a href="map.html#abbreviations">abbreviations</a> that correct them.  For example:
+<b>	:ab teh the</b>
+<b>	:ab fro for</b>
+
+==============================================================================
+
+Counting words, lines, etc.				*<a name="count-items"></A><b>count-items</b>*
+
+To <a href="intro.html#count">count</a> how often any <a href="pattern.html#pattern">pattern</a> occurs in the current buffer use the substitute
+command and add the '<a href="pattern.html#n">n</a>' flag to avoid the substitution.  The reported number
+of substitutions is the number of items.  Examples:
+
+<b>	:%s/./&amp;/gn		characters</b>
+<b>	:%s/\i\+/&amp;/gn		words</b>
+<b>	:%s/^//n		lines</b>
+<b>	:%s/the/&amp;/gn		"the" anywhere</b>
+<b>	:%s/\&lt;the\&gt;/&amp;/gn	"the" as a word</b>
+
+You might want to reset <a href="options.html#'hlsearch'">'hlsearch'</a> or <a href="diff.html#do">do</a> &quot;<a href="pattern.html#:nohlsearch">:nohlsearch</a>&quot;.
+Add the '<a href="motion.html#e">e</a>' flag if you don't want an error when there are no matches.
+
+An alternative is using |<a href="editing.html#v_g_CTRL-G">v_g_CTRL-G</a>| in <a href="visual.html#Visual">Visual</a> mode.
+
+If you want to find matches in multiple files use |<a href="quickfix.html#:vimgrep">:vimgrep</a>|.
+
+
+							*<a name="count-bytes"></A><b>count-bytes</b>*
+If you want to <a href="intro.html#count">count</a> bytes, you can use this:
+
+	Visually select the characters (block is also possible)
+	Use &quot;<a href="change.html#y">y</a>&quot; to <a href="change.html#yank">yank</a> the characters
+	Use the <a href="eval.html#strlen()">strlen()</a> function:
+<b>		:echo strlen(@")</b>
+A line break is counted for one byte.
+
+==============================================================================
+
+Restoring the cursor position				*<a name="restore-position"></A><b>restore-position</b>*
+
+Sometimes you want to write a <a href="map.html#mapping">mapping</a> that makes a change somewhere in the
+file and restores the cursor position, without <a href="scroll.html#scrolling">scrolling</a> the text.  For
+example, to change the date <a href="motion.html#mark">mark</a> in a file:
+<b>   :map &lt;F2&gt; msHmtgg/Last [cC]hange:\s*/e+1&lt;CR&gt;"_D"=strftime("%Y %b %d")&lt;CR&gt;p'tzt`s</b>
+
+Breaking up saving the position:
+	ms	store cursor position in the '<a href="change.html#s">s</a>' <a href="motion.html#mark">mark</a>
+	<a href="motion.html#H">H</a>	go to the first line in the <a href="windows.html#window">window</a>
+	mt	store this position in the '<a href="motion.html#t">t</a>' <a href="motion.html#mark">mark</a>
+
+Breaking up restoring the position:
+	't	go to the line previously at the top of the <a href="windows.html#window">window</a>
+	<a href="scroll.html#zt">zt</a>	scroll to move this line to the top of the <a href="windows.html#window">window</a>
+	`s	jump to the original position of the cursor
+
+For something more advanced see |<a href="eval.html#winsaveview()">winsaveview()</a>| and |<a href="eval.html#winrestview()">winrestview()</a>|.
+
+==============================================================================
+
+Renaming files						*<a name="rename-files"></A><b>rename-files</b>*
+
+Say I have a directory with the following files in them (directory picked at
+random :-):
+
+buffer.c
+charset.c
+digraph.c
+<a href="eval.html#...">...</a>
+
+and I want to rename *.c *.bla.  I'd <a href="diff.html#do">do</a> it like this:
+
+<b>	$ vim</b>
+<b>	:r !ls *.c</b>
+<b>	:%s/\(.*\).c/mv &amp; \1.bla</b>
+<b>	:w !sh</b>
+<b>	:q!</b>
+
+==============================================================================
+
+Change a name in multiple files				*<a name="change-name"></A><b>change-name</b>*
+
+Example for using a <a href="usr_41.html#script">script</a> file to change a name in several files:
+
+	Create a file &quot;subs.vim&quot; containing substitute commands and a <a href="editing.html#:update">:update</a>
+	command:
+<b>		:%s/Jones/Smith/g</b>
+<b>		:%s/Allen/Peter/g</b>
+<b>		:update</b>
+ 
+	Execute Vim on all files you want to change, and source the <a href="usr_41.html#script">script</a> for
+	each argument:
+
+<b>		vim *.let</b>
+<b>		argdo source subs.vim</b>
+
+See |<a href="editing.html#:argdo">:argdo</a>|.
+
+==============================================================================
+
+Speeding up external commands				*<a name="speed-up"></A><b>speed-up</b>*
+
+In some situations, execution of an external command can be very slow.  This
+can also slow down <a href="editing.html#wildcard">wildcard</a> expansion on <a href="os_unix.html#Unix">Unix</a>.  Here are a few suggestions to
+increase the speed.
+
+If your .cshrc (or other file, depending on the shell used) is very long, you
+should separate it into a section for interactive use and a section for
+non-interactive use (often called secondary shells).  When you execute a
+command from Vim like &quot;:!ls&quot;, you <a href="diff.html#do">do</a> not need the interactive things (for
+example, setting the prompt).  Put the stuff that is not needed after these
+lines:
+
+<b>	if ($?prompt == 0) then</b>
+<b>		exit 0</b>
+<b>	endif</b>
+
+Another way is to include the &quot;<a href="starting.html#-f">-f</a>&quot; flag in the <a href="options.html#'shell'">'shell'</a> option, e.g.:
+
+<b>	:set shell=csh\ -f</b>
+
+(the <a href="intro.html#backslash">backslash</a> is needed to include the space in the option).
+This will make csh completely skip the use of the .cshrc file.  This may cause
+some things to stop working though.
+
+==============================================================================
+
+Useful mappings						*<a name="useful-mappings"></A><b>useful-mappings</b>*
+
+Here are a few mappings that some people like to use.
+
+
+							*<a name="map-backtick"></A><b>map-backtick</b>* 
+<b>	:map ' `</b>
+Make the single <a href="change.html#quote">quote</a> work like a backtick.  Puts the cursor on the column of
+a <a href="motion.html#mark">mark</a>, instead of going to the first non-blank character in the line.
+
+
+							*<a name="emacs-keys"></A><b>emacs-keys</b>*
+For Emacs-style editing on the command-line:
+<b>	" start of line</b>
+<b>	:cnoremap &lt;C-A&gt;		&lt;Home&gt;</b>
+<b>	" back one character</b>
+<b>	:cnoremap &lt;C-B&gt;		&lt;Left&gt;</b>
+<b>	" delete character under cursor</b>
+<b>	:cnoremap &lt;C-D&gt;		&lt;Del&gt;</b>
+<b>	" end of line</b>
+<b>	:cnoremap &lt;C-E&gt;		&lt;End&gt;</b>
+<b>	" forward one character</b>
+<b>	:cnoremap &lt;C-F&gt;		&lt;Right&gt;</b>
+<b>	" recall newer command-line</b>
+<b>	:cnoremap &lt;C-N&gt;		&lt;Down&gt;</b>
+<b>	" recall previous (older) command-line</b>
+<b>	:cnoremap &lt;C-P&gt;		&lt;Up&gt;</b>
+<b>	" back one word</b>
+<b>	:cnoremap &lt;Esc&gt;&lt;C-B&gt;	&lt;S-Left&gt;</b>
+<b>	" forward one word</b>
+<b>	:cnoremap &lt;Esc&gt;&lt;C-F&gt;	&lt;S-Right&gt;</b>
+
+NOTE: This requires that the '&lt;' flag is excluded from <a href="options.html#'cpoptions'">'cpoptions'</a>. |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|
+
+
+							*<a name="format-bullet-list"></A><b>format-bullet-list</b>*
+This <a href="map.html#mapping">mapping</a> will format any bullet list.  It requires that there is an empty
+line above and below each list entry.  The <a href="eval.html#expression">expression</a> commands are used to
+be able to give comments to the parts of the <a href="map.html#mapping">mapping</a>.
+
+<b>	:let m =     ":map _f  :set ai&lt;CR&gt;"    " need 'autoindent' set</b>
+<b>	:let m = m . "{O&lt;Esc&gt;"		      " add empty line above item</b>
+<b>	:let m = m . "}{)^W"		      " move to text after bullet</b>
+<b>	:let m = m . "i     &lt;CR&gt;     &lt;Esc&gt;"    " add space for indent</b>
+<b>	:let m = m . "gq}"		      " format text after the bullet</b>
+<b>	:let m = m . "{dd"		      " remove the empty line</b>
+<b>	:let m = m . "5lDJ"		      " put text after bullet</b>
+<b>	:execute m			      |" define the mapping</b>
+
+(&lt;&gt; <a href="intro.html#notation">notation</a> |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|.  Note that this is all typed literally.  ^W is &quot;<a href="motion.html#^">^</a>&quot; &quot;<a href="motion.html#W">W</a>&quot;, not
+<a href="index.html#CTRL-W">CTRL-W</a>.  You can copy/paste this into Vim if '<a href="change.html#&lt;">&lt;</a>' is not included in
+<a href="options.html#'cpoptions'">'cpoptions'</a>.)
+
+Note that the last comment starts with |&quot;, because the &quot;<a href="eval.html#:execute">:execute</a>&quot; command
+doesn't accept a comment directly.
+
+You also need to set <a href="options.html#'textwidth'">'textwidth'</a> to a non-zero value, e.g.,
+<b>	:set tw=70</b>
+
+A <a href="map.html#mapping">mapping</a> that does about the same, but takes the indent for the list from the
+first line (Note: this <a href="map.html#mapping">mapping</a> is a single long line with a lot of spaces):
+<b>	:map _f :set ai&lt;CR&gt;}{a                                                          &lt;Esc&gt;WWmmkD`mi&lt;CR&gt;&lt;Esc&gt;kkddpJgq}'mJO&lt;Esc&gt;j</b>
+ 
+
+							*<a name="collapse"></A><b>collapse</b>*
+These two mappings reduce a sequence of empty (;b) or blank (;n) lines into a
+single line
+<b>    :map ;b   GoZ&lt;Esc&gt;:g/^$/.,/./-j&lt;CR&gt;Gdd</b>
+<b>    :map ;n   GoZ&lt;Esc&gt;:g/^[ &lt;Tab&gt;]*$/.,/[^ &lt;Tab&gt;]/-j&lt;CR&gt;Gdd</b>
+
+==============================================================================
+
+Compressing the help files				*<a name="gzip-helpfile"></A><b>gzip-helpfile</b>*
+
+For those of you who are really short on disk space, you can <a href="pi_gzip.html#compress">compress</a> the help
+files and still be able to <a href="starting.html#view">view</a> them with Vim.  This makes accessing the help
+files a bit slower and requires the &quot;<a href="pi_gzip.html#gzip">gzip</a>&quot; program.
+
+(1) Compress all the help files: &quot;<a href="pi_gzip.html#gzip">gzip</a> doc/*.txt&quot;.
+
+(2) Edit &quot;doc/tags&quot; and change the &quot;.txt&quot; to &quot;.txt.gz&quot;:
+<b>	:%s=\(\t.*\.txt\)\t=\1.gz\t=</b>
+
+(3) Add this line to your <a href="starting.html#vimrc">vimrc</a>:
+<b>	set helpfile={dirname}/help.txt.gz</b>
+
+Where {dirname} is the directory where the help files are.  The |<a href="pi_gzip.html#gzip">gzip</a>| <a href="usr_05.html#plugin">plugin</a>
+will take care of decompressing the files.
+You must make sure that <a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a> is set to where the other Vim files are,
+when they are not in the same location <a href="motion.html#as">as</a> the compressed &quot;doc&quot; directory.  See
+|<a href="starting.html#$VIMRUNTIME">$VIMRUNTIME</a>|.
+
+==============================================================================
+
+Executing shell commands in a <a href="windows.html#window">window</a>			*<a name="shell-window"></A><b>shell-window</b>*
+
+There have been questions for the possibility to execute a shell in a <a href="windows.html#window">window</a>
+inside Vim.  The answer: you can't!  Including this would add a lot of code to
+Vim, which is a good reason not to <a href="diff.html#do">do</a> this.  After all, Vim is an editor, it
+is not supposed to <a href="diff.html#do">do</a> non-editing tasks.  However, to get something like this,
+you might try splitting your terminal screen or display <a href="windows.html#window">window</a> with the
+&quot;splitvt&quot; program.  You can probably find it on some ftp server.  The person
+that knows more about this is Sam Lantinga <a href="mailto:slouken@cs.ucdavis.edu">&lt;slouken@cs.ucdavis.edu&gt;</a>. 
+An alternative is the &quot;<a href="windows.html#window">window</a>&quot; command, found on BSD <a href="os_unix.html#Unix">Unix</a> systems, which
+supports multiple overlapped <a href="windows.html#windows">windows</a>.  Or the &quot;screen&quot; program, found at
+www.uni-erlangen.de, which supports a stack of <a href="windows.html#windows">windows</a>.
+
+==============================================================================
+
+Hex editing					*<a name="hex-editing"></A><b>hex-editing</b>* *<a name="using-xxd"></A><b>using-xxd</b>*
+
+See section |<a href="usr_23.html#23.4">23.4</a>| of the user manual.
+
+If one has a particular extension that one uses for binary files (such <a href="motion.html#as">as</a> exe,
+bin, etc), you may find it helpful to automate the process with the following
+bit of autocmds for your &lt;.vimrc&gt;.  Change that &quot;*.bin&quot; to whatever
+comma-separated list of extension(s) you find yourself wanting to edit:
+
+<b>	" vim -b : edit binary using xxd-format!</b>
+<b>	augroup Binary</b>
+<b>	  au!</b>
+<b>	  au BufReadPre  *.bin let &amp;bin=1</b>
+<b>	  au BufReadPost *.bin if &amp;bin | %!xxd</b>
+<b>	  au BufReadPost *.bin set ft=xxd | endif</b>
+<b>	  au BufWritePre *.bin if &amp;bin | %!xxd -r</b>
+<b>	  au BufWritePre *.bin endif</b>
+<b>	  au BufWritePost *.bin if &amp;bin | %!xxd</b>
+<b>	  au BufWritePost *.bin set nomod | endif</b>
+<b>	augroup END</b>
+
+==============================================================================
+
+Using <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> in autocommands			*<a name="autocmd-&lt;&gt;"></A><b>autocmd-&lt;&gt;</b>*
+
+The <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> is not recognized in the argument of an <a href="autocmd.html#:autocmd">:autocmd</a>.  To avoid
+having to use special characters, you could use a self-destroying <a href="map.html#mapping">mapping</a> to
+get the <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> and then call the <a href="map.html#mapping">mapping</a> from the autocmd.  Example:
+
+
+						*<a name="map-self-destroy"></A><b>map-self-destroy</b>* 
+<b> " This is for automatically adding the name of the file to the menu list.</b>
+<b> " It uses a self-destroying mapping!</b>
+<b> " 1. use a line in the buffer to convert the 'dots' in the file name to \.</b>
+<b> " 2. store that in register '"'</b>
+<b> " 3. add that name to the Buffers menu list</b>
+<b> " WARNING: this does have some side effects, like overwriting the</b>
+<b> " current register contents and removing any mapping for the "i" command.</b>
+<b> "</b>
+<b> autocmd BufNewFile,BufReadPre * nmap i :nunmap i&lt;CR&gt;O&lt;C-R&gt;%&lt;Esc&gt;:.g/\./s/\./\\./g&lt;CR&gt;0"9y$u:menu Buffers.&lt;C-R&gt;9 :buffer &lt;C-R&gt;%&lt;C-V&gt;&lt;CR&gt;&lt;CR&gt;</b>
+<b> autocmd BufNewFile,BufReadPre * normal i</b>
+
+Another method, perhaps better, is to use the &quot;<a href="eval.html#:execute">:execute</a>&quot; command.  In the
+string you can use the <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> by preceding it with a <a href="intro.html#backslash">backslash</a>.  Don't
+forget to double the number of existing backslashes and put a <a href="intro.html#backslash">backslash</a> before
+&#39;&#34;''.
+
+<b>  autocmd BufNewFile,BufReadPre * exe "normal O\&lt;C-R&gt;%\&lt;Esc&gt;:.g/\\./s/\\./\\\\./g\&lt;CR&gt;0\"9y$u:menu Buffers.\&lt;C-R&gt;9 :buffer \&lt;C-R&gt;%\&lt;C-V&gt;\&lt;CR&gt;\&lt;CR&gt;"</b>
+
+For a real buffer menu, user <a href="eval.html#functions">functions</a> should be used (see |<a href="eval.html#:function">:function</a>|), but
+then the <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> isn't used, which defeats using it <a href="motion.html#as">as</a> an example here.
+
+==============================================================================
+
+Highlighting matching parens					*<a name="match-parens"></A><b>match-parens</b>*
+
+This example shows the use of a few advanced tricks:
+- using the |<a href="autocmd.html#CursorMoved">CursorMoved</a>| <a href="autocmd.html#autocommand">autocommand</a> event
+- using |<a href="eval.html#searchpairpos()">searchpairpos()</a>| to find a matching paren
+- using |<a href="eval.html#synID()">synID()</a>| to detect whether the cursor is in a string or comment
+- using |<a href="pattern.html#:match">:match</a>| to highlight something
+- using a |<a href="pattern.html#pattern">pattern</a>| to match a specific position in the file.
+
+This should be put in a Vim <a href="usr_41.html#script">script</a> file, since it uses <a href="map.html#script-local">script-local</a> <a href="eval.html#variables">variables</a>.
+It skips matches in strings or comments, unless the cursor started in string
+or comment.  This requires <a href="syntax.html#syntax">syntax</a> highlighting.
+
+A slightly more advanced version is used in the |<a href="pi_paren.html#matchparen">matchparen</a>| <a href="usr_05.html#plugin">plugin</a>.
+
+<b>	let s:paren_hl_on = 0</b>
+<b>	function s:Highlight_Matching_Paren()</b>
+<b>	  if s:paren_hl_on</b>
+<b>	    match none</b>
+<b>	    let s:paren_hl_on = 0</b>
+<b>	  endif</b>
+
+<b>	  let c_lnum = line('.')</b>
+<b>	  let c_col = col('.')</b>
+
+<b>	  let c = getline(c_lnum)[c_col - 1]</b>
+<b>	  let plist = split(&amp;matchpairs, ':\|,')</b>
+<b>	  let i = index(plist, c)</b>
+<b>	  if i &lt; 0</b>
+<b>	    return</b>
+<b>	  endif</b>
+<b>	  if i % 2 == 0</b>
+<b>	    let s_flags = 'nW'</b>
+<b>	    let c2 = plist[i + 1]</b>
+<b>	  else</b>
+<b>	    let s_flags = 'nbW'</b>
+<b>	    let c2 = c</b>
+<b>	    let c = plist[i - 1]</b>
+<b>	  endif</b>
+<b>	  if c == '['</b>
+<b>	    let c = '\['</b>
+<b>	    let c2 = '\]'</b>
+<b>	  endif</b>
+<b>	  let s_skip ='synIDattr(synID(line("."), col("."), 0), "name") ' .</b>
+<b>		\ '=~?	"string\\|comment"'</b>
+<b>	  execute 'if' s_skip '| let s_skip = 0 | endif'</b>
+
+<b>	  let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip)</b>
+
+<b>	  if m_lnum &gt; 0 &amp;&amp; m_lnum &gt;= line('w0') &amp;&amp; m_lnum &lt;= line('w$')</b>
+<b>	    exe 'match Search /\(\%' . c_lnum . 'l\%' . c_col .</b>
+<b>		  \ 'c\)\|\(\%' . m_lnum . 'l\%' . m_col . 'c\)/'</b>
+<b>	    let s:paren_hl_on = 1</b>
+<b>	  endif</b>
+<b>	endfunction</b>
+
+<b>	autocmd CursorMoved,CursorMovedI * call s:Highlight_Matching_Paren()</b>
+<b>	autocmd InsertEnter * match none</b>
+ 
+
+<a href="tips.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

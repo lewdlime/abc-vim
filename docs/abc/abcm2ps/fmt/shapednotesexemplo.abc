@@ -1,0 +1,125 @@
+% shapednotesexemplo.abc - Exemplo de `shapednotes.fmt'
+% Hudson Lacerda (15/04/2005 - 08-04-2007)
+
+%%abc2pscompat % abcm2ps-5.4.0
+
+% Testado com abcm2ps-4.9.5
+
+%%format shapednotes % domovel.fmt é usado implicitamente
+
+%%format portugues % writehistory em português
+
+% %maxshrink .9
+%%continueall 
+
+%%titlefont Helvetica-Bold 22
+%%titlecaps 1
+%%vocalfont Times-Roman 12
+
+%%textfont Times-Bold 36
+%%center Shaped Notes
+%%textfont Times-Roman 16
+%%text - `shapednotes.fmt' usa o arquivo `domovel.fmt'
+%%text - Só funciona plenamente com abcm2ps-4.9.4 ou superior
+%%text - Suporta até 6 pautas independentes (através de `domovel.fmt')
+
+%%infoline
+%%writehistory
+
+%%vskip 24pt
+%%textfont Times-Italic 16
+%%center - Exemplos musicais fornecidos por Eduardo Vieira da Silva -
+%%textfont Times-Roman 16
+
+X:1
+T:Se queres força na fraqueza
+C:Georg Neumark, 1641
+N:Georg Neumark
+N:Port. João Wilson Faustini, através do inglês, 1957
+V:1
+M:3/4
+L:1/8
+K:Bb
+[!shape_m!D2] [G2D2] [A2D2] |[B4D4] [A2D2] |[G4E4] [A2E2] |[^F2D2] [D4A,4] |
+w:Se que-res for-ça na fra-que-za, 
+w:Os teus la-men-tos re-vol-to-sos 
+w:Fi-el pros-se-gue~em tu-a vi-da, 
+[F2D2] [F2D2] [E2C2] |[D4A,4] [G2D2] |[EG]4 [^F2D2] |[G6D6] |
+w:pe-de~ao Se-nhor, pois tem po-der. 
+w:não a-li-vi-am teu pe-sar; 
+w:com gra-ti-dão e com lou-vor. 
+D2 [G2D2] [A2D2]|[B4D4] [A2D2] |[G4E4] [A2E2] |[^F2D2] [D4A,4] |
+w:E-le~há de~ou-vir-te, com cer-te-za, 
+w:em teus ca-mi-nhos es-pi-nho-sos 
+w:De Deus a gra-ça~é pro-me-ti-da 
+[F2D2] [F2D2] [E2C2] |[D4A,4] [G2D2] |[G4E4] [^F2D2] |[G6D6] |
+w:e teus pro-ble-mas re-sol-ver. 
+w:pro-cu-ra~em Deus teu mal sa-nar. 
+w:a quem con-fi-a~em seu a-mor. 
+[A2D2] [B2D2] [c2F2] |[d4F4] [d2F2] |[c4G4] d2 & x4 FE|[B6D6] |
+w:Quem a-ma crê no bom Se- nhor. 
+w:Se tens tris-te-zas e~a-mar- gor, 
+w:Deus sem-pre~a-ten-de,~em seu po- der, 
+[B2F2] [A2F2] [G2D2] |[^F4D4] [G2B,2] |[G4E4] [^F2D2] |[G6D6] |]
+w:Re-ce-be~os fru-tos des-se~a mor. 
+w:não os trans-for-mes em ran-cor. 
+w:à-que-le que~em seu no-me crer.
+V:2
+M:3/4
+L:1/8
+K:Bb
+[!shape_l!G,,!shape_d!B,]2 [G,2B,,2] [^F,2D,2] |[G,4E,4] [A,2F,2] |
+[B,4E,4] [C2C,2] |[A,2D,2] [^F,4D,4] |[B,2B,,2] [B,2B,,2] [G,2C,2] |
+[^F,4D,4] [G,2B,,2] |[C4C,4] [A,2D,2] |[B,6G,,6] |[B,2G,,2] [G,2B,,2] [^F,2D,2] |
+[G,4E,4] [A,2F,2] |[B,4E,4] [C2C,2] |[A,2D,2] [^F,4D,4] |[B,2B,,2] [B,2B,,2] [G,2C,2] |
+[^F,4D,4] [G,2B,,2] |[C4C,4] [A,2D,2] |[B,6G,,6] |[^F,2D,2] G,2 [A,2=F,2] |
+[B,4B,,4] [B,2D,2] |[B,E,]4 [A,2F,2] |[B,6B,,6] |[D2B,,2] [C2F,2] [B,2G,2] |
+[A,4D,4] [G,2E,2] |(C3 B,) [A,2D,2] & C,4 x2|[B,6G,,6] |]
+
+X:2
+T:Uma bênção antiga
+C:Denes Agay, 1970
+N:Tradicional
+N:Port. James Frederick Spann, 1976
+V:1
+V:2
+V:3 clef=bass
+V:4 clef=bass
+M:4/4
+L:1/8
+K:D
+%%staves [(1 2)|(3 4)]
+[V:1] [!shape_d!D] E |F4 B3 A |F2 F4 D E |F2 F2 B A D E |
+w:Tu-a vi-da, a-mi-go, se-ja sem-pre pa-ra o me-
+[V:2] [!shape_l!B,] C |D4 D3 C |D2 D4 B, C |D2 D2 D D D D |
+[V:3 octave=-2] [!shape_m!f] f |f4 f3 e |f2 f4 b b |b2 b2 b b b b |
+[V:4 octave=-2] [!shape_l!B] B|B4 B3 B |B2 B4 f f |b2 a2 g a g g |
+%
+[V:1] [F6]-F F |B2 c2 d3 c |B2 A2 F3 F |B2 c2 d e d c |
+w:lhor._ Que~o sol a-que-ça teu vi-ver, que~a chu-va cai-a le-ve 
+[V:2] [C6]-C F |D2 E2 G3 E |D2 E2 D3 D |D2 E2 G G G E |
+[V:3] [a6]-a a |[f2] a2 b3 a |f2 a2 a3 a |f2 a2 b c' b a |
+[V:4] [f6]-f f |[B2] A2 [G3] A |B2 c2 d3 c |B2 A2 G G G A |
+%
+[V:1] B2 A2 F3 F |E3 E A3 G |F2 E2 D2 E2 |C6 G2 |
+w:no teu lar, e~a-té nos en-con-trar-mos ou-tra vez; que
+[V:2] D2 E2 D3 B, |B,3 B, C3 C |D2 C2 B,2 B,2 |^A,6 E2 |
+[V:3] g2 a2 b3 f |g3 g a3 e |f2 f2 f2 g2 |f6 b2 |
+[V:4] B2 c2 d3 d |e3 e A3 A |B2 c2 d2 c2 |f6 e2 |
+%
+[V:1] F6 B2 |d4 B2 G2 |c2 A2 F2 A c |B6 B B |
+w:Deus, que Deus te se-gu-re nas su-as mãos. Que~o Se-
+[V:2] C6 F2 |B4 G2 D2 |A2 F2 C2 F A |F6 F F |
+[V:3] [^a6] d'2 |d'4 d'2 b2 |c'2 c'2 a2 c' c' |^d'6 d' d' |
+[V:4] f6 b2 |g4 g2 g2 |f2 f2 f2 f f |b6 b b |
+%
+[V:1] B4 B B B B |^d2 B4 B B |B4 B B c B |^G3/2 B/ B B3-B B |F4 F4 |F6 |]
+w:nhor te~a ben-ço-e~e guar-de, Que~o Se-nhor so-bre ti le-van-te~o ros-_to e te dê paz 
+[V:2] ^G4 G G G G |F2 F4 F F |^G4 G G G G |^G3/2 F/ F F3-F F |F4 E4 |D6|]
+[V:3] ^d'4 d' d' d' d' |^d'2 d'4 d' d' |e'4 e' e' e' e' |b3/2 b/ b b3-b b |b4 ^a4 |b6|]
+[V:4] ^g4 g g g g |b2 b4 f f |e4 e e e e |^d3/2 d/ d d3-d d |d4 =c4 |B6|]
+
+%
+%%postscript 0 -50 M 20 F0 (stackcount: ) count 3 string cvs exch show show
+%
+

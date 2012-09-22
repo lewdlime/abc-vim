@@ -1,0 +1,201 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: debug</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: debug</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="debug.txt"></A><b>debug.txt</b>*     For Vim version 7.3.  Last change: 2010 Dec 22
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Debugging Vim						*<a name="debug-vim"></A><b>debug-vim</b>*
+
+This is for debugging Vim itself, when it doesn't work properly.
+For debugging Vim scripts, <a href="eval.html#functions">functions</a>, etc. see |<a href="repeat.html#debug-scripts">debug-scripts</a>|
+
+1. Location of a crash, using gcc and gdb	|<a href="debug.html#debug-gcc">debug-gcc</a>|
+2. Locating memory leaks			|<a href="debug.html#debug-leaks">debug-leaks</a>|
+3. Windows Bug Reporting			|<a href="debug.html#debug-win32">debug-win32</a>|
+
+==============================================================================
+
+
+1. Location of a crash, using gcc and gdb		*<a name="debug-gcc"></A><b>debug-gcc</b>*
+
+When Vim crashes in one of the test files, and you are using gcc for
+compilation, here is what you can <a href="diff.html#do">do</a> to find out exactly where Vim crashes.
+This also applies when using the MingW tools.
+
+1. Compile Vim with the &quot;<a href="starting.html#-g">-g</a>&quot; option (there is a line in the src/Makefile for
+   this, which you can uncomment).  Also make sure &quot;strip&quot; is disabled (do not
+   <a href="usr_90.html#install">install</a> it, or use the line &quot;STRIP = /bin/true&quot;).
+
+2. Execute these commands (replace &quot;11&quot; with the test that fails):
+<b>	cd testdir</b>
+<b>	gdb ../vim</b>
+<b>	run -u unix.vim -U NONE -s dotest.in test11.in</b>
+
+3. Check where Vim crashes, gdb should give a message for this.
+
+4. Get a stack trace from gdb with this command:
+<b>	where</b>
+   You can check out different places in the stack trace with:
+<b>	frame 3</b>
+   <a href="insert.html#Replace">Replace</a> &quot;3&quot; with one of the numbers in the stack trace.
+
+==============================================================================
+
+
+2. Locating memory leaks			*<a name="debug-leaks"></A><b>debug-leaks</b>* *<a name="valgrind"></A><b>valgrind</b>*
+
+If you suspect Vim is leaking memory and you are using Linux, the <a href="debug.html#valgrind">valgrind</a>
+tool is very useful to pinpoint memory leaks.
+
+First of all, build Vim with EXITFREE defined.  Search for this in MAKEFILE
+and uncomment the line.
+
+Use this command to start Vim:
+
+<b>	valgrind --log-file=valgrind.log --leak-check=full ./vim</b>
+
+Note: Vim will run much slower.  If your <a href="starting.html#.vimrc">.vimrc</a> is big or you have several
+plugins you need to be patient for <a href="starting.html#startup">startup</a>, or run with the &quot;<a href="starting.html#-u">-u</a> NONE&quot;
+argument.
+
+There are often a few leaks from libraries, such <a href="motion.html#as">as</a> getpwuid() and
+XtVaAppCreateShell().  Those are unavoidable.  The number of bytes should be
+very small a Kbyte or <a href="various.html#less">less</a>.
+
+==============================================================================
+
+
+3. Windows Bug Reporting				*<a name="debug-win32"></A><b>debug-win32</b>*
+
+If the Windows version of Vim crashes in a reproducible manner, you can take
+some steps to provide a useful bug report.
+
+
+<b><font color="purple">3.1 GENERIC </font></b>
+
+You must obtain the debugger symbols (PDB) file for your executable: gvim.pdb
+for gvim.exe, or vim.pdb for vim.exe. The PDB should be available from the
+same place that you obtained the executable. Be sure to use the PDB that
+matches the EXE (same date).
+
+If you built the executable yourself with the Microsoft <a href="visual.html#Visual">Visual</a> C++ compiler,
+then the PDB was built with the EXE.
+
+Alternatively, if you have the source files, you can import Make_ivc.mak into
+<a href="visual.html#Visual">Visual</a> Studio <a href="motion.html#as">as</a> a workspace.  Then select a debug configuration, build and
+you can <a href="diff.html#do">do</a> all kinds of debugging (set breakpoints, watch <a href="eval.html#variables">variables</a>, etc.).
+
+If you have <a href="visual.html#Visual">Visual</a> Studio, use that instead of the VC Toolkit and WinDbg.
+
+For other compilers, you should always use the corresponding debugger: TD for
+a Vim executable compiled with the Borland compiler; gdb (see above
+|<a href="debug.html#debug-gcc">debug-gcc</a>|) for the Cygwin and MinGW compilers.
+
+
+
+								*<a name="debug-vs2005"></A><b>debug-vs2005</b>*
+<b><font color="purple">3.2 Debugging Vim crashes with Visual Studio 2005/Visual C++ 2005 Express </font></b>
+
+First launch vim.exe or gvim.exe and then launch <a href="visual.html#Visual">Visual</a> Studio.  (If you don't
+have <a href="visual.html#Visual">Visual</a> Studio, follow the instructions at |<a href="debug.html#get-ms-debuggers">get-ms-debuggers</a>| to obtain a
+free copy of <a href="visual.html#Visual">Visual</a> C++ 2005 Express Edition.)
+
+On the Tools menu, click Attach to Process.  Choose the Vim process.
+
+In Vim, reproduce the crash.  A <a href="gui_w32.html#dialog">dialog</a> will appear in <a href="visual.html#Visual">Visual</a> Studio, telling
+you about the unhandled exception in the Vim process.  Click Break to break
+into the process.
+
+<a href="visual.html#Visual">Visual</a> Studio will pop up another <a href="gui_w32.html#dialog">dialog</a>, telling you that no symbols are
+loaded and that the source code cannot be displayed.  Click OK.
+
+Several <a href="windows.html#windows">windows</a> will open.  Right-click in the Call Stack <a href="windows.html#window">window</a>.  Choose Load
+Symbols.  The Find Symbols <a href="gui_w32.html#dialog">dialog</a> will open, looking for (g)vim.pdb.  Navigate
+to the directory where you have the PDB file and click Open.
+
+At this point, you should have a full call stack with vim function names and
+line numbers.  Double-click one of the lines and the Find Source <a href="gui_w32.html#dialog">dialog</a> will
+appear.  Navigate to the directory where the Vim source is (if you have it.)
+
+If you don't know how to debug this any further, follow the instructions
+at &quot;<a href="helphelp.html#:help">:help</a> bug-reports&quot;.  Paste the call stack into the bug report.
+
+If you have a non-free version of <a href="visual.html#Visual">Visual</a> Studio, you can save a minidump via
+the Debug menu and send it with the bug report.  A minidump is a small file
+(&lt;100KB), which contains information about the state of your process.
+<a href="visual.html#Visual">Visual</a> C++ 2005 Express Edition cannot save minidumps and it cannot be
+installed <a href="motion.html#as">as</a> a just-in-time debugger. Use WinDbg, |<a href="debug.html#debug-windbg">debug-windbg</a>|, if you
+need to save minidumps or you want a just-in-time (postmortem) debugger.
+
+
+								*<a name="debug-windbg"></A><b>debug-windbg</b>*
+<b><font color="purple">3.3 Debugging Vim crashes with WinDbg </font></b>
+
+See |<a href="debug.html#get-ms-debuggers">get-ms-debuggers</a>| to obtain a copy of WinDbg.
+
+As with the <a href="visual.html#Visual">Visual</a> Studio IDE, you can attach WinDbg to a running Vim process.
+You can also have your system automatically invoke WinDbg <a href="motion.html#as">as</a> a postmortem
+debugger. To set WinDbg <a href="motion.html#as">as</a> your postmortem debugger, run &quot;windbg -I&quot;.
+
+To attach WinDbg to a running Vim process, launch WinDbg. On the File menu,
+choose Attach to a Process. <a href="visual.html#Select">Select</a> the Vim process and click OK.
+
+At this point, choose Symbol File Path on the File menu, and add the folder
+containing your Vim PDB to the sympath. If you have Vim source available,
+use Source File Path on the File menu. You can now open source files in WinDbg
+and set breakpoints, if you like. Reproduce your crash. WinDbg should open the
+source file at the point of the crash. Using the <a href="starting.html#View">View</a> menu, you can examine
+the call stack, local <a href="eval.html#variables">variables</a>, watch <a href="windows.html#windows">windows</a>, and so on.
+
+If WinDbg is your postmortem debugger, you <a href="diff.html#do">do</a> not need to attach WinDbg to
+your Vim process. Simply reproduce the crash and WinDbg will launch
+automatically. As above, set the Symbol File Path and the Source File Path.
+
+To save a minidump, type the following at the WinDbg command line:
+<b>        .dump vim.dmp</b>
+ 
+
+							*<a name="debug-minidump"></A><b>debug-minidump</b>*
+<b><font color="purple">3.4 Opening a Minidump </font></b>
+
+If you have a minidump file, you can open it in <a href="visual.html#Visual">Visual</a> Studio or in WinDbg.
+
+In <a href="visual.html#Visual">Visual</a> Studio 2005: on the File menu, choose Open, then Project/Solution.
+Navigate to the .dmp file and open it. Now press F5 to invoke the debugger.
+Follow the instructions in |<a href="debug.html#debug-vs2005">debug-vs2005</a>| to set the Symbol File Path.
+
+In WinDbg: choose Open Crash Dump on the File menu. Follow the instructions in
+|<a href="debug.html#debug-windbg">debug-windbg</a>| to set the Symbol File Path.
+
+
+							*<a name="get-ms-debuggers"></A><b>get-ms-debuggers</b>*
+<b><font color="purple">3.5 Obtaining Microsoft Debugging Tools </font></b>
+
+The Debugging Tools for Windows (including WinDbg) can be downloaded from
+	<a href="http://www.microsoft.com/whdc/devtools/debugging/default.mspx">http://www.microsoft.com/whdc/devtools/debugging/default.mspx</a>
+This includes the WinDbg debugger.
+
+<a href="visual.html#Visual">Visual</a> C++ 2005 Express Edition can be downloaded for free from:
+	<a href="http://msdn.microsoft.com/vstudio/express/visualC/default.aspx">http://msdn.microsoft.com/vstudio/express/visualC/default.aspx</a>
+
+<a href="debug.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

@@ -1,0 +1,133 @@
+X:1
+T:An Cailin Rua
+Z: id:dc-miscellaneous-11
+M:2/4
+L:1/8
+K:F Major
+"Verse" C|C2 CD|F2 FF|G2 DD|DC z2|!
+B2 B2|A2 GF|G2 A=B|c2 zc|!
+d2 dd|c2 AG|F2 DE|FG AB|!
+c2 GG|A2 FF|D2 CB,|C2 z|]!
+"Refrain" F/D/|C>D FA|GF DF/D/|C/D/F GA|GF FD|!
+C>D FA|GF G/A/c|de/d/ cA|[1 GF D:|[2 G z2|]!
+"Extended Refrain" F/D/|C>D FA|GF DF/D/|C/D/F GA|GF FD|!
+C>D FA|GF G/A/c|de/d/ cA|[1 GF DF/D/:|[2 G/A/c d|]!
+c|d>e fe|dc Ac/A/|d>e fe|dc cA|!
+d>e fe|dc Ac/d/|cA F/G/A/G/|FD D:|!
+
+X:2
+T:Donegal Highland
+Z: id:dc-miscellaneous-1
+M:C|
+L:1/8
+K:G Major
+dc|BEBE cBcA|BEBE cAFA|BEBE cBcB|Addc BGGA|!
+BEBE cBcA|BEBE cAFA|BEBE cBcB|Addc BG|]!
+Bd|g2fg B3A|G2ag fdef|g2fg B3A|GBdc BGBd|!
+g2fg B3A|G2ag fdcA|GBdB cdef|gbaf g2|]!
+
+X:3
+T:German Beau
+Z: id:dc-miscellaneous-10
+M:C
+L:1/8
+K:D Major
+A|d4 A2d2|e3c A2f2|g2f2 e2d2|cdec ABcA|!
+d4 A2d2|e3c A2g2|fafd egec|[1 d4 d3:|[2 d4 d3|]!
+A|defg a4|defg a4|b3a b2c'2|d'4 c'2d'2|!
+a4 g2e2|a4 f2d2|g2f2 e2d2|cdec ABcA|!
+d4 A2d2|e3c A2g2|fafd egec|d4 d3:|!
+
+X:4
+T:Mairi's Wedding
+Z: id:dc-miscellaneous-9
+M:2/4
+L:1/8
+K:G Major
+D>E DE|GA B2|AG EG|BA B<d|!
+D>E DE|GA B2|AG EC|D2 D2:|!
+d>c de|dc B2|AG EG|BA B<d|!
+d>c de|dc B2|AG EC|D2 D2:|!
+
+X:5
+T:Music for a Found Harmonium
+Z: id:dc-miscellaneous-2
+M:C
+L:1/8
+K:D Major
+D|FDGD FDDD|FDGD FDDD|FDGD FDDD|EDCD FDD:|!
+D|EDCD EDCD|FD=CD FDCD|GDFD CDGD|FDDD D3:|!
+d|fdgd fddd|fdgd fddd|fdgd fddd|edcd fdd:|!
+d|edcd edcd|fd=cd fdcd|gdfd cdgd|fddd d3:|!
+=F|=c=FEF GFEF|=c=FEF E3F|=c=FEF GFEF|=c=FEF E3:|!
+=F|_B=FDF GFDF|_B=FDF GFDF|_B=FEF GE2G|_B=FEF GE2G|!
+cGEG CG2G|cGEG CG2G|cGEG CG2G|cGEG CG2|]!
+
+X:6
+T:O'Donnell Abu
+Z: id:dc-miscellaneous-3
+M:2/4
+L:1/8
+K:D Major
+FE|D2 FG|A2 FA|f2 dB|A2 GF|!
+[1 E2 E>F|G2 FE|D2 FG|A2:|!
+[2 E2 e>d|cA Bc|d2 d>d|d2|]!
+B/c/d/e/|f2 fe|dB A2|d2 dB|AF DF|!
+G2 BG|F2 AF|E2 E>F|EG FE|!
+D2 FG|A2 FA|f2 dB|A2 GF|!
+E2 e>d|cA Bc|d2 d>d|d2:|!
+
+X:7
+T:O'Neill's March
+Z: id:dc-miscellaneous-4
+M:2/4
+L:1/8
+K:E Dorian
+Bg fa|eg g/f/e/d/|Bg fa|eg g/f/e/d/:|!
+ee f/e/d/B/|ee f/e/d/B/|ee f/e/d/B/|ee f/e/d/B/|]!
+K:A Dorian
+A>B G>B|Ae e/d/B|A>B G>B|Ae e/d/B:|!
+eA AB/d/|e>d Bd|eA AB|G>A Bd|!
+eA AB/d/|e>d Bd|ed gB|A2 A2:|!
+ea ag/a/|b>a ge|dB gB|d/c/B/A/ G/A/B/G/|!
+ea ag/a/|b>a ge|dB gB|A2 A2:|!
+
+X:8
+T:Return from Fingal
+Z: id:dc-miscellaneous-8
+M:C
+L:1/8
+K:E Dorian
+A|BAGF EFGA|BAGF E3B|ADFA d2A2|B3A BcdA|!
+BAGF EFGA|BAGF E3B|ADFA d2A2|F2E2 E3:|!
+e|f2e2 e2dc|B2A2 d3A|B3A d3A|B3A Bcde|!
+f2e2 e2dc|B2A2 d3B|ADFA d2A2|F2E2 E3:|!
+
+X:9
+T:Sunset
+Z: id:dc-miscellaneous-5
+M:C
+L:1/8
+K:D Mixolydian
+ed|^cFF2 Bcdc|BGBd e2ed|cdeg d2Ad|dfed ^cded|!
+^cFF2 Bcdc|BGBd e2ed|cdeg fde^c|dfe^c d2:|!
+ag|fdfg a2gf|ecef g3a|fggf gfe^c|dfed ^cded|!
+^cFF2 Bcdc|BGBd e2ed|cdeg fde^c|dfe^c d2ag|!
+=fdfg a2gf|ece=f g3a|fggf gfe^c|dfed ^cded|!
+^cFF2 Bcdc|BGBd e2ed|cdeg fde^c|dfe^c d2|]!
+
+X:10
+T:Sweets of May
+Z: id:dc-miscellaneous-7
+M:6/8
+L:1/8
+K:G Major
+dc|B2G AGF|GAG Gdc|B2G GAB|c3d2c|!
+B2G AGF|GAG Gdc|B2G AGF|G3-G:|!
+K:A Dorian
+zB|ABA A2G|E2F G3|ABA c2d|e2d c2B|!
+ABA A2G|E2F G3|ABA BAG|A3-A:|!
+K:G Major
+Bc|d3 d3|D3 D3|c3 c3|D3 D3|!
+G2D G2A|B2A B2c|d2D DEF|G3-G:|!
+

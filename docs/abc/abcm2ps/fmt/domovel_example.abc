@@ -1,0 +1,114 @@
+% Sample file for domovel.fmt -- Hudson Lacerda (02.05.2007)
+
+% Require the file ``domovel.fmt''
+% It must be in the current directory, or
+% in a directory supplied with -F command-line option, or
+% in the default format directory. (Run abcm2ps -V)
+%%format domovel.fmt
+
+% Scale the scores at a large size, for easy reading.
+%%scale 1.1
+
+%%center Sample file for domovel.fmt
+
+% domovel.fmt changes the looking of several symbols.
+% Those style changes aim to get a lighter score at a large size.
+% This command assures that the changes are applied before any notes.
+% (domovel_inicio stands for ``start moveable doh'')
+%%postscript domovel_inicio
+
+% If you want centering the note heads relative to stems,
+% active this command. Not good when helper lines are used.
+% NOTE: The modes (alpha, numbers, names, ABC etc.) affect this.
+   % %postscript /dm_defl? true def
+%%postscript /dm_defl? false def
+
+%--------------------------------------------------
+
+% Predefined decorations are:
+%   !domovel_d!      start domovel at do (doh)
+%   !domovel_r!      start domovel at re (ray)
+%   !domovel_m!      start domovel at mi (mee)
+%   !domovel_f!      start domovel at fa (fah)
+%   !domovel_s!      start domovel at sol (soh)
+%   !domovel_l!      start domovel at la (lah)
+%   !domovel_t!      start domovel at ti (tee)
+%   !domovel_fim!    stop domovel -- prefer use: %%postscript domovel_fim
+%   !domovel_normal! single normal note head
+%   !/3! (three-bars phrase)
+%
+% NOTE: !domovel_*! decorations must be used
+%       along a note between square braces.
+
+% Create a new domovel decoration (21pt per octave, 3pt per 2nd)
+%%postscript /domovel_d, { 21 add domovel_inicio_ }!
+%%deco domovel_d, 0 domovel_d, 0 0 0
+
+% Create a neutral note head decoration (don't set pitch relations)
+% (See last note in the example)
+% NOTE: You should change only the printed text (here it is "Fi") and
+% the deco name ( here it is !head-fi! ), maintaining the prefix "head-"
+%%deco head-fi 3 dms 0 0 0 Fi
+
+%--------------------------------------------------
+
+% Set the font type and size (any PostScript font)
+%%postscript /domovel_font{  /AvantGarde-Demi 9 }def
+   % %postscript /domovel_font{  /Helvetica0 9 }def % (accented chars)
+   % %postscript /domovel_font{/Helvetica 9}def
+
+% Set the vertical offset for the note names (if needed)
+%%postscript /dm_vertical_offset -2.5 def
+   % %postscript /dm_vertical_offset -2.72 def
+
+% Hide any accidentals
+   % %postscript domovel_oculta_acidentes
+% Show the accidentals
+   % %postscript domovel_mostra_acidentes
+
+%--------------------------------------------------
+
+X:1
+M:none
+K:C treble
+%
+%%vskip 0
+%%postscript domovel_abc
+"^ABC mode (domovel_abc) (default)"\
+[!domovel_d,!C,]D,E,F,G,A,B,C|CDEFGABc|cdefgabc'|c'd'e'f'g'a'b'c''||
+%
+%%vskip 0
+%%postscript domovel_alfa
+"^Alphabetical mode (domovel_alfa)"\
+[!domovel_d!C]DEFGABc|cdefgabc'||
+%
+%%vskip 0
+%%postscript domovel_numeros
+"^Numerical mode (domovel_numeros)"\
+[!domovel_d!C]DEFGABc|cdefgabc'||
+%
+%%vskip 0
+%%postscript domovel_fim
+"^Normal note heads (domovel_fim)"\
+CDEFGABc|cdefgabc'||
+%
+%%vskip 0
+%%postscript domovel_inicio % restart domovel
+%%postscript domovel_nomes
+"^Names mode (domovel_nomes)"\
+[!domovel_d!C]DEFGABc|cdefgabc'||
+%
+%%vskip 0
+%%postscript domovel_iniciais
+"^Initials mode (domovel_iniciais)"\
+[!domovel_d,!C]DEFGABc|cdefgabc'||
+%
+%%vskip 0
+%%postscript [ (Do)(Re)(Mi)(Fa)(Sol)(La)(Si) % central octave
+%%postscript   (Do')(Re')(Mi')(Fa')(Sol')(La')(Si') % upper octave
+%%postscript   (Do,)(Re,)(Mi,)(Fa,)(Sol,)(La,)(Si,) % lower octave
+%%postscript ] domovel_def_vetor  % note names array
+%%postscript /dm_offset 13 def    % horizontal offset for long notes (13pt)
+%%postscript /dm_defl? false def  % centering to stem? (true/false)
+"^User-defined mode"\
+[!domovel_d,!C,]D,E,F,G,A,B,C|CDEFGABc|cdefgab[!head-fi!^f]||

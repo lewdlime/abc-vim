@@ -1,0 +1,656 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: fold</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: fold</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="fold.txt"></A><b>fold.txt</b>*      For Vim version 7.3.  Last change: 2010 May 13
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+<a href="fold.html#Folding">Folding</a>						*<a name="Folding"></A><b>Folding</b>* *<a name="folding"></A><b>folding</b>* *<a name="folds"></A><b>folds</b>*
+
+You can find an introduction on <a href="fold.html#folding">folding</a> in chapter 28 of the user manual.
+|<a href="usr_28.html">usr_28.txt</a>|
+
+1. Fold methods		|<a href="fold.html#fold-methods">fold-methods</a>|
+2. Fold commands	|<a href="fold.html#fold-commands">fold-commands</a>|
+3. Fold options		|<a href="fold.html#fold-options">fold-options</a>|
+4. Behavior of <a href="fold.html#folds">folds</a>	|<a href="fold.html#fold-behavior">fold-behavior</a>|
+
+{Vi has no Folding}
+{not available when compiled without the |<a href="various.html#+folding">+folding</a>| feature}
+
+==============================================================================
+
+1. Fold methods					*<a name="fold-methods"></A><b>fold-methods</b>*
+
+The <a href="fold.html#folding">folding</a> method can be set with the <a href="options.html#'foldmethod'">'foldmethod'</a> option.
+
+When setting <a href="options.html#'foldmethod'">'foldmethod'</a> to a value other than &quot;manual&quot;, all <a href="fold.html#folds">folds</a> are
+deleted and new ones created.  Switching to the &quot;manual&quot; method doesn't remove
+the existing <a href="fold.html#folds">folds</a>.  This can be used to first define the <a href="fold.html#folds">folds</a> automatically
+and then change them manually.
+
+There are six methods to select <a href="fold.html#folds">folds</a>:
+	manual		manually define <a href="fold.html#folds">folds</a>
+	indent		more indent means a higher fold level
+	<a href="eval.html#expr">expr</a>		specify an <a href="eval.html#expression">expression</a> to define <a href="fold.html#folds">folds</a>
+	<a href="syntax.html#syntax">syntax</a>		<a href="fold.html#folds">folds</a> defined by <a href="syntax.html#syntax">syntax</a> highlighting
+	<a href="diff.html#diff">diff</a>		<a href="fold.html#folds">folds</a> for unchanged text
+	marker		<a href="fold.html#folds">folds</a> defined by markers in the text
+
+
+
+MANUAL						*<a name="fold-manual"></A><b>fold-manual</b>*
+
+Use commands to manually define the fold regions.  This can also be used by a
+<a href="usr_41.html#script">script</a> that parses text to find <a href="fold.html#folds">folds</a>.
+
+The level of a fold is only defined by its nesting.  To increase the fold
+level of a fold for a range of lines, define a fold inside it that has the
+same lines.
+
+The manual <a href="fold.html#folds">folds</a> are lost when you <a href="editing.html#abandon">abandon</a> the file.  To save the <a href="fold.html#folds">folds</a> use
+the |<a href="starting.html#:mkview">:mkview</a>| command.  The view can be restored later with |<a href="starting.html#:loadview">:loadview</a>|.
+
+
+
+INDENT						*<a name="fold-indent"></A><b>fold-indent</b>*
+
+The <a href="fold.html#folds">folds</a> are automatically defined by the indent of the lines.
+
+The foldlevel is computed from the indent of the line, divided by the
+<a href="options.html#'shiftwidth'">'shiftwidth'</a> (rounded down).  A sequence of lines with the same or higher fold
+level form a fold, with the lines with a higher level forming a nested fold.
+
+The nesting of <a href="fold.html#folds">folds</a> is limited with <a href="options.html#'foldnestmax'">'foldnestmax'</a>.
+
+Some lines are ignored and get the fold level of the line above or below it,
+whatever is the lowest.  These are empty or white lines and lines starting
+with a character in <a href="options.html#'foldignore'">'foldignore'</a>.  White space is skipped before checking for
+characters in <a href="options.html#'foldignore'">'foldignore'</a>.  For C use &quot;<a href="pattern.html##">#</a>&quot; to ignore preprocessor lines.
+
+When you want to ignore lines in another way, use the '<a href="eval.html#expr">expr</a>' method.  The
+|<a href="eval.html#indent()">indent()</a>| function can be used in <a href="options.html#'foldexpr'">'foldexpr'</a> to get the indent of a line.
+
+
+
+EXPR						*<a name="fold-expr"></A><b>fold-expr</b>*
+
+The <a href="fold.html#folds">folds</a> are automatically defined by their foldlevel, like with the &quot;indent&quot;
+method.  The value of the <a href="options.html#'foldexpr'">'foldexpr'</a> option is evaluated to get the foldlevel
+of a line.  Examples:
+This will create a fold for all consecutive lines that start with a <a href="intro.html#tab">tab</a>:
+<b>	:set foldexpr=getline(v:lnum)[0]==\"\\t\"</b>
+This will call a function to compute the fold level:
+<b>	:set foldexpr=MyFoldLevel(v:lnum)</b>
+This will make a fold out of paragraphs separated by blank lines:
+<b>	:set foldexpr=getline(v:lnum)=~'^\\s*$'&amp;&amp;getline(v:lnum+1)=~'\\S'?'&lt;1':1</b>
+this does the same:
+<b>	:set foldexpr=getline(v:lnum-1)=~'^\\s*$'&amp;&amp;getline(v:lnum)=~'\\S'?'&gt;1':1</b>
+
+Note that backslashes must be used to <a href="intro.html#escape">escape</a> characters that &quot;<a href="options.html#:set">:set</a>&quot; handles
+differently (space, backslash, double <a href="change.html#quote">quote</a>, etc., see |<a href="options.html#option-backslash">option-backslash</a>|).
+
+These are the conditions with which the <a href="eval.html#expression">expression</a> is evaluated:
+- The current buffer and <a href="windows.html#window">window</a> are set for the line.
+- The variable &quot;<a href="eval.html#v:lnum">v:lnum</a>&quot; is set to the line number.
+- The result is used for the fold level in this way:
+<b><font color="purple">  value			meaning </font></b>
+  0			the line is not in a fold
+  1, 2, ..		the line is in a fold with this level
+  -1			the fold level is undefined, use the fold level of a
+			line before or after this line, whichever is the
+			lowest.
+  &quot;<a href="change.html#=">=</a>&quot;			use fold level from the previous line
+  &quot;a1&quot;, &quot;a2&quot;, ..	add one, two, .. to the fold level of the previous
+			line
+  &quot;s1&quot;, &quot;s2&quot;, ..	subtract one, two, .. from the fold level of the
+			previous line
+  &quot;&lt;1&quot;, &quot;&lt;2&quot;, ..	a fold with this level ends at this line
+  &quot;&gt;1&quot;, &quot;&gt;2&quot;, ..	a fold with this level starts at this line
+
+It is not required to <a href="motion.html#mark">mark</a> the start (end) of a fold with &quot;&gt;1&quot; (&quot;&lt;1&quot;), a fold
+will also start (end) when the fold level is higher (lower) than the fold
+level of the previous line.
+
+There must be no side effects from the <a href="eval.html#expression">expression</a>.  The text in the buffer,
+cursor position, the search patterns, <a href="options.html#options">options</a> etc. must not be changed.
+You can change and restore them if you are careful.
+
+If there is some error in the <a href="eval.html#expression">expression</a>, or the resulting value isn't
+recognized, there is no error message and the fold level will be zero.
+For debugging the <a href="options.html#'debug'">'debug'</a> option can be set to &quot;msg&quot;, the error <a href="message.html#messages">messages</a> will
+be visible then.
+
+Note: Since the <a href="eval.html#expression">expression</a> has to be evaluated for every line, this fold
+method can be very slow!
+
+Try to avoid the &quot;<a href="change.html#=">=</a>&quot;, &quot;<a href="insert.html#a">a</a>&quot; and &quot;<a href="change.html#s">s</a>&quot; return values, since Vim often has to search
+backwards for a line for which the fold level is defined.  This can be slow.
+
+|<a href="eval.html#foldlevel()">foldlevel()</a>| can be useful to compute a fold level relative to a previous
+fold level.  But note that <a href="eval.html#foldlevel()">foldlevel()</a> may return -1 if the level is not known
+yet.  And it returns the level at the start of the line, while a fold might
+end in that line.
+
+It may happened that <a href="fold.html#folds">folds</a> are not updated properly.  You can use |<a href="fold.html#zx">zx</a>| or |<a href="fold.html#zX">zX</a>|
+to force updating <a href="fold.html#folds">folds</a>.
+
+
+
+SYNTAX						*<a name="fold-syntax"></A><b>fold-syntax</b>*
+
+A fold is defined by <a href="syntax.html#syntax">syntax</a> items that have the &quot;fold&quot; argument. |<a href="syntax.html#:syn-fold">:syn-fold</a>|
+
+The fold level is defined by nesting <a href="fold.html#folds">folds</a>.  The nesting of <a href="fold.html#folds">folds</a> is limited
+with <a href="options.html#'foldnestmax'">'foldnestmax'</a>.
+
+Be careful to specify proper <a href="syntax.html#syntax">syntax</a> syncing.  If this is not done right, <a href="fold.html#folds">folds</a>
+may differ from the displayed highlighting.  This is especially relevant when
+using patterns that match more than one line.  In <a href="change.html#case">case</a> of doubt, try using
+brute-force syncing:
+<b>	:syn sync fromstart</b>
+
+
+
+DIFF						*<a name="fold-diff"></A><b>fold-diff</b>*
+
+The <a href="fold.html#folds">folds</a> are automatically defined for text that is not part of a change or
+close to a change.
+
+This method only works properly when the <a href="options.html#'diff'">'diff'</a> option is set for the current
+<a href="windows.html#window">window</a> and changes are being displayed.  Otherwise the whole buffer will be
+one big fold.
+
+The <a href="options.html#'diffopt'">'diffopt'</a> option can be used to specify the context.  That is, the number
+of lines between the fold and a change that are not included in the fold.  For
+example, to use a context of 8 lines:
+<b>	:set diffopt=filler,context:8</b>
+The default context is six lines.
+
+When <a href="options.html#'scrollbind'">'scrollbind'</a> is also set, Vim will attempt to keep the same <a href="fold.html#folds">folds</a> open in
+other <a href="diff.html#diff">diff</a> <a href="windows.html#windows">windows</a>, so that the same text is visible.
+
+
+
+MARKER						*<a name="fold-marker"></A><b>fold-marker</b>*
+
+Markers in the text tell where <a href="fold.html#folds">folds</a> start and end.  This allows you to
+precisely specify the <a href="fold.html#folds">folds</a>.  This will allow <a href="change.html#deleting">deleting</a> and putting a fold,
+without the risk of including the wrong lines.  The <a href="options.html#'foldtext'">'foldtext'</a> option is
+normally set such that the text before the marker shows up in the folded line.
+This makes it possible to give a name to the fold.
+
+Markers can have a level included, or can use matching pairs.  Including a
+level is easier, you don't have to add end markers and avoid problems with
+non-matching marker pairs.  Example:
+<b>	/* global variables {{{1 */</b>
+<b>	int varA, varB;</b>
+
+<b>	/* functions {{{1 */</b>
+<b>	/* funcA() {{{2 */</b>
+<b>	void funcA() {}</b>
+
+<b>	/* funcB() {{{2 */</b>
+<b>	void funcB() {}</b>
+
+A fold starts at a &quot;{{{&quot; marker.  The following number specifies the fold
+level.  What happens depends on the difference between the current fold level
+and the level given by the marker:
+1. If a marker with the same fold level is encountered, the previous fold
+   ends and another fold with the same level starts.
+2. If a marker with a higher fold level is found, a nested fold is started.
+3. if a marker with a lower fold level is found, all <a href="fold.html#folds">folds</a> up to and including
+   this level end and a fold with the specified level starts.
+
+The number indicates the fold level.  A zero cannot be used (a marker with
+level zero is ignored).  You can use &quot;}}}&quot; with a digit to indicate the level
+of the fold that ends.  The fold level of the following line will be one <a href="various.html#less">less</a>
+than the indicated level.  Note that Vim doesn't look back to the level of the
+matching marker (that would take too much time).  Example:
+
+<b>	{{{1</b>
+<b>	fold level here is 1</b>
+<b>	{{{3</b>
+<b>	fold level here is 3</b>
+<b>	}}}3</b>
+<b>	fold level here is 2</b>
+
+You can also use matching pairs of &quot;{{{&quot; and &quot;}}}&quot; markers to define <a href="fold.html#folds">folds</a>.
+Each &quot;{{{&quot; increases the fold level by one, each &quot;}}}&quot; decreases the fold
+level by one.  Be careful to keep the markers matching!  Example:
+
+<b>	{{{</b>
+<b>	fold level here is 1</b>
+<b>	{{{</b>
+<b>	fold level here is 2</b>
+<b>	}}}</b>
+<b>	fold level here is 1</b>
+
+You can mix using markers with a number and without a number.  A useful way of
+doing this is to use numbered markers for large <a href="fold.html#folds">folds</a>, and unnumbered markers
+locally in a function.  For example use level one <a href="fold.html#folds">folds</a> for the sections of
+your file like &quot;structure definitions&quot;, &quot;local variables&quot; and &quot;<a href="eval.html#functions">functions</a>&quot;.
+Use level 2 markers for each definition and function,  Use unnumbered markers
+inside <a href="eval.html#functions">functions</a>.  When you make changes in a function to split up <a href="fold.html#folds">folds</a>, you
+don't have to renumber the markers.
+
+The markers can be set with the <a href="options.html#'foldmarker'">'foldmarker'</a> option.  It is recommended to
+keep this at the default value of &quot;{{{,}}}&quot;, so that files can be exchanged
+between Vim users.  Only change it when it is required for the file (e.g., it
+contains markers from another <a href="fold.html#folding">folding</a> editor, or the default markers cause
+trouble for the language of the file).
+
+
+							*<a name="fold-create-marker"></A><b>fold-create-marker</b>*
+&quot;<a href="fold.html#zf">zf</a>&quot; can be used to create a fold defined by markers.  Vim will insert the
+markers for you.  Vim will append the start and end marker, <a href="motion.html#as">as</a> specified with
+<a href="options.html#'foldmarker'">'foldmarker'</a>.  The markers are appended to the end of the line.
+<a href="options.html#'commentstring'">'commentstring'</a> is used if it isn't empty.
+This does not work properly when:
+- The line already contains a marker with a level number.  Vim then doesn't
+  know what to <a href="diff.html#do">do</a>.
+- Folds nearby use a level number in their marker which gets in the way.
+- The line is inside a comment, <a href="options.html#'commentstring'">'commentstring'</a> isn't empty and nested
+  comments don't work.  For example with C: adding /* {{{ */ inside a comment
+  will truncate the existing comment.  Either put the marker before or after
+  the comment, or add the marker manually.
+Generally it's not a good idea to let Vim create markers when you already have
+markers with a level number.
+
+
+							*<a name="fold-delete-marker"></A><b>fold-delete-marker</b>*
+&quot;<a href="fold.html#zd">zd</a>&quot; can be used to delete a fold defined by markers.  Vim will delete the
+markers for you.  Vim will search for the start and end markers, <a href="motion.html#as">as</a> specified
+with <a href="options.html#'foldmarker'">'foldmarker'</a>, at the start and end of the fold.  When the text around the
+marker matches with <a href="options.html#'commentstring'">'commentstring'</a>, that text is deleted <a href="motion.html#as">as</a> well.
+This does not work properly when:
+- A line contains more than one marker and one of them specifies a level.
+  Only the first one is removed, without checking if this will have the
+  desired effect of <a href="change.html#deleting">deleting</a> the fold.
+- The marker contains a level number and is used to start or end several <a href="fold.html#folds">folds</a>
+  at the same time.
+
+==============================================================================
+
+2. Fold commands				*<a name="fold-commands"></A><b>fold-commands</b>* *<a name="E490"></A><b>E490</b>*
+
+All <a href="fold.html#folding">folding</a> commands start with &quot;<a href="index.html#z">z</a>&quot;.  Hint: the &quot;<a href="index.html#z">z</a>&quot; looks like a folded piece
+of paper, if you look at it from the side.
+
+
+<b><font color="purple">CREATING AND DELETING FOLDS </font></b>
+
+							*<a name="zf"></A><b>zf</b>* *<a name="E350"></A><b>E350</b>*
+zf{motion}  or
+{Visual}zf	Operator to create a fold.
+		This only works when <a href="options.html#'foldmethod'">'foldmethod'</a> is &quot;manual&quot; or &quot;marker&quot;.
+		The new fold will be closed for the &quot;manual&quot; method.
+		<a href="options.html#'foldenable'">'foldenable'</a> will be set.
+		Also see |<a href="fold.html#fold-create-marker">fold-create-marker</a>|.
+
+
+							*<a name="zF"></A><b>zF</b>*
+<a href="fold.html#zF">zF</a>		Create a fold for <a href="intro.html#[count]">[count]</a> lines.  Works like &quot;<a href="fold.html#zf">zf</a>&quot;.
+
+
+:{range}fo[ld]						*<a name=":fold"></A><b>:fold</b>* *<a name=":fo"></A><b>:fo</b>*
+		Create a fold for the lines in {range}.  Works like &quot;<a href="fold.html#zf">zf</a>&quot;.
+
+
+							*<a name="zd"></A><b>zd</b>* *<a name="E351"></A><b>E351</b>*
+<a href="fold.html#zd">zd</a>		Delete one fold at the cursor.  When the cursor is on a folded
+		line, that fold is deleted.  Nested <a href="fold.html#folds">folds</a> are moved one level
+		up.  In <a href="visual.html#Visual">Visual</a> mode all <a href="fold.html#folds">folds</a> (partially) in the selected area
+		are deleted.  Careful: This easily deletes more <a href="fold.html#folds">folds</a> than you
+		expect and there is no <a href="undo.html#undo">undo</a>.
+		This only works when <a href="options.html#'foldmethod'">'foldmethod'</a> is &quot;manual&quot; or &quot;marker&quot;.
+		Also see |<a href="fold.html#fold-delete-marker">fold-delete-marker</a>|.
+
+
+							*<a name="zD"></A><b>zD</b>*
+<a href="fold.html#zD">zD</a>		Delete <a href="fold.html#folds">folds</a> recursively at the cursor.  In <a href="visual.html#Visual">Visual</a> mode all
+		<a href="fold.html#folds">folds</a> (partially) in the selected area and all nested <a href="fold.html#folds">folds</a> in
+		them are deleted.
+		This only works when <a href="options.html#'foldmethod'">'foldmethod'</a> is &quot;manual&quot; or &quot;marker&quot;.
+		Also see |<a href="fold.html#fold-delete-marker">fold-delete-marker</a>|.
+
+
+							*<a name="zE"></A><b>zE</b>* *<a name="E352"></A><b>E352</b>*
+<a href="fold.html#zE">zE</a>		Eliminate all <a href="fold.html#folds">folds</a> in the <a href="windows.html#window">window</a>.
+		This only works when <a href="options.html#'foldmethod'">'foldmethod'</a> is &quot;manual&quot; or &quot;marker&quot;.
+		Also see |<a href="fold.html#fold-delete-marker">fold-delete-marker</a>|.
+
+
+<b><font color="purple">OPENING AND CLOSING FOLDS </font></b>
+
+A fold smaller than <a href="options.html#'foldminlines'">'foldminlines'</a> will always be displayed like it was open.
+Therefore the commands below may work differently on small <a href="fold.html#folds">folds</a>.
+
+
+							*<a name="zo"></A><b>zo</b>*
+<a href="fold.html#zo">zo</a>		Open one fold under the cursor.  When a <a href="intro.html#count">count</a> is given, that
+		many <a href="fold.html#folds">folds</a> deep will be opened.  In <a href="visual.html#Visual">Visual</a> mode one level of
+		<a href="fold.html#folds">folds</a> is opened for all lines in the selected area.
+
+
+							*<a name="zO"></A><b>zO</b>*
+<a href="fold.html#zO">zO</a>		Open all <a href="fold.html#folds">folds</a> under the cursor recursively.  Folds that don't
+		contain the cursor line are unchanged.
+		In <a href="visual.html#Visual">Visual</a> mode it opens all <a href="fold.html#folds">folds</a> that are in the selected
+		area, also those that are only partly selected.
+
+
+							*<a name="zc"></A><b>zc</b>*
+<a href="fold.html#zc">zc</a>		Close one fold under the cursor.  When a <a href="intro.html#count">count</a> is given, that
+		many <a href="fold.html#folds">folds</a> deep are closed.  In <a href="visual.html#Visual">Visual</a> mode one level of <a href="fold.html#folds">folds</a>
+		is closed for all lines in the selected area.
+		<a href="options.html#'foldenable'">'foldenable'</a> will be set.
+
+
+							*<a name="zC"></A><b>zC</b>*
+<a href="fold.html#zC">zC</a>		Close all <a href="fold.html#folds">folds</a> under the cursor recursively.  Folds that
+		don't contain the cursor line are unchanged.
+		In <a href="visual.html#Visual">Visual</a> mode it closes all <a href="fold.html#folds">folds</a> that are in the selected
+		area, also those that are only partly selected.
+		<a href="options.html#'foldenable'">'foldenable'</a> will be set.
+
+
+							*<a name="za"></A><b>za</b>*
+<a href="fold.html#za">za</a>		When on a closed fold: open it.  When <a href="fold.html#folds">folds</a> are nested, you
+		may have to use &quot;<a href="fold.html#za">za</a>&quot; several times.  When a <a href="intro.html#count">count</a> is given,
+		that many closed <a href="fold.html#folds">folds</a> are opened.
+		When on an open fold: close it and set <a href="options.html#'foldenable'">'foldenable'</a>.  This
+		will only close one level, since using &quot;<a href="fold.html#za">za</a>&quot; again will open
+		the fold.  When a <a href="intro.html#count">count</a> is given that many <a href="fold.html#folds">folds</a> will be
+		closed (that's not the same <a href="motion.html#as">as</a> <a href="repeat.html#repeating">repeating</a> &quot;<a href="fold.html#za">za</a>&quot; that many
+		times).
+
+
+							*<a name="zA"></A><b>zA</b>*
+<a href="fold.html#zA">zA</a>		When on a closed fold: open it recursively.
+		When on an open fold: close it recursively and set
+		<a href="options.html#'foldenable'">'foldenable'</a>.
+
+
+							*<a name="zv"></A><b>zv</b>*
+<a href="fold.html#zv">zv</a>		<a href="starting.html#View">View</a> cursor line: Open just enough <a href="fold.html#folds">folds</a> to make the line in
+		which the cursor is located not folded.
+
+
+							*<a name="zx"></A><b>zx</b>*
+<a href="fold.html#zx">zx</a>		Update <a href="fold.html#folds">folds</a>: Undo manually opened and closed <a href="fold.html#folds">folds</a>: re-apply
+		<a href="options.html#'foldlevel'">'foldlevel'</a>, then <a href="diff.html#do">do</a> &quot;<a href="fold.html#zv">zv</a>&quot;: <a href="starting.html#View">View</a> cursor line.
+		Also forces recomputing <a href="fold.html#folds">folds</a>.  This is useful when using
+		<a href="options.html#'foldexpr'">'foldexpr'</a> and the buffer is changed in a way that results in
+		<a href="fold.html#folds">folds</a> not to be updated properly.
+
+
+							*<a name="zX"></A><b>zX</b>*
+<a href="fold.html#zX">zX</a>		Undo manually opened and closed <a href="fold.html#folds">folds</a>: re-apply <a href="options.html#'foldlevel'">'foldlevel'</a>.
+		Also forces recomputing <a href="fold.html#folds">folds</a>, like |<a href="fold.html#zx">zx</a>|.
+
+
+							*<a name="zm"></A><b>zm</b>*
+<a href="fold.html#zm">zm</a>		Fold more: Subtract one from <a href="options.html#'foldlevel'">'foldlevel'</a>.  If <a href="options.html#'foldlevel'">'foldlevel'</a> was
+		already zero nothing happens.
+		<a href="options.html#'foldenable'">'foldenable'</a> will be set.
+
+
+							*<a name="zM"></A><b>zM</b>*
+<a href="fold.html#zM">zM</a>		Close all <a href="fold.html#folds">folds</a>: set <a href="options.html#'foldlevel'">'foldlevel'</a> to 0.
+		<a href="options.html#'foldenable'">'foldenable'</a> will be set.
+
+
+							*<a name="zr"></A><b>zr</b>*
+<a href="fold.html#zr">zr</a>		Reduce <a href="fold.html#folding">folding</a>: Add one to <a href="options.html#'foldlevel'">'foldlevel'</a>.
+
+
+							*<a name="zR"></A><b>zR</b>*
+<a href="fold.html#zR">zR</a>		Open all <a href="fold.html#folds">folds</a>.  This sets <a href="options.html#'foldlevel'">'foldlevel'</a> to highest fold level.
+
+
+							*<a name=":foldo"></A><b>:foldo</b>* *<a name=":foldopen"></A><b>:foldopen</b>*
+:{range}foldo[pen][!]
+		Open <a href="fold.html#folds">folds</a> in {range}.  When [!] is added all <a href="fold.html#folds">folds</a> are
+		opened.  Useful to see all the text in {range}.  Without [!]
+		one level of <a href="fold.html#folds">folds</a> is opened.
+
+
+							*<a name=":foldc"></A><b>:foldc</b>* *<a name=":foldclose"></A><b>:foldclose</b>*
+:{range}foldc[lose][!]
+		Close <a href="fold.html#folds">folds</a> in {range}.  When [!] is added all <a href="fold.html#folds">folds</a> are
+		closed.  Useful to hide all the text in {range}.  Without [!]
+		one level of <a href="fold.html#folds">folds</a> is closed.
+
+
+							*<a name="zn"></A><b>zn</b>*
+<a href="fold.html#zn">zn</a>		Fold none: reset <a href="options.html#'foldenable'">'foldenable'</a>.  All <a href="fold.html#folds">folds</a> will be open.
+
+
+							*<a name="zN"></A><b>zN</b>*
+<a href="fold.html#zN">zN</a>		Fold normal: set <a href="options.html#'foldenable'">'foldenable'</a>.  All <a href="fold.html#folds">folds</a> will be <a href="motion.html#as">as</a> they
+		were before.
+
+
+							*<a name="zi"></A><b>zi</b>*
+<a href="fold.html#zi">zi</a>		Invert <a href="options.html#'foldenable'">'foldenable'</a>.
+
+
+<b><font color="purple">MOVING OVER FOLDS </font></b>
+
+							*<a name="[z"></A><b>[z</b>*
+<a href="fold.html#[z">[z</a>		Move to the start of the current open fold.  If already at the
+		start, move to the start of the fold that contains it.  If
+		there is no containing fold, the command fails.
+		When a <a href="intro.html#count">count</a> is used, repeats the command <a href="intro.html#[count]">[count]</a> times.
+
+
+							*<a name="]z"></A><b>]z</b>*
+<a href="fold.html#]z">]z</a>		Move to the end of the current open fold.  If already at the
+		end, move to the end of the fold that contains it.  If there
+		is no containing fold, the command fails.
+		When a <a href="intro.html#count">count</a> is used, repeats the command <a href="intro.html#[count]">[count]</a> times.
+
+
+							*<a name="zj"></A><b>zj</b>*
+<a href="fold.html#zj">zj</a>		Move downwards to the start of the next fold.  A closed fold
+		is counted <a href="motion.html#as">as</a> one fold.
+		When a <a href="intro.html#count">count</a> is used, repeats the command <a href="intro.html#[count]">[count]</a> times.
+		This command can be used after an |<a href="motion.html#operator">operator</a>|.
+
+
+							*<a name="zk"></A><b>zk</b>*
+<a href="fold.html#zk">zk</a>		Move upwards to the end of the previous fold.  A closed fold
+		is counted <a href="motion.html#as">as</a> one fold.
+		When a <a href="intro.html#count">count</a> is used, repeats the command <a href="intro.html#[count]">[count]</a> times.
+		This command can be used after an |<a href="motion.html#operator">operator</a>|.
+
+
+<b><font color="purple">EXECUTING COMMANDS ON FOLDS </font></b>
+
+
+:[range]foldd[oopen] {cmd}			*<a name=":foldd"></A><b>:foldd</b>* *<a name=":folddoopen"></A><b>:folddoopen</b>*
+		Execute {cmd} on all lines that are not in a closed fold.
+		When <a href="cmdline.html#[range]">[range]</a> is given, only these lines are used.
+		Each time {cmd} is executed the cursor is positioned on the
+		line it is executed for.
+		This works like the &quot;<a href="repeat.html#:global">:global</a>&quot; command: First all lines that
+		are not in a closed fold are marked.  Then the {cmd} is
+		executed for all marked lines.  Thus when {cmd} changes the
+		<a href="fold.html#folds">folds</a>, this has no influence on where it is executed (except
+		when lines are deleted, of course).
+		Example:
+<b>			:folddoopen s/end/loop_end/ge</b>
+ 		Note the use of the &quot;<a href="motion.html#e">e</a>&quot; flag to avoid getting an error message
+		where &quot;end&quot; doesn't match.
+
+
+:[range]folddoc[losed] {cmd}			*<a name=":folddoc"></A><b>:folddoc</b>* *<a name=":folddoclosed"></A><b>:folddoclosed</b>*
+		Execute {cmd} on all lines that are in a closed fold.
+		Otherwise like &quot;<a href="fold.html#:folddoopen">:folddoopen</a>&quot;.
+
+==============================================================================
+
+3. Fold <a href="options.html#options">options</a>					*<a name="fold-options"></A><b>fold-options</b>*
+
+
+COLORS							*<a name="fold-colors"></A><b>fold-colors</b>*
+
+The colors of a closed fold are set with the Folded group |<a href="syntax.html#hl-Folded">hl-Folded</a>|.  The
+colors of the fold column are set with the FoldColumn group |<a href="syntax.html#hl-FoldColumn">hl-FoldColumn</a>|.
+Example to set the colors:
+
+<b>	:highlight Folded guibg=grey guifg=blue</b>
+<b>	:highlight FoldColumn guibg=darkgrey guifg=white</b>
+
+
+
+FOLDLEVEL						*<a name="fold-foldlevel"></A><b>fold-foldlevel</b>*
+
+<a href="options.html#'foldlevel'">'foldlevel'</a> is a number option: The higher the more folded regions are open.
+When <a href="options.html#'foldlevel'">'foldlevel'</a> is 0, all <a href="fold.html#folds">folds</a> are closed.
+When <a href="options.html#'foldlevel'">'foldlevel'</a> is positive, some <a href="fold.html#folds">folds</a> are closed.
+When <a href="options.html#'foldlevel'">'foldlevel'</a> is very high, all <a href="fold.html#folds">folds</a> are open.
+<a href="options.html#'foldlevel'">'foldlevel'</a> is applied when it is changed.  After that manually <a href="fold.html#folds">folds</a> can be
+opened and closed.
+When increased, <a href="fold.html#folds">folds</a> above the new level are opened.  No manually opened
+<a href="fold.html#folds">folds</a> will be closed.
+When decreased, <a href="fold.html#folds">folds</a> above the new level are closed.  No manually closed
+<a href="fold.html#folds">folds</a> will be opened.
+
+
+
+FOLDTEXT						*<a name="fold-foldtext"></A><b>fold-foldtext</b>*
+
+<a href="options.html#'foldtext'">'foldtext'</a> is a string option that specifies an <a href="eval.html#expression">expression</a>.  This <a href="eval.html#expression">expression</a>
+is evaluated to obtain the text displayed for a closed fold.  Example:
+
+<b>    :set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')</b>
+
+This shows the first line of the fold, with &quot;/*&quot;, &quot;*/&quot; and &quot;{{{&quot; removed.
+Note the use of backslashes to avoid some characters to be interpreted by the
+&quot;<a href="options.html#:set">:set</a>&quot; command.  It's simpler to define a function and call that:
+
+<b>    :set foldtext=MyFoldText()</b>
+<b>    :function MyFoldText()</b>
+<b>    :  let line = getline(v:foldstart)</b>
+<b>    :  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')</b>
+<b>    :  return v:folddashes . sub</b>
+<b>    :endfunction</b>
+
+Evaluating <a href="options.html#'foldtext'">'foldtext'</a> is done in the |<a href="eval.html#sandbox">sandbox</a>|.  The current <a href="windows.html#window">window</a> is set to
+the <a href="windows.html#window">window</a> that displays the line.  Errors are ignored.
+
+The default value is |<a href="eval.html#foldtext()">foldtext()</a>|.  This returns a reasonable text for most
+types of <a href="fold.html#folding">folding</a>.  If you don't like it, you can specify your own <a href="options.html#'foldtext'">'foldtext'</a>
+<a href="eval.html#expression">expression</a>.  It can use these special Vim <a href="eval.html#variables">variables</a>:
+	<a href="eval.html#v:foldstart">v:foldstart</a>	line number of first line in the fold
+	<a href="eval.html#v:foldend">v:foldend</a>	line number of last line in the fold
+	<a href="eval.html#v:folddashes">v:folddashes</a>	a string that contains dashes to represent the
+			foldlevel.
+	<a href="eval.html#v:foldlevel">v:foldlevel</a>	the foldlevel of the fold
+
+In the result a TAB is replaced with a space and unprintable characters are
+made into printable characters.
+
+The resulting line is truncated to fit in the <a href="windows.html#window">window</a>, it never wraps.
+When there is room after the text, it is filled with the character specified
+by <a href="options.html#'fillchars'">'fillchars'</a>.
+
+Note that backslashes need to be used for characters that the &quot;<a href="options.html#:set">:set</a>&quot; command
+handles differently: Space, backslash and double-quote. |<a href="options.html#option-backslash">option-backslash</a>|
+
+
+
+FOLDCOLUMN						*<a name="fold-foldcolumn"></A><b>fold-foldcolumn</b>*
+
+<a href="options.html#'foldcolumn'">'foldcolumn'</a> is a number, which sets the width for a column on the side of the
+<a href="windows.html#window">window</a> to indicate <a href="fold.html#folds">folds</a>.  When it is zero, there is no foldcolumn.  A normal
+value is 4 or 5.  The minimal useful value is 2, although 1 still provides
+some information.  The maximum is 12.
+
+An open fold is indicated with a column that has a '<a href="motion.html#-">-</a>' at the top and '&#124;'
+characters below it.  This column stops where the open fold stops.  When <a href="fold.html#folds">folds</a>
+nest, the nested fold is one character right of the fold it's contained in.
+
+A closed fold is indicated with a '<a href="motion.html#+">+</a>'.
+
+Where the fold column is too narrow to display all nested <a href="fold.html#folds">folds</a>, digits are
+shown to indicate the nesting level.
+
+The mouse can also be used to open and close <a href="fold.html#folds">folds</a> by clicking in the
+fold column:
+- Click on a '<a href="motion.html#+">+</a>' to open the closed fold at this row.
+- Click on any other non-blank character to close the open fold at this row.
+
+
+OTHER OPTIONS
+
+<a href="options.html#'foldenable'">'foldenable'</a>  <a href="options.html#'fen'">'fen'</a>:	Open all <a href="fold.html#folds">folds</a> while not set.
+<a href="options.html#'foldexpr'">'foldexpr'</a>    <a href="options.html#'fde'">'fde'</a>:	Expression used for &quot;<a href="eval.html#expr">expr</a>&quot; <a href="fold.html#folding">folding</a>.
+<a href="options.html#'foldignore'">'foldignore'</a>  <a href="options.html#'fdi'">'fdi'</a>:	Characters used for &quot;indent&quot; <a href="fold.html#folding">folding</a>.
+<a href="options.html#'foldmarker'">'foldmarker'</a>  <a href="options.html#'fmr'">'fmr'</a>:	Defined markers used for &quot;marker&quot; <a href="fold.html#folding">folding</a>.
+<a href="options.html#'foldmethod'">'foldmethod'</a>  <a href="options.html#'fdm'">'fdm'</a>:	Name of the current <a href="fold.html#folding">folding</a> method.
+<a href="options.html#'foldminlines'">'foldminlines'</a> <a href="options.html#'fml'">'fml'</a>:	Minimum number of screen lines for a fold to be
+			displayed closed.
+<a href="options.html#'foldnestmax'">'foldnestmax'</a> <a href="options.html#'fdn'">'fdn'</a>:	Maximum nesting for &quot;indent&quot; and &quot;<a href="syntax.html#syntax">syntax</a>&quot; <a href="fold.html#folding">folding</a>.
+<a href="options.html#'foldopen'">'foldopen'</a>    <a href="options.html#'fdo'">'fdo'</a>:	Which kinds of commands open closed <a href="fold.html#folds">folds</a>.
+<a href="options.html#'foldclose'">'foldclose'</a>   <a href="options.html#'fcl'">'fcl'</a>:	When the <a href="fold.html#folds">folds</a> not under the cursor are closed.
+
+==============================================================================
+
+4. Behavior of <a href="fold.html#folds">folds</a>					*<a name="fold-behavior"></A><b>fold-behavior</b>*
+
+When moving the cursor upwards or downwards and when <a href="scroll.html#scrolling">scrolling</a>, the cursor
+will move to the first line of a sequence of folded lines.  When the cursor is
+already on a folded line, it moves to the next unfolded line or the next
+closed fold.
+
+While the cursor is on folded lines, the cursor is always displayed in the
+first column.  The ruler does show the actual cursor position, but since the
+line is folded, it cannot be displayed there.
+
+Many <a href="intro.html#movement">movement</a> commands handle a sequence of folded lines like an empty line.
+For example, the &quot;<a href="motion.html#w">w</a>&quot; command stops once in the first column.
+
+When in <a href="insert.html#Insert">Insert</a> mode, the cursor line is never folded.  That allows you to see
+what you type!
+
+When using an <a href="motion.html#operator">operator</a>, a closed fold is included <a href="motion.html#as">as</a> a whole.  Thus &quot;<a href="change.html#dl">dl</a>&quot;
+deletes the whole closed fold under the cursor.
+
+For <a href="intro.html#Ex">Ex</a> commands the range is adjusted to always start at the first line of a
+closed fold and end at the last line of a closed fold.  Thus this command:
+<b>	:s/foo/bar/g</b>
+when used with the cursor on a closed fold, will replace &quot;foo&quot; with &quot;<a href="motion.html#bar">bar</a>&quot; in
+all lines of the fold.
+This does not happen for |<a href="fold.html#:folddoopen">:folddoopen</a>| and |<a href="fold.html#:folddoclosed">:folddoclosed</a>|.
+
+When editing a buffer that has been edited before, the last used <a href="fold.html#folding">folding</a>
+settings are used again.  For manual <a href="fold.html#folding">folding</a> the defined <a href="fold.html#folds">folds</a> are restored.
+For all <a href="fold.html#folding">folding</a> methods the manually opened and closed <a href="fold.html#folds">folds</a> are restored.
+If this buffer has been edited in this <a href="windows.html#window">window</a>, the values from back then are
+used.  Otherwise the values from the <a href="windows.html#window">window</a> where the buffer was edited last
+are used.
+
+==============================================================================
+<a href="fold.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

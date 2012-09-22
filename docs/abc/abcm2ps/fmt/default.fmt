@@ -1,0 +1,10 @@
+% Arquivo de formato a ser carregado automaticamente por abcm2ps
+
+% format tied_lyrics % manter inativo devido a geracao de documentacao
+
+% % format portugues
+
+titletrim no
+bstemdown true
+timewarn true
+

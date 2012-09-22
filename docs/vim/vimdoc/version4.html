@@ -1,0 +1,413 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: version4</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: version4</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="version4.txt"></A><b>version4.txt</b>*  For Vim version 7.3.  Last change: 2006 Apr 24
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+This document lists the incompatible differences between Vim 3.0 and Vim 4.0.
+Although 4.0 is mentioned here, this is also for version 4.1, 4.2, etc..
+
+This file is important for everybody upgrading from Vim 3.0.  Read it
+carefully to avoid unexpected problems.
+
+<a href="options.html#'backup'">'backup'</a> option default changed			|<a href="version4.html#backup-changed">backup-changed</a>|
+Extension for backup file changed		|<a href="version4.html#backup-extension">backup-extension</a>|
+Structure of swap file changed			|<a href="version4.html#swapfile-changed">swapfile-changed</a>|
+&quot;<a href="starting.html#-w">-w</a> scriptout&quot; argument changed			|<a href="version4.html#scriptout-changed">scriptout-changed</a>|
+Backspace and Delete keys			|<a href="version4.html#backspace-delete">backspace-delete</a>|
+Escape for &#124; changed				|<a href="version4.html#escape-bar">escape-bar</a>|
+Key codes changed				|<a href="version4.html#key-codes-changed">key-codes-changed</a>|
+Terminal <a href="options.html#options">options</a> changed			|<a href="version4.html#termcap-changed">termcap-changed</a>|
+<a href="options.html#'errorformat'">'errorformat'</a> option changed			|<a href="version4.html#errorformat-changed">errorformat-changed</a>|
+<a href="vi_diff.html#'graphic'">'graphic'</a> option gone				|<a href="version4.html#graphic-option-gone">graphic-option-gone</a>|
+'yankendofline' option gone			|<a href="version4.html#ye-option-gone">ye-option-gone</a>|
+<a href="options.html#'icon'">'icon'</a> and <a href="options.html#'title'">'title'</a> default value changed	|<a href="version4.html#icon-changed">icon-changed</a>|
+<a href="options.html#'highlight'">'highlight'</a> option changed			|<a href="version4.html#highlight-changed">highlight-changed</a>|
+<a href="options.html#'tildeop'">'tildeop'</a> and <a href="options.html#'weirdinvert'">'weirdinvert'</a> short names changed	|<a href="version4.html#short-name-changed">short-name-changed</a>|
+Use of &quot;v&quot;, &quot;<a href="visual.html#V">V</a>&quot; and &quot;<a href="visual.html#CTRL-V">CTRL-V</a>&quot; in <a href="visual.html#Visual">Visual</a> mode	|<a href="version4.html#use-visual-cmds">use-visual-cmds</a>|
+<a href="scroll.html#CTRL-B">CTRL-B</a> in <a href="insert.html#Insert">Insert</a> mode removed			|<a href="version4.html#toggle-revins">toggle-revins</a>|
+
+
+
+<a href="options.html#'backup'">'backup'</a> option default changed				*<a name="backup-changed"></A><b>backup-changed</b>*
+
+The default value for <a href="options.html#'backup'">'backup'</a> used to be on.  This resulted in a <a href="editing.html#backup">backup</a> file
+being made when the original file was overwritten.
+
+Now the default for <a href="options.html#'backup'">'backup'</a> is off.  As soon <a href="motion.html#as">as</a> the <a href="editing.html#writing">writing</a> of the file has
+successfully finished, the <a href="editing.html#backup">backup</a> file is deleted.  If you want to keep the
+<a href="editing.html#backup">backup</a> file, set <a href="options.html#'backup'">'backup'</a> on in your <a href="starting.html#vimrc">vimrc</a>.  The reason for this change is
+that many people complained that leaving a <a href="editing.html#backup">backup</a> file behind is not
+Vi-compatible.						|<a href="options.html#'backup'">'backup'</a>|
+
+
+
+Extension for <a href="editing.html#backup">backup</a> file changed			*<a name="backup-extension"></A><b>backup-extension</b>*
+
+The extension for the <a href="editing.html#backup">backup</a> file used to be &quot;.bak&quot;.  Since other programs
+also use this extension and some users make copies with this extension, it was
+changed to the <a href="various.html#less">less</a> obvious &quot;<a href="change.html#~">~</a>&quot;.  Another advantage is that this takes <a href="various.html#less">less</a>
+space, which is useful when working on a system with short file names.  For
+example, on <a href="os_msdos.html#MS-DOS">MS-DOS</a> the <a href="editing.html#backup">backup</a> files for &quot;longfile.c&quot; and &quot;longfile.h&quot; would
+both become &quot;longfile.bak&quot;; now they will be &quot;longfile.c~&quot; and &quot;longfile.h~&quot;.
+
+If you prefer to use &quot;.bak&quot;, you can set the <a href="options.html#'backupext'">'backupext'</a> option:
+<b>	:set bex=.bak</b>
+
+
+
+Structure of swap file changed				*<a name="swapfile-changed"></A><b>swapfile-changed</b>*
+
+The contents of the swap file were extended with several parameters.  Vim
+stores the user name and other information about the edited file to make
+<a href="recover.html#recovery">recovery</a> more <a href="starting.html#easy">easy</a> and to be able to know where the swap file comes from.  The
+first part of the swap file can now be understood on a machine with a
+different byte order or sizeof(int).  When you try to recover a file on such a
+machine, you will get an error message that this is not possible.
+
+Because of this change, swap files cannot be exchanged between 3.0 and 4.0.
+If you have a swap file from a crashed session with 3.0, use Vim 3.0 to
+recover the file---don't use 4.0.			|<a href="recover.html#swap-file">swap-file</a>|
+
+
+
+&quot;<a href="starting.html#-w">-w</a> scriptout&quot; argument changed				*<a name="scriptout-changed"></A><b>scriptout-changed</b>*
+
+&quot;vim <a href="starting.html#-w">-w</a> scriptout&quot; used to append to the scriptout file.  Since this was
+illogical, it now creates a new file.  An existing file is not overwritten
+(to avoid destroying an existing file for those who rely on the appending).
+[This was removed again later]					|<a href="starting.html#-w">-w</a>|
+
+
+
+Backspace and Delete keys				*<a name="backspace-delete"></A><b>backspace-delete</b>*
+
+In 3.0 both the delete key and the backspace key worked <a href="motion.html#as">as</a> a backspace in
+insert mode; they deleted the character to the left of the cursor.  In 4.0 the
+delete key has a new function: it deletes the character under the cursor, just
+like it does on the command-line.  If the cursor is after the end of the line
+and <a href="options.html#'bs'">'bs'</a> is set, two lines are joined.			|<a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>| |<a href="insert.html#i_&lt;Del&gt;">i_&lt;Del&gt;</a>|
+
+In 3.0 the backspace key was always defined <a href="motion.html#as">as</a> <a href="motion.html#CTRL-H">CTRL-H</a> and delete <a href="motion.html#as">as</a> CTRL-?.
+In 4.0 the code for the backspace and delete key is obtained from <a href="term.html#termcap">termcap</a> or
+termlib, and adjusted for the &quot;stty erase&quot; value on <a href="os_unix.html#Unix">Unix</a>.  This helps people
+who define the erase character according to the keyboard they are working on.
+							|<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>| |<a href="insert.html#i_&lt;BS&gt;">i_&lt;BS&gt;</a>|
+
+If you prefer backspace and delete in <a href="insert.html#Insert">Insert</a> mode to have the old behavior,
+put this line in your <a href="starting.html#vimrc">vimrc</a>:
+
+	inoremap ^? ^H
+
+And you may also want to add these, to fix the values for <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> and <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>:
+
+	set t_kb=^H
+	set t_kD=^?
+
+(Enter ^H with <a href="visual.html#CTRL-V">CTRL-V</a> <a href="motion.html#CTRL-H">CTRL-H</a> and ^? with <a href="visual.html#CTRL-V">CTRL-V</a> CTRL-? or <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>.)
+
+If the value for <a href="term.html#t_kb">t_kb</a> is correct, but the <a href="term.html#t_kD">t_kD</a> value is not, use the &quot;<a href="options.html#:fixdel">:fixdel</a>&quot;
+command.  It will set <a href="term.html#t_kD">t_kD</a> according to the value of <a href="term.html#t_kb">t_kb</a>.  This is useful if
+you are using several different terminals.		|<a href="options.html#:fixdel">:fixdel</a>|
+
+When ^H is not recognized <a href="motion.html#as">as</a> <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> or <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>, it is used like a backspace.
+
+
+
+Escape for &#124; changed					*<a name="escape-bar"></A><b>escape-bar</b>*
+
+When the '<a href="motion.html#b">b</a>' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>, the <a href="intro.html#backslash">backslash</a> cannot be used to
+<a href="intro.html#escape">escape</a> '&#124;' in <a href="map.html#mapping">mapping</a> and abbreviate commands, only <a href="visual.html#CTRL-V">CTRL-V</a> can.  This is
+Vi-compatible.  If you work in Vi-compatible mode and had used &quot;\|&quot; to include
+a bar in a <a href="map.html#mapping">mapping</a>, this needs to be replaced by &quot;^V&#124;&quot;.  See |<a href="cmdline.html#:bar">:bar</a>|.
+
+
+
+Key codes changed					*<a name="key-codes-changed"></A><b>key-codes-changed</b>*
+
+The internal representation of key codes has changed dramatically.  In 3.0 a
+one-byte code was used to represent a key.  This caused problems with
+different characters sets that also used these codes.  In 4.0 a three-byte
+code is used that cannot be confused with a character.		|<a href="intro.html#key-notation">key-notation</a>|
+
+If you have used the single-byte key codes in your <a href="starting.html#vimrc">vimrc</a> for mappings, you
+will have to replace them with the 4.0 codes.  Instead of using the three-byte
+code directly, you should use the symbolic representation for this in <a href="intro.html#&lt;&gt;">&lt;&gt;</a>.  See
+the table below.  The table also lists the old name, <a href="motion.html#as">as</a> it was used in the 3.0
+documentation.
+
+The key names in <a href="intro.html#&lt;&gt;">&lt;&gt;</a> can be used in mappings directly.  This makes it possible
+to copy/paste examples or type them literally.  The <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> has been
+introduced for this |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|.  The '<a href="motion.html#B">B</a>' and '&lt;' flags must not be present in
+'cpoptions' to enable this to work |<a href="options.html#'cpoptions'">'cpoptions'</a>|.
+
+<b><font color="purple">old name	new name	  old code	old MS-DOS code	</font></b>
+<b><font color="purple">				hex	dec	hex	dec	</font></b>
+&lt;ESC&gt;		<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>
+&lt;TAB&gt;		<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+&lt;LF&gt;		<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> &lt;NewLine&gt; &lt;LineFeed&gt;
+&lt;SPACE&gt;		<a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>
+&lt;NUL&gt;		<a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a>
+&lt;BELL&gt;		&lt;Bell&gt;
+<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>		<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> &lt;BackSpace&gt;
+&lt;INSERT&gt;	<a href="insert.html#&lt;Insert&gt;">&lt;Insert&gt;</a>
+&lt;DEL&gt;		<a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a> &lt;Delete&gt;
+&lt;HOME&gt;		<a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>
+&lt;END&gt;		<a href="motion.html#&lt;End&gt;">&lt;End&gt;</a>
+&lt;PAGE_UP&gt;	<a href="scroll.html#&lt;PageUp&gt;">&lt;PageUp&gt;</a>
+&lt;PAGE_DOWN&gt;	<a href="scroll.html#&lt;PageDown&gt;">&lt;PageDown&gt;</a>
+
+&lt;C_UP&gt;		<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>		0x80	128	0xb0	176
+&lt;C_DOWN&gt;	<a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>		0x81	129     0xb1	177
+&lt;C_LEFT&gt;	<a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>		0x82	130     0xb2	178
+&lt;C_RIGHT&gt;	<a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>		0x83	131     0xb3	179
+&lt;SC_UP&gt;		<a href="scroll.html#&lt;S-Up&gt;">&lt;S-Up&gt;</a>		0x84	132     0xb4	180
+&lt;SC_DOWN&gt;	<a href="scroll.html#&lt;S-Down&gt;">&lt;S-Down&gt;</a>	0x85	133     0xb5	181
+&lt;SC_LEFT&gt;	<a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a>	0x86	134     0xb6	182
+&lt;SC_RIGHT&gt;	<a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a>	0x87	135     0xb7	183
+
+<a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a>		<a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a>		0x88	136     0xb8	184
+<a href="term.html#&lt;F2&gt;">&lt;F2&gt;</a>		<a href="term.html#&lt;F2&gt;">&lt;F2&gt;</a>		0x89	137     0xb9	185
+<a href="term.html#&lt;F3&gt;">&lt;F3&gt;</a>		<a href="term.html#&lt;F3&gt;">&lt;F3&gt;</a>		0x8a	138     0xba	186
+<a href="term.html#&lt;F4&gt;">&lt;F4&gt;</a>		<a href="term.html#&lt;F4&gt;">&lt;F4&gt;</a>		0x8b	139     0xbb	187
+<a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a>		<a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a>		0x8c	140     0xbc	188
+<a href="term.html#&lt;F6&gt;">&lt;F6&gt;</a>		<a href="term.html#&lt;F6&gt;">&lt;F6&gt;</a>		0x8d	141     0xbd	189
+<a href="term.html#&lt;F7&gt;">&lt;F7&gt;</a>		<a href="term.html#&lt;F7&gt;">&lt;F7&gt;</a>		0x8e	142     0xbe	190
+<a href="term.html#&lt;F8&gt;">&lt;F8&gt;</a>		<a href="term.html#&lt;F8&gt;">&lt;F8&gt;</a>		0x8f	143     0xbf	191
+<a href="term.html#&lt;F9&gt;">&lt;F9&gt;</a>		<a href="term.html#&lt;F9&gt;">&lt;F9&gt;</a>		0x90	144     0xc0	192
+<a href="term.html#&lt;F10&gt;">&lt;F10&gt;</a>		<a href="term.html#&lt;F10&gt;">&lt;F10&gt;</a>		0x91	145     0xc1	193
+
+&lt;SF1&gt;		<a href="intro.html#&lt;S-F1&gt;">&lt;S-F1&gt;</a>		0x92	146     0xc2	194
+&lt;SF2&gt;		<a href="term.html#&lt;S-F2&gt;">&lt;S-F2&gt;</a>		0x93	147     0xc3	195
+&lt;SF3&gt;		<a href="term.html#&lt;S-F3&gt;">&lt;S-F3&gt;</a>		0x94	148     0xc4	196
+&lt;SF4&gt;		<a href="term.html#&lt;S-F4&gt;">&lt;S-F4&gt;</a>		0x95	149     0xc5	197
+&lt;SF5&gt;		<a href="term.html#&lt;S-F5&gt;">&lt;S-F5&gt;</a>		0x96	150     0xc6	198
+&lt;SF6&gt;		<a href="term.html#&lt;S-F6&gt;">&lt;S-F6&gt;</a>		0x97	151     0xc7	199
+&lt;SF7&gt;		<a href="term.html#&lt;S-F7&gt;">&lt;S-F7&gt;</a>		0x98	152     0xc8	200
+&lt;SF8&gt;		<a href="term.html#&lt;S-F8&gt;">&lt;S-F8&gt;</a>		0x99	153     0xc9	201
+&lt;SF9&gt;		<a href="term.html#&lt;S-F9&gt;">&lt;S-F9&gt;</a>		0x9a	154     0xca	202
+&lt;SF10&gt;		<a href="term.html#&lt;S-F10&gt;">&lt;S-F10&gt;</a>		0x9b	155     0xcb	203
+
+&lt;HELP&gt;		<a href="helphelp.html#&lt;Help&gt;">&lt;Help&gt;</a>		0x9c	156     0xcc	204
+&lt;UNDO&gt;		<a href="undo.html#&lt;Undo&gt;">&lt;Undo&gt;</a>		0x9d	157     0xcd	205
+
+		(not used)	0x9e	158     0xce	206
+		(not used)	0x9f	159     0xcf	207
+
+
+
+Terminal <a href="options.html#options">options</a> changed				*<a name="termcap-changed"></A><b>termcap-changed</b>*
+
+The names of the terminal <a href="options.html#options">options</a> have been changed to match the <a href="term.html#termcap">termcap</a> names
+of these <a href="options.html#options">options</a>.  All terminal <a href="options.html#options">options</a> now have the name t_xx, where xx is
+the <a href="term.html#termcap">termcap</a> name.  Normally these <a href="options.html#options">options</a> are not used, unless you have a
+<a href="term.html#termcap">termcap</a> entry that is wrong or incomplete, or you have set the highlight
+options to a different value.				|<a href="term.html#terminal-options">terminal-options</a>|
+
+Note that for some keys there is no <a href="term.html#termcap">termcap</a> name.  Use the <a href="intro.html#&lt;&gt;">&lt;&gt;</a> type of name
+instead, which is a good idea anyway.
+
+Note that &quot;<a href="term.html#t_ti">t_ti</a>&quot; has become &quot;<a href="term.html#t_mr">t_mr</a>&quot; (invert/reverse output) and &quot;<a href="term.html#t_ts">t_ts</a>&quot; has
+become &quot;<a href="term.html#t_ti">t_ti</a>&quot; (init terminal mode).  Be careful when you use &quot;<a href="term.html#t_ti">t_ti</a>&quot;!
+
+<b><font color="purple">old name	new name	meaning		</font></b>
+
+<a href="version4.html#t_cdl">t_cdl</a>		<a href="term.html#t_DL">t_DL</a>		delete number of lines		*<a name="t_cdl"></A><b>t_cdl</b>*
+
+<a href="version4.html#t_ci">t_ci</a>		<a href="term.html#t_vi">t_vi</a>		cursor invisible		*<a name="t_ci"></A><b>t_ci</b>*
+
+<a href="version4.html#t_cil">t_cil</a>		<a href="term.html#t_AL">t_AL</a>		insert number of lines		*<a name="t_cil"></A><b>t_cil</b>*
+<a href="term.html#t_cm">t_cm</a>		<a href="term.html#t_cm">t_cm</a>		move cursor
+
+<a href="version4.html#t_cri">t_cri</a>		<a href="term.html#t_RI">t_RI</a>		cursor number of chars right	*<a name="t_cri"></A><b>t_cri</b>*
+
+<a href="version4.html#t_cv">t_cv</a>		<a href="term.html#t_ve">t_ve</a>		cursor visible			*<a name="t_cv"></A><b>t_cv</b>*
+
+<a href="version4.html#t_cvv">t_cvv</a>		<a href="term.html#t_vs">t_vs</a>		cursor very visible		*<a name="t_cvv"></A><b>t_cvv</b>*
+<a href="term.html#t_dl">t_dl</a>		<a href="term.html#t_dl">t_dl</a>		delete line
+<a href="term.html#t_cs">t_cs</a>		<a href="term.html#t_cs">t_cs</a>		scroll region
+
+<a href="version4.html#t_ed">t_ed</a>		<a href="term.html#t_cl">t_cl</a>		clear display			*<a name="t_ed"></A><b>t_ed</b>*
+
+<a href="version4.html#t_el">t_el</a>		<a href="term.html#t_ce">t_ce</a>		clear line			*<a name="t_el"></A><b>t_el</b>*
+
+<a href="version4.html#t_il">t_il</a>		<a href="term.html#t_al">t_al</a>		insert line			*<a name="t_il"></A><b>t_il</b>*
+		<a href="term.html#t_da">t_da</a>		display may be retained above the screen
+		<a href="term.html#t_db">t_db</a>		display may be retained below the screen
+<a href="term.html#t_ke">t_ke</a>		<a href="term.html#t_ke">t_ke</a>		put terminal out of keypad transmit mode
+<a href="term.html#t_ks">t_ks</a>		<a href="term.html#t_ks">t_ks</a>		put terminal in keypad transmit mode
+<a href="term.html#t_ms">t_ms</a>		<a href="term.html#t_ms">t_ms</a>		save to move cursor in highlight mode
+<a href="term.html#t_se">t_se</a>		<a href="term.html#t_se">t_se</a>		normal mode (undo <a href="term.html#t_so">t_so</a>)
+<a href="term.html#t_so">t_so</a>		<a href="term.html#t_so">t_so</a>		<a href="intro.html#shift">shift</a> out (standout) mode
+<a href="term.html#t_ti">t_ti</a>		<a href="term.html#t_mr">t_mr</a>		reverse highlight
+
+<a href="version4.html#t_tb">t_tb</a>		<a href="term.html#t_md">t_md</a>		<a href="syntax.html#bold">bold</a> mode			*<a name="t_tb"></A><b>t_tb</b>*
+
+<a href="version4.html#t_tp">t_tp</a>		<a href="term.html#t_me">t_me</a>		highlight end			*<a name="t_tp"></A><b>t_tp</b>*
+<a href="term.html#t_sr">t_sr</a>		<a href="term.html#t_sr">t_sr</a>		scroll reverse
+<a href="term.html#t_te">t_te</a>		<a href="term.html#t_te">t_te</a>		out of <a href="term.html#termcap">termcap</a> mode
+
+<a href="term.html#t_ts">t_ts</a>		<a href="term.html#t_ti">t_ti</a>		into <a href="term.html#termcap">termcap</a> mode		*<a name="t_ts_old"></A><b>t_ts_old</b>*
+<a href="term.html#t_vb">t_vb</a>		<a href="term.html#t_vb">t_vb</a>		visual bell
+
+<a href="version4.html#t_csc">t_csc</a>		<a href="term.html#t_CS">t_CS</a>		cursor is relative to scroll region *<a name="t_csc"></A><b>t_csc</b>*
+
+<a href="term.html#t_ku">t_ku</a>	<a href="term.html#t_ku">t_ku</a>	<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>		arrow up
+<a href="term.html#t_kd">t_kd</a>	<a href="term.html#t_kd">t_kd</a>	<a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>		arrow down
+<a href="term.html#t_kr">t_kr</a>	<a href="term.html#t_kr">t_kr</a>	<a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>		arrow right
+<a href="term.html#t_kl">t_kl</a>	<a href="term.html#t_kl">t_kl</a>	<a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>		arrow left
+
+<a href="version4.html#t_sku">t_sku</a>		<a href="scroll.html#&lt;S-Up&gt;">&lt;S-Up&gt;</a>		shifted arrow up		*<a name="t_sku"></A><b>t_sku</b>*
+
+<a href="version4.html#t_skd">t_skd</a>		<a href="scroll.html#&lt;S-Down&gt;">&lt;S-Down&gt;</a>	shifted arrow down		*<a name="t_skd"></A><b>t_skd</b>*
+
+<a href="version4.html#t_skr">t_skr</a>	<a href="term.html#t_&#37;i">t_&#37;i</a>	<a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a>	shifted arrow right		*<a name="t_skr"></A><b>t_skr</b>*
+
+<a href="version4.html#t_skl">t_skl</a>	<a href="term.html#t_#4">t_#4</a>	<a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a>	shifted arrow left		*<a name="t_skl"></A><b>t_skl</b>*
+
+<a href="version4.html#t_f1">t_f1</a>	<a href="term.html#t_k1">t_k1</a>	<a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a>		function key 1			*<a name="t_f1"></A><b>t_f1</b>*
+
+<a href="version4.html#t_f2">t_f2</a>	<a href="term.html#t_k2">t_k2</a>	<a href="term.html#&lt;F2&gt;">&lt;F2&gt;</a>		function key 2			*<a name="t_f2"></A><b>t_f2</b>*
+
+<a href="version4.html#t_f3">t_f3</a>	<a href="term.html#t_k3">t_k3</a>	<a href="term.html#&lt;F3&gt;">&lt;F3&gt;</a>		function key 3			*<a name="t_f3"></A><b>t_f3</b>*
+
+<a href="version4.html#t_f4">t_f4</a>	<a href="term.html#t_k4">t_k4</a>	<a href="term.html#&lt;F4&gt;">&lt;F4&gt;</a>		function key 4			*<a name="t_f4"></A><b>t_f4</b>*
+
+<a href="version4.html#t_f5">t_f5</a>	<a href="term.html#t_k5">t_k5</a>	<a href="term.html#&lt;F5&gt;">&lt;F5&gt;</a>		function key 5			*<a name="t_f5"></A><b>t_f5</b>*
+
+<a href="version4.html#t_f6">t_f6</a>	<a href="term.html#t_k6">t_k6</a>	<a href="term.html#&lt;F6&gt;">&lt;F6&gt;</a>		function key 6			*<a name="t_f6"></A><b>t_f6</b>*
+
+<a href="version4.html#t_f7">t_f7</a>	<a href="term.html#t_k7">t_k7</a>	<a href="term.html#&lt;F7&gt;">&lt;F7&gt;</a>		function key 7			*<a name="t_f7"></A><b>t_f7</b>*
+
+<a href="version4.html#t_f8">t_f8</a>	<a href="term.html#t_k8">t_k8</a>	<a href="term.html#&lt;F8&gt;">&lt;F8&gt;</a>		function key 8			*<a name="t_f8"></A><b>t_f8</b>*
+
+<a href="version4.html#t_f9">t_f9</a>	<a href="term.html#t_k9">t_k9</a>	<a href="term.html#&lt;F9&gt;">&lt;F9&gt;</a>		function key 9			*<a name="t_f9"></A><b>t_f9</b>*
+
+<a href="version4.html#t_f10">t_f10</a>	<a href="term.html#t_k;">t_k;</a>	<a href="term.html#&lt;F10&gt;">&lt;F10&gt;</a>		function key 10			*<a name="t_f10"></A><b>t_f10</b>*
+
+<a href="version4.html#t_sf1">t_sf1</a>		<a href="intro.html#&lt;S-F1&gt;">&lt;S-F1&gt;</a>		shifted function key 1		*<a name="t_sf1"></A><b>t_sf1</b>*
+
+<a href="version4.html#t_sf2">t_sf2</a>		<a href="term.html#&lt;S-F2&gt;">&lt;S-F2&gt;</a>		shifted function key 2		*<a name="t_sf2"></A><b>t_sf2</b>*
+
+<a href="version4.html#t_sf3">t_sf3</a>		<a href="term.html#&lt;S-F3&gt;">&lt;S-F3&gt;</a>		shifted function key 3		*<a name="t_sf3"></A><b>t_sf3</b>*
+
+<a href="version4.html#t_sf4">t_sf4</a>		<a href="term.html#&lt;S-F4&gt;">&lt;S-F4&gt;</a>		shifted function key 4		*<a name="t_sf4"></A><b>t_sf4</b>*
+
+<a href="version4.html#t_sf5">t_sf5</a>		<a href="term.html#&lt;S-F5&gt;">&lt;S-F5&gt;</a>		shifted function key 5		*<a name="t_sf5"></A><b>t_sf5</b>*
+
+<a href="version4.html#t_sf6">t_sf6</a>		<a href="term.html#&lt;S-F6&gt;">&lt;S-F6&gt;</a>		shifted function key 6		*<a name="t_sf6"></A><b>t_sf6</b>*
+
+<a href="version4.html#t_sf7">t_sf7</a>		<a href="term.html#&lt;S-F7&gt;">&lt;S-F7&gt;</a>		shifted function key 7		*<a name="t_sf7"></A><b>t_sf7</b>*
+
+<a href="version4.html#t_sf8">t_sf8</a>		<a href="term.html#&lt;S-F8&gt;">&lt;S-F8&gt;</a>		shifted function key 8		*<a name="t_sf8"></A><b>t_sf8</b>*
+
+<a href="version4.html#t_sf9">t_sf9</a>		<a href="term.html#&lt;S-F9&gt;">&lt;S-F9&gt;</a>		shifted function key 9		*<a name="t_sf9"></A><b>t_sf9</b>*
+
+<a href="version4.html#t_sf10">t_sf10</a>		<a href="term.html#&lt;S-F10&gt;">&lt;S-F10&gt;</a>		shifted function key 10		*<a name="t_sf10"></A><b>t_sf10</b>*
+
+<a href="version4.html#t_help">t_help</a>	<a href="term.html#t_&#37;1">t_&#37;1</a>	<a href="helphelp.html#&lt;Help&gt;">&lt;Help&gt;</a>		help key			*<a name="t_help"></A><b>t_help</b>*
+
+<a href="version4.html#t_undo">t_undo</a>	<a href="term.html#t_&amp;8">t_&amp;8</a>	<a href="undo.html#&lt;Undo&gt;">&lt;Undo&gt;</a>		<a href="undo.html#undo">undo</a> key			*<a name="t_undo"></A><b>t_undo</b>*
+
+
+
+<a href="options.html#'errorformat'">'errorformat'</a> option changed				*<a name="errorformat-changed"></A><b>errorformat-changed</b>*
+
+<a href="options.html#'errorformat'">'errorformat'</a> can now contain several formats, separated by commas.  The first
+format that matches is used.  The default values have been adjusted to catch
+the most common formats.				|<a href="quickfix.html#errorformat">errorformat</a>|
+
+If you have a format that contains a comma, it needs to be preceded with a
+<a href="intro.html#backslash">backslash</a>.  Type two backslashes, because the &quot;<a href="options.html#:set">:set</a>&quot; command will eat one.
+
+
+
+<a href="vi_diff.html#'graphic'">'graphic'</a> option gone					*<a name="graphic-option-gone"></A><b>graphic-option-gone</b>*
+
+The <a href="vi_diff.html#'graphic'">'graphic'</a> option was used to make the characters between &lt;~&gt; and 0xa0
+display directly on the screen.  Now the <a href="options.html#'isprint'">'isprint'</a> option takes care of this
+with many more possibilities.  The default setting is the same; you only need
+to look into this if you previously set the <a href="vi_diff.html#'graphic'">'graphic'</a> option in your <a href="starting.html#vimrc">vimrc</a>.
+							|<a href="options.html#'isprint'">'isprint'</a>|
+
+
+
+'yankendofline' option gone				*<a name="ye-option-gone"></A><b>ye-option-gone</b>*
+
+The 'yankendofline' option has been removed.  Instead you can just use
+	<a href="map.html#:map">:map</a> <a href="change.html#Y">Y</a> y$
+
+
+
+<a href="options.html#'icon'">'icon'</a> and <a href="options.html#'title'">'title'</a> default value changed		*<a name="icon-changed"></A><b>icon-changed</b>*
+
+The <a href="options.html#'title'">'title'</a> option is now only set by default if the original title can be
+restored.  Avoids &quot;Thanks for flying Vim&quot; titles.  If you want them anyway,
+put &quot;<a href="options.html#:set">:set</a> <a href="options.html#'title'">title</a>&quot; in your <a href="starting.html#vimrc">vimrc</a>.				|<a href="options.html#'title'">'title'</a>|
+
+The default for <a href="options.html#'icon'">'icon'</a> now depends on the possibility of restoring the
+original value, just like <a href="options.html#'title'">'title'</a>.  If you don't like your icon titles to be
+changed, add this line to your <a href="starting.html#vimrc">vimrc</a>:			|<a href="options.html#'icon'">'icon'</a>|
+	<a href="options.html#:set">:set</a> <a href="options.html#'noicon'">noicon</a>
+
+
+
+<a href="options.html#'highlight'">'highlight'</a> option changed				*<a name="highlight-changed"></A><b>highlight-changed</b>*
+
+The '<a href="insert.html#i">i</a>' flag now means <a href="syntax.html#italic">italic</a> highlighting, instead of invert.  The '<a href="change.html#r">r</a>' flag
+is used for reverse highlighting, which is what '<a href="insert.html#i">i</a>' used to be.  Normally you
+won't see the difference, because <a href="syntax.html#italic">italic</a> mode is not supported on most
+terminals and reverse mode is used <a href="motion.html#as">as</a> a fallback.	|<a href="options.html#'highlight'">'highlight'</a>|
+
+When an occasion is not present in <a href="options.html#'highlight'">'highlight'</a>, use the mode from the default
+value for <a href="options.html#'highlight'">'highlight'</a>, instead of reverse mode.
+
+
+
+<a href="options.html#'tildeop'">'tildeop'</a> and <a href="options.html#'weirdinvert'">'weirdinvert'</a> short names changed		*<a name="short-name-changed"></A><b>short-name-changed</b>*
+
+Renamed <a href="options.html#'to'">'to'</a> (abbreviation for 'tildeop') to <a href="options.html#'top'">'top'</a>.	|<a href="options.html#'tildeop'">'tildeop'</a>|
+Renamed <a href="options.html#'wi'">'wi'</a> (abbreviation for 'weirdinvert') to <a href="options.html#'wiv'">'wiv'</a>.	|<a href="options.html#'weirdinvert'">'weirdinvert'</a>|
+
+This was done because <a href="intro.html#Vi">Vi</a> uses <a href="options.html#'wi'">'wi'</a> <a href="motion.html#as">as</a> the short name for <a href="options.html#'window'">'window'</a> and <a href="options.html#'to'">'to'</a> <a href="motion.html#as">as</a>
+the short name for <a href="options.html#'timeout'">'timeout'</a>.  This means that if you try setting these
+<a href="options.html#options">options</a>, you won't get an error message, but the effect will be different.
+
+
+
+Use of &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; and &quot;<a href="visual.html#CTRL-V">CTRL-V</a>&quot; in <a href="visual.html#Visual">Visual</a> mode		*<a name="use-visual-cmds"></A><b>use-visual-cmds</b>*
+
+In <a href="visual.html#Visual">Visual</a> mode, &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot;, and &quot;<a href="visual.html#CTRL-V">CTRL-V</a>&quot; used to end <a href="visual.html#Visual">Visual</a> mode.  Now this
+happens only if the <a href="visual.html#Visual">Visual</a> mode was in the corresponding type.  Otherwise the
+type of <a href="visual.html#Visual">Visual</a> mode is changed.  Now only ESC can be used in all circumstances
+to end <a href="visual.html#Visual">Visual</a> mode without doing anything.		|<a href="visual.html#v_V">v_V</a>|
+
+
+
+<a href="scroll.html#CTRL-B">CTRL-B</a> in <a href="insert.html#Insert">Insert</a> mode removed				*<a name="toggle-revins"></A><b>toggle-revins</b>*
+
+<a href="scroll.html#CTRL-B">CTRL-B</a> in <a href="insert.html#Insert">Insert</a> mode used to toggle the <a href="options.html#'revins'">'revins'</a> option.  If you don't know
+this and accidentally hit <a href="scroll.html#CTRL-B">CTRL-B</a>, it is very difficult to find out how to <a href="undo.html#undo">undo</a>
+it.  Since hardly anybody uses this feature, it is disabled by default.  If
+you want to use it, define RIGHTLEFT in feature.h before compiling. |<a href="options.html#'revins'">'revins'</a>|
+
+<a href="version4.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

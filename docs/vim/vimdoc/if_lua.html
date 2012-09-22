@@ -1,0 +1,267 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: if_lua</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: if_lua</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="if_lua.txt"></A><b>if_lua.txt</b>*    For Vim version 7.3.  Last change: 2010 Jul 22
+
+
+		  VIM REFERENCE MANUAL    by Luis Carvalho
+
+
+
+The <a href="if_lua.html#Lua">Lua</a> Interface to Vim				*<a name="lua"></A><b>lua</b>* *<a name="Lua"></A><b>Lua</b>*
+
+1. Commands			|<a href="if_lua.html#lua-commands">lua-commands</a>|
+2. The vim module		|<a href="if_lua.html#lua-vim">lua-vim</a>|
+3. Buffer userdata		|<a href="if_lua.html#lua-buffer">lua-buffer</a>|
+4. Window userdata		|<a href="if_lua.html#lua-window">lua-window</a>|
+
+{Vi does not have any of these commands}
+
+The <a href="if_lua.html#Lua">Lua</a> interface is available only when Vim was compiled with the
+|<a href="various.html#+lua">+lua</a>| feature.
+
+==============================================================================
+
+1. Commands						*<a name="lua-commands"></A><b>lua-commands</b>*
+
+
+							*<a name=":lua"></A><b>:lua</b>*
+:[range]lua {chunk}
+			Execute <a href="if_lua.html#Lua">Lua</a> chunk {chunk}.    {not in Vi}
+
+Examples:
+
+<b>	:lua print("Hello, Vim!")</b>
+<b>	:lua local curbuf = vim.buffer() curbuf[7] = "line #7"</b>
+ 
+
+:[range]lua <a href="change.html#&lt;&lt;">&lt;&lt;</a> {endmarker}
+{script}
+{endmarker}
+			Execute <a href="if_lua.html#Lua">Lua</a> <a href="usr_41.html#script">script</a> {script}.  {not in Vi}
+			Note: This command doesn't work when the <a href="if_lua.html#Lua">Lua</a>
+			feature wasn't compiled in.  To avoid <a href="message.html#errors">errors</a>, see
+			|<a href="if_perl.html#script-here">script-here</a>|.
+
+{endmarker} must NOT be preceded by any white space.  If {endmarker} is
+omitted from after the &quot;<a href="change.html#&lt;&lt;">&lt;&lt;</a>&quot;, a dot '<a href="repeat.html#.">.</a>' must be used after {script}, like
+for the |<a href="insert.html#:append">:append</a>| and |<a href="insert.html#:insert">:insert</a>| commands.
+This form of the |<a href="if_lua.html#:lua">:lua</a>| command is mainly useful for including <a href="if_lua.html#Lua">Lua</a> code
+in Vim scripts.
+
+Example:
+
+<b>	function! CurrentLineInfo()</b>
+<b>	lua &lt;&lt; EOF</b>
+<b>	local linenr = vim.window().line</b>
+<b>	local curline = vim.buffer()[linenr]</b>
+<b>	print(string.format("Current line [%d] has %d chars",</b>
+<b>		linenr, #curline))</b>
+<b>	EOF</b>
+<b>	endfunction</b>
+ 
+
+
+							*<a name=":luado"></A><b>:luado</b>*
+:[range]luado {body}	Execute <a href="if_lua.html#Lua">Lua</a> function &quot;function (line) {body} end&quot; for
+			each line in the <a href="cmdline.html#[range]">[range]</a>, with the function argument
+			being set to the text of each line in turn, without a
+			trailing <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>. If the value returned by the function
+			is a string it becomes the text of the line in the
+			current turn. The default for <a href="cmdline.html#[range]">[range]</a> is the whole
+			file: &quot;1,$&quot;.		      {not in Vi}
+
+Examples:
+
+<b>	:luado return string.format("%s\t%d", line:reverse(), #line)</b>
+
+<b>	:lua require"lpeg"</b>
+<b>	:lua -- balanced parenthesis grammar:</b>
+<b>	:lua bp = lpeg.P{ "(" * ((1 - lpeg.S"()") + lpeg.V(1))^0 * ")" }</b>
+<b>	:luado if bp:match(line) then return "--&gt;\t" .. line end</b>
+ 
+
+
+							*<a name=":luafile"></A><b>:luafile</b>*
+:[range]luafile <a href="editing.html#{file}">{file}</a>
+			Execute <a href="if_lua.html#Lua">Lua</a> <a href="usr_41.html#script">script</a> in <a href="editing.html#{file}">{file}</a>. {not in Vi}
+			The whole argument is used <a href="motion.html#as">as</a> a single file name.
+
+Examples:
+
+<b>	:luafile script.lua</b>
+<b>	:luafile %</b>
+ 
+
+All these commands execute a <a href="if_lua.html#Lua">Lua</a> chunk from either the command line (:lua and
+<a href="if_lua.html#:luado">:luado</a>) or a file (:luafile) with the given line <a href="cmdline.html#[range]">[range]</a>. Similarly to the <a href="if_lua.html#Lua">Lua</a>
+interpreter, each chunk has its own scope and so only global <a href="eval.html#variables">variables</a> are
+shared between command calls. <a href="if_lua.html#Lua">Lua</a> default libraries &quot;table&quot;, &quot;string&quot;, &quot;math&quot;,
+and &quot;package&quot; are available, &quot;io&quot; and &quot;debug&quot; are not, and &quot;os&quot; is restricted
+to <a href="eval.html#functions">functions</a> &quot;date&quot;, &quot;clock&quot;, &quot;time&quot;, &quot;difftime&quot;, and &quot;getenv&quot;. In addition,
+<a href="if_lua.html#Lua">Lua</a> &quot;print&quot; function has its output redirected to the Vim message area, with
+arguments separated by a white space instead of a <a href="intro.html#tab">tab</a>.
+
+<a href="if_lua.html#Lua">Lua</a> uses the &quot;vim&quot; module (see |<a href="if_lua.html#lua-vim">lua-vim</a>|) to issue commands to Vim
+and manage <a href="windows.html#buffers">buffers</a> (|<a href="if_lua.html#lua-buffer">lua-buffer</a>|) and <a href="windows.html#windows">windows</a> (|<a href="if_lua.html#lua-window">lua-window</a>|). However,
+procedures that alter buffer content, open new <a href="windows.html#buffers">buffers</a>, and change cursor
+position are restricted when the command is executed in the |<a href="eval.html#sandbox">sandbox</a>|.
+
+
+==============================================================================
+
+2. The vim module					*<a name="lua-vim"></A><b>lua-vim</b>*
+
+<a href="if_lua.html#Lua">Lua</a> interfaces Vim through the &quot;vim&quot; module. The first and last line of the
+input range are stored in &quot;vim.firstline&quot; and &quot;vim.lastline&quot; respectively. The
+module also includes routines for buffer, <a href="windows.html#window">window</a>, and current line queries,
+Vim evaluation and command execution, and others.
+
+	vim.isbuffer(value)	Returns 'true' (boolean, not string) if
+				&quot;value&quot; is a buffer userdata and 'false'
+				otherwise (see |<a href="if_lua.html#lua-buffer">lua-buffer</a>|).
+
+	vim.buffer([arg])	If &quot;arg&quot; is a number, returns buffer with
+				number &quot;arg&quot; in the buffer list or, if &quot;arg&quot;
+				is a string, returns buffer whose full or short
+				name is &quot;arg&quot;. In both cases, returns 'nil'
+				(nil value, not string) if the buffer is not
+				found. Otherwise, if &quot;toboolean(arg)&quot; is
+				'true' returns the first buffer in the buffer
+				list or else the current buffer.
+
+	vim.iswindow(value)	Returns 'true' (boolean, not string) if
+				&quot;value&quot; is a <a href="windows.html#window">window</a> userdata and
+				'false' otherwise (see |<a href="if_lua.html#lua-window">lua-window</a>|).
+
+	vim.window([arg])	If &quot;arg&quot; is a number, returns <a href="windows.html#window">window</a> with
+				number &quot;arg&quot; or 'nil' (nil value, not string)
+				if not found. Otherwise, if &quot;toboolean(arg)&quot;
+				is 'true' returns the first <a href="windows.html#window">window</a> or else the
+				current <a href="windows.html#window">window</a>.
+
+	vim.command({cmd})	Executes the vim (ex-mode) command {cmd}.
+				Examples:
+<b>					:lua vim.command"set tw=60"</b>
+<b>					:lua vim.command"normal ddp"</b>
+ 
+	vim.eval({expr})	Evaluates expression {expr} (see |<a href="eval.html#expression">expression</a>|),
+				converts the result to <a href="if_lua.html#Lua">Lua</a>, and returns it.
+				Vim strings and numbers are directly converted
+				to <a href="if_lua.html#Lua">Lua</a> strings and numbers respectively. Vim
+				lists and dictionaries are converted to <a href="if_lua.html#Lua">Lua</a>
+				tables (lists become integer-keyed tables).
+				Examples:
+<b>					:lua tw = vim.eval"&amp;tw"</b>
+<b>					:lua print(vim.eval"{'a': 'one'}".a)</b>
+ 
+	vim.line()		Returns the current line (without the trailing
+				&lt;EOL&gt;), a <a href="if_lua.html#Lua">Lua</a> string.
+
+	vim.beep()		Beeps.
+
+	vim.open({fname})	Opens a new buffer for file {fname} and
+				returns it. Note that the buffer is not set <a href="motion.html#as">as</a>
+				current.
+
+
+==============================================================================
+
+3. Buffer userdata					*<a name="lua-buffer"></A><b>lua-buffer</b>*
+
+Buffer userdata represent vim <a href="windows.html#buffers">buffers</a>. A buffer userdata &quot;<a href="motion.html#b">b</a>&quot; has the following
+properties and methods:
+
+Properties
+	<a href="insert.html#o">o</a> &quot;b()&quot; sets &quot;<a href="motion.html#b">b</a>&quot; <a href="motion.html#as">as</a> the current buffer.
+	<a href="insert.html#o">o</a> &quot;#b&quot; is the number of lines in buffer &quot;<a href="motion.html#b">b</a>&quot;.
+	<a href="insert.html#o">o</a> &quot;b[k]&quot; represents line number <a href="motion.html#k">k</a>: &quot;b[k] = newline&quot; replaces line <a href="motion.html#k">k</a>
+	    with string &quot;newline&quot; and &quot;b[k] = nil&quot; deletes line <a href="motion.html#k">k</a>.
+	<a href="insert.html#o">o</a> &quot;b.name&quot; contains the short name of buffer &quot;<a href="motion.html#b">b</a>&quot; (read-only).
+	<a href="insert.html#o">o</a> &quot;b.fname&quot; contains the full name of buffer &quot;<a href="motion.html#b">b</a>&quot; (read-only).
+	<a href="insert.html#o">o</a> &quot;b.number&quot; contains the position of buffer &quot;<a href="motion.html#b">b</a>&quot; in the buffer list
+	    (read-only).
+
+Methods
+	<a href="insert.html#o">o</a> &quot;b:insert(newline[, pos])&quot; inserts string &quot;newline&quot; at (optional)
+	    position &quot;pos&quot; in the buffer. The default value for &quot;pos&quot; is
+	    &quot;#b + 1&quot;. If &quot;pos <a href="change.html#==">==</a> 0&quot; then &quot;newline&quot; becomes the first line in
+	    the buffer.
+	<a href="insert.html#o">o</a> &quot;b:next()&quot; returns the buffer next to &quot;<a href="motion.html#b">b</a>&quot; in the buffer list.
+	<a href="insert.html#o">o</a> &quot;b:previous()&quot; returns the buffer previous to &quot;<a href="motion.html#b">b</a>&quot; in the buffer
+	    list.
+	<a href="insert.html#o">o</a> &quot;b:isvalid()&quot; returns 'true' (boolean) if buffer &quot;<a href="motion.html#b">b</a>&quot; corresponds to
+	    a &quot;real&quot; (not freed from memory) Vim buffer.
+
+Examples:
+
+<b>	:lua b = vim.buffer() -- current buffer</b>
+<b>	:lua print(b.name, b.number)</b>
+<b>	:lua b[1] = "first line"</b>
+<b>	:lua b:insert("FIRST!", 0)</b>
+<b>	:lua b[1] = nil -- delete top line</b>
+<b>	:lua for i=1,3 do b:insert(math.random()) end</b>
+<b>	:3,4lua for i=vim.lastline,vim.firstline,-1 do b[i] = nil end</b>
+<b>	:lua vim.open"myfile"() -- open buffer and set it as current</b>
+
+<b>	function! ListBuffers()</b>
+<b>	lua &lt;&lt; EOF</b>
+<b>	local b = vim.buffer(true) -- first buffer in list</b>
+<b>	while b ~= nil do</b>
+<b>		print(b.number, b.name, #b)</b>
+<b>		b = b:next()</b>
+<b>	end</b>
+<b>	vim.beep()</b>
+<b>	EOF</b>
+<b>	endfunction</b>
+ 
+
+==============================================================================
+
+4. Window userdata					*<a name="lua-window"></A><b>lua-window</b>*
+
+Window <a href="index.html#objects">objects</a> represent vim <a href="windows.html#windows">windows</a>. A <a href="windows.html#window">window</a> userdata &quot;<a href="motion.html#w">w</a>&quot; has the following
+properties and methods:
+
+Properties
+	<a href="insert.html#o">o</a> &quot;w()&quot; sets &quot;<a href="motion.html#w">w</a>&quot; <a href="motion.html#as">as</a> the current <a href="windows.html#window">window</a>.
+	<a href="insert.html#o">o</a> &quot;w.buffer&quot; contains the buffer of <a href="windows.html#window">window</a> &quot;<a href="motion.html#w">w</a>&quot; (read-only).
+	<a href="insert.html#o">o</a> &quot;w.line&quot; represents the cursor line position in <a href="windows.html#window">window</a> &quot;<a href="motion.html#w">w</a>&quot;.
+	<a href="insert.html#o">o</a> &quot;w.col&quot; represents the cursor column position in <a href="windows.html#window">window</a> &quot;<a href="motion.html#w">w</a>&quot;.
+	<a href="insert.html#o">o</a> &quot;w.width&quot; represents the width of <a href="windows.html#window">window</a> &quot;<a href="motion.html#w">w</a>&quot;.
+	<a href="insert.html#o">o</a> &quot;w.height&quot; represents the height of <a href="windows.html#window">window</a> &quot;<a href="motion.html#w">w</a>&quot;.
+
+Methods
+	<a href="insert.html#o">o</a> &quot;w:next()&quot; returns the <a href="windows.html#window">window</a> next to &quot;<a href="motion.html#w">w</a>&quot;.
+	<a href="insert.html#o">o</a> &quot;w:previous()&quot; returns the <a href="windows.html#window">window</a> previous to &quot;<a href="motion.html#w">w</a>&quot;.
+	<a href="insert.html#o">o</a> &quot;w:isvalid()&quot; returns 'true' (boolean) if <a href="windows.html#window">window</a> &quot;<a href="motion.html#w">w</a>&quot; corresponds to
+	    a &quot;real&quot; (not freed from memory) Vim <a href="windows.html#window">window</a>.
+
+Examples:
+
+<b>	:lua w = vim.window() -- current window</b>
+<b>	:lua print(w.buffer.name, w.line, w.col)</b>
+<b>	:lua w.width = w.width + math.random(10)</b>
+<b>	:lua w.height = 2 * math.random() * w.height</b>
+<b>	:lua n,w = 0,vim.window(true) while w~=nil do n,w = n + 1,w:next() end</b>
+<b>	:lua print("There are " .. n .. " windows")</b>
+ 
+
+==============================================================================
+<a href="if_lua.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

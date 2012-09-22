@@ -1,0 +1,372 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: os_win32</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: os_win32</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="os_win32.txt"></A><b>os_win32.txt</b>*  For Vim version 7.3.  Last change: 2010 Dec 19
+
+
+		  VIM REFERENCE MANUAL    by George Reilly
+
+
+
+						*<a name="win32"></A><b>win32</b>* *<a name="Win32"></A><b>Win32</b>* *<a name="MS-Windows"></A><b>MS-Windows</b>*
+This file documents the idiosyncrasies of the <a href="os_win32.html#Win32">Win32</a> version of Vim.
+
+The <a href="os_win32.html#Win32">Win32</a> version of Vim works on Windows NT, 95, 98, ME, XP, Vista and
+Windows 7.  There are both console and <a href="gui.html#GUI">GUI</a> versions.
+
+The 32 bit version also runs on 64 bit <a href="os_win32.html#MS-Windows">MS-Windows</a> systems.
+
+There is <a href="gui.html#GUI">GUI</a> version for use in the Win32s subsystem in Windows 3.1[1].  You
+can also use the 32-bit <a href="os_dos.html#DOS">DOS</a> version of Vim instead.  See |<a href="os_msdos.html">os_msdos.txt</a>|.
+
+1. Known problems		|<a href="os_win32.html#win32-problems">win32-problems</a>|
+2. Startup			|<a href="os_win32.html#win32-startup">win32-startup</a>|
+3. Restore screen contents	|<a href="os_win32.html#win32-restore">win32-restore</a>|
+4. Using the mouse		|<a href="os_win32.html#win32-mouse">win32-mouse</a>|
+5. Running under Windows 3.1	|<a href="os_win32.html#win32-win3.1">win32-win3.1</a>|
+6. <a href="os_win32.html#Win32">Win32</a> mini <a href="intro.html#FAQ">FAQ</a>		|<a href="os_win32.html#win32-faq">win32-faq</a>|
+
+Additionally, there are a number of common <a href="os_win32.html#Win32">Win32</a> and <a href="os_dos.html#DOS">DOS</a> items:
+File locations			|<a href="os_dos.html#dos-locations">dos-locations</a>|
+Using backslashes		|<a href="os_dos.html#dos-backslash">dos-backslash</a>|
+Standard mappings		|<a href="os_dos.html#dos-standard-mappings">dos-standard-mappings</a>|
+Screen output and colors	|<a href="os_dos.html#dos-colors">dos-colors</a>|
+File formats			|<a href="os_dos.html#dos-file-formats">dos-file-formats</a>|
+:cd command			|<a href="os_dos.html#dos-:cd">dos-:cd</a>|
+Interrupting			|<a href="os_dos.html#dos-CTRL-Break">dos-CTRL-Break</a>|
+Temp files			|<a href="os_dos.html#dos-temp-files">dos-temp-files</a>|
+Shell option default		|<a href="os_dos.html#dos-shell">dos-shell</a>|
+
+<a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a>			|<a href="gui_w32.html#gui-w32">gui-w32</a>|
+
+Credits:
+The Win32 version was written by George V. Reilly <a href="mailto:george@reilly.org">&lt;george@reilly.org&gt;</a>. 
+The original Windows NT port was done by Roger Knobbe <a href="mailto:RogerK@wonderware.com">&lt;RogerK@wonderware.com&gt;</a>. 
+The <a href="gui.html#GUI">GUI</a> version was made by George <a href="visual.html#V">V</a>. Reilly and Robert Webb.
+
+
+For compiling see &quot;src/INSTALLpc.txt&quot;.			*<a name="win32-compiling"></A><b>win32-compiling</b>*
+
+==============================================================================
+
+1. Known problems				*<a name="windows95"></A><b>windows95</b>* *<a name="win32-problems"></A><b>win32-problems</b>*
+
+There are a few known problems with running in a console on Windows 95.  As
+far <a href="motion.html#as">as</a> we know, this is the same in Windows 98 and Windows ME.
+
+Comments from somebody working at Microsoft: &quot;Win95 console support has always
+been and will always be flaky&quot;.
+1.  Dead key support doesn't work.
+2.  Resizing the <a href="windows.html#window">window</a> with &quot;<a href="options.html#:set">:set</a> <a href="options.html#'columns'">columns</a>=nn lines=nn&quot; works, but executing
+    external commands MAY CAUSE THE SYSTEM TO HANG OR CRASH.
+3.  Screen updating is slow, unless you change <a href="options.html#'columns'">'columns'</a> or <a href="options.html#'lines'">'lines'</a> to a
+    non-DOS value.  But then the second problem applies!
+
+If this bothers you, use the 32 bit <a href="os_msdos.html#MS-DOS">MS-DOS</a> version or the <a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> version.
+
+When doing file name completion, Vim also finds matches for the short file
+name.  But Vim will still find and use the corresponding long file name.  For
+example, if you have the long file name &quot;this_is_a_test&quot; with the short file
+name &quot;this_i~1&quot;, the command &quot;<a href="editing.html#:e">:e</a> *1&quot; will start editing &quot;this_is_a_test&quot;.
+
+==============================================================================
+
+2. Startup						*<a name="win32-startup"></A><b>win32-startup</b>*
+
+
+Current directory					*<a name="win32-curdir"></A><b>win32-curdir</b>*
+
+If Vim is started with a single file name argument, and it has a full path
+(starts with &quot;x:\&quot;), Vim assumes it was started from the file explorer and
+will set the current directory to where that file is.  To avoid this when
+typing a command to start Vim, use a forward slash instead of a <a href="intro.html#backslash">backslash</a>.
+Example:
+
+<b>	vim c:\text\files\foo.txt</b>
+
+Will change to the &quot;C:\text\files&quot; directory.
+
+<b>	vim c:/text\files\foo.txt</b>
+
+Will use the current directory.
+
+
+
+Term option						*<a name="win32-term"></A><b>win32-term</b>*
+
+The only kind of terminal type that the <a href="os_win32.html#Win32">Win32</a> version of Vim understands is
+&quot;<a href="os_win32.html#win32">win32</a>&quot;, which is built-in.  If you set <a href="options.html#'term'">'term'</a> to anything else, you will
+probably get very strange behavior from Vim.  Therefore Vim does not obtain
+the default value of <a href="options.html#'term'">'term'</a> from the environment variable &quot;<a href="starting.html#TERM">TERM</a>&quot;.
+
+
+$PATH							*<a name="win32-PATH"></A><b>win32-PATH</b>*
+
+The directory of the Vim executable is appended to $PATH.  This is mostly to
+make &quot;!xxd' work, <a href="motion.html#as">as</a> it is in the Tools menu.  And it also means that when
+<a href="eval.html#executable()">executable()</a> returns 1 the executable can actually be executed.
+
+==============================================================================
+
+3. Restore screen contents				*<a name="win32-restore"></A><b>win32-restore</b>*
+
+When <a href="options.html#'restorescreen'">'restorescreen'</a> is set (which is the default), Vim will restore the
+original contents of the console when exiting or when executing external
+commands.  If you don't want this, use &quot;<a href="options.html#:set">:set</a> <a href="options.html#'nors'">nors</a>&quot;	|<a href="options.html#'restorescreen'">'restorescreen'</a>|
+
+==============================================================================
+
+4. Using the mouse					*<a name="win32-mouse"></A><b>win32-mouse</b>*
+
+The <a href="os_win32.html#Win32">Win32</a> version of Vim supports using the mouse.  If you have a two-button
+mouse, the middle button can be emulated by pressing both left and right
+buttons simultaneously - but note that in the <a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a>, if you have the right
+mouse button pop-up menu enabled (see 'mouse'), you should err on the side of
+pressing the left button first.				|<a href="term.html#mouse-using">mouse-using</a>|
+
+When the mouse doesn't work, try disabling the &quot;Quick Edit Mode&quot; feature of
+the console.
+
+==============================================================================
+
+5. Running under Windows 3.1				*<a name="win32-win3.1"></A><b>win32-win3.1</b>*
+
+
+						*<a name="win32s"></A><b>win32s</b>* *<a name="windows-3.1"></A><b>windows-3.1</b>*
+There is a special version of Gvim that runs under Windows 3.1 and 3.11.  You
+need the gvim.exe that was compiled with <a href="visual.html#Visual">Visual</a> C++ 4.1.
+
+To run the <a href="os_win32.html#Win32">Win32</a> version under Windows 3.1, you need to <a href="usr_90.html#install">install</a> Win32s.  You
+might have it already from another <a href="os_win32.html#Win32">Win32</a> application which you have installed.
+If Vim doesn't seem to be running properly, get the latest version: 1.30c.
+You can find it at:
+
+	<a href="http://support.microsoft.com/download/support/mslfiles/pw1118.exe">http://support.microsoft.com/download/support/mslfiles/pw1118.exe</a>
+
+(Microsoft moved it again, we don't know where it is now :-( ).
+
+The reason for having two versions of gvim.exe is that the Win32s version was
+compiled with VC++ 4.1.  This is the last version of VC++ that supports Win32s
+programs.  VC++ 5.0 is better, so that one was used for the <a href="os_win32.html#Win32">Win32</a> version.
+Apart from that, there is no difference between the programs.  If you are in a
+mixed environment, you can use the gvim.exe for Win32s on both.
+
+The Win32s version works the same way <a href="motion.html#as">as</a> the <a href="os_win32.html#Win32">Win32</a> version under 95/NT.  When
+running under Win32s the following differences apply:
+- You cannot use long file names, because Windows 3.1 doesn't support them!
+- When executing an external command, it doesn't return an exit code.  After
+  doing &quot;<a href="quickfix.html#:make">:make</a>&quot; you have to <a href="diff.html#do">do</a> &quot;<a href="quickfix.html#:cn">:cn</a>&quot; yourself.
+
+==============================================================================
+
+6. <a href="os_win32.html#Win32">Win32</a> mini <a href="intro.html#FAQ">FAQ</a>					*<a name="win32-faq"></A><b>win32-faq</b>*
+
+<a href="intro.html#Q">Q</a>. Why does the <a href="os_win32.html#Win32">Win32</a> version of Vim update the screen so slowly on Windows 95?
+A. The support for <a href="os_win32.html#Win32">Win32</a> console mode applications is very buggy in Win95.
+   For some unknown reason, the screen updates very slowly when Vim is run at
+   one of the standard resolutions (80x25, 80x43, or 80x50) and the 16-bit <a href="os_dos.html#DOS">DOS</a>
+   version updates the screen much more quickly than the <a href="os_win32.html#Win32">Win32</a> version.
+   However, if the screen is set to some other resolution, such <a href="motion.html#as">as</a> by &quot;<a href="options.html#:set">:set</a>
+   columns=100&quot; or &quot;<a href="options.html#:set">:set</a> <a href="options.html#'lines'">lines</a>=40&quot;, screen updating becomes about <a href="motion.html#as">as</a> fast <a href="motion.html#as">as</a>
+   it is with the 16-bit version.
+
+   WARNING: Changing <a href="options.html#'columns'">'columns'</a> may make Windows 95 crash while updating the
+   <a href="windows.html#window">window</a> (complaints --&gt; Microsoft).  Since this mostly works, this has not
+   been disabled, but be careful with <a href="change.html#changing">changing</a> <a href="options.html#'columns'">'columns'</a>.
+
+   Changing the screen resolution makes updates faster, but it brings
+   additional problems.  External commands (e.g., &quot;:!dir&quot;) can cause Vim to
+   freeze when the screen is set to a non-standard resolution, particularly
+   when <a href="options.html#'columns'">'columns'</a> is not equal to 80.  It is not possible for Vim to reliably
+   set the screen resolution back to the value it had upon <a href="starting.html#startup">startup</a> before
+   running external commands, so if you change the number of <a href="options.html#'lines'">'lines'</a> or
+   <a href="options.html#'columns'">'columns'</a>, be very, very careful.  In fact, Vim will not allow you to
+   execute external commands when <a href="options.html#'columns'">'columns'</a> is not equal to 80, because it is
+   so likely to freeze up afterwards.
+
+   None of the above applies on Windows NT.  Screen updates are fast, no
+   matter how many <a href="options.html#'lines'">'lines'</a> or <a href="options.html#'columns'">'columns'</a> the <a href="windows.html#window">window</a> has, and external commands
+   <a href="diff.html#do">do</a> not cause Vim to freeze.
+
+<a href="intro.html#Q">Q</a>. So if the <a href="os_win32.html#Win32">Win32</a> version updates the screen so slowly on Windows 95 and the
+   16-bit <a href="os_dos.html#DOS">DOS</a> version updates the screen quickly, why would I want to run the
+   <a href="os_win32.html#Win32">Win32</a> version?
+A. Firstly, the <a href="os_win32.html#Win32">Win32</a> version isn't that slow, especially when the screen is
+   set to some non-standard number of <a href="options.html#'lines'">'lines'</a> or <a href="options.html#'columns'">'columns'</a>.  Secondly, the
+   16-bit <a href="os_dos.html#DOS">DOS</a> version has some severe limitations: It can't <a href="diff.html#do">do</a> big changes and
+   it doesn't know about long file names.  The <a href="os_win32.html#Win32">Win32</a> version doesn't have these
+   limitations and it's faster overall (the same is true for the 32-bit DJGPP
+   <a href="os_dos.html#DOS">DOS</a> version of Vim).  The <a href="os_win32.html#Win32">Win32</a> version is smarter about handling the
+   screen, the mouse, and the keyboard than the DJGPP version is.
+
+<a href="intro.html#Q">Q</a>. And what about the 16-bit <a href="os_dos.html#DOS">DOS</a> version versus the <a href="os_win32.html#Win32">Win32</a> version on NT?
+A. There are no good reasons to run the 16-bit <a href="os_dos.html#DOS">DOS</a> version on NT.  The <a href="os_win32.html#Win32">Win32</a>
+   version updates the screen just <a href="motion.html#as">as</a> fast <a href="motion.html#as">as</a> the 16-bit version does when
+   running on NT.  All of the above disadvantages apply.  Finally, <a href="os_dos.html#DOS">DOS</a>
+   applications can take a long time to start up and will run more slowly.  On
+   non-Intel NT platforms, the <a href="os_dos.html#DOS">DOS</a> version is almost unusably slow, because it
+   runs on top of an 80x86 emulator.
+
+<a href="intro.html#Q">Q</a>. How <a href="diff.html#do">do</a> I change the font?
+A. In the <a href="gui.html#GUI">GUI</a> version, you can use the <a href="options.html#'guifont'">'guifont'</a> option.  Example:
+<b>	:set guifont=Lucida_Console:h15:cDEFAULT</b>
+   In the console version, you need to set the font of the console itself.
+   You cannot <a href="diff.html#do">do</a> this from within Vim.
+
+<a href="intro.html#Q">Q</a>. When I change the size of the console <a href="windows.html#window">window</a> with ':set lines=xx' or
+   similar, the font changes! (Win95)
+A. You have the console font set to 'Auto' in Vim's (or your <a href="os_msdos.html#MS-DOS">MS-DOS</a> prompt's)
+   properties.  This makes W95 guess (badly!) what font is best.  Set an explicit
+   font instead.
+
+<a href="intro.html#Q">Q</a>. Why can't I paste into Vim when running Windows 95?
+A. In the properties <a href="gui_w32.html#dialog">dialog</a> box for the <a href="os_msdos.html#MS-DOS">MS-DOS</a> <a href="windows.html#window">window</a>, go to &quot;<a href="os_msdos.html#MS-DOS">MS-DOS</a>
+   Prompt/Misc/Fast pasting&quot; and make sure that it is NOT checked.  You should
+   also <a href="diff.html#do">do</a> &quot;<a href="options.html#:set">:set</a> <a href="options.html#'paste'">paste</a>&quot; in Vim to avoid unexpected effects.	|<a href="options.html#'paste'">'paste'</a>|
+
+<a href="intro.html#Q">Q</a>. How <a href="diff.html#do">do</a> I type dead keys on Windows 95, in the console version?
+   (A dead key is an accent key, such <a href="motion.html#as">as</a> acute, grave, or umlaut, that doesn't
+   produce a character by itself, but when followed by another key, produces
+   an accented character, such <a href="motion.html#as">as</a> a-acute, e-grave, u-umlaut, n-tilde, and so
+   on.  Very useful for most European languages.  English-language keyboard
+   layouts don't use dead keys, <a href="motion.html#as">as</a> far <a href="motion.html#as">as</a> we know.)
+A. You don't.  The console mode input routines simply <a href="diff.html#do">do</a> not work correctly in
+   Windows 95, and I have not been able to work around them.  In the words
+   of a senior developer at Microsoft:
+	Win95 console support has always been and will always be flaky.
+
+	The flakiness is unavoidable because we are stuck between the world of
+	<a href="os_msdos.html#MS-DOS">MS-DOS</a> keyboard TSRs like KEYB (which wants to cook the data;
+	important for international) and the world of <a href="os_win32.html#Win32">Win32</a>.
+
+	So keys that don't &quot;exist&quot; in <a href="os_msdos.html#MS-DOS">MS-DOS</a> land (like dead keys) have a
+	very tenuous existence in <a href="os_win32.html#Win32">Win32</a> console land.  Keys that act
+	differently between <a href="os_msdos.html#MS-DOS">MS-DOS</a> land and <a href="os_win32.html#Win32">Win32</a> console land (like
+	capslock) will act flaky.
+
+	Don't even _mention_ the problems with multiple language keyboard
+	layouts...
+
+   You may be able to fashion some sort of workaround with the <a href="digraph.html#digraphs">digraphs</a>
+   mechanism.							|<a href="digraph.html#digraphs">digraphs</a>|
+
+   The best solution is to use the <a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> version gvim.exe.  Alternatively,
+   you can try one of the <a href="os_dos.html#DOS">DOS</a> versions of Vim where dead keys reportedly <a href="diff.html#do">do</a>
+   work.
+
+<a href="intro.html#Q">Q</a>. How <a href="diff.html#do">do</a> I type dead keys on Windows NT?
+A. Dead keys work on NT 3.51.  Just type them <a href="motion.html#as">as</a> you would in any other
+   application.
+   On NT 4.0, you need to make sure that the default <a href="mbyte.html#locale">locale</a> (set in the
+   Keyboard part of the Control Panel) is the same <a href="motion.html#as">as</a> the currently active
+   <a href="mbyte.html#locale">locale</a>.  Otherwise the NT code will get confused and crash!  This is a NT
+   4.0 problem, not really a Vim problem.
+
+<a href="intro.html#Q">Q</a>. I'm using Vim to edit a symbolically linked file on a <a href="os_unix.html#Unix">Unix</a> NFS file server.
+   When I write the file, Vim does not &quot;write through&quot; the symlink.  Instead,
+   it deletes the symbolic link and creates a new file in its place.  Why?
+A. On <a href="os_unix.html#Unix">Unix</a>, Vim is prepared for links (symbolic or hard).  A <a href="editing.html#backup">backup</a> copy of
+   the original file is made and then the original file is overwritten.  This
+   assures that all properties of the file remain the same.  On non-Unix
+   systems, the original file is renamed and a new file is written.  Only the
+   protection bits are set like the original file.  However, this doesn't work
+   properly when working on an NFS-mounted file system where links and other
+   things exist.  The only way to fix this in the current version is not
+   making a backup file, by &quot;<a href="options.html#:set">:set</a> <a href="options.html#'nobackup'">nobackup</a> nowritebackup&quot;     |<a href="options.html#'writebackup'">'writebackup'</a>|
+
+<a href="intro.html#Q">Q</a>. I'm using Vim to edit a file on a <a href="os_unix.html#Unix">Unix</a> file server through Samba.  When I
+   write the file, the owner of the file is changed.  Why?
+A. When <a href="editing.html#writing">writing</a> a file Vim renames the original file, this is a <a href="editing.html#backup">backup</a> (in
+   <a href="change.html#case">case</a> <a href="editing.html#writing">writing</a> the file fails halfway).  Then the file is written <a href="motion.html#as">as</a> a new
+   file.  Samba then gives it the default owner for the file system, which may
+   differ from the original owner.
+   To avoid this set the <a href="options.html#'backupcopy'">'backupcopy'</a> option to &quot;yes&quot;.  Vim will then make a
+   copy of the file for the <a href="editing.html#backup">backup</a>, and overwrite the original file.  The
+   owner isn't changed then.
+
+<a href="intro.html#Q">Q</a>. How <a href="diff.html#do">do</a> I get to see the output of &quot;<a href="quickfix.html#:make">:make</a>&quot; while it's running?
+A. Basically what you need is to put a tee program that will copy its input
+   (the output from make) to both stdout and to the errorfile.  You can find a
+   copy of tee (and a number of other GNU tools) at
+	<a href="http://gnuwin32.sourceforge.net">http://gnuwin32.sourceforge.net</a> or	<a href="http://unxutils.sourceforge.net">http://unxutils.sourceforge.net</a>
+   Alternatively, try the more recent Cygnus version of the GNU tools at
+	<a href="http://www.cygwin.com">http://www.cygwin.com</a> Other Unix-style tools for Win32 are listed at
+	<a href="http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/Win32/">http://directory.google.com/Top/Computers/Software/Operating_Systems/Unix/Win32/</a>
+   When you <a href="diff.html#do">do</a> get a copy of tee, you'll need to add
+<b>	:set shellpipe=\|\ tee</b>
+   to your <a href="starting.html#_vimrc">_vimrc</a>.
+
+<a href="intro.html#Q">Q</a>. I'm storing files on a remote machine that works with VisionFS, and files
+   disappear!
+A. VisionFS can't handle certain dot (.) three <a href="print.html#letter">letter</a> extension file names.
+   SCO declares this behavior required for backwards compatibility with 16bit
+   DOS/Windows environments.  The two commands below demonstrate the behavior:
+
+<b>	echo Hello &gt; file.bat~ </b>
+<b>	dir &gt; file.bat</b>
+ 
+   The result is that the &quot;dir&quot; command updates the &quot;file.bat~&quot; file, instead
+   of creating a new &quot;file.bat&quot; file.  This same behavior is exhibited in Vim
+   when editing an existing file named &quot;foo.bat&quot; because the default behavior
+   of Vim is to create a temporary file with a '<a href="change.html#~">~</a>' character appended to the
+   name.  When the file is written, it winds up being deleted.
+
+   Solution: Add this command to your <a href="starting.html#_vimrc">_vimrc</a> file:
+<b>	:set backupext=.temporary</b>
+
+<a href="intro.html#Q">Q</a>. How <a href="diff.html#do">do</a> I change the blink rate of the cursor?
+A. You can't!  This is a limitation of the NT console.  NT 5.0 is reported to
+   be able to set the blink rate for all console <a href="windows.html#windows">windows</a> at the same time.
+
+
+							*<a name=":!start"></A><b>:!start</b>*
+<a href="intro.html#Q">Q</a>. How can I run an external command or program asynchronously?
+A. When using <a href="various.html#:!">:!</a> to run an external command, you can run it with &quot;start&quot;:
+<b>	:!start winfile.exe&lt;CR&gt;</b>
+   Using &quot;start&quot; stops Vim switching to another screen, opening a new console,
+   or waiting for the program to complete; it indicates that you are running a
+   program that does not affect the files you are editing.  Programs begun
+   with <a href="os_win32.html#:!start">:!start</a> <a href="diff.html#do">do</a> not get passed Vim's open file handles, which means they <a href="diff.html#do">do</a>
+   not have to be closed before Vim.
+   To avoid this special treatment, use &quot;<a href="various.html#:!">:!</a> start&quot;.
+   The optional &quot;/min&quot; argument causes the <a href="windows.html#window">window</a> to be minimized.
+
+<a href="intro.html#Q">Q</a>. I'm using Win32s, and when I try to run an external command like &quot;make&quot;,
+   Vim doesn't wait for it to finish!  Help!
+A. The problem is that a 32-bit application (Vim) can't get notification from
+   Windows that a 16-bit application (your <a href="os_dos.html#DOS">DOS</a> session) has finished.  Vim
+   includes a work-around for this, but you must set up your <a href="os_dos.html#DOS">DOS</a> commands to
+   run in a <a href="windows.html#window">window</a>, not full-screen.  Unfortunately the default when you
+   <a href="usr_90.html#install">install</a> Windows is full-screen.  To change this:
+   1) Start PIF editor (in the Main program group).
+   2) Open the file &quot;_DEFAULT.PIF&quot; in your Windows directory.
+   3) Changes the display option from &quot;Full Screen&quot; to &quot;Windowed&quot;.
+   4) Save and exit.
+
+   To test, start Vim and type
+<b>	:!dir C:\&lt;CR&gt;".</b>
+   You should see a <a href="os_dos.html#DOS">DOS</a> box <a href="windows.html#window">window</a> appear briefly with the directory listing.
+
+<a href="intro.html#Q">Q</a>. I use Vim under Win32s and NT.  In NT, I can define the console to default to
+   50 lines, so that I get a 80x50 shell when I '<a href="various.html#:sh">:sh</a>'.  Can I <a href="diff.html#do">do</a> the same in
+   W3.1x, or am I stuck with 80x25?
+A. Edit SYSTEM.INI and add 'ScreenLines=50' to the [NonWindowsApp] section.  <a href="os_dos.html#DOS">DOS</a>
+   prompts and external <a href="os_dos.html#DOS">DOS</a> commands will now run in a 50-line <a href="windows.html#window">window</a>.
+
+<a href="os_win32.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

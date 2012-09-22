@@ -1,0 +1,3296 @@
+%!PS-Adobe-2.0
+%%Title: sagittal-test
+%%Creator: abcm2ps-4.12.9
+%%CreationDate: Mar  8, 2006 13:29
+%%Pages: (atend)
+%%LanguageLevel: 2
+%%EndComments
+%CommandLine: -O= sagittal-test
+
+%%BeginSetup
+/!{bind def}bind def
+/bdef{bind def}!
+/T/translate load def
+/M/moveto load def
+/RM/rmoveto load def
+/RL/rlineto load def
+/RC/rcurveto load def
+/SLW/setlinewidth load def
+/defl 0 def
+/dlw{0.7 SLW}!
+/xymove{/x 2 index def/y 1 index def M}!
+/showc{dup stringwidth pop .5 mul neg 0 RM show}!
+/showr{dup stringwidth pop neg 0 RM show}!
+/showb{	dup currentpoint 3 -1 roll show
+	.6 SLW
+	exch 2 sub exch 3 sub 3 -1 roll
+	stringwidth pop 4 add fh 4 add rectstroke}!
+/tclef{	M
+	-1.9 3.7 RM
+	-3.3 1.9 -3.1 6.8 2.4 8.6 RC
+	7 0 9.8 -8 4.1 -11.7 RC
+	-5.2 -2.4 -12.5 0 -13.3 6.2 RC
+	-0.7 6.4 4.15 10.5 10 15.3 RC
+	4 4 3.6 6.1 2.8 9.6 RC
+	-2.3 -1.5 -4.7 -4.8 -4.5 -8.5 RC
+	0.8 -12.2 3.4 -17.3 3.5 -26.3 RC
+	0.3 -4.4 -1.2 -6.2 -3.8 -6.2 RC
+	-3.7 -0.1 -5.8 4.3 -2.8 6.1 RC
+	3.9 1.9 6.1 -4.6 1.4 -4.8 RC
+	0.7 -1.2 4.6 -0.8 4.2 4.2 RC
+	-0.2 10.3 -3 15.7 -3.5 28.3 RC
+	0 4.1 0.6 7.4 5 10.6 RC
+	2.3 -3.2 2.9 -10 1 -12.7 RC
+	-2.4 -4.3 -11.5 -10.3 -11.8 -15 RC
+	0.4 -7 6.9 -8.5 11.7 -6.1 RC
+	3.9 3 1.3 8.8 -3.7 8.1 RC
+	-4 -0.2 -4.8 -3.1 -2.7 -5.7 RC
+	fill}!
+/stclef{exch 0.85 div exch 0.85 div gsave 0.85 dup scale tclef grestore}!
+/octu{/Times-Roman 12 selectfont M -1.5 36 RM(8)show}!
+/octl{/Times-Roman 12 selectfont M -3.5 -19 RM(8)show}!
+/bclef{	M
+	-8.8 3.5 RM
+	6.3 1.9 10.2 5.6 10.5 10.8 RC
+	0.3 4.9 -0.5 8.1 -2.6 8.8 RC
+	-2.5 1.2 -5.8 -0.7 -5.9 -4.1 RC
+	1.8 3.1 6.1 -0.6 3.1 -3 RC
+	-3 -1.4 -5.7 2.3 -1.9 7 RC
+	2.6 2.3 11.4 0.6 10.1 -8 RC
+	-0.1 -4.6 -5 -10.2 -13.3 -11.5 RC
+	15.5 17 RM
+	0 1.5 2 1.5 2 0 RC
+	0 -1.5 -2 -1.5 -2 0 RC
+	0 -5.5 RM
+	0 1.5 2 1.5 2 0 RC
+	0 -1.5 -2 -1.5 -2 0 RC
+	fill}!
+/sbclef{exch 0.85 div exch 0.85 div gsave 0.85 dup scale 0 3 T bclef grestore}!
+/cchalf{0 12 M
+	2.6 5 RL
+	2.3 -5.8 5.2 -2.4 4.7 1.6 RC
+	0.4 3.9 -3 6.7 -5.1 4 RC
+	4.1 0.5 0.9 -5.3 -0.9 -1.4 RC
+	-0.5 3.4 6.5 4.3 7.8 -0.8 RC
+	1.9 -5.6 -4.1 -9.8 -6 -5.4 RC
+	-1.6 -3 RL
+	fill}!
+/cclef{	gsave T
+	cchalf 0 24 T 1 -1 scale cchalf
+	-5.5 0 3 24 rectfill
+	-0.5 0 M 0 24 RL 0.7 SLW stroke grestore}!
+/scclef{exch .85 div exch .85 div gsave .85 dup scale
+	2 add cclef grestore}!
+/pclef{	exch 2.7 sub exch 2 add 5.4 20
+	1.4 SLW rectstroke}!
+/spclef{pclef}!
+/bm{	M 3 copy RL neg 0 exch RL
+	neg exch neg exch RL 0 exch RL fill}!
+/bnum{M/Times-Italic 12 selectfont showc}!
+/bnumb{	currentgray /Times-Italic 12 selectfont
+	3 index stringwidth pop 4 add
+	dup .5 mul neg 4 index add 3 index 3 -1 roll 8
+	1.0 setgray rectfill setgray M showc}!
+/tubr{3 sub M 0 3 RL RL 0 -3 RL dlw stroke}!
+/tubrl{3 add M 0 -3 RL RL 0 3 RL dlw stroke}!
+/r00{	xymove
+	-1 -6 RM currentpoint 3 12 rectfill}!
+/r0{	xymove
+	-1 0 RM currentpoint 3 6 rectfill}!
+/r1{	xymove
+	-3 3 RM currentpoint 7 3 rectfill}!
+/r2{	xymove
+	-3 0 RM currentpoint 7 3 rectfill}!
+/r4{	xymove
+	-1 8.5 RM
+	3.6 -5.1 RL
+	-2.1 -5.2 RL
+	2.2 -4.3 RL
+	-2.6 2.3 -5.1 0 -2.4 -2.6 RC
+	-4.8 3 -1.5 6.9 1.4 4.1 RC
+	-3.1 4.5 RL
+	1.9 5.1 RL
+	-1.5 3.5 RL
+	fill}!
+/r8e{	-1.5 -1.5 -2.4 -2 -3.6 -2 RC
+	2.4 2.8 -2.8 4 -2.8 1.2 RC
+	0 -2.7 4.3 -2.4 5.9 -0.6 RC
+	fill}!
+/r8{	xymove
+	.5 SLW 3.3 4 RM
+	-3.4 -9.6 RL stroke
+	x y M 3.4 4 RM r8e}!
+/r16{	xymove
+	.5 SLW 3.3 4 RM
+	-4 -15.6 RL stroke
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r32{	xymove
+	.5 SLW 4.8 10 RM
+	-5.5 -21.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r64{	xymove
+	.5 SLW 4.8 10 RM
+	-7 -27.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e
+	x y M 0.4 -8 RM r8e}!
+/r128{	xymove
+	.5 SLW 5.8 16 RM
+	-8.5 -33.6 RL stroke
+	x y M 5.9 16 RM r8e
+	x y M 4.4 10 RM r8e
+	x y M 2.9 4 RM r8e
+	x y M 1.4 -2 RM r8e
+	x y M -0.1 -8 RM r8e}!
+/dt{x y M RM currentpoint 1.2 0 360 arc fill}!
+/hld{	1.5 add 2 copy 1.5 add M currentpoint 1.3 0 360 arc
+	M -7.5 0 RM
+	0 11.5 15 11.5 15 0 RC
+	-0.25 0 RL
+	-1.25 9 -13.25 9 -14.5 0 RC
+	fill}!
+/dnb{	dlw M -3.2 2 RM
+	0 7.2 RL
+	6.4 0 RM
+	0 -7.2 RL
+	currentpoint stroke M
+	-6.4 4.8 RM
+	0 2.4 RL
+	6.4 0 RL
+	0 -2.4 RL
+	fill}!
+/upb{	dlw M -2.6 9.4 RM
+	2.6 -8.8 RL
+	2.6 8.8 RL
+	stroke}!
+/grm{	M -5 2.5 RM
+	5 8.5 5.5 -4.5 10 2 RC
+	-5 -8.5 -5.5 4.5 -10 -2 RC fill}!
+/stc{M currentpoint 1.2 0 360 arc fill}!
+/emb{	1.2 SLW 1 setlinecap M
+	-2.5 0 RM 5 0 RL stroke 0 setlinecap}!
+/cpu{	M -6 0 RM
+	0.4 7.3 11.3 7.3 11.7 0 RC
+	-1.3 6 -10.4 6 -11.7 0 RC fill}!
+/sld{	M -7.2 -4.8 RM
+	1.8 -0.7 4.5 0.2 7.2 4.8 RC
+	-2.1 -5 -5.4 -6.8 -7.6 -6 RC fill}!
+/trl{	/Times-BoldItalic 16 selectfont
+	M -4 2 RM(tr)show}!
+/umrd{	4 add M
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL fill}!
+/lmrd{	2 copy umrd 8 add M
+	.6 SLW 0 -8 RL stroke}!
+/fng{/Bookman-Demi 8 selectfont M -3 1 RM show}!
+/dacs{/Times-Roman 16 selectfont 3 add M showc}!
+/brth{/Times-BoldItalic 30 selectfont 6 add M(,)show}!
+/pf{/Times-BoldItalic 16 selectfont 5 add M show}!
+/sfz{	M -7 5 RM pop
+	/Times-Italic 14 selectfont(s)show
+	/Times-BoldItalic 16 selectfont(f)show
+	/Times-Italic 14 selectfont(z)show}!
+/coda{	1 SLW 2 add 2 copy M 0 20 RL
+	2 copy M -10 10 RM 20 0 RL stroke
+	10 add 6 0 360 arc 1.7 SLW stroke}!
+/sgno{	M 0 3 RM currentpoint currentpoint currentpoint
+	1.5 -1.7 6.4 0.3 3 3.7 RC
+	-10.4 7.8 -8 10.6 -6.5 11.9 RC
+	4 1.9 5.9 -1.7 4.2 -2.6 RC
+	-1.3 -0.7 -2.9 1.3 -0.7 2 RC
+	-1.5 1.7 -6.4 -0.3 -3 -3.7 RC
+	10.4 -7.8 8 -10.6 6.5 -11.9 RC
+	-4 -1.9 -5.9 1.7 -4.2 2.6 RC
+	1.3 0.7 2.9 -1.3 0.7 -2 RC
+	fill
+	M 0.8 SLW -6 1.2 RM 12.6 12.6 RL stroke
+	7 add exch -6 add exch 1.2 0 360 arc fill
+	8 add exch 6 add exch 1.2 0 360 arc fill}!
+/cresc{	1 SLW M dup 5 RM
+	defl 1 and 0 eq
+	{dup neg 4 RL 4 RL}
+	{dup neg 2.2 RL 0 3.6 RM 2.2 RL}
+	ifelse stroke}!
+/dim{	1 SLW 5 add M
+	defl 2 and 0 eq
+	{dup 4 RL neg 4 RL}
+	{dup 2.2 RL 0 3.6 RM neg 2.2 RL}
+	ifelse stroke}!
+/dplus{	1.2 SLW 0.5 add M 0 6 RL
+	-3 -3 RM 6 0 RL stroke}!
+/accent{1.2 SLW M -4 2 RM
+	8 2 RL -8 2 RL stroke}!
+/turn{	M 5.2 8 RM
+	1.4 -0.5 0.9 -4.8 -2.2 -2.8 RC
+	-4.8 3.5 RL
+	-3 2 -5.8 -1.8 -3.6 -4.4 RC
+	1 -1.1 2 -0.8 2.1 0.1 RC
+	0.1 0.9 -0.7 1.2 -1.9 0.6 RC
+	-1.4 0.5 -0.9 4.8 2.2 2.8 RC
+	4.8 -3.5 RL
+	3 -2 5.8 1.8 3.6 4.4 RC
+	-1 1.1 -2 0.8 -2.1 -0.1 RC
+	-0.1 -0.9 0.7 -1.2 1.9 -0.6 RC
+	fill}!
+/turnx{	2 copy turn M
+	.6 SLW 0 1.5 RM 0 9 RL stroke}!
+/lphr{1.2 SLW M 0 -18 RL stroke}!
+/mphr{1.2 SLW M 0 -12 RL stroke}!
+/sphr{1.2 SLW M 0 -6 RL stroke}!
+/ltr{	gsave 4 add T
+	0 6 3 -1 roll{
+		0 1 1{
+			0 0.4 M
+			2 1.9 3.4 2.3 3.9 0 curveto
+			2.1 0 lineto
+			1.9 0.8 1.4 0.7 0 -0.4 curveto
+			fill
+			pop 180 rotate -6 0 T
+		}for
+		pop 6 0 T
+	}for
+	grestore}!
+/arp{gsave 90 rotate exch neg ltr grestore}!
+/wedge{1 add M -1.5 5 RL 3 0 RL -1.5 -5 RL fill}!
+/opend{dlw M currentpoint 3 add 2.5 -90 270 arc stroke}!
+/snap{	dlw 2 copy M -3 6 RM
+	0 5 6 5 6 0 RC
+	0 -5 -6 -5 -6 0 RC
+	5 add M 0 -6 RL stroke}!
+/thumb{	dlw 2 copy M -2.5 7 RM
+	0 6 5 6 5 0 RC
+	0 -6 -5 -6 -5 0 RC
+	2 add M 0 -4 RL stroke}!
+/hl{	.8 SLW x -6 add exch M
+	12 0 RL stroke}!
+/hl1{	.8 SLW x -7 add exch M
+	14 0 RL stroke}!
+/hl2{	.8 SLW x -8 add exch M
+	16 0 RL stroke}!
+/sh0{	gsave T .9 SLW
+	-1.2 -8.4 M 0 15.4 RL
+	1.4 -7.2 M 0 15.4 RL stroke
+	-2.6 -3 M 5.4 1.6 RL 0 -2.2 RL -5.4 -1.6 RL 0 2.2 RL fill
+	-2.6 3.4 M 5.4 1.6 RL 0 -2.2 RL -5.4 -1.6 RL 0 2.2 RL fill
+	grestore}!
+/ft0{	gsave T .8 SLW
+	-1.8 2.5 M
+	6.4 3.3 6.5 -3.6 0 -6.6 RC
+	4.6 3.9 4.5 7.6 0 5.7 RC
+	currentpoint fill M
+	0 7.1 RM 0 -12.6 RL stroke
+	grestore}!
+/nt0{	gsave T .5 SLW
+	-2 -4.3 M 0 12.2 RL
+	1.3 -7.8 M 0 12.2 RL stroke
+	2.1 SLW
+	-2 -2.9 M 3.3 0.6 RL
+	-2 2.4 M 3.3 0.6 RL stroke
+	grestore}!
+/dsh0{	2 copy M .7 SLW
+	-2 -2 RM 4 4 RL
+	-4 0 RM 4 -4 RL stroke
+	.5 SLW 2 copy M 1.3 -1.3 RM
+	2 -0.2 RL 0.2 -2 RL -2 0.2 RL -0.2 2 RL fill
+	2 copy M 1.3 1.3 RM
+	2 0.2 RL 0.2 2 RL -2 -0.2 RL -0.2 -2 RL fill
+	2 copy M -1.3 1.3 RM
+	-2 0.2 RL -0.2 2 RL 2 -0.2 RL 0.2 -2 RL fill
+	M -1.3 -1.3 RM
+	-2 -0.2 RL -0.2 -2 RL 2 0.2 RL 0.2 2 RL fill}!
+/ftx{	-1.4 2.7 RM
+	5.7 3.1 5.7 -3.6 0 -6.7 RC
+	3.9 4 4 7.6 0 5.8 RC
+	currentpoint fill M
+	dlw 0 7.1 RM 0 -12.4 RL stroke}!
+/dft0{2 copy M -2.5 0 RM ftx M 1.5 0 RM ftx}!
+/gsc{gsave y T .7 dup scale 0 0}!
+/sh1{	gsave T .9 SLW
+	0 -7.8 M 0 15.4 RL stroke
+	-1.8 -2.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	-1.8 3.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	grestore}!
+/sh513{	gsave T .8 SLW
+	-2.5 -8.7 M 0 15.4 RL
+	0 -7.8 M 0 15.4 RL
+	2.5 -6.9 M 0 15.4 RL stroke
+	-3.7 -3.1 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	-3.7 3.2 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	grestore}!
+/ft1{gsave -1 1 scale exch neg exch ft0 grestore}!
+/ft513{2 copy gsave -1 1 scale exch neg 3 add exch M ftx grestore
+	M 1.5 0 RM ftx}!
+/sharp_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .08 mul dup scale 0 7 sh0 grestore
+	fh .4 mul 0 RM}!
+/flat_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .08 mul dup scale 0 5 ft0 grestore
+	fh .4 mul 0 RM}!
+/nat_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .08 mul dup scale 0 7 nt0 grestore
+	fh .4 mul 0 RM}!
+/gchshow{
+	pop pop
+	dup 129 eq{pop sharp_glyph}
+	  {dup 130 eq{pop flat_glyph}
+	    {dup 131 eq{pop nat_glyph}
+		{currentfont/Encoding get exch get glyphshow}
+		ifelse}
+	    ifelse}
+	  ifelse}!
+/gcshow{/gchshow load cshow}!
+/box{.6 SLW rectstroke}!
+/anshow{/gchshow load cshow}!
+/wln{M .8 SLW 0 RL stroke}!
+/hyph{	.8 SLW 3 add M
+	dup cvi 40 idiv 1 add 1 index exch div
+	dup 3 sub 3 1 roll
+	dup .5 mul dup 1.5 sub 0 RM
+	exch 3 -1 roll
+	{pop 3 0 RL dup 0 RM} for stroke pop}!
+/lyshow{show}!
+/bar{M dlw 0 exch RL stroke}!
+/dotbar{[5] 0 setdash bar [] 0 setdash}!
+/thbar{3 -1 roll 3 exch rectfill}!
+/rdots{	2 copy 9 add M currentpoint 1.2 0 360 arc
+	15 add M currentpoint 1.2 0 360 arc fill}!
+/csig{	M
+	1 17.3 RM
+	0.9 0 2.3 -0.7 2.4 -2.2 RC
+	-1.2 2 -3.6 -0.1 -1.6 -1.7 RC
+	2 -1 3.8 3.5 -0.8 4.7 RC
+	-2 0.4 -6.4 -1.3 -5.8 -7 RC
+	0.4 -6.4 7.9 -6.8 9.1 -0.7 RC
+	-2.3 -5.6 -6.7 -5.1 -6.8 0 RC
+	-0.5 4.4 0.7 7.5 3.5 6.9 RC
+	fill}!
+/ctsig{dlw 2 copy csig 4 add M 0 16 RL stroke}!
+/tsig{	M gsave/Times-Bold 16 selectfont 1.2 1 scale
+	0 1 RM currentpoint 3 -1 roll showc
+	12 add M showc grestore}!
+/stsig{	M gsave/Times-Bold 18 selectfont 1.2 1 scale
+	0 7 RM showc grestore}!
+/staff{	dlw 1 1 3 -1 roll{
+		pop 0 1 index M 1 index 0 RL 6 add
+	}for pop pop stroke}!
+/sep0{dlw 0 M 0 RL stroke}!
+/hbrce{	-2.5 1 RM
+	-4.5 -4.6 -7.5 -12.2 -4.4 -26.8 RC
+	3.5 -14.3 3.2 -21.7 -2.1 -24.2 RC
+	7.4 2.4 7.3 14.2 3.5 29.5 RC
+	-2.7 9.5 -1.5 16.2 3 21.5 RC
+	fill}!
+/brace{	gsave T 0 0 M .01 mul 1 exch scale hbrce
+	0 -100 M 1 -1 scale hbrce grestore}!
+/bracket{M dlw -5 2 RM currentpoint
+	-1.7 2 RM 10.5 -1 12 4.5 12 3.5 RC
+	0 -1 -3.5 -5.5 -8.5 -5.5 RC fill
+	3 SLW M 0 2 RM
+	0 exch neg -8 add RL currentpoint stroke
+	dlw M -1.7 0 RM
+	10.5 1 12 -4.5 12 -3.5 RC
+	0 1 -3.5 5.5 -8.5 5.5 RC fill}!
+/mrest{	gsave T 1 SLW
+	-20 6 M 0 12 RL 20 6 M 0 12 RL stroke
+	5 SLW -20 12 M 40 0 RL stroke
+	/Times-Bold 15 selectfont 0 28 M showc grestore}!
+/mrep{	2 copy 2 copy
+	M -5 16 RM currentpoint 1.4 0 360 arc
+	M 5 8 RM currentpoint 1.4 0 360 arc
+	M -7 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+	fill}!
+/mrep2{	2 copy 2 copy
+	M -5 18 RM currentpoint 1.4 0 360 arc
+	M 5 6 RM currentpoint 1.4 0 360 arc fill
+	M 1.8 SLW
+	-7 4 RM 14 10 RL -14 -4 RM 14 10 RL
+	stroke}!
+/repbra{gsave dlw T 0 -20 M
+	0 20 3 index 1 ne{RL}{RM}ifelse 0 RL 0 ne{0 -20 RL}if stroke
+	4 exch M show grestore}!
+/SL{M curveto RL curveto closepath fill}!
+/dSL{	M [4] 0 setdash .8 SLW
+	curveto stroke [] 0 setdash
+	pop pop pop pop pop pop pop pop}!
+/strw{stringwidth pop w add/w exch def}!
+/jshow{w 0 32 4 -1 roll widthshow}!
+/wbook{0 0 M(Book:)show}!
+/wdisco{0 0 M(Discography:)show}!
+/whisto{0 0 M(History:)show}!
+/wnotes{0 0 M(Notes:)show}!
+/wrhythm{0 0 M(Rhythm:)show}!
+/wsource{0 0 M(Source:)show}!
+/wtrans{0 0 M(Transcription:)show}!
+/hd{	xymove
+	3.5 2 RM
+	-2 3.5 -9 -0.5 -7 -4 RC
+	2 -3.5 9 0.5 7 4 RC fill}!
+/Hd{	xymove
+	3 1.6 RM
+	-1 1.8 -7 -1.4 -6 -3.2 RC
+	1 -1.8 7 1.4 6 3.2 RC
+	0.5 0.3 RM
+	2 -3.8 -5 -7.6 -7 -3.8 RC
+	-2 3.8 5 7.6 7 3.8 RC
+	fill}!
+/HD{	xymove
+	-1.6 2.4 RM
+	2.8 1.6 6 -3.2 3.2 -4.8 RC
+	-2.8 -1.6 -6 3.2 -3.2 4.8 RC
+	7.2 -2.4 RM
+	0 1.8 -2.2 3.2 -5.6 3.2 RC
+	-3.4 0 -5.6 -1.4 -5.6 -3.2 RC
+	0 -1.8 2.2 -3.2 5.6 -3.2 RC
+	3.4 0 5.6 1.4 5.6 3.2 RC
+	fill}!
+/HDD{	dlw HD
+	x y M -6 -4 RM 0 8 RL
+	12 0 RM 0 -8 RL stroke}!
+/breve{	xymove
+	2.5 SLW -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -10 RL stroke}!
+/longa{	xymove
+	2.5 SLW -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -16 RL stroke}!
+/pshhd{/x 2 index def/y 1 index def dsh0}!
+/pfthd{/x 2 index def/y 1 index def dsh0
+	.7 SLW x y 4 0 360 arc stroke}!
+/ghd{	xymove
+	1.7 1 RM
+	-1 1.7 -4.5 -0.2 -3.4 -2 RC
+	1 -1.7 4.5 0.2 3.4 2 RC fill}!
+/gua{x y M -1 4 RM RL stroke}!
+/gda{x y M -5 -4 RM RL stroke}!
+/ghl{	.6 SLW x -3 add exch M
+	6 0 RL stroke}!
+/gsl{dlw M curveto stroke}!
+/tw_head{/Helvetica 8 selectfont
+	0 -45 M 90 rotate(WHISTLE)show -90 rotate
+	/Helvetica-Bold 36 selectfont
+	0 -45 M show .5 SLW newpath}!
+/tw_under{
+	1 index 2.5 sub -4 M 2.5 -2.5 RL 2.5 2.5 RL
+	-2.5 -2.5 RM 0 6 RL stroke}!
+/tw_over{
+	1 index 2.5 sub -3 M 2.5 2.5 RL 2.5 -2.5 RL
+	-2.5 2.5 RM 0 -6 RL stroke}!
+/tw_0{7 sub 2 copy 3.5 sub 3 0 360 arc stroke}!
+/tw_1{7 sub 2 copy 3.5 sub 2 copy 3 90 270 arc fill 3 270 90 arc stroke}!
+/tw_2{7 sub 2 copy 3.5 sub 3 0 360 arc fill}!
+/tw_p{pop -55 M 0 6 RL -3 -3 RM 6 0 RL stroke}!
+/tw_pp{	pop 3 sub -53.5 M 6 0 RL
+	-1.5 -1.5 RM 0 3 RL
+	-3 0 RM 0 -3 RL stroke}!
+0 setlinecap 0 setlinejoin
+/su{dlw x y M 3.5 1.0 RM 1.0 sub 0 exch RL stroke}!
+/sd{dlw x y M -3.5 -1.0 RM 1.0 add 0 exch RL stroke}!
+/sfu{	dlw x y M 3.5 1.0 RM
+	1.0 sub 0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 -5.6 9.6 -9 5.6 -18.4 RC
+		1.6 6 -1.3 11.6 -5.6 12.8 RC
+		fill
+	  }{
+		2 1 3 -1 roll{
+			pop currentpoint
+			0.9 -3.7 9.1 -6.4 6 -12.4 RC
+			1 5.4 -4.2 8.4 -6 8.4 RC
+			fill -5.4 add M
+		}for
+		1.2 -3.2 9.6 -5.7 5.6 -14.6 RC
+		1.6 5.4 -1 10.2 -5.6 11.4 RC
+		fill
+	  }
+	ifelse}!
+/sfd{	dlw x y M -3.5 -1.0 RM
+	1.0 add 0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 5.6 9.6 9 5.6 18.4 RC
+		1.6 -6 -1.3 -11.6 -5.6 -12.8 RC
+		fill
+	  }{
+		2 1 3 -1 roll{
+			pop currentpoint
+			0.9 3.7 9.1 6.4 6 12.4 RC
+			1 -5.4 -4.2 -8.4 -6 -8.4 RC
+			fill 5.4 add M
+		}for
+		1.2 3.2 9.6 5.7 5.6 14.6 RC
+		1.6 -5.4 -1 -10.2 -5.6 -11.4 RC
+		fill
+	  }
+	ifelse}!
+/sfs{	dlw x y M -3.5 -1.0 RM
+	1.0 add 0 exch RL currentpoint stroke
+	M 1 1 3 -1 roll{
+		pop currentpoint
+		7 3.2 RL
+		0 3.2 RL
+		-7 -3.2 RL
+		fill 5.4 add M
+	}for}!
+/gu{	.6 SLW x y M
+	1.6 0 RM 0 exch RL stroke}!
+/gd{	.6 SLW x y M
+	-1.6 0 RM 0 exch RL stroke}!
+/sgu{	.6 SLW x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 -3.4 5.6 -3.8 3 -10 RC
+		1.2 4.4 -1.4 7 -3 7 RC
+		fill
+	  }{
+		1 1 3 -1 roll{
+			pop currentpoint
+			1 -3.2 5.6 -2.8 3.2 -8 RC
+			1.4 4.8 -2.4 5.4 -3.2 5.2 RC
+			fill -3.5 add M
+		}for
+	  }
+	ifelse}!
+/sgd{	.6 SLW x y M -1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 3.4 5.6 3.8 3 10 RC
+		1.2 -4.4 -1.4 -7 -3 -7 RC
+		fill
+	  }{
+		1 1 3 -1 roll{
+			pop currentpoint
+			1 3.2 5.6 2.8 3.2 8 RC
+			1.4 -4.8 -2.4 -5.4 -3.2 -5.2 RC
+			fill 3.5 add M
+		}for
+	  }
+	ifelse}!
+/sgs{	.6 SLW x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M 1 1 3 -1 roll{
+		pop currentpoint
+		3 -1.5 RL 0 -2 RL -3 1.5 RL
+		closepath fill -3 add M
+	}for}!
+%
+
+% !PS-AdobeFont-1.0: Sagittal 1.11 February 27, 2006
+% %DocumentSuppliedResources: font Sagittal
+
+% %Title: Sagittal
+
+% %Version: 1.11 February 27, 2006
+
+% %CreationDate: Mon Feb 27 15:30:13 2006
+
+% %Creator: Hudson Flávio Meneses Lacerda,,,
+
+%  Copyright: Typeface © David C Keenan & George D Secor. 2003.
+%  Copyright:  http://users.bigpond.net.au/d.keenan/sagittal/
+%  Generated by FontForge 20041218 (http://fontforge.sf.net/)
+% %EndComments
+
+13 dict begin
+/FontType 3 def
+/FontMatrix [0.000488281 0 0 0.000488281 0 0 ]readonly def
+/FontName /Sagittal def
+/FontBBox {0 -737 1024 862 }readonly def
+/UniqueID 4091450 def
+/XUID [1021 304 324988110 15430255] def
+/PaintType 0 def
+/FontInfo 10 dict dup begin
+/version (1.11 February 27, 2006) readonly def
+/Notice (Typeface \251 David C Keenan & George D Secor. 2003. http://users.bigpond.net.au/d.keenan/sagittal/) readonly def
+/FullName (Sagittal) readonly def
+/FamilyName (Sagittal) readonly def
+/Weight (Book) readonly def
+/FSType 8 def
+/ItalicAngle 0 def
+/isFixedPitch false def
+/UnderlinePosition 32 def
+/UnderlineThickness 64 def
+end readonly def
+/Encoding 256 array
+0 1 255 { 1 index exch /.notdef put} for
+dup 32/space put
+dup 33/doubleflat put
+dup 34/flat put
+dup 35/wilsonminus put
+dup 36/sharp put
+dup 37/doublesharp put
+dup 38/doublebarbexdown put
+dup 40/barbandarcexdown put
+dup 42/doubleleftbarbexdown put
+dup 44/arcandscrollexdown put
+dup 45/barbandboathookexdown put
+dup 48/rightbarbexdown put
+dup 49/scrollandarcexdown put
+dup 50/rightarcexdown put
+dup 52/leftbarbexdown put
+dup 53/scrollandboathookexdown put
+dup 55/rightboathookexdown put
+dup 56/boathookandscrollexdown put
+dup 58/doublescrollexdown put
+dup 61/arcandbarbtripledown put
+dup 63/doublearctripledown put
+dup 66/doublebarbtripledown put
+dup 68/barbandarctripledown put
+dup 71/doubleleftbarbtripledown put
+dup 73/arcandscrolltripledown put
+dup 74/barbandboathooktripledown put
+dup 76/leftarctripledown put
+dup 77/rightbarbtripledown put
+dup 79/rightarctripledown put
+dup 80/leftscrollandbarbtripledown put
+dup 81/leftbarbtripledown put
+dup 84/rightboathooktripledown put
+dup 85/boathookandscrolltripledown put
+dup 87/doublescrolltripledown put
+dup 89/rightscrolltripledown put
+dup 91/doublebarbdoubledown put
+dup 93/barbandarcdoubledown put
+dup 95/doubleleftbarbdoubledown put
+dup 97/arcandscrolldoubledown put
+dup 98/barbandboathookdoubledown put
+dup 101/rightbarbdoubledown put
+dup 102/scrollandarcdoubledown put
+dup 103/rightarcdoubledown put
+dup 105/leftbarbdoubledown put
+dup 106/scrollandboathookdoubledown put
+dup 108/rightboathookdoubledown put
+dup 109/boathookandscrolldoubledown put
+dup 111/doublescrolldoubledown put
+dup 114/arcandbarbdown put
+dup 116/doublearcdown put
+dup 119/doublebarbdown put
+dup 121/barbandarcdown put
+dup 124/doubleleftbarbdown put
+dup 126/arcandscrolldown put
+dup 127/barbandboathookdown put
+dup 129/leftarcdown put
+dup 130/rightbarbdown put
+dup 132/rightarcdown put
+dup 133/leftscrollandbarbdown put
+dup 134/leftbarbdown put
+dup 137/rightboathookdown put
+dup 138/boathookandscrolldown put
+dup 140/doublescrolldown put
+dup 142/rightscrolldown put
+dup 144/natural put
+dup 146/rightscrollup put
+dup 148/doublescrollup put
+dup 150/boathookandscrollup put
+dup 151/rightboathookup put
+dup 154/leftbarbup put
+dup 155/leftscrollandbarbup put
+dup 156/rightarcup put
+dup 158/rightbarbup put
+dup 159/leftarcup put
+dup 161/barbandboathookup put
+dup 162/arcandscrollup put
+dup 164/doubleleftbarbup put
+dup 167/barbandarcup put
+dup 169/doublebarbup put
+dup 172/doublearcup put
+dup 174/arcandbarbup put
+dup 177/doublescrolldoubleup put
+dup 179/boathookandscrolldoubleup put
+dup 180/rightboathookdoubleup put
+dup 182/scrollandboathookdoubleup put
+dup 183/leftbarbdoubleup put
+dup 185/rightarcdoubleup put
+dup 186/scrollandarcdoubleup put
+dup 187/rightbarbdoubleup put
+dup 190/barbandboathookdoubleup put
+dup 191/arcandscrolldoubleup put
+dup 193/doubleleftbarbdoubleup put
+dup 195/barbandarcdoubleup put
+dup 197/doublebarbdoubleup put
+dup 199/rightscroltripleup put
+dup 201/doublescrolltripleup put
+dup 203/boathookandscrolltripleup put
+dup 204/rightboathooktripleup put
+dup 207/leftbarbtripleup put
+dup 208/leftscrollandbarbtripleup put
+dup 209/rightarctripleup put
+dup 211/rightbarbtripleup put
+dup 212/leftarctripleup put
+dup 214/barbandboathooktripleup put
+dup 215/arcandscrolltripleup put
+dup 217/doubleleftbarbtripleup put
+dup 220/barbandarctripleup put
+dup 222/doublebarbtripleup put
+dup 225/doublearctripleup put
+dup 227/arcandbarbtripleup put
+dup 230/doublescrollexup put
+dup 232/boathookandscrollexup put
+dup 233/rightboathookexup put
+readonly def
+/BuildChar { 1 index /Encoding get exch get 1 index /BuildGlyph get exec } bind def
+% I call all my CharProcs with two arguments, the top of the stack will be
+%  0 and then next thing is the fontdict. If the tos is zero the char will
+%  do a setcachedevice, otherwise (for referenced chars) it will not. The
+%  fontdict argument is so a char can invoke a referenced char. BuildGlyph
+%  itself will remove the arguments from the stack, the CharProc will leave 'em
+/BuildGlyph { 2 copy exch /CharProcs get exch 2 copy known not { pop /.notdef} if get exch pop 0 exch exec pop pop fill } bind def
+/CharProcs 234 dict def
+CharProcs begin
+/.notdef { 2048 0 0 0 0 0 setcachedevice } bind def
+/space { 448 0 0 0 0 0 setcachedevice
+} bind def
+/doubleflat { 1088 0 0 -380 958 862 setcachedevice
+pop -1
+510 0 translate 1 index /CharProcs get /flat get exec -510 0 translate
+1 index /CharProcs get /flat get exec
+} bind def
+/flat { dup -1 ne { 576 0 0 -380 448 862 setcachedevice } if
+64 158 moveto
+64 -246 lineto
+188 -152 lineto
+301.333 -52 335 42 289 130 curveto
+243 218 168 227.333 64 158 curveto
+closepath
+0 862 moveto
+64 862 lineto
+64 254 lineto
+244 386 364.667 376.667 426 226 curveto
+487.333 75.3333 419.333 -75.3333 222 -226 curveto
+0 -380 lineto
+0 862 lineto
+closepath
+} bind def
+/wilsonminus { 704 0 0 -381 576 380 setcachedevice
+576 -381 moveto
+576 -160 lineto
+0 380 lineto
+0 160 lineto
+576 -381 lineto
+closepath
+} bind def
+/sharp { 576 0 0 -736 448 736 setcachedevice
+63 608 moveto
+128 608 lineto
+128 325 lineto
+320 379 lineto
+320 736 lineto
+384 736 lineto
+384 398 lineto
+448 416 lineto
+448 224 lineto
+384 206 lineto
+384 -114 lineto
+448 -96 lineto
+448 -288 lineto
+384 -306 lineto
+384 -608 lineto
+320 -608 lineto
+320 -324 lineto
+128 -378 lineto
+128 -736 lineto
+63 -736 lineto
+63 -398 lineto
+0 -416 lineto
+0 -224 lineto
+63 -206 lineto
+63 114 lineto
+0 96 lineto
+0 288 lineto
+63 306 lineto
+63 608 lineto
+closepath
+128 133 moveto
+128 -187 lineto
+320 -133 lineto
+320 187 lineto
+128 133 lineto
+closepath
+} bind def
+/doublesharp { 704 0 0 -288 576 288 setcachedevice
+0 -96 moveto
+147 -96 lineto
+243 0 lineto
+147 96 lineto
+0 96 lineto
+0 288 lineto
+192 288 lineto
+192 141 lineto
+288 45 lineto
+384 141 lineto
+384 288 lineto
+576 288 lineto
+576 96 lineto
+429 96 lineto
+333 0 lineto
+429 -96 lineto
+576 -96 lineto
+576 -288 lineto
+384 -288 lineto
+384 -140 lineto
+288 -45 lineto
+192 -140 lineto
+192 -288 lineto
+0 -288 lineto
+0 -96 lineto
+closepath
+} bind def
+/doublebarbexdown { 1088 0 0 -352 960 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublebarbexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandarcexdown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandarcexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doubleleftbarbexdown { 1024 0 0 -352 896 726 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doubleleftbarbexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/arcandscrollexdown { 1024 0 0 -352 896 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /arcandscrollexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandboathookexdown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandboathookexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightbarbexdown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightbarbexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/scrollandarcexdown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /scrollandarcexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightarcexdown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightarcexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftbarbexdown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftbarbexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/scrollandboathookexdown { 896 0 0 -352 768 737 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /scrollandboathookexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightboathookexdown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightboathookexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/boathookandscrollexdown { 960 0 0 -352 832 737 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /boathookandscrollexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublescrollexdown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublescrollexup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/arcandbarbtripledown { 1152 0 0 -352 1024 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /arcandbarbtripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublearctripledown { 1088 0 0 -352 960 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublearctripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublebarbtripledown { 1088 0 0 -352 960 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublebarbtripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandarctripledown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandarctripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doubleleftbarbtripledown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doubleleftbarbtripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/arcandscrolltripledown { 1024 0 0 -352 896 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /arcandscrolltripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandboathooktripledown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandboathooktripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftarctripledown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftarctripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightbarbtripledown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightbarbtripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightarctripledown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightarctripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftscrollandbarbtripledown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftscrollandbarbtripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftbarbtripledown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftbarbtripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightboathooktripledown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightboathooktripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/boathookandscrolltripledown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /boathookandscrolltripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublescrolltripledown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublescrolltripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightscrolltripledown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightscroltripleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublebarbdoubledown { 960 0 0 -352 832 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublebarbdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandarcdoubledown { 1088 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandarcdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doubleleftbarbdoubledown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doubleleftbarbdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/arcandscrolldoubledown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /arcandscrolldoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandboathookdoubledown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandboathookdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightbarbdoubledown { 704 0 0 -352 576 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightbarbdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/scrollandarcdoubledown { 832 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /scrollandarcdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightarcdoubledown { 640 0 0 -352 512 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightarcdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftbarbdoubledown { 640 0 0 -352 512 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftbarbdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/scrollandboathookdoubledown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /scrollandboathookdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightboathookdoubledown { 704 0 0 -352 576 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightboathookdoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/boathookandscrolldoubledown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /boathookandscrolldoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublescrolldoubledown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublescrolldoubleup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/arcandbarbdown { 896 0 0 -352 768 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /arcandbarbup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublearcdown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublearcup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublebarbdown { 832 0 0 -352 704 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublebarbup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandarcdown { 704 0 0 -352 576 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandarcup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doubleleftbarbdown { 640 0 0 -352 512 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doubleleftbarbup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/arcandscrolldown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /arcandscrollup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/barbandboathookdown { 768 0 0 -352 640 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /barbandboathookup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftarcdown { 512 0 0 -352 384 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftarcup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightbarbdown { 576 0 0 -352 448 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightbarbup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightarcdown { 448 0 0 -352 320 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightarcup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftscrollandbarbdown { 640 0 0 -352 320 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftscrollandbarbup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/leftbarbdown { 448 0 0 -352 320 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /leftbarbup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightboathookdown { 512 0 0 -352 384 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightboathookup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/boathookandscrolldown { 704 0 0 -352 576 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /boathookandscrollup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/doublescrolldown { 576 0 0 -352 448 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /doublescrollup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/rightscrolldown { 448 0 0 -352 320 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /rightscrollup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/natural { 512 0 0 -734 384 738 setcachedevice
+64 96 moveto
+64 -224 lineto
+320 -96 lineto
+320 224 lineto
+64 96 lineto
+closepath
+0 738 moveto
+64 738 lineto
+64 288 lineto
+384 448 lineto
+384 -734 lineto
+320 -734 lineto
+320 -288 lineto
+0 -444 lineto
+0 738 lineto
+closepath
+} bind def
+/rightscrollup { dup -1 ne { 448 0 0 -736 320 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph132 get exec
+1 index /CharProcs get /glyph151 get exec
+} bind def
+/doublescrollup { dup -1 ne { 576 0 0 -736 448 352 setcachedevice } if
+pop -1
+192 0 translate 1 index /CharProcs get /glyph133 get exec -192 0 translate
+1 index /CharProcs get /glyph150 get exec
+} bind def
+/boathookandscrollup { dup -1 ne { 704 0 0 -736 576 352 setcachedevice } if
+pop -1
+256 0 translate 1 index /CharProcs get /glyph133 get exec -256 0 translate
+1 index /CharProcs get /glyph153 get exec
+256 -8 translate 1 index /CharProcs get /glyph151 get exec -256 8 translate
+} bind def
+/rightboathookup { dup -1 ne { 512 0 0 -736 384 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph132 get exec
+1 index /CharProcs get /glyph154 get exec
+} bind def
+/leftbarbup { dup -1 ne { 448 0 0 -736 320 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph137 get exec
+256 0 translate 1 index /CharProcs get /glyph134 get exec -256 0 translate
+} bind def
+/leftscrollandbarbup { dup -1 ne { 448 0 0 -736 320 352 setcachedevice } if
+pop -1
+256 0 translate 1 index /CharProcs get /glyph135 get exec -256 0 translate
+1 index /CharProcs get /glyph147 get exec
+1 index /CharProcs get /glyph137 get exec
+} bind def
+/rightarcup { dup -1 ne { 448 0 0 -736 320 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph132 get exec
+1 index /CharProcs get /glyph145 get exec
+} bind def
+/rightbarbup { dup -1 ne { 576 0 0 -736 448 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph132 get exec
+1 index /CharProcs get /glyph139 get exec
+} bind def
+/leftarcup { dup -1 ne { 512 0 0 -736 384 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph143 get exec
+320 0 translate 1 index /CharProcs get /glyph134 get exec -320 0 translate
+} bind def
+/barbandboathookup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+256 0 translate 1 index /CharProcs get /glyph133 get exec -256 0 translate
+1 index /CharProcs get /glyph137 get exec
+256 0 translate 1 index /CharProcs get /glyph154 get exec -256 0 translate
+} bind def
+/arcandscrollup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+320 0 translate 1 index /CharProcs get /glyph133 get exec -320 0 translate
+1 index /CharProcs get /glyph143 get exec
+320 -8 translate 1 index /CharProcs get /glyph151 get exec -320 8 translate
+} bind def
+/doubleleftbarbup { dup -1 ne { 640 0 0 -736 512 352 setcachedevice } if
+pop -1
+448 0 translate 1 index /CharProcs get /glyph135 get exec -448 0 translate
+0 -320 translate 1 index /CharProcs get /glyph136 get exec 0 320 translate
+1 index /CharProcs get /glyph136 get exec
+} bind def
+/barbandarcup { dup -1 ne { 704 0 0 -736 576 352 setcachedevice } if
+pop -1
+256 0 translate 1 index /CharProcs get /glyph133 get exec -256 0 translate
+1 index /CharProcs get /glyph137 get exec
+256 0 translate 1 index /CharProcs get /glyph145 get exec -256 0 translate
+} bind def
+/doublebarbup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+320 0 translate 1 index /CharProcs get /glyph133 get exec -320 0 translate
+1 index /CharProcs get /glyph138 get exec
+} bind def
+/doublearcup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+320 0 translate 1 index /CharProcs get /glyph133 get exec -320 0 translate
+1 index /CharProcs get /glyph144 get exec
+} bind def
+/arcandbarbup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+pop -1
+320 0 translate 1 index /CharProcs get /glyph133 get exec -320 0 translate
+320 0 translate 1 index /CharProcs get /glyph139 get exec -320 0 translate
+1 index /CharProcs get /glyph143 get exec
+} bind def
+/doublescrolldoubleup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph180 get exec
+192 0 translate 1 index /CharProcs get /glyph160 get exec -192 0 translate
+} bind def
+/boathookandscrolldoubleup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph184 get exec
+320 0 translate 1 index /CharProcs get /glyph181 get exec -320 0 translate
+192 0 translate 1 index /CharProcs get /glyph160 get exec -192 0 translate
+} bind def
+/rightboathookdoubleup { dup -1 ne { 704 0 0 -736 576 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph186 get exec
+1 index /CharProcs get /glyph157 get exec
+} bind def
+/scrollandboathookdoubleup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph179 get exec
+256 0 translate 1 index /CharProcs get /glyph185 get exec -256 0 translate
+128 0 translate 1 index /CharProcs get /glyph160 get exec -128 0 translate
+} bind def
+/leftbarbdoubleup { dup -1 ne { 640 0 0 -736 512 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph165 get exec
+192 0 translate 1 index /CharProcs get /glyph163 get exec -192 0 translate
+} bind def
+/rightarcdoubleup { dup -1 ne { 640 0 0 -736 512 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph164 get exec
+1 index /CharProcs get /glyph173 get exec
+} bind def
+/scrollandarcdoubleup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph179 get exec
+256 0 translate 1 index /CharProcs get /glyph172 get exec -256 0 translate
+128 0 translate 1 index /CharProcs get /glyph161 get exec -128 0 translate
+} bind def
+/rightbarbdoubleup { dup -1 ne { 704 0 0 -736 576 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph157 get exec
+1 index /CharProcs get /glyph168 get exec
+} bind def
+/barbandboathookdoubleup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+pop -1
+192 0 translate 1 index /CharProcs get /glyph160 get exec -192 0 translate
+1 index /CharProcs get /glyph166 get exec
+320 0 translate 1 index /CharProcs get /glyph185 get exec -320 0 translate
+} bind def
+/arcandscrolldoubleup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph171 get exec
+384 0 translate 1 index /CharProcs get /glyph181 get exec -384 0 translate
+256 0 translate 1 index /CharProcs get /glyph159 get exec -256 0 translate
+} bind def
+/doubleleftbarbdoubleup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+384 -736 moveto
+320 -736 lineto
+320 -160 lineto
+384 -160 lineto
+384 -736 lineto
+closepath
+640 -736 moveto
+576 -736 lineto
+576 224 lineto
+608 352 lineto
+640 352 lineto
+640 -736 lineto
+closepath
+0 96 moveto
+608 352 lineto
+640 224 lineto
+0 -45 lineto
+0 96 lineto
+closepath
+0 -224 moveto
+608 32 lineto
+640 -96 lineto
+0 -365 lineto
+0 -224 lineto
+closepath
+} bind def
+/barbandarcdoubleup { dup -1 ne { 896 0 0 -736 704 352 setcachedevice } if
+pop -1
+320 0 translate 1 index /CharProcs get /glyph172 get exec -320 0 translate
+1 index /CharProcs get /glyph166 get exec
+192 0 translate 1 index /CharProcs get /glyph161 get exec -192 0 translate
+} bind def
+/doublebarbdoubleup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph167 get exec
+256 0 translate 1 index /CharProcs get /glyph160 get exec -256 0 translate
+} bind def
+/rightscroltripleup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph217 get exec
+1 index /CharProcs get /glyph189 get exec
+} bind def
+/doublescrolltripleup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph215 get exec
+192 0 translate 1 index /CharProcs get /glyph192 get exec -192 0 translate
+} bind def
+/boathookandscrolltripleup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph220 get exec
+384 0 translate 1 index /CharProcs get /glyph216 get exec -384 0 translate
+192 0 translate 1 index /CharProcs get /glyph192 get exec -192 0 translate
+} bind def
+/rightboathooktripleup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph189 get exec
+1 index /CharProcs get /glyph222 get exec
+} bind def
+/leftbarbtripleup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+192 0 translate 1 index /CharProcs get /glyph196 get exec -192 0 translate
+1 index /CharProcs get /glyph199 get exec
+} bind def
+/leftscrollandbarbtripleup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+192 0 translate 1 index /CharProcs get /glyph196 get exec -192 0 translate
+1 index /CharProcs get /glyph199 get exec
+1 index /CharProcs get /glyph212 get exec
+} bind def
+/rightarctripleup { dup -1 ne { 768 0 0 -736 640 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph209 get exec
+1 index /CharProcs get /glyph188 get exec
+} bind def
+/rightbarbtripleup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph189 get exec
+1 index /CharProcs get /glyph203 get exec
+} bind def
+/leftarctripleup { dup -1 ne { 832 0 0 -736 704 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph205 get exec
+256 0 translate 1 index /CharProcs get /glyph197 get exec -256 0 translate
+} bind def
+/barbandboathooktripleup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph200 get exec
+384 0 translate 1 index /CharProcs get /glyph221 get exec -384 0 translate
+192 0 translate 1 index /CharProcs get /glyph192 get exec -192 0 translate
+} bind def
+/arcandscrolltripleup { dup -1 ne { 1024 0 0 -736 896 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph206 get exec
+448 0 translate 1 index /CharProcs get /glyph216 get exec -448 0 translate
+256 0 translate 1 index /CharProcs get /glyph191 get exec -256 0 translate
+} bind def
+/doubleleftbarbtripleup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+384 -736 moveto
+320 -736 lineto
+320 -160 lineto
+384 -160 lineto
+384 -736 lineto
+closepath
+768 -736 moveto
+704 -736 lineto
+704 224 lineto
+736 352 lineto
+768 352 lineto
+768 -736 lineto
+closepath
+0 96 moveto
+736 352 lineto
+768 224 lineto
+0 -43 lineto
+0 96 lineto
+closepath
+0 -224 moveto
+736 32 lineto
+768 -96 lineto
+0 -363 lineto
+0 -224 lineto
+closepath
+576 -736 moveto
+512 -736 lineto
+512 -96 lineto
+576 -96 lineto
+576 -736 lineto
+closepath
+} bind def
+/barbandarctripleup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph200 get exec
+384 0 translate 1 index /CharProcs get /glyph208 get exec -384 0 translate
+192 0 translate 1 index /CharProcs get /glyph194 get exec -192 0 translate
+} bind def
+/doublebarbtripleup { dup -1 ne { 1088 0 0 -736 960 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph201 get exec
+256 0 translate 1 index /CharProcs get /glyph192 get exec -256 0 translate
+} bind def
+/doublearctripleup { dup -1 ne { 1088 0 0 -736 960 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph207 get exec
+256 0 translate 1 index /CharProcs get /glyph193 get exec -256 0 translate
+} bind def
+/arcandbarbtripleup { dup -1 ne { 1152 0 0 -736 1024 352 setcachedevice } if
+pop -1
+256 0 translate 1 index /CharProcs get /glyph191 get exec -256 0 translate
+1 index /CharProcs get /glyph206 get exec
+448 0 translate 1 index /CharProcs get /glyph202 get exec -448 0 translate
+} bind def
+/doublescrollexup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph215 get exec
+128 0 translate 1 index /CharProcs get /glyph227 get exec -128 0 translate
+} bind def
+/boathookandscrollexup { dup -1 ne { 960 0 0 -737 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph220 get exec
+384 0 translate 1 index /CharProcs get /glyph216 get exec -384 0 translate
+128 -1 translate 1 index /CharProcs get /glyph227 get exec -128 1 translate
+} bind def
+/rightboathookexup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+128 0 translate 1 index /CharProcs get /glyph222 get exec -128 0 translate
+128 0 translate 1 index /CharProcs get /glyph224 get exec -128 0 translate
+1 index /CharProcs get /glyph227 get exec
+} bind def
+/scrollandboathookexup { dup -1 ne { 896 0 0 -737 768 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph214 get exec
+320 0 translate 1 index /CharProcs get /glyph221 get exec -320 0 translate
+64 -1 translate 1 index /CharProcs get /glyph227 get exec -64 1 translate
+} bind def
+/leftbarbexup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph199 get exec
+576 0 translate 1 index /CharProcs get /glyph229 get exec -576 0 translate
+192 0 translate 1 index /CharProcs get /glyph228 get exec -192 0 translate
+} bind def
+/rightarcexup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+pop -1
+128 0 translate 1 index /CharProcs get /glyph209 get exec -128 0 translate
+128 0 translate 1 index /CharProcs get /glyph224 get exec -128 0 translate
+1 index /CharProcs get /glyph226 get exec
+} bind def
+/scrollandarcexup { dup -1 ne { 896 0 0 -736 768 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph214 get exec
+320 0 translate 1 index /CharProcs get /glyph208 get exec -320 0 translate
+64 0 translate 1 index /CharProcs get /glyph228 get exec -64 0 translate
+} bind def
+/rightbarbexup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+128 0 translate 1 index /CharProcs get /glyph203 get exec -128 0 translate
+128 0 translate 1 index /CharProcs get /glyph224 get exec -128 0 translate
+1 index /CharProcs get /glyph225 get exec
+} bind def
+/barbandboathookexup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph200 get exec
+384 0 translate 1 index /CharProcs get /glyph221 get exec -384 0 translate
+128 0 translate 1 index /CharProcs get /glyph225 get exec -128 0 translate
+} bind def
+/arcandscrollexup { dup -1 ne { 1024 0 0 -736 896 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph206 get exec
+448 0 translate 1 index /CharProcs get /glyph216 get exec -448 0 translate
+192 0 translate 1 index /CharProcs get /glyph225 get exec -192 0 translate
+} bind def
+/doubleleftbarbexup { dup -1 ne { 1024 0 0 -726 896 352 setcachedevice } if
+pop -1
+704 0 translate 1 index /CharProcs get /glyph230 get exec -704 0 translate
+1 index /CharProcs get /glyph198 get exec
+320 10 translate 1 index /CharProcs get /glyph226 get exec -320 -10 translate
+1 index /CharProcs get /glyph232 get exec
+} bind def
+/barbandarcexup { dup -1 ne { 960 0 0 -736 832 352 setcachedevice } if
+pop -1
+128 0 translate 1 index /CharProcs get /glyph226 get exec -128 0 translate
+1 index /CharProcs get /glyph200 get exec
+384 0 translate 1 index /CharProcs get /glyph208 get exec -384 0 translate
+} bind def
+/doublebarbexup { dup -1 ne { 1088 0 0 -736 960 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph201 get exec
+192 0 translate 1 index /CharProcs get /glyph226 get exec -192 0 translate
+} bind def
+/shaftdown { 192 0 0 -352 64 736 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /shaftup get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/sagittalgrave { 384 0 0 -256 256 0 setcachedevice
+pop -1
+[ 1 0 0 -1 0 0 ] concat 1 index /CharProcs get /sagittalacute get exec [ 1 0 -0 -1 0 0 ] concat
+} bind def
+/wilsonplus { 704 0 0 -416 576 416 setcachedevice
+576 381 moveto
+576 160 lineto
+0 -380 lineto
+0 -160 lineto
+576 381 lineto
+closepath
+319 -416 moveto
+256 -416 lineto
+257 416 lineto
+320 416 lineto
+319 -416 lineto
+closepath
+} bind def
+/sagittalacute { dup -1 ne { 384 0 0 0 256 256 setcachedevice } if
+0 126 moveto
+256 256 lineto
+256 131 lineto
+0 0 lineto
+0 126 lineto
+closepath
+} bind def
+/shaftup { dup -1 ne { 192 0 0 -736 64 352 setcachedevice } if
+pop -1
+1 index /CharProcs get /glyph133 get exec
+} bind def
+/glyph131 { 0 0 0 -736 64 352 setcachedevice
+0 352 moveto
+32 352 lineto
+64 224 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+} bind def
+/glyph132 { dup -1 ne { 2048 0 0 -736 64 352 setcachedevice } if
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+} bind def
+/glyph133 { dup -1 ne { 2048 0 0 -736 64 352 setcachedevice } if
+0 160 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 160 lineto
+closepath
+} bind def
+/glyph134 { dup -1 ne { 0 0 0 -736 64 352 setcachedevice } if
+64 -736 moveto
+0 -736 lineto
+0 160 lineto
+32 352 lineto
+64 352 lineto
+64 -736 lineto
+closepath
+} bind def
+/glyph135 { dup -1 ne { 0 0 0 -736 64 352 setcachedevice } if
+64 -736 moveto
+0 -736 lineto
+0 224 lineto
+32 352 lineto
+64 352 lineto
+64 -736 lineto
+closepath
+} bind def
+/glyph136 { dup -1 ne { 0 0 0 -48 512 352 setcachedevice } if
+0 96 moveto
+480 352 lineto
+512 224 lineto
+0 -48 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph137 { dup -1 ne { 2048 0 0 -403 320 352 setcachedevice } if
+288 352 moveto
+320 160 lineto
+0 -403 lineto
+0 -160 lineto
+288 352 lineto
+closepath
+} bind def
+/glyph138 { dup -1 ne { 0 0 0 -352 704 352 setcachedevice } if
+0 -128 moveto
+352 352 lineto
+352 128 lineto
+0 -352 lineto
+0 -128 lineto
+closepath
+704 -352 moveto
+352 128 lineto
+352 352 lineto
+704 -128 lineto
+704 -352 lineto
+closepath
+} bind def
+/glyph139 { dup -1 ne { 2028 0 0 -389 448 352 setcachedevice } if
+32 352 moveto
+448 -160 lineto
+448 -389 lineto
+0 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph140 { 0 0 0 -45 576 352 setcachedevice
+32 352 moveto
+576 96 lineto
+576 -45 lineto
+0 224 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph141 { 0 0 0 -44 640 352 setcachedevice
+32 352 moveto
+640 96 lineto
+640 -44 lineto
+0 224 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph142 { 0 0 0 -352 608 352 setcachedevice
+0 96 moveto
+0 266.667 64 352 192 352 curveto
+608 352 lineto
+608 160 lineto
+256 160 lineto
+128 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph143 { dup -1 ne { 2048 0 0 -352 352 352 setcachedevice } if
+0 96 moveto
+0 266.667 64 352 192 352 curveto
+352 352 lineto
+352 160 lineto
+256 160 lineto
+128 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph144 { dup -1 ne { 2048 0 0 -352 704 352 setcachedevice } if
+0 96 moveto
+0 266.667 64 352 192 352 curveto
+352 352 lineto
+352 160 lineto
+256 160 lineto
+128 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+704 -352 moveto
+640 -352 lineto
+640 -96 lineto
+640 74.6667 576 160 448 160 curveto
+352 160 lineto
+352 352 lineto
+512 352 lineto
+640 352 704 266.667 704 96 curveto
+704 -352 lineto
+closepath
+} bind def
+/glyph145 { dup -1 ne { 2048 0 32 -352 320 352 setcachedevice } if
+32 352 moveto
+192 352 lineto
+277.333 352 320 266.667 320 96 curveto
+320 -352 lineto
+256 -352 lineto
+256 -96 lineto
+256 74.6667 213.333 160 128 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph146 { 0 0 32 -352 512 352 setcachedevice
+32 352 moveto
+320 352 lineto
+448 352 512 266.667 512 96 curveto
+512 -352 lineto
+448 -352 lineto
+448 -96 lineto
+448 74.6667 384 160 256 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph147 { dup -1 ne { 0 0 0 32 320 352 setcachedevice } if
+320 160 moveto
+267.333 74.6667 200.833 32 120.5 32 curveto
+40.1667 32 -3.46945e-18 96 0 224 curveto
+64 224 lineto
+64 181.333 83.1667 160 121.5 160 curveto
+159.833 160 215.333 224 288 352 curveto
+320 160 lineto
+closepath
+} bind def
+/glyph148 { 0 0 0 -32 150 224 setcachedevice
+121 -32 moveto
+40.3333 -32 3.46945e-18 53.3333 0 224 curveto
+64 224 lineto
+64 138.667 92.6667 96 150 96 curveto
+121 -32 lineto
+closepath
+} bind def
+/glyph149 { 2048 0 0 -160 256 352 setcachedevice
+256 160 moveto
+213.333 -53.3333 160 -160 96 -160 curveto
+32 -160 0 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 80 -21.3333 112 0 curveto
+144 21.3333 181.333 138.667 224 352 curveto
+256 160 lineto
+closepath
+} bind def
+/glyph150 { dup -1 ne { 2048 0 0 -160 448 352 setcachedevice } if
+256 160 moveto
+213.333 -53.3333 160 -160 96 -160 curveto
+32 -160 0 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 80 -21.3333 112 0 curveto
+144 21.3333 181.333 138.667 224 352 curveto
+256 160 lineto
+closepath
+224 352 moveto
+266.667 138.667 304 21.3333 336 0 curveto
+368 -21.3333 384 10.6667 384 96 curveto
+448 96 lineto
+448 -74.6667 416 -160 352 -160 curveto
+288 -160 234.667 -53.3333 192 160 curveto
+224 352 lineto
+closepath
+} bind def
+/glyph151 { dup -1 ne { 2048 0 0 -160 320 352 setcachedevice } if
+0 160 moveto
+32 352 lineto
+74.6667 138.667 122.667 21.3333 176 0 curveto
+229.333 -21.3333 256 10.6667 256 96 curveto
+320 96 lineto
+320 -74.6667 277.333 -160 192 -160 curveto
+106.667 -160 42.6667 -53.3333 0 160 curveto
+closepath
+} bind def
+/glyph152 { 0 0 0 -96 384 352 setcachedevice
+384 224 moveto
+341.333 138.667 309.333 96 288 96 curveto
+128 96 lineto
+85.3333 96 64 32 64 -96 curveto
+0 -96 lineto
+0 117.333 32 224 96 224 curveto
+256 224 lineto
+298.667 224 330.667 266.667 352 352 curveto
+384 224 lineto
+closepath
+} bind def
+/glyph153 { dup -1 ne { 2048 0 0 -288 320 352 setcachedevice } if
+320 160 moveto
+284 32 252 -32 224 -32 curveto
+128 -32 lineto
+85.3333 -32 64 -117.333 64 -288 curveto
+0 -288 lineto
+0 -32 32 96 96 96 curveto
+192 96 lineto
+220 96 252 181.333 288 352 curveto
+320 160 lineto
+closepath
+} bind def
+/glyph154 { dup -1 ne { 2048 0 0 -288 384 352 setcachedevice } if
+32 352 moveto
+68 181.333 100 96 128 96 curveto
+293 96 lineto
+353.667 96 384 -32 384 -288 curveto
+320 -288 lineto
+320 -117.333 298.667 -32 256 -32 curveto
+96 -32 lineto
+68 -32 36 32 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph155 { 0 0 0 -352 320 32 setcachedevice
+32 32 moveto
+74.6667 -53.3333 106.667 -96 128 -96 curveto
+224 -96 lineto
+288 -96 320 -181.333 320 -352 curveto
+256 -352 lineto
+256 -266.667 234.667 -224 192 -224 curveto
+96 -224 lineto
+74.6667 -224 42.6667 -181.333 0 -96 curveto
+32 32 lineto
+closepath
+} bind def
+/glyph156 { 0 0 0 -736 320 352 setcachedevice
+64 -736 moveto
+0 -736 lineto
+0 224 lineto
+64 224 lineto
+64 -736 lineto
+closepath
+320 -736 moveto
+256 -736 lineto
+256 160 lineto
+288 352 lineto
+320 352 lineto
+320 -736 lineto
+closepath
+} bind def
+/glyph157 { dup -1 ne { 0 0 0 -736 320 352 setcachedevice } if
+256 32 moveto
+320 32 lineto
+320 -736 lineto
+256 -736 lineto
+256 32 lineto
+closepath
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+} bind def
+/glyph158 { 0 0 0 -736 320 352 setcachedevice
+256 -160 moveto
+320 -160 lineto
+320 -736 lineto
+256 -736 lineto
+256 -160 lineto
+closepath
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+} bind def
+/glyph159 { dup -1 ne { 0 0 0 -736 320 224 setcachedevice } if
+0 224 moveto
+64 224 lineto
+64 -736 lineto
+0 -736 lineto
+0 224 lineto
+closepath
+320 -736 moveto
+256 -736 lineto
+256 32 lineto
+320 32 lineto
+320 -736 lineto
+closepath
+} bind def
+/glyph160 { dup -1 ne { 0 0 0 -736 320 24 setcachedevice } if
+0 -16 moveto
+64 24 lineto
+64 -736 lineto
+0 -736 lineto
+0 -16 lineto
+closepath
+320 -736 moveto
+256 -736 lineto
+256 24 lineto
+320 -16 lineto
+320 -736 lineto
+closepath
+} bind def
+/glyph161 { dup -1 ne { 0 0 0 -736 320 224 setcachedevice } if
+320 -736 moveto
+256 -736 lineto
+256 224 lineto
+320 224 lineto
+320 -736 lineto
+closepath
+0 32 moveto
+64 32 lineto
+64 -736 lineto
+0 -736 lineto
+0 32 lineto
+closepath
+} bind def
+/glyph162 { 0 0 0 -736 320 352 setcachedevice
+320 -736 moveto
+256 -736 lineto
+256 224 lineto
+288 352 lineto
+320 352 lineto
+320 -736 lineto
+closepath
+64 -736 moveto
+0 -736 lineto
+0 -160 lineto
+64 -160 lineto
+64 -736 lineto
+closepath
+} bind def
+/glyph163 { dup -1 ne { 0 0 0 -736 320 352 setcachedevice } if
+0 32 moveto
+64 32 lineto
+64 -736 lineto
+0 -736 lineto
+0 32 lineto
+closepath
+320 -736 moveto
+256 -736 lineto
+256 160 lineto
+288 352 lineto
+320 352 lineto
+320 -736 lineto
+closepath
+} bind def
+/glyph164 { dup -1 ne { 0 0 0 -736 320 352 setcachedevice } if
+256 224 moveto
+320 224 lineto
+320 -736 lineto
+256 -736 lineto
+256 224 lineto
+closepath
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+} bind def
+/glyph165 { dup -1 ne { 0 0 0 -382 512 352 setcachedevice } if
+480 352 moveto
+512 160 lineto
+0 -382 lineto
+0 -160 lineto
+480 352 lineto
+closepath
+} bind def
+/glyph166 { dup -1 ne { 0 0 0 -394 384 352 setcachedevice } if
+352 352 moveto
+384 160 lineto
+0 -394 lineto
+0 -160 lineto
+352 352 lineto
+closepath
+} bind def
+/glyph167 { dup -1 ne { 0 0 0 -389 832 352 setcachedevice } if
+0 -160 moveto
+416 352 lineto
+448 160 lineto
+0 -389 lineto
+0 -160 lineto
+closepath
+832 -389 moveto
+384 160 lineto
+416 352 lineto
+832 -160 lineto
+832 -389 lineto
+closepath
+} bind def
+/glyph168 { dup -1 ne { 0 0 0 -380 576 352 setcachedevice } if
+32 352 moveto
+576 -160 lineto
+576 -380 lineto
+0 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph169 { 0 0 0 -384 512 352 setcachedevice
+32 352 moveto
+512 -160 lineto
+512 -384 lineto
+0 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph170 { 0 0 0 -352 544 352 setcachedevice
+0 96 moveto
+0 266.667 128 352 384 352 curveto
+544 352 lineto
+544 160 lineto
+448 160 lineto
+192 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph171 { dup -1 ne { 0 0 0 -352 416 352 setcachedevice } if
+0 96 moveto
+0 266.667 85.3333 352 256 352 curveto
+416 352 lineto
+416 160 lineto
+320 160 lineto
+149.333 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph172 { dup -1 ne { 0 0 32 -352 384 352 setcachedevice } if
+32 352 moveto
+192 352 lineto
+320 352 384 266.667 384 96 curveto
+384 -352 lineto
+320 -352 lineto
+320 -96 lineto
+320 74.6667 256 160 128 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph173 { dup -1 ne { 0 0 32 -352 512 352 setcachedevice } if
+32 352 moveto
+192 352 lineto
+405.333 352 512 266.667 512 96 curveto
+512 -352 lineto
+448 -352 lineto
+448 -96 lineto
+448 74.6667 341.333 160 128 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph174 { 0 0 32 -352 640 352 setcachedevice
+640 -352 moveto
+576 -352 lineto
+576 -96 lineto
+576 74.6667 426.667 160 128 160 curveto
+32 160 lineto
+32 352 lineto
+192 352 lineto
+490.667 352 640 266.667 640 96 curveto
+640 -352 lineto
+closepath
+} bind def
+/glyph175 { 0 0 0 -352 512 352 setcachedevice
+64 -206 moveto
+480 32 lineto
+512 -96 lineto
+64 -352 lineto
+64 -206 lineto
+closepath
+0 -96 moveto
+0 202.667 106.667 352 320 352 curveto
+480 352 lineto
+480 160 lineto
+320 160 lineto
+149.333 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 -96 lineto
+closepath
+} bind def
+/glyph176 { 0 0 0 -352 576 352 setcachedevice
+32 32 moveto
+512 -208 lineto
+512 -352 lineto
+0 -96 lineto
+32 32 lineto
+closepath
+32 352 moveto
+256 352 lineto
+469.333 352 576 202.667 576 -96 curveto
+576 -352 lineto
+512 -352 lineto
+512 -96 lineto
+512 74.6667 426.667 160 256 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph177 { 0 0 64 -32 277 224 setcachedevice
+256 -32 moveto
+128 -32 64 53.3333 64 224 curveto
+128 224 lineto
+128 138.667 177.667 96 277 96 curveto
+256 -32 lineto
+closepath
+} bind def
+/glyph178 { 0 0 64 32 512 352 setcachedevice
+512 224 moveto
+384 96 277.333 32 192 32 curveto
+106.667 32 64 96 64 224 curveto
+128 224 lineto
+128 181.333 155 160 209 160 curveto
+263 160 353.333 224 480 352 curveto
+512 224 lineto
+closepath
+} bind def
+/glyph179 { dup -1 ne { 0 0 0 -160 320 352 setcachedevice } if
+320 160 moveto
+277.333 -53.3333 213.333 -160 128 -160 curveto
+42.6667 -160 -3.46945e-18 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 90.6667 -21.3333 144 0 curveto
+197.333 21.3333 245.333 138.667 288 352 curveto
+320 160 lineto
+closepath
+} bind def
+/glyph180 { dup -1 ne { 0 0 0 -160 704 352 setcachedevice } if
+352 352 moveto
+394.667 138.667 453.333 21.3333 528 0 curveto
+602.667 -21.3333 640 10.6667 640 96 curveto
+704 96 lineto
+704 -74.6667 650.667 -160 544 -160 curveto
+437.333 -160 362.667 -53.3333 320 160 curveto
+352 352 lineto
+closepath
+384 160 moveto
+341.333 -53.3333 266.667 -160 160 -160 curveto
+53.3333 -160 3.46945e-18 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 101.333 -21.3333 176 0 curveto
+250.667 21.3333 309.333 138.667 352 352 curveto
+384 160 lineto
+closepath
+} bind def
+/glyph181 { dup -1 ne { 0 0 0 -160 384 352 setcachedevice } if
+32 352 moveto
+74.6667 138.667 133.333 21.3333 208 0 curveto
+282.667 -21.3333 320 10.6667 320 96 curveto
+384 96 lineto
+384 -74.6667 330.667 -160 224 -160 curveto
+117.333 -160 42.6667 -53.3333 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph182 { 0 0 0 -96 512 352 setcachedevice
+512 224 moveto
+469.333 138.667 426.667 96 384 96 curveto
+160 96 lineto
+96 96 64 32 64 -96 curveto
+0 -96 lineto
+0 117.333 42.6667 224 128 224 curveto
+352 224 lineto
+416 224 458.667 266.667 480 352 curveto
+512 224 lineto
+closepath
+} bind def
+/glyph183 { 0 0 0 -288 512 352 setcachedevice
+512 160 moveto
+476 32 433.333 -32 384 -32 curveto
+160 -32 lineto
+96 -32 64 -117.333 64 -288 curveto
+0 -288 lineto
+0 -32 42.6667 96 128 96 curveto
+352 96 lineto
+401.333 96 444 181.333 480 352 curveto
+512 160 lineto
+closepath
+} bind def
+/glyph184 { dup -1 ne { 0 0 0 -289 384 352 setcachedevice } if
+384 160 moveto
+348 32.6667 305.333 -31.3333 256 -32 curveto
+160 -32 lineto
+96 -32 64 -117.667 64 -289 curveto
+0 -289 lineto
+0 -33 42.6667 95.3333 128 96 curveto
+224 96 lineto
+273.333 96 316 181.333 352 352 curveto
+384 160 lineto
+closepath
+} bind def
+/glyph185 { dup -1 ne { 0 0 0 -289 448 352 setcachedevice } if
+32 352 moveto
+68 181.333 110.667 96 160 96 curveto
+320 96 lineto
+405.333 96 448 -32.3333 448 -289 curveto
+384 -289 lineto
+384 -117.667 352 -32 288 -32 curveto
+128 -32 lineto
+78.6667 -32 36 32 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph186 { dup -1 ne { 0 0 0 -289 576 352 setcachedevice } if
+32 352 moveto
+68 181.333 110.667 96 160 96 curveto
+448 96 lineto
+533.333 95.3333 576 -33 576 -289 curveto
+512 -289 lineto
+512 -117.667 480 -32 416 -32 curveto
+128 -32 lineto
+78.6667 -32 36 32 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph187 { 0 0 0 -352 448 32 setcachedevice
+32 32 moveto
+74.6667 -53.3333 117.333 -96 160 -96 curveto
+320 -96 lineto
+405.333 -96.6667 448 -182 448 -352 curveto
+384 -352 lineto
+384 -267.333 352 -224.667 288 -224 curveto
+128 -224 lineto
+85.3333 -224 42.6667 -181.333 0 -96 curveto
+32 32 lineto
+closepath
+} bind def
+/glyph188 { dup -1 ne { 0 0 0 -736 448 352 setcachedevice } if
+192 224 moveto
+256 224 lineto
+256 -736 lineto
+192 -736 lineto
+192 224 lineto
+closepath
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+384 224 moveto
+448 224 lineto
+448 -736 lineto
+384 -736 lineto
+384 224 lineto
+closepath
+} bind def
+/glyph189 { dup -1 ne { 0 0 0 -736 448 352 setcachedevice } if
+192 32 moveto
+256 0 lineto
+256 -736 lineto
+192 -736 lineto
+192 32 lineto
+closepath
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+384 -24 moveto
+448 -24 lineto
+448 -736 lineto
+384 -736 lineto
+384 -24 lineto
+closepath
+} bind def
+/glyph190 { 0 0 0 -736 448 352 setcachedevice
+192 -160 moveto
+256 -160 lineto
+256 -736 lineto
+192 -736 lineto
+192 -160 lineto
+closepath
+0 352 moveto
+32 352 lineto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 352 lineto
+closepath
+384 -160 moveto
+448 -160 lineto
+448 -736 lineto
+384 -736 lineto
+384 -160 lineto
+closepath
+} bind def
+/glyph191 { dup -1 ne { 0 0 0 -736 448 160 setcachedevice } if
+0 160 moveto
+64 160 lineto
+64 -736 lineto
+0 -736 lineto
+0 160 lineto
+closepath
+384 -24 moveto
+448 -24 lineto
+448 -736 lineto
+384 -736 lineto
+384 -24 lineto
+closepath
+192 160 moveto
+256 160 lineto
+256 -736 lineto
+192 -736 lineto
+192 160 lineto
+closepath
+} bind def
+/glyph192 { dup -1 ne { 0 0 0 -736 448 160 setcachedevice } if
+0 -16 moveto
+64 -16 lineto
+64 -736 lineto
+0 -736 lineto
+0 -16 lineto
+closepath
+384 -16 moveto
+448 -16 lineto
+448 -736 lineto
+384 -736 lineto
+384 -16 lineto
+closepath
+192 160 moveto
+256 160 lineto
+256 -736 lineto
+192 -736 lineto
+192 160 lineto
+closepath
+} bind def
+/glyph193 { dup -1 ne { 0 0 0 -736 448 224 setcachedevice } if
+0 224 moveto
+64 224 lineto
+64 -736 lineto
+0 -736 lineto
+0 224 lineto
+closepath
+384 224 moveto
+448 224 lineto
+448 -736 lineto
+384 -736 lineto
+384 224 lineto
+closepath
+192 224 moveto
+256 224 lineto
+256 -736 lineto
+192 -736 lineto
+192 224 lineto
+closepath
+} bind def
+/glyph194 { dup -1 ne { 0 0 0 -736 448 160 setcachedevice } if
+0 -24 moveto
+64 -24 lineto
+64 -736 lineto
+0 -736 lineto
+0 -24 lineto
+closepath
+384 160 moveto
+448 160 lineto
+448 -736 lineto
+384 -736 lineto
+384 160 lineto
+closepath
+192 160 moveto
+256 160 lineto
+256 -736 lineto
+192 -736 lineto
+192 160 lineto
+closepath
+} bind def
+/glyph195 { 0 0 0 -736 448 352 setcachedevice
+256 -736 moveto
+192 -736 lineto
+192 -160 lineto
+256 -160 lineto
+256 -736 lineto
+closepath
+448 -736 moveto
+384 -736 lineto
+384 160 lineto
+416 352 lineto
+448 352 lineto
+448 -736 lineto
+closepath
+64 -736 moveto
+0 -736 lineto
+0 -160 lineto
+64 -160 lineto
+64 -736 lineto
+closepath
+} bind def
+/glyph196 { dup -1 ne { 0 0 0 -736 448 352 setcachedevice } if
+192 0 moveto
+256 32 lineto
+256 -736 lineto
+192 -736 lineto
+192 0 lineto
+closepath
+448 -736 moveto
+384 -736 lineto
+384 160 lineto
+416 352 lineto
+448 352 lineto
+448 -736 lineto
+closepath
+0 -24 moveto
+64 -24 lineto
+64 -736 lineto
+0 -736 lineto
+0 -24 lineto
+closepath
+} bind def
+/glyph197 { dup -1 ne { 0 0 0 -736 448 352 setcachedevice } if
+256 -736 moveto
+192 -736 lineto
+192 224 lineto
+256 224 lineto
+256 -736 lineto
+closepath
+448 -736 moveto
+384 -736 lineto
+384 160 lineto
+416 352 lineto
+448 352 lineto
+448 -736 lineto
+closepath
+64 -736 moveto
+0 -736 lineto
+0 224 lineto
+64 224 lineto
+64 -736 lineto
+closepath
+} bind def
+/glyph198 { dup -1 ne { 0 0 0 -43 768 352 setcachedevice } if
+0 96 moveto
+736 352 lineto
+768 224 lineto
+0 -43 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph199 { dup -1 ne { 0 0 0 -378 640 352 setcachedevice } if
+608 352 moveto
+640 160 lineto
+0 -378 lineto
+0 -160 lineto
+608 352 lineto
+closepath
+} bind def
+/glyph200 { dup -1 ne { 0 0 0 -389 448 352 setcachedevice } if
+416 352 moveto
+448 160 lineto
+0 -389 lineto
+0 -160 lineto
+416 352 lineto
+closepath
+} bind def
+/glyph201 { dup -1 ne { 0 0 0 -384 960 352 setcachedevice } if
+0 -160 moveto
+480 352 lineto
+512 160 lineto
+0 -384 lineto
+0 -160 lineto
+closepath
+960 -384 moveto
+448 160 lineto
+480 352 lineto
+960 -160 lineto
+960 -384 lineto
+closepath
+} bind def
+/glyph202 { dup -1 ne { 0 0 0 -380 576 352 setcachedevice } if
+32 352 moveto
+576 -160 lineto
+576 -380 lineto
+0 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph203 { dup -1 ne { 0 0 0 -375 704 352 setcachedevice } if
+32 352 moveto
+704 -160 lineto
+704 -375 lineto
+0 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph204 { 0 0 0 -42 832 352 setcachedevice
+32 352 moveto
+832 96 lineto
+832 -42 lineto
+0 224 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph205 { dup -1 ne { 0 0 0 -352 672 352 setcachedevice } if
+0 96 moveto
+0 266.667 170.667 352 512 352 curveto
+672 352 lineto
+672 160 lineto
+576 160 lineto
+234.667 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph206 { dup -1 ne { 0 0 0 -352 480 352 setcachedevice } if
+0 96 moveto
+0 266.667 106.667 352 320 352 curveto
+480 352 lineto
+480 160 lineto
+384 160 lineto
+170.667 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+} bind def
+/glyph207 { dup -1 ne { 0 0 0 -352 960 352 setcachedevice } if
+0 96 moveto
+0 266.667 106.667 352 320 352 curveto
+480 352 lineto
+480 160 lineto
+384 160 lineto
+170.667 160 64 74.6667 64 -96 curveto
+64 -352 lineto
+0 -352 lineto
+0 96 lineto
+closepath
+960 -352 moveto
+896 -352 lineto
+896 -96 lineto
+896 74.6667 789.333 160 576 160 curveto
+480 160 lineto
+480 352 lineto
+640 352 lineto
+853.333 352 960 266.667 960 96 curveto
+960 -352 lineto
+closepath
+} bind def
+/glyph208 { dup -1 ne { 0 0 32 -352 448 352 setcachedevice } if
+32 352 moveto
+192 352 lineto
+362.667 352 448 266.667 448 96 curveto
+448 -352 lineto
+384 -352 lineto
+384 -96 lineto
+384 74.6667 298.667 160 128 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph209 { dup -1 ne { 0 0 32 -352 640 352 setcachedevice } if
+32 352 moveto
+192 352 lineto
+490.667 352 640 266.667 640 96 curveto
+640 -352 lineto
+576 -352 lineto
+576 -96 lineto
+576 74.6667 426.667 160 128 160 curveto
+32 160 lineto
+32 352 lineto
+closepath
+} bind def
+/glyph210 { 0 0 32 -352 768 352 setcachedevice
+768 -352 moveto
+704 -352 lineto
+704 -96 lineto
+704 74.6667 597.333 160 384 160 curveto
+32 160 lineto
+32 352 lineto
+448 352 lineto
+661.333 352 768 266.667 768 96 curveto
+768 -352 lineto
+closepath
+} bind def
+/glyph211 { 0 0 64 -32 341 224 setcachedevice
+313 -32 moveto
+147 -32 64 53.3333 64 224 curveto
+128 224 lineto
+128 138.667 199 96 341 96 curveto
+313 -32 lineto
+closepath
+} bind def
+/glyph212 { dup -1 ne { 0 0 64 32 640 352 setcachedevice } if
+640 224 moveto
+469.333 96 330.667 32 224 32 curveto
+117.333 32 64 96 64 224 curveto
+128 224 lineto
+128 181.333 171.333 160 258 160 curveto
+344.667 160 461.333 224 608 352 curveto
+640 224 lineto
+closepath
+} bind def
+/glyph213 { 0 0 0 -160 576 352 setcachedevice
+576 160 moveto
+533.333 -53.3333 426.667 -160 256 -160 curveto
+85.3333 -160 -6.93889e-18 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 133.333 -21.3333 272 0 curveto
+410.667 21.3333 501.333 138.667 544 352 curveto
+576 160 lineto
+closepath
+} bind def
+/glyph214 { dup -1 ne { 0 0 0 -160 384 352 setcachedevice } if
+384 160 moveto
+341.333 -53.3333 266.667 -160 160 -160 curveto
+53.3333 -160 3.46945e-18 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 101.333 -21.3333 176 0 curveto
+250.667 21.3333 309.333 138.667 352 352 curveto
+384 160 lineto
+closepath
+} bind def
+/glyph215 { dup -1 ne { 0 0 0 -160 832 352 setcachedevice } if
+416 352 moveto
+458.667 138.667 528 21.3333 624 0 curveto
+720 -21.3333 768 10.6667 768 96 curveto
+832 96 lineto
+832 -74.6667 768 -160 640 -160 curveto
+512 -160 426.667 -53.3333 384 160 curveto
+416 352 lineto
+closepath
+448 160 moveto
+405.333 -53.3333 320 -160 192 -160 curveto
+64 -160 0 -74.6667 0 96 curveto
+64 96 lineto
+64 10.6667 112 -21.3333 208 0 curveto
+304 21.3333 373.333 138.667 416 352 curveto
+448 160 lineto
+closepath
+} bind def
+/glyph216 { dup -1 ne { 0 0 0 -160 448 352 setcachedevice } if
+32 352 moveto
+74.6667 138.667 144 21.3333 240 0 curveto
+336 -21.3333 384 10.6667 384 96 curveto
+448 96 lineto
+448 -74.6667 384 -160 256 -160 curveto
+128 -160 42.6667 -53.3333 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph217 { dup -1 ne { 0 0 0 -160 640 352 setcachedevice } if
+32 352 moveto
+74.6667 138.667 176 21.3333 336 0 curveto
+496 -21.3333 576 10.6667 576 96 curveto
+640 96 lineto
+640 -74.6667 544 -160 352 -160 curveto
+160 -160 42.6667 -53.3333 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph218 { 0 0 0 -96 640 352 setcachedevice
+640 224 moveto
+597.333 138.667 544 96 480 96 curveto
+192 96 lineto
+106.667 96 64 32 64 -96 curveto
+0 -96 lineto
+0 117.333 53.3333 224 160 224 curveto
+448 224 lineto
+533.333 224 586.667 266.667 608 352 curveto
+640 224 lineto
+closepath
+} bind def
+/glyph219 { 0 0 0 -288 640 352 setcachedevice
+640 160 moveto
+604 32 550.667 -32 480 -32 curveto
+195 -32 lineto
+107.667 -32 64 -117.333 64 -288 curveto
+0 -288 lineto
+0 -32 53.3333 96 160 96 curveto
+448 96 lineto
+518.667 96 572 181.333 608 352 curveto
+640 160 lineto
+closepath
+} bind def
+/glyph220 { dup -1 ne { 0 0 0 -289 448 352 setcachedevice } if
+448 160 moveto
+412 32 358.667 -32 288 -32 curveto
+192 -32 lineto
+106.667 -32 64 -117.667 64 -289 curveto
+0 -289 lineto
+0 -33 53.3333 95.3333 160 96 curveto
+256 96 lineto
+326.667 96 380 181.333 416 352 curveto
+448 160 lineto
+closepath
+} bind def
+/glyph221 { dup -1 ne { 0 0 0 -289 448 352 setcachedevice } if
+32 352 moveto
+68 181.333 121.333 96 192 96 curveto
+288 96 lineto
+394.667 95.3333 448 -33 448 -289 curveto
+384 -289 lineto
+384 -117.667 341.333 -32 256 -32 curveto
+160 -32 lineto
+89.3333 -32 36 32 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph222 { dup -1 ne { 0 0 0 -289 704 352 setcachedevice } if
+32 352 moveto
+68 181.333 121.333 96 192 96 curveto
+544 96 lineto
+650.667 95.3333 704 -33 704 -289 curveto
+640 -289 lineto
+640 -117.667 597.333 -32 512 -32 curveto
+160 -32 lineto
+89.3333 -32 36 32 0 160 curveto
+32 352 lineto
+closepath
+} bind def
+/glyph223 { 0 0 0 -352 576 32 setcachedevice
+32 32 moveto
+74.6667 -53.3333 128 -96 192 -96 curveto
+416 -96 lineto
+522.667 -96.6667 576 -182 576 -352 curveto
+512 -352 lineto
+512 -267.333 469.333 -224.667 384 -224 curveto
+160 -224 lineto
+96 -224 42.6667 -181.333 0 -96 curveto
+32 32 lineto
+closepath
+} bind def
+/glyph224 { dup -1 ne { 0 0 0 160 64 352 setcachedevice } if
+0 352 moveto
+32 352 lineto
+64 160 lineto
+0 160 lineto
+0 352 lineto
+closepath
+} bind def
+/glyph225 { dup -1 ne { 0 0 0 -736 576 214 setcachedevice } if
+576 -714 moveto
+503 -736 lineto
+183 192 lineto
+256 214 lineto
+576 -714 lineto
+closepath
+271 75 moveto
+344 53 lineto
+73 -736 lineto
+0 -714 lineto
+271 75 lineto
+closepath
+} bind def
+/glyph226 { dup -1 ne { 0 0 0 -736 576 214 setcachedevice } if
+320 214 moveto
+393 192 lineto
+73 -736 lineto
+0 -714 lineto
+320 214 lineto
+closepath
+576 -714 moveto
+503 -736 lineto
+183 192 lineto
+256 214 lineto
+576 -714 lineto
+closepath
+} bind def
+/glyph227 { dup -1 ne { 0 0 0 -736 576 89 setcachedevice } if
+576 -714 moveto
+503 -736 lineto
+228 67 lineto
+301 89 lineto
+576 -714 lineto
+closepath
+275 89 moveto
+348 67 lineto
+73 -736 lineto
+0 -714 lineto
+275 89 lineto
+closepath
+} bind def
+/glyph228 { dup -1 ne { 0 0 0 -736 576 214 setcachedevice } if
+576 -714 moveto
+503 -736 lineto
+233 43 lineto
+306 65 lineto
+576 -714 lineto
+closepath
+320 214 moveto
+393 192 lineto
+73 -736 lineto
+0 -714 lineto
+320 214 lineto
+closepath
+} bind def
+/glyph229 { dup -1 ne { 0 0 0 160 64 352 setcachedevice } if
+64 160 moveto
+0 160 lineto
+32 352 lineto
+64 352 lineto
+64 160 lineto
+closepath
+} bind def
+/glyph230 { dup -1 ne { 0 0 0 224 64 352 setcachedevice } if
+64 224 moveto
+0 224 lineto
+32 352 lineto
+64 352 lineto
+64 224 lineto
+closepath
+} bind def
+/glyph231 { 0 0 0 -416 448 -96 setcachedevice
+416 -224 moveto
+160 -224 lineto
+96 -224.667 64 -288.667 64 -416 curveto
+0 -416 lineto
+0 -203.333 42.6667 -96.6667 128 -96 curveto
+448 -96 lineto
+416 -224 lineto
+closepath
+} bind def
+/glyph232 { dup -1 ne { 0 0 0 -363 599 -17 setcachedevice } if
+0 -224 moveto
+599 -17 lineto
+553 -173 lineto
+0 -363 lineto
+0 -224 lineto
+closepath
+} bind def
+/glyph233 { 0 0 224 -352 576 -96 setcachedevice
+224 -96 moveto
+448 -96 lineto
+533.333 -96.6667 576 -182 576 -352 curveto
+512 -352 lineto
+512 -267.333 480 -224.667 416 -224 curveto
+256 -224 lineto
+224 -96 lineto
+closepath
+} bind def
+end
+currentdict end
+/Sagittal exch definefont
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/tmpstr 1 string def
+/sagsiz 23 def
+/sagc {3 1 roll M /Sagittal sagsiz selectfont
+dup tmpstr 0 3 -1 roll put tmpstr stringwidth pop neg 2 div 0 RM
+currentfont/Encoding get exch get glyphshow}bind def
+/sags {3 1 roll M /Sagittal sagsiz selectfont showc}bind def
+/sh31{32 sagc}!
+/sh32{33 sagc}!
+/ft32{33 sagc}!
+/sh33{34 sagc}!
+/ft33{34 sagc}!
+/sh34{35 sagc}!
+/ft34{35 sagc}!
+/sh35{36 sagc}!
+/ft35{36 sagc}!
+/sh36{37 sagc}!
+/ft36{37 sagc}!
+/sh37{38 sagc}!
+/ft37{38 sagc}!
+/sh38{39 sagc}!
+/ft38{39 sagc}!
+/sh39{40 sagc}!
+/ft39{40 sagc}!
+/sh40{41 sagc}!
+/ft40{41 sagc}!
+/sh41{42 sagc}!
+/ft41{42 sagc}!
+/sh42{43 sagc}!
+/ft42{43 sagc}!
+/sh43{44 sagc}!
+/ft43{44 sagc}!
+/sh44{45 sagc}!
+/ft44{45 sagc}!
+/sh45{46 sagc}!
+/ft45{46 sagc}!
+/sh46{47 sagc}!
+/ft46{47 sagc}!
+/sh47{48 sagc}!
+/ft47{48 sagc}!
+/sh48{49 sagc}!
+/ft48{49 sagc}!
+/sh49{50 sagc}!
+/ft49{50 sagc}!
+/sh50{51 sagc}!
+/ft50{51 sagc}!
+/sh51{52 sagc}!
+/ft51{52 sagc}!
+/sh52{53 sagc}!
+/ft52{53 sagc}!
+/sh53{54 sagc}!
+/ft53{54 sagc}!
+/sh54{55 sagc}!
+/ft54{55 sagc}!
+/sh55{56 sagc}!
+/ft55{56 sagc}!
+/sh56{57 sagc}!
+/ft56{57 sagc}!
+/sh57{58 sagc}!
+/ft57{58 sagc}!
+/sh58{59 sagc}!
+/ft58{59 sagc}!
+/sh59{60 sagc}!
+/ft59{60 sagc}!
+/sh60{61 sagc}!
+/ft60{61 sagc}!
+/sh61{62 sagc}!
+/ft61{62 sagc}!
+/sh62{63 sagc}!
+/ft62{63 sagc}!
+/sh63{64 sagc}!
+/ft63{64 sagc}!
+/sh64{65 sagc}!
+/ft64{65 sagc}!
+/sh65{66 sagc}!
+/ft65{66 sagc}!
+/sh66{67 sagc}!
+/ft66{67 sagc}!
+/sh67{68 sagc}!
+/ft67{68 sagc}!
+/sh68{69 sagc}!
+/ft68{69 sagc}!
+/sh69{70 sagc}!
+/ft69{70 sagc}!
+/sh70{71 sagc}!
+/ft70{71 sagc}!
+/sh71{72 sagc}!
+/ft71{72 sagc}!
+/sh72{73 sagc}!
+/ft72{73 sagc}!
+/sh73{74 sagc}!
+/ft73{74 sagc}!
+/sh74{75 sagc}!
+/ft74{75 sagc}!
+/sh75{76 sagc}!
+/ft75{76 sagc}!
+/sh76{77 sagc}!
+/ft76{77 sagc}!
+/sh77{78 sagc}!
+/ft77{78 sagc}!
+/sh78{79 sagc}!
+/ft78{79 sagc}!
+/sh79{80 sagc}!
+/ft79{80 sagc}!
+/sh80{81 sagc}!
+/ft80{81 sagc}!
+/sh81{82 sagc}!
+/ft81{82 sagc}!
+/sh82{83 sagc}!
+/ft82{83 sagc}!
+/sh83{84 sagc}!
+/ft83{84 sagc}!
+/sh84{85 sagc}!
+/ft84{85 sagc}!
+/sh85{86 sagc}!
+/ft85{86 sagc}!
+/sh86{87 sagc}!
+/ft86{87 sagc}!
+/sh87{88 sagc}!
+/ft87{88 sagc}!
+/sh88{89 sagc}!
+/ft88{89 sagc}!
+/sh89{90 sagc}!
+/ft89{90 sagc}!
+/sh90{91 sagc}!
+/ft90{91 sagc}!
+/sh91{92 sagc}!
+/ft91{92 sagc}!
+/sh92{93 sagc}!
+/ft92{93 sagc}!
+/sh93{94 sagc}!
+/ft93{94 sagc}!
+/sh94{95 sagc}!
+/ft94{95 sagc}!
+/sh95{96 sagc}!
+/ft95{96 sagc}!
+/sh96{97 sagc}!
+/ft96{97 sagc}!
+/sh97{98 sagc}!
+/ft97{98 sagc}!
+/sh98{99 sagc}!
+/ft98{99 sagc}!
+/sh99{100 sagc}!
+/ft99{100 sagc}!
+/sh100{101 sagc}!
+/ft100{101 sagc}!
+/sh101{102 sagc}!
+/ft101{102 sagc}!
+/sh102{103 sagc}!
+/ft102{103 sagc}!
+/sh103{104 sagc}!
+/ft103{104 sagc}!
+/sh104{105 sagc}!
+/ft104{105 sagc}!
+/sh105{106 sagc}!
+/ft105{106 sagc}!
+/sh106{107 sagc}!
+/ft106{107 sagc}!
+/sh107{108 sagc}!
+/ft107{108 sagc}!
+/sh108{109 sagc}!
+/ft108{109 sagc}!
+/sh109{110 sagc}!
+/ft109{110 sagc}!
+/sh110{111 sagc}!
+/ft110{111 sagc}!
+/sh111{112 sagc}!
+/ft111{112 sagc}!
+/sh112{113 sagc}!
+/ft112{113 sagc}!
+/sh113{114 sagc}!
+/ft113{114 sagc}!
+/sh114{115 sagc}!
+/ft114{115 sagc}!
+/sh115{116 sagc}!
+/ft115{116 sagc}!
+/sh116{117 sagc}!
+/ft116{117 sagc}!
+/sh117{118 sagc}!
+/ft117{118 sagc}!
+/sh118{119 sagc}!
+/ft118{119 sagc}!
+/sh119{120 sagc}!
+/ft119{120 sagc}!
+/sh120{121 sagc}!
+/ft120{121 sagc}!
+/sh121{122 sagc}!
+/ft121{122 sagc}!
+/sh122{123 sagc}!
+/ft122{123 sagc}!
+/sh123{124 sagc}!
+/ft123{124 sagc}!
+/sh124{125 sagc}!
+/ft124{125 sagc}!
+/sh125{126 sagc}!
+/ft125{126 sagc}!
+/sh126{127 sagc}!
+/ft126{127 sagc}!
+/sh127{128 sagc}!
+/ft127{128 sagc}!
+/sh128{129 sagc}!
+/ft128{129 sagc}!
+/sh129{130 sagc}!
+/ft129{130 sagc}!
+/sh130{131 sagc}!
+/ft130{131 sagc}!
+/sh131{132 sagc}!
+/ft131{132 sagc}!
+/sh132{133 sagc}!
+/ft132{133 sagc}!
+/sh133{134 sagc}!
+/ft133{134 sagc}!
+/sh134{135 sagc}!
+/ft134{135 sagc}!
+/sh135{136 sagc}!
+/ft135{136 sagc}!
+/sh136{137 sagc}!
+/ft136{137 sagc}!
+/sh137{138 sagc}!
+/ft137{138 sagc}!
+/sh138{139 sagc}!
+/ft138{139 sagc}!
+/sh139{140 sagc}!
+/ft139{140 sagc}!
+/sh140{141 sagc}!
+/ft140{141 sagc}!
+/sh141{142 sagc}!
+/ft141{142 sagc}!
+/sh142{143 sagc}!
+/ft142{143 sagc}!
+/sh143{144 sagc}!
+/ft143{144 sagc}!
+/sh144{145 sagc}!
+/ft144{145 sagc}!
+/sh145{146 sagc}!
+/ft145{146 sagc}!
+/sh146{147 sagc}!
+/ft146{147 sagc}!
+/sh147{148 sagc}!
+/ft147{148 sagc}!
+/sh148{149 sagc}!
+/ft148{149 sagc}!
+/sh149{150 sagc}!
+/ft149{150 sagc}!
+/sh150{151 sagc}!
+/ft150{151 sagc}!
+/sh151{152 sagc}!
+/ft151{152 sagc}!
+/sh152{153 sagc}!
+/ft152{153 sagc}!
+/sh153{154 sagc}!
+/ft153{154 sagc}!
+/sh154{155 sagc}!
+/ft154{155 sagc}!
+/sh155{156 sagc}!
+/ft155{156 sagc}!
+/sh156{157 sagc}!
+/ft156{157 sagc}!
+/sh157{158 sagc}!
+/ft157{158 sagc}!
+/sh158{159 sagc}!
+/ft158{159 sagc}!
+/sh159{160 sagc}!
+/ft159{160 sagc}!
+/sh160{161 sagc}!
+/ft160{161 sagc}!
+/sh161{162 sagc}!
+/ft161{162 sagc}!
+/sh162{163 sagc}!
+/ft162{163 sagc}!
+/sh163{164 sagc}!
+/ft163{164 sagc}!
+/sh164{165 sagc}!
+/ft164{165 sagc}!
+/sh165{166 sagc}!
+/ft165{166 sagc}!
+/sh166{167 sagc}!
+/ft166{167 sagc}!
+/sh167{168 sagc}!
+/ft167{168 sagc}!
+/sh168{169 sagc}!
+/ft168{169 sagc}!
+/sh169{170 sagc}!
+/ft169{170 sagc}!
+/sh170{171 sagc}!
+/ft170{171 sagc}!
+/sh171{172 sagc}!
+/ft171{172 sagc}!
+/sh172{173 sagc}!
+/ft172{173 sagc}!
+/sh173{174 sagc}!
+/ft173{174 sagc}!
+/sh174{175 sagc}!
+/ft174{175 sagc}!
+/sh175{176 sagc}!
+/ft175{176 sagc}!
+/sh176{177 sagc}!
+/ft176{177 sagc}!
+/sh177{178 sagc}!
+/ft177{178 sagc}!
+/sh178{179 sagc}!
+/ft178{179 sagc}!
+/sh179{180 sagc}!
+/ft179{180 sagc}!
+/sh180{181 sagc}!
+/ft180{181 sagc}!
+/sh181{182 sagc}!
+/ft181{182 sagc}!
+/sh182{183 sagc}!
+/ft182{183 sagc}!
+/sh183{184 sagc}!
+/ft183{184 sagc}!
+/sh184{185 sagc}!
+/ft184{185 sagc}!
+/sh185{186 sagc}!
+/ft185{186 sagc}!
+/sh186{187 sagc}!
+/ft186{187 sagc}!
+/sh187{188 sagc}!
+/ft187{188 sagc}!
+/sh188{189 sagc}!
+/ft188{189 sagc}!
+/sh189{190 sagc}!
+/ft189{190 sagc}!
+/sh190{191 sagc}!
+/ft190{191 sagc}!
+/sh191{192 sagc}!
+/ft191{192 sagc}!
+/sh192{193 sagc}!
+/ft192{193 sagc}!
+/sh193{194 sagc}!
+/ft193{194 sagc}!
+/sh194{195 sagc}!
+/ft194{195 sagc}!
+/sh195{196 sagc}!
+/ft195{196 sagc}!
+/sh196{197 sagc}!
+/ft196{197 sagc}!
+/sh197{198 sagc}!
+/ft197{198 sagc}!
+/sh198{199 sagc}!
+/ft198{199 sagc}!
+/sh199{200 sagc}!
+/ft199{200 sagc}!
+/sh200{201 sagc}!
+/ft200{201 sagc}!
+/sh201{202 sagc}!
+/ft201{202 sagc}!
+/sh202{203 sagc}!
+/ft202{203 sagc}!
+/sh203{204 sagc}!
+/ft203{204 sagc}!
+/sh204{205 sagc}!
+/ft204{205 sagc}!
+/sh205{206 sagc}!
+/ft205{206 sagc}!
+/sh206{207 sagc}!
+/ft206{207 sagc}!
+/sh207{208 sagc}!
+/ft207{208 sagc}!
+/sh208{209 sagc}!
+/ft208{209 sagc}!
+/sh209{210 sagc}!
+/ft209{210 sagc}!
+/sh210{211 sagc}!
+/ft210{211 sagc}!
+/sh211{212 sagc}!
+/ft211{212 sagc}!
+/sh212{213 sagc}!
+/ft212{213 sagc}!
+/sh213{214 sagc}!
+/ft213{214 sagc}!
+/sh214{215 sagc}!
+/ft214{215 sagc}!
+/sh215{216 sagc}!
+/ft215{216 sagc}!
+/sh216{217 sagc}!
+/ft216{217 sagc}!
+/sh217{218 sagc}!
+/ft217{218 sagc}!
+/sh218{219 sagc}!
+/ft218{219 sagc}!
+/sh219{220 sagc}!
+/ft219{220 sagc}!
+/sh220{221 sagc}!
+/ft220{221 sagc}!
+/sh221{222 sagc}!
+/ft221{222 sagc}!
+/sh222{223 sagc}!
+/ft222{223 sagc}!
+/sh223{224 sagc}!
+/ft223{224 sagc}!
+/sh224{225 sagc}!
+/ft224{225 sagc}!
+/sh225{226 sagc}!
+/ft225{226 sagc}!
+/sh226{227 sagc}!
+/ft226{227 sagc}!
+/sh227{228 sagc}!
+/ft227{228 sagc}!
+/sh228{229 sagc}!
+/ft228{229 sagc}!
+/sh229{230 sagc}!
+/ft229{230 sagc}!
+/sh230{231 sagc}!
+/ft230{231 sagc}!
+/sh231{232 sagc}!
+/ft231{232 sagc}!
+/sh232{233 sagc}!
+/ft232{233 sagc}!
+/sh233{234 sagc}!
+/ft233{234 sagc}!
+/sh234{235 sagc}!
+/ft234{235 sagc}!
+/sh235{236 sagc}!
+/ft235{236 sagc}!
+/sh236{237 sagc}!
+/ft236{237 sagc}!
+/sh237{238 sagc}!
+/ft237{238 sagc}!
+/sh238{239 sagc}!
+/ft238{239 sagc}!
+/sh239{240 sagc}!
+/ft239{240 sagc}!
+/sh240{241 sagc}!
+/ft240{241 sagc}!
+/sh241{242 sagc}!
+/ft241{242 sagc}!
+/sh242{243 sagc}!
+/ft242{243 sagc}!
+/sh243{244 sagc}!
+/ft243{244 sagc}!
+/sh244{245 sagc}!
+/ft244{245 sagc}!
+/sh245{246 sagc}!
+/ft245{246 sagc}!
+/sh246{247 sagc}!
+/ft246{247 sagc}!
+/sh247{248 sagc}!
+/ft247{248 sagc}!
+/sh248{249 sagc}!
+/ft248{249 sagc}!
+/sh249{250 sagc}!
+/ft249{250 sagc}!
+/sh250{251 sagc}!
+/ft250{251 sagc}!
+/sh251{252 sagc}!
+/ft251{252 sagc}!
+/sh252{253 sagc}!
+/ft252{253 sagc}!
+/sh253{254 sagc}!
+/ft253{254 sagc}!
+/sh254{255 sagc}!
+/ft254{255 sagc}!
+%% FIXME BUG
+
+pop
+%% FIXME BUG
+
+%
+
+/mkfontext0{
+	findfont dup length dict begin
+		{1 index/FID ne{def}{pop pop}ifelse}forall
+		/Encoding ISOLatin1Encoding def
+		currentdict
+	end
+	definefont pop}!
+/Helvetica0/Helvetica mkfontext0
+/F0{dup .8 mul/fh exch def/Helvetica0 exch selectfont}!
+/Times-Italic0/Times-Italic mkfontext0
+/F1{dup .8 mul/fh exch def/Times-Italic0 exch selectfont}!
+/Times-Roman0/Times-Roman mkfontext0
+/F2{dup .8 mul/fh exch def/Times-Roman0 exch selectfont}!
+/Times-Bold0/Times-Bold mkfontext0
+/F3{dup .8 mul/fh exch def/Times-Bold0 exch selectfont}!
+%%EndSetup
+%%Page: 1 1
+gsave 0 813.6 T
+0.75 dup scale
+68.0 0 T
+% --- 1 ((notitle)) ---
+0 -22.68 T
+0 -25.34 T
+/dlsym{
+}def
+/y0{-47.0 add}def
+dlsym
+12.0 -47.0  tclef
+(4)(4) 36.5 -47.0 tsig
+65.5 -35.0 hd 56.5 y ft32 1 -20.0 sfd
+88.4 -53.0 hd 79.4 y ft126 1 20.0 sfu -53.0 hl
+114.4 -44.0 hd 105.4 y sh232 1 20.0 sfu
+142.2 -29.0 hd 133.2 y sh231 1 -20.0 sfd
+170.3 -47.0 5 staff
+0 -70.00 T
+%%PageTrailer
+grestore
+showpage
+%%Trailer
+%%Pages: 1
+%EOF

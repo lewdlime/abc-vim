@@ -1,0 +1,57 @@
+% portugues.fmt        -*- abc -*-
+% Tradução dos títulos dos campos B:, D:, H:, N:, R:, S: e Z:.
+% Ativa %%writehistory
+% Necessita de abcm2ps-4.8.11 ou posterior
+% Atualizado para abcm2ps-5.4.1 (27/04/2007)
+
+% Copyright (C) Hudson Lacerda (2005-2007)
+%   Based on code from abcm2ps:
+%      Copyright (C) Jean-François Moine (1998-2007)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+infoname B "Livro: "
+infoname D "Discografia: "
+infoname H "Histórico: "
+infoname N "Notas: "
+infoname R "Ritmo: "
+infoname S "Fonte: "
+infoname Z "Transcrição: "
+
+writehistory
+beginps
+
+% Livro (campo B:)
+/wbook{0 0 M (Livro:)show}!
+
+% Discografia (Campo D:)
+/wdisco{0 0 M(Discografia:)show}!
+
+% Histórico (Campo H:)
+/whisto{0 0 M(Histórico:)show}!
+
+% Notas (Campo N:)
+/wnotes{0 0 M(Notas:)show}!
+
+% Ritmo (Campo R:)
+/wrhythm{0 0 M(Ritmo:)show}!
+
+% Fonte (Campo S:)
+/wsource{0 0 M(Fonte:)show}!
+
+% Transcrição (Campo Z:)
+/wtrans{0 0 M(Transcrição:)show}!
+
+endps

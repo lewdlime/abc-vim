@@ -1,0 +1,93 @@
+
+%%format annotation.fmt
+%%setfont-1 Courier-Bold 15
+%%continueall
+
+X:1
+T:Sample file for annotation.fmt
+L:1/4
+K: G
+"_normal font" "_/italics (slash)"
+"^#3 (digit number);&1  (string number)" F2
+"_~t;ZapfDingbats;symbol (tilde)" f
+"@5,5:currentpoint M 20 20 RL 11 F3 ( postscript command 1)show stroke"
+"@5,-5:currentpoint M 20 -40 RL 11 F3 ( postscript command 2)show stroke" e |
+"@5,5 *bold italic (asterisk)" f4 |
+%%annotationfont * 20
+"@0,0:/an-font-dollar{/Courier-Bold an-fh}!"\
+"@20,50|underlined"\
+"@0,-20 $dollar font" G4 |
+%%annotationfont * 10
+"@0,0:/an-font-dollar{/Bookman-Light 15}!"\
+"@0,-40|underlined"\
+"@0,20 $dollar font" A4 |
+%%annotationfont * 15
+"@0,-40|underlined"\
+"@0,0:/an-font-dollar{/Courier an-fh}!"\
+"@0,45 $dollar;$font"B4 |]
+
+%%begintext
+
+The fonts can be redefined. Defaults:
+
+$1/an-font-stringnumber{/Helvetica0 12}!
+/an-font-fingering{/Bookman-Demi0 dup /Bookman-Demi mkfontext0 9}!
+/an-font-slash{/Times-Italic0 14}!
+/an-font-asterisk{/Times-BoldItalic0 dup /Times-BoldItalic mkfontext0 16}!
+/an-font-tilde{/ZapfDingbats 12}!
+/an-font-dollar{/Courier-Bold0 dup /Courier-Bold mkfontext0 an-fh}!
+
+Please note that $1 fh 1.25 mul $0 gets the size of the current annotation font.
+The operator $1/an-fh{fh 1.25 mul}!$0 abbreviates the command.
+
+It is possible execute an arbitrary PS command by redefining $1/an-exec$0,
+which is called for annotations starting with the character `$1:$0'.
+
+
+There are two options to compute the annotation positions:
+
+$1 an-positions-absolute $0
+By default, the positions are good for use with annotations like "@0,20&1",
+because they are based on the note heads and less subject to the \%\%annotationfont.
+
+$1 an-positions-relative $0
+To make easy to insert fingerings using $1^$0, $1<$0, $1>$0 or $1_$0, there is
+the option to adjust the positions relative to the \%\%annotationfont,
+so that the width of the control characters (#&*~$) is considered.
+However, the fingering distance from the note head using $1@$0 is subject to the font size.
+($1an-positions-relative$0 does not take effect on $1an-font-asterisk$0 or a $1:$0 command.)
+
+%%endtext
+
+X:2
+T:Another example
+M:3/4
+L:1/4
+K:Em
+%%continueall
+%%freegchord
+%%gchordbox
+V:1
+"># 0 (a);# 0 (m);# 0 (i)"[eBG]
+s: "@0,56&1 -;&2 -;&3 -"
+"># 0;# 1;# 2"[ecA]
+"># 4;# 3;# 2"[^dBF] |
+s: "@0,56&2;&3;&4"
+"># 0;# 0;# 1"[eB^G]3 |]
+s: "^&1;&2;&3"
+s: "@-15,-8:currentpoint /y exch def /x exch def;@-50,-95:x y lineto stroke"
+s: "@-50,-100  ··· Don't miss the sharp!"
+V:2 merge
+"_#0 (p);&6"E,
+s:"@-50,0*piano"
+"_#0;&5 -"A,
+"_#1"B, |
+"_#0;&6" E,3 
+"@0,30:currentpoint /y exch def /x exch def;@38,40:x y lineto stroke"
+"This bar line;indicates the;end of the piece."
+|]
+
+
+% %postscript count 5 string cvs 0 0 moveto show
+
+

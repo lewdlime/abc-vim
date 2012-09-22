@@ -1,0 +1,206 @@
+% staff-lines.fmt  -*- abc -*-
+% DEFINE QUANTIDADES DIFERENTES DE LINHAS NAS PAUTAS
+
+% !---- OBSOLETO COM abcm2ps-4.8.6 - VER LINHA 150~ ----!
+% !       USE O CAMPO V: ou K: [V:1 stafflines=1]       !
+% Para forçar versão 4.8.6 ou posterior, substitua false por true abaixo:
+postscript /sl_nova false def
+
+% Hudson Lacerda (18-07-2004)(27/09/2004)(18/10/2004)(25/10/2004)(31/21/2004)
+% (14/02/2005) (08-04-2007)
+
+% Copyright (C) 2004-2007 Hudson Lacerda
+%   Some parts of this code are based on code from abcm2ps:
+%      Copyright (C) Jean-François Moine (1998-2005)
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+% !ESTE ARQUIVO DE FORMATO É POTENCIALMENTE INCOMPATÍVEL COM OUTROS!
+% !     ARQUIVOS DE FORMATO, POR ALTERAR OPERADORES DE abcm2ps     !
+%
+% MODO DE USAR (exemplos):
+%
+%    Para que a última de cada 5 pautas tenha 1 linha, e as outras
+%    pautas tenham 5 linhas, use:
+%
+%    %%postscript [5 5 5 5 1] staff-lines
+%
+%    Para que todas as pautas tenham 1 linha, use:
+%
+%    %%postscript [1] staff-lines
+%
+%    Em um sistema com 6 pautas, para que a primeira pauta tenha 5
+%    linhas, a terceira tenha 1 linha e as outras tenham 4 linhas, use:
+%
+%    %%postscript [5 4 1 4 4 4] staff-lines
+%
+% PAUTAS COM NÚMERO DE LINHAS PAR:
+%
+%    Para centralizar verticalmente pautas com número de linhas par, use:
+%
+%    %%postscript    true sl-center
+%
+%    Para não centralizar (default), use:
+%
+%    %%postscript    false sl-center
+
+
+% Linhas suplementares e barras de compasso não são adaptadas
+% Linhas suplementares são supridas como decorações (VER ABAIXO)
+
+% AS ALTERAÇÕES NÃO SÃO REVERSÍVEIS! - TALVEZ ISSO POSSA CAUSAR PROBLEMAS
+% QUANDO ESSE ARQUIVO FOR COMBINADO COM ALGUM OUTRO QUE ALTERE OS MESMOS
+% OPERADORES POSTSCRIPT (TALVEZ `domovel.fmt'? - Use `domovel' DEPOIS de `staff-lines')
+% Ex.:
+%    %%format staff-lines
+%    %%format domovel
+
+% Possibilidades de aprimoramento:
+% - Números negativos poderiam ser usados para selecionar pautas não-convencionais
+% - Barras de compasso, colchetes e chaves poderiam ser melhorados
+
+
+% DECORAÇÕES PARA LINHAS SUPLEMENTARES:
+% ! ATENÇÃO: REMOVA OS CARACTERES `%' PARA ATIVAR AS DECORAÇÕES !
+% ! ESSAS DECORAÇÕES DEVEM SER USADAS EM "ACORDES" (NOTA ENTRE COLCHETES) !
+%deco hl= 3 sl-supline 0 0 0 % linha suplementar cortando a nota
+%deco hl^ 3 sl-supline_n 0 0 0 1 % linha suplementar acima da nota
+%deco hl_ 3 sl-supline_n 0 0 0 -1 % linha suplementar abaixo da nota
+%
+%deco hl=^2 3 sl-supline_n- 0 0 0 2 % linha suplementar cortando a nota
+%deco hl=_2 3 sl-supline_n- 0 0 0 -2 % linha suplementar cortando a nota
+%deco hl^2 3 sl-supline_n 0 0 0 2 % linha suplementar acima da nota
+%deco hl_2 3 sl-supline_n 0 0 0 -2 % linha suplementar abaixo da nota
+%
+%deco hl=^3 3 sl-supline_n- 0 0 0 3 % linha suplementar cortando a nota
+%deco hl=_3 3 sl-supline_n- 0 0 0 -3 % linha suplementar cortando a nota
+%deco hl^3 3 sl-supline_n 0 0 0 3 % linha suplementar acima da nota
+%deco hl_3 3 sl-supline_n 0 0 0 -3 % linha suplementar abaixo da nota
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+postscript /sl_old_staff /staff load def
+postscript /sl_old_r2/r2 load def
+postscript /sl_old_r1/r1 load def
+postscript /sl_old_r0/r0 load def
+postscript /sl_old_r00/r00 load def
+
+%
+postscript /sl-staves [1] def % número de linhas de cada pauta
+postscript /sl-n_staves {sl-staves length} ! % número de pautas
+postscript /sl-staff_x sl-n_staves 1 sub def  % pauta atual (inicialização)
+postscript /sl-staff_i {/sl-staff_x sl-n_staves 1 sub def}! % def pauta inicial
+
+% centralizar pautas com número de linhas par
+postscript /sl-center{/sl-center-option exch def}!
+postscript /sl-center-option false def
+% ajustar pausas quando centralizar
+postscript /r2  {sl-center-option{3 sub}if sl_old_r2}def
+postscript /r1  {sl-center-option{3 sub}if sl_old_r1}def
+postscript /r0  {sl-center-option{3 sub}if sl_old_r0}def
+postscript /r00 {sl-center-option{3 sub}if sl_old_r00}def
+
+postscript /sl-centralizar? {
+postscript    true eq
+postscript       {
+postscript          0.5 add
+postscript       }{
+postscript          ceiling
+postscript       }
+postscript    ifelse
+postscript } def
+
+% desenha pauta com o <<número de linhas>> dado
+postscript /sl-staff { % w x y n sl-staff
+postscript	       dlw dup 4 exch sub 2 div
+postscript             sl-center-option sl-centralizar?
+postscript           6 mul
+postscript           gsave 0 exch T
+postscript               1 1 3 -1 roll{
+postscript		      pop 0 1 index M 1 index 0 RL 6 add
+postscript	         }for pop pop stroke
+postscript           grestore
+postscript }!
+
+% desenha a pauta atual e prepara para a próxima pauta
+postscript /staff {
+postscript                     dup 5 eq sl_nova or % ! HACK abcm2ps-4.8.5-- !
+postscript                        { %    ! HACK abcm2ps-4.8.5-- !
+postscript           pop % ! abcm2ps-4.8.6++ ! <- Este é código atual
+postscript                        } {  %  ! HACK abcm2ps-4.8.5-- !
+postscript                          pop 47 sub    % ! HACK abcm2ps-4.8.5-- !
+postscript                        } ifelse    % ! HACK abcm2ps-4.8.5-- !
+postscript           sl-staves sl-staff_x get sl-staff
+postscript          /sl-staff_x sl-staff_x -1 add
+postscript           sl-n_staves add sl-n_staves mod def}!
+
+% !versões novas de abcm2ps (e.g. 5.4.0) !
+beginps
+currentdict /creator known true eq {
+   /xstaff{ % w n x y xstaff
+	gsave
+	2 index 4 exch sub 2 div
+        sl-center-option sl-centralizar? 6 mul 0 exch T
+	dlw M{dup 0 RL dup neg 6 RM}repeat
+	pop stroke
+	grestore
+   }!
+   /staff {  3 -1 roll pop
+          sl-staves sl-staff_x get 3 1 roll xstaff
+         /sl-staff_x sl-staff_x -1 add
+          sl-n_staves add sl-n_staves mod def}!
+} if
+endps
+
+
+% ! FUNÇÃO PARA USUÁRIO: DEFINE O NÚMERO DE LINHAS DE CADA PAUTA !
+% ! MODO DE USAR: %%postscript <array> staff-lines               !
+%
+% ! EXEMPLO:                                                !
+% ! %%postscript [5 2 3] staff-lines                        !
+% !    IRÁ FAZER UM SISTEMA COM PAUTAS DE 5, 2 E 3 LINHAS   !
+postscript /staff-lines {/sl-staves exch def sl-staff_i}!
+
+% ! LINHAS SUPLEMENTARES !
+postscript /sl-supline {0.8 setlinewidth exch -6 add exch M 12 0 RL stroke}!
+postscript /sl-suplineup {3 add sl-supline}!
+postscript /sl-suplinedn {3 sub sl-supline}!
+% %postscript /temp_str 10 string def
+% %postscript /sl-supline_n {3 -1 roll temp_str cvs 3 1 roll M show}! % teste
+postscript /sl-supline_n {M cvr dup
+postscript               abs -1 1 {pop
+postscript                       dup 0 ge
+postscript                       {currentpoint 2 copy sl-suplineup 6 add M}
+postscript                       {currentpoint 2 copy sl-suplinedn 6 sub M} ifelse
+postscript                      } for
+postscript            }!
+%
+postscript /sl-supline_n- {M cvr dup
+postscript               abs -1 1 {pop
+postscript                       dup 0 ge
+postscript                       {currentpoint 2 copy sl-supline 6 add M}
+postscript                       {currentpoint 2 copy sl-supline 6 sub M} ifelse
+postscript                      } for
+postscript            }!
+

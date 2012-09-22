@@ -1,0 +1,282 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: farsi</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: farsi</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="farsi.txt"></A><b>farsi.txt</b>*     For Vim version 7.3.  Last change: 2010 Aug 07
+
+
+		  VIM REFERENCE MANUAL    by Mortaza Ghassab Shiran
+
+
+
+Right to Left and <a href="farsi.html#Farsi">Farsi</a> Mapping for Vim		*<a name="farsi"></A><b>farsi</b>* *<a name="Farsi"></A><b>Farsi</b>*
+
+{Vi does not have any of these commands}
+
+
+						*<a name="E27"></A><b>E27</b>*
+In order to use right-to-left and <a href="farsi.html#Farsi">Farsi</a> <a href="map.html#mapping">mapping</a> support, it is necessary to
+compile Vim with the |<a href="various.html#+farsi">+farsi</a>| feature.
+
+These functions have been made by Mortaza G. Shiran <a href="mailto:shiran@jps.net">&lt;shiran@jps.net&gt;</a> 
+
+
+Introduction
+In right-to-left oriented files the characters appear on the screen from right
+to left.  This kind of file is most useful when <a href="editing.html#writing">writing</a> <a href="farsi.html#Farsi">Farsi</a> documents,
+composing faxes or <a href="editing.html#writing">writing</a> <a href="farsi.html#Farsi">Farsi</a> memos.
+
+The commands, prompts and help files are not in <a href="farsi.html#Farsi">Farsi</a>, therefore the user
+interface remains the standard <a href="intro.html#Vi">Vi</a> interface.
+
+
+Highlights
+<a href="insert.html#o">o</a>  Editing left-to-right files <a href="motion.html#as">as</a> in the original Vim, no change.
+
+<a href="insert.html#o">o</a>  Viewing and editing files in right-to-left <a href="windows.html#windows">windows</a>.   File orientation is
+   per <a href="windows.html#window">window</a>, so it is possible to <a href="starting.html#view">view</a> the same file in right-to-left and
+   left-to-right modes, simultaneously.
+
+<a href="insert.html#o">o</a>  Compatibility to the original Vim.   Almost all features work in
+   right-to-left mode (see bugs below).
+
+<a href="insert.html#o">o</a>  Changing keyboard <a href="map.html#mapping">mapping</a> and reverse insert modes using a single
+   command.
+
+<a href="insert.html#o">o</a>  Backing from reverse insert mode to the correct place in the file
+   (if possible).
+
+<a href="insert.html#o">o</a>  While in <a href="farsi.html#Farsi">Farsi</a> mode, numbers are entered from left to right.  Upon entering
+   a none number character, that character will be inserted just into the
+   left of the last number.
+
+<a href="insert.html#o">o</a>  No special terminal with right-to-left capabilities is required.  The
+   right-to-left changes are completely hardware independent.  Only
+   <a href="farsi.html#Farsi">Farsi</a> font is necessary.
+
+<a href="insert.html#o">o</a>  <a href="farsi.html#Farsi">Farsi</a> keymapping on the command line in reverse insert mode.
+
+<a href="insert.html#o">o</a>  Toggling between left-to-right and right-to-left via F8 function key.
+
+<a href="insert.html#o">o</a>  Toggling between <a href="farsi.html#Farsi">Farsi</a> ISIR-3342 standard encoding and Vim <a href="farsi.html#Farsi">Farsi</a> via F9
+   function key.  Since this makes sense only for the text written in
+   right-to-left mode, this function is also supported only in right-to-left
+   mode.
+
+<a href="farsi.html#Farsi">Farsi</a> Fonts					*farsi fonts*
+
+The following files are found in the subdirectories of the '$VIM/farsi/fonts'
+directory:
+
+   +  far-a01.pcf    X Windows fonts for <a href="os_unix.html#Unix">Unix</a> including Linux systems
+   +  far-a01.bf     X Windows fonts for SunOS
+   +  far-a01.f16    a screen fonts for <a href="os_unix.html#Unix">Unix</a> including Linux systems
+   +  far-a01.fon    a monospaced fonts for Windows NT/95/98
+   +  far-a01.com    a screen fonts for <a href="os_dos.html#DOS">DOS</a>
+
+
+Font Installation
+
+<a href="insert.html#o">o</a>  Installation of fonts for MS Window systems (NT/95/98)
+
+   From 'Control Panel' folder, start the 'Fonts' program.  Then from 'file'
+   menu item select 'Install New Fonts ...'.  Browse and select the
+   'far-a01.fon', then follow the installation guide.
+   NOTE: several people have reported that this does not work.  The solution
+   is unknown.
+
+<a href="insert.html#o">o</a>  Installation of fonts for X Window systems (Unix/Linux)
+
+   Depending on your system, copy far-a01.pcf.Z or far-a01.pcf.gz into a
+   directory of your choice.  Change to the directory containing the <a href="farsi.html#Farsi">Farsi</a>
+   fonts and execute the following commands:
+
+   <a href="change.html#&gt;">&gt;</a>  mkfontdir
+   <a href="change.html#&gt;">&gt;</a>  xset +fp path_name_of_farsi_fonts_directory
+
+<a href="insert.html#o">o</a>  Installation of fonts for X Window systems (SunOS)
+
+   Copy far-a01.bf font into a directory of your choice.
+   Change to the directory containing the far-a01.fb fonts and
+   execute the following commands:
+
+   <a href="change.html#&gt;">&gt;</a>  fldfamily
+   <a href="change.html#&gt;">&gt;</a>  xset +fp path_name_of_fonts_directory
+
+<a href="insert.html#o">o</a>  Installation of ASCII screen fonts (Unix/Linux)
+
+   For Linux system, copy the far-a01.f16 fonts into /usr/lib/kbd/consolefonts
+   directory and execute the setfont program <a href="motion.html#as">as</a> &quot;setfont far-a01.f16&quot;.  For
+   other systems (e.g. SCO Unix), please refer to the fonts installation
+   section of your system administration manuals.
+
+<a href="insert.html#o">o</a>  Installation of ASCII screen fonts (DOS)
+
+   After system power on, prior to the first use of Vim, upload the <a href="farsi.html#Farsi">Farsi</a>
+   fonts by executing the far-a01.com font uploading program.
+
+
+Usage
+Prior to starting Vim, the environment in which Vim can run in <a href="farsi.html#Farsi">Farsi</a> mode,
+must be set.  In addition to installation of <a href="farsi.html#Farsi">Farsi</a> fonts, following points
+refer to some of the system environments, which you may need to set:
+Key code <a href="map.html#mapping">mapping</a>, loading graphic card in ASCII screen mode, setting the IO
+driver in 8 bit clean mode <a href="eval.html#...">...</a> .
+
+<a href="insert.html#o">o</a>  Setting the <a href="farsi.html#Farsi">Farsi</a> fonts
+
+   +  For Vim <a href="gui.html#GUI">GUI</a> set the <a href="options.html#'guifont'">'guifont'</a> to far-a01.  This is done by entering
+      ':set guifont=far-a01' in the Vim <a href="windows.html#window">window</a>.
+
+      You can have <a href="options.html#'guifont'">'guifont'</a> set to far-a01 by Vim during the Vim <a href="starting.html#startup">startup</a>
+      by appending the ':set guifont=far-a01' into your <a href="starting.html#.vimrc">.vimrc</a> file
+      (in <a href="change.html#case">case</a> of NT/95/98 platforms <a href="starting.html#_vimrc">_vimrc</a>).
+
+      Under the X Window environment, you can also start Vim with the
+      '-fn far-a01' option.
+
+   +  For Vim within a xterm, start a xterm with the <a href="farsi.html#Farsi">Farsi</a> fonts (e.g.
+      kterm <a href="gui_x11.html#-fn">-fn</a> far-a01).  Then start Vim inside the kterm.
+
+   +  For Vim under <a href="os_dos.html#DOS">DOS</a>, prior to the first usage of Vim, upload the <a href="farsi.html#Farsi">Farsi</a>
+      fonts by executing the far-a01.com fonts uploading program.
+
+<a href="insert.html#o">o</a>  <a href="farsi.html#Farsi">Farsi</a> Keymapping Activation
+
+   To activate the <a href="farsi.html#Farsi">Farsi</a> keymapping, set either <a href="options.html#'altkeymap'">'altkeymap'</a> or <a href="options.html#'fkmap'">'fkmap'</a>.
+   This is done by entering ':set akm' or ':set fk' in the Vim <a href="windows.html#window">window</a>.
+   You can have <a href="options.html#'altkeymap'">'altkeymap'</a> or <a href="options.html#'fkmap'">'fkmap'</a> set <a href="motion.html#as">as</a> default by appending ':set akm'
+   or ':set fk' in your <a href="starting.html#.vimrc">.vimrc</a> file or <a href="starting.html#_vimrc">_vimrc</a> in <a href="change.html#case">case</a> of NT/95/98 platforms.
+
+   To turn off the <a href="farsi.html#Farsi">Farsi</a> keymapping <a href="motion.html#as">as</a> a default second language keymapping,
+   reset the <a href="options.html#'altkeymap'">'altkeymap'</a> by entering ':set noakm'.
+
+<a href="insert.html#o">o</a>  right-to-left <a href="farsi.html#Farsi">Farsi</a> Mode
+
+   By default Vim starts in Left-to-right mode.  Following are ways to change
+   the <a href="windows.html#window">window</a> orientation:
+
+   + Start Vim with the <a href="starting.html#-F">-F</a> option (e.g. vim <a href="starting.html#-F">-F</a> <a href="eval.html#...">...</a>).
+
+   + Use the F8 function key to toggle between left-to-right and right-to-left.
+
+   + While in Left-to-right mode, enter 'set rl' in the command line ('rl' is
+     the abbreviation for rightleft).
+
+   + Put the 'set rl' line in your '<a href="starting.html#.vimrc">.vimrc</a>' file to start Vim in
+     right-to-left mode permanently.
+
+Encoding
+
+The <a href="print.html#letter">letter</a> encoding used is the Vim extended ISIR-3342 standard with a built
+in function to convert between Vim extended ISIR-3342 and ISIR-3342 standard.
+
+For document portability reasons, the <a href="print.html#letter">letter</a> encoding is kept the same across
+different platforms (i.e. UNIX's, NT/95/98, MS <a href="os_dos.html#DOS">DOS</a>, <a href="eval.html#...">...</a>).
+
+
+<a href="insert.html#o">o</a>  Keyboard
+
+   +  CTRL-_ in insert/replace modes toggles between Farsi(akm)/Latin
+      mode <a href="motion.html#as">as</a> follows:
+
+   +  CTRL-_ moves the cursor to the end of the typed text in edit mode.
+
+   +  CTRL-_ in command mode only toggles keyboard <a href="map.html#mapping">mapping</a> between Farsi(akm)/
+      Latin.  The <a href="farsi.html#Farsi">Farsi</a> text is then entered in reverse insert mode.
+
+   +  F8 - Toggles between left-to-right and right-to-left.
+
+   +  F9 - Toggles the encoding between ISIR-3342 standard and Vim extended
+      ISIR-3342 (supported only in right-to-left mode).
+
+   +  Keyboard <a href="map.html#mapping">mapping</a> is based on the Iranian ISIRI-2901 standard.
+      Following table shows the keyboard <a href="map.html#mapping">mapping</a> while Farsi(akm) mode set:
+
+	-------------------------------------
+	`  1  2  3  4  5  6  7  8  9  0  -  =
+	¢  ±  ²  ³  ´  µ  ¶  ·  ¸  ¹  °  ­  ½
+	-------------------------------------
+	~  !  @  #  $  <a href="motion.html#&#37;">&#37;</a>  ^  <a href="change.html#&amp;">&amp;</a>  &#42;  (  )  _  +
+	~  £  §  ®  ¤  ¥  ª  ¬  è  ¨  ©  é  «
+	-------------------------------------
+	<a href="repeat.html#q">q</a>  <a href="motion.html#w">w</a>  <a href="motion.html#e">e</a>  <a href="change.html#r">r</a>  t  <a href="index.html#z">z</a>  <a href="undo.html#u">u</a>  <a href="insert.html#i">i</a>  <a href="insert.html#o">o</a>  <a href="change.html#p">p</a>  [  ]
+	Ó  Ò  Æ  Ù  Ø  Õ  Ö  à  Ê  É  Ç  ˆ
+	-------------------------------------
+	<a href="intro.html#Q">Q</a>  <a href="motion.html#W">W</a>  <a href="motion.html#E">E</a>  <a href="change.html#R">R</a>  <a href="motion.html#T">T</a>  Z  <a href="undo.html#U">U</a>  I  <a href="insert.html#O">O</a>  <a href="change.html#P">P</a>  {  }
+	÷  õ  ô  ó  ò  ý  ð  ö  [  ]  {  }
+	-------------------------------------
+	a  <a href="change.html#s">s</a>  <a href="change.html#d">d</a>  <a href="motion.html#f">f</a>  <a href="index.html#g">g</a>  <a href="motion.html#h">h</a>  <a href="motion.html#j">j</a>  <a href="motion.html#k">k</a>  <a href="motion.html#l">l</a>  ;  ''  \
+	Ñ  Ð  &aacute;  Ã  Ü  Á  Å  Þ  Ý  Ú  Û  ë
+	-------------------------------------
+	A  <a href="change.html#S">S</a>  <a href="change.html#D">D</a>  <a href="motion.html#F">F</a>  <a href="motion.html#G">G</a>  <a href="motion.html#H">H</a>  <a href="change.html#J">J</a>  <a href="various.html#K">K</a>  <a href="motion.html#L">L</a>  :  &quot;  |
+	ù  û  þ  ú  ø  À  ü  æ  ç  º  »  ê
+	-------------------------------------
+	<a href="change.html#&lt;">&lt;</a>  <a href="change.html#y">y</a>  <a href="change.html#x">x</a>  <a href="change.html#c">c</a>  <a href="visual.html#v">v</a>  <a href="motion.html#b">b</a>  <a href="pattern.html#n">n</a>  <a href="motion.html#m">m</a>  ,  .  /
+	¾  ×  Ô  Î  Í  Ì  Ë  Ä  ß  ¦  ¯
+	-------------------------------------
+	<a href="change.html#&gt;">&gt;</a>  <a href="change.html#Y">Y</a>  X  C  <a href="visual.html#V">V</a>  <a href="motion.html#B">B</a>  N  <a href="motion.html#M">M</a>  <a href="change.html#&lt;">&lt;</a>  <a href="change.html#&gt;">&gt;</a>  ?
+	¼  ñ  Ô  Ï  Í  ¡  Ë  Â  ¾  ¼  ¿
+	-------------------------------------
+
+Note:
+	¡  stands for <a href="farsi.html#Farsi">Farsi</a> PSP (break without space)
+
+	¢  stands for <a href="farsi.html#Farsi">Farsi</a> PCN (for HAMZE attribute )
+
+Restrictions
+
+<a href="insert.html#o">o</a>  In insert/replace mode and fkmap (Farsi mode) set, <a href="scroll.html#CTRL-B">CTRL-B</a> is not
+   supported.
+
+<a href="insert.html#o">o</a>  If you change the character <a href="map.html#mapping">mapping</a> between Latin/Farsi, the <a href="undo.html#redo">redo</a> buffer
+   will be reset (emptied).  That is, <a href="undo.html#redo">redo</a> is valid and will function (using
+   '<a href="repeat.html#.">.</a>') only within the mode you are in.
+
+<a href="insert.html#o">o</a>  While numbers are entered in <a href="farsi.html#Farsi">Farsi</a> mode, the <a href="undo.html#redo">redo</a> buffer will be reset
+   (emptied).  That is, you cannot <a href="undo.html#redo">redo</a> the last changes (using '<a href="repeat.html#.">.</a>') after
+   entering numbers.
+
+<a href="insert.html#o">o</a>  While in left-to-right mode and <a href="farsi.html#Farsi">Farsi</a> mode set, <a href="undo.html#CTRL-R">CTRL-R</a> is not supported.
+
+<a href="insert.html#o">o</a>  While in right-to-left mode, the search on 'Latin' <a href="pattern.html#pattern">pattern</a> does not work,
+   except if you enter the Latin search <a href="pattern.html#pattern">pattern</a> in reverse.
+
+<a href="insert.html#o">o</a>  In command mode there is no support for entering numbers from left
+   to right and also for the sake of flexibility the keymapping logic is
+   restricted.
+
+<a href="insert.html#o">o</a>  Under the X Window environment, if you want to run Vim within a xterm
+   terminal emulator and <a href="farsi.html#Farsi">Farsi</a> mode set, you need to have an ANSI compatible
+   xterm terminal emulator.  This is because the <a href="print.html#letter">letter</a> codes above 128 decimal
+   have certain meanings in the standard xterm terminal emulator.
+
+   Note: Under X Window environment, Vim <a href="gui.html#GUI">GUI</a> works fine in <a href="farsi.html#Farsi">Farsi</a> mode.
+	 This eliminates the need of any xterm terminal emulator.
+
+
+Bugs
+While in insert/replace and <a href="farsi.html#Farsi">Farsi</a> mode set, if you repeatedly change the
+cursor position (via cursor <a href="intro.html#movement">movement</a>) and enter new text and then try to <a href="undo.html#undo">undo</a>
+the last change, the <a href="undo.html#undo">undo</a> will lag one change behind.  But <a href="motion.html#as">as</a> you continue to
+<a href="undo.html#undo">undo</a>, you will reach the original line of text.  You can also use <a href="undo.html#U">U</a> to <a href="undo.html#undo">undo</a> all
+changes made in the current line.
+
+For more information about the bugs refer to <a href="rileft.html#rileft.txt">rileft.txt</a>.
+
+<a href="farsi.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

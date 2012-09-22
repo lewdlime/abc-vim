@@ -1,0 +1,799 @@
+% shapednotes.fmt           -*- abc -*-
+% Implementação para shaped notes (18/03/2005 - 08/04/2007)
+% Inclui suporte a ``New Harp of Columbia'' (Chris Stoddart)
+% (Desenha cabeças de notas com formas associadas aos graus)
+
+% Implementation for `shaped notes'
+% (Note heads are shaped according to scale degree)
+
+!   Ajustado para abcm2ps-4.9.4 e posterior !
+! Usar outros vetores em versões anteriores !
+
+!A fazer:!
+- Ajustar tamanho das notas sol (cabeça normal)
+%% #confirmar#
+- Notas fá semibreve e mais longas não terão mudança da direção, ou
+  então serão ajustadas de acordo com a posição vertical. Aqui
+  restarão úteis as decorações !head-f_dn0! e !head-f_up0!.
+
+
+
+
+
+% ! DEPENDE DE `domovel.fmt' PARA FUNCIONAR !
+% ! REQUIRED: `domovel.fmt' !
+format domovel.fmt
+
+
+% ! Activate multi-stave support. Require abcm2ps- or greater. !
+% ! If you have any problems, try replacing `dm_multi' with `dm_mono' !
+postscript dm_multi
+% ! A linha acima ativa o suporte a várias pautas !
+% ! Exige abcm2ps- ou superior. !
+% ! Em caso de problemas, substitua `dm_multi' por `dm_mono' !
+
+% ! abcm2ps-4.9.4+ !
+setdefl true
+
+
+% Copyright (C) 2005-2007 Hudson Lacerda
+%
+%   This program is free software; you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation; either version 2 of the License, or
+%   (at your option) any later version.
+%
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%
+%   You should have received a copy of the GNU General Public License
+%   along with this program; if not, write to the Free Software
+%   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+%
+
+% %%%%%%%%%%%%%%%%%%%%%
+%   ! DOCUMENTAÇÃO  !
+%   ! DOCUMENTATION !
+% %%%%%%%%%%%%%%%%%%%%%
+
+% Lista das decorações definidas neste arquivo:
+% Decorations in this file:
+
+%%
+% Para ativar `shaped notes':
+% To activate shaped notes:
+%
+% !shape_d! Define do
+% !shape_r! Define re
+% !shape_m! Define mi
+% !shape_f! Define fa
+% !shape_s! Define so
+% !shape_l! Define la
+% !shape_t! Define ti
+%
+% Use entre colchetes, por exemplo:
+% Use inside brackets, for example:
+%
+% X:1
+% K:Eb
+% [!shape_d!E]FGA B4 |
+
+% Para desativar `shaped notes':
+% To disable shaped notes:
+%
+% !shaped_fim!
+%
+% Ou:
+% Or:
+% %%postscript shapednotes_fim
+
+% Com abcm2ps-4.9.3 ou anterior, as notas fá ficarão erradas em
+% algumas situações. Use um destes comandos para tentar ajuste
+% automático, no seu arquivo abc:
+% With abcm2ps-4.9.3 or lesser, fa notes will be shown wrong in
+% several places. Use one of these commands in your abc file
+% to try fix the problem:
+%
+% %%postscript shapednotes_vetor_voff shapednotes_def_vetor
+% %%postscript shapednotes_vetor_auto shapednotes_def_vetor
+% Default (abcm2ps-4.9.4+):
+% %%postscript shapednotes_vetor_defl shapednotes_def_vetor
+
+
+%%
+% Para corrigir o triângulo do fa:
+% To fix the triangle for note fa:
+%
+% Notas com cabeças pretas:
+% Black note heads:
+%
+% !head-f_up!   haste para cima (stem up)
+% !head-f_dn!   haste para baixo (stem down)
+%
+% Notas com cabeças brancas:
+% Blank note heads:
+%
+% !head-f_up0!   haste para cima (stem up)
+% !head-f_dn0!   haste para baixo (stem down)
+
+
+% %%%%%%%%%%%%%%%%%%%%
+%  ! IMPLEMENTAÇÃO !
+% %%%%%%%%%%%%%%%%%%%%
+
+%%
+% !MODOS/MODES!
+%%
+%
+% Notas `fa' são ajustadas automaticamente de acordo com a direção da haste
+% `fa' notes are adjusted according to stem direction (up/down)
+postscript /shapednotes_vetor_auto [
+postscript     /shape_tri/shape_moon/shape_losango
+postscript     /shape_fa_prepare
+postscript     /shape_normal/shape_quad/shape_dropup
+postscript ] def
+%
+% Notas `fa' são ajustadas de acordo com a posição vertical na pauta
+% `fa' notes are adjusted according to its vertical staff position
+postscript /shapednotes_vetor_voff [
+postscript     /shape_tri/shape_moon/shape_losango/shape_tridnl
+postscript         /shape_normal/shape_quad/shape_dropup
+postscript     /shape_tri/shape_moon/shape_losango/shape_triupr
+postscript         /shape_normal/shape_quad/shape_dropup
+postscript     /shape_tri/shape_moon/shape_losango/shape_triupr
+postscript         /shape_normal/shape_quad/shape_dropup
+postscript     /shape_tri/shape_moon/shape_losango/shape_tridnl
+postscript         /shape_normal/shape_quad/shape_dropup
+postscript ] def
+%
+% !abcm2ps-4.9.4+!
+% Solução para o problema do fá
+% Solution for the fa problem
+postscript /shapednotes_vetor_defl [ % Aiken (7-shapes)
+postscript     /shape_tri/shape_moon/shape_losango
+postscript     /shape_fa_defl
+postscript     /shape_normal/shape_quad/shape_dropup
+postscript ] def
+%
+% Sacred Harp (fa so la fa so la mi fa):
+postscript /shapednotes_vetor_defl_fasola [
+postscript     /shape_fa_defl/shape_normal/shape_quad
+postscript     /shape_fa_defl/shape_normal/shape_quad/shape_losango
+postscript ] def
+%
+% New Harp (7 shapes)
+postscript /shapednotes_vetor_newharp [ % (New Harp -- 7-shapes)
+postscript     /shape_newharp_do/shape_newharp_ra/shape_newharp_losango
+postscript     /shape_fa_defl
+postscript     /shape_normal/shape_newharp_quad/shape_newharp_tri_defl
+postscript ] def
+%
+%
+% Operador para definir o modo de funcionamento
+% Operator to define the mode
+postscript /shapednotes_def_vetor {
+postscript     /shapednotes_vetor exch def
+postscript     /shapednotes_modulo shapednotes_vetor length 3 mul def
+postscript } bind def
+%
+% ! DEFAULT !
+postscript shapednotes_vetor_defl shapednotes_def_vetor
+%
+% Interface to select newharp:
+%
+postscript /shapednotes_newharp{
+postscript     shapednotes_vetor_newharp shapednotes_def_vetor
+postscript     start_newharp_style
+postscript }!
+% New Harp style
+postscript /newharp_r4_old/r4 load bind def
+postscript /newharp_tclef_old/tclef load bind def
+postscript /newharp_bclef_old/bclef load bind def
+postscript /newharp_sfu_old/dm_sfu_old load bind def
+postscript /newharp_sfd_old/dm_sfd_old load bind def
+postscript /start_newharp_style {
+postscript     /r4/newharp_r4 load bind def
+postscript     /dm_sfu_old/newharp_sfu load bind def
+postscript     /dm_sfd_old/newharp_sfd load bind def
+postscript     /tclef/newharp_tclef load bind def
+postscript     /bclef/newharp_bclef load bind def
+postscript }!
+postscript /end_newharp_style {
+postscript     /r4/newharp_r4_old load bind def
+postscript     /dm_sfu_old/newharp_sfu_old load bind def
+postscript     /dm_sfd_old/newharp_sfd_old load bind def
+postscript     /tclef/newharp_tclef_old load bind def
+postscript     /bclef/newharp_bclef_old load bind def
+postscript }!
+
+postscript /shapednotes_fa_status 0 def % init
+
+% Cabeça de nota
+postscript /hd_shape {
+%
+postscript    3 1 roll % fill/restore
+%
+postscript    posicao_default? true eq {
+postscript       /Ypos Ypos_vdefault def % default para notas em clave de sol
+postscript       /posicao_default? false def
+postscript    }if
+%
+postscript    dm_multi_pautas? true eq {
+postscript       dup
+postscript       %2 dict begin
+postscript          /shapednotes_yp exch def
+postscript          shapednotes_yp dm_guess_staff /shapednotes_i exch def
+postscript          shapednotes_i dm_y_offset
+postscript          dm_stave_offsets shapednotes_i get sub
+postscript       %end
+postscript       /Ypos2 exch def xymove
+%
+postscript    }{
+postscript       xymove /Ypos2 Ystaff Ypos sub def
+postscript    } ifelse
+%
+postscript    /dm_vl shapednotes_vetor length def
+postscript    /dm_K shapednotes_modulo dm_vl div def
+postscript    y Ypos2 sub round dm_K div cvi dm_vl mod
+postscript    {dup 0 lt{dm_vl add}{exit}ifelse}loop dm_vl mod % coloca negativo no módulo
+postscript    exch /shapednotes_fa_status exch def % global
+postscript    shapednotes_vetor exch get load x y 3 2 roll exec
+postscript    shapednotes_fa_status 0 ne %% fill/stroke option
+%
+postscript    {gsave fill grestore stroke} {stroke} ifelse dlw
+% postscript    x y M shapednotes_i 3 string cvs show % !teste de qual pauta!
+postscript }!
+
+% ! ESPESSURA DE LINHAS ! - !  LINE WIDTH ADJUSTS  !
+% !usa opers. de domovel! - !uses domovel operators!
+postscript /shapednotes_restaura_espessura {
+postscript      /dlw /dm_old_dlw load bind def
+postscript      /hl /dm_old_hl load bind def
+postscript      /hl1 /dm_old_hl1 load bind def
+postscript      /hl2 /dm_old_hl2 load bind def
+postscript      /bar /dm_old_bar load bind def
+postscript      /ctsig /dm_old_ctsig load bind def
+postscript } bind def
+%%
+
+
+% !COMPATIBILIDADE!
+% hl, hl1 e hl2 requerem x y (não apenas y) desde abcm2ps-5.7.3
+postscript /shapednotes_HLx {currentdict /creator known {
+postscript    creator 1 get 5 gt
+postscript    creator 1 get 5 eq creator 2 get 7 gt and or
+postscript    creator 1 get 5 eq creator 2 get 7 eq and creator 3 get 3 ge and or
+postscript    {exch} {x} ifelse
+postscript } {x} ifelse } !
+
+
+postscript /shapednotes_adapta_espessura {
+% salva espessura das linhas
+postscript      /dlw {0.3 setlinewidth} !
+postscript      /shapednotes_slw 0.4 def
+postscript      /hl{shapednotes_slw setlinewidth
+postscript           shapednotes_HLx -6 add dm_horizontal_offset add exch M 12 0 RL stroke dlw}!
+postscript      /hl1{shapednotes_slw setlinewidth
+postscript           shapednotes_HLx -7 add dm_horizontal_offset add exch M 14 0 RL stroke dlw}!
+postscript      /hl2{shapednotes_slw setlinewidth
+postscript           shapednotes_HLx -8 add dm_horizontal_offset add exch M 16 0 RL stroke dlw}!
+   % Porém as barras de compasso mantém-se bem visíveis
+postscript      /bar{M .8 setlinewidth 0 exch RL stroke dlw}!
+   % O mesmo para o corte do metro C|
+postscript      /ctsig{.8 setlinewidth 2 copy csig 4 add M 0 16 RL stroke dlw}!
+postscript }bind def
+
+% Inicia escrita em shaped notes
+postscript /shapednotes_inicio_ {
+%
+% !multi-stave! (multipautas)
+postscript    dm_multi_pautas? true eq { %%%%21 add % !FIXME - Is that correct?!
+postscript     %3 dict begin
+postscript        dup /yp exch def yp dm_guess_staff /shapednotes_i exch def
+postscript        yp neg shapednotes_i dm_y_offset add
+postscript        /ypis exch def
+postscript        dm_stave_offsets shapednotes_i ypis put
+postscript     %end
+postscript     pop pop
+postscript     } {
+postscript     getpos } ifelse      /posicao_default? false def
+%
+postscript     /hd{1 hd_shape}def
+postscript     /Hd{0 hd_shape}def
+postscript     /HD{0 hd_shape 0 shapednotes_fa_draw}def
+postscript     /HDD{0 hd_shape 0 shapednotes_fa_draw}def
+postscript     /breve{0 hd_shape 0 shapednotes_fa_draw}def
+postscript     /longa{0 hd_shape 0 shapednotes_fa_draw}def
+%
+% NOTAS `FÁ' SÃO DESENHADAS PELOS OPERADORES DE HASTES (exceto com 'dm_multi_pautas?')
+% `FA' NOTES ARE DRAWN BY STEM OPERATORS (not with 'dm_multi_pautas?')
+postscript     /sfu{shapednotes_stem_adj
+postscript          dm_sfu_old
+postscript          shapednotes_stem_restore 0 shapednotes_fa_draw}!
+postscript     /sfd{shapednotes_stem_adj
+postscript          dm_sfd_old
+postscript          shapednotes_stem_restore 1 shapednotes_fa_draw}!
+postscript     /su{shapednotes_stem_adj
+postscript         dm_su_old
+postscript         shapednotes_stem_restore 0 shapednotes_fa_draw}!
+postscript     /sd{shapednotes_stem_adj
+postscript         dm_sd_old
+postscript         shapednotes_stem_restore 1 shapednotes_fa_draw}!
+%
+%postscript     shapednotes_adapta_espessura
+postscript } !
+
+% Ajusta hastes às cabeças de notas (somente com 'dm_multi_pautas?')
+% Adjust stems to note heads (only with 'dm_multi_pautas?')
+postscript /shapednotes_stem_offset 0 def
+postscript /shapednotes_old_y 0 def
+postscript /shapednotes_stem_adj {
+postscript      /shapednotes_old_y y def
+postscript      dm_multi_pautas? true eq{
+postscript         shapednotes_stem_offset dup
+postscript         /y exch y add def
+postscript         sub
+postscript      }if
+postscript }!
+postscript /shapednotes_stem_restore {
+postscript     /y shapednotes_old_y def
+postscript     /shapednotes_stem_offset 0 def
+postscript }!
+
+% !abcm2ps-4.9.4+!
+% Salva x, y, cabeça preta ou vazada
+% Save x, y, fill/stroke
+postscript /shapednotes_fa_array 10 3 mul array def
+
+postscript /shapednotes_fa_asize 0 def
+postscript /shapednotes_fa_draw{
+postscript     %2 dict begin % !FIXME - why dict error?!
+postscript     0 eq {/shape_triupr} {/shape_tridnl} ifelse
+postscript        /shapednote_head exch def
+postscript     0 3 shapednotes_fa_asize 3 sub {
+postscript        /shapednotes_i exch def
+postscript        shapednotes_fa_array shapednotes_i get
+postscript        shapednotes_fa_array shapednotes_i 1 add get
+postscript        shapednotes_fa_array shapednotes_i 2 add get
+postscript        shapednote_head load exec
+postscript        0 eq
+postscript           {stroke} {gsave fill grestore stroke} ifelse
+postscript     } for
+potscript      %end
+postscript     /shapednotes_fa_asize 0 def % remove data
+postscript }!
+%
+postscript /shape_fa_prepare { xymove
+postscript     shapednotes_fa_array shapednotes_fa_asize shapednotes_fa_status put
+postscript     shapednotes_fa_array shapednotes_fa_asize 1 add x put
+postscript     shapednotes_fa_array shapednotes_fa_asize 2 add y put
+postscript     /shapednotes_fa_asize shapednotes_fa_asize 3 add def
+postscript }!
+
+% Cabeça de nota fá para abcm2ps-4.9.4+
+% fa note-head for abcm2ps-4.9.4+
+postscript /shape_fa_defl {
+postscript     defl 4 and 0 eq{shape_tridnl}{shape_triupr}ifelse
+postscript }bind def
+
+% FUNCAO PARA ACIONAR O ESTILO MANUALMENTE
+postscript /shapednotes_inicio{ 0 12 shapednotes_inicio_
+postscript                      /posicao_default? true def }!
+
+% Restaura escrita com cabeças de notas normais
+postscript /shapednotes_fim_ { pop pop
+postscript	/hd /dm_old_hd load bind def
+postscript	/Hd /dm_old_Hd load bind def
+postscript	/HD /dm_old_HD load bind def
+postscript	/HDD /dm_old_HDD load bind def
+postscript	/breve /dm_old_breve load bind def
+postscript	/longa /dm_old_longa load bind def
+postscript      /posicao_default? true def %/Ypos 6 de
+postscript      /sfu /dm_sfu_old load bind def
+postscript      /sfd /dm_sfd_old load bind def
+postscript      /su /dm_su_old load bind def
+postscript      /sd /dm_sd_old load bind def
+postscript      /r4 /newharp_r4_old load bind def
+postscript      shapednotes_restaura_espessura
+postscript      end_newharp_style
+postscript } !
+% FUNCAO PARA TERMINAR O MODO MANUALMENTE
+postscript /shapednotes_fim{0 0 shapednotes_fim_ }!
+postscript /shaped_fim{ shapednotes_fim_ }!
+
+% ACIONA O ESTILO
+%postscript shapednotes_inicio
+
+
+%==================================================
+% FORMAS DE CABEÇAS DE NOTAS
+% NOTE HEAD SHAPES
+%==================================================
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Determina ajuste da haste
+% Set offset for stem position
+postscript /shapednotes_def_stem_offset { % parms: down_offset up_offset
+postscript     defl 4 and 0 eq {exch} if
+postscript     /shapednotes_stem_offset exch def pop
+postscript }!
+
+% (la)
+postscript /shape_quad {dlw
+postscript     0 0 shapednotes_def_stem_offset
+postscript     exch 3.5 add exch -2.25 add M
+postscript     0 4.5 RL
+postscript     -7 0 RL
+postscript     0 -4.5 RL
+postscript     closepath
+postscript }!
+
+% (do)
+postscript /shape_tri {dlw
+postscript     -1.5 -3.5 shapednotes_def_stem_offset
+postscript     M -3.15 -2.15 RM 6.3 0 RL -3.15 4.6 RL
+postscript     closepath
+postscript }!
+
+% (fá) haste para cima (stem up `fa' triangle)
+% ! don't use xymove !
+postscript /shape_triupr{dlw
+postscript     0 0 shapednotes_def_stem_offset
+postscript     M -2.8 2.25 RM 6.3 0 RL 0 -5 RL
+postscript     closepath gsave stroke grestore
+postscript }!
+
+% (fá) haste para baixo (stem down `fa' triangle)
+% ! don't use xymove !
+postscript /shape_tridnl{dlw
+postscript     0 0 shapednotes_def_stem_offset
+postscript     M 2.8 -2.25 RM -6.3 0 RL 0 5 RL
+postscript     closepath gsave stroke grestore
+postscript }!
+
+% (re)
+postscript /shape_moon{dlw
+postscript     3.55 -.8 shapednotes_def_stem_offset
+%postscript     exch 3.25 add exch 2.2 add M
+%postscript     0 -2 RL -1.2 -2.85 -5.3 -2.85 -6.5 0 RC 0 2 RL
+% %%postscript     0 -2 RL -1.8 -2.85 -4.7 -2.85 -6.5 0 RC 0 2 RL
+postscript     exch 3.5 add exch 2.2 add M
+postscript     0 -2 RL -1.5 -2.8 -5.5 -2.8 -7 0 RC 0 2 RL
+postscript     closepath gsave stroke grestore
+postscript }!
+
+% (ti)
+postscript /shape_dropup{dlw
+postscript     1.85 -.15 shapednotes_def_stem_offset
+%postscript  2.8 sub M 2.75 3.8 RL -1.25 1.4 -4.25 1.4 -5.5 0 RC closepath %mid
+%postscript  2.8 sub M 2.5 3.8 RL -1 1.4 -4 1.4 -5 0 RC closepath %narrow
+%postscript  2.5 sub M 3 3.2 RL -2 1.9 -4 1.9 -6 0 RC closepath %wide
+%postscript  2.3 sub M 3.3 3.2 RL -1.2 1.9 -5.4 1.9 -6.6 0 RC closepath %wide2
+%postscript  2.4 sub M 3.3 3.2 RL -1.2 2.0 -5.4 2.0 -6.6 0 RC closepath %wide3
+%postscript     2.3 sub M 3.3 3.2 RL -1.2 2 -5.4 2 -6.6 0 RC closepath %wide4
+postscript  2.3 sub M 3.4 3.2 RL -1.2 1.95 -5.6 1.95 -6.8 0 RC closepath %wide5
+postscript     gsave stroke grestore
+postscript }!
+
+% (mi)
+postscript /shape_losango{dlw
+postscript     1 -1 shapednotes_def_stem_offset
+postscript     M 0 2.3 RM 3.25 -2.3 RL -3.25 -2.3 RL -3.25 2.3 RL closepath
+%postscript     M 0 2.3 RM 3.45 -2.3 RL -3.45 -2.3 RL -3.45 2.3 RL closepath
+%postscript     M 0 2.5 RM 3.35 -2.5 RL -3.35 -2.5 RL -3.35 2.5 RL closepath
+%postscript     M 0 2.6 RM 3.3 -2.6 RL -3.3 -2.6 RL -3.3 2.6 RL closepath
+postscript }!
+
+% (sol)
+postscript /shape_normal{
+postscript      0 0 shapednotes_def_stem_offset
+%postscript 	xymove .4 setlinewidth %dlw
+postscript 	moveto .1 setlinewidth %dlw
+postscript 	3 1.6 RM % intern (stroke | fill)
+postscript 	-1 1.8 -7 -1.4 -6 -3.2 RC
+postscript 	1 -1.8 7 1.4 6 3.2 RC currentpoint
+postscript 	gsave % extern
+postscript	M 0.5 0.3 RM
+postscript	2 -3.8 -5 -7.6 -7 -3.8 RC
+postscript	-2 3.8 5 7.6 7 3.8 RC
+postscript 	fill
+postscript 	grestore
+postscript }!
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW HARP NOTE HEADS
+%
+% si (triangle up/down)
+postscript /shape_newharp_tri_dn {dlw
+postscript     -1.5 -3.5 shapednotes_def_stem_offset
+postscript     M -3.5 0 RM -3.15 -2.15 RM 6.3 0 RL -3.15 4.6 RL
+postscript     closepath
+postscript }!
+postscript /shape_newharp_tri_up {dlw
+postscript     1.5 1.5 shapednotes_def_stem_offset
+postscript     M 3.5 0 RM 3.15 2.15 RM -6.3 0 RL 3.15 -4.6 RL
+postscript     closepath
+postscript }!
+postscript /shape_newharp_tri_defl {
+postscript     defl 4 and 0 eq{shape_newharp_tri_dn}{shape_newharp_tri_up}ifelse
+postscript }bind def
+
+% ra -- similar to a upper-case letter D
+postscript /shape_newharp_ra {
+postscript     3.7  -3.6  shapednotes_def_stem_offset
+postscript     M 3.5 defl 4 and 0 eq { neg } if 0 RM
+postscript     currentpoint 2 copy newpath 3 140 -140 arcn stroke
+% postscript     newpath 3 90 -90 arcn
+% added vertical bar for ra whole note Chris Stoddart 12 March 2006
+postscript     newpath 3 90 -90 arcn 0 6 RL
+postscript }!
+
+% do -- similar a uma ampulheta
+postscript /shape_newharp_do {
+postscript     -1.5 1.5 shapednotes_def_stem_offset
+postscript     exch 3 add exch -2.5 add M
+% postscript     exch 1.75 add exch -2.25 add M
+postscript     3.5 defl 4 and 0 eq  { neg } if 0 RM
+% size of glyph increased to be closer to others - Chris Stoddart - 14 march 2006 (Pi day) 
+% postscript     -3.5 4.5 RL
+postscript     -6 5 RL
+% postscript     3.5 0 RL
+postscript     6 0.0 RL
+% postscript     -3.5 -4.5 RL
+postscript     -6 -5 RL
+postscript     closepath
+postscript }!
+
+% (la)
+postscript /shape_newharp_quad {dlw
+postscript     0 0 shapednotes_def_stem_offset
+postscript     exch 3.0 add exch -2.25 add M
+% position shifted to right for better alignment with stem
+postscript     0.5 0 RM
+postscript     0 4.5 RL
+% size decreased to be closer to others - Chris Stoddart - 14 march 2006 - Pi day
+% postscript     -6 0 RL
+postscript     -7 0 RL
+postscript     0 -4.5 RL
+postscript     closepath
+postscript }!
+
+% (mi)
+postscript /shape_newharp_losango{dlw
+postscript     1 -1 shapednotes_def_stem_offset
+% size of glyph inceased to be closer to others - Chris Stoddart - 14 march 2006  - Pi Day
+postscript     M 0 2.8 RM 3.5 -2.8 RL -3.5 -2.8 RL -3.5 2.8 RL closepath
+% postscript     M 0 2.3 RM 3.25 -2.3 RL -3.25 -2.3 RL -3.25 2.3 RL closepath
+%postscript     M 0 2.3 RM 3.45 -2.3 RL -3.45 -2.3 RL -3.45 2.3 RL closepath
+%postscript     M 0 2.5 RM 3.35 -2.5 RL -3.35 -2.5 RL -3.35 2.5 RL closepath
+%postscript     M 0 2.6 RM 3.3 -2.6 RL -3.3 -2.6 RL -3.3 2.6 RL closepath
+postscript }!
+
+%postscript /newharp_r4 { moveto      % usage: x y r4
+%postscript           -7 -8 RM
+% %%postscript           x y 4. 360 180 arcn
+% %%postscript           0 -12 RL
+%postscript           0 12 RL
+% RC needs tuning - use statements with RL that follow
+% %%postscript           2.5 -1.5  2.5 -1.5 7 1 RC
+%postscript           2 -2 RL
+%postscript           2  0 RL
+%postscript           2  3 RL  
+% arc needs more lines for better appearance
+%postscript           1.0 setlinewidth stroke dlw
+%postscript         } def
+
+postscript /newharp_r4 { gsave T -1 1 scale
+postscript  3.5 4 2 copy M r8e M 0 -10 RL 1 setlinewidth stroke
+postscript  grestore
+postscript } def
+
+% /* n len sfu - stem and n flags up */
+% original coding per Hudson's operations
+postscript /newharp_sfu {	dlw x y M 3.5 1.0 RM
+postscript	1.0 sub 0 exch RL currentpoint stroke
+postscript	M dup 1 eq
+postscript	  {
+postscript		pop
+% original coding
+% %%postscript		0.6 -5.6 9.6 -9 5.6 -18.4 RC
+% %%postscript		1.6 6 -1.3 11.6 -5.6 12.8 RC
+% coding based on sfs
+postscript		        7 -3.2 RL
+postscript		        0 -3.2 RL
+postscript		        -7 3.2 RL
+% original coding
+postscript		fill
+postscript	  }{
+postscript		2 1 3 -1 roll{
+postscript			pop currentpoint
+% original coding
+% %%postscript			0.9 -3.7 9.1 -6.4 6 -12.4 RC
+% %%postscript			1 5.4 -4.2 8.4 -6 8.4 RC
+% coding based on sfs
+postscript		        7 -3.2 RL
+postscript		        0 -3.2 RL
+postscript		        -7 3.2 RL
+% original coding
+postscript			fill -5.4 add M
+postscript		}for
+% original coding
+% %%postscript		1.2 -3.2 9.6 -5.7 5.6 -14.6 RC
+% %%postscript		1.6 5.4 -1 10.2 -5.6 11.4 RC
+% coding based on sfs
+postscript		        7 -3.2 RL
+postscript		        0 -3.2 RL
+postscript		        -7 3.2 RL
+% original coding
+postscript		fill
+postscript	  }
+postscript	ifelse}def
+postscript  /newharp_sfd {	dlw x y M -3.5 -1.0 RM
+postscript	1.0 add 0 exch RL currentpoint stroke
+postscript	M dup 1 eq
+postscript	  {
+postscript		pop
+% old		0.6 5.6 9.6 9 5.6 18.4 RC
+% old		1.6 -6 -1.3 -11.6 -5.6 -12.8 RC
+% new
+postscript		        7 3.2 RL
+postscript		        0 3.2 RL
+postscript		        -7 -3.2 RL
+postscript		fill
+postscript	  }{
+postscript		2 1 3 -1 roll{
+postscript			pop currentpoint
+% old			0.9 3.7 9.1 6.4 6 12.4 RC
+% old			1 -5.4 -4.2 -8.4 -6 -8.4 RC
+% new
+postscript		        7 3.2 RL
+postscript		        0 3.2 RL
+postscript		        -7 -3.2 RL
+postscript			fill 5.4 add M
+postscript		}for
+% old		1.2 3.2 9.6 5.7 5.6 14.6 RC
+% old		1.6 -5.4 -1 -10.2 -5.6 -11.4 RC
+% new
+postscript		        7 3.2 RL
+postscript		        0 3.2 RL
+postscript		        -7 -3.2 RL
+postscript		fill
+postscript	  }
+postscript	ifelse}def
+
+postscript /newharp_tclef{
+postscript gsave translate -10 0 translate .04 dup scale newpath
+postscript 	388 298 moveto
+postscript 	 396.52 216 396.676 134 398 52 curveto
+postscript 	 438.101 93.5304 459.721 136.305 446 236 curveto
+postscript 	 435.302 273.798 414.843 292.231 388 298 curveto
+postscript 	closepath
+postscript 	366 298 moveto
+postscript 	 324.796 291.67 310.127 269.901 306 242 curveto
+postscript 	 286.861 193.498 300.04 151.472 306 108 curveto
+postscript 	 316.651 83.1977 340.047 64.537 372 50 curveto
+postscript 	 370.989 132.667 377.244 215.333 366 298 curveto
+postscript 	closepath
+postscript 	366 34 moveto
+postscript 	 309.796 54.3387 279.008 86.4428 260 124 curveto
+postscript 	 242.624 165.333 251.494 206.667 260 248 curveto
+postscript 	 274.13 289.266 298.8 321.279 350 330 curveto
+postscript 	 322 410 lineto
+postscript 	 228.939 313.073 214.501 266.911 202 222 curveto
+postscript 	 178.551 108.232 221.669 68.0771 270 38 curveto
+postscript 	 308.24 12.9069 338.342 33.71 366 34 curveto
+postscript 	closepath
+postscript 	310 520 moveto
+postscript 	 331.555 555.415 349.062 594.699 354 646 curveto
+postscript 	 353.657 684.496 341.448 714.027 306 726 curveto
+postscript 	 277.182 725.342 263.266 696.68 260 648 curveto
+postscript 	 259.917 575.667 280.164 538.075 310 520 curveto
+postscript 	closepath
+postscript 	284 494 moveto
+postscript 	 253.89 532.01 241.321 598.01 234 657 curveto
+postscript 	 244.468 719.218 267.127 753.57 309 744 curveto
+postscript 	 376.464 743.16 391.634 676.842 396 597 curveto
+postscript 	 386.172 533.935 361.693 485.367 336 438 curveto
+postscript 	 354.318 404.872 368.826 368.446 381 330 curveto
+postscript 	 462.986 297.914 477.993 237.04 474 168 curveto
+postscript 	 466.894 90.8396 436.32 51.1416 396 27 curveto
+postscript 	 385.206 -8.55273 379.718 -33.7195 373.219 -52 curveto
+postscript 	 347.961 -110.862 325.371 -110.158 312 -123 curveto
+postscript 	 266.559 -130.426 234.692 -122.294 237 -75 curveto
+postscript 	 227.477 -35.267 259.032 -36.9785 279 -27 curveto
+postscript 	 336.639 -35.534 328.449 -60.1952 336 -81 curveto
+postscript 	 366.485 -52.2196 364.899 -19.0426 357 15 curveto
+postscript 	 320 14.3144 283 14.888 246 33 curveto
+postscript 	 188.998 73.4398 149.592 128.58 156 222 curveto
+postscript 	 177.35 402.324 251.434 428.057 284 494 curveto
+postscript 	closepath
+postscript fill grestore
+postscript }bind def
+postscript 
+postscript /newharp_bclef{
+postscript gsave translate -10 .5 translate .04 dup scale newpath
+postscript 	454 382 moveto
+postscript 	 465.47 379.344 470.438 372.161 474 364 curveto
+postscript 	 469.044 351.041 465.697 350.912 462 348 curveto
+postscript 	 454 346.266 446 347.172 438 348 curveto
+postscript 	 427.87 359.801 432.81 368.734 436 378 curveto
+postscript 	 454 382 lineto
+postscript 	closepath
+postscript 	452 536 moveto
+postscript 	 459.965 530.581 472.487 532.696 470 510 curveto
+postscript 	 468.333 492.591 449.586 482.811 438 496 curveto
+postscript 	 426.92 518.815 428.555 528.162 452 536 curveto
+postscript 	closepath
+postscript 	470 268 moveto
+postscript 	 439.112 245.173 447.679 214.185 346 206 curveto
+postscript 	 269.998 208.017 211.331 242.017 170 308 curveto
+postscript 	 138.158 364.667 125.753 421.333 136 478 curveto
+postscript 	 157.191 529.063 184.017 556.226 214 570 curveto
+postscript 	 233.163 582.047 255.512 590.296 280 596 curveto
+postscript 	 338.481 593.713 369.02 569.467 396 532 curveto
+postscript 	 418.368 466.38 404.775 459.146 402 430 curveto
+postscript 	 393.526 385.226 362.761 372.721 328 366 curveto
+postscript 	 292.042 368.559 266.689 380.674 252 410 curveto
+postscript 	 231.444 433.98 238.669 465.287 242 497 curveto
+postscript 	 253.566 519.351 271.785 530.53 294 535 curveto
+postscript 	 311.577 535.2 326.398 530.879 336 518 curveto
+postscript 	 357.423 497.021 345.045 488.906 340 478 curveto
+postscript 	 327.333 465.042 314.667 467.994 302 474 curveto
+postscript 	 298.308 487 290.239 494.912 298 508 curveto
+postscript 	 300 520 lineto
+postscript 	 288.078 524.533 279.441 514.482 270 508 curveto
+postscript 	 257.102 493.333 258.083 478.667 260 464 curveto
+postscript 	 252.673 429.324 280.789 377.803 324 384 curveto
+postscript 	 348.126 388.004 374.429 391.788 386 432 curveto
+postscript 	 387.467 460 388.425 488 378 516 curveto
+postscript 	 356.551 544.308 337.471 574.639 284 572 curveto
+postscript 	 250.45 566.091 224.217 549.604 204 524 curveto
+postscript 	 160.161 439.207 190.808 357.595 230 292 curveto
+postscript 	 248.963 252.804 285.231 234.959 328 226 curveto
+postscript 	 396.319 218.787 428.061 243.581 456 278 curveto
+postscript 	 470 268 lineto
+postscript 	closepath
+postscript fill grestore
+postscript }bind def
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%==================================================
+% ! INTERFACE DE USUÁRIO: DECORAÇÕES !
+% !   USER INTERFACE:  DECORATIONS   !
+%==================================================
+
+% y values are the inverse of that for domovel
+postscript /shape_d {shapednotes_inicio_ }!
+postscript /shape_r {-3 add shapednotes_inicio_ }!
+postscript /shape_m {-6 add shapednotes_inicio_ }!
+postscript /shape_f {-9 add shapednotes_inicio_ }!
+postscript /shape_s {-12 add shapednotes_inicio_ }!
+postscript /shape_l {-15 add shapednotes_inicio_ }!
+postscript /shape_t {-18 add shapednotes_inicio_ }!
+
+deco shape_d 0 shape_d 0 0 0
+deco shape_r 0 shape_r 0 0 0
+deco shape_m 0 shape_m 0 0 0
+deco shape_f 0 shape_f 0 0 0
+deco shape_s 0 shape_s 0 0 0
+deco shape_l 0 shape_l 0 0 0
+deco shape_t 0 shape_t 0 0 0
+deco shaped_fim 0 shaped_fim 0 0 0
+
+
+% !TODO: definir espessura de linha !
+postscript /tri_f_up{shape_triupr fill}!
+postscript /tri_f_dn{shape_tridnl fill}!
+postscript /tri_f_up0{shape_triupr stroke}!
+postscript /tri_f_dn0{shape_tridnl stroke}!
+
+deco head-f_up  0 tri_f_up  0 0 0
+deco head-f_dn  0 tri_f_dn  0 0 0
+deco head-f_up0 0 tri_f_up0 0 0 0
+deco head-f_dn0 0 tri_f_dn0 0 0 0
+

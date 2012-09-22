@@ -1,0 +1,353 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: os_beos</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: os_beos</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="os_beos.txt"></A><b>os_beos.txt</b>*	For Vim version 7.3.  Last change: 2010 Aug 14
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+							*<a name="BeOS"></A><b>BeOS</b>* *<a name="BeBox"></A><b>BeBox</b>*
+This is a port of Vim 5.1 to the <a href="os_beos.html#BeOS">BeOS</a> Preview Release 2 (also known <a href="motion.html#as">as</a> PR2)
+or later.
+
+This file contains the particularities for the BeBox/BeOS version of Vim.  For
+matters not discussed in this file, Vim behaves very much like the <a href="os_unix.html#Unix">Unix</a>
+|<a href="os_unix.html">os_unix.txt</a>| version.
+
+ 1. General			|<a href="os_beos.html#beos-general">beos-general</a>|
+ 2. Compiling Vim		|<a href="os_beos.html#beos-compiling">beos-compiling</a>|
+ 3. Timeout in the Terminal	|<a href="os_beos.html#beos-timeout">beos-timeout</a>|
+ 4. <a href="mbyte.html#Unicode">Unicode</a> vs. Latin1		|<a href="os_beos.html#beos-unicode">beos-unicode</a>|
+ 5. The <a href="os_beos.html#BeOS">BeOS</a> <a href="gui.html#GUI">GUI</a>		|<a href="os_beos.html#beos-gui">beos-gui</a>|
+ 6. The <a href="starting.html#$VIM">$VIM</a> directory		|<a href="os_beos.html#beos-vimdir">beos-vimdir</a>|
+ 7. Drag <a href="change.html#&amp;">&amp;</a> Drop			|<a href="os_beos.html#beos-dragndrop">beos-dragndrop</a>|
+ 8. Single Launch vs. Multiple
+    Launch			|<a href="os_beos.html#beos-launch">beos-launch</a>|
+ 9. Fonts			|<a href="os_beos.html#beos-fonts">beos-fonts</a>|
+10. The meta key modifier	|<a href="os_beos.html#beos-meta">beos-meta</a>|
+11. Mouse key mappings		|<a href="os_beos.html#beos-mouse">beos-mouse</a>|
+12. Color names			|<a href="os_beos.html#beos-colors">beos-colors</a>|
+13. Compiling with <a href="if_perl.html#Perl">Perl</a>		|<a href="os_beos.html#beos-perl">beos-perl</a>|
+
+
+
+1. General						*<a name="beos-general"></A><b>beos-general</b>*
+
+The default <a href="syntax.html#syntax">syntax</a> highlighting mostly works with different foreground colors
+to highlight items.  This works best if you set your Terminal <a href="windows.html#window">window</a> to a
+darkish background and light letters.  Some middle-grey background (for
+instance (r,g,b)=(168,168,168)) with black letters also works nicely.  If you
+use the default light background and dark letters, it may look better to
+simply reverse the notion of foreground and background color settings.  To <a href="diff.html#do">do</a>
+this, add this to your <a href="starting.html#.vimrc">.vimrc</a> file (where <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> may need to be replaced with
+the <a href="intro.html#escape">escape</a> character):
+
+<b>  :if &amp;term == "beos-ansi"</b>
+<b>  :    set t_AB=&lt;Esc&gt;[3%dm</b>
+<b>  :    set t_AF=&lt;Esc&gt;[4%dm</b>
+<b>  :endif</b>
+
+
+
+2. Compiling Vim					*<a name="beos-compiling"></A><b>beos-compiling</b>*
+
+From the Advanced Access Preview Release (AAPR) on, Vim can be configured with
+the standard configure <a href="usr_41.html#script">script</a>.  To get the compiler and its flags right, use
+the following command-line in the shell (you can cut and paste it in one go):
+
+CC=$BE_C_COMPILER CFLAGS=&quot;$BE_DEFAULT_C_FLAGS -O7&quot; \
+    ./configure --prefix=/boot/home/config
+
+$BE_C_COMPILER is usually &quot;mwcc&quot;, $BE_DEFAULT_C_FLAGS is usually &quot;-I- -I.&quot;
+
+When configure has run, and you wish to enable <a href="gui.html#GUI">GUI</a> support, you must edit the
+config.mk file so that the lines with GUI_xxx refer to $(BEOSGUI_xxx) instead
+of $(NONE_xxx).
+Alternatively you can make this change in the Makefile; it will have a
+more permanent effect.  Search for &quot;NONE_&quot;.
+
+After compilation you need to add the resources to the binary.  Add the
+following few lines near the end (before the line with &quot;exit $exit_value&quot;) of
+the link.sh <a href="usr_41.html#script">script</a> to <a href="diff.html#do">do</a> this automatically.
+
+    rmattr BEOS:TYPE vim
+    copyres os_beos.rsrc vim
+    mimeset vim
+
+Also, create a dummy file &quot;strip&quot;:
+
+    #!/bin/sh
+    mimeset $1
+    exit 0
+
+You will need it when using &quot;make install&quot; to <a href="usr_90.html#install">install</a> Vim.
+
+Now type &quot;make&quot; to compile Vim, then &quot;make install&quot; to <a href="usr_90.html#install">install</a> it.
+
+If you want to <a href="usr_90.html#install">install</a> Vim by hand, you must copy Vim to $HOME/config/bin, and
+create a bunch of symlinks to it ({g,r,rg}{vim,ex,view}).  Furthermore you must
+copy Vim's configuration files to $HOME/config/share/vim:
+vim-5.0s/{*.vim,doc,syntax}.  For completeness, you should also copy the nroff
+manual pages to $HOME/config/man/man1.  Don't forget ctags/ctags and xxd/xxd!
+
+Obviously, you need the unlimited linker to actually link Vim.  See
+	<a href="http://www.metrowerks.com">http://www.metrowerks.com</a> for purchasing the CodeWarrior compiler for BeOS.
+There are currently no other linkers that can <a href="diff.html#do">do</a> the job.
+
+This won't be able to include the <a href="if_perl.html#Perl">Perl</a> or <a href="if_pyth.html#Python">Python</a> interfaces even if
+you have the appropriate files installed. |<a href="os_beos.html#beos-perl">beos-perl</a>|
+
+
+
+3. Timeout in the Terminal				*<a name="beos-timeout"></A><b>beos-timeout</b>*
+
+Because some POSIX/UNIX features are still missing[1], there is no direct OS
+support for read-with-timeout in the Terminal.  This would mean that you cannot
+use :mappings of more than one character, unless you also <a href="options.html#:set">:set</a> notimeout.
+|<a href="options.html#'timeout'">'timeout'</a>|
+
+To circumvent this problem, I added a workaround to provide the necessary
+input with timeout by using an extra thread which reads ahead one character.
+As a side effect, it also makes Vim recognize when the Terminal <a href="windows.html#window">window</a>
+resizes.
+
+Function keys are not supported in the Terminal since they produce very
+indistinctive character sequences.
+
+These problems <a href="diff.html#do">do</a> not exist in the <a href="gui.html#GUI">GUI</a>.
+
+[1]: there is no select() on file descriptors; also the termios VMIN and VTIME
+settings <a href="diff.html#do">do</a> not seem to work properly.  This has been the <a href="change.html#case">case</a> since DR7 at
+least and still has not been fixed <a href="motion.html#as">as</a> of PR2.
+
+
+							*<a name="beos-unicode"></A><b>beos-unicode</b>*
+
+4. <a href="mbyte.html#Unicode">Unicode</a> vs. Latin1					*<a name="beos-utf8"></A><b>beos-utf8</b>*
+
+<a href="os_beos.html#BeOS">BeOS</a> uses <a href="mbyte.html#Unicode">Unicode</a> and <a href="mbyte.html#UTF-8">UTF-8</a> for text strings (16-bit characters encoded to
+8-bit characters).  Vim assumes ISO-Latin1 or other 8-bit character codes.
+This does not produce the desired results for non-ASCII characters.  Try the
+command <a href="digraph.html#:digraphs">:digraphs</a> to see.  If they look messed up, use <a href="options.html#:set">:set</a> <a href="options.html#'isprint'">isprint</a>=@ to
+(slightly) improve the display of ISO-Latin1 characters 128-255.  This works
+better in the <a href="gui.html#GUI">GUI</a>, depending on which font you use (below).
+
+You may also use the /boot/bin/xtou command to convert <a href="mbyte.html#UTF-8">UTF-8</a> files from (xtou
+<a href="starting.html#-f">-f</a> iso1 filename) or to (xtou <a href="starting.html#-t">-t</a> iso1 filename) ISO-Latin1 characters.
+
+
+
+5. The <a href="os_beos.html#BeOS">BeOS</a> <a href="gui.html#GUI">GUI</a>						*<a name="beos-gui"></A><b>beos-gui</b>*
+
+The <a href="os_beos.html#BeOS">BeOS</a> <a href="gui.html#GUI">GUI</a> is no longer included.  It was not maintained for a while and
+most likely didn't work.  If you want to work on this: get the Vim 6.x version
+and <a href="diff.html#merge">merge</a> it back in.
+
+
+
+6. The <a href="starting.html#$VIM">$VIM</a> directory					*<a name="beos-vimdir"></A><b>beos-vimdir</b>*
+
+<a href="starting.html#$VIM">$VIM</a> is the symbolic name for the place where Vims support files are stored.
+The default value for <a href="starting.html#$VIM">$VIM</a> is set at compile time and can be determined with
+
+<b>  :version</b>
+
+The normal value is /boot/home/config/share/vim.  If you don't like it you can
+set the VIM environment variable to override this, or set <a href="options.html#'helpfile'">'helpfile'</a> in your
+<a href="starting.html#.vimrc">.vimrc</a>:
+
+<b>  :if version &gt;= 500</b>
+<b>  :    set helpfile=~/vim/vim54/doc/help.txt</b>
+<b>  :    syntax on</b>
+<b>  :endif</b>
+
+
+
+7. Drag <a href="change.html#&amp;">&amp;</a> Drop						*<a name="beos-dragndrop"></A><b>beos-dragndrop</b>*
+
+You can drop files and directories on either the Vim icon (starts a new Vim
+session, unless you use the File Types application to set Vim to be &quot;Single
+Launch&quot;) or on the Vim <a href="windows.html#window">window</a> (starts editing the files).  Dropping a folder
+sets Vim's current working directory. |<a href="editing.html#:cd">:cd</a>| |<a href="editing.html#:pwd">:pwd</a>| If you drop files or
+folders with either SHIFT key pressed, Vim changes directory to the folder
+that contains the first item dropped.  When starting Vim, there is no need to
+press <a href="intro.html#shift">shift</a>: Vim behaves <a href="motion.html#as">as</a> if you <a href="diff.html#do">do</a>.
+
+Files dropped set the current argument list. |<a href="editing.html#argument-list">argument-list</a>|
+
+
+
+8. Single Launch vs. Multiple Launch			*<a name="beos-launch"></A><b>beos-launch</b>*
+
+As distributed Vim's Application Flags (as seen in the FileTypes preference)
+are set to Multiple Launch.  If you prefer, you can set them to Single Launch
+instead.  Attempts to start a second copy of Vim will cause the first Vim to
+open the files instead.  This works from the Tracker but also from the command
+line.  In the latter <a href="change.html#case">case</a>, non-file (option) arguments are not supported.
+
+NB: Only the <a href="gui.html#GUI">GUI</a> version has a BApplication (and hence Application Flags).
+This section does not apply to the GUI-less version, should you compile one.
+
+
+
+9. Fonts						*<a name="beos-fonts"></A><b>beos-fonts</b>*
+
+Set fonts with
+
+<b>  :set guifont=Courier10_BT/Roman/10</b>
+
+where the first part is the font family, the second part the style, and the
+third part the size.  You can use underscores instead of spaces in family and
+style.
+
+Best results are obtained with monospaced fonts (such <a href="motion.html#as">as</a> Courier).  Vim
+attempts to use all fonts in B_FIXED_SPACING mode but apparently this does not
+work for proportional fonts (despite what the BeBook says).
+
+Vim also tries to use the B_ISO8859_1 encoding, also known <a href="motion.html#as">as</a> ISO Latin 1.
+This also does not work for all fonts.  It does work for Courier, but not for
+ProFontISOLatin1/Regular (strangely enough).  You can verify this by giving the
+
+<b>  :digraphs</b>
+
+command, which lists a bunch of characters with their ISO Latin 1 encoding.
+If, for instance, there are &quot;box&quot; characters among them, or the last character
+isn't a dotted-y, then for this font the encoding does not work.
+
+If the font you specify is unavailable, you get the system fixed font.
+
+Standard fixed-width system fonts are:
+
+	      ProFontISOLatin1/Regular
+		  Courier10_BT/Roman
+		  Courier10_BT/Italic
+		  Courier10_BT/Bold
+		  Courier10_BT/Bold_Italic
+
+Standard proportional system fonts are:
+
+		    Swis721_BT/Roman
+		    Swis721_BT/Italic
+		    Swis721_BT/Bold
+		    Swis721_BT/Bold_Italic
+		Dutch801_Rm_BT/Roman
+		Dutch801_Rm_BT/Italic
+		Dutch801_Rm_BT/Bold
+		Dutch801_Rm_BT/Bold_Italic
+		   Baskerville/Roman
+		   Baskerville/Italic
+		   Baskerville/Bold
+		   Baskerville/Bold_Italic
+		 SymbolProp_BT/Regular
+
+Try some of them, just for fun.
+
+
+
+10. The <a href="intro.html#meta">meta</a> key modifier				*<a name="beos-meta"></A><b>beos-meta</b>*
+
+The META key modifier is obtained by the left or right OPTION keys.  This is
+because the ALT (aka COMMAND) keys are not passed to applications.
+
+
+
+11. Mouse key mappings					*<a name="beos-mouse"></A><b>beos-mouse</b>*
+
+Vim calls the various mouse buttons LeftMouse, MiddleMouse and RightMouse.  If
+you use the default Mouse preference settings these names indeed correspond to
+reality.  Vim uses this <a href="map.html#mapping">mapping</a>:
+
+    Button 1 -&gt; LeftMouse,
+    Button 2 -&gt; RightMouse,
+    Button 3 -&gt; MiddleMouse.
+
+If your mouse has fewer than 3 buttons you can provide your own <a href="map.html#mapping">mapping</a> from
+mouse clicks with modifier(s) to other mouse buttons.  See the file
+vim-5.x/macros/swapmous.vim for an example.		|<a href="gui.html#gui-mouse-mapping">gui-mouse-mapping</a>|
+
+
+
+12. Color names						*<a name="beos-colors"></A><b>beos-colors</b>*
+
+Vim has a number of color names built-in.  Additional names are read from the
+file $VIMRUNTIME/rgb.txt, if present.  This file is basically the color
+database from X.  Names used from this file are cached for efficiency.
+
+
+
+13. Compiling with <a href="if_perl.html#Perl">Perl</a>					*<a name="beos-perl"></A><b>beos-perl</b>*
+
+Compiling with <a href="if_perl.html#Perl">Perl</a> support enabled is slightly tricky.  The Metrowerks
+compiler has some strange ideas where to search for include files.  Since
+several include files with <a href="if_perl.html#Perl">Perl</a> have the same names <a href="motion.html#as">as</a> some Vim header
+files, the wrong ones get included.  To fix this, run the following <a href="if_perl.html#Perl">Perl</a>
+<a href="usr_41.html#script">script</a> while in the vim-5.0/src directory:
+
+<b>   preproc.pl &gt; perl.h</b>
+
+<b>    #!/bin/env perl</b>
+<b>    # Simple #include expander, just good enough for the Perl header files.</b>
+
+<b>    use strict;</b>
+<b>    use IO::File;</b>
+<b>    use Config;</b>
+
+<b>    sub doinclude</b>
+<b>    {</b>
+<b>	my $filename = $_[0];</b>
+<b>	my $fh = new IO::File($filename, "r");</b>
+<b>	if (defined $fh) {</b>
+<b>	    print "/* Start of $filename */\n";</b>
+
+<b>	    while (&lt;$fh&gt;) {</b>
+<b>		if (/^#include "(.*)"/) {</b>
+<b>		    doinclude($1);</b>
+<b>		    print "/* Back in $filename */\n";</b>
+<b>		} else {</b>
+<b>		    print $_;</b>
+<b>		}</b>
+<b>	    }</b>
+<b>	    print "/* End of $filename */\n";</b>
+
+<b>	    undef $fh;</b>
+<b>	} else {</b>
+<b>	    print "/* Cannot open $filename */\n";</b>
+<b>	    print "#include \"$filename\"\n";</b>
+<b>	}</b>
+<b>    }</b>
+
+<b>    chdir     $Config{installarchlib}."/CORE";</b>
+<b>    doinclude "perl.h";</b>
+
+It expands the &quot;perl.h&quot; header file, using only other <a href="if_perl.html#Perl">Perl</a> header files.
+
+Now you can configure <a href="change.html#&amp;">&amp;</a> make Vim with the --enable-perlinterp option.
+Be warned though that this adds about 616 kilobytes to the size of Vim!
+Without <a href="if_perl.html#Perl">Perl</a>, Vim with default features and <a href="gui.html#GUI">GUI</a> is about 575K, with <a href="if_perl.html#Perl">Perl</a>
+it is about 1191K.
+
+-Olaf Seibert
+
+[Note: these addresses no longer work:]
+<a href="mailto:rhialto@polder.ubc.kun.nl">&lt;rhialto@polder.ubc.kun.nl&gt;</a> 
+	<a href="http://polder.ubc.kun.nl/~rhialto/be">http://polder.ubc.kun.nl/~rhialto/be</a>
+
+<a href="os_beos.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

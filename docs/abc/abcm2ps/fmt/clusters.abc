@@ -1,0 +1,66 @@
+% TESTS OF CLUSTERS
+% Hudson Lacerda (2004) - teste em 24/01/2005: !há erro de pilha!
+%
+%%postscript /clusterdata 120 array def
+%%postscript /clusterdatacounter 0 def
+%%postscript /incrdatacounter {/clusterdatacounter 1 clusterdatacounter add def} !
+%%postscript /clusteradd { % stack:  height x ylow  clusteradd
+%%postscript    /ycluster exch 8 add def   /xcluster exch def   /hcluster exch def
+%%postscript    clusterdata clusterdatacounter xcluster put incrdatacounter
+%%postscript    clusterdata clusterdatacounter ycluster put incrdatacounter
+%%postscript    clusterdata clusterdatacounter hcluster put incrdatacounter
+%%postscript }!
+%%postscript /clusterdraw {
+%%postscript    clusteradd
+%%postscript    /primeira true def
+%%postscript    0 3 clusterdatacounter -1 add { % indice
+%%postscript       dup clusterdata exch get /x exch def % x
+%%postscript       dup 1 add dup clusterdata exch get /y exch def % y
+%%postscript       primeira {/primeira false def x y M} {x y lineto} ifelse
+%%postscript       1 add clusterdata exch get 0 exch rlineto
+%%postscript    } for stroke
+%%postscript    /clusterdatacounter 0 def
+%%postscript }!
+%
+%%postscript /linethickness 7 def
+%%postscript /linedata 120 array def
+%%postscript /linedatacounter 0 def
+%%postscript /incrdatacounter {/linedatacounter 1 linedatacounter add def} !
+%%postscript /lineadd { % stack:  x y  lineadd
+%%postscript    /yline exch  def   /xline exch def
+%%postscript    linedata linedatacounter xline put incrdatacounter
+%%postscript    linedata linedatacounter yline put incrdatacounter
+%%postscript }!
+%%postscript /linedraw { gsave
+%%postscript    lineadd
+%%postscript    /primeira true def
+%%postscript    0 2 linedatacounter -1 add { % indice
+%%postscript       dup linedata exch get /x exch 5 add def % x
+%%postscript       dup 1 add linedata exch get /y exch def % y
+%%postscript       primeira {/primeira false def x 0 add y M} {x y lineto} ifelse
+%%postscript    } for linethickness setlinewidth 1 setlinecap 1 setlinejoin stroke
+%%postscript    /linedatacounter 0 def grestore
+%%postscript }!
+%
+%
+%%deco clusteradd 2 clusteradd 0 0 0
+%%deco clusterdraw 2 clusterdraw 0 0 0
+%%deco lineadd 1 lineadd 0 0 0
+%%deco linedraw 1 linedraw 0 0 0
+X:1
+M:4/2
+L:1/2
+U: i = !lineadd!
+U: p = !linedraw!
+U: I = !invisible!
+K:C treble
+[M:none]
+[K:none] Iic, Iid IiG Iif/ Iic// IiE,// [|] Iia IiA Iib'' IiG,,/ Iib/ [|] Iid'/ Iia/ Iid/ Iic/ IiF IiA/ Ipe'/ [|]
+%%staves [1 | 2]
+[V:1][K:treble]
+Iic, Iid IiG Iif/ Iic// IiE,// [|] Iig' Iia IiB, IiG/ Ipg''/ |]
+[V:2 down]
+iE, id ig iB | iG,, ia' iB iG |]
+
+
+%%postscript 0 0 M 40 F0 () count 3 string cvs show pop

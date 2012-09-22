@@ -1,0 +1,1133 @@
+%% MS.Don.d.54, Bodleian Library, Oxford.  Transcription (c) Jack Campin, Sept 1998.
+
+%% My text is in comment lines with two leading percent signs, the rest is in the MS.
+%% Young's line breaks have not been included after the title page.
+%% The T: titles are those from the index.
+%% Red-inked words in the original are prefaced by an asterisk in the transcription.
+%% All the ornamentation and articulation marks are included in the ABC source.
+%% Young's only strain terminator symbol is the double-sided repeat mark.
+%% Each tune ends with an empty bar with fermata marks above and below, followed by
+%% a double bar.
+%% Text delimited by &..& is given floral or other very twiddly lettering.
+%% +...+ means Gothic.
+%% ^...^ means Italic.
+%% @...@ means text is against a background of scrollwork.
+%% Trailing whitespace is filled to the right margin with a heavy double-tapered
+%% black line for any paragraph that contains it.
+
+
+%% Title page ========================================================================
+%% in a double black border
+
+%% Later inked note at top:
+% Rodk. MacLeod, Principal of Kings College Aberdeen
+
+%             A
+%        &Collection&
+%       of the newest
+%      + &C&ountry &D&ances+
+%  -----  ^Perform'd in^ -----
+%         &Scotland&
+% ~ ^Written at^ Edinburgh ^by^ ~
+%       ^Da. Young^. +W.M.+
+%           1740.
+
+
+
+%% Index =============================================================================
+
+%      AN INDEX
+% ^to the following^ \b{Collection.}
+% <><><><><><><><><><><><><><><><><><><><>
+%      A.              No.
+^A'Body loo's me ....... 6^
+
+%% etc. - each letter placed centrally.  I used instead of J, Jack on the Green before
+%% I'll ne'er leave thee.
+% <><><><><><><><><><><><><><><><><><><><><><><><><>
+%% Page after index ==================================================================
+
+% &Note&
+% THAT
+% In the following Figures, the Directions for dancing the first Strain of the Tune
+% play'd twice over, begin always with red print Capitals; and the 2d Strain with
+% small red Characters.  The Musick is adapted to the Violin or Hautboy, and for the
+% most part within the compass of the German Flute.
+% ------------------------------------------------------------------------------------
+%% THAT & instrument names boldface,rest italic
+
+%%  1. ===============================================================================
+
+% +&B&ung your &E&ye+
+%
+% *FIRST Man and 2d sett, the Women setting at the same time, first Man setts
+% to 2d Woman, first Woman to 2d Man, and turn your Partner.  *Cross over,
+% figure in, then Right and Left.  *FIRST Man turns 2d Woman by the Right hand,
+% and his Partner by the Left, the 2d Man turns the 1st Woman by the Right,
+% and his Partner by the Left, whilst the Woman does the same to the Man on
+% the side.  *Sett cross Partners, and turn your Partner.
+
+X:1
+T:Bung your Eye
+M:6/8
+L:1/8
+K:Amin
+E|ABA     c2d|edc TB2A|GAG    TB2c|ded BAG|ABA c2d|edc Bcd|e2A AB^G|A3 c2:|
+e|c>de/f/ g2a|gec  gec|G>AB/c/ d2e|deg dBG|cde g2a|gec deg|a2A AB^G|A3 c2:|
+
+
+%%  2. ===============================================================================
+
+% +&S&tick the &M&inr.+
+%
+% *SETT to your Partner, and cast off; that again.  *Cross up one pair, and sett;
+% that again.  *THREE hands round with the first Woman, as much with the second
+% Man.  *Lead out at both Sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:2
+T:Stick the Minister
+M:C|
+L:1/8
+K:Amin
+c   |A/c/d dd e2 de |f>gTe>d g/f/e/d/ ce   |d/d/d dd       e2 ed/e/   |ff g/f/e/d/ T^c>BA:|
+f/g/|a>ba>f   g>ag>e|f>gf>d  g/f/e/d/ cf/g/|aa    b/a/g/f/ gg a/g/f/e/|ff g/f/e/d/ T^c>BA:|
+
+%%  3. ===============================================================================
+
+%    @THE@
+% &Collonel.&
+%
+% *SETT and cast off, then the Man setts down and the Woman up.  *The Man runs the figure 8
+% with the 2d Couple, while the Woman does the same with the first.  Change pairs and figure
+% as before.  *SETT to your Partner, and turn cross Partners, the same again.  *Sett cross
+% Partners & turn to your Partner.
+
+X:3
+T:Colonel
+M:9/8
+L:1/8
+K:DMix
+c|(B/c/d)B dBG   G2g |(e/f/g)e dBG   TA2c|(B/c/d)B dBG G2B|TA3  AFD D2:|
+c|TB2E    (EF)E (EF)E|TB2E    (EF)E   D2c|TB2E     EFE EFG| ABA AFD D2:|
+c|Bcd      dBG   Bcd |efg      dBG    ABc| Bcd     dBG Bcd| ABA AFD D2:|Hx||
+c|TBAB     EFE   EFE |BAB      EFE    D2c|TBAB     EFE EFG| ABA AFD D2:|
+
+%%  4. ===============================================================================
+
+%    @THE@
+% &Coronet.&
+%
+% *SETT to the 2d Woman and turn her round, first Woman the same to 2d Man.  *Lead
+% down 2 pair and cast up one, lead up and cast off.  *SETT cross Partners, and turn
+% your Partner the last time.  *Four hands round, then Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:4
+T:Coronet
+M:C|
+L:1/8
+K:EDor
+f|d2 TAF  E>EF>A|d<AA>B d>ef>d|e>Bd>F  E>EF>A|d>AB>F A2A:|
+a|f<da>d Tf>ee>a|f<da>d b>da>d|g<af>g Te>def |ABd>e Tf2e:|
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%%  5. ===============================================================================
+
+% @THE DRUMMER.@
+%
+% *THREE hands round with the first Woman, as much with the second Man.  *Four
+% hands round, and Right & Left.  *SETT cross Partners.  *Lead out at the sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:5
+T:Drummer
+M:C|
+L:1/8
+K:AMix
+f|ec d/c/B/A/ E2    EF|G2GA B/A/B/c/ dB|A/A/A c>A E2E>f|edTcB        TcAA:|
+f|ecac        d/d/d df|ecac B/B/B    Bf|ecac      def^g|a/^g/f/e/ a>c A/A/A A:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%%  6. ===============================================================================
+
+% @A'BODY LOO'S ME.@
+%
+% *CROSS behind back your arms wt. your Partner, turn round & cast off, that again,
+% and cast up.  *Cross over and figure in, then Right & Left.  *SETT cross Partners.
+% *Lead out at the Sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:6
+T:A'Body loo's me
+M:C|
+L:1/8
+K:D
+d3e B/B/B e2|d3a f/f/f f2|gfed Bdeg|agfe d2D2:|
+(dD)(AF) E/E/E ef|dDDf dDDf|(dD)(AF) E/E/E e2|dDAB defd|BdAF E/E/E eg|agfe d2D2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%%  7. ===============================================================================
+
+% ==================
+% @THE DRUNKEN WIVES@
+%      ~ in  ~
+%  ^Pearson's Closs.^
+% ==================
+%
+% *SETT and cast off one pair; sett again, the Man casts down, the Woman up,
+% *Reel across, sett, and turn your Partner.  *SETT cross Partners.  *Lead out
+% at both Sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:7
+T:Drunken Wives in Pearson's Closs
+M:C|
+L:1/8
+K:AMix
+Ee e/e/e edeg    |dedB GABG     |Ee e/e/e edeg|dBgB A/A/A A2:|
+eaca     e/e/e g2|dgBg d/d/d Tf2|eaca     efge|dBgB A/A/A A2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%%  8. ===============================================================================
+
+%   ~  ^The   ~
+% Ragged Sailor.^
+% -------------
+%
+% *SETT the first Man to 2d Woman and turn her, the first Woman the same to 2d Man.
+% *Cross over and figure in, lead down 1 pair and cast up.  *SETT cross Partners.
+% *Four hands round and Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:8
+T:Ragged Sailor
+M:6/8
+L:1/8
+K:G
+D|G>AB gfe|dBG ABd| e2A A2B|G>AB ga/g/f/e/|dBG       ABd|BAG G2:|
+g|ece  dBd|ecg dBG|Tc2B A2g|ece  dBd      |ga/g/f/e/ dBc|BAG G2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%%  9. ===============================================================================
+
+%   ~  ^The  ~
+% Cadger o' Crief.^
+% ===============
+%
+% *TURN your Partner by the arm, and cast off one pair, that again.  *Lead up 2
+% pair, and cast off one, lead down and cast up.  *SETT cross Partners.  *Lead
+% out at both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:9
+T:Cadger o' Crief
+M:C|
+L:1/8
+K:D
+d|TA>FAf Te>dBd| AFAB         d/B/d/e/ dB|TA>FAf Te>dBg| f/g/a/B/ AB ({AB}d2) d:|
+g|Tf>edf Te>dBg|Tf>e d/e/f/g/ a>bag      | fdaf  Te>dBg|(f/g/a)   AB ({AB}d2) d:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 10. ===============================================================================
+
+% =================
+% @DOWN ON YON BANK.@
+% =================
+%
+% *SETT and cast off one pair, sett again; the Man casts off, and the Woman up.
+% *The Man figures round the 2d Woman, and the Woman round the first Man; meet
+% in the middle, and sett; change the Partners and figure as before.  *SETT to your
+% Partner and turn 2d Woman, the Woman turning 1st Man at the same time, sett as
+% before, the Man turning 1st Woman, the Woman the 2d Man at the same time.  *Lead
+% out at both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:10
+T:Down on yon Bank
+M:C|
+L:1/8
+K:EDor
+B|AFTF>E TF>EFB      |AFTF>D TE>DEB|AFTE>D d>efe|d>B A/B/A/F/ TE>DE:|
+B|AFdF    d/c/B/A/ dF|AFdA   TB>ABd|AFTE>D d>efe|d>B A/B/A/F/ TE>DE:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 11. ===============================================================================
+
+% =================
+% @THE HOLLY BUSH.@
+% =================
+%
+% *FIRST Man sett to the Man on the side, the Woman the same to the Woman on the side
+% at the same time; turn your Partner, and sett to the Woman on the side, and the Woman
+% to the Man on the side at the same time, then turn your Partner to her place.  *Cross
+% over, figure in, lead down, and cast up, lead up, cast off, and go Right and Left.
+% *THE Man runs the figure 8 with the 2d Couple, and the Woman with the first Couple at
+% the same time; change pairs, and figure as before.  *Sett cross Partners, & lead out
+% at the sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:11
+T:Hollin Bush
+M:6/8
+L:1/8
+K:D
+A,B,D DEF|EFE EDB,|A,B,D DEF|DED     DB,A,|A,B,D DEF|E2E EFA|B2d AFd|DED DB,A,:|
+ABd   def|efe edB |ABd   def|d>ef/g/ agf  |gab   agf|efe edc|dcB AFd|DED DB,A,:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 12. ===============================================================================
+
+% &Caberfei.&
+%
+% *RIGHT hands across, then left hands across, lead down in the middle of the first
+% pair; back again, and cast off: lead down one Pair more, and cast up.  *Sett cross
+% Partners & run the Heys, sett and turn your partner.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:12
+T:Caberfei
+M:C|
+L:1/8
+K:DMix
+B|c2ce c2 GA/B/|c2G=F     TE>DCE       |d2 Tfe d2 AB/^c/|d2AG TF>ED
+E|CDEG c2 ed   |c2G=F      E>DCE       |DEFG   ABcA     |d2AG TF>ED:|
+g|ecgc acgc    |ecgc       a/g/=f/e/ ce|fdad   bdad     |fdad b/a/g/f/ d
+g|ecgc acgc    |GAcd ({=f}Te>)dcg      |afge   fde^c    |d2AG TF>ED:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 13. ===============================================================================
+
+% @THE LADS OF@
+%  &Leith.&
+%
+% *SETT and cast off one pair, sett and cast up again.  *Cross over, figure in, and
+% cast off; cross up, and figure in with 2d pair.  *SETT to your partner, and turn
+% cross Partners, that again.  *The Man leads up with the 1st Couple, the Woman down
+% with the 2d at the same time; sett and turn: the Man leads up with the 2 Women, and
+% the Woman with the 2 Men on the side, facing other; then turn your Partner into her
+% place.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:13
+T:Lads of Leith
+M:6/8
+L:1/8
+K:GMin
+B/c/|d>fd Tc2B  |A>BG T^F2D |GAB   cA^F|G3 G2:|
+B/c/|dBb  Ta2g  |fdg   f3   |B>cB  fdg |cdB TA>GF|BAB cBc|
+[1               d2G  T^F>=ED|GAB   cA^F|G3 G2:|\
+[2               d2g  T^f>=ed|gab   ag^f|g3 g2|]
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 14. ===============================================================================
+
+% +&W&elsh &F&usileers.+
+%
+% *RIGHT hands across, and sett; the Left Ditto.  *First Man sett to 2d Woman, first
+% Woman the same to 2d Man, and turn him round.  *FIRST Pair sett and cast off one
+% Pair, sett and cast off another; cross up one Pair and sett, cross up another and
+% sett.  *Cross over, figure in, sett, and go Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:14
+T:Welsh Fusileers
+M:6/8
+L:1/8
+K:AMix
+A   |def efg|fag Tf2e|dBB TB2A|dBB TB2A   |def efg|fag Tf2e|dAA A2A|dAA A2:|
+f/g/|agf gfe|fed  efg|dBB TB2A|dBB TB2f/g/|agf gfe|fed  efg|dAA A2A|dAA A2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 15. ===============================================================================
+
+% +&M&arion &A&ilon.+
+%
+% *SETT and cast off one pair, sett and cast up.  *Cross over, and figure in; lead
+% down one pair and cast up.  *THE Man figures round the 2d Woman, and the Woman
+% round the 1st Man at the same time; change the pairs, and that again.  *Sett cross
+% Partners, and turn own Partner the last time.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:15
+T:Marion Ailon
+M:6/8
+L:1/8
+K:GMix
+D>ED A2D|c>dc AFA|GAG TB2c| dgd        BGB :|
+dgd  BGB|cfc  AFA|dgd  BgB| dgd        BgB  |
+cac  BgB|Afc  AFA|GAG TB2c|(g/^f/e/f/g d)BG|]
+% N.B. ^The last Strain is not repeated.^
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 16. ===============================================================================
+
+% +&A&rthur's &S&eat.+
+%
+% *RIGHT hands across with the first pair, and cast off; left hands across with the
+% 2d pair, and sett a little.  *Lead up one pair, & cast off; lead down one pair and
+% cast up.  *SETT cross partners.  *Lead out at both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:16
+T:Arthur's Seat
+M:C|
+L:1/8
+K:G
+(G/A/B/c/ d)g edBG       |cABG E/E/E A2      |(G/A/B/c/ d)g edBG|cABG E/E/E G2:|
+gag=f         ecce       |abag ^fddf          | gag=f        ecde|cABG AF    G2:|
+(B/c/d) (BG) (c/d/e) (cA)|(B/c/d) (BG) (F/G/A) A2 |\
+(B/c/d) (BG) (c/d/e) (cA)|(B/c/d) (BG) (AF)    G2:|
+gag=f         ec e/f/g/e/|abag ^fd    f/g/a/f/|gag=f         ecdB|cABG AF    G2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 17. ===============================================================================
+
+% +&M&umping &N&elly.+
+%
+% *FIRST Man sett to 2d Woman, and turn her; first Woman the same to 2d Man.  *Cross
+% over, and figure in; lead down one pair, cast up, and sett a little.  *THREE hands
+% round with 1st Woman, as much wt 2d Man.  *Lead out at the sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:17
+T:Mumping Nelly
+M:C|
+L:1/8
+K:G
+(g/f/) |gG G(d/c/)    BG           G(g/f/)    |gG         G(c/B/)   A=F F
+(g/^f/)|gG2  d/c/     BGGB                    |(3(cdc) (3(BcB)      A=FF:|
+ A     |G/G/G g>a     gGGB                    |G/G/G      ga        bAAB |\
+        G/G/G ga    (Tf3/e///f///) g2         |cgBg                 A=FF:|
+(g/f/) |gG B/c/d/c/   BG           B/c/d/B/   |gG         B/c/d/B/  A=F A/B/
+c/A/   |gG B/c/d/c/   BG           B/c/d/B/   |(3(cdc) (3(BcB)      A=FF:|
+ A     |G/G/G (TB>A) (BG)(TBA)                |G/G/G     (B>G)      A=FAF|\
+        G/G/G (TB>A) (BG) (TBA/B/)            |(3(cdc) (3(BcB)      A=FF:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 18. ===============================================================================
+
+% @A KISS FOR A@
+%    Half
+%  &Pennie.&
+%
+% *SETT and cast off one pair; lead down in the middle of the 2d pair, and cast up.
+% *First man figures round the 2d Woman, and the Woman round the first Man at the
+% same time; meet and sett: the Man figures round the first Woman, and the Woman
+% round the 2d Man at the same time, meet and sett as before.  *SETT cross Partners.
+% *Run the Heys, sett, and turn your Partner.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:18
+T:A kiss for a ha'peny
+M:C|
+L:1/8
+K:EMin
+GBdB A/A/A e2|GBdB gedB|cedB A/A/A e2|d/c/B/A/ GB d2 e2:|
+dBgB A/A/A e2|dBgB aBgB|dBgB A/A/A e2|d/c/B/A/ GB d2 e2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 19. ===============================================================================
+
+%   The
+% &Gimlet.&
+%
+% *SETT and cast off one Pair; the Man setts, and casts off; the Woman up.  *The Man
+% runs the figure 8 with the 2d Couple, and the Woman with the first Couple at the
+% same time; change the Pairs, and figure as before.  *SETT to your partner and turn
+% 2d Woman; the Woman the same with the 1st Man at the same time: that again.  *Lead
+% out at both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:19
+T:Gimlet
+M:9/8
+L:1/8
+K:GDor
+(fg)f   Te2d c3 |f3       fga bag| fgf    Te2d c2c|dcB B2c def:|
+(A/B/c)A F2F F2F|(A/B/c)A F2A BAG|(A/B/c)A F2F F2e|g3  G2A BAG:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 20. ===============================================================================
+
+%  @DRUNKEN@
+% ^Meg Young.^
+%
+% *THE Man figures round the first pair, the Woman following, and sett a little; the
+% Woman figures round the 2d pair, the Man following, and sett a little.  *Cross up
+% one pair, and sett a little; cross up the other pair, and sett a little.  *FIRST
+% Man sett to 2d Woman, and turn her; first Woman to 2d Man, and turn him.  *Four
+% hands round, and go Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:20
+T:Drunken Meg Young
+M:6/8
+L:1/8
+K:Dmix
+A|(FD)F    TA2F    |(EC)E    G2E|(FD)F     A2g    | (f/g/a)f d2:|
+g|(f/g/a)f (e/f/g)e| c>de/f/ g2a|(f/g/a)f (e/f/g)e|(^cA)c    d2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 21. ===============================================================================
+
+% @THE MILLER@
+%    of
+%   ^Drone.^
+%
+% *FIRST pair lead up, sett, and turn, 2d pair lead down, sett, and turn at the same;
+% the two Pairs meet and sett: then the Man setts to the Woman on the side, and the
+% Woman to the Man on the side at the same time, and turn your Partner to her place.
+% *Lead down two pair and cast up one, and sett a little; go Right and Left with the
+% first pair and sett a little.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:21
+T:Miller of Dron
+M:6/8
+L:1/8
+K:F
+C| F>GF       cAd|cAf cAF|B>cB AGF|G>AF EDC|F>GF     cAd     |cAf cAd|cAf cAc|f>gf/e/ f2:|
+c|(f/e/f/g/a) def|gaf edc|def  cAF|GAF  EDC|a(f/g/a) g(e/f/g)|fcd cBA|bag agf|cfe     f2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 22. ===============================================================================
+
+%  @THE@
+% ^Kingdom of^
+%  @FIFE.@
+%
+% *THREE hands round with the first Woman, the same with the 2d Man.  *Lead up, cast off,
+% and sett, lead down one pair, cast up, and sett.  *SETT cross Partners.  *Lead out at
+% both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:22
+T:Kingdom of Fife
+M:9/8
+L:1/8
+K:GMix
+G3 TB2c dcB|AFA fcA c2A|G3         TB2c         d(B/c/d/B/)|GAB gdB d2B:|
+gdg ece dBd|AFA fcA c2A|g(e/f/g/e/) d(B/c/d/B/) G(B/c/d/B/)|GAB gdB d2B |
+gdg ece dBd|AFA fcA c2A|G3         TB2c         d(B/c/d/B/)|GAB gdB d2B|]
+% N.B. ^This last Strain is but once play'd at a time.^
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 23. ===============================================================================
+
+% @I'LL NE'ER LEAVE@
+%     ^Thee.^
+%
+% *LEAD down in the middle of the first pair, cast about the 2d, and turn your
+% partner; lead up in the middle of the 2d pair, cast about the 1st, and turn
+% your partner.  *Four hands round, then Right and Left.  *THE Man with 1st and
+% 2d Men, the Woman with 1st and 2d Women, meet setting, and retire; the Woman
+% with 1st Couple, and the Man with the 2d, meet setting; then turn your Partner.
+% *Lead out at both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:23
+T:I'll ne'er leave thee
+M:C|
+L:1/8
+K:AMix
+d2      (f/g/a) Tf>egB|d2      (f/g/a) g2B2|d2      (f/g/a) Tf>e (f/g/a)|A2    (c/d/e) Tc2 A2:|
+d/c/B/A/ GB      dBgB |d/c/B/A/ GB     g2B2|d/c/B/A/ GB      dBgB       |A/A/A Tce     Tc2 A2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 24. ===============================================================================
+
+% @THE BRAES OF@
+%  ^Balquhidder.^
+%
+% *FIRST Couple Right hands across with 2d Couple quite round and cast off to 2d Couple's
+% place: first Couple Right hands across with 3d Couple quite round, and cast off below
+% them.  *Lead up to the top, and cast off; down thro' the 3d Couple, and cast up.  *SETT
+% across & turn.  *Lead out at the sides, & turn in the middle.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:24
+T:Braes of Balquhidder
+M:C|
+L:1/8
+K:F
+c|(A/c/d) Fc A2    Ac|(A/c/d) Fc AGGc|dFcF  A2Ac| defc         A/A/A A:|
+c| defc      A/A/A ag| fdTcA     cGGc|defd TcAag| a/g/f/e/ fc  A/A/A Ac|
+   defc      A/A/A ag| fdTcA     cGGA|FCCD  FGAa|(a/g/f/e/ f)c A2    A:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 25. ===============================================================================
+
+% @THE LADS OF@
+%   %Air.&
+%
+% *FIRST Man change places with 2d Woman; first Woman the same: first and 2d Men
+% sett to their own Partners, and half turn to their proper sides.  *First Couple lead
+% down thro' the 3d Couple, and cast up; then Right and Left with the 2d Couple.  *SETT
+% across and turn.  Reel at the sides.  *Sett to your Partner, and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:25
+T:Lads of Air
+M:C|
+L:1/8
+K:C
+g|Te>dcd   cBcG|Te>dBd     e2 (e/f/g)|Te>dcd    cGcG|AcGE        TD2C:|
+g|c/c/c ga gede| c/c/c ga Tg2  e2    | c/c/c ga gede|fg a/g/f/e/ Td2c:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 26. ===============================================================================
+
+% @THE KEY OF THE@
+%    &Cellar.&
+%
+% *FIRST Man sett to 2d Woman, and turn your Partner.  First Woman the same.  *First
+% Couple lead down, and go three hands round with 3d Woman.  Then three hands round
+% with 2d Man.  *SETT across, & turn your own Partner twice.  *Four hands quite round
+% with 2d Couple.  Lead up to the top, & cast off.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:26
+T:Key of the Cellar
+%% Go to Berwick Johnny
+M:3/2
+L:1/8
+K:AMin
+B2G2  G2D2  G4 |B2G2 G2c2 ABcA|B2G2  G2D2   G4|A2F2 F2c2 ABcA:|
+B2d2  d2f2 Te4 |B2d2 d2B2 ABcA|B2d2  d2e2   f4|A2F2 F2c2 ABcA:|
+BcdB  ABcA  G3c|BcdB G3B  ABcA|BcdB  ABcA   f4|A2F2 F2c2 ABcA:|
+G2g2 ^fgaf  g4 |d2 g4  b2 a2g2|d2g2 (ag=fe) f4|A2F2 F2c2 ABcA:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 27. ===============================================================================
+
+% &Hakie.&
+%
+% *FIRST Couple sett, and cast off.  Sett again, & cast up.  *First Couple Right
+% hands across with the 2d Couple quite round.  Then lead down thro' the 3d Couple,
+% and cast up.  *SETT across and turn.  *Reel at the sides.  Then sett to your
+% Partner, and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:27
+T:Hakie
+%% Ca Hawkie Through the Water
+M:C|
+L:1/8
+K:AMin
+a|geec dega    |geed cBcA       |geec degd    |e/e/e a^g aAA:|
+B|c2ce d/d/d de|c2ce d/c/B/A/ GB|c2ce d/d/d dg|ea^gb aAA:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 28. ===============================================================================
+
+% +&C&ock a &B&endie.+
+%
+% *FIRST Couple Right hands across with the 2d Couple quite round.  Left hands across
+% back again.  *First Couple join both hands and lead down a little; up again, and cast
+% off.  Lead down thro' the 3d Couple, and cast up.  *SETT across and turn.  *Reel at
+% the sides.  Sett to your Partner, and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:28
+T:Cock a Bendie
+M:C|
+L:1/8
+K:F
+F2FA G2GA|F2FA def2|FGAF GABG|FGAa gef2:|
+defd gfec|defa gef2|defa gfec|dcAc def2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 29. ===============================================================================
+
+% +&S&imon &B&rody.+
+%
+% *FIRST Man sett to 2d Woman, and turn her; First Woman the same.  *First Couple
+% lead down thro' 2d Couple, and go the figure of 8 thro' the 3d Couple.  Then Right
+% and Left with 2d Couple.  *SETT across and turn.  *Lead at the sides, and turn in
+% the middle.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:29
+T:Simon Brodie
+M:C|
+L:1/8
+K:BMin
+EEGE ADTFA|EEGE BEGA|BEGB ADTFA|BEGE BEGB|dd e/d/c/B/ ADTFA|[1 EEGE BEGB:|\
+                                                            [2 EEGE BEef||
+g>age fdfa|gebe gebe|gebe fdfa |gebe gefd|ecdB        ADTFA|[1 EEGE BEef:|\
+                                                            [2 EEGE BEGB|]
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 30. ===============================================================================
+
+% +&Mc&pherson's &R&ant.+
+%
+% *SETT and cast off one pair; sett again; the Man casts off, the Woman up.  *The
+% Man wt the 2d pair, and the Woman with the first pair, meet setting.  The Man
+% falls between the two Women on the side, and the Woman between the two Men on the
+% side; taking hands, meet setting.  *SETT cross Partners.  *Lead out at both sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:30
+T:Macpherson's Rant
+M:C|
+L:1/8
+K:GMix
+A/B/|c>cce       d/d/d de|cdBc        AGAB|c>cce d/d/d de|cc d/c/B/A/ G2G:|
+a   |gc a/g/f/e/ fdde    |gc e/f/g/e/ A2Aa|gcTge fdde    |cc d/c/B/A/ G2G:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 31. ===============================================================================
+
+% +&S&tuarts &R&ant.+
+%
+% *FIRST Couple sett, and cast off.  Sett again, the Man cast down, the Woman up.
+% *The Woman fall in 'twixt the 2d Couple, the Man 'twixt the 3d Couple, and sett
+% 3 hands abreast: the first Man goes 3 hands round with the 3d Couple, the Woman
+% the same with the 2d Couple at the same time. First Man reel with 3d Couple, and
+% the Woman with the 2d at the same time.  *SETT across, and turn your own partner
+% half round proper the last time.  *Four hands round wt 2d Couple.  Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:31
+T:Stuart's Rant
+M:C|
+L:1/8
+K:AMix
+A|(c/d/e) (f/^g/a) Te2(dc)|dBgB     aBgB|(c/d/e) (f/^g/a) Te2(dc)|dBgB     a2A:|
+e|TcA      A/A/A   TcATcA |BE E/E/E BEBe|TcA      A/A/A   TcAce  |BE E/E/E e2A:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 32. ===============================================================================
+
+% +&C&astle &S&tuart.+
+%
+% *FIRST Man sett to 2d Woman, and turn her.  First Woman do the same.  *First Couple
+% lead down thro' the 2d and 3d Couple, and cast up.  Then Right and Left with the 2d
+% Couple.  *SETT across and turn.  *Lead out at the sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:32
+T:Castle Stuart
+M:C|
+L:1/8
+K:Dmin
+% note no B flats in the tune
+FAcA  d/d/d (df)|TcAFA G/G/G (GA)     |FAcA d/d/d f2|defc        A/A/A A2:|
+f>gfd cdTcA     | fgfd gg     a/g/f/e/|fgfd cdfg    |a/g/f/e/ fc A/A/A A2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 33. ===============================================================================
+
+% +&D&uncan &M&acKay.+
+%
+% *FIRST Couple four hands round with 2d Couple.  Lead down thro' the 2d Couple,
+% and go 4 hands round with the 3d Couple.  *Lead up to the top and cast off.
+% Lead down thro' the 3d Couple and cast up.  *SETT across and turn.  *Reel at
+% the sides.  Sett to your Partner and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:33
+T:Duncan MacKay
+M:C|
+L:1/8
+K:C
+F   |(E/F/G) c2 (E/F/G) c2|TB>AGE D/D/D D2|(E/F/G) cA BGcG |(E/F/G) DE C2C:|
+e/f/|gece        gaTge    | faTge defd    | gece      gaTge| fdge      cdef|
+     gece        gaTge    | faTge d2dc    | AcGc      FcEc | FDcE      C2C|]
+% This last Strain is play'd but once over at a time.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 34. ===============================================================================
+
+% @CASTLE@
+% &Grant.&
+%
+% *FIRST Couple turn other by both hands, and cast off.  Lead down thro' the 3d Couple,
+% and cast up.  *First Couple go three hands round with the 2d Woman.  Then three hands
+% round with the 2d Man.  *FIRST Couple go the figure of 8 thro' the 3d Couple.  Then
+% sett to other, and turn.  *Lead up thro' 2d Couple, & cast off.  Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:34
+T:Castle Grant
+M:C|
+L:1/8
+K:G
+e/f/|gddB A a2 e/f/|gddB gdde|gddB A a2 e/f/|gedB G2G:|
+A   |BGBG cAAc     |BGBG cABA|cABG cAAa     |gedB G2G:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 35. ===============================================================================
+
+% @THE SHIRE OF@
+%   &Air.&
+%
+% *FIRST Couple cast off without setting, and turn.  Second Couple do the same.  *Four
+% hands across quite round.  Four Left hands across back again.  *FIRST Couple lead up,
+% the 2d lead down, then 1st and 2d Couple lead abreast to other.  First and 2d Men
+% lead to the Wall, 1st and 2d Women go to the other Wall at the same time; then lead
+% back again to other abreast.  *Four hands quickly round, and first Couple cast off.
+% Then Right & Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:35
+T:Shire of Air
+M:9/8
+L:1/8
+K:GMin
+ G2A   B2c   dcB |(A/B/c)A F2B (A/B/c)A| G2A   B2c   dcB |gGG G2B (A/B/c)A:|
+(de)d (cd)c (Bc)B|(A/B/c)A F2B (A/B/c)A|(de)d (cd)c (Bc)B|gGG G2B (A/B/c)A:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 36. ===============================================================================
+
+% @JACK ON THE GREEN.@
+%
+% *FIRST Couple cast off without setting, that again below the 3d Couple.  Lead up thro'
+% the 3d Couple, & sett two abreast to the 2d Couple; change hands & sett two abreast to
+% 3d Couple.  *First Man turn 3d Woman, 1st Woman the 2d Man at the same time, by the
+% right arm; then turn your partner by the left arm.  First Man turn 2d Woman, the Woman
+% the 3d Man at the same time, by the right arm; and turn your partner again by the left
+% arm.  *FIRST Couple being in the 2d Couple's place proper, then 1st, 2d and 3d Couple
+% go six hands quite round.  The same six hands round back again.  *First couple right
+% and left with 2d Couple.  Sett to your Partner, and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:36
+T:Jack on the Green
+% Lunardi?
+M:9/8
+L:1/8
+K:D
+C2E D2F E3 | A3  E2G TF>ED|(CDE) (D/E/FD) E3 |d3 D2E TF>ED:|
+def efg fed| e3  E2G TF>ED| def   efg     fec|d3 D2E TF>ED |
+def efg fed|Tc2d efg Tf2e | agf   gfe     fec|d3 D2E TF>ED:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 37. ===============================================================================
+
+% @CROMDEL HILL.@
+%
+% *SETT and cast off the first Couple, lead up and cast down.  Then cross over and cast
+% down the 2d Couple.  *Lead up, and cast up the 2d Couple.  Then lead down, and Right
+% and Left with 2d Couple.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:37
+T:Cromdel hill
+M:C|
+L:1/8
+K:G
+g   |G2G2 TB>AAg|G/G/G G2 G>ABG|cABG TB>AAb|e/f/g GB d2d:|
+e/f/|gedB  c>BAa|gedB     dega |gegB  c>BAb|g/g/g dB d2G:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 38. ===============================================================================
+
+% @UP IN THE MORNING@
+%      ^Early.^
+%
+% *FIRST Couple sett and cast off.  Sett again and cast up.  *First couple cross over
+% the 2d Couple, then over the 3d.  First Couple lead up thro' the 3d, and go four
+% hands round with the 2d Couple.  *FIRST Couple sett two abreast with the 3d Couple.
+% Then two abreast with the 2d Couple.  *First Couple go four hands round with 3d
+% Couple.  Right and Left with the 2d Couple.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:38
+T:Up in the morning early
+M:6/8
+L:1/8
+K:AMin
+E|ABA c2d|efg G2G|ABA  edB  |A3 e2:|
+G|cdc cGc|ded dGd|cde  gag  |e3 g2
+G|cdc cGc|deg a2g|edc TB>A^G|A3 e2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 30. ===============================================================================
+
+% @O'ER THE MUIR AMONG@
+%       the
+%     ^Heather.^
+%
+% *SETT across, and cast down between the second Couple.  Sett again between the
+% 2d and 3d Couple, and cast down below the 3d.  *Turn up again and Right and Left
+% with the second Couple.  *SETT cross Partners.  *Lead out at the sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:39
+T:O'er the muir among the heather
+M:C|
+L:1/8
+K:G
+DEGA GAGD|EGAB ABAE|GABG ABde| dBgB      ABAG:|
+Gg2a gagd|ea2b abag|bage degd|(e/f/g) Bg ABAG:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 40. ===============================================================================
+
+% ===================
+% ^The Wood of^ Fyvie. ["Fyvie" bold]
+% ~~~~~~~~~~~~~~~~~
+%
+% *FIRST Couple sett and cast off.  Sett again and cast up.  *First Couple cross over
+% the 2d, and your Partner half round proper.  Lead down thro' the 3d Couple, and cast
+% up. *SETT across and turn.  *Reel at the sides.  Sett to your Partner, and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:40
+T:Wood of Fyvie
+M:C|
+K:AMix
+f    |eATcA        Bcdf|eATcA eATce|dBTcA        Bcd(f|e)f/^g/   ac Te2A:|
+f/^g/|a/^g/f/e/ ac Bcdf|eaca  ecac |f/^g/a/f/ ec Bcdf |e/f/^g/e/ ac Te2A:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 41. ===============================================================================
+
+% @WHAT MEIKLE SORROW@
+%     ^Ails You.^
+%
+% *FIRST Man cast off, his Partner at the same time following to the 2d Couple's place
+% improper.  First Woman cast off, the Man following to the 3d Couple's place proper.
+% *First Couple lead up to the top, and cast off.  Lead down thro' 3d Couple and cast up.
+% *SETT across and turn.  *Lead out at the Sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:41
+T:What meikle sorrow ails you?
+M:C|
+L:1/8
+K:DDor
+e|cAAg agec    |defd gfed|cAAg agec    |defg Te2d:|
+e|cAAG E/E/E c2|defd gfed|cAAG E/E/E c2|defg Te2d:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 42. ===============================================================================
+
+% @THE FIRE SIDE@
+%     ^Reel.^
+%
+% *FIRST Man cast off and turn 2d Woman.  First Woman do the same.  *First Couple lead
+% down thro' 3d Couple and cast up.  Then Right and Left with 2d Couple.  *SETT across
+% and turn.  *Reel at the sides.  Sett to your Partner and turn.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:42
+T:Fireside Reel
+M:C|
+L:1/8
+K:DDor
+c|GcEc Dd2B|GcEc GcEc|FcEc    Dd2A/B/|cG2F TE>DC:|
+g|ecgc eddg|ecgc acgc|f(aTgf) edde   |GAcd Te2d:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 43. ===============================================================================
+
+% @MACDONALD'S RANT.@
+%
+% *SETT and cast down one Couple.  Sett and cast down another.  *Lead up betwixt both
+% Couple to the head, casting down the first Couple again.  Then Right and Left with
+% the first Couple.  *SETT cross Partners.  *And Reel.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:43
+T:Macdonald's Rant
+M:C|
+L:1/8
+K:DMix
+% first trills on each line don't display unless F's are followed by a space
+TFA2f/g/ afed |gfed     BdBA |TFA2f/g/ afed|(e/f/g) (f/g/a) Te2d2:|
+TFA3    TF>GAF|G/G/G G2 GABG |TFA2B    ABAF| GAFd           TE2D2:|
+TFA2f/g/ afed |gfed     BdBA |TFA2f/g/ afed|(e/f/g) (f/g/a) Te2d2:|
+ fa3     f>gaf|g/g/g g2 g>abg| fa2b    abaf| gafg           Te2d2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 44. ===============================================================================
+
+% @LANCASTER HORNPIPE.@
+%
+% *LEAD down betwixt the first Couple and behind the backs of the second.  Lead up
+% betwixt the 2d Couple, and by the backs of the first to the head.  *Lead down a
+% little betwixt the first Couple, casting down the 2d.  Then do the same with the 2d
+% Couple.  *SETT cross Partners.  *Lead out at the sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:44
+T:Lancaster Hornpipe
+M:3/2
+L:1/8
+K:D
+d3B  ABAG TF4|E2 e4 B2 dcBA|BcdA BAGF TE4  |D2 d4  F2 TE2D2:|
+d2f2 c2e2 TB4|B2 e4 B2 dcBA|d2f2 c2e2  B2e2|A2Bc d2F2 TE2D2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 45. ===============================================================================
+
+%  @THE@
+% &Piper.&
+%
+% *CROSS hands twice with the first Couple, and lead your Partner down a little; then
+% up again, and cast down one Couple.  *Lead down your Partner betwixt the second
+% Couple, and cast up the same Couple again.  *SETT cross Partners.  *Lead out at the
+% sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:45
+T:Piper
+M:9/8
+L:1/8
+K:C
+TB2G GBG dBG|(B/c/d)B gdB deg|TB>AG GBG dBG|(A/B/c)A fcA c2e:|
+TB2d gdB gdB|TB2d     gdB deg|TB2d  gdB gdB|(A/B/c)A fcA c2e:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 46. ===============================================================================
+
+% @ECCLES'S@
+% &Rant.&
+%
+% *TURN round your Partner, and cast off the first Couple.  Lead down the 2d Couple,
+% and cast up.  *Four hands round with the upper Couple, then Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:46
+T:Eccles's Rant
+M:C|
+L:1/8
+K:DMix
+F|D/D/D dF A3c  |BGAF G/F/E/D/ CE|D/D/D dF A3g  |fdef d/d/d d:|
+e|fdgf    Te>dce|fdge d3e        |fdgf    Te>dce|fdge fdge|fdgf    Te>dcg|f/g/a ef d2d:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 47. ===============================================================================
+
+% +&C&aptain &R&oss.+
+%
+% *SETT and cast down one Couple.  Sett again & cast up.  *Cross over, and figure 8
+% about 2d Couple.  Then Right and Left with 2d Couple.  *SETT across and turn.  *Lead
+% out at the Sides.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:47
+T:Captain Ross
+M:C|
+L:1/8
+K:A
+E3c      TB>AFB|A/A/A TcA  eATcA|E3c         TB>AFB|ef/g/  ac A/A/A A2:|
+ef/g/ ac TB>AFB|ef/g/  ae Tfeae |f/e/f/g/ ac TB>AFB|A/A/A TcB A2    e2:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+%% 48. ===============================================================================
+
+% +&K&ate &Mc&farlan.+
+%
+% *SETT and cast down the first Couple.  Sett and cast down the 2d.  *Lead up to the
+% head, and cast down the first Couple again.  *SETT cross Partners.  *Four hands round.
+% Then Right and Left.
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+X:48
+T:Kate Mcfarlan
+M:C|
+L:1/8
+K:D
+e|fA A/A/A Te>dBe|fA A/A/A Te2de|fA A/A/A Te>dBe|aefd Te2d:|
+e|fdfd     Te>dBe|fdfd     Te2de|fdfd     Te>dBe|aefd Te2d:|
+
+% @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+% @FINIS.@
+

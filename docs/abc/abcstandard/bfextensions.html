@@ -1,0 +1,403 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Extensions</title>
+  </head><body bgcolor="#ffffff"><x-sas-window top="42" bottom="597" left="4" right="534">
+
+
+
+<p align="CENTER"><img src="bfextensions_files/bficon.GIF" x-sas-useimagewidth="" x-sas-useimageheight="" naturalsizeflag="0" height="79" width="85" align="BOTTOM"></p>
+
+<h1 align="CENTER">BarFly<br></h1>
+
+
+<h3>Extensions to abc v1.6</h3>
+
+<p><font size="+1">BarFly supports a number of useful extensions to the current
+abc format.  Some of these may be included in the next version of abc, and some
+are supported by other abc programs.  Be aware, though, that if you use them, not
+all of the other abc programs will be able to make sense of your music.</font></p><p>
+</p><hr>
+<a name="Aligned"><h4>Aligned words</h4></a>
+<p>The W: field of abc1.6 allows you to write words of songs under the music. The
+string of words is simply drawn as entered, and if you wish to place each word
+under the corresponding note(s), you must space the words out appropriately.  The
+trouble with this is that another abc program may use a different font for the
+words, making the spacing wrong.  
+<a href="http://www.ihp-ffo.de/%7Emsm/">Michael Methfessel</a> introduced the use
+of the w: (lower case) field to get round this in his program abc2ps.  Here each
+word is aligned with and centred on the (numerically) corresponding note on the line
+above.  Words can be broken into syllables using hyphens (each syllable is then
+treated as a separate word) and where more than one note falls on the same word,
+you can indicate this by adding asterisks after the word.  Each asterisk is treated
+as an "invisible" word.  You can also use the underscore character in
+place of the asterisk, which causes a horizontal line to be drawn from the end of
+the word to the position of the last corresponding note.  You can have multiple
+lines of words (using either W: or w:) under each line of music, but extra verses
+after the end of the music must use the W: field.</p>
+<p>Take a look at 
+<a href="http://www.barfly.dial.pipex.com/bfpicsnsounds.html#GreenLinnet">The Green Linnet</a> for an example of
+how this is used.</p><p>
+</p><hr>
+
+<a name="Annotations"><h4>Guitar chords and annotations</h4></a>
+<p>Guitar chords in abc are written between double quotes e.g. "Am", and BarFly can
+draw them either above or below the staff (it's a option in the Viewer Preferences
+dialog).  This has often been used to place text annotations in the music.
+However, this causes problems for programs which play or transpose the guitar
+chords.  In order to mark such text annotations out as different from guitar
+chords you can precede them with one of the four characters ^ _ &lt; or &gt;.  These
+will not be drawn in the music, but determine where the annotation is to be
+drawn, above, below, to the left or right of the symbol which follows respectively.
+The &lt; and &gt; symbols place the annotation level with the head of the note, and
+are intended for use when placing fingering markings on chords.  You may have
+to use the invisible rest character y here (see below) to make space for the
+numbers.  One special word is 'segno', which when it is used in an above-staff
+annotation is replaced by the symbol to which it refers, so for example you
+can write "^D.C. al segno" at the end of a piece, to signify that it should be
+repeated from the beginning up to the position of the segno (which is marked
+with a W).  BarFly's player won't recognise this instruction - its for human
+readers only.  You can use text annotations within chords e.g. F#diminished
+on guitar is ["&lt;1"^D"&lt;2"A"&lt;1"C"&lt;3"^f] on bar-lines and on visible or invisible
+rests.</p>
+<hr>
+
+<a name="Invisible"><h4>Invisible rests</h4></a>
+<p>Another extension introduced by Michael Methfessel is the use of the letter
+"x" as an invisible rest.  This can be placed anywhere you can use
+a normal rest, but is not drawn in the music; it simply acts as a spacer, moving
+apart the notes on either side.  This is useful when you are trying to fit
+complex guitar chords or long words against few notes.  BarFly also lets you use
+the letter "y" for the same purpose - the difference is that x is <i>
+played</i> as a rest, while y has no effect on the sound whatsoever.</p>
+<hr>
+
+<a name="Nonmetric"><h4>Non-metric music</h4></a>
+<p>Some music either has no meter, or the note timings are so complex that you
+would have to use a separate M: field for each bar in order to transcribe it
+accurately.  Some examples would be slow airs, many ballad tunes and gregorian
+chant.  It makes no sense to clutter up the music with lots of M: fields, as
+this actually makes it harder to read, so BarFly permits the entry of "none"
+in the main M: field.  The default note length is then taken as an eighth, and
+the bar lines can be placed anywhere you want (except that BarFly needs a bar line
+at the end of each line of music as it will only break lines on a bar).</p><p>
+</p><hr>
+
+<a name="Clefs"><h4>Clef specifiers</h4></a>
+<p>BarFly can draw several different clefs.  You may specify which clef is to
+be used by adding its name to the K: field e.g.</p>
+<pre>K:Am Bass
+</pre>
+The legal entries here are:
+<ul>
+<li>Treble (the default)
+</li><li>Alto
+</li><li>Tenor (see <a href="http://www.barfly.dial.pipex.com/bfpicsnsounds.html#Coventry">Coventry Carol</a> for an example)
+</li><li>Bass
+</li><li>Doh1
+</li><li>Doh2
+</li><li>Doh3
+</li><li>Doh4
+</li><li>Fa1
+</li><li>Fa2
+</li><li>Fa3
+</li><li>Fa4
+</li></ul>
+
+<p>The Doh and Fa clefs are used in <a href="http://www.barfly.dial.pipex.com/bfgregorian.html">Gregorian Chant</a> notation,
+the number which follows indicates which line of the four-line staff the clef is placed on.</p>
+<p>In addition, you can also specify that the music should be played an octave higher
+or lower than written by adding either '+8va' or '-8va' to this field.For an example see
+<a href="http://www.barfly.dial.pipex.com/bfpicsnsounds.html#StLouis">St Louis Tickle</a></p>
+<hr>
+
+<a name="Redefinable"><h4>Redefinable symbols</h4></a>
+<p>Music has hundreds of symbols, all of which someone somewhere finds essential
+to the particular musical genre which interests him.  abc as currently defined
+has to represent all of these with the letters H to Z. BarFly allows
+these symbols to be re-defined using the U: field, so that a large number
+of symbols can be used, provided that you don't need more than 19 in any
+one piece of music.  This version of BarFly recognises the following
+extra symbols:</p><p><br>
+</p><div align="CENTER">
+<table border="2">
+	<tbody><tr><td>T	</td><td>Trill</td></tr><tr>
+	</tr><tr><td>M	</td><td>Mordent</td></tr><tr>
+	</tr><tr><td>P	</td><td>Lower Mordent (Pralltriller)</td></tr><tr>
+	</tr><tr><td>L	</td><td>Emphasis mark (or vertical episema in Gregorian notation)</td></tr><tr>
+	</tr><tr><td>H	</td><td>Fermata</td></tr><tr>
+	</tr><tr><td>I	</td><td>Inverted fermata</td></tr><tr>
+	</tr><tr><td>S	</td><td>Short phrase mark</td></tr><tr>
+	</tr><tr><td>R	</td><td>Medium phrase mark</td></tr><tr>
+	</tr><tr><td>Q	</td><td>Long phrase mark.</td></tr><tr>
+	</tr><tr><td>K	</td><td>Horizontal episema (in Gregorian notation only)</td></tr><tr>
+	</tr><tr><td>W	</td><td>Segno</td></tr><tr>
+</tr></tbody></table>
+</div>
+
+<p>All of these are treated as 'accents', in other words the letter must immediately
+precede the note to which it applies.  All of them are drawn in the music, and
+the two fermata are also played:  you can set the factor by which they lengthen
+or shorten the note to which they apply using the Player Preferences dialog.
+This is a multiplication factor and can have any value between 0.1 and 9.9
+(1.0 would leave the note length unchanged).  The trill and the mordents can
+be played by means of macros, there is a macro file supplied for this purpose.
+The emphasis is currently not played, and the three phrase marks are used to mark
+alignments between words and music, and so have no audible effect.</p>
+
+<p>You will probably not want to redefine these symbols yet, but if you wish to
+you can.  For example, to have the letter N stand for a trill, you would
+write:</p>
+<pre>U: N = trill
+</pre>
+<p>This does not affect the original default definition; both N and T will now
+be recognised as a trill.  To cancel the original definition you must either
+define T to mean something else, or write:</p>
+<pre>U: T = nil
+(T will now be ignored)
+</pre>
+<p>The program will only accept one definition in each U: field; use multiple
+fields for multiple definitions.</p>
+ 
+<p>The ability to have multiple letters stand for the same symbol can be useful,
+for example in the case of the trill, there are many different ways of playing
+it.  If you need more than one version of the trill in the same tune, you can
+define several letters to mean 'trill', then write a separate macro for each
+letter.  All will be shown on the music as 'tr', but each will play differently.</p>
+
+<p>Symbol definitions can be written either in the
+tune header (apply to this tune only), in the file header (apply to all tunes
+in this file) or in a global macro file (apply to all tunes).  You can have
+symbol definitions and macros in the same file.  Only the capital letters H to Z
+can be used in symbol definitions.  The names of the symbols to which they
+apply must be written as a single word, although they are not case-sensitive.
+This is the current list of legal names:</p>
+
+<ul>
+	<li>trill
+	</li><li>mordent
+	</li><li>lowermordent
+	</li><li>emphasis
+	</li><li>fermata
+	</li><li>invertedfermata
+	</li><li>shortphrase
+	</li><li>mediumphrase
+	</li><li>longphrase
+	</li><li>horizontalepisema
+	</li><li>nil
+</li></ul>
+<hr>
+
+<a name="macros"><h4>Macros</h4></a>
+
+<p>BarFly has a system of macros which is principally used to define the way in
+which ornament symbols such as the tilde "~" are played (although it
+could be used for many other purposes).  There are two kinds of macro, called
+<b>Static</b> and <b>Transposing.</b></p>
+
+<h4>Static macros</h4>
+<p>You define a static macro by writing into the tune header something like this:</p>
+<pre> m: ~G3 = G{A}G{F}G
+</pre>
+
+<p>When you play the tune, the program searches the tune header for macro definitions, then
+does a search and replace on its internal copy of the text before passing that to the
+parser which plays the tune.  Every occurence of ~G3 in the tune is replaced by G{A}G{F}G,
+and that is what gets played.  Only ~G3 notes are affected, ~G2, ~g3, ~F3 etc are ignored.</p>
+
+<p>You can put in as many macros as you want, and indeed, if you only use static macros you
+will need to write a separate macro for each combination of pitch and note-length.  Here
+is an example:</p><p>
+
+</p><pre>
+X:50
+T:Apples in Winter
+S:Trad, arr. Paddy O'Brien
+R:jig
+E:9
+m: ~g2 = {a}g{f}g
+m: ~D2 = {E}D{C}D
+I:speed 350
+M:6/8
+K:D
+G/2A/2|BEE dEE|BAG FGE|~D2D FDF|ABc ded|
+BEE BAB|def ~g2 e|fdB AGF|GEE E2:|
+d|efe edB|ege fdB|dec dAF|DFA def|
+[1efe edB|def ~g2a|bgb afa|gee e2:|
+[2edB def|gba ~g2e|fdB AGF|GEE E2||
+
+</pre>
+
+<a name="Apples in Winter">
+<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab" height="18" width="200">
+<param name="src" value="ApplesInWinter.mov">
+<param name="autoplay" value="false">
+<param name="controller" value="true">
+<embed src="bfextensions_files/ApplesInWinter.mov" autoplay="false" controller="true" pluginspage="http://www.apple.com/quicktime/download/" height="18" width="200">
+</object>
+</a>
+
+
+<p>Here I have put in two static macros, since there are two different notes in the tune
+marked with a tilde.</p>
+
+<p>A static macro definition consists of four parts:</p>
+<ul>
+<li>the field identifier m:
+</li><li>the target string - e.g ~G3
+</li><li>the equals sign
+</li><li>the replacement string - e.g. G{A}G{F}G
+</li></ul>
+<p>The target string can consist of any string up to 31 characters in length, except that it
+may not include the letter 'n', for reasons which will become obvious later.  You don't
+have to use the tilde, but of course if you don't use a legal combination of abc, other
+programs will not be able to play your tune.</p>
+
+<p>The replacement string consists of any legal abc text up to 200 characters in length.
+It's up to you to ensure that the target and replacement strings occupy the same time
+interval (the program does not check this).  Both the target and replacement strings
+may have spaces embedded if necessary, but leading and trailing spaces are stripped
+off so</p>
+<pre>m:~g2={a}g{f}g
+</pre>
+<p>is perfectly OK, although less readable.</p>
+
+<h4>Transposing macros</h4>
+
+<p>If your tune has ornaments on lots of different notes, and you want them to all play
+with the same ornament pattern, you can use transposing macros to achieve this.
+Transposing macros are written in exactly the same way as static macros, except that
+the note symbol in the target string is represented by 'n' (meaning any note) and
+the note symbols in the replacement string by other letters (h to z) which are interpreted
+according to their position in the alphabet relative to n.  So, for example I could re-write
+the static macro m: ~G3 = G{A}G{F}G as a transposing macro m: ~n3 = n{o}n{m}n.
+When the transposing macro is expanded, any note of the form ~n3 will be replaced by
+the appropriate pattern of notes.  Notes of the form ~n2 (or other lengths) will be
+ignored, so you will have to write separate transposing macros for each note length.</p>
+
+<p>Here's an example:</p>
+<pre>X:35
+T:Down the Broom
+S:Trad, arr. Paddy O'Brien 
+R:reel
+E:9
+I:speed 350
+M:C|
+m: ~n2 = (3o/n/m/ n                % One macro does for all four rolls
+K:ADor
+EAAG~A2 Bd|eg~g2 egdc|BGGF GAGE|~D2B,D GABG|
+EAAG ~A2 Bd|eg~g2 egdg|eg~g2 dgba|gedB BAA2:|
+~a2ea agea|agbg agef|~g2dg Bgdg|gfga gede|
+~a2 ea agea|agbg ageg|dg~g2 dgba|gedB BA A2:|
+</pre>
+
+<a name="Down the Broom">
+<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab" height="18" width="200">
+<param name="src" value="DowntheBroom.mov">
+<param name="autoplay" value="false">
+<param name="controller" value="true">
+<embed src="bfextensions_files/DowntheBroom.mov" autoplay="false" controller="true" pluginspage="http://www.apple.com/quicktime/download/" height="18" width="200">
+</object>
+</a>
+
+
+<p>A transposing macro definition consists of four parts:</p>
+<ul>
+<li>the field identifier m:
+</li><li>the target string - e.g ~n3
+</li><li>the equals sign
+</li><li>the replacement string - e.g. n{o}n{m}n
+</li></ul>
+<p>The target string can consist of any string up to 31 characters in length, except that it
+must conclude with the letter 'n', followed by a number which specifies the note length.</p>
+
+<p>The replacement string consists of any legal abc text up to 200 characters in length,
+where note pitches are defined by the letters h - z, the pitches being interpreted
+relative to that of the letter n.  Once again you should ensure that the time intervals
+match.  You should not use accidentals in transposing macros (I can't for the life of
+me think of a way to transpose ~=a3 or ~^G2 which will work correctly under all
+circumstances, so if you need to do this you must use a static macro.)</p>
+
+<p>Global macros</p>
+
+<p>If you have a file with 500 tunes in it, inserting macro definitions into each tune header
+would involve a great deal of work, so BarFly allows you to put macros in two other places
+and have them apply to all the tunes involved.</p>
+<ul>
+<li>You can put macro definitions into the file header - that is to say anywhere between
+the beginning of the file and the X: field of the first tune.  These definitions will
+then apply to all the tunes in that file.
+
+</li><li>You can place macro definitions in a separate file, and have the program apply them
+to all tunes played.  This opens up the possibility of creating ornament libraries, each
+containing sets of macros appropriate to a different instrument or musical tradition.
+
+</li><li>If you re-define a macro it will override the previous definition, so for example
+you might have a set of global transposible macros for fiddle rolls, but in a
+particular case you want a triplet to be played instead.  Place a static macro
+defining the triplet in the header of that tune, and for that note only a triplet
+will be played instead of the globally-defined roll.  The order of precedence for
+macros is as follows : tune header macros &gt; file header macros &gt; ornament library macros.
+In any list of macros, later definitions take precedence over earlier ones.
+
+
+<h5 align="CENTER"><hr>
+<!--- my home page ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/phil.html">Author</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Download ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/download.html">Download</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- BarFly Intro ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/index.html">Introduction</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Description ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/bfdescription.html">Description</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Pics and sounds ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/bfpicsnsounds.html">Pics</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Gregorian ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/bfgregorian.html">Gregorian</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Tunes ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/bftunes.html">Tunes</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Links ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/bflinks.html">Links</a>
+<font color="#000000" size="+2">]</font>
+
+<!--- Mail ---->
+<font color="#000000" size="+2">[</font>
+<a href="http://www.barfly.dial.pipex.com/mail.html">Mail</a>
+<font color="#000000" size="+2">]</font>
+
+
+
+</h5>
+
+<p align="CENTER"><font size="-1">© 1998 Phil Taylor. All rights
+reserved. <br>
+</font>
+
+</p><p align="CENTER"><img src="bfextensions_files/saltire.GIF" x-sas-useimagewidth="" x-sas-useimageheight="" naturalsizeflag="0" height="45" width="65" align="BOTTOM"></p>
+
+<h6 align="CENTER">Made in Scotland<br></h6>
+
+
+
+</li></ul></x-sas-window></body></html>

@@ -1,0 +1,7 @@
+postscript /SL{M curveto RL curveto closepath
+postscript 	gsave
+postscript 		.3 setlinewidth
+postscript 		1 setlinecap 1 setlinejoin
+postscript 		stroke
+postscript 	grestore
+postscript 	fill}!

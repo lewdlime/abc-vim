@@ -1,0 +1,13 @@
+fmt - Extensões para abcm2ps
+Hudson Lacerda (02/05/2007-rev.02/11/2009)
+
+Este diretório contém arquivos de formato (*.fmt) com código
+postscript e decorações para diversos fins, e arquivos-exemplo
+como fonte (*.abc) e objeto (*.ps).
+
+Eu gostaria muito de receber opiniões sobre essas extensões para
+abcm2ps, e principalmente sugestões para outros arquivos de formato.
+
+Hudson Lacerda
+
+hfmlacerda@yahoo.com.br

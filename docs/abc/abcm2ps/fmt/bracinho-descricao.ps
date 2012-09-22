@@ -1,0 +1,938 @@
+%!PS-Adobe-3.0
+%%Title: bracinho-descricao.abc
+%%Creator: abcm2ps-4.7.7
+%%CreationDate: Nov  3, 2004 13:35
+%%Pages: (atend)
+%%LanguageLevel: 2
+%%EndComments
+%CommandLine: bracinho-descricao.abc -O =
+
+%%BeginSetup
+/!{bind def}bind def
+/bdef{bind def}!
+/T/translate load def
+/M/moveto load def
+/RM/rmoveto load def
+/RL/rlineto load def
+/RC/rcurveto load def
+/dlw{0.7 setlinewidth}!
+/xymove{/x 2 index def/y 1 index def M}!
+/showc{dup stringwidth pop .5 mul neg 0 RM show}!
+/showr{dup stringwidth pop neg 0 RM show}!
+/showb{	dup currentpoint 3 -1 roll show
+	.6 setlinewidth
+	exch 2 sub exch 3 sub 3 -1 roll
+	stringwidth pop 4 add fh 4 add rectstroke}!
+/tclef{	M
+	-1.9 3.7 RM
+	-3.3 1.9 -3.1 6.8 2.4 8.6 RC
+	7 0 9.8 -8 4.1 -11.7 RC
+	-5.2 -2.4 -12.5 0 -13.3 6.2 RC
+	-0.7 6.4 4.15 10.5 10 15.3 RC
+	4 4 3.6 6.1 2.8 9.6 RC
+	-2.3 -1.5 -4.7 -4.8 -4.5 -8.5 RC
+	0.8 -12.2 3.4 -17.3 3.5 -26.3 RC
+	0.3 -4.4 -1.2 -6.2 -3.8 -6.2 RC
+	-3.7 -0.1 -5.8 4.3 -2.8 6.1 RC
+	3.9 1.9 6.1 -4.6 1.4 -4.8 RC
+	0.7 -1.2 4.6 -0.8 4.2 4.2 RC
+	-0.2 10.3 -3 15.7 -3.5 28.3 RC
+	0 4.1 0.6 7.4 5 10.6 RC
+	2.3 -3.2 2.9 -10 1 -12.7 RC
+	-2.4 -4.3 -11.5 -10.3 -11.8 -15 RC
+	0.4 -7 6.9 -8.5 11.7 -6.1 RC
+	3.9 3 1.3 8.8 -3.7 8.1 RC
+	-4 -0.2 -4.8 -3.1 -2.7 -5.7 RC
+	fill}!
+/stclef{exch 0.85 div exch 0.85 div gsave 0.85 dup scale tclef grestore}!
+/octu{/Times-Roman 12 selectfont M -1.5 36 RM(8)show}!
+/octl{/Times-Roman 12 selectfont M -3.5 -19 RM(8)show}!
+/bclef{	M
+	-8.8 3.5 RM
+	6.3 1.9 10.2 5.6 10.5 10.8 RC
+	0.3 4.9 -0.5 8.1 -2.6 8.8 RC
+	-2.5 1.2 -5.8 -0.7 -5.9 -4.1 RC
+	1.8 3.1 6.1 -0.6 3.1 -3 RC
+	-3 -1.4 -5.7 2.3 -1.9 7 RC
+	2.6 2.3 11.4 0.6 10.1 -8 RC
+	-0.1 -4.6 -5 -10.2 -13.3 -11.5 RC
+	15.5 17 RM
+	0 1.5 2 1.5 2 0 RC
+	0 -1.5 -2 -1.5 -2 0 RC
+	0 -5.5 RM
+	0 1.5 2 1.5 2 0 RC
+	0 -1.5 -2 -1.5 -2 0 RC
+	fill}!
+/sbclef{exch 0.85 div exch 0.85 div gsave 0.85 dup scale 0 3 T bclef grestore}!
+/cchalf{0 0 M 0 12 RM
+	2.6 5 RL
+	2.3 -5.8 5.2 -2.4 4.7 1.6 RC
+	0.4 3.9 -3 6.7 -5.1 4 RC
+	4.1 0.5 0.9 -5.3 -0.9 -1.4 RC
+	-0.5 3.4 6.5 4.3 7.8 -0.8 RC
+	1.9 -5.6 -4.1 -9.8 -6 -5.4 RC
+	-1.6 -3 RL
+	fill}!
+/cclef{	gsave T
+	cchalf 0 24 T 1 -1 scale cchalf
+	-5.5 0 3 24 rectfill
+	-0.5 0 M 0 24 RL 0.7 setlinewidth stroke grestore}!
+/scclef{exch .85 div exch .85 div gsave .85 dup scale
+	2 add cclef grestore}!
+/pclef{	exch 2.7 sub exch 2 add 5.4 20
+	1.4 setlinewidth rectstroke}!
+/spclef{pclef}!
+/bm{	M 3 copy RL neg 0 exch RL
+	neg exch neg exch RL 0 exch RL fill}!
+/bnum{M/Times-Italic 12 selectfont showc}!
+/bnumb{	currentgray 3 index stringwidth pop 4 add
+        dup .5 mul neg 4 index add 3 index 3 -1 roll 8
+        1.0 setgray rectfill setgray bnum}!
+/tubr{3 sub M 0 3 RL RL 0 -3 RL dlw stroke}!
+/tubrl{3 add M 0 -3 RL RL 0 3 RL dlw stroke}!
+/r00{	xymove
+	-1 -6 RM currentpoint 3 12 rectfill}!
+/r0{	xymove
+	-1 0 RM currentpoint 3 6 rectfill}!
+/r1{	xymove
+	-3 3 RM currentpoint 7 3 rectfill}!
+/r2{	xymove
+	-3 0 RM currentpoint 7 3 rectfill}!
+/r4{	xymove
+	-0.5 8.9 RM
+	1.3 -3.4 RL
+	-2 -4.5 RL
+	3.1 -4.8 RL
+	-3.2 3.5 -5.8 -1.4 -1.4 -3.8 RC
+	-1.9 2 -0.8 5 2.4 2.6 RC
+	-2.2 4.2 RL
+	0 0 2 4.7 2.1 4.7 RC
+	-3.3 5 RL
+	fill}!
+/r8e{	-1.5 -1.5 -2.4 -2 -3.6 -2 RC
+	2.4 2.8 -2.8 4 -2.8 1.2 RC
+	0 -2.7 4.3 -2.4 5.9 -0.6 RC
+	fill}!
+/r8{	xymove
+	.5 setlinewidth 3.3 4 RM
+	-3.4 -9.6 RL stroke
+	x y M 3.4 4 RM r8e}!
+/r16{	xymove
+	.5 setlinewidth 3.3 4 RM
+	-4 -15.6 RL stroke
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r32{	xymove
+	.5 setlinewidth 4.8 10 RM
+	-5.5 -21.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e}!
+/r64{	xymove
+	.5 setlinewidth 4.8 10 RM
+	-7 -27.6 RL stroke
+	x y M 4.9 10 RM r8e
+	x y M 3.4 4 RM r8e
+	x y M 1.9 -2 RM r8e
+	x y M 0.4 -8 RM r8e}!
+/r128{	xymove
+	.5 setlinewidth 5.8 16 RM
+	-8.5 -33.6 RL stroke
+	x y M 5.9 16 RM r8e
+	x y M 4.4 10 RM r8e
+	x y M 2.9 4 RM r8e
+	x y M 1.4 -2 RM r8e
+	x y M -0.1 -8 RM r8e}!
+/dt{y add M currentpoint 1.2 0 360 arc fill}!
+/hld{	1.5 add 2 copy 1.5 add M currentpoint 1.3 0 360 arc
+	M -7.5 0 RM
+	0 11.5 15 11.5 15 0 RC
+	-0.25 0 RL
+	-1.25 9 -13.25 9 -14.5 0 RC
+	fill}!
+/dnb{	dlw M -3.2 2 RM
+	0 7.2 RL
+	6.4 0 RM
+	0 -7.2 RL
+	currentpoint stroke M
+	-6.4 4.8 RM
+	0 2.4 RL
+	6.4 0 RL
+	0 -2.4 RL
+	fill}!
+/upb{	dlw M -2.6 9.4 RM
+	2.6 -8.8 RL
+	2.6 8.8 RL
+	stroke}!
+/grm{	M -5 2.5 RM
+	5 8.5 5.5 -4.5 10 2 RC
+	-5 -8.5 -5.5 4.5 -10 -2 RC fill}!
+/stc{M currentpoint 1.2 0 360 arc fill}!
+/emb{	1.2 setlinewidth 1 setlinecap M
+	-2.5 0 RM 5 0 RL stroke 0 setlinecap}!
+/cpu{	M -6 0 RM
+	0.4 7.3 11.3 7.3 11.7 0 RC
+	-1.3 6 -10.4 6 -11.7 0 RC fill}!
+/sld{	M -7.2 -4.8 RM
+	1.8 -0.7 4.5 0.2 7.2 4.8 RC
+	-2.1 -5 -5.4 -6.8 -7.6 -6 RC fill}!
+/trl{	/Times-BoldItalic 16 selectfont
+	M -4 2 RM(tr)show}!
+/umrd{	4 add M
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	-2.2 -2.2 RL -2.1 2.9 RL -0.7 -0.7 RL
+	2.2 2.2 RL 2.1 -2.9 RL 0.7 0.7 RL fill}!
+/lmrd{	2 copy umrd 8 add M
+	.6 setlinewidth 0 -8 RL stroke}!
+/fng{/Bookman-Demi 8 selectfont M -3 1 RM show}!
+/dacs{/Times-Roman 16 selectfont 3 add M showc}!
+/brth{/Times-BoldItalic 30 selectfont 6 add M(,)show}!
+/pf{/Times-BoldItalic 16 selectfont 5 add M showc}!
+/sfz{	M -7 5 RM pop
+	/Times-Italic 14 selectfont(s)show
+	/Times-BoldItalic 16 selectfont(f)show
+	/Times-Italic 14 selectfont(z)show}!
+/coda{	1 setlinewidth 2 add 2 copy M 0 20 RL
+	2 copy M -10 10 RM 20 0 RL stroke
+	10 add 6 0 360 arc 1.7 setlinewidth stroke}!
+/sgno{	M 0 3 RM currentpoint currentpoint currentpoint
+	1.5 -1.7 6.4 0.3 3 3.7 RC
+	-10.4 7.8 -8 10.6 -6.5 11.9 RC
+	4 1.9 5.9 -1.7 4.2 -2.6 RC
+	-1.3 -0.7 -2.9 1.3 -0.7 2 RC
+	-1.5 1.7 -6.4 -0.3 -3 -3.7 RC
+	10.4 -7.8 8 -10.6 6.5 -11.9 RC
+	-4 -1.9 -5.9 1.7 -4.2 2.6 RC
+	1.3 0.7 2.9 -1.3 0.7 -2 RC
+	fill
+	M 0.8 setlinewidth -6 1.2 RM 12.6 12.6 RL stroke
+	7 add exch -6 add exch 1.2 0 360 arc fill
+	8 add exch 6 add exch 1.2 0 360 arc fill}!
+/cresc{	1.2 setlinewidth M dup 5 RM
+	dup neg 4 RL 4 RL stroke}!
+/dim{	1.2 setlinewidth 5 add M
+	dup 4 RL neg 4 RL stroke}!
+/dplus{	1.2 setlinewidth 0.5 add M 0 6 RL
+	-3 -3 RM 6 0 RL stroke}!
+/accent{1.2 setlinewidth M -4 2 RM
+	8 2 RL -8 2 RL stroke}!
+/turn{	M 5.2 8 RM
+	1.4 -0.5 0.9 -4.8 -2.2 -2.8 RC
+	-4.8 3.5 RL
+	-3 2 -5.8 -1.8 -3.6 -4.4 RC
+	1 -1.1 2 -0.8 2.1 0.1 RC
+	0.1 0.9 -0.7 1.2 -1.9 0.6 RC
+	-1.4 0.5 -0.9 4.8 2.2 2.8 RC
+	4.8 -3.5 RL
+	3 -2 5.8 1.8 3.6 4.4 RC
+	-1 1.1 -2 0.8 -2.1 -0.1 RC
+	-0.1 -0.9 0.7 -1.2 1.9 -0.6 RC
+	fill}!
+/turnx{	2 copy turn M
+	.6 setlinewidth 0 1.5 RM 0 9 RL stroke}!
+/lphr{1.2 setlinewidth M 0 -18 RL stroke}!
+/mphr{1.2 setlinewidth M 0 -12 RL stroke}!
+/sphr{1.2 setlinewidth M 0 -6 RL stroke}!
+/ltr{	gsave 4 add T
+	0 6 3 -1 roll{
+		0 1 1{
+			0 0.4 M
+			2 1.9 3.4 2.3 3.9 0 curveto
+			2.1 0 lineto
+			1.9 0.8 1.4 0.7 0 -0.4 curveto
+			fill
+			pop 180 rotate -6 0 translate
+		}for
+		pop 6 0 translate
+	}for
+	grestore}!
+/arp{gsave 90 rotate exch neg ltr grestore}!
+/wedge{1 add M -1.5 5 RL 3 0 RL -1.5 -5 RL fill}!
+/opend{dlw M currentpoint 3 add 2.5 -90 270 arc stroke}!
+/snap{	dlw M currentpoint -3 6 RM
+	0 5 6 5 6 0 RC
+	0 -5 -6 -5 -6 0 RC
+	5 add M 0 -6 RL stroke}!
+/thumb{	dlw M currentpoint -2.5 7 RM
+	0 6 5 6 5 0 RC
+	0 -6 -5 -6 -5 0 RC
+	2 add M 0 -4 RL stroke}!
+/hl{	.8 setlinewidth x -6 add exch M
+	12 0 RL stroke}!
+/hl1{	.8 setlinewidth x -7 add exch M
+	14 0 RL stroke}!
+/hl2{	.8 setlinewidth x -8 add exch M
+	16 0 RL stroke}!
+/sh0{	gsave T .9 setlinewidth
+	-1.2 -8.4 M 0 15.4 RL
+	1.4 -7.2 M 0 15.4 RL stroke
+	-2.6 -3 M 5.4 1.6 RL 0 -2.2 RL -5.4 -1.6 RL 0 2.2 RL fill
+	-2.6 3.4 M 5.4 1.6 RL 0 -2.2 RL -5.4 -1.6 RL 0 2.2 RL fill
+	grestore}!
+/ft0{	gsave T .8 setlinewidth
+	-1.8 2.5 M
+	6.4 3.3 6.5 -3.6 0 -6.6 RC
+	4.6 3.9 4.5 7.6 0 5.7 RC
+	currentpoint fill M
+	0 7.1 RM 0 -12.6 RL stroke
+	grestore}!
+/nt0{	gsave T .5 setlinewidth
+	-2 -4.3 M 0 12.2 RL
+	1.3 -7.8 M 0 12.2 RL stroke
+	2.1 setlinewidth
+	-2 -2.9 M 3.3 0.6 RL
+	-2 2.4 M 3.3 0.6 RL stroke
+	grestore}!
+/dsh0{	2 copy M .7 setlinewidth
+	-2 -2 RM 4 4 RL
+	-4 0 RM 4 -4 RL stroke
+	.5 setlinewidth 2 copy M 1.3 -1.3 RM
+	2 -0.2 RL 0.2 -2 RL -2 0.2 RL -0.2 2 RL fill
+	2 copy M 1.3 1.3 RM
+	2 0.2 RL 0.2 2 RL -2 -0.2 RL -0.2 -2 RL fill
+	2 copy M -1.3 1.3 RM
+	-2 0.2 RL -0.2 2 RL 2 -0.2 RL 0.2 -2 RL fill
+	M -1.3 -1.3 RM
+	-2 -0.2 RL -0.2 -2 RL 2 0.2 RL 0.2 2 RL fill}!
+/ftx{	-1.4 2.7 RM
+	5.7 3.1 5.7 -3.6 0 -6.7 RC
+	3.9 4 4 7.6 0 5.8 RC
+	currentpoint fill M
+	dlw 0 7.1 RM 0 -12.4 RL stroke}!
+/dft0{2 copy M -2.5 0 RM ftx M 1.5 0 RM ftx}!
+/gsc{gsave y T 0.7 dup scale 0 0}!
+/sh1{	gsave T .9 setlinewidth
+	0 -7.8 M 0 15.4 RL stroke
+	-1.8 -2.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	-1.8 3.7 M 3.6 1.1 RL 0 -2.2 RL -3.6 -1.1 RL 0 2.2 RL fill
+	grestore}!
+/sh513{	gsave T .8 setlinewidth
+	-2.5 -8.7 M 0 15.4 RL
+	0 -7.8 M 0 15.4 RL
+	2.5 -6.9 M 0 15.4 RL stroke
+	-3.7 -3.1 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	-3.7 3.2 M 7.4 2.2 RL 0 -2.2 RL -7.4 -2.2 RL 0 2.2 RL fill
+	grestore}!
+/ft1{gsave -1 1 scale exch neg exch ft0 grestore}!
+/ft513{2 copy gsave -1 1 scale exch neg 3 add exch M ftx grestore
+	M 1.5 0 RM ftx}!
+/sharp_glyph{
+	fh 0.4 mul 0 RM currentpoint
+	gsave T fh 0.08 mul dup scale 0 7 sh0 grestore
+	fh 0.4 mul 0 RM}!
+/flat_glyph{
+	fh 0.4 mul 0 RM currentpoint
+	gsave T fh 0.08 mul dup scale 0 5 ft0 grestore
+	fh 0.4 mul 0 RM}!
+/nat_glyph{
+	fh 0.4 mul 0 RM currentpoint
+	gsave T fh 0.08 mul dup scale 0 7 nt0 grestore
+	fh 0.4 mul 0 RM}!
+/gchshow{
+	pop pop
+	dup 129 eq{pop sharp_glyph}
+	  {dup 130 eq{pop flat_glyph}
+	    {dup 131 eq{pop nat_glyph}
+		{currentfont/Encoding get exch get glyphshow}
+		ifelse}
+	    ifelse}
+	  ifelse}!
+/gcshow{/gchshow load cshow}!
+/box{.6 setlinewidth rectstroke}!
+/anshow{gcshow}!
+/wln{M .8 setlinewidth 0 RL stroke}!
+/hyph{	.8 setlinewidth 3 add M
+	dup cvi 40 idiv 1 add 1 index exch div
+	dup 3 sub 3 1 roll
+	dup .5 mul dup 1.5 sub 0 RM
+	exch 3 -1 roll
+	{pop 3 0 RL dup 0 RM} for stroke pop}!
+/lyshow{show}!
+/bar{M dlw 0 exch RL stroke}!
+/dotbar{[5] 0 setdash bar [] 0 setdash}!
+/thbar{3 -1 roll 3 exch rectfill}!
+/rdots{	9 add M currentpoint 2 copy 1.2 0 360 arc
+	6 add M currentpoint 1.2 0 360 arc fill}!
+/csig{	M
+	1 17.3 RM
+	0.9 0 2.3 -0.7 2.4 -2.2 RC
+	-1.2 2 -3.6 -0.1 -1.6 -1.7 RC
+	2 -1 3.8 3.5 -0.8 4.7 RC
+	-2 0.4 -6.4 -1.3 -5.8 -7 RC
+	0.4 -6.4 7.9 -6.8 9.1 -0.7 RC
+	-2.3 -5.6 -6.7 -5.1 -6.8 0 RC
+	-0.5 4.4 0.7 7.5 3.5 6.9 RC
+	fill}!
+/ctsig{dlw 2 copy csig 4 add M 0 16 RL stroke}!
+/tsig{	M gsave/Times-Bold 16 selectfont 1.2 1 scale
+	0 1 RM currentpoint 3 -1 roll showc
+	M 0 12 RM showc grestore}!
+/stsig{	M gsave/Times-Bold 18 selectfont 1.2 1 scale
+	0 6 RM showc grestore}!
+/staff{	M dlw dup 0 RL dup neg 6 RM
+	dup 0 RL dup neg 6 RM
+	dup 0 RL dup neg 6 RM
+	dup 0 RL dup neg 6 RM
+	0 RL stroke}!
+/sep0{dlw 0 M 0 lineto stroke}!
+/hbrce{	-2.5 1 RM
+	-4.5 -4.6 -7.5 -12.2 -4.4 -26.8 RC
+	3.5 -14.3 3.2 -21.7 -2.1 -24.2 RC
+	7.4 2.4 7.3 14.2 3.5 29.5 RC
+	-2.7 9.5 -1.5 16.2 3 21.5 RC
+	fill}!
+/brace{	gsave T 0 0 M 0.01 mul 1 exch scale hbrce
+	0 -100 M 1 -1 scale hbrce grestore}!
+/bracket{M dlw -5 2 RM currentpoint
+	-1.7 2 RM 10.5 -1 12 4.5 12 3.5 RC
+	0 -1 -3.5 -5.5 -8.5 -5.5 RC fill
+	3 setlinewidth M 0 2 RM
+	0 exch neg -8 add RL currentpoint stroke
+	dlw M -1.7 0 RM
+	10.5 1 12 -4.5 12 -3.5 RC
+	0 1 -3.5 5.5 -8.5 5.5 RC fill}!
+/mrest{	gsave T 1 setlinewidth
+	-20 6 M 0 12 RL 20 6 M 0 12 RL stroke
+	5 setlinewidth -20 12 M 40 0 RL stroke
+	/Times-Bold 15 selectfont 0 28 M showc grestore}!
+/mrep{	2 copy 2 copy
+	M -5 16 RM currentpoint 1.4 0 360 arc
+	M 5 8 RM currentpoint 1.4 0 360 arc
+	M -7 6 RM 11 12 RL 3 0 RL -11 -12 RL -3 0 RL
+	fill}!
+/mrep2{	2 copy 2 copy
+	M -5 18 RM currentpoint 1.4 0 360 arc
+	M 5 6 RM currentpoint 1.4 0 360 arc fill
+	M 1.8 setlinewidth
+	-7 4 RM 14 10 RL -14 -4 RM 14 10 RL
+	stroke}!
+/repbra{gsave dlw T 0 -20 M
+	0 20 3 index 1 ne{RL}{RM}ifelse 0 RL 0 ne{0 -20 RL}if stroke
+	4 -13 M show grestore}!
+/SL{M curveto RL curveto closepath fill}!
+/dSL{	M [4] 0 setdash .8 setlinewidth
+	curveto stroke [] 0 setdash
+	pop pop pop pop pop pop pop pop}!
+/strw{stringwidth pop w add/w exch def}!
+/jshow{w 0 32 4 -1 roll widthshow}!
+/hd{	xymove
+	3.5 2 RM
+	-2 3.5 -9 -0.5 -7 -4 RC
+	2 -3.5 9 0.5 7 4 RC fill}!
+/Hd{	xymove
+	3 1.6 RM
+	-1 1.8 -7 -1.4 -6 -3.2 RC
+	1 -1.8 7 1.4 6 3.2 RC
+	0.5 0.3 RM
+	2 -3.8 -5 -7.6 -7 -3.8 RC
+	-2 3.8 5 7.6 7 3.8 RC
+	fill}!
+/HD{	xymove
+	-1.6 2.4 RM
+	2.8 1.6 6 -3.2 3.2 -4.8 RC
+	-2.8 -1.6 -6 3.2 -3.2 4.8 RC
+	7.2 -2.4 RM
+	0 1.8 -2.2 3.2 -5.6 3.2 RC
+	-3.4 0 -5.6 -1.4 -5.6 -3.2 RC
+	0 -1.8 2.2 -3.2 5.6 -3.2 RC
+	3.4 0 5.6 1.4 5.6 3.2 RC
+	fill}!
+/HDD{	dlw HD
+	x y M -6 -4 RM 0 8 RL
+	12 0 RM 0 -8 RL stroke}!
+/breve{	xymove
+	2.5 setlinewidth -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -10 RL stroke}!
+/longa{	xymove
+	2.5 setlinewidth -6 -2.7 RM 12 0 RL
+	0 5.4 RM -12 0 RL stroke
+	dlw x y M -6 -5 RM 0 10 RL
+	12 0 RM 0 -16 RL stroke}!
+/pshhd{/x 2 index def/y 1 index def dsh0}!
+/pflhd{/x 2 index def/y 1 index def dsh0
+	.7 setlinewidth x y 4 0 360 arc stroke}!
+/tw_head{/Helvetica 8 selectfont
+	0 -45 M 90 rotate(WHISTLE)show -90 rotate
+	/Helvetica-Bold 36 selectfont
+	0 -45 M show .5 setlinewidth newpath}!
+/tw_under{
+	1 index 2.5 sub -4 M 2.5 -2.5 RL 2.5 2.5 RL
+	-2.5 -2.5 RM 0 6 RL stroke}!
+/tw_over{
+	1 index 2.5 sub -3 M 2.5 2.5 RL 2.5 -2.5 RL
+	-2.5 2.5 RM 0 -6 RL stroke}!
+/tw_0{7 sub 2 copy 3.5 sub 3 0 360 arc stroke}!
+/tw_1{7 sub 2 copy 3.5 sub 2 copy 3 90 270 arc fill 3 270 90 arc stroke}!
+/tw_2{7 sub 2 copy 3.5 sub 3 0 360 arc fill}!
+/tw_p{pop -55 M 0 6 RL -3 -3 RM 6 0 RL stroke}!
+/tw_pp{	pop 3 sub -53.5 M 6 0 RL
+	-1.5 -1.5 RM 0 3 RL
+	-3 0 RM 0 -3 RL stroke}!
+0 setlinecap 0 setlinejoin
+/su{dlw x y M 3.5 1.0 RM 1.0 sub 0 exch RL stroke}!
+/sd{dlw x y M -3.5 -1.0 RM 1.0 add 0 exch RL stroke}!
+/sfu{	dlw x y M 3.5 1.0 RM
+	1.0 sub 0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 -5.6 9.6 -9 5.6 -18.4 RC
+		1.6 6 -1.3 11.6 -5.6 12.8 RC
+		fill
+	  }{
+		2 1 3 -1 roll{
+			pop currentpoint
+			0.9 -3.7 9.1 -6.4 6 -12.4 RC
+			1 5.4 -4.2 8.4 -6 8.4 RC
+			fill -5.4 add M
+		}for
+		1.2 -3.2 9.6 -5.7 5.6 -14.6 RC
+		1.6 5.4 -1 10.2 -5.6 11.4 RC
+		fill
+	  }
+	ifelse}!
+/sfd{	dlw x y M -3.5 -1.0 RM
+	1.0 add 0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 5.6 9.6 9 5.6 18.4 RC
+		1.6 -6 -1.3 -11.6 -5.6 -12.8 RC
+		fill
+	  }{
+		2 1 3 -1 roll{
+			pop currentpoint
+			0.9 3.7 9.1 6.4 6 12.4 RC
+			1 -5.4 -4.2 -8.4 -6 -8.4 RC
+			fill 5.4 add M
+		}for
+		1.2 3.2 9.6 5.7 5.6 14.6 RC
+		1.6 -5.4 -1 -10.2 -5.6 -11.4 RC
+		fill
+	  }
+	ifelse}!
+/sfs{	dlw x y M -3.5 -1.0 RM
+	1.0 add 0 exch RL currentpoint stroke
+	M 1 1 3 -1 roll{
+		pop currentpoint
+		7 3.2 RL
+		0 3.2 RL
+		-7 -3.2 RL
+		fill 5.4 add M
+	}for}!
+/ghd{	xymove
+	1.7 1 RM
+	-1 1.7 -4.5 -0.2 -3.4 -2 RC
+	1 -1.7 4.5 0.2 3.4 2 RC fill}!
+/gu{	.6 setlinewidth x y M
+	1.6 0 RM 0 exch RL stroke}!
+/gd{	.6 setlinewidth x y M
+	-1.6 0 RM 0 exch RL stroke}!
+/sgu{	.6 setlinewidth x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 -3.4 5.6 -3.8 3 -10 RC
+		1.2 4.4 -1.4 7 -3 7 RC
+		fill
+	  }{
+		1 1 3 -1 roll{
+			pop currentpoint
+			1 -3.2 5.6 -2.8 3.2 -8 RC
+			1.4 4.8 -2.4 5.4 -3.2 5.2 RC
+			fill -3.5 add M
+		}for
+	  }
+	ifelse}!
+/sgd{	.6 setlinewidth x y M -1.6 0 RM
+	0 exch RL currentpoint stroke
+	M dup 1 eq
+	  {
+		pop
+		0.6 3.4 5.6 3.8 3 10 RC
+		1.2 -4.4 -1.4 -7 -3 -7 RC
+		fill
+	  }{
+		1 1 3 -1 roll{
+			pop currentpoint
+			1 3.2 5.6 2.8 3.2 8 RC
+			1.4 -4.8 -2.4 -5.4 -3.2 -5.2 RC
+			fill 3.5 add M
+		}for
+	  }
+	ifelse}!
+/sgs{	.6 setlinewidth x y M 1.6 0 RM
+	0 exch RL currentpoint stroke
+	M 1 1 3 -1 roll{
+		pop currentpoint
+		3 -1.5 RL 0 -2 RL -3 1.5 RL
+		closepath fill -3 add M
+	}for}!
+/gua{x y M -1 4 RM RL stroke}!
+/gda{x y M -5 -4 RM RL stroke}!
+/ghl{	.6 setlinewidth x -3 add exch M
+	6 0 RL stroke}!
+/gsl{dlw M curveto stroke}!
+currentdict /showc known false eq {
+/showc{dup stringwidth pop 0.5 mul neg 0 RM show}!
+} if
+/gd_incr_numpal{/gd_numpal gd_numpal 1 add def}def
+/gd_resettemp{/gd_tempstring 20 string def}def
+/gd_incrindice{/gd_indice gd_indice 1 add def}def
+/gd_reinitindice{/gd_indice 0 def}def
+/gd_armazena{gd_palavras exch gd_numpal exch put gd_incr_numpal}def
+/gd_nome? true def
+/bracinho_com_nome{/gd_nome? true def}def
+/bracinho_sem_nome{/gd_nome? false def}def
+/gd_separa_palavras {
+/gd_texto exch def
+/gd_palavras 20 array def
+/gd_tempstring 20 string def
+/gd_numpal 0 def
+/gd_indice 0 def
+/imprimir? 0 def
+/gd_tamanho gd_texto length 1 sub def
+0 1 gd_tamanho {
+dup gd_texto exch 1 getinterval dup
+( ) eq { 
+pop pop % elimina o caracter atual e o for-index
+imprimir? 1 eq {gd_tempstring gd_armazena}if
+gd_reinitindice
+gd_resettemp
+/imprimir? 0 def
+} { 
+gd_tempstring exch
+gd_indice exch putinterval
+gd_incrindice
+/imprimir? 1 def
+gd_tamanho eq {gd_tempstring gd_armazena}if % imprime a ultima palavra
+}ifelse 
+}for
+/gd_tamanho gd_numpal -1 add def
+}def
+/bracinho {
+3 2 roll
+gd_separa_palavras
+gd_tamanho 3 -2 roll gd_guitarN
+/Times-Bold 8 selectfont % impressão da casa (posição)
+4 gd_tamanho mul 2 sub 18.5 moveto gd_palavras 0 get 20 string cvs
+dup 0 get(-)0 get eq{
+pop % não imprime string começando com -
+}{
+% tenta achar caracter ^ (nome do acorde)
+(^) search {
+show % imprime casa à direita
+pop  % ignora caracter ^
+(\0)search{3 1 roll pop pop}if % ignora brancos
+gd_nome? false eq{pop ()}if % string vazia
+/Helvetica 10 selectfont
+gd_Nv gd_Nv 2 div sub 31 M showc % imprime nome do acorde
+% gd_Nv é gerada por gd_guitarN
+}{
+show % imprime casa à direita
+} ifelse
+}ifelse
+/gd_def_y{dup /gd_y exch def}def 
+/gd_pest-x 0 def
+/gd_pest-y 0 def
+/gd_pest2-x 0 def
+/gd_pest2-y 0 def
+/gd_y 0 def
+1 1 gd_tamanho {
+dup /gd_indd exch def
+/gd_x exch 1 sub 4 mul def
+0 1 gd_tempstring length 2 sub {
+/gd_ind2 exch def
+gd_palavras gd_indd get gd_ind2 get
+dup (x) 0 get eq {gd_x gd_gx} if
+dup (0) 0 get eq {gd_x gd_go} if
+dup (1) 0 get eq {gd_x 21 gd_def_y gd_dot} if
+dup (2) 0 get eq {gd_x 15 gd_def_y gd_dot} if
+dup (3) 0 get eq {gd_x  9 gd_def_y gd_dot} if
+dup (4) 0 get eq {gd_x  3 gd_def_y gd_dot} if
+dup (5) 0 get eq {gd_x -3 gd_def_y gd_dot} if
+dup (6) 0 get eq {gd_x -6 gd_def_y gd_dot} if
+pop
+gd_palavras gd_indd get gd_ind2 1 add get % segundo caracter (pestana?)
+% pestana
+/gd_oldlw currentlinewidth def
+2.8 setlinewidth
+dup ([) 0 get eq {gd_x gd_y /gd_pest-y exch def /gd_pest-x exch def} if
+dup (])0 get eq{gd_x gd_y moveto gd_pest-x gd_pest-y lineto stroke}if
+% segunda pestana
+dup ({) 0 get eq {gd_x gd_y /gd_pest2-y exch def /gd_pest2-x exch def} if
+dup(})0 get eq{gd_x gd_y moveto gd_pest2-x gd_pest2-y lineto stroke}if
+pop
+gd_oldlw setlinewidth
+} for
+} for
+grestore % gsave está dentro de gd_guitarN
+}def
+/bracinho_grande{gsave 2 dup scale T 0 0 bracinho grestore}!
+/gd_guitarN{		% usage: N x y gd_guitarN
+gsave 8 add T
+1.2 dup scale % zoom
+/gd_NNN exch def  /gd_Nv gd_NNN 1 sub 4 mul def
+gd_Nv 2 div neg 0 T % centraliza
+1.5 setlinewidth -0.3 30.6 M gd_Nv 0.6 add 0 RL stroke
+0.6 setlinewidth
+-.3 0 M gd_Nv .6 add 0 RL % % considera espessura da linha
+0 6 M gd_Nv 0 RL
+0 12 M gd_Nv 0 RL
+0 18 M gd_Nv 0 RL
+0 24 M gd_Nv 0 RL
+0 1 gd_NNN 1 sub{4 mul 0 M 0 30 RL}for
+stroke 0.5 setlinewidth
+0 6 T}def
+/gd_dot{newpath 1.4 0 360 arc fill}def
+/gd_gx{28 M -1.3 -1.3 RM 2.6 2.6 RL 0 -2.6 RM -2.6 2.6 RL stroke}def
+/gd_go{28 newpath 1.5 0 360 arc stroke}def
+/gd_imprime_palavras{
+0 1 gd_tamanho {
+gd_palavras exch get 20 string cvs show
+}for
+} def
+/gd_teste {
+M gd_separa_palavras gd_imprime_palavras
+} def
+/mkfontext0{
+	findfont dup length dict begin
+		{1 index/FID ne{def}{pop pop}ifelse}forall
+		/Encoding ISOLatin1Encoding def
+		currentdict
+	end
+	definefont pop}!
+/Times-Roman0/Times-Roman mkfontext0
+/F0{dup 0.8 mul/fh exch def/Times-Roman0 exch selectfont}!
+/Times-Italic0/Times-Italic mkfontext0
+/F1{dup 0.8 mul/fh exch def/Times-Italic0 exch selectfont}!
+/Times-Bold0/Times-Bold mkfontext0
+/F2{dup 0.8 mul/fh exch def/Times-Bold0 exch selectfont}!
+/Helvetica0/Helvetica mkfontext0
+/F3{dup 0.8 mul/fh exch def/Helvetica0 exch selectfont}!
+/Courier-Bold0/Courier-Bold mkfontext0
+/F4{dup 0.8 mul/fh exch def/Courier-Bold0 exch selectfont}!
+%%EndSetup
+%%Page: 1 1
+gsave 0 813.6 T
+12.0 F0 297.7 -795.3 M(abcm2ps-4.7.7 - \(bracinho-descricao.abc\) - p.1)showc
+16.0 F0 0.75 dup scale
+68.0 0 T
+0 -17.60 T
+328.9 0 M 30.0 F3 (bracinho.fmt)showc 
+0 -6.40 T
+0 -17.60 T
+328.9 0 M 16.0 F0 (Hudson Lacerda \(2004\))showc 
+0 -6.40 T
+0 -17.60 T
+0 0 M /str{20.0 F3 (Operadores para usuário:)strop}def
+/strop/show load def str
+0 -33.00 T
+0 0 M /str{20.0 F3 (bracinho )strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F1 (descr x y)strop 16.0 F4 ( bracinho )strop 16.0 F1 (-)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Operador para desenhar diagrama de acorde. )strop 16.0 F1 (descr)strop 16.0 F0 ( deve ser uma string contendo ítens)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 12 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (separados por espaços. Esses ítens descrevem o bracinho, expressando nome do acorde, posição, e)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 13 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (símbolos relativos às cordas.)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (O primeiro item indica )strop 16.0 F1 (posição)strop 16.0 F0 ( e )strop 16.0 F1 (nome)strop 16.0 F0 (. A )strop 16.0 F1 (posição)strop 16.0 F0 ( é um texto a ser escrito à direita da)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 17 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (primeira casa do bracinho, usado para indicar onde montar o acorde. Assim, \(III\) ou \(3a.\) indicam a)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 16 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (terceira casa. Se houver um caracter )strop 16.0 F4 (`^')strop 16.0 F0 (, o texto após esse caracter é considerado o )strop 16.0 F1 (nome)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 15 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (do acorde, e é impresso acima do diagrama. Se o primeiro item começa com um hífen, esse item é)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 18 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (ignorado \(nada é impresso\). Um espaço branco pode ser representado por )strop 16.0 F4 (\\1)strop 16.0 F0 (.)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Os outros ítens \(separados por espaços\) em )strop 16.0 F1 (descr)strop 16.0 F0 ( descrevem a ação sobre cada corda no bracinho.)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 15 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (Cada item pode conter um ou mais dos seguintes elementos:)strop}def
+/strop/show load def str
+0 -6.40 T
+0 -17.60 T
+0 0 M 16.0 F0 (- Um algarismo de )show 16.0 F4 (1)show 16.0 F0 ( a )show 16.0 F4 (5)show 16.0 F0 ( indica a casa em que deve-se colocar um dedo \(desenha uma)show 0 -17.60 T
+0 0 M (bolinha cheia na casa indicada pelo número\).)show
+0 -26.40 T
+0 0 M (- )show 16.0 F4 (0)show 16.0 F0 ( indica corda solta \(desenha uma bolinha vazada no alto do bracinho\).)show
+0 -26.40 T
+0 0 M (- )show 16.0 F4 (x)show 16.0 F0 ( coloca indicação de não tocar a corda \(desenha um `x' no alto do bracinho\).)show
+0 -26.40 T
+0 0 M (- )show 16.0 F4 ([)show 16.0 F0 ( após um algarismo inicia uma pestana na casa indicada pelo algarismo.)show
+0 -26.40 T
+0 0 M (- )show 16.0 F4 (])show 16.0 F0 ( após um algarismo termina uma pestana.)show
+0 -26.40 T
+0 0 M (- )show 16.0 F4 ({)show 16.0 F0 ( após um algarismo inicia uma pestana \(essa pestana é independente daquela representada por)show 0 -17.60 T
+0 0 M (colchetes\).)show
+0 -26.40 T
+0 0 M (- )show 16.0 F4 (})show 16.0 F0 ( após um algarismo termina uma pestana.)show
+0 -26.40 T
+0 0 M (- Um hífen )show 16.0 F4 (-)show 16.0 F0 ( \(ou qualquer outro caracter não listado acima\) pode ser usado para saltar um)show 0 -17.60 T
+0 0 M (elemento \(por exemplo, para não colocar nenhum símbolo em uma corda\).)show
+0 -26.40 T
+0 0 M (O número de cordas é deduzido do número de ítens após posição/nome.)show
+0 -26.40 T
+0 0 M 
+0 -6.40 T
+0 -17.60 T
+328.9 0 M /str{16.0 F1 (EXEMPLOS DE USO DE  )strop 16.0 F4 (bracinho)strop 16.0 F1 (:)strop }def
+/strop/strw load def/w 0 def str w 0.5 mul neg 0 RM/strop/show load def str 
+0 -6.40 T
+0 -17.60 T
+0 0 M /str{16.0 F0 (Para criar uma decoração para um determinado acorde, use o formato:)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F4 (%%deco <nome> 3 bracinho 50 0 0 <pos>^<nome> <c1> <c2> <c3> ...)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 11 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Um bracinho em branco, com seis cordas, é realizado com:)strop}def
+/strop/show load def str
+0 -6.40 T
+0 -17.60 T
+0 0 M 16.0 F4 (%%deco vazio 3 bracinho 50 0 0 -ignore - - - - - -)show 
+0 -6.40 T
+(-ignore - - - - - -)600 -8 bracinho
+0 -17.60 T
+0 0 M /str{16.0 F0 (Como o primeiro item \()strop 16.0 F4 (-ignore)strop 16.0 F0 (\) do argumento para )strop 16.0 F4 (bracinho)strop 16.0 F0 ( começa com um)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 11 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (hífen, é ignorado \(não é impresso\). \(O texto `ignore' é desnecessário: bastaria o hífen para obter o)strop }def
+/strop/strw load def/w 0 def str/w 657.7 w sub 16 div def/strop/jshow load def str 0 -17.60 T
+0 0 M /str{16.0 F0 (mesmo efeito.\) Os seis hífens subseqüentes indicam que o diagrama deve representar seis cordas.)strop}def
+/strop/show load def str
+0 -6.40 T
+0 -17.60 T
+0 0 M /str{16.0 F0 (Um acorde de dó maior \(C\) é descrito por:)strop}def
+/strop/show load def str
+0 -6.40 T
+0 -17.60 T
+0 0 M 16.0 F4 (%%deco C 3 bracinho 50 0 0 - x 3 2 0 1 0)show 
+0 -6.40 T
+(- x 3 2 0 1 0)600 -2 bracinho
+0 -17.60 T
+0 0 M /str{16.0 F0 (Para inserir o nome do acorde:)strop}def
+/strop/show load def str
+0 -6.40 T
+(^C x 3 2 0 1 0)600 -36 bracinho
+0 -17.60 T
+0 0 M 16.0 F4 (%%deco C 3 bracinho 50 0 0 ^C x 3 2 0 1 0)show 
+0 -6.40 T
+0 -17.60 T
+0 0 M /str{16.0 F0 (Uma escala de ré maior na 2a. posição pode ser representada com:)strop}def
+/strop/show load def str
+0 -6.40 T
+(II 124 134 134 13 124 124)600 -36 bracinho
+0 -17.60 T
+0 0 M 16.0 F4 (%%deco EscalaReM 3 bracinho 50 0 0 II 124 134 134 13 124 124)show 
+0 -6.40 T
+0 -17.60 T
+0 0 M /str{16.0 F0 (Exemplo de acorde com pestana:)strop}def
+/strop/show load def str
+0 -6.40 T
+(4a.\1casa 1[ 3 3 - - 1])600 -36 bracinho
+0 -17.60 T
+0 0 M 16.0 F4 (%%deco G#m 3 bracinho 50 0 0 4a.\\1casa 1[ 3 3 - - 1])show 
+0 -6.40 T
+%%PageTrailer
+grestore
+showpage
+%%Page: 2 2
+gsave 0 813.6 T
+12.0 F0 297.7 -795.3 M(abcm2ps-4.7.7 - \(bracinho-descricao.abc\) - p.2)showc
+16.0 F0 0.75 dup scale
+68.0 0 T
+0 -17.60 T
+0 0 M 16.0 F0 (Outros exemplos de diagramas:)show 
+0 -8.80 T
+0 -17.60 T
+0 0 M 16.0 F4 (%%deco A/C# 3 bracinho 50 0 0 II^A/C# x 4 2[ - 5{ 2]5} % 2 pestanas)show 
+0 -17.60 T
+0 0 M (%%deco P 3 bracinho 50 0 0 VI x 2[ 3 1][2 3 1] % pestana atravessada)show 
+0 -17.60 T
+0 0 M (%%deco B7 3 bracinho 50 0 0 ^B7 0 2 3 4 5 % viola caipira \(cebolão\))show 
+0 -17.60 T
+0 0 M (%%deco Em 3 bracinho 50 0 0 ^Em 2 0 0 2 % cavaquinho)show 
+0 -17.60 T
+0 0 M (%%deco Ã? 3 bracinho 50 0 0 - x1[4]{ x 3][ 0241} 0241{ 3][ x x1]4}{1})show 
+0 -6.40 T
+0 -28.35 T
+gsave 40 0 T
+(II^A/C# x 3 1[ - 4{ 1]4})100 -48 bracinho
+(VI x 2[ 3 1][2 3 1])200 -48 bracinho
+(^B7 0 2 3 4 5)300 -48 bracinho
+(^Em 2 0 0 2)400 -48 bracinho
+(- x1[4]{ x 3][ 0241} 0241{ 3][ x x1]4}{1})500 -48 bracinho
+grestore
+0 -70.88 T
+0 -17.60 T
+0 0 M /str{20.0 F3 (bracinho_com_nome)strop}def
+/strop/show load def str
+0 -33.00 T
+0 0 M /str{16.0 F1 (-)strop 16.0 F4 ( bracinho_com_nome )strop 16.0 F1 (-)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Opção para exibir nomes dos acordes acima dos diagramas \(comportamento default\).)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Modo de uso:)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F4 (%%postscript bracinho_com_nome )strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{20.0 F3 (bracinho_sem_nome)strop}def
+/strop/show load def str
+0 -33.00 T
+0 0 M /str{16.0 F1 (-)strop 16.0 F4 ( bracinho_sem_nome )strop 16.0 F1 (-)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Opção para não exibir nomes dos acordes acima dos diagramas.)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Modo de uso:)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F4 (%%postscript bracinho_sem_nome)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{20.0 F3 (bracinho_grande)strop}def
+/strop/show load def str
+0 -33.00 T
+0 0 M /str{16.0 F1 (descr x y)strop 16.0 F4 ( bracinho_grande )strop 16.0 F1 (-)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Gera um diagrama em tamanho grande \(2 vezes maior que o gerado por )strop 16.0 F4 (bracinho)strop 16.0 F0 (\).)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F0 (Exemplo de uso:)strop}def
+/strop/show load def str
+0 -26.40 T
+0 0 M /str{16.0 F4 (%%postscript \(^Am x 0 2 2 1 0\) 50 0 bracinho_grande)strop}def
+/strop/show load def str
+0 -6.40 T
+0 -141.75 T
+(^Am x 0 2 2 1 0) 50 0 bracinho_grande
+%%PageTrailer
+grestore
+showpage
+%%Trailer
+%%Pages: 2
+%EOF

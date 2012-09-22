@@ -1,0 +1,336 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: if_perl</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: if_perl</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="if_perl.txt"></A><b>if_perl.txt</b>*   For Vim version 7.3.  Last change: 2010 Jul 21
+
+
+		  VIM REFERENCE MANUAL    by Sven Verdoolaege
+					 and Matt Gerassimof
+
+
+<a href="if_perl.html#Perl">Perl</a> and Vim				*<a name="perl"></A><b>perl</b>* *<a name="Perl"></A><b>Perl</b>*
+
+1. Editing <a href="if_perl.html#Perl">Perl</a> files			|<a href="if_perl.html#perl-editing">perl-editing</a>|
+2. Compiling VIM with <a href="if_perl.html#Perl">Perl</a> interface	|<a href="if_perl.html#perl-compiling">perl-compiling</a>|
+3. Using the <a href="if_perl.html#Perl">Perl</a> interface		|<a href="if_perl.html#perl-using">perl-using</a>|
+4. Dynamic loading			|<a href="if_perl.html#perl-dynamic">perl-dynamic</a>|
+
+{Vi does not have any of these commands}
+
+The <a href="if_perl.html#Perl">Perl</a> interface only works when Vim was compiled with the |<a href="various.html#+perl">+perl</a>| feature.
+
+==============================================================================
+
+1. Editing <a href="if_perl.html#Perl">Perl</a> files					*<a name="perl-editing"></A><b>perl-editing</b>*
+
+Vim <a href="syntax.html#syntax">syntax</a> highlighting supports <a href="if_perl.html#Perl">Perl</a> and POD files.  Vim assumes a file is
+<a href="if_perl.html#Perl">Perl</a> code if the filename has a .pl or .pm suffix.  Vim also examines the first
+line of a file, regardless of the filename suffix, to check if a file is a
+<a href="if_perl.html#Perl">Perl</a> <a href="usr_41.html#script">script</a> (see scripts.vim in Vim's <a href="syntax.html#syntax">syntax</a> directory).  Vim assumes a file
+is POD text if the filename has a .POD suffix.
+
+To use <a href="tagsrch.html#tags">tags</a> with <a href="if_perl.html#Perl">Perl</a>, you need a recent version of Exuberant <a href="tagsrch.html#ctags">ctags</a>.  Look
+here:
+	<a href="http://ctags.sourceforge.net">http://ctags.sourceforge.net</a>
+
+Alternatively, you can use the <a href="if_perl.html#Perl">Perl</a> <a href="usr_41.html#script">script</a> pltags.pl, which is shipped with
+Vim in the $VIMRUNTIME/tools directory.  This <a href="usr_41.html#script">script</a> has currently more
+features than Exuberant ctags' <a href="if_perl.html#Perl">Perl</a> support.
+
+==============================================================================
+
+2. Compiling VIM with <a href="if_perl.html#Perl">Perl</a> interface			*<a name="perl-compiling"></A><b>perl-compiling</b>*
+
+To compile Vim with <a href="if_perl.html#Perl">Perl</a> interface, you need <a href="if_perl.html#Perl">Perl</a> 5.004 (or later).  <a href="if_perl.html#Perl">Perl</a> must
+be installed before you compile Vim.  Vim's <a href="if_perl.html#Perl">Perl</a> interface does NOT work with
+the 5.003 version that has been officially released!  It will probably work
+with <a href="if_perl.html#Perl">Perl</a> 5.003_05 and later.
+
+The <a href="if_perl.html#Perl">Perl</a> patches for Vim were made by:
+	Sven Verdoolaege <a href="mailto:skimo@breughel.ufsia.ac.be">&lt;skimo@breughel.ufsia.ac.be&gt;</a> 
+	Matt Gerassimof
+
+<a href="if_perl.html#Perl">Perl</a> for <a href="os_win32.html#MS-Windows">MS-Windows</a> can be found at:
+	<a href="http://www.perl.com/CPAN/ports/nt/Standard/x86/">http://www.perl.com/CPAN/ports/nt/Standard/x86/</a>
+
+==============================================================================
+
+3. Using the <a href="if_perl.html#Perl">Perl</a> interface				*<a name="perl-using"></A><b>perl-using</b>*
+
+
+							*<a name=":perl"></A><b>:perl</b>* *<a name=":pe"></A><b>:pe</b>*
+:pe[rl] {cmd}		Execute <a href="if_perl.html#Perl">Perl</a> command {cmd}.  The current package
+			is &quot;main&quot;.
+
+:pe[rl] <a href="change.html#&lt;&lt;">&lt;&lt;</a> {endpattern}
+{script}
+{endpattern}
+			Execute <a href="if_perl.html#Perl">Perl</a> <a href="usr_41.html#script">script</a> {script}.
+			{endpattern} must NOT be preceded by any white space.
+			If {endpattern} is omitted, it defaults to a dot '<a href="repeat.html#.">.</a>'
+			like for the |<a href="insert.html#:append">:append</a>| and |<a href="insert.html#:insert">:insert</a>| commands.  Using
+			'<a href="repeat.html#.">.</a>' helps when inside a function, because &quot;$i;&quot; looks
+			like the start of an |<a href="insert.html#:insert">:insert</a>| command to Vim.
+			This form of the |<a href="if_perl.html#:perl">:perl</a>| command is mainly useful for
+			including <a href="if_perl.html#perl">perl</a> code in vim scripts.
+			Note: This command doesn't work when the <a href="if_perl.html#Perl">Perl</a> feature
+			wasn't compiled in.  To avoid <a href="message.html#errors">errors</a>, see
+			|<a href="if_perl.html#script-here">script-here</a>|.
+
+
+Example vim <a href="usr_41.html#script">script</a>:
+
+<b>	function! WhitePearl()</b>
+<b>	perl &lt;&lt; EOF</b>
+<b>		VIM::Msg("pearls are nice for necklaces");</b>
+<b>		VIM::Msg("rubys for rings");</b>
+<b>		VIM::Msg("pythons for bags");</b>
+<b>		VIM::Msg("tcls????");</b>
+<b>	EOF</b>
+<b>	endfunction</b>
+ 
+
+
+							*<a name=":perldo"></A><b>:perldo</b>* *<a name=":perld"></A><b>:perld</b>*
+:[range]perld[o] {cmd}	Execute <a href="if_perl.html#Perl">Perl</a> command {cmd} for each line in the
+			<a href="cmdline.html#[range]">[range]</a>, with $_ being set to the text of each line in
+			turn, without a trailing <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>.  Setting $_ will change
+			the text, but note that it is not possible to add or
+			delete lines using this command.
+			The default for <a href="cmdline.html#[range]">[range]</a> is the whole file: &quot;1,$&quot;.
+
+Here are some things you can try:
+
+<b>  :perl $a=1</b>
+<b>  :perldo $_ = reverse($_);1</b>
+<b>  :perl VIM::Msg("hello")</b>
+<b>  :perl $line = $curbuf-&gt;Get(42)</b>
+ 
+
+							*<a name="E299"></A><b>E299</b>*
+Executing <a href="if_perl.html#Perl">Perl</a> commands in the |<a href="eval.html#sandbox">sandbox</a>| is limited.  &quot;<a href="if_perl.html#:perldo">:perldo</a>&quot; will not be
+possible at all.  &quot;<a href="if_perl.html#:perl">:perl</a>&quot; will be evaluated in the Safe environment, if
+possible.
+
+
+
+							*<a name="perl-overview"></A><b>perl-overview</b>*
+Here is an overview of the <a href="eval.html#functions">functions</a> that are available to <a href="if_perl.html#Perl">Perl</a>:
+
+<b>  :perl VIM::Msg("Text")		# displays a message</b>
+<b>  :perl VIM::Msg("Error", "ErrorMsg")	# displays an error message</b>
+<b>  :perl VIM::Msg("remark", "Comment")	# displays a highlighted message</b>
+<b>  :perl VIM::SetOption("ai")		# sets a vim option</b>
+<b>  :perl $nbuf = VIM::Buffers()		# returns the number of buffers</b>
+<b>  :perl @buflist = VIM::Buffers()	# returns array of all buffers</b>
+<b>  :perl $mybuf = (VIM::Buffers('qq.c'))[0] # returns buffer object for 'qq.c'</b>
+<b>  :perl @winlist = VIM::Windows()	# returns array of all windows</b>
+<b>  :perl $nwin = VIM::Windows()		# returns the number of windows</b>
+<b>  :perl ($success, $v) = VIM::Eval('&amp;path') # $v: option 'path', $success: 1</b>
+<b>  :perl ($success, $v) = VIM::Eval('&amp;xyz')  # $v: '' and $success: 0</b>
+<b>  :perl $v = VIM::Eval('expand("&lt;cfile&gt;")') # expands &lt;cfile&gt;</b>
+<b>  :perl $curwin-&gt;SetHeight(10)		# sets the window height</b>
+<b>  :perl @pos = $curwin-&gt;Cursor()	# returns (row, col) array</b>
+<b>  :perl @pos = (10, 10)</b>
+<b>  :perl $curwin-&gt;Cursor(@pos)		# sets cursor to @pos</b>
+<b>  :perl $curwin-&gt;Cursor(10,10)		# sets cursor to row 10 col 10</b>
+<b>  :perl $mybuf = $curwin-&gt;Buffer()	# returns the buffer object for window</b>
+<b>  :perl $curbuf-&gt;Name()			# returns buffer name</b>
+<b>  :perl $curbuf-&gt;Number()		# returns buffer number</b>
+<b>  :perl $curbuf-&gt;Count()		# returns the number of lines</b>
+<b>  :perl $l = $curbuf-&gt;Get(10)		# returns line 10</b>
+<b>  :perl @l = $curbuf-&gt;Get(1 .. 5)	# returns lines 1 through 5</b>
+<b>  :perl $curbuf-&gt;Delete(10)		# deletes line 10</b>
+<b>  :perl $curbuf-&gt;Delete(10, 20)		# delete lines 10 through 20</b>
+<b>  :perl $curbuf-&gt;Append(10, "Line")	# appends a line</b>
+<b>  :perl $curbuf-&gt;Append(10, "Line1", "Line2", "Line3") # appends 3 lines</b>
+<b>  :perl @l = ("L1", "L2", "L3")</b>
+<b>  :perl $curbuf-&gt;Append(10, @l)		# appends L1, L2 and L3</b>
+<b>  :perl $curbuf-&gt;Set(10, "Line")	# replaces line 10</b>
+<b>  :perl $curbuf-&gt;Set(10, "Line1", "Line2")	# replaces lines 10 and 11</b>
+<b>  :perl $curbuf-&gt;Set(10, @l)		# replaces 3 lines</b>
+ 
+
+							*<a name="perl-Msg"></A><b>perl-Msg</b>*
+VIM::Msg({msg}, {group}?)
+			Displays the message {msg}.  The optional {group}
+			argument specifies a highlight group for Vim to use
+			for the message.
+
+
+							*<a name="perl-SetOption"></A><b>perl-SetOption</b>*
+VIM::SetOption({arg})	Sets a vim option.  {arg} can be any argument that the
+			&quot;<a href="options.html#:set">:set</a>&quot; command accepts.  Note that this means that no
+			spaces are allowed in the argument!  See |<a href="options.html#:set">:set</a>|.
+
+
+							*<a name="perl-Buffers"></A><b>perl-Buffers</b>*
+VIM::Buffers([{bn}...])	With no arguments, returns a list of all the <a href="windows.html#buffers">buffers</a>
+			in an array context or returns the number of <a href="windows.html#buffers">buffers</a>
+			in a scalar context.  For a list of buffer names or
+			numbers {bn}, returns a list of the <a href="windows.html#buffers">buffers</a> matching
+			{bn}, using the same rules <a href="motion.html#as">as</a> Vim's internal
+			|<a href="eval.html#bufname()">bufname()</a>| function.
+			WARNING: the list becomes invalid when |<a href="windows.html#:bwipe">:bwipe</a>| is
+			used.  Using it anyway may crash Vim.
+
+
+							*<a name="perl-Windows"></A><b>perl-Windows</b>*
+VIM::Windows([{wn}...])	With no arguments, returns a list of all the <a href="windows.html#windows">windows</a>
+			in an array context or returns the number of <a href="windows.html#windows">windows</a>
+			in a scalar context.  For a list of <a href="windows.html#window">window</a> numbers
+			{wn}, returns a list of the <a href="windows.html#windows">windows</a> with those
+			numbers.
+			WARNING: the list becomes invalid when a <a href="windows.html#window">window</a> is
+			closed.  Using it anyway may crash Vim.
+
+
+							*<a name="perl-DoCommand"></A><b>perl-DoCommand</b>*
+VIM::DoCommand({cmd})	Executes <a href="intro.html#Ex">Ex</a> command {cmd}.
+
+
+							*<a name="perl-Eval"></A><b>perl-Eval</b>*
+VIM::Eval({expr})	Evaluates {expr} and returns (success, val).
+			success=1 indicates that val contains the value of
+			{expr}; success=0 indicates a failure to evaluate
+			the <a href="eval.html#expression">expression</a>.  '@x' returns the contents of <a href="sponsor.html#register">register</a>
+			<a href="change.html#x">x</a>, '&amp;x' returns the value of option <a href="change.html#x">x</a>, '<a href="change.html#x">x</a>' returns the
+			value of internal |<a href="eval.html#variables">variables</a>| <a href="change.html#x">x</a>, and '$x' is equivalent
+			to perl's $ENV{x}.  All |<a href="eval.html#functions">functions</a>| accessible from
+			the command-line are valid for {expr}.
+			A |<a href="eval.html#List">List</a>| is turned into a string by joining the items
+			and <a href="insert.html#inserting">inserting</a> line breaks.
+
+
+							*<a name="perl-SetHeight"></A><b>perl-SetHeight</b>*
+Window-&gt;SetHeight({height})
+			Sets the Window height to {height}, within screen
+			<a href="vi_diff.html#limits">limits</a>.
+
+
+							*<a name="perl-GetCursor"></A><b>perl-GetCursor</b>*
+Window-&gt;Cursor({row}?, {col}?)
+			With no arguments, returns a (row, col) array for the
+			current cursor position in the Window.  With {row} and
+			{col} arguments, sets the Window's cursor position to
+			{row} and {col}.  Note that {col} is numbered from 0,
+			Perl-fashion, and thus is one <a href="various.html#less">less</a> than the value in
+			Vim's ruler.
+
+
+Window-&gt;Buffer()					*<a name="perl-Buffer"></A><b>perl-Buffer</b>*
+			Returns the Buffer object corresponding to the given
+			Window.
+
+
+							*<a name="perl-Name"></A><b>perl-Name</b>*
+Buffer-&gt;Name()		Returns the filename for the Buffer.
+
+
+							*<a name="perl-Number"></A><b>perl-Number</b>*
+Buffer-&gt;Number()	Returns the number of the Buffer.
+
+
+							*<a name="perl-Count"></A><b>perl-Count</b>*
+Buffer-&gt;Count()		Returns the number of lines in the Buffer.
+
+
+							*<a name="perl-Get"></A><b>perl-Get</b>*
+Buffer-&gt;Get({lnum}, {lnum}?, <a href="eval.html#...">...</a>)
+			Returns a text string of line {lnum} in the Buffer
+			for each {lnum} specified.  An array can be passed
+			with a list of {lnum}'s specified.
+
+
+							*<a name="perl-Delete"></A><b>perl-Delete</b>*
+Buffer-&gt;Delete({lnum}, {lnum}?)
+			Deletes line {lnum} in the Buffer.  With the second
+			{lnum}, deletes the range of lines from the first
+			{lnum} to the second {lnum}.
+
+
+							*<a name="perl-Append"></A><b>perl-Append</b>*
+Buffer-&gt;Append({lnum}, {line}, {line}?, <a href="eval.html#...">...</a>)
+			Appends each {line} string after Buffer line {lnum}.
+			The list of {line}s can be an array.
+
+
+							*<a name="perl-Set"></A><b>perl-Set</b>*
+Buffer-&gt;Set({lnum}, {line}, {line}?, <a href="eval.html#...">...</a>)
+			Replaces one or more Buffer lines with specified
+			{lines}s, starting at Buffer line {lnum}.  The list of
+			{line}s can be an array.  If the arguments are
+			invalid, replacement does not occur.
+
+$main::curwin
+			The current <a href="windows.html#window">window</a> object.
+
+$main::curbuf
+			The current buffer object.
+
+
+
+							*<a name="script-here"></A><b>script-here</b>*
+When using a <a href="usr_41.html#script">script</a> language in-line, you might want to skip this when the
+language isn't supported.  But this mechanism doesn't work:
+<b>   if has('perl')</b>
+<b>     perl &lt;&lt; EOF</b>
+<b>       this will NOT work!</b>
+<b>   EOF</b>
+<b>   endif</b>
+Instead, put the Perl/Python/Ruby/etc. command in a function and call that
+function:
+<b>    if has('perl')</b>
+<b>      function DefPerl()</b>
+<b>	perl &lt;&lt; EOF</b>
+<b>	  this works</b>
+<b>    EOF</b>
+<b>      endfunction</b>
+<b>      call DefPerl()</b>
+<b>    endif</b>
+Note that &quot;EOF&quot; must be at the start of the line.
+
+==============================================================================
+
+4. Dynamic loading					*<a name="perl-dynamic"></A><b>perl-dynamic</b>*
+
+On <a href="os_win32.html#MS-Windows">MS-Windows</a> and <a href="os_unix.html#Unix">Unix</a> the <a href="if_perl.html#Perl">Perl</a> library can be loaded dynamically.  The
+|<a href="various.html#:version">:version</a>| output then includes |<a href="various.html#+perl/dyn">+perl/dyn</a>|.
+
+This means that Vim will search for the <a href="if_perl.html#Perl">Perl</a> DLL or shared library file only
+when needed.  When you don't use the <a href="if_perl.html#Perl">Perl</a> interface you don't need it, thus
+you can use Vim without this file.
+
+
+<b><font color="purple">MS-Windows </font></b>
+
+ You can download Perl from	<a href="http://www.perl.org">http://www.perl.org</a>. The one from ActiveState was
+used for building Vim.
+
+To use the <a href="if_perl.html#Perl">Perl</a> interface the <a href="if_perl.html#Perl">Perl</a> DLL must be in your search path.
+If Vim reports it cannot find the perl512.dll, make sure your $PATH includes
+the directory where it is located.  The <a href="if_perl.html#Perl">Perl</a> installer normally does that.
+In a console <a href="windows.html#window">window</a> type &quot;path&quot; to see what directories are used.
+
+The name of the DLL must match the <a href="if_perl.html#Perl">Perl</a> version Vim was compiled with.
+Currently the name is &quot;perl512.dll&quot;.  That is for <a href="if_perl.html#Perl">Perl</a> 5.12.  To know for
+sure edit &quot;gvim.exe&quot; and search for &quot;perl\d*.dll\c&quot;.
+
+==============================================================================
+<a href="if_perl.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

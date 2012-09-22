@@ -1,0 +1,193 @@
+% -*- ps -*-
+
+annotationfont * 12    %% "standard" positions for an-positions-relative
+
+beginps
+
+/an-underlineYpos -2 def
+
+/an-positions-relative {/an-relpos true def} def
+/an-positions-absolute {/an-relpos false def} def
+an-positions-absolute
+
+% FOR COMPATIBILITY: mkfonttext WAS REMOVED IN abcm2ps-6.0.x
+currentdict /mkfonttext0 known false eq {
+/mkfontext0{
+	findfont dup length
+	product(RoPS)eq{1 add}if
+	dict begin
+		{1 index/FID ne{def}{pop pop}ifelse}forall
+		/Encoding ISOLatin0Encoding def
+		accfont
+		currentdict
+	end
+	definefont pop}!
+/ISOLatin0Encoding ISOLatin1Encoding dup length array copy def
+ISOLatin0Encoding dup 8#201/sharpchar put
+dup 8#202/flatchar put
+dup 8#203/natchar put
+dup 8#204/dsharpchar put
+8#205/dflatchar put
+/accfont{
+	/CharStrings CharStrings dup length 3 add dict copy def
+	FontMatrix 0 get 1 eq{
+	 CharStrings/sharpchar{pop
+		.60 0 0 -.10 .60 .75 setcachedevice
+		.056 dup scale 5.8 6 sh0}bind put
+	 CharStrings/flatchar{pop
+		.60 0 0 0 .60 .78 setcachedevice
+		.056 dup scale 5.8 5 ft0}bind put
+	 CharStrings/natchar{pop
+		.60 0 0 -.10 .60 .75 setcachedevice
+		.056 dup scale 5.8 6 nt0}bind put
+	 CharStrings/dsharpchar{pop
+		.60 0 0 -.10 .60 .75 setcachedevice
+		.056 dup scale 5.8 6 dsh0}bind put
+	 CharStrings/dflatchar{pop
+		.60 0 0 0 .60 .78 setcachedevice
+		.056 dup scale 5.8 5 dft0}bind put
+	}{
+	 CharStrings/sharpchar{pop
+		600 0 0 -100 600 750 setcachedevice
+		56 dup scale 5.8 6 sh0}bind put
+	 CharStrings/flatchar{pop
+		600 0 0 0 600 780 setcachedevice
+		56 dup scale 5.8 5 ft0}bind put
+	 CharStrings/natchar{pop
+		600 0 0 -100 600 750 setcachedevice
+		56 dup scale 5.8 6 nt0}bind put
+	 CharStrings/dsharpchar{pop
+		600 0 0 -100 600 750 setcachedevice
+		56 dup scale 5.8 6 dsh0}bind put
+	 CharStrings/dflatchar{pop
+		600 0 0 0 600 780 setcachedevice
+		56 dup scale 5.8 5 dft0}bind put
+	 }ifelse
+	product(RoPS)eq FontType 3 eq and{
+		/TTBuildChar/BuildChar load def
+		/BuildChar{1 index begin
+			dup Encoding exch get
+			CharStrings exch get
+			end
+			dup type/integertype eq{
+				pop 1 index/TTBuildChar get exec
+			}{
+				exec pop
+			}ifelse
+		}bind def
+	}if
+	}!
+} if
+
+% FOR COMPATIBILITY: gchshow WAS REMOVED IN abcm2ps-5.1.0
+currentdict /gchshow known false eq {
+    /sharp_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .08 mul dup scale 0 7 sh0 grestore
+	fh .4 mul 0 RM}!
+    /flat_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .08 mul dup scale 0 5 ft0 grestore
+	fh .4 mul 0 RM}!
+    /nat_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .08 mul dup scale 0 7 nt0 grestore
+	fh .4 mul 0 RM}!
+    /gchshow{
+	pop pop
+	dup 129 eq{pop sharp_glyph}
+	  {dup 130 eq{pop flat_glyph}
+	    {dup 131 eq{pop nat_glyph}
+		{currentfont/Encoding get exch get glyphshow}
+		ifelse}
+	    ifelse}
+	  ifelse}!
+} if
+
+/an-fh{fh 1.25 mul}!
+
+/an-font-stringnumber{/Helvetica0 12}!
+/an-font-fingering{/Bookman-Demi0 dup /Bookman-Demi mkfontext0 9}!
+/an-font-slash{/Times-Italic0 14}!
+/an-font-asterisk{/Times-BoldItalic0 dup /Times-BoldItalic mkfontext0 16}!
+/an-font-tilde{/ZapfDingbats 12}!
+/an-font-dollar{/Courier-Bold0 dup /Courier-Bold mkfontext0 an-fh}!
+
+% This is for use in annotations starting with `:'
+/an-exec{dup length 1 sub 1 exch getinterval cvx exec}!
+
+% annotation starting with... is a...
+% :   postscript command (cannot have unbalanced braces, even scaped)
+% #   fingering number
+% &   string number (circled)
+% /   italic expression
+% *   bold italic expression (dynamics)
+% ~   ZapfDingbats symbol (centered)
+% $   user-defined-font expression
+% |   underlined
+/anshow{
+dup length 0 gt{ gsave
+dup 0 get (:) 0 get eq % ps command
+{an-exec}
+{dup 0 get (#) 0 get eq % fingering
+gsave{
+    an-relpos true eq{(#)stringwidth RM}if
+    -2.6 0 RM an-font-fingering selectfont %  fng ???
+    dup length 1 sub 1 exch getinterval
+}
+{dup 0 get (&) 0 get eq % string-number
+{
+an-relpos true eq{(&)stringwidth RM}if
+0 3 RM
+    -3.25 -4 RM an-font-stringnumber selectfont
+dup length 1 sub 1 exch getinterval
+currentpoint
+gsave newpath .5 setlinewidth
+3.25 4 T 6 0 360 arc stroke
+grestore}
+{dup 0 get (/) 0 get eq % italics expression
+{
+an-relpos{(/)stringwidth RM}if
+an-font-slash selectfont
+dup length 1 sub 1 exch getinterval
+}
+{dup 0 get (~) 0 get eq % Dingbats Symbols
+{
+an-relpos{(~)stringwidth RM}if
+an-font-tilde selectfont
+10 0 RM
+dup length 1 sub 1 exch getinterval
+dup stringwidth exch neg exch neg RM
+}
+{dup 0 get (*) 0 get eq % bold italic
+{
+% % % % % an-relpos{(*)stringwidth RM}if
+an-font-asterisk selectfont
+dup length 1 sub 1 exch getinterval
+}
+{dup 0 get (|) 0 get eq % underlined
+{
+an-relpos{(|)stringwidth RM}if
+dup length 1 sub 1 exch getinterval
+dup gsave 0 an-underlineYpos RM 1 SLW stringwidth RL stroke grestore
+}
+{dup 0 get ($) 0 get eq % user font
+{
+an-relpos{(|)stringwidth RM}if
+an-font-dollar selectfont
+dup length 1 sub 1 exch getinterval
+}if
+}ifelse
+}ifelse
+}ifelse
+}ifelse
+}ifelse
+}ifelse
+/gchshow load cshow %%%%%% !!!
+%%%% show %%%%
+grestore
+}ifelse grestore
+}{pop}ifelse % void string
+}!
+
+endps

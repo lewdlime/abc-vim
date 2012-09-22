@@ -1,0 +1,260 @@
+% cifras.fmt - Formata acordes cifrados   -*- abc -*-
+% Hudson Lacerda (15-17/10/2004)
+%
+
+
+%
+% Cifras (gchords) são formatadas automaticamente
+%
+
+
+% ! A FAZER: !
+%
+% - reescrever o código, com melhor estrutura
+% - nomear operadores com prefixos
+% - representar acorde de 7a. dimunuta como uma bolinha
+% - fontes pequenas para itens empilhados
+% - reescrever anshow para compatibilidade
+%   (Em realidade, reescrever `comandosemanotacoes.fmt')
+%   ! atualmente incompatíveis !
+% - abcm2ps com suporte a UTF-8 não usa mais /fh do mesmo modo que antes
+%
+
+beginps
+
+%%% compatibility abcm2ps-5.1.0+ [START]
+/sharp_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .06 mul dup scale 0 7 sh0 grestore
+	fh .4 mul 0 RM}!
+/flat_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .06 mul dup scale 0 5 ft0 grestore
+	fh .4 mul 0 RM}!
+/nat_glyph{
+	fh .4 mul 0 RM currentpoint
+	gsave T fh .06  mul dup scale 0 7 nt0 grestore
+	fh .4 mul 0 RM}!
+%%% compatibility abcm2ps-5.1.0+ [END]
+
+
+/formatchord? true def
+
+/contaitens{4 dict begin
+    /pos exch def
+    /contador 0 def
+    /nbarras 0 def
+    /terminar? false def
+    {
+       contador pos gt terminar? false eq and{
+          dup(/)0 get eq {
+	     /nbarras nbarras 1 add def pop
+	  }{
+	     %dup 
+	     dup(\()eq exch(\))0 get eq or{
+                %(\()eq {/nbarras nbarras 1 sub def}if
+		/terminar? true def
+	     }{
+		%pop
+	     }ifelse
+	  }ifelse
+       }{
+	  pop
+       } ifelse
+       /contador contador 1 add def
+    }forall
+    nbarras 1 add
+end}def
+
+/numero? {
+   dup (0) 0 get ge
+   exch (9) 0 get le
+   and{true}{false}ifelse
+}def
+
+/baixo? {3 dict begin
+    /posB exch def
+    /contador_ 0 def
+    /ehbaixo? true def
+   {
+	contador_ posB ge {
+	    numero? true eq {/ehbaixo? false def} if
+	}{
+	    pop
+	}ifelse
+	/contador_ contador_ 1 add def
+   }forall
+   ehbaixo?
+end}def
+
+/cifra? {
+   dup (A)0 get ge
+   exch (G)0 get le
+   and{true}{false}ifelse
+}def
+
+/acidente?{
+   dup 129 ge
+   exch 131 le
+   and{true}{false}ifelse
+}def
+
+/largnome {4 dict begin
+    dup /string_nome exch def
+    /posL 0 def
+    /compensar 0 def
+    /terminar_? false def
+    {
+	dup dup cifra? exch dup acidente? exch (m)0 get eq or or
+	{
+	    terminar_? not{
+	       acidente? {/compensar compensar 1 add def} if
+	       /posL posL 1 add def
+	    }{
+	       pop
+	    }ifelse
+	}{pop /terminar_? true def}ifelse
+    }forall
+    string_nome 0 posL getinterval stringwidth pop
+    compensar fh .45 mul mul add
+    posL exch
+end}def
+
+/teste{
+11 dict begin
+   /val 0 def
+   dup /texto exch def
+   currentpoint
+   /yy exch def
+   /xx exch texto largnome exch pop add def
+   /pos_nome texto largnome pop def % pos. ultimo caracter do nome
+   /yyy yy def % altura normal
+   /xxx 0 def % maior desvio horizontal
+   /inpar? false def % dentro de parenteses?
+   /cont 0 def % contador da posicào na string `texto'
+   %/fontenormal{currentfont setfont}def
+   %/fontepequena{/Times-Bold 8 selectfont}def
+   %/existebaixo? false def
+%   texto{(/)search{pop pop}{exit}ifelse}loop
+%   0 baixo?{
+%      /existebaixo? true def   
+%   }if
+
+   %/fator fh def
+  {
+
+      %cont pos_nome lt existebaixo? or{fontenormal}{fontepequena}ifelse
+
+      cont pos_nome eq { % ultima posicao do nome
+         /val 0 def
+	 texto{(/)search{pop pop}{exit}ifelse}loop
+	 0 baixo?{
+	    /val val .5 add def
+	 } {
+	    %inpar? {
+	      texto(\()search
+	         {pop pop pop /val val .5 add def}
+	         {pop /val 0 def}ifelse
+	    %} {
+	      texto 0 contaitens dup 1 le {/val exch val -1.5 add add def}
+	      {pop /val val 0 add def}ifelse
+	      %/val val  add def
+	    %} ifelse
+	 }ifelse
+
+	 xx yyy
+            fh texto cont contaitens 2 div mul sub fh 2 div add
+	    val fh mul add
+	 moveto
+	 /yy yy
+	    fh texto cont contaitens 2 div mul sub fh 2 div add
+	    val fh mul add
+	 def
+	 texto cont contaitens 1 eq {
+	    %/inpar? true def
+	    currentpoint pop yyy moveto
+	 } {
+	    /inpar? false def
+	 } ifelse
+      } if
+
+      dup (/) 0 get eq formatchord? and
+      {
+         xx yy moveto 0 fh rmoveto
+         texto cont  baixo? {
+	    xxx yyy moveto (/)show
+         } if
+	 inpar? {
+            currentpoint /yy exch def
+	    dup xxx gt{/xxx exch def}{pop}ifelse
+	 } { 
+	    currentpoint /yy exch def pop
+	 }ifelse
+	 pop
+      } {
+         dup (\() 0 get eq formatchord? and
+         {
+	    texto cont contaitens 1 eq {
+	       currentpoint pop yyy moveto
+	       (\()show pop
+	    } { 
+	       /yy yyy def %%%%%%% aprimorar yy/yyy
+	       1 0 rmoveto
+               currentpoint pop yyy
+               gsave translate -.5 0 moveto 1.3 dup scale (\() show grestore
+               (\() stringwidth pop 1.2 mul 0 rmoveto
+	       currentpoint pop /xx exch def
+	       xx yyy fh texto cont contaitens 2 div mul sub fh 2 div add moveto
+	       /yy yy fh texto cont contaitens 2 div mul sub fh 2 div add def
+	       pop
+	       /inpar? true def
+	    }ifelse
+	       %/inpar? true def
+         } {
+            dup (\)) 0 get eq formatchord? and
+            {  
+	       inpar? true eq {
+	          xxx yyy
+                  gsave translate -.5 0 moveto 1.3 dup scale (\)) show grestore
+	          xxx yyy moveto (\))stringwidth pop 1.2 mul 0 rmoveto
+	          pop
+		  currentpoint /yy exch def /xx exch def
+  	          /inpar? false def
+	       } {
+		  (\))show pop
+	       }ifelse
+	       %/inpar? false def
+            } {
+	       dup 129 eq
+		  {
+		     pop sharp_glyph
+		  } {
+		  dup 130 eq
+		     {
+		        pop flat_glyph
+		     } {
+		        dup 131 eq
+			   {
+			      pop nat_glyph
+			   } {
+                              currentfont /Encoding get exch get glyphshow
+			   }ifelse
+		     }ifelse
+		 }ifelse
+	      }ifelse
+	      currentpoint pop 1 add dup xxx gt{/xxx exch def}{pop}ifelse
+           }ifelse
+       }ifelse
+       /cont cont 1 add def
+   }forall
+end
+}bind def
+
+/gcshow{teste}def
+
+% DONT TOUCH ANNOTATIONS
+% /anshow{/formatchord? false def gcshow /formatchord? true def}def
+% /anshow{/gchshow load cshow}!
+
+endps
+

@@ -1,0 +1,373 @@
+% ===========================================================================
+% edinburgh klezmer session tunes in abc                            version 3
+%                                                               november 2011
+% transcriptions by jack campin.
+%
+% session every 2nd thurs, 7.30-9.30pm, at the fiddlers elbow, picardy place.
+% ===========================================================================
+
+X:1
+T:Sherele
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:4/4
+L:1/8
+Q:1/4=120
+K:DPhr
+  DC=B,C D2E2 | D8                    |\
+ ^FEDE   F2G2 | A8                    |
+  ABc2   c2c2 | cB/c/ BA/B/  AG/A/ G^F|\
+ ^FGA2   A2A2 |
+                AG/A/ G^F/G/ FE/F/ ED |\
+  C=B,CD DG^FE| D8                   :|
+  G4     B4   |_d8                    |\
+  dccB   BAAG | A8                    |
+  A3B    c3d  | e8                    |\
+  eddc   cBBA | G8                   :|
+Q:1/4=136
+  AG^F2  FED2 | DG   ^FG    .A2   .d2 |\
+  AG^F2  FED2 | C2    G2     D4      :|
+
+X:2
+T:A Beigele
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/16
+Q:1/4=80
+K:GPhr % freygish
+    gGfG   eGdG    |  cGdG    eGfG |  gGfG   eGdG    |(=BA)G^F G4  :|
+    G2d2  (dc)(c=B)|(=BA)GA  (BA)GF|  G2d2  (dc)(c=B)|(=BA)GF  G4  :|
+  (=Bc)BA (GF)cF   |(=Bc)BA  (GF)cF|(=Bc)BA (GF)cF   |(=EF)FF (EF)FF|
+    EFGA (=Bc)de   | (fe)dc (=BA)GF|(=Bc)BA (GF)GA   |  G4     z4  :|
+K:GMin
+  c4 (CF)Ac|(cB)(BA) (AG)(GF)| c4       (CF)Ac   |(cB)(BA) (AG)(GF)|
+  c4 (CF)Ac|(cB)(BA) (AG)(GF)|(dc)(c=B) (B_A)(AG)| G8             :|
+
+X:3
+T:A Beigele (transposed for jc's e flat clarinet)
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/16
+K:EPhr
+    eEdE   cEBE    |  AEBE    cEdE |  eEdE   cEBE    |(^GF)E^D E4  :|
+|:  E2B2  (BA)(A^G)|(^GF)EF  (GF)ED|  E2B2  (BA)(A^G)|(^GF)ED  E4  :|
+|:(^GA)GF (ED)AD   |(^GA)GF  (ED)AD|(^GA)GF (ED)AD   |(^CD)DD (CD)DD|
+    CDEF (^GA)Bc   | (dc)BA (^GF)ED|(^GA)GF (ED)EF   |  E4     z4  :|
+K:EMin
+"_+8va"\
+|:a4 (Ad)fa|(ag)(gf) (fe)(ed)| a4       (Ad)fa   |(ag)(gf) (fe)(ed)|
+  a4 (Ad)fa|(ag)(gf) (fe)(ed)|(ba)(a^g) (g=f)(fe)| e8             :|
+
+X:4
+T:Peerie Wee Freilachs
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/8
+Q:1/4=140
+K:DPhr % freygish
+d/d/\
+ dd'ab    |ga ^fg    | ab    a>g    |(^f/g/)f/g/ a2 |
+ dd'ab    |ga ^fg    | ab    a>g    |(^f/g/)f/e/ d2:|
+^f3 (f/a/)|g3  (g/b/)| a3    (a/c'/)|  ba        bg |
+^f3 (f/a/)|g3  (g/b/)|(a>g) ^fe     |  d4          :|
+ dd'ab    |ga ^fg    | ab    a>g    |(^f/g/)f/g/ a2 |
+ dd'ab    |ga ^fg    | ab    a>g    |(^f/g/)f/e/ d2:|
+
+X:5
+T:A Nakht in Gan Eydn
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/8
+Q:1/4=115
+K:Dm
+|:A,DE| F2 ED|F2 ED   | EF D2|z    CFG| A2  GF|   A2     GF |   GA F2| z
+  CFA | c2 B2|A2 GF   | FG FE|D3     C| F G2 F| (3AGF  (3FED|[1 D4   | z   :|\
+                                                             [2 D4-  | D2 z||
+|:   A| Ad dd|dA f/e/d|^cd BA|G3     G|^FG  AB|  ^cd     cB |   A4-  | A2 C2|
+        CF FA|cc BA   | dG GG|GA/G/ FE| D2  AF|[1 GG     FG |   A4   |Td3  :|\
+                                               [2 GG     FE |   D4   | z   ||
+|:ABA |Td4   | z  AFE | D4   |z    ABA| f4-   | (3fed (3^cde|   d4   | z
+  c=Bc| d_edc|=Bc_BA  |=Bc_BA|G3     F| F G2 F| (3AGF  (3FED|   D4-  | D   :|
+
+X:6
+T:Happy Nigun
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:4/4
+L:1/8
+Q:1/4=150
+K:DMin
+  D2 F2  A2d2|   f4-          fg/f/ ef      |gffe   ed^cd|   e4     z      A/c/BA|
+  A2^c2  e3 d|(3^cde (3dcB    A3     e-     |ed^cB  AGFE |[1 D2zA (3A^GF (3FED  :|\
+                                                          [2 D6            z2   ||
+|:Adfe   dcBA|   Ac/B/ BB     B2-   B/c/B/A/|GBed  ^cBA^G|  ^GAAA   A2     zA    |
+  A=B^cd efed|  ^c6                 z   e-  |ed^cB  AGFE |   D6            z2   :|
+|:A2^G2  A2B2|   A3     d     D3        c   |B3A    GABc |   A4     z2     BA    |
+  G2 GF  E2GF|(3 E2 E2 D2    ^C3        A,  |B,^CED EFCE |[1 D2zD (3DEF  (3F^GA :|\
+                                                          [2 D6            z2   |]
+
+X:7
+T:Araber Tantz
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:4/4
+L:1/8
+Q:1/4=125
+K:EPhr
+  z2E2|^GA B2 B2 B2| c6       BA      |^GA B2 cB  AB|A^G3
+  z2E2|^GA B2 B2 B2|(d4   d)c BA      |^GA B2 cB  AB|A^G3||
+|:z4  | Ee2^d e2 B2| c3 d e2  d/c/B/A/|^G(A3  A)G FG|F E3:|
+M:8/8
+|:zE (3cBA     | ^G8              |   A8                 |\
+                 ^GAB G2E FD      |   EF ^GA Be  BA      |
+                 ^G8              |   A4                  \
+  zE (3cBA     | ^GAB G2E FD      |   E4                :|
+  ze   d/c/B/A/|:^GAB G2E F/E/F/D/|   EF ^GA Be  d/c/B/A/|
+                 ^GAB G2E F/E/F/D/|[1 EE2 B, EB, E2     :|\
+                                   [2 E6                |]
+
+X:8
+T:Gut Morgen
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:3/4
+L:1/8
+Q:1/4=126
+K:DPhr
+ D2 d2    (3BAG     |^F2 G2 (3BAG|~^F3  D    (3EDC|D6         |
+ D2 d2    (3cdc     | A2 B2 (3BAG|  Ad  Ad     Ad |A4      AB |
+Tc3  A/c/ (3BAG     |^F2 G2   AB | TA3 ^F/A/ (3GFE|D2 E2 (3EDC|
+ C2 c2      c/B/A/G/|^F2 C2   DE |  DC DE     ^FE |D6        :|
+%
+|:d2 ^c2  d2|  B6           | d<^c =e<d c<B     |   A6          |\
+  dG  AB ^cd|
+             T^c3 B/c/ (3BAG|^F2    D2  d/c/B/A/|[1 G>^F GA B^c:|\
+                                                 [2 G>^F GF GA ||
+%
+|:B>A G>^F GB      |TA>G ^FD  FA|  TG>^F GF  ED|E<G      C4 |
+  CD  E2  ^F/G/A/B/| c>B  AG ^FE|[1 DC   DE ^FG|A/B/G/B/ A4:|\
+                                 [2 DC   DE ^FE|D6         |]
+
+X:9
+T:Beckerman's Hora
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+S:S.Beckerman 1923, arr Budowitz 1997
+M:3/4
+L:1/8
+Q:3/4=55
+K:DPhr
+ D3 E ^FG|    A4          A<d|     A3d ^cd| A4              A2   |
+~B4    AG|({G}A4)         G^F|({^F}G4)  FE|^F2      G2      A2   |
+ D3 E ^FG|    A4"^gliss"yyd2 |     A3d ^cd| A4             [F2A2]|
+^FG2z  G2|    G3 ^F/G/    AG |[1   F6-    | Fz (3::2A,2B, (3CDE :|\
+                              [2   F6    ||
+K:DMin
+|:z3      D FA| ^c d3       d2    | d3 f   ed |=B    c3 c2|
+  c/d/ c2 B AG|  F3      C  FA    | G3 A (3BAG| A/B/ A3 z2|
+  z3      D FA| ^c d3       d2    | d3 f   ed |=B    c3 c2|
+  c3      B AG|(^F2{A}) z2 (F{A})z|_E3 D   EC | D6       :|
+K:DPhr
+|:z3      A, DE|\
+  E ^F3      F2|^F3D F/D/F/A/|  (G2{B}) z2      (G2{B})|  G3  B AG  |
+  E ^F3      F2|^F3D F/D/F/A/|   G2     z2 (3::2^c2d   |~^c3  B AG  |
+  D ^F3      F2|^F3D F/D/F/A/|  (G2{B}) z2      (G2{B})|  G2 zB AG  |
+(^F2{A}) z2  FA| E3D EC      |[1 D4              z2   :|\
+                              [2 D6-                   |  D2 z2 A,2|]
+
+X:10
+T:Bessarabian Hora
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:3/4
+L:1/8
+Q:3/4=55
+K:GMin
+ G,3 B,  DG  |B,3  D   GB |    D3   G Bd|       d/^c/  B3 AG|
+^c2 d2 (3f=ed|d^c B2 (3BAG|({c}d2) z2 D2|   ({c}d2)   z2  D2|
+ G,3 B,  DG  |B,3  D   GB |    D3   G Bd|       d/^c/  B3 AG|
+^c2 d2 (3f=ed|d^c B2 (3BAG|    G3   B dB|"^Fine"G6         :|
+%
+|:c2 c3 c|c4  {Ac}BA |B2 B3  B|B4       {GB}AG |
+  A2 A3 A|d2 zD  =E^F|G3  A Bc|d/c/B B/A/G  G2 |
+  c2 c3 c|c4  {Ac}BA |B2 B3  B|B4       {GB}AG |
+  A2 A3 A|d2 zD  =E^F|G3  B dB|G4           z2:|
+%
+|:G3B    BA|A3 c      cB |B3 d   dc |c3 e ed |
+  d4 {cd}cB|B3 A/c/ (3BAG|G3 e   d^c|d4   D2 |
+  G3B    BA|A3 c      cB |B3 d   dc |c3 e ed |
+  d4 {cd}cB|B3 A/c/ (3BAG|G3 A (3BdB|G4   z2:|
+
+X:11
+T:Flatbush Waltz
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:3/4
+L:1/8
+K:GMin
+   d2 dg dc|B2  G2 G2 |d3   g  dB |c3    e dc |
+   BA Bc dB|cG  c2 c2 |B3   c _AB |GG, B,D GB:|
+|: b4    ag|aD ^FA d^f|g2 =f2  e2 |d6         |
+[1 e2 d2 c2|d2  g2 a2 |b3   a  bc'|a6        :|
+[2 e2 d2 c2|d2  G2 c2 |B3   c _AB |G6        |]
+
+X:12
+T:Flatbush Waltz (version for F ocarina)
+Z:Jack Campin, http://www.campin.me.uk/
+C:Andy Statman arr. Jack Campin
+M:3/4
+L:1/8
+Q:1/4=120
+K:GMin
+   d3  g dc|B2  G2 G2|d2  dg  dB|c3 edc |
+   BA Bc dB|cG  c2 c2|B3   c _AB|G3 GBd:|
+|: b4    ag|a2 ^f2 d2|g2 =f2  e2|d6     |
+[1 e2 d2 c2|d2  g2 a2|b3   a  bg|a6    :|
+[2 e2 d2 c2|d2  G2 c2|B3   c _AB|G6    |]
+
+X:13
+T:Silver Wedding (Fon der Choope)
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+S:Abe Elenkrig's Yiddishe Orchestra, 1913
+M:4/4
+L:1/8
+Q:1/4=144
+K:DMin
+|:Ade|f4 zAde |f4 zAde |f2 ~ed ({d}e)e   d^c| ^c4             z
+  Acd|e4 zA^cd|e4 zA^cd|e3   g   (3gfe (3fed|(3ed^c (3d=cB [1 A  :|\
+                                                           [2 A3z||
+%
+|:AB^cd efga|b8        |({^g}a8)                   |({^f}g8)|({e}f8)|
+  ez^cz dzz2|ez^cz dzef|   (3gfe (3fed (3ed^c (3dcB|     A8:|
+%
+|:(3^cde (3dcB AB c2|  zA^ce        ~dc~BA|\
+  (3^cde (3dcB AB c2|(3ed^c (3dcB [1 A3z :|\
+                                  [2 A   ||
+%
+"^last time A part, once"\
+Ade|f4 z Ade|f4 zAde |f2 ~ed ({d}e)e d^c|^c4  z
+Acd|e4 z^cde|e4 zA^cd|e3   g   (3fed a2 | d'4 a4|d6 z2|]
+
+X:14
+T:Mitsve-Gedole Freylekhs
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+C:German Goldenshteyn 
+M:2/4
+L:1/8
+Q:1/4=120
+K:DMin
+       A,D- DF|A2 A2|A,D- DF|G2 G2|FG- GF|FE ED|   F4-|F4 |
+       A,D- DF|A2 A2|A,D- DF|G2 G2|FG- GF|FE ED|   D4-|D4:|
+|:     cd-  dc|cB BA|A2   d2|D4   |cd- dc|f2 e2|   d4-|d4 |
+       cd-  dc|cB BA|c2   c2|G3  F|AG  GF|FE ED|[1 D4-|D4:|\
+                                                [2 D4-|D ||
+|:AB=B|cB   BA|cB BA|cB   BA|AG GF|A2  B2|c2 d2|   c4-|c
+  AB=B|cB   BA|cB BA|cB   BA|AG GF|FG- GF|AG FE|[1 D4-|D :|\
+                                                [2 D4-|D4|]
+
+X:15
+T:Russian Sher Traditional tune 1
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/16
+Q:1/4=110
+K:DMin
+  d2ff   ffff   |gfga     f4  |fede  fgfe |d4    A4 |
+  d2ff   ffff   |gfga     f4  |c'abg afge |fd_ec d4:|
+%
+  a4     g2a2   |b2a2     g4  |g2ag  d2e2 |f8       |
+  abc'2- c'2c'2 |d'2c'2   b2a2|b2g2  c'2b2|a8      ||
+%
+|:aggf   feed   |d2e2     f2g2|aggf  feed |efd2  z4:|
+%
+|:efg2-  g2g2   |g_aga    g4  |fede  fgfe |f4    z4 |
+  cdef   g_a=bc'|d'c'=b_a gfed|fccf  f_eed|d4    z4:|
+%
+  a6       gf   |g2f2     z4  |a2a2  a2gf |gaf2  z4 |
+  a2a2   a2gf   |a2a2     a2gf|a2a2  a2gf |gaf2  z4 |
+  efg2-  g2g2   |g_aga    g4  |fede  fgfe |f4    z4 |
+  cdef   g_a=bc'|d'c'=b_a gfed|fccf  f_eed|d4    z4|]
+
+X:16
+T:Russian Sher Traditional tune 2
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/8
+Q:1/4=110
+K:DMin
+  dd        d2      |  ff     f2      |  e>d ^cd   |   e4       |\
+  ee        e2      |  gg     g2      |  f>e  df   |   a2    z2 |
+  za        ga      |  b>a    g2      |  ad   ef   | (3agf (3fed|\
+  ef-       f2      |(3fed (3^cde     |  d2   z2   |[1 z4      :|\
+                                                    [2 c2    z2||
+%
+"^+8va"\
+|:A/c/=B/c/ d/c/B/c/|  fc     AF      |  G>A  B/A/G|  ^GA    z2 |
+  A/c/=B/c/ d/c/B/c/|  fc     AF      |  G>A  B/A/G|   F^c   de:|
+%
+  f>e       d2      |  ze     fg      |  f>e  d2   |   za   ^ga |\
+  g>f       e2      |  ze     fg      |(3fed  a2   | (3agf (3fed|
+  b>a       g2      |  zg     f/e/f/g/|  a>g  f2   |   z^c   de |\
+  f>e       d2      |  fe/d/ ^c/d/e/c/|  d4        |   z4      |]
+
+X:17
+T:Russian Sher Traditional tune 3
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/16
+Q:1/4=110
+K:DPhr
+  d4    ^f4    |^fede   f4    | d4       a4   |ag^fg a4   |
+  z2g2   a2b2  | a2g2   z2 ag |^fgag     f2e2 |e2d2  z4  :|
+|:b6       ag  | a6        g^f| g^fga    bagf |gccb  baag |
+  b6       ag  | a6        g^f| g^fga    bagf |g4    g4  :|
+|:c'3b   abc'2-| c'bab  c'bag | a3g     ^fga2-|ag^fg agfe |
+ ^f3e    def2- |^fede   fedc  |=Bcde [1 ^fgfe |d4    z4  :|\
+                                     [2 ^f3e  |ed d4   z2|]
+
+X:18
+T:Sher
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+C:Abe Schwartz, 1920 
+M:2/4
+L:1/16
+Q:1/4=116
+K:GDor ^c % misheberakh
+A2B2 c4-|c2Bc B2A2|c2d2 e4- |e2de d2c2|
+A2B2 c4-|c2Bc B2A2|FGAB cdcB|BAA2 z4 :|
+%
+d4 d3B             |cdB2 A4  |C2D2 E=FDF|E4    A4  |
+d4 c3B             |cdBz ABGz|FGAB cdcB |BAA2- AzAz|
+d4 c3B             |cdB2 A4  |c2d2 e=fdf|e2z2  A2z2|
+d2z2 c/d/c/d/ c/d/B|BcA2 ABG2|FGAB cdcB |BAA2  z2 ||
+%
+K:DMin ^G
+A2|D8   |F8   |GAGF GAGF|FEED EFD2 |
+   D6 F2|A4 z4|GAGF GAGF|FEED D2z2:|
+
+X:19
+T:Polnietskaya
+Z:Jack Campin, http://www.campin.me.uk
+F:http://www.campin.me.uk/Music/EdinburghKlezmer.abc
+M:2/4
+L:1/16
+Q:1/4=110
+K:DPhr
+
+% ===========================================================================
+% Jack Campin                                                                
+%                                                                email:  jack
+% http://www.campin.me.uk                                              @
+% 07800 739 557                                                  campin.me.uk
+% Twitter: JackCampin                                                        
+% ===========================================================================

@@ -1,0 +1,45 @@
+% Exemplo de uso de `translate.fmt'
+% Hudson Lacerda (02-11-2005 / 2009)
+
+%%format translate
+
+U: l=!esquerda!    % left
+U: r=!direita!     % right
+U: j=!desce!       % up
+U: k=!sobe!        % down
+
+X:1
+T:Exemplo para `translate.fmt'
+%%indent 40
+M:none
+K:none
+!12pt! lllljj !1pt! jj !coda! !reset! CDEF GFED & C8 | \
+!12pt! k !slide! !reset! [!6pt!jjj!trill!!reset!B,G]8 | \
+!12pt! jjjl !1pt! l !mordent! !reset! [A,C]8 |\
+[!12pt!l!1!!reset!a][!6pt!lk!2!!reset!b][!12pt!jjjj!accent!!reset!c']6 ||
+
+%%begintext
+OBSERVAÇÃO:
+!reset! deve ser usado após cada decoração que for
+deslocada por !esquerda!, !direita!, !sobe! ou !desce!.
+
+Estas decorações são equivalentes:
+!esquerda! = !<<!
+!direita! = !>>!
+!sobe! = !^^!
+!desce! = !__!
+
+NOTE:
+!reset! must be used after every decoration which position
+was moved by !esquerda!, !direita!, !sobe! or !desce!.
+
+These decorations are equivalent:
+!esquerda! = !<<!
+!direita! = !>>!
+!sobe! = !^^!
+!desce! = !__!
+%%endtext
+
+%%vskip 20
+%%postscript 0 0 M count 4 string cvs show
+

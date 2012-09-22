@@ -1,0 +1,383 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: helphelp</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: helphelp</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="helphelp.txt"></A><b>helphelp.txt</b>*	For Vim version 7.3.  Last change: 2010 Sep 14
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Help on help files					*<a name="helphelp"></A><b>helphelp</b>*
+
+1. Help commands		|<a href="helphelp.html#online-help">online-help</a>|
+2. Translated help files	|<a href="helphelp.html#help-translated">help-translated</a>|
+3. Writing help files		|<a href="helphelp.html#help-writing">help-writing</a>|
+
+==============================================================================
+
+1. Help commands					*<a name="online-help"></A><b>online-help</b>*
+
+
+			*<a name="help"></A><b>help</b>* *<a name="&lt;Help&gt;"></A><b>&lt;Help&gt;</b>* *<a name=":h"></A><b>:h</b>* *<a name=":help"></A><b>:help</b>* *<a name="&lt;F1&gt;"></A><b>&lt;F1&gt;</b>* *<a name="i_&lt;F1&gt;"></A><b>i_&lt;F1&gt;</b>* *<a name="i_&lt;Help&gt;"></A><b>i_&lt;Help&gt;</b>*
+<a href="helphelp.html#&lt;Help&gt;">&lt;Help&gt;</a>		or
+:h[elp]			Open a <a href="windows.html#window">window</a> and display the help file in read-only
+			mode.  If there is a help <a href="windows.html#window">window</a> open already, use
+			that one.  Otherwise, if the current <a href="windows.html#window">window</a> uses the
+			full width of the screen or is at least 80 characters
+			wide, the help <a href="windows.html#window">window</a> will appear just above the
+			current <a href="windows.html#window">window</a>.  Otherwise the new <a href="windows.html#window">window</a> is put at
+			the very top.
+			The <a href="options.html#'helplang'">'helplang'</a> option is used to select a language, if
+			the main help file is available in several languages.
+			{not in Vi}
+
+
+						*<a name="{subject}"></A><b>{subject}</b>* *<a name="E149"></A><b>E149</b>* *<a name="E661"></A><b>E661</b>*
+:h[elp] <a href="helphelp.html#{subject}">{subject}</a>	Like &quot;<a href="helphelp.html#:help">:help</a>&quot;, additionally jump to the <a href="tagsrch.html#tag">tag</a> <a href="helphelp.html#{subject}">{subject}</a>.
+			<a href="helphelp.html#{subject}">{subject}</a> can include <a href="editing.html#wildcards">wildcards</a> like &quot;*&quot;, &quot;<a href="pattern.html#?">?</a>&quot; and
+			&quot;[a-z]&quot;:
+			   <a href="helphelp.html#:help">:help</a> <a href="index.html#z">z</a>?	jump to help for any &quot;<a href="index.html#z">z</a>&quot; command
+			   <a href="helphelp.html#:help">:help</a> <a href="scroll.html#z.">z.</a>	jump to the help for &quot;<a href="scroll.html#z.">z.</a>&quot;
+			If there is no full match for the <a href="pattern.html#pattern">pattern</a>, or there
+			are several matches, the &quot;best&quot; match will be used.
+			A sophisticated algorithm is used to decide which
+			match is better than another one.  These items are
+			considered in the computation:
+			- A match with same <a href="change.html#case">case</a> is much better than a match
+			  with different <a href="change.html#case">case</a>.
+			- A match that starts after a non-alphanumeric
+			  character is better than a match in the middle of a
+			  <a href="motion.html#word">word</a>.
+			- A match at or near the beginning of the <a href="tagsrch.html#tag">tag</a> is
+			  better than a match further on.
+			- The more alphanumeric characters match, the better.
+			- The shorter the length of the match, the better.
+
+			The <a href="options.html#'helplang'">'helplang'</a> option is used to select a language, if
+			the <a href="helphelp.html#{subject}">{subject}</a> is available in several languages.
+			To find a <a href="tagsrch.html#tag">tag</a> in a specific language, append &quot;@ab&quot;,
+			where &quot;<a href="motion.html#ab">ab</a>&quot; is the two-letter language code.  See
+			|<a href="helphelp.html#help-translated">help-translated</a>|.
+
+			Note that the longer the <a href="helphelp.html#{subject}">{subject}</a> you give, the <a href="various.html#less">less</a>
+			matches will be found.  You can get an idea how this
+			all works by using commandline completion (type <a href="scroll.html#CTRL-D">CTRL-D</a>
+			after &quot;<a href="helphelp.html#:help">:help</a> subject&quot; |<a href="cmdline.html#c_CTRL-D">c_CTRL-D</a>|).
+			If there are several matches, you can have them listed
+			by hitting <a href="scroll.html#CTRL-D">CTRL-D</a>.  Example:
+<b>				:help cont&lt;Ctrl-D&gt;</b>
+
+ 			Instead of typing &quot;<a href="helphelp.html#:help">:help</a> CTRL-V&quot; to search for help
+			for <a href="visual.html#CTRL-V">CTRL-V</a> you can type:
+<b>				:help ^V</b>
+ 			This also works together with other characters, for
+			example to find help for <a href="visual.html#CTRL-V">CTRL-V</a> in <a href="insert.html#Insert">Insert</a> mode:
+<b>				:help i^V</b>
+ 
+			To use a <a href="pattern.html#regexp">regexp</a> |<a href="pattern.html#pattern">pattern</a>|, first <a href="diff.html#do">do</a> &quot;<a href="helphelp.html#:help">:help</a>&quot; and then
+			use &quot;<a href="tagsrch.html#:tag">:tag</a> {pattern}&quot; in the help <a href="windows.html#window">window</a>.  The
+			&quot;<a href="tagsrch.html#:tnext">:tnext</a>&quot; command can then be used to jump to other
+			matches, &quot;tselect&quot; to list matches and choose one.
+<b>				:help index| :tse z.</b>
+
+ 			When there is no argument you will see matches for
+			&quot;help&quot;, to avoid listing all possible matches (that
+			would be very slow).
+			The number of matches displayed is limited to 300.
+
+			This command can be followed by '&#124;' and another
+			command, but you don't need to <a href="intro.html#escape">escape</a> the '&#124;' inside a
+			help command.  So these both work:
+<b>				:help |</b>
+<b>				:help k| only</b>
+ 			Note that a space before the '&#124;' is seen <a href="motion.html#as">as</a> part of
+			the &quot;<a href="helphelp.html#:help">:help</a>&quot; argument.
+			You can also use &lt;LF&gt; or <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> to separate the help
+			command from a following command.  You need to type
+			<a href="visual.html#CTRL-V">CTRL-V</a> first to insert the &lt;LF&gt; or <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>.  Example:
+<b>				:help so&lt;C-V&gt;&lt;CR&gt;only</b>
+ 			{not in Vi}
+
+:h[elp]! [subject]	Like &quot;<a href="helphelp.html#:help">:help</a>&quot;, but in non-English help files prefer to
+			find a <a href="tagsrch.html#tag">tag</a> in a file with the same language <a href="motion.html#as">as</a> the
+			current file.  See |<a href="helphelp.html#help-translated">help-translated</a>|.
+
+
+							*<a name=":helpg"></A><b>:helpg</b>* *<a name=":helpgrep"></A><b>:helpgrep</b>*
+:helpg[rep] {pattern}[@xx]
+			Search all help text files and make a list of lines
+			in which {pattern} matches.  Jumps to the first match.
+			The optional [@xx] specifies that only matches in the
+			&quot;xx&quot; language are to be found.
+			You can navigate through the matches with the
+			|<a href="quickfix.html#quickfix">quickfix</a>| commands, e.g., |<a href="quickfix.html#:cnext">:cnext</a>| to jump to the
+			next one.  Or use |<a href="quickfix.html#:cwindow">:cwindow</a>| to get the list of
+			matches in the <a href="quickfix.html#quickfix">quickfix</a> <a href="windows.html#window">window</a>.
+			{pattern} is used <a href="motion.html#as">as</a> a Vim <a href="pattern.html#regexp">regexp</a> |<a href="pattern.html#pattern">pattern</a>|.
+			<a href="options.html#'ignorecase'">'ignorecase'</a> is not used, add &quot;\c&quot; to ignore <a href="change.html#case">case</a>.
+			Example for <a href="change.html#case">case</a> sensitive search:
+<b>				:helpgrep Uganda</b>
+ 			Example for <a href="change.html#case">case</a> ignoring search:
+<b>				:helpgrep uganda\c</b>
+ 			Example for searching in French help:
+<b>				:helpgrep backspace@fr</b>
+ 			The <a href="pattern.html#pattern">pattern</a> does not support line breaks, it must
+			match within one line.  You can use |<a href="quickfix.html#:grep">:grep</a>| instead,
+			but then you need to get the list of help files in a
+			complicated way.
+			Cannot be followed by another command, everything is
+			used <a href="motion.html#as">as</a> part of the <a href="pattern.html#pattern">pattern</a>.  But you can use
+			|<a href="eval.html#:execute">:execute</a>| when needed.
+			Compressed help files will not be searched (Fedora
+			compresses the help files).
+			{not in Vi}
+
+
+							*<a name=":lh"></A><b>:lh</b>* *<a name=":lhelpgrep"></A><b>:lhelpgrep</b>*
+:lh[elpgrep] {pattern}[@xx]
+			Same <a href="motion.html#as">as</a> &quot;<a href="helphelp.html#:helpgrep">:helpgrep</a>&quot;, except the location list is used
+			instead of the <a href="quickfix.html#quickfix">quickfix</a> list.  If the help <a href="windows.html#window">window</a> is
+			already opened, then the location list for that <a href="windows.html#window">window</a>
+			is used.  Otherwise, a new help <a href="windows.html#window">window</a> is opened and
+			the location list for that <a href="windows.html#window">window</a> is set.  The
+			location list for the current <a href="windows.html#window">window</a> is not changed.
+
+
+							*<a name=":exu"></A><b>:exu</b>* *<a name=":exusage"></A><b>:exusage</b>*
+:exu[sage]		Show help on <a href="intro.html#Ex">Ex</a> commands.  Added to simulate the <a href="intro.html#Nvi">Nvi</a>
+			command. {not in Vi}
+
+
+							*<a name=":viu"></A><b>:viu</b>* *<a name=":viusage"></A><b>:viusage</b>*
+:viu[sage]		Show help on <a href="intro.html#Normal">Normal</a> mode commands.  Added to simulate
+			the <a href="intro.html#Nvi">Nvi</a> command. {not in Vi}
+
+When no argument is given to |<a href="helphelp.html#:help">:help</a>| the file given with the <a href="options.html#'helpfile'">'helpfile'</a> option
+will be opened.  Otherwise the specified <a href="tagsrch.html#tag">tag</a> is searched for in all &quot;doc/tags&quot;
+files in the directories specified in the <a href="options.html#'runtimepath'">'runtimepath'</a> option.
+
+The initial height of the help <a href="windows.html#window">window</a> can be set with the <a href="options.html#'helpheight'">'helpheight'</a> option
+(default 20).
+
+Jump to specific subjects by using <a href="tagsrch.html#tags">tags</a>.  This can be done in two ways:
+- Use the &quot;<a href="tagsrch.html#CTRL-]">CTRL-]</a>&quot; command while standing on the name of a command or option.
+  This only works when the <a href="tagsrch.html#tag">tag</a> is a keyword.  &quot;&lt;C-Leftmouse&gt;&quot; and
+  &quot;<a href="tagsrch.html#g&lt;LeftMouse&gt;">g&lt;LeftMouse&gt;</a>&quot; work just like &quot;<a href="tagsrch.html#CTRL-]">CTRL-]</a>&quot;.
+- use the &quot;<a href="tagsrch.html#:ta">:ta</a> {subject}&quot; command.  This also works with non-keyword
+  characters.
+
+Use <a href="tagsrch.html#CTRL-T">CTRL-T</a> or <a href="motion.html#CTRL-O">CTRL-O</a> to jump back.
+Use &quot;<a href="editing.html#:q">:q</a>&quot; to close the help <a href="windows.html#window">window</a>.
+
+If there are several matches for an item you are looking for, this is how you
+can jump to each one of them:
+1. Open a help <a href="windows.html#window">window</a>
+2. Use the &quot;<a href="tagsrch.html#:tag">:tag</a>&quot; command with a slash prepended to the <a href="tagsrch.html#tag">tag</a>.  E.g.:
+<b>	:tag /min</b>
+3. Use &quot;<a href="tagsrch.html#:tnext">:tnext</a>&quot; to jump to the next matching <a href="tagsrch.html#tag">tag</a>.
+
+It is possible to add help files for plugins and other items.  You don't need
+to change the distributed help files for that.  See |<a href="usr_05.html#add-local-help">add-local-help</a>|.
+
+To write a local help file, see |<a href="usr_41.html#write-local-help">write-local-help</a>|.
+
+Note that the title lines from the local help files are automagically added to
+the &quot;LOCAL ADDITIONS&quot; section in the &quot;<a href="help.html#help.txt">help.txt</a>&quot; help file |<a href="help.html#local-additions">local-additions</a>|.
+This is done when viewing the file in Vim, the file itself is not changed.  It
+is done by going through all help files and obtaining the first line of each
+file.  The files in $VIMRUNTIME/doc are skipped.
+
+
+							*<a name="help-xterm-window"></A><b>help-xterm-window</b>*
+If you want to have the help in another xterm <a href="windows.html#window">window</a>, you could use this
+command:
+<b>	:!xterm -e vim +help &amp;</b>
+ 
+
+
+			*<a name=":helpfind"></A><b>:helpfind</b>* *<a name=":helpf"></A><b>:helpf</b>*
+:helpf[ind]		Like |<a href="helphelp.html#:help">:help</a>|, but use a <a href="gui_w32.html#dialog">dialog</a> to enter the argument.
+			Only for backwards compatibility.  It now executes the
+			ToolBar.FindHelp menu entry instead of using a builtin
+			<a href="gui_w32.html#dialog">dialog</a>.  {only when compiled with YXXY+GUI_GTK|}
+			{not in Vi}
+
+
+					*<a name=":helpt"></A><b>:helpt</b>* *<a name=":helptags"></A><b>:helptags</b>*
+
+				*<a name="E154"></A><b>E154</b>* *<a name="E150"></A><b>E150</b>* *<a name="E151"></A><b>E151</b>* *<a name="E152"></A><b>E152</b>* *<a name="E153"></A><b>E153</b>* *<a name="E670"></A><b>E670</b>*
+:helpt[ags] [++t] {dir}
+			Generate the help <a href="tagsrch.html#tags">tags</a> file(s) for directory {dir}.
+			All &quot;*.txt&quot; and &quot;*.??x&quot; files in the directory are
+			scanned for a help <a href="tagsrch.html#tag">tag</a> definition in between stars.
+			The &quot;*.??x&quot; files are for translated docs, they
+			generate the &quot;tags-??&quot; file, see |<a href="helphelp.html#help-translated">help-translated</a>|.
+			The generated <a href="tagsrch.html#tags">tags</a> files are sorted.
+			When there are duplicates an error message is given.
+			An existing <a href="tagsrch.html#tags">tags</a> file is silently overwritten.
+			The optional &quot;++t&quot; argument forces adding the
+			&quot;<a href="http://vimdoc.sourceforge.net/htmldoc/tags.html#help-tags">help-tags</a>&quot; <a href="tagsrch.html#tag">tag</a>.  This is also done when the {dir} is
+			equal to $VIMRUNTIME/doc.
+			To rebuild the help <a href="tagsrch.html#tags">tags</a> in the runtime directory
+			(requires write permission there):
+<b>				:helptags $VIMRUNTIME/doc</b>
+ 			{not in Vi}
+
+
+==============================================================================
+
+2. Translated help files				*<a name="help-translated"></A><b>help-translated</b>*
+
+It is possible to add translated help files, next to the original English help
+files.  Vim will search for all help in &quot;doc&quot; directories in <a href="options.html#'runtimepath'">'runtimepath'</a>.
+This is only available when compiled with the |<a href="various.html#+multi_lang">+multi_lang</a>| feature.
+
+At this moment translations are available for:
+	<a href="mbyte.html#Chinese">Chinese</a> - multiple authors
+	French  - translated by David Blanchet
+	Italian - translated by Antonio Colombo
+	Polish  - translated by Mikolaj Machowski
+	<a href="russian.html#Russian">Russian</a> - translated by Vassily Ragosin
+ See the Vim website to find them:	<a href="http://www.vim.org/translations.php">http://www.vim.org/translations.php</a>
+
+A set of translated help files consists of these files:
+
+	help.abx
+	howto.abx
+	<a href="eval.html#...">...</a>
+	tags-ab
+
+&quot;<a href="motion.html#ab">ab</a>&quot; is the two-letter language code.  Thus for Italian the names are:
+
+	help.itx
+	howto.itx
+	<a href="eval.html#...">...</a>
+	tags-it
+
+The <a href="options.html#'helplang'">'helplang'</a> option can be set to the preferred language(s).  The default is
+set according to the environment.  Vim will first try to find a matching <a href="tagsrch.html#tag">tag</a>
+in the preferred language(s).  English is used when it cannot be found.
+
+To find a <a href="tagsrch.html#tag">tag</a> in a specific language, append &quot;@ab&quot; to a <a href="tagsrch.html#tag">tag</a>, where &quot;<a href="motion.html#ab">ab</a>&quot; is the
+two-letter language code.  Example:
+<b>	:he user-manual@it</b>
+<b>	:he user-manual@en</b>
+The first one finds the Italian user manual, even when <a href="options.html#'helplang'">'helplang'</a> is empty.
+The second one finds the English user manual, even when <a href="options.html#'helplang'">'helplang'</a> is set to
+&quot;it&quot;.
+
+When using command-line completion for the &quot;<a href="helphelp.html#:help">:help</a>&quot; command, the &quot;@en&quot;
+extension is only shown when a <a href="tagsrch.html#tag">tag</a> exists for multiple languages.  When the
+<a href="tagsrch.html#tag">tag</a> only exists for English &quot;@en&quot; is omitted.
+
+When using |<a href="tagsrch.html#CTRL-]">CTRL-]</a>| or &quot;:help!&quot; in a non-English help file Vim will try to
+find the <a href="tagsrch.html#tag">tag</a> in the same language.  If not found then <a href="options.html#'helplang'">'helplang'</a> will be used
+to select a language.
+
+Help files must use latin1 or <a href="mbyte.html#utf-8">utf-8</a> encoding.  Vim assumes the encoding is
+<a href="mbyte.html#utf-8">utf-8</a> when finding non-ASCII characters in the first line.  Thus you must
+translate the header with &quot;For Vim version&quot;.
+
+The same encoding must be used for the help files of one language in one
+directory.  You can use a different encoding for different languages and use
+a different encoding for help files of the same language but in a different
+directory.
+
+Hints for translators:
+- Do not translate the <a href="tagsrch.html#tags">tags</a>.  This makes it possible to use <a href="options.html#'helplang'">'helplang'</a> to
+  specify the preferred language.  You may add new <a href="tagsrch.html#tags">tags</a> in your language.
+- When you <a href="diff.html#do">do</a> not translate a part of a file, add <a href="tagsrch.html#tags">tags</a> to the English version,
+using the <a href="mailto:&quot;tag@en&quot;">&quot;tag@en&quot;</a> notation. 
+- Make a package with all the files and the <a href="tagsrch.html#tags">tags</a> file available for <a href="intro.html#download">download</a>.
+  Users can drop it in one of the &quot;doc&quot; directories and start use it.
+  Report this to <a href="intro.html#Bram">Bram</a>, so that he can add a link on www.vim.org.
+- Use the |<a href="helphelp.html#:helptags">:helptags</a>| command to generate the tags files.  It will find all
+  languages in the specified directory.
+
+==============================================================================
+
+3. Writing help files					*<a name="help-writing"></A><b>help-writing</b>*
+
+For ease of use, a Vim help file for a <a href="usr_05.html#plugin">plugin</a> should follow the format of the
+standard Vim help files.  If you are <a href="editing.html#writing">writing</a> a new help file it's best to copy
+one of the existing files and use it <a href="motion.html#as">as</a> a <a href="autocmd.html#template">template</a>.
+
+The first line in a help file should have the following format:
+
+
+*<a name="helpfile_name.txt"></A><b>helpfile_name.txt</b>*	For Vim version 7.3	Last change: 2010 June 4
+
+The first field is a link to the help file name.  The second field describes
+the applicable Vim version.  The last field specifies the last modification
+date of the file.  Each field is separated by a <a href="intro.html#tab">tab</a>.
+
+At the bottom of the help file, place a Vim <a href="options.html#modeline">modeline</a> to set the <a href="options.html#'textwidth'">'textwidth'</a>
+and <a href="options.html#'tabstop'">'tabstop'</a> <a href="options.html#options">options</a> and the <a href="options.html#'filetype'">'filetype'</a> to 'help'.  Never set a global option
+in such a <a href="options.html#modeline">modeline</a>, that can have consequences undesired by whoever reads that
+help.
+
+
+TAGS
+
+To define a help <a href="tagsrch.html#tag">tag</a>, place the name between asterisks (*tag-name*).  The
+tag-name should be different from all the Vim help <a href="tagsrch.html#tag">tag</a> names and ideally
+should begin with the name of the Vim <a href="usr_05.html#plugin">plugin</a>.  The <a href="tagsrch.html#tag">tag</a> name is usually right
+aligned on a line.
+
+When referring to an existing help <a href="tagsrch.html#tag">tag</a> and to create a hot-link, place the
+name between two bars (|) eg. |help-writing|.|||
+
+When referring to a Vim option in the help file, place the option name between
+two single <a href="quotes.html#quotes">quotes</a>, eg. <a href="options.html#'statusline'">'statusline'</a>
+
+
+HIGHLIGHTING
+
+To define a column heading, use a tilde character at the end of the line.
+This will highlight the column heading in a different color.  E.g.
+
+<b><font color="purple">Column heading</font></b>
+
+To separate sections in a help file, place a series of '<a href="change.html#=">=</a>' characters in a
+line starting from the first column.  The section separator line is highlighted
+differently.
+
+To <a href="change.html#quote">quote</a> a block of ex-commands verbatim, place a greater than (&gt;) character
+at the end of the line before the block and a <a href="various.html#less">less</a> than (&lt;) character <a href="motion.html#as">as</a> the
+first non-blank on a line following the block.  Any line starting in column 1
+also implicitly stops the block of ex-commands before it.  E.g.
+<b>    function Example_Func()</b>
+<b>	echo "Example"</b>
+<b>    endfunction</b>
+ 
+
+The following are highlighted differently in a Vim help file:
+  - a special key name expressed either in <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> <a href="motion.html#as">as</a> in <a href="scroll.html#&lt;PageDown&gt;">&lt;PageDown&gt;</a>, or
+    <a href="motion.html#as">as</a> a Ctrl character <a href="motion.html#as">as</a> in <a href="change.html#CTRL-X">CTRL-X</a>
+  - anything between {braces}, e.g. <a href="map.html#{lhs}">{lhs}</a> and <a href="map.html#{rhs}">{rhs}</a>
+
+The <a href="motion.html#word">word</a> &quot;Note&quot;, &quot;Notes&quot; and similar automagically receive distinctive
+highlighting.  So <a href="diff.html#do">do</a> these:
+	*Todo	something to <a href="diff.html#do">do</a>
+	*Error	something wrong
+
+You can find the details in $VIMRUNTIME/syntax/help.vim
+
+<a href="helphelp.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

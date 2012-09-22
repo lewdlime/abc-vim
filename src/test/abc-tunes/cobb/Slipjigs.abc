@@ -1,0 +1,215 @@
+X:1
+T:Another Jig Will Do
+Z: id:dc-slipjig-1
+M:9/8
+L:1/8
+K:D Major
+ABA A2G F2G|ABA AGF G3|ABA A2G F2G|A2d d2c d3:|!
+A2g f2d e2=c|A2B =c2B c2B|A2g f2d e2=c|A2d d2c d3|!
+A2g f2d e2=c|A2B =c2B c2^c|d=cA A2G F2G|A2d d2c d3|]!
+
+X:2
+T:Barney Brallaghan
+Z: id:dc-slipjig-21
+M:9/8
+L:1/8
+K:D Major
+F2A ABA ABA|F2A ABA d2f|F2A ABA ABA|B2e e2d cBA:|!
+f2a f2a fed|f2a f2a gfe|f2a f2a fed|efe e2d cBA:|!
+f3 a3 d3|e2f ged cBA|f3 e3 d3|B3 A2G FED:|!
+
+X:3
+T:Boys of Ballisodare
+Z: id:dc-slipjig-2
+M:9/8
+L:1/8
+K:G Major
+D2G G2A B2d|efe def g3|D2G G2B d2B|ABA B2G E2G|!
+D2G G2A B2d|efe def g2a|b2a g2e d2B|ABA B2G E2G:|!
+B2d d2B d3|B2d def g3|B2d d2B d2B|ABA B2G E2G|!
+B2d d2B d3|B2d def g2a|b2a g2e d2B|ABA B2G E2G:|!
+
+X:4
+T:Butterfly
+Z: id:dc-slipjig-3
+M:9/8
+L:1/8
+K:E Minor
+B2E G2E F3|B2E G2E FGA|B2E G2E F3|B2d d2B AFA:|!
+B2c e2f g3|B2c g2e dBA|B2c e2f g2a|b2a g2e dBA:|!
+B3 B2A G2A|B3 BAB dBA|B3 B2A G2A|B2d g2e dBA:|!
+
+X:5
+T:Choice Wife
+Z: id:dc-slipjig-4
+M:9/8
+L:1/8
+K:D Mixolydian
+FGA AFA c2A|BAG FAG FED|FGA AFA d3|dfe dcA GED:|!
+d^cd ege =c2A|d^cd faf gfe|afa ged c2A|BAG FAG FED:|!
+FGA AFd AFd|AFd AFA GED|FGA AFA c2A|BAG FAG FED:|!
+DED DED c3|c2B c2A GED|DED DED d3|dfe dcA GED:|!
+d^cd ege =c2A|d^cd faf gfe|afa ged c2A|BAG FAG FED:|!
+
+X:6
+T:Come Upstairs with Me
+Z: id:dc-slipjig-5
+M:9/8
+L:1/8
+K:G Major
+G2c BAG Bcd|ecA ABG FED|G2c BAG Bcd|efg faf g3:|!
+fed d2g fed|ecA ABG FED|fed d2g fed|efg faf g3|!
+fed d2g fed|ecA ABG FED|G2c BAG Bcd|efg faf g3|]!
+
+X:7
+T:Dever the Dancer
+Z: id:dc-slipjig-6
+M:9/8
+L:1/8
+K:E Dorian
+BEE BEE G2A|BEE BAG FGA|BEE BEE G2A|Bcd ABG FED:|!
+ded dAF G2A|ded def gfe|ded dAF G2A|Bcd ABG FED|!
+ded dAF G2A|ded def gfe|afa gec d2A|Bcd AGF FED|]!
+
+X:8
+T:Drops of Brandy
+Z: id:dc-slipjig-7
+M:9/8
+L:1/8
+K:G Major
+ded BGB BGB|ded BGB cBA|ded BGB BGB|cBc A2B cBA:|!
+GBd gdB gdB|GBd gdB cBA|GBd gdB gdB|cBc A2B cBA|!
+GBd gdB gdB|GBd gdB cBA|GBd gba gdB|cBc A2B cBA|]!
+
+X:9
+T:Dusty Miller
+Z: id:dc-slipjig-8
+M:9/8
+L:1/8
+K:A Major
+c2e e2B cBA|F2B B2c dcB|c2e e2B cBA|E2A A2B cBA:|!
+c2e f2g aga|b2B B2c dcB|c2e f2g a2b|a2f e2d cBA:|!
+
+X:10
+T:Elizabeth Kelly's Delight
+Z: id:dc-slipjig-9
+M:9/8
+L:1/8
+K:A Dorian
+A3 ABA AGE|ABA G2E DEG|A3 ABA AGE|G3 G2E DEG:|!
+c2A BAG A3|c2A BAG DEG|c2A BAG A3|G3 G2E DEG:|!
+
+X:11
+T:Foxhunter's
+Z: id:dc-slipjig-10
+M:9/8
+L:1/8
+K:D Major
+FGF F2D G2E|FGF F2D E2D|FGF F2D G2B|AFD D2F E2D:|!
+BcB BAG FGA|B2E E2F G2B|ABc dcB ABc|d2D D2F E2D:|!
+fgf f2d g2e|fgf f2d e2d|fgf f2d g2b|afd d2f e2d:|!
+gfe dcB AGA|B2E E2F G2B|ABc dcB ABc|d2D D2F E2D:|!
+
+X:12
+T:Give Us a Drink of Water
+Z: id:dc-slipjig-12
+M:9/8
+L:1/8
+K:G Major
+D|GBd gdc BAG|BdB cAA A2D|GBd gdc BAG|BcA AGF G2:|!
+d|g3 efg fed|g3 efg afd|g3 bag fed|efg afd g2d|!
+g3 efg fed|g3 efg a2g|bag agf ged|efg afd g2|]!
+
+X:13
+T:Hardyman the Fiddler
+Z: id:dc-slipjig-13
+M:9/8
+L:1/8
+K:D Mixolydian
+A2G FDE F2G|A3 AGA cAG|A2G FDE F2G|Add ded cAG:|!
+Add d2e f3|Add ded cAG|Add d2e f2g|agf ged cAG|!
+Add d2e f3|Add ded cAG|dcA d2e f2g|agf ged cAG|]!
+
+X:14
+T:Hedigan's Fancy
+Z: id:dc-slipjig-14
+M:9/8
+L:1/8
+K:D Major
+d2A BGE AFD|fed AFD GFE|d2A BGE AFD|BAB E2F GFE:|!
+DdA FDF GEA|DdA FDF GFE|DdA FDF GEA|BAB E2F GFE:|!
+dcd fed ecA|def agf gfe|dcd fed ecA|dAG FED GFE:|!
+def agf agf|def agf gfe|def agf agf|bgf e2f gfe:|!
+dfe dAF GFE|dfe dAF BGE|dfe dAF GFE|BAB E2F GFE:|!
+DFA fed FGE|DFA dAF E2A|DFA fed FED|BAB E2F GFE:|!
+
+X:15
+T:Humours of Whiskey
+Z: id:dc-slipjig-15
+M:9/8
+L:1/8
+K:B Minor
+gfe fBB fBB|gfe fBB fga|gfe fBB fBB|agf efd cBA:|!
+d2e fdf ecA|d2e fed gfe|d2e fdf efg|agf efd cBA:|!
+
+X:16
+T:Kid on the Mountain
+Z: id:dc-slipjig-16
+M:9/8
+L:1/8
+K:E Minor
+EDE FEF G2F|EFE cBA BGE|EFE FEF G2A|BAG FAG FED:|!
+BGB AFA G2D|GAB dge dBA|BGB AFA G2A|BAG FAG FED:|!
+gfe efe e2f|gfg efg afd|gfe efe e2a|bag fag fed:|!
+eBB e2f g2f|eBB efg afd|eBB e2f g2a|bag fag fed:|!
+edB dBA G2D|GAB dge dBA|edB dBA G2A|BAG FAG FED:|!
+
+X:17
+T:Promenade
+Z: id:dc-slipjig-22
+M:9/8
+L:1/8
+K:A Dorian
+e2A A2G E2D|E2A A2B c2d|e2A A2G E2D|E2G G2F G3:|!
+e2a a2g a3|e2a a3 gfe|d2g g2f g3|a2g g2e d3:|!
+
+X:18
+T:Promenade
+Z: id:dc-slipjig-17
+M:9/8
+L:1/8
+K:D Dorian
+A2D D2C A,2G,|A,2D D2E F2G|A2D D2C A,2G,|A,2C C2B, C3:|!
+A2d d2c d3|A2d d3 cBA|G2c c2B c3|d2c c2A G3:|!
+
+X:19
+T:Redican's Mother
+Z: id:dc-slipjig-20
+M:9/8
+L:1/8
+K:D Major
+FAA FAd AFD|FAA FAd B2A|FAA FAd AFD|EDB, DFA B2A:|!
+fgf fed edB|Aff fef g2e|fgf fed edB|AFD DFA B2A:|!
+
+X:20
+T:Rocky Road to Dublin
+Z: id:dc-slipjig-19
+M:9/8
+L:1/8
+K:A Dorian
+efe d2B A3|E2A AGA Bcd|efe d2B A2c|B2G G2A Bcd:|!
+e2a a2f g3|e2a a2A Bcd|e2a a2f g2e|d2B G2A Bcd|!
+e2a a2f g3|e2a a2A Bcd|efg fga gfe|d2B G2A Bcd|]!
+ecA ecA A3|ecA ecA Bcd|ecA ecA A2c|d2B G2A Bcd|!
+ecA ecA A3|ecA ecA Bcd|efg fga gfe|d2B G2A Bcd|]!
+
+X:21
+T:Swaggering
+Z: id:dc-slipjig-11
+M:9/8
+L:1/8
+K:G Major
+BAG AGE DEG|BAG GFG ABc|BAG AGE DEG|cBA BGE D3:|!
+Bdd dge dBG|Bdd dBG A2G|Bdd dge dBG|cBA BGE D3|!
+Bdd dge dBG|Bdd dBG Aef|gfe dBG cBA|cBA BGE D3|]!
+

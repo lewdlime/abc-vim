@@ -1,0 +1,574 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: visual</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: visual</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="visual.txt"></A><b>visual.txt</b>*    For Vim version 7.3.  Last change: 2010 Feb 17
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+<a href="visual.html#Visual">Visual</a> mode				*<a name="Visual"></A><b>Visual</b>* *<a name="Visual-mode"></A><b>Visual-mode</b>* *<a name="visual-mode"></A><b>visual-mode</b>*
+
+<a href="visual.html#Visual">Visual</a> mode is a flexible and <a href="starting.html#easy">easy</a> way to select a piece of text for an
+<a href="motion.html#operator">operator</a>.  It is the only way to select a block of text.
+
+This is introduced in section |<a href="usr_04.html#04.4">04.4</a>| of the user manual.
+
+1. Using <a href="visual.html#Visual">Visual</a> mode			|<a href="visual.html#visual-use">visual-use</a>|
+2. Starting and stopping <a href="visual.html#Visual">Visual</a> mode	|<a href="visual.html#visual-start">visual-start</a>|
+3. Changing the <a href="visual.html#Visual">Visual</a> area		|<a href="visual.html#visual-change">visual-change</a>|
+4. Operating on the <a href="visual.html#Visual">Visual</a> area		|<a href="visual.html#visual-operators">visual-operators</a>|
+5. Blockwise operators			|<a href="visual.html#blockwise-operators">blockwise-operators</a>|
+6. Repeating				|<a href="visual.html#visual-repeat">visual-repeat</a>|
+7. Examples				|<a href="visual.html#visual-examples">visual-examples</a>|
+8. Select mode				|<a href="visual.html#Select-mode">Select-mode</a>|
+
+{Vi has no <a href="visual.html#Visual">Visual</a> mode, the name &quot;visual&quot; is used for <a href="intro.html#Normal">Normal</a> mode, to
+distinguish it from <a href="intro.html#Ex">Ex</a> mode}
+{not available when the |<a href="various.html#+visual">+visual</a>| feature was disabled when compiling}
+
+==============================================================================
+
+1. Using <a href="visual.html#Visual">Visual</a> mode					*<a name="visual-use"></A><b>visual-use</b>*
+
+Using <a href="visual.html#Visual">Visual</a> mode consists of three parts:
+1. <a href="motion.html#Mark">Mark</a> the start of the text with &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or <a href="visual.html#CTRL-V">CTRL-V</a>.
+   The character under the cursor will be used <a href="motion.html#as">as</a> the start.
+2. Move to the end of the text.
+   The text from the start of the <a href="visual.html#Visual">Visual</a> mode up to and including the
+   character under the cursor is highlighted.
+3. Type an <a href="motion.html#operator">operator</a> command.
+   The highlighted characters will be operated upon.
+
+The <a href="options.html#'highlight'">'highlight'</a> option can be used to set the display mode to use for
+highlighting in <a href="visual.html#Visual">Visual</a> mode.
+The <a href="options.html#'virtualedit'">'virtualedit'</a> option can be used to allow positioning the cursor to
+positions where there is no actual character.
+
+The highlighted text normally includes the character under the cursor.
+However, when the <a href="options.html#'selection'">'selection'</a> option is set to &quot;<a href="motion.html#exclusive">exclusive</a>&quot; and the cursor is
+after the <a href="visual.html#Visual">Visual</a> area, the character under the cursor is not included.
+
+With &quot;<a href="visual.html#v">v</a>&quot; the text before the start position and after the end position will
+not be highlighted.  However, all <a href="change.html#uppercase">uppercase</a> and non-alpha operators, except
+&quot;<a href="change.html#~">~</a>&quot; and &quot;<a href="undo.html#U">U</a>&quot;, will work on whole lines anyway.  See the list of operators
+below.
+
+
+							*<a name="visual-block"></A><b>visual-block</b>*
+With <a href="visual.html#CTRL-V">CTRL-V</a> (blockwise <a href="visual.html#Visual">Visual</a> mode) the highlighted text will be a rectangle
+between start position and the cursor.  However, some operators work on whole
+lines anyway (see the list below).  The change and substitute operators will
+delete the highlighted text and then start insertion at the top left
+position.
+
+==============================================================================
+
+2. Starting and stopping <a href="visual.html#Visual">Visual</a> mode			*<a name="visual-start"></A><b>visual-start</b>*
+
+
+						*<a name="v"></A><b>v</b>* *<a name="characterwise-visual"></A><b>characterwise-visual</b>*
+<a href="visual.html#v">v</a>			start <a href="visual.html#Visual">Visual</a> mode per character.
+
+
+						*<a name="V"></A><b>V</b>* *<a name="linewise-visual"></A><b>linewise-visual</b>*
+<a href="visual.html#V">V</a>			start <a href="visual.html#Visual">Visual</a> mode <a href="motion.html#linewise">linewise</a>.
+
+
+						*<a name="CTRL-V"></A><b>CTRL-V</b>* *<a name="blockwise-visual"></A><b>blockwise-visual</b>*
+<a href="visual.html#CTRL-V">CTRL-V</a>			start <a href="visual.html#Visual">Visual</a> mode blockwise.  Note: Under Windows
+			<a href="visual.html#CTRL-V">CTRL-V</a> could be mapped to paste text, it doesn't work
+			to start <a href="visual.html#Visual">Visual</a> mode then, see |<a href="gui_w32.html#CTRL-V-alternative">CTRL-V-alternative</a>|.
+
+If you use <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, click the left mouse button or use any command that
+does a jump to another buffer while in <a href="visual.html#Visual">Visual</a> mode, the highlighting stops
+and no text is affected.  Also when you hit &quot;<a href="visual.html#v">v</a>&quot; in <a href="motion.html#characterwise">characterwise</a> <a href="visual.html#Visual">Visual</a> mode,
+&quot;<a href="visual.html#CTRL-V">CTRL-V</a>&quot; in blockwise <a href="visual.html#Visual">Visual</a> mode or &quot;<a href="visual.html#V">V</a>&quot; in <a href="motion.html#linewise">linewise</a> <a href="visual.html#Visual">Visual</a> mode.  If you hit
+<a href="starting.html#CTRL-Z">CTRL-Z</a> the highlighting stops and the editor is suspended or a new shell is
+started |<a href="starting.html#CTRL-Z">CTRL-Z</a>|.
+
+
+	      new mode after typing:		*<a name="v_v"></A><b>v_v</b>* *<a name="v_CTRL-V"></A><b>v_CTRL-V</b>* *<a name="v_V"></A><b>v_V</b>*
+<b><font color="purple">old mode	     "v"	      "CTRL-V"		     "V"	</font></b>
+
+<a href="intro.html#Normal">Normal</a>		    <a href="visual.html#Visual">Visual</a>	   blockwise <a href="visual.html#Visual">Visual</a>	  <a href="motion.html#linewise">linewise</a> <a href="visual.html#Visual">Visual</a>
+<a href="visual.html#Visual">Visual</a>		    <a href="intro.html#Normal">Normal</a>	   blockwise <a href="visual.html#Visual">Visual</a>	  <a href="motion.html#linewise">linewise</a> <a href="visual.html#Visual">Visual</a>
+blockwise <a href="visual.html#Visual">Visual</a>    <a href="visual.html#Visual">Visual</a>	   <a href="intro.html#Normal">Normal</a>		  <a href="motion.html#linewise">linewise</a> <a href="visual.html#Visual">Visual</a>
+<a href="motion.html#linewise">linewise</a> <a href="visual.html#Visual">Visual</a>     <a href="visual.html#Visual">Visual</a>	   blockwise <a href="visual.html#Visual">Visual</a>	  <a href="intro.html#Normal">Normal</a>
+
+
+						*<a name="gv"></A><b>gv</b>* *<a name="v_gv"></A><b>v_gv</b>* *<a name="reselect-Visual"></A><b>reselect-Visual</b>*
+<a href="visual.html#gv">gv</a>			Start <a href="visual.html#Visual">Visual</a> mode with the same area <a href="motion.html#as">as</a> the previous
+			area and the same mode.
+			In <a href="visual.html#Visual">Visual</a> mode the current and the previous <a href="visual.html#Visual">Visual</a>
+			area are exchanged.
+			After using &quot;<a href="change.html#p">p</a>&quot; or &quot;<a href="change.html#P">P</a>&quot; in <a href="visual.html#Visual">Visual</a> mode the text that
+			was put will be selected.
+
+
+							*<a name="&lt;LeftMouse&gt;"></A><b>&lt;LeftMouse&gt;</b>*
+<a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a>		Set the current cursor position.  If <a href="visual.html#Visual">Visual</a> mode is
+			active it is stopped.  Only when <a href="options.html#'mouse'">'mouse'</a> option is
+			contains '<a href="pattern.html#n">n</a>' or '<a href="insert.html#a">a</a>'.  If the position is within <a href="options.html#'so'">'so'</a>
+			lines from the last line on the screen the text is
+			scrolled up.  If the position is within <a href="options.html#'so'">'so'</a> lines from
+			the first line on the screen the text is scrolled
+			down.
+
+
+							*<a name="&lt;RightMouse&gt;"></A><b>&lt;RightMouse&gt;</b>*
+<a href="visual.html#&lt;RightMouse&gt;">&lt;RightMouse&gt;</a>		Start <a href="visual.html#Visual">Visual</a> mode if it is not active.  The text from
+			the cursor position to the position of the click is
+			highlighted.  If <a href="visual.html#Visual">Visual</a> mode was already active move
+			the start or end of the highlighted text, which ever
+			is closest, to the position of the click.  Only when
+			<a href="options.html#'mouse'">'mouse'</a> option contains '<a href="pattern.html#n">n</a>' or '<a href="insert.html#a">a</a>'.
+
+			Note: when <a href="options.html#'mousemodel'">'mousemodel'</a> is set to &quot;popup&quot;,
+			<a href="term.html#&lt;S-LeftMouse&gt;">&lt;S-LeftMouse&gt;</a> has to be used instead of <a href="visual.html#&lt;RightMouse&gt;">&lt;RightMouse&gt;</a>.
+
+
+							*<a name="&lt;LeftRelease&gt;"></A><b>&lt;LeftRelease&gt;</b>*
+<a href="visual.html#&lt;LeftRelease&gt;">&lt;LeftRelease&gt;</a>		This works like a <a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a>, if it is not at
+			the same position <a href="motion.html#as">as</a> <a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a>.  In an older version
+			of xterm you won't see the selected area until the
+			button is released, unless there is access to the
+			display where the xterm is running (via the DISPLAY
+			environment variable or the <a href="gui_x11.html#-display">-display</a> argument).  Only
+			when <a href="options.html#'mouse'">'mouse'</a> option contains '<a href="pattern.html#n">n</a>' or '<a href="insert.html#a">a</a>'.
+
+If <a href="visual.html#Visual">Visual</a> mode is not active and the &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or <a href="visual.html#CTRL-V">CTRL-V</a> is preceded with a
+<a href="intro.html#count">count</a>, the size of the previously highlighted area is used for a start.  You
+can then move the end of the highlighted area and give an <a href="motion.html#operator">operator</a>.  The type
+of the old area is used (character, line or blockwise).
+- Linewise <a href="visual.html#Visual">Visual</a> mode: The number of lines is multiplied with the <a href="intro.html#count">count</a>.
+- Blockwise <a href="visual.html#Visual">Visual</a> mode: The number of lines and columns is multiplied with
+  the <a href="intro.html#count">count</a>.
+- <a href="intro.html#Normal">Normal</a> <a href="visual.html#Visual">Visual</a> mode within one line: The number of characters is multiplied
+  with the <a href="intro.html#count">count</a>.
+- <a href="intro.html#Normal">Normal</a> <a href="visual.html#Visual">Visual</a> mode with several lines: The number of lines is multiplied
+  with the <a href="intro.html#count">count</a>, in the last line the same number of characters is used <a href="motion.html#as">as</a>
+  in the last line in the previously highlighted area.
+The start of the text is the Cursor position.  If the &quot;<a href="motion.html#$">$</a>&quot; command was used <a href="motion.html#as">as</a>
+one of the last commands to extend the highlighted text, the area will be
+extended to the rightmost column of the longest line.
+
+If you want to highlight exactly the same area <a href="motion.html#as">as</a> the last time, you can use
+&quot;gv&quot; |<a href="visual.html#gv">gv</a>| |<a href="visual.html#v_gv">v_gv</a>|.
+
+
+							*<a name="v_&lt;Esc&gt;"></A><b>v_&lt;Esc&gt;</b>*
+<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>			In <a href="visual.html#Visual">Visual</a> mode: Stop <a href="visual.html#Visual">Visual</a> mode.
+
+
+							*<a name="v_CTRL-C"></A><b>v_CTRL-C</b>*
+<a href="pattern.html#CTRL-C">CTRL-C</a>			In <a href="visual.html#Visual">Visual</a> mode: Stop <a href="visual.html#Visual">Visual</a> mode.  When insert mode is
+			pending (the mode message shows
+			&quot;<a href="starting.html#--">--</a> (insert) VISUAL --&quot;), it is also stopped.
+
+==============================================================================
+
+3. Changing the <a href="visual.html#Visual">Visual</a> area				*<a name="visual-change"></A><b>visual-change</b>*
+
+
+							*<a name="v_o"></A><b>v_o</b>*
+<a href="insert.html#o">o</a>			Go to Other end of highlighted text: The current
+			cursor position becomes the start of the highlighted
+			text and the cursor is moved to the other end of the
+			highlighted text.  The highlighted area remains the
+			same.
+
+
+							*<a name="v_O"></A><b>v_O</b>*
+<a href="insert.html#O">O</a>			Go to Other end of highlighted text.  This is like
+			&quot;<a href="insert.html#o">o</a>&quot;, but in <a href="visual.html#Visual">Visual</a> block mode the cursor moves to the
+			other corner in the same line.  When the corner is at
+			a character that occupies more than one position on
+			the screen (e.g., a &lt;Tab&gt;), the highlighted text may
+			change.
+
+
+							*<a name="v_$"></A><b>v_$</b>*
+When the &quot;<a href="motion.html#$">$</a>&quot; command is used with blockwise <a href="visual.html#Visual">Visual</a> mode, the right end of the
+highlighted text will be determined by the longest highlighted line.  This
+stops when a motion command is used that does not move straight up or down.
+
+For moving the end of the block many commands can be used, but you cannot
+use <a href="intro.html#Ex">Ex</a> commands, commands that make changes or <a href="editing.html#abandon">abandon</a> the file.  Commands
+(starting with) &quot;<a href="repeat.html#.">.</a>&quot;, &quot;<a href="change.html#&amp;">&amp;</a>&quot;, <a href="editing.html#CTRL-^">CTRL-^</a>, &quot;Z&quot;, <a href="tagsrch.html#CTRL-]">CTRL-]</a>, <a href="tagsrch.html#CTRL-T">CTRL-T</a>, <a href="undo.html#CTRL-R">CTRL-R</a>, <a href="motion.html#CTRL-I">CTRL-I</a>
+and <a href="motion.html#CTRL-O">CTRL-O</a> cause a beep and <a href="visual.html#Visual">Visual</a> mode continues.
+
+When switching to another <a href="windows.html#window">window</a> on the same buffer, the cursor position in
+that <a href="windows.html#window">window</a> is adjusted, so that the same <a href="visual.html#Visual">Visual</a> area is still selected.  This
+is especially useful to <a href="starting.html#view">view</a> the start of the <a href="visual.html#Visual">Visual</a> area in one <a href="windows.html#window">window</a>, and
+the end in another.  You can then use <a href="visual.html#&lt;RightMouse&gt;">&lt;RightMouse&gt;</a> (or <a href="term.html#&lt;S-LeftMouse&gt;">&lt;S-LeftMouse&gt;</a> when
+<a href="options.html#'mousemodel'">'mousemodel'</a> is &quot;popup&quot;) to drag either end of the <a href="visual.html#Visual">Visual</a> area.
+
+==============================================================================
+
+4. Operating on the <a href="visual.html#Visual">Visual</a> area				*<a name="visual-operators"></A><b>visual-operators</b>*
+
+The operators that can be used are:
+	~	switch <a href="change.html#case">case</a>					|<a href="change.html#v_~">v_~</a>|
+	d	delete						|<a href="change.html#v_d">v_d</a>|
+	c	change (4)					|<a href="change.html#v_c">v_c</a>|
+	y	<a href="change.html#yank">yank</a>						|<a href="change.html#v_y">v_y</a>|
+	&gt;	<a href="intro.html#shift">shift</a> right (4)					|<a href="change.html#v_&gt;">v_&gt;</a>|
+	&lt;	<a href="intro.html#shift">shift</a> left (4)					|<a href="change.html#v_&lt;">v_&lt;</a>|
+	!	<a href="change.html#filter">filter</a> through external command (1)		|<a href="change.html#v_!">v_!</a>|
+	=	<a href="change.html#filter">filter</a> through <a href="options.html#'equalprg'">'equalprg'</a> option command (1)	|<a href="change.html#v_=">v_=</a>|
+	gq	format lines to <a href="options.html#'textwidth'">'textwidth'</a> length (1)		|<a href="change.html#v_gq">v_gq</a>|
+
+The <a href="index.html#objects">objects</a> that can be used are:
+	aw	a <a href="motion.html#word">word</a> (with white space)			|<a href="motion.html#v_aw">v_aw</a>|
+	iw	inner <a href="motion.html#word">word</a>					|<a href="motion.html#v_iw">v_iw</a>|
+	aW	a <a href="motion.html#WORD">WORD</a> (with white space)			|<a href="motion.html#v_aW">v_aW</a>|
+	iW	inner <a href="motion.html#WORD">WORD</a>					|<a href="motion.html#v_iW">v_iW</a>|
+	as	a <a href="motion.html#sentence">sentence</a> (with white space)			|<a href="motion.html#v_as">v_as</a>|
+	is	inner <a href="motion.html#sentence">sentence</a>					|<a href="motion.html#v_is">v_is</a>|
+	ap	a <a href="motion.html#paragraph">paragraph</a> (with white space)			|<a href="motion.html#v_ap">v_ap</a>|
+	ip	inner <a href="motion.html#paragraph">paragraph</a>					|<a href="motion.html#v_ip">v_ip</a>|
+	ab	a () block (with parenthesis)			|<a href="motion.html#v_ab">v_ab</a>|
+	ib	inner () block					|<a href="motion.html#v_ib">v_ib</a>|
+	aB	a <a href="intro.html#{}">{}</a> block (with braces)			|<a href="motion.html#v_aB">v_aB</a>|
+	iB	inner <a href="intro.html#{}">{}</a> block					|<a href="motion.html#v_iB">v_iB</a>|
+	at	a &lt;tag&gt; &lt;/tag&gt; block (with <a href="tagsrch.html#tags">tags</a>)		|<a href="motion.html#v_at">v_at</a>|
+	it	inner &lt;tag&gt; &lt;/tag&gt; block			|<a href="motion.html#v_it">v_it</a>|
+	a&lt;	a <a href="intro.html#&lt;&gt;">&lt;&gt;</a> block (with <a href="intro.html#&lt;&gt;">&lt;&gt;</a>)				|<a href="motion.html#v_a&lt;">v_a&lt;</a>|
+	i&lt;	inner <a href="intro.html#&lt;&gt;">&lt;&gt;</a> block					|<a href="motion.html#v_i&lt;">v_i&lt;</a>|
+	a[	a <a href="motion.html#[]">[]</a> block (with <a href="motion.html#[]">[]</a>)				|<a href="motion.html#v_a[">v_a[</a>|
+	i[	inner <a href="motion.html#[]">[]</a> block					|<a href="motion.html#v_i[">v_i[</a>|
+	a&quot;	a double quoted string (with <a href="quotes.html#quotes">quotes</a>)		|<a href="motion.html#v_aquote">v_aquote</a>|
+	i&quot;	inner double quoted string			|<a href="motion.html#v_iquote">v_iquote</a>|
+	a'	a single quoted string (with <a href="quotes.html#quotes">quotes</a>)		|<a href="motion.html#v_a'">v_a'</a>|
+	i'	inner simple quoted string			|<a href="motion.html#v_i'">v_i'</a>|
+	a`	a string in backticks (with backticks)		|<a href="motion.html#v_a`">v_a`</a>|
+	i`	inner string in backticks			|<a href="motion.html#v_i`">v_i`</a>|
+
+Additionally the following commands can be used:
+	:	start <a href="intro.html#Ex">Ex</a> command for highlighted lines (1)	|<a href="cmdline.html#v_:">v_:</a>|
+	r	change (4)					|<a href="change.html#v_r">v_r</a>|
+	s	change						|<a href="change.html#v_s">v_s</a>|
+	C	change (2)(4)					|<a href="change.html#v_C">v_C</a>|
+	S	change (2)					|<a href="change.html#v_S">v_S</a>|
+	R	change (2)					|<a href="change.html#v_R">v_R</a>|
+	x	delete						|<a href="change.html#v_x">v_x</a>|
+	D	delete (3)					|<a href="change.html#v_D">v_D</a>|
+	X	delete (2)					|<a href="change.html#v_X">v_X</a>|
+	Y	<a href="change.html#yank">yank</a> (2)					|<a href="change.html#v_Y">v_Y</a>|
+	p	put						|<a href="change.html#v_p">v_p</a>|
+	J	join (1)					|<a href="change.html#v_J">v_J</a>|
+	U	make <a href="change.html#uppercase">uppercase</a>					|<a href="change.html#v_U">v_U</a>|
+	u	make <a href="change.html#lowercase">lowercase</a>					|<a href="change.html#v_u">v_u</a>|
+	^]	find <a href="tagsrch.html#tag">tag</a>					|<a href="tagsrch.html#v_CTRL-]">v_CTRL-]</a>|
+	I	block insert					|<a href="visual.html#v_b_I">v_b_I</a>|
+	A	block append					|<a href="visual.html#v_b_A">v_b_A</a>|
+
+(1): Always whole lines, see |<a href="visual.html#:visual_example">:visual_example</a>|.
+(2): Whole lines when not using <a href="visual.html#CTRL-V">CTRL-V</a>.
+(3): Whole lines when not using <a href="visual.html#CTRL-V">CTRL-V</a>, delete until the end of the line when
+     using <a href="visual.html#CTRL-V">CTRL-V</a>.
+(4): When using <a href="visual.html#CTRL-V">CTRL-V</a> operates on the block only.
+
+Note that the &quot;<a href="map.html#:vmap">:vmap</a>&quot; command can be used to specifically map keys in <a href="visual.html#Visual">Visual</a>
+mode.  For example, if you would like the &quot;<a href="pattern.html#/">/</a>&quot; command not to extend the <a href="visual.html#Visual">Visual</a>
+area, but instead take the highlighted text and search for that:
+<b>	:vmap / y/&lt;C-R&gt;"&lt;CR&gt;</b>
+(In the &lt;&gt; <a href="intro.html#notation">notation</a> |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|, when typing it you should type it literally; you
+need to remove the '<a href="motion.html#B">B</a>' and '<a href="change.html#&lt;">&lt;</a>' flags from <a href="options.html#'cpoptions'">'cpoptions'</a>.)
+
+If you want to give a <a href="sponsor.html#register">register</a> name using the &quot;&quot;&quot; command, <a href="diff.html#do">do</a> this just before
+typing the <a href="motion.html#operator">operator</a> character: &quot;v{move-around}&quot;xd&quot;.
+
+If you want to give a <a href="intro.html#count">count</a> to the command, <a href="diff.html#do">do</a> this just before typing the
+<a href="motion.html#operator">operator</a> character: &quot;v{move-around}3&gt;&quot; (move lines 3 indents to the right).
+
+
+							*<a name="{move-around}"></A><b>{move-around}</b>*
+The <a href="visual.html#{move-around}">{move-around}</a> is any sequence of <a href="intro.html#movement">movement</a> commands.  Note the difference
+with <a href="intro.html#{motion}">{motion}</a>, which is only ONE <a href="intro.html#movement">movement</a> command.
+
+Another way to operate on the <a href="visual.html#Visual">Visual</a> area is using the |<a href="pattern.html#/\&#37;V">/\&#37;V</a>| item in a
+<a href="pattern.html#pattern">pattern</a>.  For example, to replace all '<a href="motion.html#(">(</a>' in the <a href="visual.html#Visual">Visual</a> area with '<a href="pattern.html##">#</a>':
+
+<b>	:%s/\%V(/X/g</b>
+
+==============================================================================
+
+5. Blockwise operators					*<a name="blockwise-operators"></A><b>blockwise-operators</b>*
+
+{not available when compiled without the |<a href="various.html#+visualextra">+visualextra</a>| feature}
+
+Reminder: Use <a href="options.html#'virtualedit'">'virtualedit'</a> to be able to select blocks that start or end
+after the end of a line or halfway a <a href="intro.html#tab">tab</a>.
+
+
+Visual-block <a href="insert.html#Insert">Insert</a>						*<a name="v_b_I"></A><b>v_b_I</b>*
+With a blockwise selection, I{string}&lt;ESC&gt; will insert {string} at the start
+of block on every line of the block, provided that the line extends into the
+block.  Thus lines that are short will remain unmodified.  TABs are split to
+retain visual columns.
+See |<a href="visual.html#v_b_I_example">v_b_I_example</a>|.
+
+
+Visual-block Append						*<a name="v_b_A"></A><b>v_b_A</b>*
+With a blockwise selection, A{string}&lt;ESC&gt; will append {string} to the end of
+block on every line of the block.  There is some differing behavior where the
+block RHS is not straight, due to different line lengths:
+
+1. Block was created with &lt;C-v&gt;$
+    In this <a href="change.html#case">case</a> the string is appended to the end of each line.
+2. Block was created with &lt;C-v&gt;{move-around}
+    In this <a href="change.html#case">case</a> the string is appended to the end of the block on each line,
+    and <a href="pattern.html#whitespace">whitespace</a> is inserted to pad to the end-of-block column.
+See |<a href="visual.html#v_b_A_example">v_b_A_example</a>|.
+Note: &quot;<a href="insert.html#I">I</a>&quot; and &quot;<a href="insert.html#A">A</a>&quot; behave differently for lines that don't extend into the
+selected block.  This was done intentionally, so that you can <a href="diff.html#do">do</a> it the way
+you want.
+
+
+Visual-block change						*<a name="v_b_c"></A><b>v_b_c</b>*
+All selected text in the block will be replaced by the same text string.  When
+using &quot;<a href="change.html#c">c</a>&quot; the selected text is deleted and <a href="insert.html#Insert">Insert</a> mode started.  You can then
+enter text (without a line break).  When you hit <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, the same string is
+inserted in all previously selected lines.
+
+
+Visual-block Change						*<a name="v_b_C"></A><b>v_b_C</b>*
+Like using &quot;<a href="change.html#c">c</a>&quot;, but the selection is extended until the end of the line for
+all lines.
+
+
+								*<a name="v_b_&lt;"></A><b>v_b_&lt;</b>*
+
+Visual-block Shift						*<a name="v_b_&gt;"></A><b>v_b_&gt;</b>*
+The block is shifted by <a href="options.html#'shiftwidth'">'shiftwidth'</a>.  The RHS of the block is irrelevant.  The
+LHS of the block determines the point from which to apply a right <a href="intro.html#shift">shift</a>, and
+padding includes TABs optimally according to <a href="options.html#'ts'">'ts'</a> and <a href="options.html#'et'">'et'</a>.  The LHS of the
+block determines the point upto which to <a href="intro.html#shift">shift</a> left.
+See |<a href="visual.html#v_b_&gt;_example">v_b_&gt;_example</a>|.
+See |<a href="visual.html#v_b_&lt;_example">v_b_&lt;_example</a>|.
+
+
+Visual-block <a href="insert.html#Replace">Replace</a>						*<a name="v_b_r"></A><b>v_b_r</b>*
+Every screen char in the highlighted region is replaced with the same char, ie
+TABs are split and the virtual <a href="pattern.html#whitespace">whitespace</a> is replaced, maintaining screen
+layout.
+See |<a href="visual.html#v_b_r_example">v_b_r_example</a>|.
+
+
+==============================================================================
+
+6. Repeating						*<a name="visual-repeat"></A><b>visual-repeat</b>*
+
+When <a href="repeat.html#repeating">repeating</a> a <a href="visual.html#Visual">Visual</a> mode <a href="motion.html#operator">operator</a>, the <a href="motion.html#operator">operator</a> will be applied to the
+same amount of text <a href="motion.html#as">as</a> the last time:
+- Linewise <a href="visual.html#Visual">Visual</a> mode: The same number of lines.
+- Blockwise <a href="visual.html#Visual">Visual</a> mode: The same number of lines and columns.
+- <a href="intro.html#Normal">Normal</a> <a href="visual.html#Visual">Visual</a> mode within one line: The same number of characters.
+- <a href="intro.html#Normal">Normal</a> <a href="visual.html#Visual">Visual</a> mode with several lines: The same number of lines, in the
+  last line the same number of characters <a href="motion.html#as">as</a> in the last line the last time.
+The start of the text is the Cursor position.  If the &quot;<a href="motion.html#$">$</a>&quot; command was used <a href="motion.html#as">as</a>
+one of the last commands to extend the highlighted text, the <a href="repeat.html#repeating">repeating</a> will
+be applied up to the rightmost column of the longest line.
+
+
+==============================================================================
+
+7. Examples						*<a name="visual-examples"></A><b>visual-examples</b>*
+
+
+							*<a name=":visual_example"></A><b>:visual_example</b>*
+Currently the &quot;<a href="cmdline.html#:">:</a>&quot; command works on whole lines only.  When you select part of
+a line, doing something like &quot;:!date&quot; will replace the whole line.  If you
+want only part of the line to be replaced you will have to make a <a href="map.html#mapping">mapping</a> for
+it.  In a future release &quot;<a href="cmdline.html#:">:</a>&quot; may work on partial lines.
+
+Here is an example, to replace the selected text with the output of &quot;date&quot;:
+<b>	:vmap _a &lt;Esc&gt;`&gt;a&lt;CR&gt;&lt;Esc&gt;`&lt;i&lt;CR&gt;&lt;Esc&gt;!!date&lt;CR&gt;kJJ</b>
+
+(In the &lt;&gt; <a href="intro.html#notation">notation</a> |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|, when typing it you should type it literally; you
+need to remove the '<a href="motion.html#B">B</a>' and '<a href="change.html#&lt;">&lt;</a>' flags from <a href="options.html#'cpoptions'">'cpoptions'</a>)
+
+What this does is:
+<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>		stop <a href="visual.html#Visual">Visual</a> mode
+<a href="motion.html#`&gt;">`&gt;</a>		go to the end of the <a href="visual.html#Visual">Visual</a> area
+a&lt;CR&gt;&lt;Esc&gt;	break the line after the <a href="visual.html#Visual">Visual</a> area
+<a href="motion.html#`&lt;">`&lt;</a>		jump to the start of the <a href="visual.html#Visual">Visual</a> area
+i&lt;CR&gt;&lt;Esc&gt;	break the line before the <a href="visual.html#Visual">Visual</a> area
+!!date&lt;CR&gt;	<a href="change.html#filter">filter</a> the <a href="visual.html#Visual">Visual</a> text through date
+kJJ		Join the lines back together
+
+
+							*<a name="visual-search"></A><b>visual-search</b>*
+Here is an idea for a <a href="map.html#mapping">mapping</a> that makes it possible to <a href="diff.html#do">do</a> a search for the
+selected text:
+<b>	:vmap X y/&lt;C-R&gt;"&lt;CR&gt;</b>
+
+(In the &lt;&gt; <a href="intro.html#notation">notation</a> |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|, when typing it you should type it literally; you
+need to remove the '<a href="motion.html#B">B</a>' and '<a href="change.html#&lt;">&lt;</a>' flags from <a href="options.html#'cpoptions'">'cpoptions'</a>)
+
+Note that special characters (like '<a href="repeat.html#.">.</a>' and '*') will cause problems.
+
+
+Visual-block Examples					*<a name="blockwise-examples"></A><b>blockwise-examples</b>*
+With the following text, I will indicate the commands to produce the block and
+the results below.  In all cases, the cursor begins on the '<a href="insert.html#a">a</a>' in the first
+line of the test text.
+The following <a href="options.html#modeline">modeline</a> settings are assumed &quot;:ts=8:sw=4:&quot;.
+
+It will be helpful to
+<a href="options.html#:set">:set</a> <a href="options.html#'hls'">hls</a>
+/&lt;TAB&gt;
+where &lt;TAB&gt; is a real TAB.  This helps visualise the operations.
+
+The test text is:
+
+abcdefghijklmnopqrstuvwxyz
+abc		defghijklmnopqrstuvwxyz
+abcdef  ghi		jklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+
+
+1. fo&lt;C-v&gt;3jISTRING&lt;ESC&gt;					*<a name="v_b_I_example"></A><b>v_b_I_example</b>*
+
+abcdefghijklmnSTRINGopqrstuvwxyz
+abc	      STRING  defghijklmnopqrstuvwxyz
+abcdef  ghi   STRING	jklmnopqrstuvwxyz
+abcdefghijklmnSTRINGopqrstuvwxyz
+
+
+2. fo&lt;C-v&gt;3j$ASTRING&lt;ESC&gt;					*<a name="v_b_A_example"></A><b>v_b_A_example</b>*
+
+abcdefghijklmnopqrstuvwxyzSTRING
+abc		defghijklmnopqrstuvwxyzSTRING
+abcdef  ghi		jklmnopqrstuvwxyzSTRING
+abcdefghijklmnopqrstuvwxyzSTRING
+
+
+3. fo&lt;C-v&gt;3j3l&lt;..						*<a name="v_b_&lt;_example"></A><b>v_b_&lt;_example</b>*
+
+abcdefghijklmnopqrstuvwxyz
+abc	      defghijklmnopqrstuvwxyz
+abcdef  ghi   jklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+
+
+4. fo&lt;C-v&gt;3j&gt;..							*<a name="v_b_&gt;_example"></A><b>v_b_&gt;_example</b>*
+
+abcdefghijklmn		  opqrstuvwxyz
+abc			    defghijklmnopqrstuvwxyz
+abcdef  ghi			    jklmnopqrstuvwxyz
+abcdefghijklmn		  opqrstuvwxyz
+
+
+5. fo&lt;C-v&gt;5l3jrX						*<a name="v_b_r_example"></A><b>v_b_r_example</b>*
+
+abcdefghijklmnXXXXXXuvwxyz
+abc	      XXXXXXhijklmnopqrstuvwxyz
+abcdef  ghi   XXXXXX    jklmnopqrstuvwxyz
+abcdefghijklmnXXXXXXuvwxyz
+
+==============================================================================
+
+8. <a href="visual.html#Select">Select</a> mode						*<a name="Select"></A><b>Select</b>* *<a name="Select-mode"></A><b>Select-mode</b>*
+
+<a href="visual.html#Select">Select</a> mode looks like <a href="visual.html#Visual">Visual</a> mode, but the commands accepted are quite
+different.  This resembles the selection mode in Microsoft Windows.
+When the <a href="options.html#'showmode'">'showmode'</a> option is set, &quot;<a href="starting.html#--">--</a> SELECT --&quot; is shown in the last line.
+
+Entering <a href="visual.html#Select">Select</a> mode:
+- Using the mouse to select an area, and <a href="options.html#'selectmode'">'selectmode'</a> contains &quot;mouse&quot;.
+  <a href="options.html#'mouse'">'mouse'</a> must also contain a flag for the current mode.
+- Using a non-printable <a href="intro.html#movement">movement</a> command, with the Shift key pressed, and
+  <a href="options.html#'selectmode'">'selectmode'</a> contains &quot;key&quot;.  For example: <a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a> and <a href="term.html#&lt;S-End&gt;">&lt;S-End&gt;</a>.  <a href="options.html#'keymodel'">'keymodel'</a>
+  must also contain &quot;startsel&quot;.
+- Using &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or <a href="visual.html#CTRL-V">CTRL-V</a> command, and <a href="options.html#'selectmode'">'selectmode'</a> contains &quot;cmd&quot;.
+- Using &quot;<a href="visual.html#gh">gh</a>&quot;, &quot;<a href="visual.html#gH">gH</a>&quot; or &quot;<a href="visual.html#g_CTRL-H">g_CTRL-H</a>&quot; command in <a href="intro.html#Normal">Normal</a> mode.
+
+- From <a href="visual.html#Visual">Visual</a> mode, press <a href="editing.html#CTRL-G">CTRL-G</a>.			*<a name="v_CTRL-G"></A><b>v_CTRL-G</b>*
+
+Commands in <a href="visual.html#Select">Select</a> mode:
+- Printable characters, <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> and <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> cause the selection to be deleted, and
+  Vim enters <a href="insert.html#Insert">Insert</a> mode.  The typed character is inserted.
+- Non-printable <a href="intro.html#movement">movement</a> commands, with the Shift key pressed, extend the
+  selection.  <a href="options.html#'keymodel'">'keymodel'</a> must include &quot;startsel&quot;.
+- Non-printable <a href="intro.html#movement">movement</a> commands, with the Shift key NOT pressed, stop <a href="visual.html#Select">Select</a>
+  mode.  <a href="options.html#'keymodel'">'keymodel'</a> must include &quot;stopsel&quot;.
+- ESC stops <a href="visual.html#Select">Select</a> mode.
+
+- <a href="motion.html#CTRL-O">CTRL-O</a> switches to <a href="visual.html#Visual">Visual</a> mode for the duration of one command. *<a name="v_CTRL-O"></A><b>v_CTRL-O</b>*
+- <a href="editing.html#CTRL-G">CTRL-G</a> switches to <a href="visual.html#Visual">Visual</a> mode.
+
+Otherwise, typed characters are handled <a href="motion.html#as">as</a> in <a href="visual.html#Visual">Visual</a> mode.
+
+When using an <a href="motion.html#operator">operator</a> in <a href="visual.html#Select">Select</a> mode, and the selection is <a href="motion.html#linewise">linewise</a>, the
+selected lines are operated upon, but like in <a href="motion.html#characterwise">characterwise</a> selection.  For
+example, when a whole line is deleted, it can later be pasted halfway a line.
+
+
+
+Mappings and <a href="gui.html#menus">menus</a> in <a href="visual.html#Select">Select</a> mode.			*<a name="Select-mode-mapping"></A><b>Select-mode-mapping</b>*
+
+When mappings and <a href="gui.html#menus">menus</a> are defined with the |<a href="map.html#:vmap">:vmap</a>| or |<a href="gui.html#:vmenu">:vmenu</a>| command they
+work both in <a href="visual.html#Visual">Visual</a> mode and in <a href="visual.html#Select">Select</a> mode.  When these are used in <a href="visual.html#Select">Select</a>
+mode Vim automatically switches to <a href="visual.html#Visual">Visual</a> mode, so that the same behavior <a href="motion.html#as">as</a>
+in <a href="visual.html#Visual">Visual</a> mode is effective.  If you don't want this use |<a href="map.html#:xmap">:xmap</a>| or |<a href="map.html#:smap">:smap</a>|.
+
+Users will expect printable characters to replace the selected area.
+Therefore avoid <a href="map.html#mapping">mapping</a> printable characters in <a href="visual.html#Select">Select</a> mode.  Or use
+|<a href="map.html#:sunmap">:sunmap</a>|  after |<a href="map.html#:map">:map</a>| and |<a href="map.html#:vmap">:vmap</a>| to remove it for <a href="visual.html#Select">Select</a> mode.
+
+After the <a href="map.html#mapping">mapping</a> or menu finishes, the selection is enabled again and <a href="visual.html#Select">Select</a>
+mode entered, unless the selected area was deleted, another buffer became
+the current one or the <a href="windows.html#window">window</a> layout was changed.
+
+When a character was typed that causes the selection to be deleted and <a href="insert.html#Insert">Insert</a>
+mode started, <a href="insert.html#Insert">Insert</a> mode mappings are applied to this character.  This may
+cause some confusion, because it means <a href="insert.html#Insert">Insert</a> mode mappings apply to a
+character typed in <a href="visual.html#Select">Select</a> mode.  Language mappings apply <a href="motion.html#as">as</a> well.
+
+
+							*<a name="gV"></A><b>gV</b>* *<a name="v_gV"></A><b>v_gV</b>*
+<a href="visual.html#gV">gV</a>			Avoid the automatic reselection of the <a href="visual.html#Visual">Visual</a> area
+			after a <a href="visual.html#Select">Select</a> mode <a href="map.html#mapping">mapping</a> or menu has finished.
+			Put this just before the end of the <a href="map.html#mapping">mapping</a> or menu.
+			At least it should be after any operations on the
+			selection.
+
+
+							*<a name="gh"></A><b>gh</b>*
+<a href="visual.html#gh">gh</a>			Start <a href="visual.html#Select">Select</a> mode, <a href="motion.html#characterwise">characterwise</a>.  This is like &quot;<a href="visual.html#v">v</a>&quot;,
+			but starts <a href="visual.html#Select">Select</a> mode instead of <a href="visual.html#Visual">Visual</a> mode.
+			Mnemonic: &quot;get highlighted&quot;.
+
+
+							*<a name="gH"></A><b>gH</b>*
+<a href="visual.html#gH">gH</a>			Start <a href="visual.html#Select">Select</a> mode, <a href="motion.html#linewise">linewise</a>.  This is like &quot;<a href="visual.html#V">V</a>&quot;,
+			but starts <a href="visual.html#Select">Select</a> mode instead of <a href="visual.html#Visual">Visual</a> mode.
+			Mnemonic: &quot;get Highlighted&quot;.
+
+
+							*<a name="g_CTRL-H"></A><b>g_CTRL-H</b>*
+<a href="index.html#g">g</a> <a href="motion.html#CTRL-H">CTRL-H</a>		Start <a href="visual.html#Select">Select</a> mode, blockwise.  This is like <a href="visual.html#CTRL-V">CTRL-V</a>,
+			but starts <a href="visual.html#Select">Select</a> mode instead of <a href="visual.html#Visual">Visual</a> mode.
+			Mnemonic: &quot;get Highlighted&quot;.
+
+<a href="visual.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

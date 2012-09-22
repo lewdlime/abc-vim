@@ -1,0 +1,669 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_30</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_30</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_30.txt"></A><b>usr_30.txt</b>*	For Vim version 7.3.  Last change: 2007 Nov 10
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			      Editing programs
+
+
+Vim has various commands that aid in <a href="editing.html#writing">writing</a> computer programs.  Compile a
+program and directly jump to reported <a href="message.html#errors">errors</a>.  Automatically set the indent
+for many languages and format comments.
+
+|<a href="usr_30.html#30.1">30.1</a>|	Compiling
+|<a href="usr_30.html#30.2">30.2</a>|	Indenting C files
+|<a href="usr_30.html#30.3">30.3</a>|	Automatic indenting
+|<a href="usr_30.html#30.4">30.4</a>|	Other indenting
+|<a href="usr_30.html#30.5">30.5</a>|	Tabs and spaces
+|<a href="usr_30.html#30.6">30.6</a>|	Formatting comments
+
+     Next chapter: |<a href="usr_31.html">usr_31.txt</a>|  Exploiting the <a href="gui.html#GUI">GUI</a>
+ Previous chapter: |<a href="usr_29.html">usr_29.txt</a>|  Moving through programs
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="30.1"></A><b>30.1</b>*	Compiling
+
+Vim has a set of so called &quot;<a href="quickfix.html#quickfix">quickfix</a>&quot; commands.  They enable you to compile a
+program from within Vim and then go through the <a href="message.html#errors">errors</a> generated and fix them
+(hopefully).  You can then recompile and fix any new <a href="message.html#errors">errors</a> that are found
+until finally your program compiles without any error.
+
+The following command runs the program &quot;make&quot; (supplying it with any argument
+you give) and captures the results:
+
+<b>	:make {arguments}</b>
+
+If <a href="message.html#errors">errors</a> were generated, they are captured and the editor positions you where
+the first error occurred.
+   Take a look at an example &quot;<a href="quickfix.html#:make">:make</a>&quot; session.  (Typical <a href="quickfix.html#:make">:make</a> sessions generate
+far more <a href="message.html#errors">errors</a> and fewer stupid ones.)  After typing &quot;<a href="quickfix.html#:make">:make</a>&quot; the screen looks
+like this:
+
+<b><font color="purple">	:!make | &amp;tee /tmp/vim215953.err </font></b>
+<b><font color="purple">	gcc -g -Wall -o prog main.c sub.c </font></b>
+<b><font color="purple">	main.c: In function 'main': </font></b>
+<b><font color="purple">	main.c:6: too many arguments to function 'do_sub' </font></b>
+<b><font color="purple">	main.c: At top level: </font></b>
+<b><font color="purple">	main.c:10: parse error before '}' </font></b>
+<b><font color="purple">	make: *** [prog] Error 1 </font></b>
+
+<b><font color="purple">	2 returned </font></b>
+<b><font color="purple">	"main.c" 11L, 111C </font></b>
+<b><font color="purple">	(3 of 6): too many arguments to function 'do_sub' </font></b>
+<b><font color="purple">	Press ENTER or type command to continue </font></b>
+
+From this you can see that you have <a href="message.html#errors">errors</a> in the file &quot;main.c&quot;.  When you
+press <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a>, Vim displays the file &quot;main.c&quot;, with the cursor positioned on
+line 6, the first line with an error.  You did not need to specify the file or
+the line number, Vim knew where to go by looking in the error <a href="message.html#messages">messages</a>.
+
+		+---------------------------------------------------+
+		|int main()					    |
+		|{						    |
+		&#124;	int i=3;				    |
+      cursor -&gt; &#124;	do_sub(&quot;foo&quot;);				    |
+		&#124;	++i;					    |
+		&#124;	return (0);				    |
+		|}						    |
+		|}						    |
+		&#124; ~						    |
+		|(3 of 12): too many arguments to function 'do_sub' |
+		+---------------------------------------------------+
+
+The following command goes to where the next error occurs:
+
+<b>	:cnext</b>
+
+Vim jumps to line 10, the last line in the file, where there is an extra '<a href="motion.html#}">}</a>'.
+   When there is not enough room, Vim will shorten the error message.  To see
+the whole message use:
+
+<b>	:cc</b>
+
+You can get an overview of all the error <a href="message.html#messages">messages</a> with the &quot;<a href="quickfix.html#:clist">:clist</a>&quot; command.
+The output looks like this:
+
+<b>	:clist</b>
+<b><font color="purple"> 	3 main.c: 6:too many arguments to function 'do_sub' </font></b>
+<b><font color="purple">	5 main.c: 10:parse error before '}' </font></b>
+
+Only the lines where Vim recognized a file name and line number are listed
+here.  It assumes those are the interesting lines and the rest is just boring
+<a href="message.html#messages">messages</a>.  However, sometimes unrecognized lines <a href="diff.html#do">do</a> contain something you want
+to see.  Output from the linker, for example, about an undefined function.
+To see all the <a href="message.html#messages">messages</a> add a &quot;<a href="change.html#!">!</a>&quot; to the command:
+
+<b>	:clist!</b>
+<b><font color="purple"> 	1 gcc -g -Wall -o prog main.c sub.c </font></b>
+<b><font color="purple">	2 main.c: In function 'main': </font></b>
+<b><font color="purple">	3 main.c:6: too many arguments to function 'do_sub' </font></b>
+<b><font color="purple">	4 main.c: At top level: </font></b>
+<b><font color="purple">	5 main.c:10: parse error before '}' </font></b>
+<b><font color="purple">	6 make: *** [prog] Error 1 </font></b>
+
+Vim will highlight the current error.  To go back to the previous error, use:
+
+<b>	:cprevious</b>
+
+Other commands to move around in the error list:
+
+	<a href="quickfix.html#:cfirst">:cfirst</a>		to first error
+	<a href="quickfix.html#:clast">:clast</a>		to last error
+	<a href="quickfix.html#:cc">:cc</a> 3		to error nr 3
+
+
+USING ANOTHER COMPILER
+
+The name of the program to run when the &quot;<a href="quickfix.html#:make">:make</a>&quot; command is executed is defined
+by the <a href="options.html#'makeprg'">'makeprg'</a> option.  Usually this is set to &quot;make&quot;, but <a href="visual.html#Visual">Visual</a> C++ users
+should set this to &quot;nmake&quot; by executing the following command:
+
+<b>	:set makeprg=nmake</b>
+
+You can also include arguments in this option.  Special characters need to
+be escaped with a <a href="intro.html#backslash">backslash</a>.  Example:
+
+<b>	:set makeprg=nmake\ -f\ project.mak</b>
+
+You can include special Vim keywords in the command specification.  The <a href="motion.html#&#37;">&#37;</a>
+character expands to the name of the current file.  So if you execute the
+command:
+<b>	:set makeprg=make\ %</b>
+
+When you are editing main.c, then &quot;<a href="quickfix.html#:make">:make</a>&quot; executes the following command:
+
+<b>	make main.c</b>
+
+This is not too useful, so you will refine the command a little and use the <a href="insert.html#:r">:r</a>
+(root) modifier:
+
+<b>	:set makeprg=make\ %:r.o</b>
+
+Now the command executed is <a href="motion.html#as">as</a> follows:
+
+<b>	make main.o</b>
+
+More about these modifiers here: |<a href="cmdline.html#filename-modifiers">filename-modifiers</a>|.
+
+
+OLD ERROR LISTS
+
+Suppose you &quot;<a href="quickfix.html#:make">:make</a>&quot; a program.  There is a warning message in one file and an
+error message in another.  You fix the error and use &quot;<a href="quickfix.html#:make">:make</a>&quot; again to check if
+it was really fixed.  Now you want to look at the warning message.  It doesn't
+show up in the last error list, since the file with the warning wasn't
+compiled again.  You can go back to the previous error list with:
+
+<b>	:colder</b>
+
+Then use &quot;<a href="quickfix.html#:clist">:clist</a>&quot; and &quot;<a href="quickfix.html#:cc">:cc</a> {nr}&quot; to jump to the place with the warning.
+   To go forward to the next error list:
+
+<b>	:cnewer</b>
+
+Vim remembers ten error lists.
+
+
+SWITCHING COMPILERS
+
+You have to tell Vim what format the error <a href="message.html#messages">messages</a> are that your compiler
+produces.  This is done with the <a href="options.html#'errorformat'">'errorformat'</a> option.  The <a href="syntax.html#syntax">syntax</a> of this
+option is quite complicated and it can be made to fit almost any compiler.
+You can find the explanation here: |<a href="quickfix.html#errorformat">errorformat</a>|.
+
+You might be using various different compilers.  Setting the <a href="options.html#'makeprg'">'makeprg'</a> option,
+and especially the <a href="options.html#'errorformat'">'errorformat'</a> each time is not <a href="starting.html#easy">easy</a>.  Vim offers a simple
+method for this.  For example, to switch to using the Microsoft <a href="visual.html#Visual">Visual</a> C++
+compiler:
+
+<b>	:compiler msvc</b>
+
+This will find the Vim <a href="usr_41.html#script">script</a> for the &quot;msvc&quot; compiler and set the appropriate
+<a href="options.html#options">options</a>.
+   You can write your own compiler files.  See |<a href="usr_41.html#write-compiler-plugin">write-compiler-plugin</a>|.
+
+
+OUTPUT REDIRECTION
+
+The &quot;<a href="quickfix.html#:make">:make</a>&quot; command redirects the output of the executed program to an error
+file.  How this works depends on various things, such <a href="motion.html#as">as</a> the <a href="options.html#'shell'">'shell'</a>.  If your
+&quot;<a href="quickfix.html#:make">:make</a>&quot; command doesn't capture the output, check the <a href="options.html#'makeef'">'makeef'</a> and
+<a href="options.html#'shellpipe'">'shellpipe'</a> <a href="options.html#options">options</a>.  The <a href="options.html#'shellquote'">'shellquote'</a> and <a href="options.html#'shellxquote'">'shellxquote'</a> <a href="options.html#options">options</a> might also
+matter.
+
+In <a href="change.html#case">case</a> you can't get &quot;<a href="quickfix.html#:make">:make</a>&quot; to redirect the file for you, an alternative is
+to compile the program in another <a href="windows.html#window">window</a> and redirect the output into a file.
+Then have Vim read this file with:
+
+<b>	:cfile {filename}</b>
+
+Jumping to <a href="message.html#errors">errors</a> will work like with the &quot;<a href="quickfix.html#:make">:make</a>&quot; command.
+
+==============================================================================
+
+*<a name="30.2"></A><b>30.2</b>*	Indenting C style text
+
+A program is much easier to understand when the lines have been properly
+indented.  Vim offers various ways to make this <a href="various.html#less">less</a> work.  For C or C style
+programs like Java or C++, set the <a href="options.html#'cindent'">'cindent'</a> option.  Vim knows a lot about C
+programs and will try very hard to automatically set the indent for you.  Set
+the <a href="options.html#'shiftwidth'">'shiftwidth'</a> option to the amount of spaces you want for a deeper level.
+Four spaces will work fine.  One &quot;<a href="options.html#:set">:set</a>&quot; command will <a href="diff.html#do">do</a> it:
+
+<b>	:set cindent shiftwidth=4</b>
+
+With this option enabled, when you type something such <a href="motion.html#as">as</a> &quot;if (x)&quot;, the next
+line will automatically be indented an additional level.
+
+				    if (flag)
+	Automatic indent   ---&gt;		do_the_work();
+	Automatic unindent &lt;--	    if (other_flag) {
+	Automatic indent   ---&gt;		do_file();
+	keep indent			do_some_more();
+	Automatic unindent &lt;--	    }
+
+When you type something in curly braces ({}), the text will be indented at the
+start and unindented at the end.  The unindenting will happen after typing the
+'<a href="motion.html#}">}</a>', since Vim can't guess what you are going to type.
+
+One side effect of automatic indentation is that it helps you catch <a href="message.html#errors">errors</a> in
+your code early.  When you type a } to finish a function, only to find that
+the automatic indentation gives it more indent than what you expected, there
+is probably a } missing.  Use the &quot;<a href="motion.html#&#37;">&#37;</a>&quot; command to find out which { matches the
+} you typed.
+   A missing ) and ; also cause extra indent.  Thus if you get more white
+space than you would expect, check the preceding lines.
+
+When you have code that is badly formatted, or you inserted and deleted lines,
+you need to re-indent the lines.  The &quot;<a href="change.html#=">=</a>&quot; <a href="motion.html#operator">operator</a> does this.  The simplest
+form is:
+
+<b>	==</b>
+
+This indents the current line.  Like with all operators, there are three ways
+to use it.  In <a href="visual.html#Visual">Visual</a> mode &quot;<a href="change.html#=">=</a>&quot; indents the selected lines.  A useful text
+object is &quot;<a href="motion.html#a{">a{</a>&quot;.  This selects the current <a href="intro.html#{}">{}</a> block.  Thus, to re-indent the
+code block the cursor is in:
+
+<b>	=a{</b>
+
+I you have really badly indented code, you can re-indent the whole file with:
+
+<b>	gg=G</b>
+
+However, don't <a href="diff.html#do">do</a> this in files that have been carefully indented manually.
+The automatic indenting does a good job, but in some situations you might want
+to overrule it.
+
+
+SETTING INDENT STYLE
+
+Different people have different styles of indentation.  By default Vim does a
+pretty good job of indenting in a way that 90&#37; of programmers <a href="diff.html#do">do</a>.  There are
+different styles, however; so if you want to, you can customize the
+indentation style with the <a href="options.html#'cinoptions'">'cinoptions'</a> option.
+   By default <a href="options.html#'cinoptions'">'cinoptions'</a> is empty and Vim uses the default style.  You can
+add various items where you want something different.  For example, to make
+curly braces be placed like this:
+
+<b><font color="purple">	if (flag) </font></b>
+<b><font color="purple">	  { </font></b>
+<b><font color="purple">	    i = 8; </font></b>
+<b><font color="purple">	    j = 0; </font></b>
+<b><font color="purple">	  } </font></b>
+
+Use this command:
+
+<b>	:set cinoptions+={2</b>
+
+There are many of these items.  See |<a href="indent.html#cinoptions-values">cinoptions-values</a>|.
+
+==============================================================================
+
+*<a name="30.3"></A><b>30.3</b>*	Automatic indenting
+
+You don't want to switch on the <a href="options.html#'cindent'">'cindent'</a> option manually every time you edit
+a C file.  This is how you make it work automatically:
+
+<b>	:filetype indent on</b>
+
+Actually, this does a lot more than switching on <a href="options.html#'cindent'">'cindent'</a> for C files.  First
+of all, it enables detecting the type of a file.  That's the same <a href="motion.html#as">as</a> what is
+used for <a href="syntax.html#syntax">syntax</a> highlighting.
+   When the <a href="filetype.html#filetype">filetype</a> is known, Vim will search for an indent file for this
+type of file.  The Vim <a href="intro.html#distribution">distribution</a> includes a number of these for various
+programming languages.  This indent file will then prepare for automatic
+indenting specifically for this file.
+
+If you don't like the automatic indenting, you can switch it off again:
+
+<b>	:filetype indent off</b>
+
+If you don't like the indenting for one specific type of file, this is how you
+avoid it.  Create a file with just this one line:
+
+<b>	:let b:did_indent = 1</b>
+
+Now you need to write this in a file with a specific name:
+
+	{directory}/indent/{filetype}.vim
+
+The {filetype} is the name of the file type, such <a href="motion.html#as">as</a> &quot;cpp&quot; or &quot;java&quot;.  You can
+see the exact name that Vim detected with this command:
+
+<b>	:set filetype</b>
+
+In this file the output is:
+
+<b><font color="purple">	filetype=help </font></b>
+
+Thus you would use &quot;help&quot; for {filetype}.
+   For the {directory} part you need to use your runtime directory.  Look at
+the output of this command:
+
+<b>	set runtimepath</b>
+
+Now use the first item, the name before the first comma.  Thus if the output
+looks like this:
+
+<b><font color="purple">	runtimepath=~/.vim,/usr/local/share/vim/vim60/runtime,~/.vim/after </font></b>
+
+You use &quot;~/.vim&quot; for {directory}.  Then the resulting file name is:
+
+<b><font color="purple">	~/.vim/indent/help.vim </font></b>
+
+Instead of switching the indenting off, you could write your own indent file.
+How to <a href="diff.html#do">do</a> that is explained here: |<a href="indent.html#indent-expression">indent-expression</a>|.
+
+==============================================================================
+
+*<a name="30.4"></A><b>30.4</b>*	Other indenting
+
+The most simple form of automatic indenting is with the <a href="options.html#'autoindent'">'autoindent'</a> option.
+It uses the indent from the previous line.  A bit smarter is the <a href="options.html#'smartindent'">'smartindent'</a>
+option.  This is useful for languages where no indent file is available.
+<a href="options.html#'smartindent'">'smartindent'</a> is not <a href="motion.html#as">as</a> smart <a href="motion.html#as">as</a> <a href="options.html#'cindent'">'cindent'</a>, but smarter than <a href="options.html#'autoindent'">'autoindent'</a>.
+   With <a href="options.html#'smartindent'">'smartindent'</a> set, an extra level of indentation is added for each {
+and removed for each }.  An extra level of indentation will also be added for
+any of the words in the <a href="options.html#'cinwords'">'cinwords'</a> option.  Lines that begin with # are
+treated specially: all indentation is removed.  This is done so that
+preprocessor directives will all start in column 1.  The indentation is
+restored for the next line.
+
+
+CORRECTING INDENTS
+
+When you are using <a href="options.html#'autoindent'">'autoindent'</a> or <a href="options.html#'smartindent'">'smartindent'</a> to get the indent of the
+previous line, there will be many times when you need to add or remove one
+<a href="options.html#'shiftwidth'">'shiftwidth'</a> worth of indent.  A quick way to <a href="diff.html#do">do</a> this is using the <a href="scroll.html#CTRL-D">CTRL-D</a> and
+<a href="tagsrch.html#CTRL-T">CTRL-T</a> commands in <a href="insert.html#Insert">Insert</a> mode.
+   For example, you are typing a shell <a href="usr_41.html#script">script</a> that is supposed to look like
+this:
+
+<b><font color="purple">	if test -n a; then </font></b>
+<b><font color="purple">	   echo a </font></b>
+<b><font color="purple">	   echo "-------" </font></b>
+<b><font color="purple">	fi </font></b>
+
+Start off by setting these <a href="options.html#options">options</a>:
+
+<b>	:set autoindent shiftwidth=3</b>
+
+You start by typing the first line, <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> and the start of the second line:
+
+<b><font color="purple">	if test -n a; then </font></b>
+<b><font color="purple">	echo </font></b>
+
+Now you see that you need an extra indent.  Type <a href="tagsrch.html#CTRL-T">CTRL-T</a>.  The result:
+
+<b><font color="purple">	if test -n a; then </font></b>
+<b><font color="purple">	   echo </font></b>
+
+The <a href="tagsrch.html#CTRL-T">CTRL-T</a> command, in <a href="insert.html#Insert">Insert</a> mode, adds one <a href="options.html#'shiftwidth'">'shiftwidth'</a> to the indent, no
+matter where in the line you are.
+   You continue typing the second line, <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> and the third line.  This time
+the indent is OK.  Then <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> and the last line.  Now you have this:
+
+<b><font color="purple">	if test -n a; then </font></b>
+<b><font color="purple">	   echo a </font></b>
+<b><font color="purple">	   echo "-------" </font></b>
+<b><font color="purple">	   fi </font></b>
+
+To remove the superfluous indent in the last line press <a href="scroll.html#CTRL-D">CTRL-D</a>.  This deletes
+one <a href="options.html#'shiftwidth'">'shiftwidth'</a> worth of indent, no matter where you are in the line.
+   When you are in <a href="intro.html#Normal">Normal</a> mode, you can use the &quot;<a href="change.html#&gt;&gt;">&gt;&gt;</a>&quot; and &quot;<a href="change.html#&lt;&lt;">&lt;&lt;</a>&quot; commands to
+<a href="intro.html#shift">shift</a> lines.  &quot;<a href="change.html#&gt;">&gt;</a>&quot; and &quot;<a href="change.html#&lt;">&lt;</a>&quot; are operators, thus you have the usual three ways to
+specify the lines you want to indent.  A useful combination is:
+
+<b>	&gt;i{</b>
+
+This adds one indent to the current block of lines, inside <a href="intro.html#{}">{}</a>.  The { and }
+lines themselves are left unmodified.  &quot;&gt;a{&quot; includes them.  In this example
+the cursor is on &quot;printf&quot;:
+
+	original text		after &quot;&gt;i{&quot;		after &quot;&gt;a{&quot;
+
+<b><font color="purple">	if (flag)		if (flag)		if (flag) </font></b>
+<b><font color="purple">	{			{			    { </font></b>
+<b><font color="purple">	printf("yes");		    printf("yes");	    printf("yes"); </font></b>
+<b><font color="purple">	flag = 0;		    flag = 0;		    flag = 0;  </font></b>
+<b><font color="purple">	}			}			    } </font></b>
+
+==============================================================================
+
+*<a name="30.5"></A><b>30.5</b>*	Tabs and spaces
+
+<a href="options.html#'tabstop'">'tabstop'</a> is set to eight by default.  Although you can change it, you quickly
+run into trouble later.  Other programs won't know what tabstop value you
+used.  They probably use the default value of eight, and your text suddenly
+looks very different.  Also, most printers use a fixed tabstop value of eight.
+Thus it's best to keep <a href="options.html#'tabstop'">'tabstop'</a> alone.  (If you edit a file which was written
+with a different tabstop setting, see |<a href="usr_25.html#25.3">25.3</a>| for how to fix that.)
+   For indenting lines in a program, using a multiple of eight spaces makes
+you quickly run into the right border of the <a href="windows.html#window">window</a>.  Using a single space
+doesn't provide enough visual difference.  Many people prefer to use four
+spaces, a good compromise.
+   Since a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> is eight spaces and you want to use an indent of four spaces,
+you can't use a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> character to make your indent.  There are two ways to
+handle this:
+
+1.  Use a mix of <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> and space characters.  Since a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> takes the place of
+    eight spaces, you have fewer characters in your file.  Inserting a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+    is quicker than eight spaces.  Backspacing works faster <a href="motion.html#as">as</a> well.
+
+2.  Use spaces only.  This avoids the trouble with programs that use a
+    different tabstop value.
+
+Fortunately, Vim supports both methods quite well.
+
+
+SPACES AND TABS
+
+If you are using a combination of tabs and spaces, you just edit normally.
+The Vim defaults <a href="diff.html#do">do</a> a fine job of handling things.
+   You can make life a little easier by setting the <a href="options.html#'softtabstop'">'softtabstop'</a> option.
+This option tells Vim to make the <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> key look and feel <a href="motion.html#as">as</a> if tabs were set
+at the value of <a href="options.html#'softtabstop'">'softtabstop'</a>, but actually use a combination of tabs and
+spaces.
+   After you execute the following command, every time you press the <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> key
+the cursor moves to the next 4-column boundary:
+
+<b>	:set softtabstop=4</b>
+
+When you start in the first column and press <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>, you get 4 spaces inserted
+in your text.  The second time, Vim takes out the 4 spaces and puts in a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+(thus taking you to column 8).  Thus Vim uses <a href="motion.html#as">as</a> many &lt;Tab&gt;s <a href="motion.html#as">as</a> possible, and
+then fills up with spaces.
+   When backspacing it works the other way around.  A <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> will always delete
+the amount specified with <a href="options.html#'softtabstop'">'softtabstop'</a>.  Then &lt;Tab&gt;s are used <a href="motion.html#as">as</a> many <a href="motion.html#as">as</a>
+possible and spaces to fill the gap.
+   The following shows what happens pressing <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> a few times, and then using
+<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>.  A &quot;<a href="repeat.html#.">.</a>&quot; stands for a space and &quot;-------&gt;&quot; for a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>.
+
+<b><font color="purple">	type			  result </font></b>
+	<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>			  <a href="eval.html#...">...</a>.
+	&lt;Tab&gt;&lt;Tab&gt;		  -------&gt;
+	&lt;Tab&gt;&lt;Tab&gt;&lt;Tab&gt;		  -------&gt;....
+	&lt;Tab&gt;&lt;Tab&gt;&lt;Tab&gt;&lt;BS&gt;	  -------&gt;
+	&lt;Tab&gt;&lt;Tab&gt;&lt;Tab&gt;&lt;BS&gt;&lt;BS&gt;   <a href="eval.html#...">...</a>.
+
+An alternative is to use the <a href="options.html#'smarttab'">'smarttab'</a> option.  When it's set, Vim uses
+<a href="options.html#'shiftwidth'">'shiftwidth'</a> for a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> typed in the indent of a line, and a real <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> when
+typed after the first non-blank character.  However, <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> doesn't work like
+with <a href="options.html#'softtabstop'">'softtabstop'</a>.
+
+
+JUST SPACES
+
+If you want absolutely no tabs in your file, you can set the <a href="options.html#'expandtab'">'expandtab'</a>
+option:
+
+<b>	:set expandtab</b>
+
+When this option is set, the <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> key inserts a series of spaces.  Thus you
+get the same amount of white space <a href="motion.html#as">as</a> if a <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> character was inserted, but
+there isn't a real <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> character in your file.
+   The backspace key will delete each space by itself.  Thus after typing one
+<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> you have to press the <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> key up to eight times to <a href="undo.html#undo">undo</a> it.  If you are
+in the indent, pressing <a href="scroll.html#CTRL-D">CTRL-D</a> will be a lot quicker.
+
+
+CHANGING TABS IN SPACES (AND BACK)
+
+Setting <a href="options.html#'expandtab'">'expandtab'</a> does not affect any existing tabs.  In other words, any
+tabs in the document remain tabs.  If you want to convert tabs to spaces, use
+the &quot;<a href="change.html#:retab">:retab</a>&quot; command.  Use these commands:
+
+<b>	:set expandtab</b>
+<b>	:%retab</b>
+
+Now Vim will have changed all indents to use spaces instead of tabs.  However,
+all tabs that come after a non-blank character are kept.  If you want these to
+be converted <a href="motion.html#as">as</a> well, add a !:
+
+<b>	:%retab!</b>
+
+This is a little bit dangerous, because it can also change tabs inside a
+string.  To check if these exist, you could use this:
+
+<b>	/"[^"\t]*\t[^"]*"</b>
+
+It's recommended not to use hard tabs inside a string.  <a href="insert.html#Replace">Replace</a> them with
+&quot;\t&quot; to avoid trouble.
+
+The other way around works just <a href="motion.html#as">as</a> well:
+
+<b>	:set noexpandtab</b>
+<b>	:%retab!</b>
+
+==============================================================================
+
+*<a name="30.6"></A><b>30.6</b>*	Formatting comments
+
+One of the great things about Vim is that it understands comments.  You can
+ask Vim to format a comment and it will <a href="diff.html#do">do</a> the right thing.
+   Suppose, for example, that you have the following comment:
+
+<b><font color="purple">	/* </font></b>
+<b><font color="purple">	 * This is a test </font></b>
+<b><font color="purple">	 * of the text formatting. </font></b>
+<b><font color="purple">	 */ </font></b>
+
+You then ask Vim to format it by positioning the cursor at the start of the
+comment and type:
+
+<b>	gq]/</b>
+
+&quot;<a href="change.html#gq">gq</a>&quot; is the <a href="motion.html#operator">operator</a> to format text.  &quot;<a href="motion.html#]/">]/</a>&quot; is the motion that takes you to the
+end of a comment.  The result is:
+
+<b><font color="purple">	/* </font></b>
+<b><font color="purple">	 * This is a test of the text formatting. </font></b>
+<b><font color="purple">	 */ </font></b>
+
+Notice that Vim properly handled the beginning of each line.
+  An alternative is to select the text that is to be formatted in <a href="visual.html#Visual">Visual</a> mode
+and type &quot;<a href="change.html#gq">gq</a>&quot;.
+
+To add a new line to the comment, position the cursor on the middle line and
+press &quot;<a href="insert.html#o">o</a>&quot;.  The result looks like this:
+
+<b><font color="purple">	/* </font></b>
+<b><font color="purple">	 * This is a test of the text formatting. </font></b>
+<b><font color="purple">	 * </font></b>
+<b><font color="purple">	 */ </font></b>
+
+Vim has automatically inserted a <a href="pattern.html#star">star</a> and a space for you.  Now you can type
+the comment text.  When it gets longer than <a href="options.html#'textwidth'">'textwidth'</a>, Vim will break the
+line.  Again, the <a href="pattern.html#star">star</a> is inserted automatically:
+
+<b><font color="purple">	/* </font></b>
+<b><font color="purple">	 * This is a test of the text formatting. </font></b>
+<b><font color="purple">	 * Typing a lot of text here will make Vim </font></b>
+<b><font color="purple">	 * break </font></b>
+<b><font color="purple">	 */ </font></b>
+
+For this to work some flags must be present in <a href="options.html#'formatoptions'">'formatoptions'</a>:
+
+	<a href="change.html#r">r</a>	insert the <a href="pattern.html#star">star</a> when typing <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> in <a href="insert.html#Insert">Insert</a> mode
+	<a href="insert.html#o">o</a>	insert the <a href="pattern.html#star">star</a> when using &quot;<a href="insert.html#o">o</a>&quot; or &quot;<a href="insert.html#O">O</a>&quot; in <a href="intro.html#Normal">Normal</a> mode
+	<a href="change.html#c">c</a>	break comment text according to <a href="options.html#'textwidth'">'textwidth'</a>
+
+See |<a href="change.html#fo-table">fo-table</a>| for more flags.
+
+
+DEFINING A COMMENT
+
+The <a href="options.html#'comments'">'comments'</a> option defines what a comment looks like.  Vim distinguishes
+between a single-line comment and a comment that has a different start, end
+and middle part.
+   Many single-line comments start with a specific character.  In C++ <a href="version7.html#//">//</a> is
+used, in Makefiles #, in Vim scripts &quot;.  For example, to make Vim understand
+C++ comments:
+
+<b>	:set comments=://</b>
+
+The colon separates the flags of an item from the text by which the comment is
+recognized.  The general form of an item in <a href="options.html#'comments'">'comments'</a> is:
+
+	{flags}:{text}
+
+The {flags} part can be empty, <a href="motion.html#as">as</a> in this <a href="change.html#case">case</a>.
+   Several of these items can be concatenated, separated by commas.  This
+allows recognizing different types of comments at the same time.  For example,
+let's edit an e-mail message.  When replying, the text that others wrote is
+preceded with &quot;<a href="change.html#&gt;">&gt;</a>&quot; and &quot;<a href="change.html#!">!</a>&quot; characters.  This command would work:
+
+<b>	:set comments=n:&gt;,n:!</b>
+
+There are two items, one for comments starting with &quot;<a href="change.html#&gt;">&gt;</a>&quot; and one for comments
+that start with &quot;<a href="change.html#!">!</a>&quot;.  Both use the flag &quot;<a href="pattern.html#n">n</a>&quot;.  This means that these comments
+nest.  Thus a line starting with &quot;<a href="change.html#&gt;">&gt;</a>&quot; may have another comment after the &quot;<a href="change.html#&gt;">&gt;</a>&quot;.
+This allows <a href="change.html#formatting">formatting</a> a message like this:
+
+<b><font color="purple">	&gt; ! Did you see that site? </font></b>
+<b><font color="purple">	&gt; ! It looks really great. </font></b>
+<b><font color="purple">	&gt; I don't like it.  The </font></b>
+<b><font color="purple">	&gt; colors are terrible. </font></b>
+<b><font color="purple">	What is the URL of that </font></b>
+<b><font color="purple">	site? </font></b>
+
+Try setting <a href="options.html#'textwidth'">'textwidth'</a> to a different value, e.g., 80, and format the text by
+Visually selecting it and typing &quot;<a href="change.html#gq">gq</a>&quot;.  The result is:
+
+<b><font color="purple">	&gt; ! Did you see that site?  It looks really great. </font></b>
+<b><font color="purple">	&gt; I don't like it.  The colors are terrible. </font></b>
+<b><font color="purple">	What is the URL of that site? </font></b>
+
+You will notice that Vim did not move text from one type of comment to
+another.  The &quot;<a href="insert.html#I">I</a>&quot; in the second line would have fit at the end of the first
+line, but since that line starts with &quot;<a href="change.html#&gt;">&gt;</a> !&quot; and the second line with &quot;<a href="change.html#&gt;">&gt;</a>&quot;, Vim
+knows that this is a different kind of comment.
+
+
+A THREE PART COMMENT
+
+A C comment starts with &quot;/*&quot;, has &quot;*&quot; in the middle and &quot;*/&quot; at the end.  The
+entry in <a href="options.html#'comments'">'comments'</a> for this looks like this:
+
+<b>	:set comments=s1:/*,mb:*,ex:*/</b>
+
+The start is defined with &quot;s1:/*&quot;.  The &quot;<a href="change.html#s">s</a>&quot; indicates the start of a
+three-piece comment.  The colon separates the flags from the text by which the
+comment is recognized: &quot;/*&quot;.  There is one flag: &quot;1&quot;.  This tells Vim that the
+middle part has an offset of one space.
+   The middle part &quot;mb:*&quot; starts with &quot;<a href="motion.html#m">m</a>&quot;, which indicates it is a middle
+part.  The &quot;<a href="motion.html#b">b</a>&quot; flag means that a blank must follow the text.  Otherwise Vim
+would consider text like &quot;*pointer&quot; also to be the middle of a comment.
+   The end part &quot;ex:*/&quot; has the &quot;<a href="motion.html#e">e</a>&quot; for identification.  The &quot;<a href="change.html#x">x</a>&quot; flag has a
+special meaning.  It means that after Vim automatically inserted a <a href="pattern.html#star">star</a>,
+typing / will remove the extra space.
+
+For more details see |<a href="change.html#format-comments">format-comments</a>|.
+
+==============================================================================
+
+Next chapter: |<a href="usr_31.html">usr_31.txt</a>|  Exploiting the <a href="gui.html#GUI">GUI</a>
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_30.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

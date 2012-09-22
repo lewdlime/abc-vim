@@ -1,0 +1,22 @@
+% portuguesexemplo.abc        -*- abc -*-
+%    Sample file for `portugues.fmt'
+% Arquivo de exemplo para `portugues.fmt'
+% Hudson Lacerda (2005-2007)
+
+%%format portugues
+
+X:1
+T:Exemplo de `portugues.fmt'
+T:abcm2ps-4.8.11
+T:abcm2ps-5.4.1
+B:Coletânea de chôros
+D:Disco de Ouro da Música Universal
+H:Transcrita de ouvido a partir da execução do disco
+N:Música ausente deste exemplo por questões de economia de espaço
+R:Chôro-canção
+S:Disco de vinil ouvido no interior de Minas Gerais
+Z:Hudson Lacerda
+M:2/4
+K:C
+%%continueall
+x

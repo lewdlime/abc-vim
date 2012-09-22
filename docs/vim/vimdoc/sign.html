@@ -1,0 +1,222 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: sign</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: sign</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="sign.txt"></A><b>sign.txt</b>*      For Vim version 7.3.  Last change: 2010 Oct 14
+
+
+		  VIM REFERENCE MANUAL    by Gordon Prieur
+					  and <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Sign Support Features				*<a name="sign-support"></A><b>sign-support</b>*
+
+1. Introduction				|<a href="sign.html#sign-intro">sign-intro</a>|
+2. Commands				|<a href="sign.html#sign-commands">sign-commands</a>|
+
+{Vi does not have any of these features}
+{only available when compiled with the |<a href="various.html#+signs">+signs</a>| feature}
+
+==============================================================================
+
+1. Introduction					*<a name="sign-intro"></A><b>sign-intro</b>* *<a name="signs"></A><b>signs</b>*
+
+When a debugger or other IDE tool is driving an editor it needs to be able
+to give specific highlights which quickly tell the user useful information
+about the file.  One example of this would be a debugger which had an icon
+in the left-hand column denoting a breakpoint.  Another example might be an
+arrow representing the Program Counter (PC).  The sign features allow both
+placement of a sign, or icon, in the left-hand side of the <a href="windows.html#window">window</a> and
+definition of a highlight which will be applied to that line.  Displaying the
+sign <a href="motion.html#as">as</a> an image is most likely only feasible in <a href="starting.html#gvim">gvim</a> (although Sun
+Microsystem's dtterm does support this it's the only terminal emulator I know
+of which does).  A text sign and the highlight should be feasible in any color
+terminal emulator.
+
+Signs and highlights are not useful just for debuggers.  Sun's <a href="visual.html#Visual">Visual</a>
+WorkShop uses <a href="sign.html#signs">signs</a> and highlights to <a href="motion.html#mark">mark</a> build <a href="message.html#errors">errors</a> and SourceBrowser
+hits.  Additionally, the debugger supports 8 to 10 different <a href="sign.html#signs">signs</a> and
+highlight colors. |<a href="workshop.html#workshop">workshop</a>|  Same for Netbeans |<a href="netbeans.html#netbeans">netbeans</a>|.
+
+There are two steps in using <a href="sign.html#signs">signs</a>:
+
+1. Define the sign.  This specifies the image, text and highlighting.  For
+   example, you can define a &quot;break&quot; sign with an image of a stop roadsign and
+   text &quot;<a href="change.html#!!">!!</a>&quot;.
+
+2. Place the sign.  This specifies the file and line number where the sign is
+   displayed.  A defined sign can be placed several times in different lines
+   and files.
+
+When <a href="sign.html#signs">signs</a> are defined for a file, Vim will automatically add a column of two
+characters to display them in.  When the last sign is unplaced the column
+disappears again.  The color of the column is set with the SignColumn group
+|<a href="syntax.html#hl-SignColumn">hl-SignColumn</a>|.  Example to set the color:
+
+<b>	:highlight SignColumn guibg=darkgrey</b>
+
+==============================================================================
+
+2. Commands					*<a name="sign-commands"></A><b>sign-commands</b>* *<a name=":sig"></A><b>:sig</b>* *<a name=":sign"></A><b>:sign</b>*
+
+Here is an example that places a sign &quot;piet&quot;, displayed with the text &quot;<a href="change.html#&gt;&gt;">&gt;&gt;</a>&quot;, in
+line 23 of the current file:
+<b>	:sign define piet text=&gt;&gt; texthl=Search</b>
+<b>	:exe ":sign place 2 line=23 name=piet file=" . expand("%:p")</b>
+
+And here is the command to delete it again:
+<b>	:sign unplace 2</b>
+
+Note that the &quot;<a href="sign.html#:sign">:sign</a>&quot; command cannot be followed by another command or a
+comment.  If you <a href="diff.html#do">do</a> need that, use the |<a href="eval.html#:execute">:execute</a>| command.
+
+
+
+DEFINING A SIGN.			*<a name=":sign-define"></A><b>:sign-define</b>* *<a name="E255"></A><b>E255</b>* *<a name="E160"></A><b>E160</b>* *<a name="E612"></A><b>E612</b>*
+
+<a href="sign.html#:sign">:sign</a> define {name} {argument}...
+		Define a new sign or set attributes for an existing sign.
+		The {name} can either be a number (all digits) or a name
+		starting with a non-digit.  Leading digits are ignored, thus
+		&quot;0012&quot;, &quot;012&quot; and &quot;12&quot; are considered the same name.
+		About 120 different <a href="sign.html#signs">signs</a> can be defined.
+
+		Accepted arguments:
+
+	icon={pixmap}
+		Define the file name where the bitmap can be found.  Should be
+		a full path.  The bitmap should fit in the place of two
+		characters.  This is not checked.  If the bitmap is too big it
+		will cause redraw problems.  Only <a href="gui_x11.html#GTK">GTK</a> 2 can scale the bitmap
+		to fit the space available.
+<b><font color="purple">			toolkit		supports </font></b>
+			<a href="gui_x11.html#GTK">GTK</a> 1		pixmap (.xpm)
+			<a href="gui_x11.html#GTK">GTK</a> 2		many
+			<a href="gui_x11.html#Motif">Motif</a>		pixmap (.xpm)
+
+	linehl={group}
+		Highlighting group used for the whole line the sign is placed
+		in.  Most useful is defining a background color.
+
+
+	text={text}						*<a name="E239"></A><b>E239</b>*
+		Define the text that is displayed when there is no icon or the
+		<a href="gui.html#GUI">GUI</a> is not being used.  Only printable characters are allowed
+		and they must occupy one or two display cells.
+
+	texthl={group}
+		Highlighting group used for the text item.
+
+
+
+DELETING A SIGN						*<a name=":sign-undefine"></A><b>:sign-undefine</b>* *<a name="E155"></A><b>E155</b>*
+
+<a href="sign.html#:sign">:sign</a> undefine {name}
+		Deletes a previously defined sign.  If <a href="sign.html#signs">signs</a> with this {name}
+		are still placed this will cause trouble.
+
+
+
+LISTING SIGNS						*<a name=":sign-list"></A><b>:sign-list</b>* *<a name="E156"></A><b>E156</b>*
+
+<a href="sign.html#:sign">:sign</a> list	<a href="eval.html#Lists">Lists</a> all defined <a href="sign.html#signs">signs</a> and their attributes.
+
+<a href="sign.html#:sign">:sign</a> list {name}
+		<a href="eval.html#Lists">Lists</a> one defined sign and its attributes.
+
+
+
+PLACING SIGNS						*<a name=":sign-place"></A><b>:sign-place</b>* *<a name="E158"></A><b>E158</b>*
+
+<a href="sign.html#:sign">:sign</a> place {id} line={lnum} name={name} file={fname}
+		Place sign defined <a href="motion.html#as">as</a> {name} at line {lnum} in file {fname}.
+
+							*<a name=":sign-fname"></A><b>:sign-fname</b>*
+		The file {fname} must already be loaded in a buffer.  The
+		exact file name must be used, <a href="editing.html#wildcards">wildcards</a>, $ENV and ~ are not
+		expanded, white space must not be escaped.  Trailing white
+		space is ignored.
+
+		The sign is remembered under {id}, this can be used for
+		further manipulation.  {id} must be a number.
+		It's up to the user to make sure the {id} is used only once in
+		each file (if it's used several times unplacing will also have
+		to be done several times and making changes may not work <a href="motion.html#as">as</a>
+		expected).
+
+<a href="sign.html#:sign">:sign</a> place {id} line={lnum} name={name} buffer={nr}
+		Same, but use buffer {nr}.
+
+<a href="sign.html#:sign">:sign</a> place {id} name={name} file={fname}
+		Change the placed sign {id} in file {fname} to use the defined
+		sign {name}.  See remark above about {fname} |<a href="sign.html#:sign-fname">:sign-fname</a>|.
+		This can be used to change the displayed sign without moving
+		it (e.g., when the debugger has stopped at a breakpoint).
+
+<a href="sign.html#:sign">:sign</a> place {id} name={name} buffer={nr}
+		Same, but use buffer {nr}.
+
+
+
+REMOVING SIGNS						*<a name=":sign-unplace"></A><b>:sign-unplace</b>* *<a name="E159"></A><b>E159</b>*
+
+<a href="sign.html#:sign">:sign</a> unplace {id} file={fname}
+		Remove the previously placed sign {id} from file {fname}.
+		See remark above about {fname} |<a href="sign.html#:sign-fname">:sign-fname</a>|.
+
+<a href="sign.html#:sign">:sign</a> unplace {id} buffer={nr}
+		Same, but use buffer {nr}.
+
+<a href="sign.html#:sign">:sign</a> unplace {id}
+		Remove the previously placed sign {id} from all files it
+		appears in.
+
+<a href="sign.html#:sign">:sign</a> unplace *
+		Remove all placed <a href="sign.html#signs">signs</a>.
+
+<a href="sign.html#:sign">:sign</a> unplace
+		Remove the placed sign at the cursor position.
+
+
+LISTING PLACED SIGNS
+
+<a href="sign.html#:sign">:sign</a> place file={fname}
+		<a href="eval.html#List">List</a> <a href="sign.html#signs">signs</a> placed in file {fname}.
+		See remark above about {fname} |<a href="sign.html#:sign-fname">:sign-fname</a>|.
+
+<a href="sign.html#:sign">:sign</a> place buffer={nr}
+		<a href="eval.html#List">List</a> <a href="sign.html#signs">signs</a> placed in buffer {nr}.
+
+<a href="sign.html#:sign">:sign</a> place	<a href="eval.html#List">List</a> placed <a href="sign.html#signs">signs</a> in all files.
+
+
+
+JUMPING TO A SIGN					*<a name=":sign-jump"></A><b>:sign-jump</b>* *<a name="E157"></A><b>E157</b>*
+
+<a href="sign.html#:sign">:sign</a> jump {id} file={fname}
+		Open the file {fname} or jump to the <a href="windows.html#window">window</a> that contains
+		{fname} and position the cursor at sign {id}.
+		See remark above about {fname} |<a href="sign.html#:sign-fname">:sign-fname</a>|.
+		If the file isn't displayed in <a href="windows.html#window">window</a> and the current file can
+		not be |abandon|ed this fails.
+
+<a href="sign.html#:sign">:sign</a> jump {id} buffer={nr}
+		Same, but use buffer {nr}.
+
+<a href="sign.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

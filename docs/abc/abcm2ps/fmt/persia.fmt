@@ -1,0 +1,401 @@
+% Abcm2ps style for persian music : 1/4 tone & tombak
+% (c) 2008 by Eric Forgeot 
+% with help from Denis Boufflet (rythmes persans) & JF Moine (notation abcm2ps)
+% 
+% released under a CC-BY-SA license.
+
+% Rythmes :
+% G B et d pour les 3 notes du rythme
+% 
+% En bas pour le "tomb" (jouee en general de la main droite)
+% Au milieu
+% En haut (notes jouees sur les bords)
+% 
+% Vous pouvez voir que certaines notes sont triangulaires (ce qui veut dire
+% qu'il faut les jouer en les "snappant", en general de la main gauche) il y a
+% aussi des numeros ( 2 c'est l'index, 3 c'est le majeur...)
+% Le signe > (tete vers le bas) signifie la main gauche
+% Le signe < (tete vers le haut) signifie la main droite
+% Lorsque le signe est pointe (1 point) cela signifie qu'il faut jouer avec 1
+% doigt ; (2 points) pour jouer avec 2 doigts. Sans rien : signifie que tous
+% les doigts de la main jouent.
+
+% Utiliser !n!  pour avoir chapeau_haut seul
+% Utiliser !n1! pour avoir chapeau_haut avec 1 point
+% Utiliser !n2! pour avoir chapeau_haut avec 2 points
+% Utiliser !u!  pour avoir chapeau_bas  seul
+% Utiliser !u1! pour avoir chapeau_bas  avec 1 points
+% Utiliser !u2! pour avoir chapeau_bas  avec 2 points
+% Utiliser s devant la note pour indiquer un snap (triangle)
+% Utiliser "2" ou "3" avant les notes pour rajouter les doigts
+
+% And use in the headers:
+%K:perc
+%U:s=+head-strum+ 
+%
+%%%MIDI program 1
+%%%MIDI channel 10
+%
+%V:1 stafflines=3 stem=down
+% You can use abcpp for creating midi files.
+
+% 1/4 tone: 
+% Use !koron! or !b! or !_! for koron notation and !sori! or !#! for sori
+
+
+beginps
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% n'est pas utilise ici : fait une note barree
+
+% -- strum marks (slash noteheads) -- dga 20051224
+/head-slash0{
+    M 3 2.5 RM 2.5 SLW
+    -9 -12 RL stroke}!
+
+% voir exemple ici : http://dglenn.livejournal.com/686372.html
+
+% -- strum mark (slash notehead)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% note en triangle
+% utiliser fontforge tel quel et jouer sur scale et translate (2 premieres lignes) pour placer les tetes
+
+/head-slash {
+	gsave translate 0.04 dup scale
+	-170 -20 translate
+	 newpath
+		41 -49 moveto
+		 71 10 74 30 139 142 curveto
+		 183 74 241.141 -31.8496 243 -43 curveto
+		 242.989 -43.0039 133 -53 41 -49 curveto
+		closepath
+	fill grestore
+}!
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapeau_haut0
+
+
+/chapeau_haut0 {
+gsave translate 0.05 dup scale
+-130 50 translate
+ newpath
+	3.56445 -0.337891 moveto
+	 120.28 207.16 lineto
+	 172.683 131.861 241.927 13.6533 244.142 1.30566 curveto
+	 244.139 1.30469 235.776 0.597656 221.513 -0.387695 curveto
+	 206.03 23.4521 132.189 156.33 121.471 164.082 curveto
+	 104.798 146.365 51.2031 29.5596 29.7656 -1.1084 curveto
+	 20.9492 -0.939453 12.1895 -0.686523 3.56445 -0.337891 curveto
+	closepath
+fill grestore
+}!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapeau_haut1
+
+
+/chapeau_haut1 {
+gsave translate 0.05 dup scale
+-130 50 translate
+newpath
+	98 261 moveto
+	 98 272.592 107.408 282 119 282 curveto
+	 130.592 282 140 272.592 140 261 curveto
+	 140 249.408 130.592 240 119 240 curveto
+	 107.408 240 98 249.408 98 261 curveto
+	closepath
+	3.56445 -0.337891 moveto
+	 120.28 207.16 lineto
+	 172.683 131.861 241.927 13.6533 244.142 1.30566 curveto
+	 244.139 1.30469 235.776 0.597656 221.513 -0.387695 curveto
+	 206.03 23.4521 132.189 156.33 121.471 164.082 curveto
+	 104.798 146.365 51.2031 29.5596 29.7656 -1.1084 curveto
+	 20.9492 -0.939453 12.1895 -0.686523 3.56445 -0.337891 curveto
+	closepath
+fill grestore
+	}!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapeau_haut2
+
+
+/chapeau_haut2 {
+gsave translate 0.05 dup scale
+-130 50 translate
+newpath
+	159 262 moveto
+	 159 273.592 168.408 283 180 283 curveto
+	 191.592 283 201 273.592 201 262 curveto
+	 201 250.408 191.592 241 180 241 curveto
+	 168.408 241 159 250.408 159 262 curveto
+	closepath
+	37 261 moveto
+	 37 272.592 46.4082 282 58 282 curveto
+	 69.5918 282 79 272.592 79 261 curveto
+	 79 249.408 69.5918 240 58 240 curveto
+	 46.4082 240 37 249.408 37 261 curveto
+	closepath
+	3.56445 -0.337891 moveto
+	 120.28 207.16 lineto
+	 172.683 131.861 241.927 13.6533 244.142 1.30566 curveto
+	 244.139 1.30469 235.776 0.597656 221.513 -0.387695 curveto
+	 206.03 23.4521 132.189 156.33 121.471 164.082 curveto
+	 104.798 146.365 51.2031 29.5596 29.7656 -1.1084 curveto
+	 20.9492 -0.939453 12.1895 -0.686523 3.56445 -0.337891 curveto
+	closepath
+fill grestore
+	}!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapeau inverse 
+
+
+/chapeau_bas0 {
+gsave translate 0.05 dup scale
+-130 50 translate
+ newpath
+	239.948 206.95 moveto
+	 204.219 141.619 200.646 123.472 123.232 -0.547852 curveto
+	 70.8301 74.751 1.58594 191.959 -0.628906 204.307 curveto
+	 -0.625977 204.308 7.73633 205.015 22 206 curveto
+	 37.4824 182.16 111.323 49.2822 122.042 41.5303 curveto
+	 138.715 59.2471 192.31 177.053 213.747 207.721 curveto
+	 222.563 207.552 231.323 207.299 239.948 206.95 curveto
+	closepath
+fill grestore
+	}!
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapeau inverse 1 point
+
+
+/chapeau_bas1 {
+gsave translate 0.05 dup scale
+-130 50 translate
+newpath
+	99 261 moveto
+	 99 272.592 108.408 282 120 282 curveto
+	 131.592 282 141 272.592 141 261 curveto
+	 141 249.408 131.592 240 120 240 curveto
+	 108.408 240 99 249.408 99 261 curveto
+	closepath
+	239.948 206.95 moveto
+	 204.219 141.619 200.646 123.472 123.232 -0.547852 curveto
+	 70.8301 74.751 1.58594 191.959 -0.628906 204.307 curveto
+	 -0.625977 204.308 7.73633 205.015 22 206 curveto
+	 37.4824 182.16 113 53 122.042 41.5303 curveto
+	 138.715 59.2471 192.31 177.053 213.747 207.721 curveto
+	 222.563 207.552 231.323 207.299 239.948 206.95 curveto
+	closepath
+fill grestore
+	}!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapeau bas 2 points 
+
+
+/chapeau_bas2 {
+gsave translate 0.05 dup scale
+-130 50 translate
+newpath
+	159 262 moveto
+	 159 273.592 168.408 283 180 283 curveto
+	 191.592 283 201 273.592 201 262 curveto
+	 201 250.408 191.592 241 180 241 curveto
+	 168.408 241 159 250.408 159 262 curveto
+	closepath
+	37 261 moveto
+	 37 272.592 46.4082 282 58 282 curveto
+	 69.5918 282 79 272.592 79 261 curveto
+	 79 249.408 69.5918 240 58 240 curveto
+	 46.4082 240 37 249.408 37 261 curveto
+	closepath
+	239.948 206.95 moveto
+	 204.219 141.619 200.646 123.472 123.232 -0.547852 curveto
+	 70.8301 74.751 1.58594 191.959 -0.628906 204.307 curveto
+	 -0.625977 204.308 7.73633 205.015 22 206 curveto
+	 37.4824 182.16 113 53 122.042 41.5303 curveto
+	 138.715 59.2471 192.31 177.053 213.747 207.721 curveto
+	 222.563 207.552 231.323 207.299 239.948 206.95 curveto
+	closepath
+fill grestore
+	}!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/sori {	% usage: str x y sori
+	gsave translate 0.022 dup scale
+	0 100 translate
+	newpath
+	120 327 moveto
+	 105 329 lineto
+	 104 -92 lineto
+	 114 -86.5 113 -91 120 -87 curveto
+	 120 327 lineto
+	closepath
+	16 316 moveto
+	 1 318 lineto
+	 0 -103 lineto
+	 11 -97 9 -102 16 -98 curveto
+	 16 316 lineto
+	closepath
+	fill
+	-51 219 moveto
+	 232 127 lineto
+	 -47 -5 lineto
+	 -47 33 lineto
+	 160 123 lineto
+	 -50 183 lineto
+	 -51 219 lineto
+	closepath
+	fill
+	grestore
+}!
+
+
+
+
+
+
+/koron { % usage: str x y koron
+	gsave translate 0.022 dup scale
+	0 100 translate
+	newpath
+	26 361 moveto
+	 26 228 lineto
+	 174 298 lineto
+	 26 361 lineto
+	closepath
+	26 -138 moveto
+	 16 -146 18 -138 0 -145 curveto
+	 0 397 lineto
+	 25 397 lineto
+	 228 300 lineto
+	 26 190 lineto
+	 26 -138 lineto
+	closepath
+	fill
+	grestore
+}!
+
+
+
+/quartdiese  {	% usage: str x y quartdiese  
+	gsave translate 0.022 dup scale
+	-100 100 translate
+	newpath
+	16 48 moveto
+	 292 72 lineto
+	 292 32 lineto
+	 16 8 lineto
+	 16 48 lineto
+	closepath
+	fill
+	164 -152 moveto
+	 164 -152 lineto
+	 164 397 lineto
+	 138 397 lineto
+	 138 -151 lineto
+	 138 -151 lineto
+	 150 -154 151.333 -163.333 164 -152 curveto
+	 164 -152 lineto
+	closepath
+	fill
+	12 210 moveto
+	 288 234 lineto
+	 288 194 lineto
+	 12 170 lineto
+	 12 210 lineto
+	closepath
+	fill
+grestore
+}!
+
+
+
+/quartbemol  {	% usage: str x y quartbemol
+	gsave translate 0.022 dup scale
+	-100 100 translate
+	newpath
+	10 296 moveto
+	 294 362 lineto
+	 294 332 lineto
+	 14 268 lineto
+	 10 296 lineto
+	closepath
+	fill
+	138 81 moveto
+	 138 397 lineto
+	 164 397 lineto
+	 164 75 lineto
+	 180 91 lineto
+	 184 95 187.333 97.3333 190 98 curveto
+	 198 103 lineto
+	 214 109 lineto
+	 230 111 lineto
+	 250 111 266 105 278 93 curveto
+	 290 81 298 67 302 51 curveto
+	 302 46 lineto
+	 302 31.3333 298 18 290 6 curveto
+	 280 -7 lineto
+	 272.667 -15.6667 264.333 -24.6667 255 -34 curveto
+	 236 -52 lineto
+	 217 -70 lineto
+	 170 -112 lineto
+	 157.333 -123.333 146.667 -136.333 138 -151 curveto
+	 138 81 lineto
+	closepath
+	218 -14 moveto
+	 230 14 lineto
+	 232.667 21.3333 234 29.6667 234 39 curveto
+	 234 51 231.667 59.8333 227 65.5 curveto
+	 222.333 71.1667 215.667 74.6667 207 76 curveto
+	 201 76 194 74 186 70 curveto
+	 179.333 65.3333 172 58.6667 164 50 curveto
+	 164 -88 lineto
+	 187.333 -63.3333 205.333 -38.6667 218 -14 curveto
+	closepath
+	fill
+	grestore
+}!
+
+endps
+
+deco head-strum0 0 head-slash0 0 0 0 x
+deco head-strum 0 head-slash 0 0 0 x
+
+
+deco n 3 chapeau_haut0 0 0 0 x
+deco n1 3 chapeau_haut1 0 0 0 x
+deco n2 3 chapeau_haut2 0 0 0 x
+
+deco u 3 chapeau_bas0 0 0 0 x
+deco u1 3 chapeau_bas1 0 0 0 x
+deco u2 3 chapeau_bas2 0 0 0 x
+
+deco koron 3 koron 8 0 0
+deco b 3 quartbemol 8 0 0  
+deco _ 3 quartbemol 8 0 0  %here are only aliases or alternatives
+
+deco sori 3 sori 8 0 0
+deco # 3 quartdiese 8 0 0   %
+
+

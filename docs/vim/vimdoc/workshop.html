@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: workshop</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: workshop</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="workshop.txt"></A><b>workshop.txt</b>*  For Vim version 7.3.  Last change: 2010 Jul 20
+
+
+		  VIM REFERENCE MANUAL    by Gordon Prieur
+
+
+
+Sun <a href="visual.html#Visual">Visual</a> WorkShop Features			*<a name="workshop"></A><b>workshop</b>* *<a name="workshop-support"></A><b>workshop-support</b>*
+
+1. Introduction						|<a href="workshop.html#workshop-intro">workshop-intro</a>|
+2. Commands						|<a href="workshop.html#workshop-commands">workshop-commands</a>|
+3. Compiling vim/gvim for WorkShop			|<a href="workshop.html#workshop-compiling">workshop-compiling</a>|
+4. Configuring <a href="starting.html#gvim">gvim</a> for a WorkShop release tree		|<a href="workshop.html#workshop-configure">workshop-configure</a>|
+5. Obtaining the latest version of the XPM library	|<a href="workshop.html#workshop-xpm">workshop-xpm</a>|
+
+{Vi does not have any of these features}
+{only available when compiled with the |<a href="various.html#+sun_workshop">+sun_workshop</a>| feature}
+
+==============================================================================
+
+1. Introduction						*<a name="workshop-intro"></A><b>workshop-intro</b>*
+
+Sun <a href="visual.html#Visual">Visual</a> WorkShop has an &quot;Editor of Choice&quot; feature designed to let users
+debug using their favorite editors.  For the 6.0 release we have added support
+for <a href="starting.html#gvim">gvim</a>.  A <a href="workshop.html#workshop">workshop</a> debug session will have a debugging <a href="windows.html#window">window</a> and an editor
+<a href="windows.html#window">window</a> (possibly others <a href="motion.html#as">as</a> well).  The user can <a href="diff.html#do">do</a> many debugging operations
+from the editor <a href="windows.html#window">window</a>, minimizing the need to switch from <a href="windows.html#window">window</a> to <a href="windows.html#window">window</a>.
+
+The version of vim shipped with Sun <a href="visual.html#Visual">Visual</a> WorkShop 6 (also called Forte
+Developer 6) is vim 5.3.  The features in this release are much more reliable
+than the vim/gvim shipped with <a href="visual.html#Visual">Visual</a> WorkShop.  VWS users wishing to use vim
+<a href="motion.html#as">as</a> their editor should compile these sources and <a href="usr_90.html#install">install</a> them in their
+<a href="workshop.html#workshop">workshop</a> release tree.
+
+==============================================================================
+
+2. Commands						*<a name="workshop-commands"></A><b>workshop-commands</b>*
+
+
+						*<a name=":ws"></A><b>:ws</b>* *<a name=":wsverb"></A><b>:wsverb</b>*
+:ws[verb] verb			Pass the verb to the verb executor
+
+Pass the verb to a <a href="workshop.html#workshop">workshop</a> function which gathers some arguments and
+sends the verb and data to <a href="workshop.html#workshop">workshop</a> over an IPC connection.
+
+==============================================================================
+
+3. Compiling vim/gvim for WorkShop			*<a name="workshop-compiling"></A><b>workshop-compiling</b>*
+
+Compiling vim with FEAT_SUN_WORKSHOP turns on all compile time flags necessary
+for building a vim to work with <a href="visual.html#Visual">Visual</a> WorkShop.  The features required for VWS
+have been built and tested using the Sun compilers from the VWS release.  They
+have not been built or tested using Gnu compilers.  This does not mean the
+features won't build and run if compiled with gcc, just that nothing is
+guaranteed with gcc!
+
+==============================================================================
+
+4. Configuring <a href="starting.html#gvim">gvim</a> for a WorkShop release tree		*<a name="workshop-configure"></A><b>workshop-configure</b>*
+
+There are several assumptions which must be met in order to compile a <a href="starting.html#gvim">gvim</a> for
+use with Sun <a href="visual.html#Visual">Visual</a> WorkShop 6.
+
+    <a href="insert.html#o">o</a> You should use the compiler in VWS rather than gcc.  We have neither
+      built nor tested with gcc and cannot guarantee it will build properly.
+
+    o You must supply your own XPM library.  See |<a href="workshop.html#workshop-xpm">workshop-xpm</a>| below for
+      details on obtaining the latest version of XPM.
+
+    <a href="insert.html#o">o</a> Edit the Makefile in the src directory and uncomment the lines for Sun
+      <a href="visual.html#Visual">Visual</a> WorkShop.  You can easily find these by searching for the string
+      FEAT_SUN_WORKSHOP
+
+    <a href="insert.html#o">o</a> We also suggest you use <a href="gui_x11.html#Motif">Motif</a> for your <a href="gui.html#gui">gui</a>.  This will provide <a href="starting.html#gvim">gvim</a> with
+      the same look-and-feel <a href="motion.html#as">as</a> the rest of Sun <a href="visual.html#Visual">Visual</a> WorkShop.
+
+The following configuration line can be used to configure vim to build for use
+with Sun <a href="visual.html#Visual">Visual</a> WorkShop:
+
+    $ CC=cc configure --enable-workshop --enable-gui=motif \
+	-prefix=&lt;VWS-install-dir&gt;/contrib/contrib6/&lt;vim-version&gt;
+
+The VWS-install-dir should be the base directory where your Sun <a href="visual.html#Visual">Visual</a> WorkShop
+was installed.  By default this is /opt/SUNWspro.  It will normally require
+root permissions to <a href="usr_90.html#install">install</a> the vim release.  You will also need to change the
+symlink &lt;VWS-install-dir&gt;/bin/gvim to point to the vim in your newly installed
+directory.  The &lt;vim-version&gt; should be a unique version string.  I use &quot;vim&quot;
+concatenated with the equivalent of version.h's VIM_VERSION_SHORT.
+
+==============================================================================
+
+5. Obtaining the latest version of the XPM library	*<a name="workshop-xpm"></A><b>workshop-xpm</b>*
+
+The XPM library is required to show images within Vim with <a href="gui_x11.html#Motif">Motif</a> or <a href="gui_x11.html#Athena">Athena</a>.
+Without it the toolbar and <a href="sign.html#signs">signs</a> will be disabled.
+
+The XPM library is provided by Arnaud Le Hors of the French National Institute
+for Research in Computer Science and Control.  It can be downloaded from
+	<a href="http://cgit.freedesktop.org/xorg/lib/libXpm">http://cgit.freedesktop.org/xorg/lib/libXpm</a>. The current release, as of this
+<a href="editing.html#writing">writing</a>, is xpm-3.4k-solaris.tgz, which is a gzip'ed <a href="pi_tar.html#tar">tar</a> file.  If you create
+the directory /usr/local/xpm and untar the file there you can use the
+uncommented lines in the Makefile without <a href="change.html#changing">changing</a> them.  If you use another
+xpm directory you will need to change the XPM_DIR in src/Makefile.
+
+<a href="workshop.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

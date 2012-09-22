@@ -1,0 +1,51 @@
+%%format bracinho
+% %format abc-system/abc-pt/abc-pt/fmt/cifras_beta
+
+%%beginps
+/CM7   { ( ^CM7    x  3  2  0  0  0  ) currentpoint bracinho}!
+/Am7   { ( ^Am7    x  0  2  0  1  0  ) currentpoint bracinho}!
+/Dm7_9 { ( ^Dm7/9  x  5  3  5  5  0  ) currentpoint bracinho}!
+/F_G   { ( ^F/G    3  x  3  2  1  x  ) currentpoint bracinho}!
+/F_A   { ( ^F/A    x  0  3  2  1[ 1] ) currentpoint bracinho}!
+/Dm7   { ( ^Dm7    x  x  0  2  1[ 1] ) currentpoint bracinho}!
+/G7_9  { ( ^G7/9   3  x  3  2  0  x  ) currentpoint bracinho}!
+/gcshow{gsave
+     /gstring exch def
+     gstring length 1 sub -1 0{
+          /gstri exch def
+          gstring gstri get (/) 0 get eq{
+             gstring gstri (_) 0 get put}if
+     }for
+     gstring cvn currentdict exch known true eq
+     {
+          9 -9 RM gstring cvx exec
+     } {
+          gstring length 1 sub -1 0{/gstri exch def
+             gstring gstri get (_) 0 get eq{
+                 gstring gstri (/) 0 get put}if
+             }for
+          gstring /Helvetica 10 selectfont show %teste
+     }ifelse grestore
+}!
+%%endps
+
+
+X:1
+T:Exibição automática de bracinho
+T:(em acordes conhecidos)
+%%gchordfont * 45
+M:2/4
+L:1/8
+K:C
+%
+V:1 %dyn=up
++p+ CDEC|GFED |ECEA   |G4   |FEDC |DFAc |GFED     |C4  |]
+s: "CM7"|"Am7"|"Dm7/9"|"F/G"|"F/A"|"Dm7"|"G7/9/13"|"CM7"|
+
+%%postscript 0 -160 M 300 0 RL stroke
+%%postscript 0 -160 M CM7 60 0 RM F_A
+
+%%postscript 0 -40 M count 5 string cvs show
+
+
+

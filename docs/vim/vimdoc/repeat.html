@@ -1,0 +1,737 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: repeat</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: repeat</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="repeat.txt"></A><b>repeat.txt</b>*    For Vim version 7.3.  Last change: 2011 Jan 06
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Repeating commands, Vim scripts and debugging			*<a name="repeating"></A><b>repeating</b>*
+
+Chapter 26 of the user manual introduces <a href="repeat.html#repeating">repeating</a> |<a href="usr_26.html">usr_26.txt</a>|.
+
+1. Single repeats	|<a href="repeat.html#single-repeat">single-repeat</a>|
+2. Multiple repeats	|<a href="repeat.html#multi-repeat">multi-repeat</a>|
+3. Complex repeats	|<a href="repeat.html#complex-repeat">complex-repeat</a>|
+4. Using Vim scripts	|<a href="repeat.html#using-scripts">using-scripts</a>|
+5. Debugging scripts	|<a href="repeat.html#debug-scripts">debug-scripts</a>|
+6. Profiling		|<a href="repeat.html#profiling">profiling</a>|
+
+==============================================================================
+
+1. Single repeats					*<a name="single-repeat"></A><b>single-repeat</b>*
+
+
+							*<a name="."></A><b>.</b>*
+.			Repeat last change, with <a href="intro.html#count">count</a> replaced with <a href="intro.html#[count]">[count]</a>.
+			Also repeat a <a href="change.html#yank">yank</a> command, when the '<a href="change.html#y">y</a>' flag is
+			included in <a href="options.html#'cpoptions'">'cpoptions'</a>.  Does not repeat a
+			command-line command.
+
+Simple changes can be repeated with the &quot;<a href="repeat.html#.">.</a>&quot; command.  Without a <a href="intro.html#count">count</a>, the
+<a href="intro.html#count">count</a> of the last change is used.  If you enter a <a href="intro.html#count">count</a>, it will replace the
+last one.  If the last change included a specification of a numbered <a href="sponsor.html#register">register</a>,
+the register number will be incremented.  See |<a href="undo.html#redo-register">redo-register</a>| for an example
+how to use this.  Note that when <a href="repeat.html#repeating">repeating</a> a command that used a <a href="visual.html#Visual">Visual</a>
+selection, the same SIZE of area is used, see |<a href="visual.html#visual-repeat">visual-repeat</a>|.
+
+
+							*<a name="@:"></A><b>@:</b>*
+<a href="repeat.html#@:">@:</a>			Repeat last command-line <a href="intro.html#[count]">[count]</a> times.
+			{not available when compiled without the
+			|<a href="various.html#+cmdline_hist">+cmdline_hist</a>| feature}
+
+
+==============================================================================
+
+2. Multiple repeats					*<a name="multi-repeat"></A><b>multi-repeat</b>*
+
+
+						*<a name=":g"></A><b>:g</b>* *<a name=":global"></A><b>:global</b>* *<a name="E147"></A><b>E147</b>* *<a name="E148"></A><b>E148</b>*
+:[range]g[lobal]/{pattern}/[cmd]
+			Execute the <a href="intro.html#Ex">Ex</a> command [cmd] (default &quot;<a href="various.html#:p">:p</a>&quot;) on the
+			lines within <a href="cmdline.html#[range]">[range]</a> where {pattern} matches.
+
+:[range]g[lobal]!/{pattern}/[cmd]
+			Execute the <a href="intro.html#Ex">Ex</a> command [cmd] (default &quot;<a href="various.html#:p">:p</a>&quot;) on the
+			lines within <a href="cmdline.html#[range]">[range]</a> where {pattern} does NOT match.
+
+
+							*<a name=":v"></A><b>:v</b>* *<a name=":vglobal"></A><b>:vglobal</b>*
+:[range]v[global]/{pattern}/[cmd]
+			Same <a href="motion.html#as">as</a> :g!.
+
+Instead of the '<a href="pattern.html#/">/</a>' which surrounds the {pattern}, you can use any other
+single byte character, but not an alphanumeric character, '\', &#39;&#34;'' or '&#124;'.
+This is useful if you want to include a '<a href="pattern.html#/">/</a>' in the search <a href="pattern.html#pattern">pattern</a> or
+replacement string.
+
+For the definition of a pattern, see |<a href="pattern.html#pattern">pattern</a>|.
+
+The global commands work by first scanning through the <a href="cmdline.html#[range]">[range]</a> lines and
+marking each line where a match occurs (for a multi-line <a href="pattern.html#pattern">pattern</a>, only the
+start of the match matters).
+In a second scan the [cmd] is executed for each marked line with its line
+number prepended.  For &quot;<a href="repeat.html#:v">:v</a>&quot; and &quot;:g!&quot; the command is executed for each not
+marked line.  If a line is deleted its <a href="motion.html#mark">mark</a> disappears.
+The default for <a href="cmdline.html#[range]">[range]</a> is the whole buffer (1,$).  Use &quot;<a href="pattern.html#CTRL-C">CTRL-C</a>&quot; to interrupt
+the command.  If an error message is given for a line, the command for that
+line is aborted and the global command continues with the next marked or
+unmarked line.
+
+To repeat a non-Ex command, you can use the &quot;<a href="various.html#:normal">:normal</a>&quot; command:
+<b>	:g/pat/normal {commands}</b>
+Make sure that {commands} ends with a whole command, otherwise Vim will wait
+for you to type the rest of the command for each match.  The screen will not
+have been updated, so you don't know what you are doing.  See |<a href="various.html#:normal">:normal</a>|.
+
+The undo/redo command will undo/redo the whole global command at once.
+The previous context <a href="motion.html#mark">mark</a> will only be set once (with &quot;'&#39;&#34;' you go back to
+where the cursor was before the global command).
+
+The global command sets both the last used search <a href="pattern.html#pattern">pattern</a> and the last used
+substitute <a href="pattern.html#pattern">pattern</a> (this is <a href="intro.html#vi">vi</a> compatible).  This makes it <a href="starting.html#easy">easy</a> to globally
+replace a string:
+	:g/pat/s//PAT/g
+This replaces all occurrences of &quot;pat&quot; with &quot;PAT&quot;.  The same can be done with:
+	:&#37;s/pat/PAT/g
+Which is two characters shorter!
+
+When using &quot;global&quot; in <a href="intro.html#Ex">Ex</a> mode, a special <a href="change.html#case">case</a> is using &quot;<a href="editing.html#:visual">:visual</a>&quot; <a href="motion.html#as">as</a> a
+command.  This will move to a matching line, go to <a href="intro.html#Normal">Normal</a> mode to let you
+execute commands there until you use |<a href="intro.html#Q">Q</a>| to return to <a href="intro.html#Ex">Ex</a> mode.  This will be
+repeated for each matching line.  While doing this you cannot use &quot;<a href="repeat.html#:global">:global</a>&quot;.
+To abort this type <a href="pattern.html#CTRL-C">CTRL-C</a> <a href="if_cscop.html#twice">twice</a>.
+
+==============================================================================
+
+3. Complex repeats					*<a name="complex-repeat"></A><b>complex-repeat</b>*
+
+
+							*<a name="q"></A><b>q</b>* *<a name="recording"></A><b>recording</b>*
+q{0-9a-zA-Z&quot;}		Record typed characters into <a href="sponsor.html#register">register</a> {0-9a-zA-Z&quot;}
+			(uppercase to append).  The '<a href="repeat.html#q">q</a>' command is disabled
+			while executing a <a href="sponsor.html#register">register</a>, and it doesn't work inside
+			a <a href="map.html#mapping">mapping</a> and |<a href="various.html#:normal">:normal</a>|.  {Vi: no recording}
+
+<a href="repeat.html#q">q</a>			Stops <a href="repeat.html#recording">recording</a>.  (Implementation note: The '<a href="repeat.html#q">q</a>' that
+			stops <a href="repeat.html#recording">recording</a> is not stored in the <a href="sponsor.html#register">register</a>, unless
+			it was the result of a <a href="map.html#mapping">mapping</a>)  {Vi: no recording}
+
+
+							*<a name="@"></A><b>@</b>*
+@{0-9a-z&quot;.=*}		Execute the contents of <a href="sponsor.html#register">register</a> {0-9a-z&quot;.=*} <a href="intro.html#[count]">[count]</a>
+			times.  Note that <a href="sponsor.html#register">register</a> '<a href="motion.html#&#37;">&#37;</a>' (name of the current
+			file) and '<a href="pattern.html##">#</a>' (name of the alternate file) cannot be
+			used.
+			The <a href="sponsor.html#register">register</a> is executed like a <a href="map.html#mapping">mapping</a>, that means
+			that the difference between <a href="options.html#'wildchar'">'wildchar'</a> and <a href="options.html#'wildcharm'">'wildcharm'</a>
+			applies.
+			For &quot;<a href="change.html#@=">@=</a>&quot; you are prompted to enter an <a href="eval.html#expression">expression</a>.  The
+			result of the <a href="eval.html#expression">expression</a> is then executed.
+			See also |<a href="repeat.html#@:">@:</a>|.  {Vi: only named registers}
+
+
+							*<a name="@@"></A><b>@@</b>* *<a name="E748"></A><b>E748</b>*
+<a href="repeat.html#@@">@@</a>			Repeat the previous @{0-9a-z&quot;:*} <a href="intro.html#[count]">[count]</a> times.
+
+:[addr]*{0-9a-z&quot;.=}						*:@* *:star*
+:[addr]@{0-9a-z&quot;.=*}	Execute the contents of <a href="sponsor.html#register">register</a> {0-9a-z&quot;.=*} <a href="motion.html#as">as</a> an <a href="intro.html#Ex">Ex</a>
+			command.  First set cursor at line [addr] (default is
+			current line).  When the last line in the <a href="sponsor.html#register">register</a> does
+			not have a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> it will be added automatically when
+			the '<a href="motion.html#e">e</a>' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>.
+			Note that the &quot;:*&quot; command is only recognized when the
+			'*' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>.  This is NOT the
+			default when <a href="options.html#'nocompatible'">'nocompatible'</a> is used.
+			For &quot;:@=&quot; the last used <a href="eval.html#expression">expression</a> is used.  The
+			result of evaluating the <a href="eval.html#expression">expression</a> is executed <a href="motion.html#as">as</a> an
+			<a href="intro.html#Ex">Ex</a> command.
+			Mappings are not recognized in these commands.
+			{Vi: only in some versions} Future: Will execute the
+			<a href="sponsor.html#register">register</a> for each line in the address range.
+
+
+							*<a name=":@:"></A><b>:@:</b>*
+:[addr]@:		Repeat last command-line.  First set cursor at line
+			[addr] (default is current line).  {not in Vi}
+
+
+							*<a name=":@@"></A><b>:@@</b>*
+:[addr]@@		Repeat the previous :@{0-9a-z&quot;}.  First set cursor at
+			line [addr] (default is current line).  {Vi: only in
+			some versions}
+
+==============================================================================
+
+4. Using Vim scripts					*<a name="using-scripts"></A><b>using-scripts</b>*
+
+For <a href="editing.html#writing">writing</a> a Vim <a href="usr_41.html#script">script</a>, see chapter 41 of the user manual |<a href="usr_41.html">usr_41.txt</a>|.
+
+
+					*<a name=":so"></A><b>:so</b>* *<a name=":source"></A><b>:source</b>* *<a name="load-vim-script"></A><b>load-vim-script</b>*
+:so[urce] <a href="editing.html#{file}">{file}</a>	Read <a href="intro.html#Ex">Ex</a> commands from <a href="editing.html#{file}">{file}</a>.  These are commands that
+			start with a &quot;<a href="cmdline.html#:">:</a>&quot;.
+			Triggers the |<a href="autocmd.html#SourcePre">SourcePre</a>| <a href="autocmd.html#autocommand">autocommand</a>.
+
+:so[urce]! <a href="editing.html#{file}">{file}</a>	Read Vim commands from <a href="editing.html#{file}">{file}</a>.  These are commands
+			that are executed from <a href="intro.html#Normal">Normal</a> mode, like you type
+			them.
+			When used after |<a href="repeat.html#:global">:global</a>|, |<a href="editing.html#:argdo">:argdo</a>|, |<a href="windows.html#:windo">:windo</a>|,
+			|<a href="windows.html#:bufdo">:bufdo</a>|, in a loop or when another command follows
+			the display won't be updated while executing the
+			commands.
+			{not in Vi}
+
+
+							*<a name=":ru"></A><b>:ru</b>* *<a name=":runtime"></A><b>:runtime</b>*
+:ru[ntime][!] <a href="editing.html#{file}">{file}</a> ..
+			Read <a href="intro.html#Ex">Ex</a> commands from <a href="editing.html#{file}">{file}</a> in each directory given
+			by <a href="options.html#'runtimepath'">'runtimepath'</a>.  There is no error for non-existing
+			files.  Example:
+<b>				:runtime syntax/c.vim</b>
+
+ 			There can be multiple <a href="editing.html#{file}">{file}</a> arguments, separated by
+			spaces.  Each <a href="editing.html#{file}">{file}</a> is searched for in the first
+			directory from <a href="options.html#'runtimepath'">'runtimepath'</a>, then in the second
+			directory, etc.  Use a <a href="intro.html#backslash">backslash</a> to include a space
+			inside <a href="editing.html#{file}">{file}</a> (although it's better not to use spaces
+			in file names, it causes trouble).
+
+			When [!] is included, all found files are sourced.
+			When it is not included only the first found file is
+			sourced.
+
+			When <a href="editing.html#{file}">{file}</a> contains <a href="editing.html#wildcards">wildcards</a> it is expanded to all
+			matching files.  Example:
+<b>				:runtime! plugin/*.vim</b>
+ 			This is what Vim uses to load the <a href="usr_05.html#plugin">plugin</a> files when
+			starting up.  This similar command:
+<b>				:runtime plugin/*.vim</b>
+ 			would source the first file only.
+
+			When <a href="options.html#'verbose'">'verbose'</a> is one or higher, there is a message
+			when no file could be found.
+			When <a href="options.html#'verbose'">'verbose'</a> is two or higher, there is a message
+			about each searched file.
+			{not in Vi}
+
+
+:scripte[ncoding] [encoding]		*<a name=":scripte"></A><b>:scripte</b>* *<a name=":scriptencoding"></A><b>:scriptencoding</b>* *<a name="E167"></A><b>E167</b>*
+			Specify the character encoding used in the <a href="usr_41.html#script">script</a>.
+			The following lines will be converted from [encoding]
+			to the value of the <a href="options.html#'encoding'">'encoding'</a> option, if they are
+			different.  Examples:
+<b>				scriptencoding iso-8859-5</b>
+<b>				scriptencoding cp932</b>
+ 
+			When [encoding] is empty, no conversion is done.  This
+			can be used to restrict conversion to a sequence of
+			lines:
+<b>				scriptencoding euc-jp</b>
+<b>				... lines to be converted ...</b>
+<b>				scriptencoding</b>
+<b>				... not converted ...</b>
+
+ 			When conversion isn't supported by the system, there
+			is no error message and no conversion is done.
+
+			Don't use &quot;ucs-2&quot; or &quot;ucs-4&quot;, scripts cannot be in
+			these encodings (they would contain NUL bytes).
+			When a sourced <a href="usr_41.html#script">script</a> starts with a BOM (Byte Order
+			<a href="motion.html#Mark">Mark</a>) in <a href="mbyte.html#utf-8">utf-8</a> format Vim will recognize it, no need
+			to use &quot;<a href="repeat.html#:scriptencoding">:scriptencoding</a> utf-8&quot; then.
+
+			When compiled without the |<a href="various.html#+multi_byte">+multi_byte</a>| feature this
+			command is ignored.
+			{not in Vi}
+
+
+						*<a name=":scrip"></A><b>:scrip</b>* *<a name=":scriptnames"></A><b>:scriptnames</b>*
+:scrip[tnames]		<a href="eval.html#List">List</a> all sourced <a href="usr_41.html#script">script</a> names, in the order they were
+			first sourced.  The number is used for the <a href="usr_41.html#script">script</a> ID
+			|<a href="map.html#&lt;SID&gt;">&lt;SID&gt;</a>|.
+			{not in Vi} {not available when compiled without the
+			|<a href="various.html#+eval">+eval</a>| feature}
+
+
+						*<a name=":fini"></A><b>:fini</b>* *<a name=":finish"></A><b>:finish</b>* *<a name="E168"></A><b>E168</b>*
+:fini[sh]		Stop sourcing a <a href="usr_41.html#script">script</a>.  Can only be used in a Vim
+			<a href="usr_41.html#script">script</a> file.  This is a quick way to skip the rest of
+			the file.  If it is used after a |<a href="eval.html#:try">:try</a>| but before the
+			matching |<a href="eval.html#:finally">:finally</a>| (if present), the commands
+			following the &quot;<a href="eval.html#:finally">:finally</a>&quot; up to the matching |<a href="eval.html#:endtry">:endtry</a>|
+			are executed first.  This process applies to all
+			nested &quot;<a href="eval.html#:try">:try</a>&quot;s in the <a href="usr_41.html#script">script</a>.  The outermost &quot;<a href="eval.html#:endtry">:endtry</a>&quot;
+			then stops sourcing the <a href="usr_41.html#script">script</a>.  {not in Vi}
+
+All commands and command sequences can be repeated by putting them in a named
+<a href="sponsor.html#register">register</a> and then executing it.  There are two ways to get the commands in the
+<a href="sponsor.html#register">register</a>:
+- Use the record command &quot;<a href="repeat.html#q">q</a>&quot;.  You type the commands once, and while they are
+  being executed they are stored in a <a href="sponsor.html#register">register</a>.  Easy, because you can see
+  what you are doing.  If you make a mistake, &quot;p&quot;ut the <a href="sponsor.html#register">register</a> into the
+  file, edit the command sequence, and then delete it into the <a href="sponsor.html#register">register</a>
+  again.  You can continue <a href="repeat.html#recording">recording</a> by appending to the <a href="sponsor.html#register">register</a> (use an
+  <a href="change.html#uppercase">uppercase</a> <a href="print.html#letter">letter</a>).
+- Delete or <a href="change.html#yank">yank</a> the command sequence into the <a href="sponsor.html#register">register</a>.
+
+Often used command sequences can be put under a function key with the '<a href="map.html#:map">:map</a>'
+command.
+
+An alternative is to put the commands in a file, and execute them with the
+':source!' command.  Useful for long command sequences.  Can be combined with
+the '<a href="map.html#:map">:map</a>' command to put complicated commands under a function key.
+
+The '<a href="repeat.html#:source">:source</a>' command reads <a href="intro.html#Ex">Ex</a> commands from a file line by line.  You will
+have to type any needed keyboard input.  The ':source!' command reads from a
+<a href="usr_41.html#script">script</a> file character by character, interpreting each character <a href="motion.html#as">as</a> if you
+typed it.
+
+Example: When you give the &quot;:!ls&quot; command you get the |<a href="message.html#hit-enter">hit-enter</a>| prompt.  If
+you '<a href="repeat.html#:source">:source</a>' a file with the line &quot;!ls&quot; in it, you will have to type the
+<a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a> yourself.  But if you ':source!' a file with the line &quot;:!ls&quot; in it,
+the next characters from that file are read until a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> is found.  You will
+not have to type <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> yourself, unless &quot;:!ls&quot; was the last line in the file.
+
+It is possible to put ':source[!]' commands in the <a href="usr_41.html#script">script</a> file, so you can
+make a top-down hierarchy of <a href="usr_41.html#script">script</a> files.  The '<a href="repeat.html#:source">:source</a>' command can be
+nested <a href="motion.html#as">as</a> deep <a href="motion.html#as">as</a> the number of files that can be opened at one time (about
+15).  The ':source!' command can be nested up to 15 levels deep.
+
+You can use the &quot;<a href="cmdline.html#&lt;sfile&gt;">&lt;sfile&gt;</a>&quot; string (literally, this is not a special key) inside
+of the sourced file, in places where a file name is expected.  It will be
+replaced by the file name of the sourced file.  For example, if you have a
+&quot;other.vimrc&quot; file in the same directory <a href="motion.html#as">as</a> your &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; file, you can source
+it from your &quot;<a href="starting.html#.vimrc">.vimrc</a>&quot; file with this command:
+<b>	:source &lt;sfile&gt;:h/other.vimrc</b>
+
+In <a href="usr_41.html#script">script</a> files terminal-dependent key codes are represented by
+terminal-independent two character codes.  This means that they can be used
+in the same way on different kinds of terminals.  The first character of a
+key code is 0x80 or 128, shown on the screen <a href="motion.html#as">as</a> &quot;~@&quot;.  The second one can be
+found in the list |<a href="intro.html#key-notation">key-notation</a>|.  Any of these codes can also be entered
+with <a href="visual.html#CTRL-V">CTRL-V</a> followed by the three digit decimal code.  This does NOT work for
+the &lt;t_xx&gt; <a href="term.html#termcap">termcap</a> codes, these can only be used in mappings.
+
+
+							*<a name=":source_crnl"></A><b>:source_crnl</b>* *<a name="W15"></A><b>W15</b>*
+<a href="os_msdos.html#MS-DOS">MS-DOS</a>, <a href="os_win32.html#Win32">Win32</a> and <a href="os_os2.html#OS/2">OS/2</a>: Files that are read with &quot;<a href="repeat.html#:source">:source</a>&quot; normally have
+&lt;CR&gt;&lt;NL&gt; &lt;EOL&gt;s.  These always work.  If you are using a file with <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> &lt;EOL&gt;s
+(for example, a file made on Unix), this will be recognized if <a href="options.html#'fileformats'">'fileformats'</a>
+is not empty and the first line does not end in a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>.  This fails if the
+first line has something like &quot;<a href="map.html#:map">:map</a> <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> :help^M&quot;, where &quot;^M&quot; is a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>.  If
+the first line ends in a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>, but following ones don't, you will get an error
+message, because the <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> from the first lines will be lost.
+
+<a href="os_mac.html#Mac">Mac</a> Classic: Files that are read with &quot;<a href="repeat.html#:source">:source</a>&quot; normally have <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> &lt;EOL&gt;s.
+These always work.  If you are using a file with <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> &lt;EOL&gt;s (for example, a
+file made on Unix), this will be recognized if <a href="options.html#'fileformats'">'fileformats'</a> is not empty and
+the first line does not end in a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>.  Be careful not to use a file with <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>
+linebreaks which has a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> in first line.
+
+On other systems, Vim expects &quot;:source&quot;ed files to end in a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>.  These
+always work.  If you are using a file with &lt;CR&gt;&lt;NL&gt; &lt;EOL&gt;s (for example, a
+file made on MS-DOS), all lines will have a trailing <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>.  This may cause
+problems for some commands (e.g., mappings).  There is no automatic <a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>
+detection, because it's common to start with a line that defines a <a href="map.html#mapping">mapping</a>
+that ends in a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>, which will confuse the automaton.
+
+
+							*<a name="line-continuation"></A><b>line-continuation</b>*
+Long lines in a &quot;<a href="repeat.html#:source">:source</a>&quot;d <a href="intro.html#Ex">Ex</a> command <a href="usr_41.html#script">script</a> file can be split by <a href="insert.html#inserting">inserting</a>
+a line continuation symbol &quot;\&quot; (backslash) at the start of the next line.
+There can be white space before the <a href="intro.html#backslash">backslash</a>, which is ignored.
+
+Example: the lines
+<b>	:set comments=sr:/*,mb:*,el:*/,</b>
+<b>		     \://,</b>
+<b>		     \b:#,</b>
+<b>		     \:%,</b>
+<b>		     \n:&gt;,</b>
+<b>		     \fb:-</b>
+are interpreted <a href="motion.html#as">as</a> if they were given in one line:
+	<a href="options.html#:set">:set</a> <a href="options.html#'comments'">comments</a>=sr:/*,mb:*,el:*/,://,b:#,:&#37;,n:&gt;,fb:-
+
+All leading <a href="pattern.html#whitespace">whitespace</a> characters in the line before a <a href="intro.html#backslash">backslash</a> are ignored.
+Note however that trailing <a href="pattern.html#whitespace">whitespace</a> in the line before it cannot be
+inserted freely; it depends on the position where a command is split up
+whether additional <a href="pattern.html#whitespace">whitespace</a> is allowed or not.
+
+When a space is required it's best to put it right after the <a href="intro.html#backslash">backslash</a>.  A
+space at the end of a line is hard to see and may be accidentally deleted.
+<b>	:syn match Comment</b>
+<b>		\ "very long regexp"</b>
+<b>		\ keepend</b>
+
+There is a problem with the &quot;<a href="insert.html#:append">:append</a>&quot; and &quot;<a href="insert.html#:insert">:insert</a>&quot; commands:
+<b>   :1append</b>
+<b>   \asdf</b>
+<b>   .</b>
+The <a href="intro.html#backslash">backslash</a> is seen <a href="motion.html#as">as</a> a <a href="repeat.html#line-continuation">line-continuation</a> symbol, thus this results in the
+command:
+<b>   :1appendasdf</b>
+<b>   .</b>
+To avoid this, add the '<a href="change.html#C">C</a>' flag to the <a href="options.html#'cpoptions'">'cpoptions'</a> option:
+<b>   :set cpo+=C</b>
+<b>   :1append</b>
+<b>   \asdf</b>
+<b>   .</b>
+<b>   :set cpo-=C</b>
+
+Note that when the commands are inside a function, you need to add the '<a href="change.html#C">C</a>'
+flag when defining the function, it is not relevant when executing it.
+<b>   :set cpo+=C</b>
+<b>   :function Foo()</b>
+<b>   :1append</b>
+<b>   \asdf</b>
+<b>   .</b>
+<b>   :endfunction</b>
+<b>   :set cpo-=C</b>
+
+Rationale:
+	Most programs work with a trailing <a href="intro.html#backslash">backslash</a> to indicate line
+	continuation.  Using this in Vim would cause incompatibility with <a href="intro.html#Vi">Vi</a>.
+	For example for this <a href="intro.html#Vi">Vi</a> <a href="map.html#mapping">mapping</a>:
+<b>		:map xx  asdf\</b>
+ 	Therefore the unusual leading <a href="intro.html#backslash">backslash</a> is used.
+
+==============================================================================
+
+5. Debugging scripts					*<a name="debug-scripts"></A><b>debug-scripts</b>*
+
+Besides the obvious <a href="message.html#messages">messages</a> that you can add to your scripts to find out what
+they are doing, Vim offers a debug mode.  This allows you to step through a
+sourced file or user function and set breakpoints.
+
+NOTE: The debugging mode is far from perfect.  Debugging will have side
+effects on how Vim works.  You cannot use it to debug everything.  For
+example, the display is messed up by the debugging <a href="message.html#messages">messages</a>.
+{Vi does not have a debug mode}
+
+An alternative to debug mode is setting the <a href="options.html#'verbose'">'verbose'</a> option.  With a bigger
+number it will give more <a href="starting.html#verbose">verbose</a> <a href="message.html#messages">messages</a> about what Vim is doing.
+
+
+
+STARTING DEBUG MODE						*<a name="debug-mode"></A><b>debug-mode</b>*
+
+To enter debugging mode use one of these methods:
+1. Start Vim with the |<a href="starting.html#-D">-D</a>| argument:
+<b>	vim -D file.txt</b>
+   Debugging will start <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> the first <a href="starting.html#vimrc">vimrc</a> file is sourced.  This is
+   useful to find out what is happening when Vim is starting up.  A side
+   effect is that Vim will switch the terminal mode before initialisations
+   have finished, with unpredictable results.
+   For a GUI-only version (Windows, <a href="os_mac.html#Macintosh">Macintosh</a>) the debugging will start <a href="motion.html#as">as</a>
+   soon <a href="motion.html#as">as</a> the <a href="gui.html#GUI">GUI</a> <a href="windows.html#window">window</a> has been opened.  To make this happen early, add a
+   &quot;<a href="gui_x11.html#:gui">:gui</a>&quot; command in the <a href="starting.html#vimrc">vimrc</a> file.
+
+								*<a name=":debug"></A><b>:debug</b>*
+2. Run a command with &quot;<a href="repeat.html#:debug">:debug</a>&quot; prepended.  Debugging will only be done while
+   this command executes.  Useful for debugging a specific <a href="usr_41.html#script">script</a> or user
+   function.  And for scripts and <a href="eval.html#functions">functions</a> used by autocommands.  Example:
+<b>	:debug edit test.txt.gz</b>
+
+3. Set a breakpoint in a sourced file or user function.  You could <a href="diff.html#do">do</a> this in
+   the command line:
+<b>	vim -c "breakadd file */explorer.vim" .</b>
+   This will run Vim and stop in the first line of the &quot;explorer.vim&quot; <a href="usr_41.html#script">script</a>.
+   Breakpoints can also be set while in debugging mode.
+
+In debugging mode every executed command is displayed before it is executed.
+Comment lines, empty lines and lines that are not executed are skipped.  When
+a line contains two commands, separated by &quot;|&quot;, each command will be displayed
+separately.
+
+
+DEBUG MODE
+
+Once in debugging mode, the usual <a href="intro.html#Ex">Ex</a> commands can be used.  For example, to
+inspect the value of a variable:
+<b>	echo idx</b>
+When inside a user function, this will print the value of the local variable
+&quot;idx&quot;.  Prepend &quot;g:&quot; to get the value of a global variable:
+<b>	echo g:idx</b>
+All commands are executed in the context of the current function or <a href="usr_41.html#script">script</a>.
+You can also set <a href="options.html#options">options</a>, for example setting or resetting <a href="options.html#'verbose'">'verbose'</a> will show
+what happens, but you might want to set it just before executing the lines you
+are interested in:
+<b>	:set verbose=20</b>
+
+Commands that require updating the screen should be avoided, because their
+effect won't be noticed until after leaving debug mode.  For example:
+<b>	:help</b>
+won't be very helpful.
+
+There is a separate command-line <a href="cmdline.html#history">history</a> for debug mode.
+
+The line number for a function line is relative to the start of the function.
+If you have trouble figuring out where you are, edit the file that defines
+the function in another Vim, search for the start of the function and <a href="diff.html#do">do</a>
+&quot;99j&quot;.  <a href="insert.html#Replace">Replace</a> &quot;99&quot; with the line number.
+
+Additionally, these commands can be used:
+
+							*<a name="&gt;cont"></A><b>&gt;cont</b>*
+	cont		Continue execution until the next breakpoint is hit.
+
+							*<a name="&gt;quit"></A><b>&gt;quit</b>*
+	quit		Abort execution.  This is like using <a href="pattern.html#CTRL-C">CTRL-C</a>, some
+			things might still be executed, doesn't abort
+			everything.  Still stops at the next breakpoint.
+
+							*<a name="&gt;next"></A><b>&gt;next</b>*
+	next		Execute the command and come back to debug mode when
+			it's finished.  This steps over user function calls
+			and sourced files.
+
+							*<a name="&gt;step"></A><b>&gt;step</b>*
+	step		Execute the command and come back to debug mode for
+			the next command.  This steps into called user
+			<a href="eval.html#functions">functions</a> and sourced files.
+
+							*<a name="&gt;interrupt"></A><b>&gt;interrupt</b>*
+	interrupt	This is like using <a href="pattern.html#CTRL-C">CTRL-C</a>, but unlike &quot;<a href="repeat.html#&gt;quit">&gt;quit</a>&quot; comes
+			back to debug mode for the next command that is
+			executed.  Useful for testing |<a href="eval.html#:finally">:finally</a>| and |<a href="eval.html#:catch">:catch</a>|
+			on interrupt exceptions.
+
+							*<a name="&gt;finish"></A><b>&gt;finish</b>*
+	finish		Finish the current <a href="usr_41.html#script">script</a> or user function and come
+			back to debug mode for the command after the one that
+			sourced or called it.
+
+About the additional commands in debug mode:
+- There is no command-line completion for them, you get the completion for the
+  normal <a href="intro.html#Ex">Ex</a> commands only.
+- You can shorten them, up to a single character: &quot;<a href="change.html#c">c</a>&quot;, &quot;<a href="pattern.html#n">n</a>&quot;, &quot;<a href="change.html#s">s</a>&quot; and &quot;<a href="motion.html#f">f</a>&quot;.
+- Hitting <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> will repeat the previous one.  When doing another command, this
+  is reset (because it's not clear what you want to repeat).
+- When you want to use the <a href="intro.html#Ex">Ex</a> command with the same name, prepend a colon:
+  &quot;:cont&quot;, &quot;<a href="editing.html#:next">:next</a>&quot;, &quot;<a href="repeat.html#:finish">:finish</a>&quot; (or shorter).
+
+
+DEFINING BREAKPOINTS
+
+							*<a name=":breaka"></A><b>:breaka</b>* *<a name=":breakadd"></A><b>:breakadd</b>*
+:breaka[dd] func [lnum] {name}
+		Set a breakpoint in a function.  Example:
+<b>			:breakadd func Explore</b>
+ 		Doesn't check for a valid function name, thus the breakpoint
+		can be set before the function is defined.
+
+:breaka[dd] file [lnum] {name}
+		Set a breakpoint in a sourced file.  Example:
+<b>			:breakadd file 43 .vimrc</b>
+
+:breaka[dd] here
+		Set a breakpoint in the current line of the current file.
+		Like doing:
+<b>			:breakadd file &lt;cursor-line&gt; &lt;current-file&gt;</b>
+ 		Note that this only works for commands that are executed when
+		sourcing the file, not for a function defined in that file.
+
+The [lnum] is the line number of the breakpoint.  Vim will stop at or after
+this line.  When omitted line 1 is used.
+
+
+							*<a name=":debug-name"></A><b>:debug-name</b>*
+{name} is a <a href="pattern.html#pattern">pattern</a> that is matched with the file or function name.  The
+<a href="pattern.html#pattern">pattern</a> is like what is used for autocommands.  There must be a full match (as
+if the <a href="pattern.html#pattern">pattern</a> starts with &quot;<a href="motion.html#^">^</a>&quot; and ends in &quot;$&quot;).  A &quot;*&quot; matches any sequence
+of characters.  <a href="options.html#'ignorecase'">'ignorecase'</a> is not used, but &quot;\c&quot; can be used in the <a href="pattern.html#pattern">pattern</a>
+to ignore <a href="change.html#case">case</a> |<a href="pattern.html#/\c">/\c</a>|.  Don't include the () for the function name!
+
+The match for sourced scripts is done against the full file name.  If no path
+is specified the current directory is used.  Examples:
+<b>	breakadd file explorer.vim</b>
+matches &quot;explorer.vim&quot; in the current directory.
+<b>	breakadd file *explorer.vim</b>
+matches &quot;.../plugin/explorer.vim&quot;, &quot;.../plugin/iexplorer.vim&quot;, etc.
+<b>	breakadd file */explorer.vim</b>
+matches &quot;.../plugin/explorer.vim&quot; and &quot;explorer.vim&quot; in any other directory.
+
+The match for <a href="eval.html#functions">functions</a> is done against the name <a href="motion.html#as">as</a> it's shown in the output
+of &quot;<a href="eval.html#:function">:function</a>&quot;.  For local <a href="eval.html#functions">functions</a> this means that something like &quot;&lt;SNR&gt;99_&quot;
+is prepended.
+
+Note that <a href="eval.html#functions">functions</a> are first loaded and later executed.  When they are loaded
+the &quot;file&quot; breakpoints are checked, when they are executed the &quot;func&quot;
+breakpoints.
+
+
+DELETING BREAKPOINTS
+
+						*<a name=":breakd"></A><b>:breakd</b>* *<a name=":breakdel"></A><b>:breakdel</b>* *<a name="E161"></A><b>E161</b>*
+:breakd[el] {nr}
+		Delete breakpoint {nr}.  Use |<a href="repeat.html#:breaklist">:breaklist</a>| to see the number of
+		each breakpoint.
+
+:breakd[el] *
+		Delete all breakpoints.
+
+:breakd[el] func [lnum] {name}
+		Delete a breakpoint in a function.
+
+:breakd[el] file [lnum] {name}
+		Delete a breakpoint in a sourced file.
+
+:breakd[el] here
+		Delete a breakpoint at the current line of the current file.
+
+When [lnum] is omitted, the first breakpoint in the function or file is
+deleted.
+The {name} must be exactly the same <a href="motion.html#as">as</a> what was typed for the &quot;<a href="repeat.html#:breakadd">:breakadd</a>&quot;
+command.  &quot;explorer&quot;, &quot;*explorer.vim&quot; and &quot;*explorer*&quot; are different.
+
+
+LISTING BREAKPOINTS
+
+							*<a name=":breakl"></A><b>:breakl</b>* *<a name=":breaklist"></A><b>:breaklist</b>*
+:breakl[ist]
+		<a href="eval.html#List">List</a> all breakpoints.
+
+
+OBSCURE
+
+
+						*<a name=":debugg"></A><b>:debugg</b>* *<a name=":debuggreedy"></A><b>:debuggreedy</b>*
+:debugg[reedy]
+		Read debug mode commands from the normal input stream, instead
+		of getting them directly from the user.  Only useful for test
+		scripts.  Example:
+<b>		  echo 'q^Mq' | vim -e -s -c debuggreedy -c 'breakadd file script.vim' -S script.vim</b>
+
+:0debugg[reedy]
+		Undo &quot;<a href="repeat.html#:debuggreedy">:debuggreedy</a>&quot;: get debug mode commands directly from the
+		user, don't use typeahead for debug commands.
+
+==============================================================================
+
+6. Profiling						*<a name="profile"></A><b>profile</b>* *<a name="profiling"></A><b>profiling</b>*
+
+Profiling means that Vim measures the time that is spent on executing
+<a href="eval.html#functions">functions</a> and/or scripts.  The |<a href="various.html#+profile">+profile</a>| feature is required for this.
+It is only included when Vim was compiled with &quot;huge&quot; features.
+{Vi does not have profiling}
+
+You can also use the |<a href="eval.html#reltime()">reltime()</a>| function to measure time.  This only requires
+the |<a href="various.html#+reltime">+reltime</a>| feature, which is present more often.
+
+
+:prof[ile] start {fname}			*<a name=":prof"></A><b>:prof</b>* *<a name=":profile"></A><b>:profile</b>* *<a name="E750"></A><b>E750</b>*
+		Start <a href="repeat.html#profiling">profiling</a>, write the output in {fname} upon exit.
+		If {fname} already exists it will be silently overwritten.
+		The variable |<a href="eval.html#v:profiling">v:profiling</a>| is set to one.
+
+:prof[ile] pause
+		Don't <a href="repeat.html#profile">profile</a> until the following &quot;<a href="repeat.html#:profile">:profile</a> continue&quot;.  Can be
+		used when doing something that should not be counted (e.g., an
+		external command).  Does not nest.
+
+:prof[ile] continue
+		Continue <a href="repeat.html#profiling">profiling</a> after &quot;<a href="repeat.html#:profile">:profile</a> pause&quot;.
+
+:prof[ile] func {pattern}
+		Profile function that matches the <a href="pattern.html#pattern">pattern</a> {pattern}.
+		See |<a href="repeat.html#:debug-name">:debug-name</a>| for how {pattern} is used.
+
+:prof[ile][!] file {pattern}
+		Profile <a href="usr_41.html#script">script</a> file that matches the <a href="pattern.html#pattern">pattern</a> {pattern}.
+		See |<a href="repeat.html#:debug-name">:debug-name</a>| for how {pattern} is used.
+		This only profiles the <a href="usr_41.html#script">script</a> itself, not the <a href="eval.html#functions">functions</a>
+		defined in it.
+		When the [!] is added then all <a href="eval.html#functions">functions</a> defined in the <a href="usr_41.html#script">script</a>
+		will also be profiled.  But only if the <a href="usr_41.html#script">script</a> is loaded after
+		this command.
+
+
+
+:profd[el] <a href="eval.html#...">...</a>						*<a name=":profd"></A><b>:profd</b>* *<a name=":profdel"></A><b>:profdel</b>*
+		Stop <a href="repeat.html#profiling">profiling</a> for the arguments specified. See |<a href="repeat.html#:breakdel">:breakdel</a>|
+		for the arguments.
+
+
+You must always start with a &quot;<a href="repeat.html#:profile">:profile</a> start fname&quot; command.  The resulting
+file is written when Vim exits.  Here is an example of the output, with line
+numbers prepended for the explanation:
+
+<b><font color="purple">  1 FUNCTION  Test2() </font></b>
+<b><font color="purple">  2 Called 1 time </font></b>
+<b><font color="purple">  3 Total time:   0.155251 </font></b>
+<b><font color="purple">  4  Self time:   0.002006 </font></b>
+<b><font color="purple">  5  </font></b>
+<b><font color="purple">  6 count  total (s)   self (s) </font></b>
+<b><font color="purple">  7	9	       0.000096   for i in range(8) </font></b>
+<b><font color="purple">  8	8   0.153655   0.000410     call Test3() </font></b>
+<b><font color="purple">  9	8	       0.000070   endfor </font></b>
+<b><font color="purple"> 10				  " Ask a question </font></b>
+<b><font color="purple"> 11	1	       0.001341   echo input("give me an answer: ") </font></b>
+
+The header (lines 1-4) gives the time for the whole function.  The &quot;Total&quot;
+time is the time passed while the function was executing.  The &quot;Self&quot; time is
+the &quot;Total&quot; time reduced by time spent in:
+- other user defined <a href="eval.html#functions">functions</a>
+- sourced scripts
+- executed autocommands
+- external (shell) commands
+
+Lines 7-11 show the time spent in each executed line.  Lines that are not
+executed <a href="diff.html#do">do</a> not <a href="intro.html#count">count</a>.  Thus a comment line is never counted.
+
+The Count column shows how many times a line was executed.  Note that the
+&quot;for&quot; command in line 7 is executed one more time <a href="motion.html#as">as</a> the following lines.
+That is because the line is also executed to detect the end of the loop.
+
+The time Vim spends waiting for user input isn't counted at all.  Thus how
+long you take to respond to the <a href="eval.html#input()">input()</a> prompt is irrelevant.
+
+Profiling should give a good indication of where time is spent, but keep in
+mind there are various things that may clobber the results:
+
+- The accuracy of the time measured depends on the gettimeofday() system
+  function.  It may only be <a href="motion.html#as">as</a> accurate <a href="motion.html#as">as</a> 1/100 second, even though the times
+  are displayed in micro seconds.
+
+- Real elapsed time is measured, if other processes are busy they may cause
+  delays at unpredictable moments.  You may want to run the <a href="repeat.html#profiling">profiling</a> several
+  times and use the lowest results.
+
+- If you have several commands in one line you only get one time.  Split the
+  line to see the time for the individual commands.
+
+- The time of the lines added up is mostly <a href="various.html#less">less</a> than the time of the whole
+  function.  There is some overhead in between.
+
+- Functions that are deleted before Vim exits will not produce <a href="repeat.html#profiling">profiling</a>
+  information.  You can check the |<a href="eval.html#v:profiling">v:profiling</a>| variable if needed:
+<b>	:if !v:profiling</b>
+<b>	:   delfunc MyFunc</b>
+<b>	:endif</b>
+ 
+- Profiling may give weird results on multi-processor systems, when sleep
+  mode kicks in or the processor frequency is reduced to save power.
+
+- The &quot;<a href="eval.html#self">self</a>&quot; time is wrong when a function is used recursively.
+
+
+<a href="repeat.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

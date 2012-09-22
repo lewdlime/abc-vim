@@ -1,0 +1,444 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_45</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_45</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_45.txt"></A><b>usr_45.txt</b>*	For Vim version 7.3.  Last change: 2008 Nov 15
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			     <a href="visual.html#Select">Select</a> your language
+
+
+The <a href="message.html#messages">messages</a> in Vim can be given in several languages.  This chapter explains
+how to change which one is used.  Also, the different ways to work with files
+in various languages is explained.
+
+|<a href="usr_45.html#45.1">45.1</a>|	Language for Messages
+|<a href="usr_45.html#45.2">45.2</a>|	Language for Menus
+|<a href="usr_45.html#45.3">45.3</a>|	Using another encoding
+|<a href="usr_45.html#45.4">45.4</a>|	Editing files with a different encoding
+|<a href="usr_45.html#45.5">45.5</a>|	Entering language text
+
+     Next chapter: |<a href="usr_90.html">usr_90.txt</a>|  Installing Vim
+ Previous chapter: |<a href="usr_44.html">usr_44.txt</a>|  Your own <a href="syntax.html#syntax">syntax</a> highlighted
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="45.1"></A><b>45.1</b>*	Language for Messages
+
+When you start Vim, it checks the environment to find out what language you
+are using.  Mostly this should work fine, and you get the <a href="message.html#messages">messages</a> in your
+language (if they are available).  To see what the current language is, use
+this command:
+
+<b>	:language</b>
+
+If it replies with &quot;<a href="change.html#C">C</a>&quot;, this means the default is being used, which is
+English.
+
+	Note:
+	Using different languages only works when Vim was compiled to handle
+	it.  To find out if it works, use the &quot;<a href="various.html#:version">:version</a>&quot; command and check the
+	output for &quot;<a href="various.html#+gettext">+gettext</a>&quot; and &quot;<a href="various.html#+multi_lang">+multi_lang</a>&quot;.  If they are there, you are
+	OK.  If you see &quot;-gettext&quot; or &quot;-multi_lang&quot; you will have to find
+	another Vim.
+
+What if you would like your <a href="message.html#messages">messages</a> in a different language?  There are
+several ways.  Which one you should use depends on the capabilities of your
+system.
+   The first way is to set the environment to the desired language before
+starting Vim.  Example for <a href="os_unix.html#Unix">Unix</a>:
+
+<b>	env LANG=de_DE.ISO_8859-1  vim</b>
+
+This only works if the language is available on your system.  The advantage is
+that all the <a href="gui.html#GUI">GUI</a> <a href="message.html#messages">messages</a> and things in libraries will use the right language
+<a href="motion.html#as">as</a> well.  A disadvantage is that you must <a href="diff.html#do">do</a> this before starting Vim.  If you
+want to change language while Vim is running, you can use the second method:
+
+<b>	:language fr_FR.ISO_8859-1</b>
+
+This way you can try out several names for your language.  You will get an
+error message when it's not supported on your system.  You don't get an error
+when translated <a href="message.html#messages">messages</a> are not available.  Vim will silently fall back to
+using English.
+   To find out which languages are supported on your system, find the
+directory where they are listed.  On my system it is &quot;/usr/share/locale&quot;.  On
+some systems it's in &quot;/usr/lib/locale&quot;.  The manual page for &quot;setlocale&quot;
+should give you a hint where it is found on your system.
+   Be careful to type the name exactly <a href="motion.html#as">as</a> it should be.  Upper and <a href="change.html#lowercase">lowercase</a>
+matter, and the '<a href="motion.html#-">-</a>' and '<a href="motion.html#_">_</a>' characters are easily confused.
+
+You can also set the language separately for <a href="message.html#messages">messages</a>, edited text and the
+time format.  See |<a href="mlang.html#:language">:language</a>|.
+
+
+DO-IT-YOURSELF MESSAGE TRANSLATION
+
+If translated <a href="message.html#messages">messages</a> are not available for your language, you could write
+them yourself.  To <a href="diff.html#do">do</a> this, get the source code for Vim and the GNU gettext
+package.  After unpacking the sources, instructions can be found in the
+directory src/po/README.txt.
+   It's not too difficult to <a href="diff.html#do">do</a> the translation.  You don't need to be a
+programmer.  You must know both English and the language you are translating
+to, of course.
+   When you are satisfied with the translation, consider making it available
+ to others. Upload it at vim-online	<a href="http://vim.sf.net">http://vim.sf.net</a> or e-mail it to
+the Vim maintainer <a href="mailto:maintainer@vim.org">&lt;maintainer@vim.org&gt;</a>. Or both. 
+
+==============================================================================
+
+*<a name="45.2"></A><b>45.2</b>*	Language for Menus
+
+The default <a href="gui.html#menus">menus</a> are in English.  To be able to use your local language, they
+must be translated.  Normally this is automatically done for you if the
+environment is set for your language, just like with <a href="message.html#messages">messages</a>.  You don't need
+to <a href="diff.html#do">do</a> anything extra for this.  But it only works if translations for the
+language are available.
+   Suppose you are in Germany, with the language set to German, but prefer to
+use &quot;File&quot; instead of &quot;Datei&quot;.  You can switch back to using the English <a href="gui.html#menus">menus</a>
+this way:
+
+<b>	:set langmenu=none</b>
+
+It is also possible to specify a language:
+
+<b>	:set langmenu=nl_NL.ISO_8859-1</b>
+
+Like above, differences between &quot;<a href="motion.html#-">-</a>&quot; and &quot;<a href="motion.html#_">_</a>&quot; matter.  However, upper/lowercase
+differences are ignored here.
+   The <a href="options.html#'langmenu'">'langmenu'</a> option must be set before the <a href="gui.html#menus">menus</a> are loaded.  Once the
+<a href="gui.html#menus">menus</a> have been defined <a href="change.html#changing">changing</a> <a href="options.html#'langmenu'">'langmenu'</a> has no direct effect.  Therefore,
+put the command to set <a href="options.html#'langmenu'">'langmenu'</a> in your <a href="starting.html#vimrc">vimrc</a> file.
+   If you really want to switch menu language while running Vim, you can <a href="diff.html#do">do</a> it
+this way:
+
+<b>	:source $VIMRUNTIME/delmenu.vim</b>
+<b>	:set langmenu=de_DE.ISO_8859-1</b>
+<b>	:source $VIMRUNTIME/menu.vim</b>
+
+There is one drawback: All <a href="gui.html#menus">menus</a> that you defined yourself will be gone.  You
+will need to redefine them <a href="motion.html#as">as</a> well.
+
+
+DO-IT-YOURSELF MENU TRANSLATION
+
+To see which menu translations are available, look in this directory:
+
+<b><font color="purple">	$VIMRUNTIME/lang </font></b>
+
+The files are called menu_{language}.vim.  If you don't see the language you
+want to use, you can <a href="diff.html#do">do</a> your own translations.  The simplest way to <a href="diff.html#do">do</a> this is
+by <a href="uganda.html#copying">copying</a> one of the existing language files, and change it.
+   First find out the name of your language with the &quot;<a href="mlang.html#:language">:language</a>&quot; command.  Use
+this name, but with all letters made <a href="change.html#lowercase">lowercase</a>.  Then copy the file to your
+own runtime directory, <a href="motion.html#as">as</a> found early in <a href="options.html#'runtimepath'">'runtimepath'</a>.  For example, for <a href="os_unix.html#Unix">Unix</a>
+you would <a href="diff.html#do">do</a>:
+
+<b>	:!cp $VIMRUNTIME/lang/menu_ko_kr.euckr.vim ~/.vim/lang/menu_nl_be.iso_8859-1.vim</b>
+
+You will find hints for the translation in &quot;$VIMRUNTIME/lang/README.txt&quot;.
+
+==============================================================================
+
+*<a name="45.3"></A><b>45.3</b>*	Using another encoding
+
+Vim guesses that the files you are going to edit are encoded for your
+language.  For many European languages this is &quot;latin1&quot;.  Then each byte is
+one character.  That means there are 256 different characters possible.  For
+Asian languages this is not sufficient.  These mostly use a double-byte
+encoding, providing for over ten thousand possible characters.  This still
+isn't enough when a text is to contain several different languages.  This is
+where <a href="mbyte.html#Unicode">Unicode</a> comes in.  It was designed to include all characters used in
+commonly used languages.  This is the &quot;Super encoding that replaces all
+others&quot;.  But it isn't used that much yet.
+   Fortunately, Vim supports these three kinds of encodings.  And, with some
+restrictions, you can use them even when your environment uses another
+language than the text.
+   Nevertheless, when you only edit files that are in the encoding of your
+language, the default should work fine and you don't need to <a href="diff.html#do">do</a> anything.  The
+following is only relevant when you want to edit different languages.
+
+	Note:
+	Using different encodings only works when Vim was compiled to handle
+	it.  To find out if it works, use the &quot;<a href="various.html#:version">:version</a>&quot; command and check the
+	output for &quot;<a href="various.html#+multi_byte">+multi_byte</a>&quot;.  If it's there, you are OK.  If you see
+	&quot;-multi_byte&quot; you will have to find another Vim.
+
+
+USING UNICODE IN THE <a href="gui.html#GUI">GUI</a>
+
+The <a href="todo.html#nice">nice</a> thing about <a href="mbyte.html#Unicode">Unicode</a> is that other encodings can be converted to it
+and back without losing information.  When you make Vim use <a href="mbyte.html#Unicode">Unicode</a>
+internally, you will be able to edit files in any encoding.
+   Unfortunately, the number of systems supporting <a href="mbyte.html#Unicode">Unicode</a> is still limited.
+Thus it's unlikely that your language uses it.  You need to tell Vim you want
+to use <a href="mbyte.html#Unicode">Unicode</a>, and how to handle interfacing with the rest of the system.
+   Let's start with the <a href="gui.html#GUI">GUI</a> version of Vim, which is able to display <a href="mbyte.html#Unicode">Unicode</a>
+characters.  This should work:
+
+<b>	:set encoding=utf-8</b>
+<b>	:set guifont=-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1</b>
+
+The <a href="options.html#'encoding'">'encoding'</a> option tells Vim the encoding of the characters that you use.
+This applies to the text in <a href="windows.html#buffers">buffers</a> (files you are editing), <a href="change.html#registers">registers</a>, Vim
+<a href="usr_41.html#script">script</a> files, etc.  You can regard <a href="options.html#'encoding'">'encoding'</a> <a href="motion.html#as">as</a> the setting for the internals
+of Vim.
+   This example assumes you have this font on your system.  The name in the
+example is for the X Window System.  This font is in a package that is used to
+enhance xterm with <a href="mbyte.html#Unicode">Unicode</a> support.  If you don't have this font, you might
+find it here:
+
+<b><font color="purple">	http://www.cl.cam.ac.uk/~mgk25/download/ucs-fonts.tar.gz </font></b>
+
+For <a href="os_win32.html#MS-Windows">MS-Windows</a>, some fonts have a limited number of <a href="mbyte.html#Unicode">Unicode</a> characters.  Try
+using the &quot;Courier New&quot; font.  You can use the Edit/Select Font... menu to
+select and try out the fonts available.  Only fixed-width fonts can be used
+though.  Example:
+
+<b>	:set guifont=courier_new:h12</b>
+
+If it doesn't work well, try getting a fontpack.  If Microsoft didn't move it,
+you can find it here:
+
+<b><font color="purple">	http://www.microsoft.com/typography/fonts/default.aspx </font></b>
+
+Now you have told Vim to use <a href="mbyte.html#Unicode">Unicode</a> internally and display text with a
+<a href="mbyte.html#Unicode">Unicode</a> font.  Typed characters still arrive in the encoding of your original
+language.  This requires converting them to <a href="mbyte.html#Unicode">Unicode</a>.  Tell Vim the language
+from which to convert with the <a href="options.html#'termencoding'">'termencoding'</a> option.  You can <a href="diff.html#do">do</a> it like
+this:
+
+<b>	:let &amp;termencoding = &amp;encoding</b>
+<b>	:set encoding=utf-8</b>
+
+This assigns the old value of <a href="options.html#'encoding'">'encoding'</a> to <a href="options.html#'termencoding'">'termencoding'</a> before setting
+<a href="options.html#'encoding'">'encoding'</a> to <a href="mbyte.html#utf-8">utf-8</a>.  You will have to try out if this really works for your
+setup.  It should work especially well when using an input method for an Asian
+language, and you want to edit <a href="mbyte.html#Unicode">Unicode</a> text.
+
+
+USING UNICODE IN A UNICODE TERMINAL
+
+There are terminals that support <a href="mbyte.html#Unicode">Unicode</a> directly.  The standard xterm that
+comes with XFree86 is one of them.  Let's use that <a href="motion.html#as">as</a> an example.
+   First of all, the xterm must have been compiled with <a href="mbyte.html#Unicode">Unicode</a> support.  See
+|<a href="mbyte.html#UTF8-xterm">UTF8-xterm</a>| how to check that and how to compile it when needed.
+   Start the xterm with the &quot;-u8&quot; argument.  You might also need so specify a
+font.  Example:
+
+<b>   xterm -u8 -fn -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1</b>
+
+Now you can run Vim inside this terminal.  Set <a href="options.html#'encoding'">'encoding'</a> to &quot;<a href="mbyte.html#utf-8">utf-8</a>&quot; <a href="motion.html#as">as</a>
+before.  That's all.
+
+
+USING UNICODE IN AN ORDINARY TERMINAL
+
+Suppose you want to work with <a href="mbyte.html#Unicode">Unicode</a> files, but don't have a terminal with
+<a href="mbyte.html#Unicode">Unicode</a> support.  You can <a href="diff.html#do">do</a> this with Vim, although characters that are not
+supported by the terminal will not be displayed.  The layout of the text
+will be preserved. 
+
+<b>	:let &amp;termencoding = &amp;encoding</b>
+<b>	:set encoding=utf-8</b>
+
+This is the same <a href="motion.html#as">as</a> what was used for the <a href="gui.html#GUI">GUI</a>.  But it works differently: Vim
+will convert the displayed text before sending it to the terminal.  That
+avoids that the display is messed up with strange characters.
+   For this to work the conversion between <a href="options.html#'termencoding'">'termencoding'</a> and <a href="options.html#'encoding'">'encoding'</a> must
+be possible.  Vim will convert from latin1 to <a href="mbyte.html#Unicode">Unicode</a>, thus that always works.
+For other conversions the |<a href="various.html#+iconv">+iconv</a>| feature is required.
+   Try editing a file with <a href="mbyte.html#Unicode">Unicode</a> characters in it.  You will notice that Vim
+will put a question <a href="motion.html#mark">mark</a> (or underscore or some other character) in places
+where a character should be that the terminal can't display.  Move the cursor
+to a question <a href="motion.html#mark">mark</a> and use this command:
+
+<b>	ga</b>
+
+Vim will display a line with the code of the character.  This gives you a hint
+about what character it is.  You can look it up in a <a href="mbyte.html#Unicode">Unicode</a> table.  You could
+actually <a href="starting.html#view">view</a> a file that way, if you have lots of time at hand.
+
+	Note:
+	Since <a href="options.html#'encoding'">'encoding'</a> is used for all text inside Vim, <a href="change.html#changing">changing</a> it makes
+	all non-ASCII text invalid.  You will notice this when using <a href="change.html#registers">registers</a>
+	and the <a href="options.html#'viminfo'">'viminfo'</a> file (e.g., a remembered search <a href="pattern.html#pattern">pattern</a>).  It's
+	recommended to set <a href="options.html#'encoding'">'encoding'</a> in your <a href="starting.html#vimrc">vimrc</a> file, and leave it alone.
+
+==============================================================================
+
+*<a name="45.4"></A><b>45.4</b>*	Editing files with a different encoding
+
+Suppose you have setup Vim to use <a href="mbyte.html#Unicode">Unicode</a>, and you want to edit a file that is
+in 16-bit <a href="mbyte.html#Unicode">Unicode</a>.  Sounds simple, right?  Well, Vim actually uses <a href="mbyte.html#utf-8">utf-8</a>
+encoding internally, thus the 16-bit encoding must be converted, since there
+is a difference between the character set (Unicode) and the encoding (utf-8 or
+16-bit).
+   Vim will try to detect what kind of file you are editing.  It uses the
+encoding names in the <a href="options.html#'fileencodings'">'fileencodings'</a> option.  When using <a href="mbyte.html#Unicode">Unicode</a>, the default
+value is: &quot;ucs-bom,utf-8,latin1&quot;.  This means that Vim checks the file to see
+if it's one of these encodings:
+
+	ucs-bom		File must start with a Byte Order <a href="motion.html#Mark">Mark</a> (BOM).  This
+			allows detection of 16-bit, 32-bit and <a href="mbyte.html#utf-8">utf-8</a> <a href="mbyte.html#Unicode">Unicode</a>
+			encodings.
+	<a href="mbyte.html#utf-8">utf-8</a>		<a href="mbyte.html#utf-8">utf-8</a> <a href="mbyte.html#Unicode">Unicode</a>.  This is rejected when a sequence of
+			bytes is illegal in <a href="mbyte.html#utf-8">utf-8</a>.
+	latin1		The good old 8-bit encoding.  Always works.
+
+When you start editing that 16-bit <a href="mbyte.html#Unicode">Unicode</a> file, and it has a BOM, Vim will
+detect this and convert the file to <a href="mbyte.html#utf-8">utf-8</a> when reading it.  The <a href="options.html#'fileencoding'">'fileencoding'</a>
+option (without <a href="change.html#s">s</a> at the end) is set to the detected value.  In this <a href="change.html#case">case</a> it
+is &quot;utf-16le&quot;.  That means it's <a href="mbyte.html#Unicode">Unicode</a>, 16-bit and little-endian.  This
+file format is common on <a href="os_win32.html#MS-Windows">MS-Windows</a> (e.g., for registry files).
+   When <a href="editing.html#writing">writing</a> the file, Vim will compare <a href="options.html#'fileencoding'">'fileencoding'</a> with <a href="options.html#'encoding'">'encoding'</a>.  If
+they are different, the text will be converted.
+   An empty value for <a href="options.html#'fileencoding'">'fileencoding'</a> means that no conversion is to be done.
+Thus the text is assumed to be encoded with <a href="options.html#'encoding'">'encoding'</a>.
+
+If the default <a href="options.html#'fileencodings'">'fileencodings'</a> value is not good for you, set it to the
+encodings you want Vim to try.  Only when a value is found to be invalid will
+the next one be used.  Putting &quot;latin1&quot; first doesn't work, because it is
+never illegal.  An example, to fall back to <a href="mbyte.html#Japanese">Japanese</a> when the file doesn't
+have a BOM and isn't <a href="mbyte.html#utf-8">utf-8</a>:
+
+<b>	:set fileencodings=ucs-bom,utf-8,sjis</b>
+
+See |<a href="mbyte.html#encoding-values">encoding-values</a>| for suggested values.  Other values may work <a href="motion.html#as">as</a> well.
+This depends on the conversion available.
+
+
+FORCING AN ENCODING
+
+If the automatic detection doesn't work you must tell Vim what encoding the
+file is.  Example:
+
+<b>	:edit ++enc=koi8-r russian.txt</b>
+
+The &quot;<a href="editing.html#++enc">++enc</a>&quot; part specifies the name of the encoding to be used for this file
+only.  Vim will convert the file from the specified encoding, <a href="russian.html#Russian">Russian</a> in this
+example, to <a href="options.html#'encoding'">'encoding'</a>.  <a href="options.html#'fileencoding'">'fileencoding'</a> will also be set to the specified
+encoding, so that the reverse conversion can be done when <a href="editing.html#writing">writing</a> the file.
+   The same argument can be used when <a href="editing.html#writing">writing</a> the file.  This way you can
+actually use Vim to convert a file.  Example:
+
+<b>	:write ++enc=utf-8 russian.txt</b>
+ 
+	Note:
+	Conversion may result in lost characters.  Conversion from an encoding
+	to <a href="mbyte.html#Unicode">Unicode</a> and back is mostly free of this problem, unless there are
+	illegal characters.  Conversion from <a href="mbyte.html#Unicode">Unicode</a> to other encodings often
+	loses information when there was more than one language in the file.
+
+==============================================================================
+
+*<a name="45.5"></A><b>45.5</b>*	Entering language text
+
+Computer keyboards don't have much more than a hundred keys.  Some languages
+have thousands of characters, <a href="mbyte.html#Unicode">Unicode</a> has ten thousands.  So how <a href="diff.html#do">do</a> you type
+these characters?
+   First of all, when you don't use too many of the special characters, you
+can use <a href="digraph.html#digraphs">digraphs</a>.  This was already explained in |<a href="usr_24.html#24.9">24.9</a>|.
+   When you use a language that uses many more characters than keys on your
+keyboard, you will want to use an Input Method (IM).  This requires learning
+the translation from typed keys to resulting character.  When you need an IM
+you probably already have one on your system.  It should work with Vim like
+with other programs.  For details see |<a href="mbyte.html#mbyte-XIM">mbyte-XIM</a>| for the X Window system and
+|<a href="mbyte.html#mbyte-IME">mbyte-IME</a>| for <a href="os_win32.html#MS-Windows">MS-Windows</a>.
+
+
+KEYMAPS
+
+For some languages the character set is different from latin, but uses a
+similar number of characters.  It's possible to map keys to characters.  Vim
+uses keymaps for this.
+   Suppose you want to type Hebrew.  You can load the keymap like this:
+
+<b>	:set keymap=hebrew</b>
+
+Vim will try to find a keymap file for you.  This depends on the value of
+<a href="options.html#'encoding'">'encoding'</a>.  If no matching file was found, you will get an error message.
+
+Now you can type Hebrew in <a href="insert.html#Insert">Insert</a> mode.  In <a href="intro.html#Normal">Normal</a> mode, and when typing a &quot;<a href="cmdline.html#:">:</a>&quot;
+command, Vim automatically switches to English.  You can use this command to
+switch between Hebrew and English:
+
+<b>	CTRL-^</b>
+
+This only works in <a href="insert.html#Insert">Insert</a> mode and <a href="cmdline.html#Command-line">Command-line</a> mode.  In <a href="intro.html#Normal">Normal</a> mode it does
+something completely different (jumps to alternate file).
+   The usage of the keymap is indicated in the mode message, if you have the
+<a href="options.html#'showmode'">'showmode'</a> option set.  In the <a href="gui.html#GUI">GUI</a> Vim will indicate the usage of keymaps with
+a different cursor color.
+   You can also change the usage of the keymap with the <a href="options.html#'iminsert'">'iminsert'</a> and
+<a href="options.html#'imsearch'">'imsearch'</a> <a href="options.html#options">options</a>.
+
+To see the list of mappings, use this command:
+
+<b>	:lmap</b>
+
+To find out which keymap files are available, in the <a href="gui.html#GUI">GUI</a> you can use the
+Edit/Keymap menu.  Otherwise you can use this command:
+
+<b>	:echo globpath(&amp;rtp, "keymap/*.vim")</b>
+
+
+DO-IT-YOURSELF KEYMAPS
+
+You can create your own keymap file.  It's not very difficult.  Start with
+a keymap file that is similar to the language you want to use.  Copy it to the
+&quot;keymap&quot; directory in your runtime directory.  For example, for <a href="os_unix.html#Unix">Unix</a>, you
+would use the directory &quot;~/.vim/keymap&quot;.
+   The name of the keymap file must look like this:
+
+<b><font color="purple">	keymap/{name}.vim </font></b>
+or
+<b><font color="purple">	keymap/{name}_{encoding}.vim </font></b>
+
+{name} is the name of the keymap.  Chose a name that is obvious, but different
+from existing keymaps (unless you want to replace an existing keymap file).
+{name} cannot contain an underscore.  Optionally, add the encoding used after
+an underscore.  Examples:
+
+<b><font color="purple">	keymap/hebrew.vim </font></b>
+<b><font color="purple">	keymap/hebrew_utf-8.vim </font></b>
+
+The contents of the file should be self-explanatory.  Look at a few of the
+keymaps that are distributed with Vim.  For the details, see |<a href="mbyte.html#mbyte-keymap">mbyte-keymap</a>|.
+
+
+LAST RESORT
+
+If all other methods fail, you can enter any character with <a href="visual.html#CTRL-V">CTRL-V</a>:
+
+<b><font color="purple">	encoding   type			range </font></b>
+	8-bit	   <a href="visual.html#CTRL-V">CTRL-V</a> 123		decimal 0-255
+	8-bit	   <a href="visual.html#CTRL-V">CTRL-V</a> <a href="change.html#x">x</a> a1		hexadecimal 00-ff
+	16-bit     <a href="visual.html#CTRL-V">CTRL-V</a> <a href="undo.html#u">u</a> 013b	hexadecimal 0000-ffff
+	31-bit	   <a href="visual.html#CTRL-V">CTRL-V</a> <a href="undo.html#U">U</a> 001303a4	hexadecimal 00000000-7fffffff
+
+Don't type the spaces.  See |<a href="insert.html#i_CTRL-V_digit">i_CTRL-V_digit</a>| for the details.
+
+==============================================================================
+
+Next chapter: |<a href="usr_90.html">usr_90.txt</a>|  Installing Vim
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_45.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

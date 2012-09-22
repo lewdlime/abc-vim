@@ -1,0 +1,13 @@
+%%format swing.fmt
+
+X:1
+T:Example for swing.fmt
+K:G
+!swing8! cd ed y cd ed
+%%vskip 0
+!swing8! !swing8! cded !swing8! !swing8! y cded
+%%vskip 0
+!swing16! !swing32! cded !swing4! !swing8! y cded
+%%vskip 0
+!swing16! | yyyyyy !swing32! | yyyyyy !swing4! | yyyyyy !swing8! | yyy
+

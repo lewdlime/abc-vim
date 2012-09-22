@@ -1,0 +1,124 @@
+This file contains 8 strathspeys (#1 - #8).
+You can find more abc tune files at http://home1.swipnet.se/~w-11382/abc.htm
+I've transcribed them as I have learnt them, which does not necessarily mean
+that I play them that way nowadays. Many of the tunes include variations and
+different versions. If there is a source (S:) or discography (D:) included the
+version transcribed might still not be exactly as that source played the tune,
+since I might have changed the tune around a bit when I learnt it.
+The tunes were learnt from sessions, from friends or from recordings.
+When I've included discography, it's often just a reference to what recordings
+the tune appears on.
+
+Last updated 19 September 2000.
+
+(c) Copyright 1997-2000 Henrik Norbeck. This file:
+- May be distributed freely (with restrictions below).
+- May not be used for commercial purposes (such as printing a tune book to sell).
+- This file (or parts of it) may not be made available on a web page for
+  download without permission from me.
+- This copyright notice must be kept, except when e-mailing individual tunes.
+- May be printed on paper for personal use.
+- Questions? E-mail: henrik@norbeck.nu
+X:1
+T:Laird of Drumblair, The
+R:strathspey
+C:James Scott Skinner (1843-1927)
+H:See also reel#487
+Z:id:hn-strathspey-1
+M:C|
+K:A
+(3EFG|:A2c>A E>Ac>e|a2g>a f>ae>c|(3def (3efg (3aed (3cBA|(3Bcd (3cBA (3GFE (3dcB|
+A2c>A E>Ac>e|a2g>a f>ae>c|(3def (3efg (3aed (3cBA|1 (3GFE (3dcB A2 (3EFG:|
+[2 (3GFE (3dcB A2 (3efg|:a2e>a c>aA>a|(3cBA e>A a>ec>e|b2f>b d>bB>f|
+(3dcB f>B b>fd>f|a2e>a c>aA>a|(3cBA e>A a>ec>e|(3def (3efg (3aed (3cBA|
+[1 (3GFE (3dcB A2 (3efg:|2 (3GFE (3dcB A2||
+
+X:2
+T:Iron Man, The
+R:strathspey
+C:James Scott Skinner (1843-1927)
+Z:id:hn-strathspey-2
+M:C|
+K:A
+A2c>A B<GA>B|c2e>c d<Bc>e|f2d>f e2c>e|(3dcB (3cBA G<BB>c|
+A2c>A B<GA>B|c2e>c d<Bc>e|f2d>f e<ac>A|1 (3Bcd (3dcB c<AA>E:|2 (3Bcd (3dcB c<AA>e||
+|:a>Ag>A f>Ae>A|(3cBA e>g a>ec>A|d<Ec>E B<Ec>E|d/c/B c/B/A (3Bcd (3efg|
+a>Ag>A f>Ae>A|c/B/A e>g a>ec>A|d2f>d (3eag (3fed|1 (3cBA (3GAB c<AA>e:|
+[2 (3cBA (3GAB c<AA>E||
+
+X:3
+T:Bog an Lochain
+R:strathspey
+Z:id:hn-strathspey-3
+M:C|
+K:Edor
+E2E2 E>FB>F|E2E2 F<D (3BAF|E2E2 E>FB>A|1 B<dA>d F<D (3BAF:|2 B<dA>d F<DD>A||
+|:B2B>A B<EE>A|B2B>A F<DD>A|B2B>A d>ef>e|1 (3dBA d>A F<DD>A:|2 (3dBA d>A F<DD>f||
+e2e2 e>fb>f|e2e2 d>fa>f|e2e2 e>fb>f|g<eb>e (3def a>f|
+g<eb>e g<eb>e|g<eb>e (3def a>f|g<ee>f d>ef>e|(3dBA d>A F<DD>A||
+|:B2B>A B<EE>A|B2B>A F<DD>A|B2B>A d>ef>e|1 (3dBA d>A F<DD>A:|2 (3dBA d>A F<DD>F||
+
+X:4
+T:Drumnagarry Strathspey
+R:strathspey
+D:Altan: Island Angel
+Z:id:hn-strathspey-4
+M:C|
+K:G
+G>G, (3B,A,G, (3B,CD G>D|E<A,F>A, G>FE>F|G>G, (3B,A,G, (3B,CD G>D|
+[1 (3EFG (3AGF (3GDC (3B,A,G,:|2 (3EFG (3AGF G2G>c||
+B<GB>d g>dB>d|(3cBA (3BAG A>Bc>d|B<GB>d g>dB>G|(3FGA (3DEF G2G>c|B<GB>d g>dB>d|
+(3cdc (3BcB A>Bc>e|(3dcB (3ABc (3BAG (3FGA|(3GFE (3DEF (3GDC (3B,A,G,||
+
+X:5
+T:Jimmy Lyons' Strathspey
+R:strathspey
+D:Altan: Altan
+Z:id:hn-strathspey-5
+M:C|
+K:A
+A>ag>a e<Ac>A|F>Ad>c B>EG>B|A>ag>a e<Ac>A|1 F>AG>B c<AA>G:|2 F>AG>B c<A (3agf||
+|:e<cc>e f<dd>e|d>B^d>f g<ee>f|e<cc>e f>df>a|1 (3gfe (3dcB (3Ace (3agf:|
+[2 (3gbg (3efg a>Ac>B||
+
+X:6
+T:King George IV
+R:strathspey
+D:Tommy Peoples: Traditional Irish Music Played on the Fiddle
+Z:hn-strathspey-6
+M:C|
+K:Ador
+A,2E>A, {C}B,>A,E>A,|~A,2E>A, {C}B,>A, (3G,A,B,|A,2E>A, {C}B,>A,E>A,|
+[1 B,>DG>E (3DEC (3B,A,G,:|2 B,>DG>E D<B,G,2||
+K:Amix
+|:c>eA>B c<Ae>A|c<eA>f (3gag (3fed|1 c<eA>e c>Ae>f|g>fg>d B<dG>B:|
+[2 e<aA>g A>fe>A|E<GD>E B,>A,{C}B,>G,||
+
+X:7
+T:Cat that Kittled in Jamie's Wig, The
+R:strathspey
+H:Francie Byrne plays it with quarter-tones, which are not notated here.
+D:The Brass Fiddle (Francie Byrne)
+Z:hn-strathspey-7
+M:C|
+K:Ador
+Bc>B|A<A,A,>B, C>DE>F|G>G{A}G>F G>cB>c|A<A,A,>B, C>D (3Bcd|(3efe (3dcB A>Bc>B|
+A<A,A,>B, C>DE>F|G>DB,>D G>Bc>d|(3efe (3dcB c>AB>G|E<AA>G A>B^c>d||
+e<aa>^g e>f=g>d|e<aa>f g>ef>d|e<aa>^g e>f=g>f|(3efe (3d=cB c>AB>G|
+e<aa>^g e>f=g>d|e<aa>f g>fg>a|(3bc'b (3agf g>ef>d|(3efe (3d=cB A||
+
+X:8
+T:Strathspey
+R:strathspey
+D:Tommy Peoples
+Z:id:hn-strathspey-8
+M:C|
+L:1/8
+K:A
+A,2 ~A,2 C<E E2|:A>B c>A B>A B<c|A,2 ~A,2 C<E E>c|B/A/B/c/ d/c/B/A/ F3A|
+E<A, ~A,2 C<E E2|A>B c>A B>A B<c|d>c d>f e<c c>a|1 B/A/B/c/ d/c/B/A/ F3A|
+EA, ~A,2 C<E E2:|2 B/A/B/c/ d/c/B/A/ F3e|:f/e/d/c/ a>c b>c a2|
+f/e/d/c/ a>g f>e d>c|B<b b>f a/g/f/e/ b2|B<b b>f a>g f>e|
+f/e/d/c/ a>c b>c a2|f/e/d/c/ a>g f>e d>c|d/e/f/g/ a/g/f/e/ f/e/d/c/ d/c/B/A/|
+[1 B/A/B/c/ d/c/B/A/ F3e:|2 B/A/B/c/ d/c/B/A/ B/A/G/F/ E/D/C/B,/||
+

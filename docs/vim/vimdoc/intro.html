@@ -1,0 +1,986 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: intro</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: intro</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="intro.txt"></A><b>intro.txt</b>*     For Vim version 7.3.  Last change: 2010 Dec 08
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Introduction to Vim					*<a name="ref"></A><b>ref</b>* *<a name="reference"></A><b>reference</b>*
+
+1. Introduction			|<a href="intro.html#intro">intro</a>|
+2. Vim on the internet		|<a href="intro.html#internet">internet</a>|
+3. Credits			|<a href="intro.html#credits">credits</a>|
+4. Notation			|<a href="intro.html#notation">notation</a>|
+5. Modes, introduction		|<a href="intro.html#vim-modes-intro">vim-modes-intro</a>|
+6. Switching from mode to mode	|<a href="intro.html#mode-switching">mode-switching</a>|
+7. The window contents		|<a href="intro.html#window-contents">window-contents</a>|
+8. Definitions			|<a href="intro.html#definitions">definitions</a>|
+
+==============================================================================
+
+1. Introduction						*<a name="intro"></A><b>intro</b>*
+
+Vim stands for <a href="intro.html#Vi">Vi</a> IMproved.  It used to be <a href="intro.html#Vi">Vi</a> IMitation, but there are so many
+improvements that a name change was appropriate.  Vim is a text editor which
+includes almost all the commands from the <a href="os_unix.html#Unix">Unix</a> program &quot;<a href="intro.html#Vi">Vi</a>&quot; and a lot of new
+ones.  It is very useful for editing programs and other plain text.
+   All commands are given with the keyboard.  This has the advantage that you
+can keep your fingers on the keyboard and your eyes on the screen.  For those
+who want it, there is mouse support and a <a href="gui.html#GUI">GUI</a> version with scrollbars and
+<a href="gui.html#menus">menus</a> (see |<a href="gui.html">gui.txt</a>|).
+
+An overview of this manual can be found in the file &quot;help.txt&quot;, |<a href="help.html">help.txt</a>|.
+It can be accessed from within Vim with the <a href="helphelp.html#&lt;Help&gt;">&lt;Help&gt;</a> or <a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> key and with the
+|<a href="helphelp.html#:help">:help</a>| command (just type &quot;:help&quot;, without the <a href="help.html#bars">bars</a> or <a href="quotes.html#quotes">quotes</a>).
+   The <a href="options.html#'helpfile'">'helpfile'</a> option can be set to the name of the help file, in <a href="change.html#case">case</a> it
+is not located in the default place.  You can jump to subjects like with <a href="tagsrch.html#tags">tags</a>:
+Use <a href="tagsrch.html#CTRL-]">CTRL-]</a> to jump to a subject under the cursor, use <a href="tagsrch.html#CTRL-T">CTRL-T</a> to jump back.
+
+Throughout this manual the differences between <a href="intro.html#Vi">Vi</a> and Vim are mentioned in
+curly braces, like this: {Vi does not have on-line help}.  See |<a href="vi_diff.html">vi_diff.txt</a>|
+for a summary of the differences between Vim and <a href="intro.html#Vi">Vi</a>.
+
+This manual refers to Vim on various machines.  There may be small differences
+between different computers and terminals.  Besides the remarks given in this
+document, there is a separate document for each supported system, see
+|<a href="help.html#sys-file-list">sys-file-list</a>|.
+
+
+							*<a name="pronounce"></A><b>pronounce</b>*
+Vim is pronounced <a href="motion.html#as">as</a> one <a href="motion.html#word">word</a>, like Jim, not vi-ai-em.  It's written with a
+capital, since it's a name, again like Jim.
+
+This manual is a reference for all the Vim commands and <a href="options.html#options">options</a>.  This is not
+an introduction to the use of <a href="intro.html#Vi">Vi</a> or Vim, it gets a bit complicated here and
+there.  For beginners, there is a hands-on |<a href="usr_01.html#tutor">tutor</a>|.  To learn using Vim, read
+the user manual |<a href="usr_toc.html">usr_toc.txt</a>|.
+
+
+							*<a name="book"></A><b>book</b>*
+There are many books on <a href="intro.html#Vi">Vi</a> that contain a section for beginners.  There are
+two books I can recommend:
+
+	&quot;Vim - <a href="intro.html#Vi">Vi</a> Improved&quot; by Steve Oualline
+
+This is the very first <a href="intro.html#book">book</a> completely dedicated to Vim.  It is very good for
+beginners.  The most often used commands are explained with pictures and
+examples.  The <a href="various.html#less">less</a> often used commands are also explained, the more advanced
+features are summarized.  There is a comprehensive index and a quick
+reference.  Parts of this <a href="intro.html#book">book</a> have been included in the user manual
+|<a href="usr_01.html#frombook">frombook</a>|.
+Published by New Riders Publishing.  ISBN: 0735710015
+For more information try one of these:
+	<a href="http://iccf-holland.org/click5.html">http://iccf-holland.org/click5.html</a>
+	<a href="http://www.vim.org/iccf/click5.html">http://www.vim.org/iccf/click5.html</a>
+
+	&quot;Learning the <a href="intro.html#Vi">Vi</a> editor&quot; by Linda Lamb and Arnold Robbins
+
+This is a <a href="intro.html#book">book</a> about <a href="intro.html#Vi">Vi</a> that includes a chapter on Vim (in the sixth edition).
+The first steps in <a href="intro.html#Vi">Vi</a> are explained very well.  The commands that Vim adds are
+only briefly mentioned.  There is also a German translation.
+Published by O'Reilly.  ISBN: 1-56592-426-6.
+
+==============================================================================
+
+2. Vim on the <a href="intro.html#internet">internet</a>					*<a name="internet"></A><b>internet</b>*
+
+
+			*<a name="www"></A><b>www</b>* *<a name="WWW"></A><b>WWW</b>*  *<a name="faq"></A><b>faq</b>* *<a name="FAQ"></A><b>FAQ</b>* *<a name="distribution"></A><b>distribution</b>* *<a name="download"></A><b>download</b>*
+The Vim pages contain the most recent information about Vim.  They also
+contain links to the most recent version of Vim.  The <a href="intro.html#FAQ">FAQ</a> is a list of
+Frequently Asked Questions.  Read this if you have problems.
+
+ VIM home page:	<a href="http://www.vim.org/">http://www.vim.org/</a>
+ VIM FAQ:	<a href="http://vimdoc.sf.net/">http://vimdoc.sf.net/</a>
+ Downloading:	<a href="ftp://ftp.vim.org/pub/vim/MIRRORS">ftp://ftp.vim.org/pub/vim/MIRRORS</a>
+
+
+
+Usenet News group where Vim is discussed:		*<a name="news"></A><b>news</b>* *<a name="usenet"></A><b>usenet</b>*
+	comp.editors
+This group is also for other editors.  If you write about Vim, don't forget to
+mention that.
+
+
+						*<a name="mail-list"></A><b>mail-list</b>* *<a name="maillist"></A><b>maillist</b>*
+There are several mailing lists for Vim:
+<a href="mailto:vim@vim.org">&lt;vim@vim.org&gt;</a> 
+	For discussions about using existing versions of Vim: Useful mappings,
+	questions, answers, where to get a specific version, etc.  There are
+	quite a few people watching this list and answering questions, also
+	for beginners.  Don't hesitate to ask your question here.
+
+&lt;vim-dev@vim.org&gt;				*<a name="vim-dev"></A><b>vim-dev</b>* *<a name="vimdev"></A><b>vimdev</b>*
+	For discussions about <a href="change.html#changing">changing</a> Vim: New features, porting, patches,
+	beta-test versions, etc.
+
+&lt;vim-announce@vim.org&gt;				*<a name="vim-announce"></A><b>vim-announce</b>*
+	Announcements about new versions of Vim; also for beta-test versions
+	and ports to different systems.  This is a read-only list.
+
+&lt;vim-multibyte@vim.org&gt;				*<a name="vim-multibyte"></A><b>vim-multibyte</b>*
+	For discussions about using and improving the <a href="mbyte.html#multi-byte">multi-byte</a> aspects of
+	Vim.
+
+&lt;vim-mac@vim.org&gt;				*<a name="vim-mac"></A><b>vim-mac</b>*
+	For discussions about using and improving the <a href="os_mac.html#Macintosh">Macintosh</a> version of
+	Vim.
+
+ See	<a href="http://www.vim.org/maillist.php">http://www.vim.org/maillist.php</a> for the latest information.
+
+NOTE:
+- You can only send <a href="message.html#messages">messages</a> to these lists if you have subscribed!
+- You need to send the <a href="message.html#messages">messages</a> from the same location <a href="motion.html#as">as</a> where you subscribed
+  from (to avoid spam mail).
+- Maximum message size is 40000 characters.
+
+
+						*<a name="subscribe-maillist"></A><b>subscribe-maillist</b>*
+If you want to join, send a message to
+	<a href="mailto:vim-subscribe@vim.org">&lt;vim-subscribe@vim.org&gt;</a> 
+Make sure that your &quot;From:&quot; address is correct.  Then the list server will
+give you help on how to subscribe.
+
+
+						*<a name="maillist-archive"></A><b>maillist-archive</b>*
+For more information and archives look on the Vim <a href="intro.html#maillist">maillist</a> page:
+	<a href="http://www.vim.org/maillist.php">http://www.vim.org/maillist.php</a>
+
+
+
+Bug reports:				*<a name="bugs"></A><b>bugs</b>* *<a name="bug-reports"></A><b>bug-reports</b>* *<a name="bugreport.vim"></A><b>bugreport.vim</b>*
+
+Send bug reports to: Vim bugs <a href="mailto:bugs@vim.org">&lt;bugs@vim.org&gt;</a> 
+This is not a <a href="intro.html#maillist">maillist</a> but the message is redirected to the Vim maintainer.
+Please be brief; all the time that is spent on answering mail is subtracted
+from the time that is spent on improving Vim!  Always give a reproducible
+example and try to find out which settings or other things influence the
+appearance of the bug.  Try different machines, if possible.  Send me patches
+if you can!
+
+It will help to include information about the version of Vim you are using and
+your setup.  You can get the information with this command:
+<b>   :so $VIMRUNTIME/bugreport.vim</b>
+This will create a file &quot;bugreport.txt&quot; in the current directory, with a lot
+of information of your environment.  Before sending this out, check if it
+doesn't contain any confidential information!
+
+If Vim crashes, please try to find out where.  You can find help on this here:
+|<a href="debug.html">debug.txt</a>|.
+
+In <a href="change.html#case">case</a> of doubt or when you wonder if the problem has already been fixed but
+you can't find a fix for it, become a member of the <a href="intro.html#vim-dev">vim-dev</a> <a href="intro.html#maillist">maillist</a> and ask
+your question there. |<a href="intro.html#maillist">maillist</a>|
+
+
+							*<a name="year-2000"></A><b>year-2000</b>* *<a name="Y2K"></A><b>Y2K</b>*
+Since Vim internally doesn't use dates for editing, there is no year 2000
+problem to worry about.  Vim does use the time in the form of seconds since
+January 1st 1970.  It is used for a time-stamp check of the edited file and
+the swap file, which is not critical and should only cause warning <a href="message.html#messages">messages</a>.
+
+There might be a year 2038 problem, when the seconds don't fit in a 32 bit int
+anymore.  This depends on the compiler, libraries and operating system.
+Specifically, time_t and the ctime() function are used.  And the time_t is
+stored in four bytes in the swap file.  But that's only used for <a href="print.html#printing">printing</a> a
+file date/time for <a href="recover.html#recovery">recovery</a>, it will never affect normal editing.
+
+The Vim <a href="eval.html#strftime()">strftime()</a> function directly uses the <a href="eval.html#strftime()">strftime()</a> system function.
+<a href="eval.html#localtime()">localtime()</a> uses the time() system function.  <a href="eval.html#getftime()">getftime()</a> uses the time
+returned by the stat() system function.  If your system libraries are year
+2000 compliant, Vim is too.
+
+The user may create scripts for Vim that use external commands.  These might
+introduce <a href="intro.html#Y2K">Y2K</a> problems, but those are not really part of Vim itself.
+
+==============================================================================
+
+3. Credits				*<a name="credits"></A><b>credits</b>* *<a name="author"></A><b>author</b>* *<a name="Bram"></A><b>Bram</b>* *<a name="Moolenaar"></A><b>Moolenaar</b>*
+
+Most of Vim was written by Bram Moolenaar <a href="mailto:Bram@vim.org">&lt;Bram@vim.org&gt;</a>. 
+
+Parts of the documentation come from several <a href="intro.html#Vi">Vi</a> manuals, written by:
+	W.N. Joy
+	Alan P.W. Hewett
+	<a href="motion.html#Mark">Mark</a> Horton
+
+The Vim editor is based on Stevie and includes (ideas from) other software,
+worked on by the people mentioned here.  Other people helped by sending me
+patches, suggestions and giving feedback about what is good and bad in Vim.
+
+Vim would never have become what it is now, without the help of these people!
+
+	Ron Aaron		<a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> changes
+	Mohsin Ahmed		<a href="editing.html#encryption">encryption</a>
+	Zoltan Arpadffy		work on <a href="os_vms.html#VMS">VMS</a> port
+	Tony Andrews		Stevie
+	Gert van Antwerpen	changes for DJGPP on <a href="os_msdos.html#MS-DOS">MS-DOS</a>
+	Berkeley DB(3)		ideas for swap file implementation
+	Keith Bostic		<a href="intro.html#Nvi">Nvi</a>
+	Walter Briscoe		Makefile updates, various patches
+	Ralf Brown		SPAWNO library for <a href="os_msdos.html#MS-DOS">MS-DOS</a>
+	Robert Colon		many useful remarks
+	Marcin Dalecki		<a href="gui_x11.html#GTK+">GTK+</a> <a href="gui.html#GUI">GUI</a> port, toolbar icons, gettext()
+	Kayhan Demirel		sent me news in <a href="uganda.html#Uganda">Uganda</a>
+	Chris <a href="change.html#&amp;">&amp;</a> John Downey	xvi (ideas for multi-windows version)
+	Henk Elbers		first <a href="os_vms.html#VMS">VMS</a> port
+	Daniel Elstner		<a href="gui_x11.html#GTK+">GTK+</a> 2 port
+	Eric Fischer		<a href="os_mac.html#Mac">Mac</a> port, <a href="options.html#'cindent'">'cindent'</a>, and other improvements
+	Benji Fisher		Answering lots of user questions
+	Bill Foster		<a href="gui_x11.html#Athena">Athena</a> <a href="gui.html#GUI">GUI</a> port
+	Google			Lets me work on Vim one day a week
+	Loic Grenie		xvim (ideas for multi <a href="windows.html#windows">windows</a> version)
+	Sven Guckes		Vim promoter and previous <a href="intro.html#WWW">WWW</a> page maintainer
+	Darren Hiebert		Exuberant <a href="tagsrch.html#ctags">ctags</a>
+	Jason Hildebrand	<a href="gui_x11.html#GTK+">GTK+</a> 2 port
+	Bruce Hunsaker		improvements for <a href="os_vms.html#VMS">VMS</a> port
+	Andy Kahn		<a href="if_cscop.html#Cscope">Cscope</a> support, <a href="gui_x11.html#GTK+">GTK+</a> <a href="gui.html#GUI">GUI</a> port
+	Oezguer Kesim		Maintainer of Vim Mailing <a href="eval.html#Lists">Lists</a>
+	Axel Kielhorn		work on the <a href="os_mac.html#Macintosh">Macintosh</a> port
+	Steve Kirkendall	<a href="intro.html#Elvis">Elvis</a>
+	Roger Knobbe		original port to Windows NT
+	Sergey Laskavy		Vim's help from Moscow
+	Felix von Leitner	Previous maintainer of Vim Mailing <a href="eval.html#Lists">Lists</a>
+	David Leonard		Port of <a href="if_pyth.html#Python">Python</a> extensions to <a href="os_unix.html#Unix">Unix</a>
+	Avner Lottem		Edit in right-to-left <a href="windows.html#windows">windows</a>
+	Flemming Madsen		<a href="options.html#X11">X11</a> <a href="remote.html#client-server">client-server</a>, various features and patches
+	Tony Mechelynck		answers many user questions
+	Paul Moore		<a href="if_pyth.html#Python">Python</a> interface extensions, many patches
+	Katsuhito Nagano	Work on <a href="mbyte.html#multi-byte">multi-byte</a> versions
+	Sung-Hyun Nam		Work on <a href="mbyte.html#multi-byte">multi-byte</a> versions
+	Vince Negri		<a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> and generic console enhancements
+	Steve Oualline		Author of the first Vim book |<a href="usr_01.html#frombook">frombook</a>|
+	Dominique Pelle		<a href="debug.html#valgrind">valgrind</a> reports and many fixes
+	A.Politz		Many bug reports and some fixes
+	George <a href="visual.html#V">V</a>. Reilly	<a href="os_win32.html#Win32">Win32</a> port, <a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> start-off
+	Stephen Riehm		bug collector
+	Stefan Roemer		various patches and help to users
+	Ralf Schandl		IBM OS/390 port
+	Olaf Seibert		DICE and <a href="os_beos.html#BeBox">BeBox</a> version, <a href="pattern.html#regexp">regexp</a> improvements
+	Mortaza Shiran		<a href="farsi.html#Farsi">Farsi</a> patches
+	Peter da Silva		termlib
+	Paul Slootman		<a href="os_os2.html#OS/2">OS/2</a> port
+	Henry Spencer		regular expressions
+	Dany St-Amant		<a href="os_mac.html#Macintosh">Macintosh</a> port
+	Tim Thompson		Stevie
+	<a href="motion.html#G">G</a>. <a href="change.html#R">R</a>. (Fred) Walter	Stevie
+	Sven Verdoolaege	<a href="if_perl.html#Perl">Perl</a> interface
+	Robert Webb		<a href="cmdline.html#Command-line">Command-line</a> completion, <a href="gui.html#GUI">GUI</a> versions, and
+				lots of patches
+	Ingo Wilken		<a href="if_tcl.html#Tcl">Tcl</a> interface
+	Mike Williams		PostScript <a href="print.html#printing">printing</a>
+	Juergen Weigert		Lattice version, AUX improvements, UNIX and
+				<a href="os_msdos.html#MS-DOS">MS-DOS</a> ports, autoconf
+	Stefan 'Sec' Zehl	Maintainer of vim.org
+
+I wish to thank all the people that sent me bug reports and suggestions.  The
+list is too long to mention them all here.  Vim would not be the same without
+the ideas from all these people: They keep Vim alive!
+
+
+In this documentation there are several references to other versions of <a href="intro.html#Vi">Vi</a>:
+
+							*<a name="Vi"></A><b>Vi</b>* *<a name="vi"></A><b>vi</b>*
+<a href="intro.html#Vi">Vi</a>	&quot;the original&quot;.  Without further remarks this is the version
+	of <a href="intro.html#Vi">Vi</a> that appeared in Sun OS 4.x.  &quot;<a href="various.html#:version">:version</a>&quot; returns
+	&quot;Version 3.7, 6/7/85&quot;.  Sometimes other versions are referred
+	to.  Only runs under <a href="os_unix.html#Unix">Unix</a>.  Source code only available with a
+	<a href="uganda.html#license">license</a>.  More information on <a href="intro.html#Vi">Vi</a> can be found through:
+	<a href="http://vi-editor.org">http://vi-editor.org</a> [doesn't currently work...]
+
+							*<a name="Posix"></A><b>Posix</b>*
+<a href="intro.html#Posix">Posix</a>	From the IEEE standard 1003.2, Part 2: Shell and utilities.
+	Generally known <a href="motion.html#as">as</a> &quot;<a href="intro.html#Posix">Posix</a>&quot;.  This is a textual description of
+	how <a href="intro.html#Vi">Vi</a> is supposed to work.
+	See |<a href="vi_diff.html#posix-compliance">posix-compliance</a>|.
+
+							*<a name="Nvi"></A><b>Nvi</b>*
+<a href="intro.html#Nvi">Nvi</a>	The &quot;New&quot; <a href="intro.html#Vi">Vi</a>.  The version of <a href="intro.html#Vi">Vi</a> that comes with BSD 4.4 and FreeBSD.
+	Very good compatibility with the original <a href="intro.html#Vi">Vi</a>, with a few extensions.
+	The version used is 1.79.  &quot;<a href="various.html#:version">:version</a>&quot; returns &quot;Version 1.79
+	(10/23/96)&quot;.  There has been no release the last few years, although
+	there is a <a href="develop.html#development">development</a> version 1.81.
+	Source code is freely available.
+
+							*<a name="Elvis"></A><b>Elvis</b>*
+<a href="intro.html#Elvis">Elvis</a>	Another <a href="intro.html#Vi">Vi</a> clone, made by Steve Kirkendall.  Very compact but isn't
+	<a href="motion.html#as">as</a> flexible <a href="motion.html#as">as</a> Vim.
+	The version used is 2.1.  It is still being developed.  Source code is
+	freely available.
+
+==============================================================================
+
+4. Notation						*<a name="notation"></A><b>notation</b>*
+
+When <a href="syntax.html#syntax">syntax</a> highlighting is used to read this, text that is not typed
+literally is often highlighted with the Special group.  These are items in <a href="motion.html#[]">[]</a>,
+<a href="intro.html#{}">{}</a> and <a href="intro.html#&lt;&gt;">&lt;&gt;</a>, and <a href="change.html#CTRL-X">CTRL-X</a>.
+
+Note that Vim uses all possible characters in commands.  Sometimes the <a href="motion.html#[]">[]</a>, <a href="intro.html#{}">{}</a>
+and <a href="intro.html#&lt;&gt;">&lt;&gt;</a> are part of what you type, the context should make this clear.
+
+
+<a href="motion.html#[]">[]</a>		Characters in square brackets are optional.
+
+
+						    *<a name="count"></A><b>count</b>* *<a name="[count]"></A><b>[count]</b>*
+<a href="intro.html#[count]">[count]</a>		An optional number that may precede the command to multiply
+		or iterate the command.  If no number is given, a <a href="intro.html#count">count</a> of one
+		is used, unless otherwise noted.  Note that in this manual the
+		<a href="intro.html#[count]">[count]</a> is not mentioned in the description of the command,
+		but only in the explanation.  This was done to make the
+		commands easier to look up.  If the <a href="options.html#'showcmd'">'showcmd'</a> option is on,
+		the (partially) entered <a href="intro.html#count">count</a> is shown at the bottom of the
+		<a href="windows.html#window">window</a>.  You can use &lt;Del&gt; to erase the last digit (|<a href="various.html#N&lt;Del&gt;">N&lt;Del&gt;</a>|).
+
+
+							*<a name="[quotex]"></A><b>[quotex]</b>*
+[&quot;x]		An optional <a href="sponsor.html#register">register</a> designation where text can be stored.
+		See |<a href="change.html#registers">registers</a>|.  The <a href="change.html#x">x</a> is a single character between '<a href="insert.html#a">a</a>' and
+		'<a href="index.html#z">z</a>' or '<a href="insert.html#A">A</a>' and 'Z' or &#39;&#34;'', and in some cases (with the put
+		command) between '<a href="motion.html#0">0</a>' and '9', '<a href="motion.html#&#37;">&#37;</a>', '<a href="pattern.html##">#</a>', or others.  The
+		<a href="change.html#uppercase">uppercase</a> and <a href="change.html#lowercase">lowercase</a> <a href="print.html#letter">letter</a> designate the same <a href="sponsor.html#register">register</a>,
+		but the <a href="change.html#lowercase">lowercase</a> <a href="print.html#letter">letter</a> is used to overwrite the previous
+		<a href="sponsor.html#register">register</a> contents, while the <a href="change.html#uppercase">uppercase</a> <a href="print.html#letter">letter</a> is used to
+		append to the previous <a href="sponsor.html#register">register</a> contents.  Without the &quot;&quot;x&quot; or
+		with &quot;&quot;&quot;&quot; the stored text is put into the unnamed <a href="sponsor.html#register">register</a>.
+
+
+							*<a name="{}"></A><b>{}</b>*
+<a href="intro.html#{}">{}</a>		Curly braces denote parts of the command which must appear,
+		but which can take a number of different values.  The
+		differences between Vim and <a href="intro.html#Vi">Vi</a> are also given in curly braces
+		(this will be clear from the context).
+
+
+							*<a name="{char1-char2}"></A><b>{char1-char2}</b>*
+<a href="intro.html#{char1-char2}">{char1-char2}</a>	A single character from the range char1 to char2.  For
+		example: {a-z} is a <a href="change.html#lowercase">lowercase</a> <a href="print.html#letter">letter</a>.  Multiple ranges may be
+		concatenated.  For example, {a-zA-Z0-9} is any alphanumeric
+		character.
+
+
+						*<a name="{motion}"></A><b>{motion}</b>* *<a name="movement"></A><b>movement</b>*
+<a href="intro.html#{motion}">{motion}</a>	A command that moves the cursor.  These are explained in
+		|<a href="motion.html">motion.txt</a>|.  Examples:
+			<a href="motion.html#w">w</a>		to start of next <a href="motion.html#word">word</a>
+			<a href="motion.html#b">b</a>		to begin of current <a href="motion.html#word">word</a>
+			4j		four lines down
+			/The&lt;CR&gt;	to next occurrence of &quot;The&quot;
+		This is used after an |<a href="motion.html#operator">operator</a>| command to move over the text
+		that is to be operated upon.
+		- If the motion includes a <a href="intro.html#count">count</a> and the <a href="motion.html#operator">operator</a> also has a
+		  <a href="intro.html#count">count</a>, the two counts are multiplied.  For example: &quot;2d3w&quot;
+		  deletes six words.
+		- The motion can be backwards, e.g. &quot;db&quot; to delete to the
+		  start of the <a href="motion.html#word">word</a>.
+		- The motion can also be a mouse click.  The mouse is not
+		  supported in every terminal though.
+		- The &quot;<a href="map.html#:omap">:omap</a>&quot; command can be used to map characters while an
+		  <a href="motion.html#operator">operator</a> is pending.
+		- <a href="intro.html#Ex">Ex</a> commands can be used to move the cursor.  This can be
+		  used to call a function that does some complicated motion.
+		  The motion is always <a href="motion.html#characterwise">characterwise</a> <a href="motion.html#exclusive">exclusive</a>, no matter
+		  what &quot;<a href="cmdline.html#:">:</a>&quot; command is used.  This means it's impossible to
+		  include the last character of a line without the line break
+		  (unless <a href="options.html#'virtualedit'">'virtualedit'</a> is set).
+		  If the <a href="intro.html#Ex">Ex</a> command changes the text before where the <a href="motion.html#operator">operator</a>
+		  starts or jumps to another buffer the result is
+		  unpredictable.  It is possible to change the text further
+		  down.  Jumping to another buffer is possible if the current
+		  buffer is not unloaded.
+
+
+							*<a name="{Visual}"></A><b>{Visual}</b>*
+<a href="intro.html#{Visual}">{Visual}</a>	A selected text area.  It is started with the &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot;, or
+		<a href="visual.html#CTRL-V">CTRL-V</a> command, then any cursor <a href="intro.html#movement">movement</a> command can be used
+		to change the end of the selected text.
+		This is used before an |<a href="motion.html#operator">operator</a>| command to highlight the
+		text that is to be operated upon.
+		See |<a href="visual.html#Visual-mode">Visual-mode</a>|.
+
+
+							*<a name="&lt;character&gt;"></A><b>&lt;character&gt;</b>*
+<a href="intro.html#&lt;character&gt;">&lt;character&gt;</a>	A special character from the table below, optionally with
+		modifiers, or a single ASCII character with modifiers.
+
+
+							*<a name="'character'"></A><b>'character'</b>*
+'<a href="change.html#c">c</a>'		A single ASCII character.
+
+
+							*<a name="CTRL-{char}"></A><b>CTRL-{char}</b>*
+<a href="intro.html#CTRL-{char}">CTRL-{char}</a>	{char} typed <a href="motion.html#as">as</a> a <a href="intro.html#control">control</a> character; that is, typing {char}
+		while holding the CTRL key down.  The <a href="change.html#case">case</a> of {char} does not
+		matter; thus <a href="change.html#CTRL-A">CTRL-A</a> and CTRL-a are equivalent.  But on some
+		terminals, using the SHIFT key will produce another code,
+		don't use it then.
+
+
+							*<a name="'option'"></A><b>'option'</b>*
+<a href="intro.html#'option'">'option'</a>	An option, or parameter, that can be set to a value, is
+		enclosed in single <a href="quotes.html#quotes">quotes</a>.  See |<a href="options.html#options">options</a>|.
+
+
+							*<a name="quotecommandquote"></A><b>quotecommandquote</b>*
+&quot;command&quot;	A reference to a command that you can type is enclosed in
+		double <a href="quotes.html#quotes">quotes</a>.
+
+
+					*<a name="key-notation"></A><b>key-notation</b>* *<a name="key-codes"></A><b>key-codes</b>* *<a name="keycodes"></A><b>keycodes</b>*
+These names for keys are used in the documentation.  They can also be used
+with the &quot;<a href="map.html#:map">:map</a>&quot; command (insert the key name by pressing CTRL-K and then the
+key you want the name for).
+
+<b><font color="purple">notation	meaning		    equivalent	decimal value(s)	</font></b>
+
+<a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a>		zero			CTRL-@	  0 (stored <a href="motion.html#as">as</a> 10) *<a name="&lt;Nul&gt;"></A><b>&lt;Nul&gt;</b>*
+
+<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>		backspace		<a href="motion.html#CTRL-H">CTRL-H</a>	  8	*<a name="backspace"></A><b>backspace</b>*
+
+<a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>		<a href="intro.html#tab">tab</a>			<a href="motion.html#CTRL-I">CTRL-I</a>	  9	*<a name="tab"></A><b>tab</b>* *<a name="Tab"></A><b>Tab</b>*
+
+							*<a name="linefeed"></A><b>linefeed</b>*
+<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>		<a href="intro.html#linefeed">linefeed</a>		<a href="motion.html#CTRL-J">CTRL-J</a>	 10 (used for <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a>)
+
+&lt;FF&gt;		<a href="intro.html#formfeed">formfeed</a>		<a href="various.html#CTRL-L">CTRL-L</a>	 12	*<a name="formfeed"></A><b>formfeed</b>*
+
+<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>		carriage return		<a href="motion.html#CTRL-M">CTRL-M</a>	 13	*<a name="carriage-return"></A><b>carriage-return</b>*
+
+<a href="intro.html#&lt;Return&gt;">&lt;Return&gt;</a>	same <a href="motion.html#as">as</a> <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>				*<a name="&lt;Return&gt;"></A><b>&lt;Return&gt;</b>*
+
+<a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a>		same <a href="motion.html#as">as</a> <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>				*<a name="&lt;Enter&gt;"></A><b>&lt;Enter&gt;</b>*
+
+<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>		<a href="intro.html#escape">escape</a>			CTRL-[	 27	*<a name="escape"></A><b>escape</b>* *<a name="&lt;Esc&gt;"></A><b>&lt;Esc&gt;</b>*
+
+<a href="motion.html#&lt;Space&gt;">&lt;Space&gt;</a>		space				 32	*<a name="space"></A><b>space</b>*
+
+<a href="intro.html#&lt;lt&gt;">&lt;lt&gt;</a>		less-than		<a href="change.html#&lt;">&lt;</a>	 60	*<a name="&lt;lt&gt;"></A><b>&lt;lt&gt;</b>*
+
+<a href="intro.html#&lt;Bslash&gt;">&lt;Bslash&gt;</a>	<a href="intro.html#backslash">backslash</a>		\	 92	*<a name="backslash"></A><b>backslash</b>* *<a name="&lt;Bslash&gt;"></A><b>&lt;Bslash&gt;</b>*
+
+<a href="intro.html#&lt;Bar&gt;">&lt;Bar&gt;</a>		vertical <a href="motion.html#bar">bar</a>		&#124;	124	*<a name="&lt;Bar&gt;"></A><b>&lt;Bar&gt;</b>*
+<a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>		delete				127
+
+<a href="intro.html#&lt;CSI&gt;">&lt;CSI&gt;</a>		command sequence <a href="intro.html#intro">intro</a>  ALT-Esc 155	*<a name="&lt;CSI&gt;"></A><b>&lt;CSI&gt;</b>*
+
+<a href="intro.html#&lt;xCSI&gt;">&lt;xCSI&gt;</a>		CSI when typed in the <a href="gui.html#GUI">GUI</a>		*<a name="&lt;xCSI&gt;"></A><b>&lt;xCSI&gt;</b>*
+
+<a href="intro.html#&lt;EOL&gt;">&lt;EOL&gt;</a>		end-of-line (can be <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>, &lt;LF&gt; or &lt;CR&gt;&lt;LF&gt;,
+
+		depends on system and <a href="options.html#'fileformat'">'fileformat'</a>)	*<a name="&lt;EOL&gt;"></A><b>&lt;EOL&gt;</b>*
+
+
+<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>		<a href="intro.html#cursor-up">cursor-up</a>			*<a name="cursor-up"></A><b>cursor-up</b>* *<a name="cursor_up"></A><b>cursor_up</b>*
+
+<a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>		<a href="intro.html#cursor-down">cursor-down</a>			*<a name="cursor-down"></A><b>cursor-down</b>* *<a name="cursor_down"></A><b>cursor_down</b>*
+
+<a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>		<a href="intro.html#cursor-left">cursor-left</a>			*<a name="cursor-left"></A><b>cursor-left</b>* *<a name="cursor_left"></A><b>cursor_left</b>*
+
+<a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>		<a href="intro.html#cursor-right">cursor-right</a>			*<a name="cursor-right"></A><b>cursor-right</b>* *<a name="cursor_right"></A><b>cursor_right</b>*
+<a href="scroll.html#&lt;S-Up&gt;">&lt;S-Up&gt;</a>		shift-cursor-up
+<a href="scroll.html#&lt;S-Down&gt;">&lt;S-Down&gt;</a>	shift-cursor-down
+<a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a>	shift-cursor-left
+<a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a>	shift-cursor-right
+<a href="motion.html#&lt;C-Left&gt;">&lt;C-Left&gt;</a>	control-cursor-left
+<a href="motion.html#&lt;C-Right&gt;">&lt;C-Right&gt;</a>	control-cursor-right
+
+<a href="helphelp.html#&lt;F1&gt;">&lt;F1&gt;</a> - <a href="term.html#&lt;F12&gt;">&lt;F12&gt;</a>	function keys 1 to 12		*<a name="function_key"></A><b>function_key</b>* *<a name="function-key"></A><b>function-key</b>*
+
+<a href="intro.html#&lt;S-F1&gt;">&lt;S-F1&gt;</a> - <a href="term.html#&lt;S-F12&gt;">&lt;S-F12&gt;</a> shift-function keys 1 to 12	*<a name="&lt;S-F1&gt;"></A><b>&lt;S-F1&gt;</b>*
+<a href="helphelp.html#&lt;Help&gt;">&lt;Help&gt;</a>		help key
+<a href="undo.html#&lt;Undo&gt;">&lt;Undo&gt;</a>		<a href="undo.html#undo">undo</a> key
+<a href="insert.html#&lt;Insert&gt;">&lt;Insert&gt;</a>	insert key
+
+<a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>		home				*<a name="home"></A><b>home</b>*
+
+<a href="motion.html#&lt;End&gt;">&lt;End&gt;</a>		end				*<a name="end"></A><b>end</b>*
+
+<a href="scroll.html#&lt;PageUp&gt;">&lt;PageUp&gt;</a>	<a href="intro.html#page-up">page-up</a>				*<a name="page_up"></A><b>page_up</b>* *<a name="page-up"></A><b>page-up</b>*
+
+<a href="scroll.html#&lt;PageDown&gt;">&lt;PageDown&gt;</a>	<a href="intro.html#page-down">page-down</a>			*<a name="page_down"></A><b>page_down</b>* *<a name="page-down"></A><b>page-down</b>*
+
+<a href="motion.html#&lt;kHome&gt;">&lt;kHome&gt;</a>		keypad home (upper left)	*<a name="keypad-home"></A><b>keypad-home</b>*
+
+<a href="motion.html#&lt;kEnd&gt;">&lt;kEnd&gt;</a>		keypad end (lower left)		*<a name="keypad-end"></A><b>keypad-end</b>*
+
+<a href="scroll.html#&lt;kPageUp&gt;">&lt;kPageUp&gt;</a>	keypad <a href="intro.html#page-up">page-up</a> (upper right)	*<a name="keypad-page-up"></A><b>keypad-page-up</b>*
+
+<a href="scroll.html#&lt;kPageDown&gt;">&lt;kPageDown&gt;</a>	keypad <a href="intro.html#page-down">page-down</a> (lower right)	*<a name="keypad-page-down"></A><b>keypad-page-down</b>*
+
+<a href="term.html#&lt;kPlus&gt;">&lt;kPlus&gt;</a>		keypad +			*<a name="keypad-plus"></A><b>keypad-plus</b>*
+
+<a href="term.html#&lt;kMinus&gt;">&lt;kMinus&gt;</a>	keypad -			*<a name="keypad-minus"></A><b>keypad-minus</b>*
+
+<a href="term.html#&lt;kMultiply&gt;">&lt;kMultiply&gt;</a>	keypad &#42;			*<a name="keypad-multiply"></A><b>keypad-multiply</b>*
+
+<a href="term.html#&lt;kDivide&gt;">&lt;kDivide&gt;</a>	keypad /			*<a name="keypad-divide"></A><b>keypad-divide</b>*
+
+<a href="term.html#&lt;kEnter&gt;">&lt;kEnter&gt;</a>	keypad Enter			*<a name="keypad-enter"></A><b>keypad-enter</b>*
+
+<a href="term.html#&lt;kPoint&gt;">&lt;kPoint&gt;</a>	keypad Decimal point		*<a name="keypad-point"></A><b>keypad-point</b>*
+
+<a href="term.html#&lt;k0&gt;">&lt;k0&gt;</a> - <a href="term.html#&lt;k9&gt;">&lt;k9&gt;</a>	keypad 0 to 9			*<a name="keypad-0"></A><b>keypad-0</b>* *<a name="keypad-9"></A><b>keypad-9</b>*
+
+&lt;S-...&gt;		shift-key			*<a name="shift"></A><b>shift</b>* *<a name="&lt;S-"></A><b>&lt;S-</b>*
+
+&lt;C-...&gt;		control-key			*<a name="control"></A><b>control</b>* *<a name="ctrl"></A><b>ctrl</b>* *<a name="&lt;C-"></A><b>&lt;C-</b>*
+
+&lt;M-...&gt;		alt-key or meta-key		*<a name="meta"></A><b>meta</b>* *<a name="alt"></A><b>alt</b>* *<a name="&lt;M-"></A><b>&lt;M-</b>*
+
+&lt;A-...&gt;		same <a href="motion.html#as">as</a> &lt;M-...&gt;			*<a name="&lt;A-"></A><b>&lt;A-</b>*
+
+&lt;D-...&gt;		command-key (Macintosh only)	*<a name="&lt;D-"></A><b>&lt;D-</b>*
+&lt;t_xx&gt;		key with &quot;xx&quot; entry in <a href="term.html#termcap">termcap</a>
+
+Note: The shifted cursor keys, the help key, and the <a href="undo.html#undo">undo</a> key are only
+available on a few terminals.  On the <a href="os_amiga.html#Amiga">Amiga</a>, shifted function key 10 produces
+a code (CSI) that is also used by key sequences.  It will be recognized only
+after typing another key.
+
+Note: There are two codes for the delete key.  127 is the decimal ASCII value
+for the delete key, which is always recognized.  Some delete keys send another
+value, in which <a href="change.html#case">case</a> this value is obtained from the <a href="term.html#termcap">termcap</a> entry &quot;kD&quot;.  Both
+values have the same effect.  Also see |<a href="options.html#:fixdel">:fixdel</a>|.
+
+Note: The keypad keys are used in the same way <a href="motion.html#as">as</a> the corresponding &quot;normal&quot;
+keys.  For example, <a href="motion.html#&lt;kHome&gt;">&lt;kHome&gt;</a> has the same effect <a href="motion.html#as">as</a> <a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>.  If a keypad key
+sends the same raw key code <a href="motion.html#as">as</a> its non-keypad equivalent, it will be
+recognized <a href="motion.html#as">as</a> the non-keypad code.  For example, when <a href="motion.html#&lt;kHome&gt;">&lt;kHome&gt;</a> sends the same
+code <a href="motion.html#as">as</a> <a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>, when pressing <a href="motion.html#&lt;kHome&gt;">&lt;kHome&gt;</a> Vim will think <a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a> was pressed.
+Mapping <a href="motion.html#&lt;kHome&gt;">&lt;kHome&gt;</a> will not work then.
+
+
+								*<a name="&lt;&gt;"></A><b>&lt;&gt;</b>*
+Examples are often given in the <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a>.  Sometimes this is just to make
+clear what you need to type, but often it can be typed literally, e.g., with
+the &quot;<a href="map.html#:map">:map</a>&quot; command.  The rules are:
+ 1.  Any printable characters are typed directly, except <a href="intro.html#backslash">backslash</a> and '<a href="change.html#&lt;">&lt;</a>'
+ 2.  A <a href="intro.html#backslash">backslash</a> is represented with &quot;\\&quot;, double <a href="intro.html#backslash">backslash</a>, or &quot;<a href="intro.html#&lt;Bslash&gt;">&lt;Bslash&gt;</a>&quot;.
+ 3.  A real '<a href="change.html#&lt;">&lt;</a>' is represented with &quot;\&lt;&quot; or &quot;<a href="intro.html#&lt;lt&gt;">&lt;lt&gt;</a>&quot;.  When there is no
+     confusion possible, a '<a href="change.html#&lt;">&lt;</a>' can be used directly.
+ 4.  &quot;&lt;key&gt;&quot; means the special key typed.  This is the <a href="intro.html#notation">notation</a> explained in
+     the table above.  A few examples:
+	   <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>		Escape key
+	   &lt;C-G&gt;		<a href="editing.html#CTRL-G">CTRL-G</a>
+	   <a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>			cursor up key
+	   <a href="tagsrch.html#&lt;C-LeftMouse&gt;">&lt;C-LeftMouse&gt;</a>	Control- left mouse click
+	   <a href="term.html#&lt;S-F11&gt;">&lt;S-F11&gt;</a>		Shifted function key 11
+	   &lt;M-a&gt;		Meta- a  ('a' with bit 8 set)
+	   &lt;M-A&gt;		Meta- A  ('A' with bit 8 set)
+	   &lt;t_kd&gt;		&quot;kd&quot; <a href="term.html#termcap">termcap</a> entry (cursor down key)
+
+If you want to use the full <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> in Vim, you have to make sure the '<a href="change.html#&lt;">&lt;</a>'
+flag is excluded from <a href="options.html#'cpoptions'">'cpoptions'</a> (when <a href="options.html#'compatible'">'compatible'</a> is not set, it already is
+by default).
+<b>	:set cpo-=&lt;</b>
+The <a href="intro.html#&lt;&gt;">&lt;&gt;</a> <a href="intro.html#notation">notation</a> uses <a href="intro.html#&lt;lt&gt;">&lt;lt&gt;</a> to <a href="intro.html#escape">escape</a> the special meaning of key names.  Using a
+<a href="intro.html#backslash">backslash</a> also works, but only when <a href="options.html#'cpoptions'">'cpoptions'</a> does not include the '<a href="motion.html#B">B</a>' flag.
+
+Examples for <a href="map.html#mapping">mapping</a> <a href="motion.html#CTRL-H">CTRL-H</a> to the six characters &quot;<a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>&quot;:
+<b>	:imap &lt;C-H&gt; \&lt;Home&gt;</b>
+<b>	:imap &lt;C-H&gt; &lt;lt&gt;Home&gt;</b>
+The first one only works when the '<a href="motion.html#B">B</a>' flag is not in <a href="options.html#'cpoptions'">'cpoptions'</a>.  The second
+one always works.
+To get a literal &quot;<a href="intro.html#&lt;lt&gt;">&lt;lt&gt;</a>&quot; in a <a href="map.html#mapping">mapping</a>:
+<b>	:map &lt;C-L&gt; &lt;lt&gt;lt&gt;</b>
+
+For <a href="map.html#mapping">mapping</a>, abbreviation and menu commands you can then copy-paste the
+examples and use them directly.  Or type them literally, including the '<a href="change.html#&lt;">&lt;</a>' and
+'<a href="change.html#&gt;">&gt;</a>' characters.  This does NOT work for other commands, like &quot;<a href="options.html#:set">:set</a>&quot; and
+&quot;<a href="autocmd.html#:autocmd">:autocmd</a>&quot;!
+
+==============================================================================
+
+5. Modes, introduction				*<a name="vim-modes-intro"></A><b>vim-modes-intro</b>* *<a name="vim-modes"></A><b>vim-modes</b>*
+
+Vim has six BASIC modes:
+
+
+					*<a name="Normal"></A><b>Normal</b>* *<a name="Normal-mode"></A><b>Normal-mode</b>* *<a name="command-mode"></A><b>command-mode</b>*
+<a href="intro.html#Normal">Normal</a> mode		In <a href="intro.html#Normal">Normal</a> mode you can enter all the normal editor
+			commands.  If you start the editor you are in this
+			mode (unless you have set the <a href="options.html#'insertmode'">'insertmode'</a> option,
+			see below).  This is also known <a href="motion.html#as">as</a> command mode.
+
+<a href="visual.html#Visual">Visual</a> mode		This is like <a href="intro.html#Normal">Normal</a> mode, but the <a href="intro.html#movement">movement</a> commands
+			extend a highlighted area.  When a non-movement
+			command is used, it is executed for the highlighted
+			area.  See |<a href="visual.html#Visual-mode">Visual-mode</a>|.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> VISUAL --&quot; is shown
+			at the bottom of the <a href="windows.html#window">window</a>.
+
+<a href="visual.html#Select">Select</a> mode		This looks most like the <a href="os_win32.html#MS-Windows">MS-Windows</a> selection mode.
+			Typing a printable character deletes the selection
+			and starts <a href="insert.html#Insert">Insert</a> mode.  See |<a href="visual.html#Select-mode">Select-mode</a>|.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> SELECT --&quot; is shown
+			at the bottom of the <a href="windows.html#window">window</a>.
+
+<a href="insert.html#Insert">Insert</a> mode		In <a href="insert.html#Insert">Insert</a> mode the text you type is inserted into the
+			buffer.  See |<a href="insert.html#Insert-mode">Insert-mode</a>|.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> INSERT --&quot; is shown
+			at the bottom of the <a href="windows.html#window">window</a>.
+
+<a href="cmdline.html#Command-line">Command-line</a> mode	In <a href="cmdline.html#Command-line">Command-line</a> mode (also called <a href="cmdline.html#Cmdline">Cmdline</a> mode) you
+<a href="cmdline.html#Cmdline">Cmdline</a> mode		can enter one line of text at the bottom of the
+			<a href="windows.html#window">window</a>.  This is for the <a href="intro.html#Ex">Ex</a> commands, &quot;<a href="cmdline.html#:">:</a>&quot;, the <a href="pattern.html#pattern">pattern</a>
+			search commands, &quot;<a href="pattern.html#?">?</a>&quot; and &quot;<a href="pattern.html#/">/</a>&quot;, and the <a href="change.html#filter">filter</a> command,
+			&quot;<a href="change.html#!">!</a>&quot;.  |<a href="cmdline.html#Cmdline-mode">Cmdline-mode</a>|
+
+<a href="intro.html#Ex">Ex</a> mode			Like <a href="cmdline.html#Command-line">Command-line</a> mode, but after entering a command
+			you remain in <a href="intro.html#Ex">Ex</a> mode.  Very limited editing of the
+			command line.  |<a href="intro.html#Ex-mode">Ex-mode</a>|
+
+There are six ADDITIONAL modes.  These are variants of the BASIC modes:
+
+
+				*<a name="Operator-pending"></A><b>Operator-pending</b>* *<a name="Operator-pending-mode"></A><b>Operator-pending-mode</b>*
+<a href="intro.html#Operator-pending">Operator-pending</a> mode	This is like <a href="intro.html#Normal">Normal</a> mode, but after an <a href="motion.html#operator">operator</a>
+			command has started, and Vim is waiting for a <a href="intro.html#{motion}">{motion}</a>
+			to specify the text that the <a href="motion.html#operator">operator</a> will work on.
+
+<a href="insert.html#Replace">Replace</a> mode		<a href="insert.html#Replace">Replace</a> mode is a special <a href="change.html#case">case</a> of <a href="insert.html#Insert">Insert</a> mode.  You
+			can <a href="diff.html#do">do</a> the same things <a href="motion.html#as">as</a> in <a href="insert.html#Insert">Insert</a> mode, but for
+			each character you enter, one character of the existing
+			text is deleted.  See |<a href="insert.html#Replace-mode">Replace-mode</a>|.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> REPLACE --&quot; is
+			shown at the bottom of the <a href="windows.html#window">window</a>.
+
+Virtual <a href="insert.html#Replace">Replace</a> mode	Virtual <a href="insert.html#Replace">Replace</a> mode is similar to <a href="insert.html#Replace">Replace</a> mode, but
+			instead of file characters you are <a href="change.html#replacing">replacing</a> screen
+			real estate.  See |<a href="insert.html#Virtual-Replace-mode">Virtual-Replace-mode</a>|.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> VREPLACE --&quot; is
+			shown at the bottom of the <a href="windows.html#window">window</a>.
+
+<a href="insert.html#Insert">Insert</a> <a href="intro.html#Normal">Normal</a> mode	Entered when <a href="motion.html#CTRL-O">CTRL-O</a> given in <a href="insert.html#Insert">Insert</a> mode.  This is
+			like <a href="intro.html#Normal">Normal</a> mode, but after executing one command Vim
+			returns to <a href="insert.html#Insert">Insert</a> mode.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> (insert) --&quot; is
+			shown at the bottom of the <a href="windows.html#window">window</a>.
+
+<a href="insert.html#Insert">Insert</a> <a href="visual.html#Visual">Visual</a> mode	Entered when starting a <a href="visual.html#Visual">Visual</a> selection from <a href="insert.html#Insert">Insert</a>
+			mode, e.g., by using <a href="motion.html#CTRL-O">CTRL-O</a> and then &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or
+			<a href="visual.html#CTRL-V">CTRL-V</a>.  When the <a href="visual.html#Visual">Visual</a> selection ends, Vim returns
+			to <a href="insert.html#Insert">Insert</a> mode.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> (insert) VISUAL --&quot;
+			is shown at the bottom of the <a href="windows.html#window">window</a>.
+
+<a href="insert.html#Insert">Insert</a> <a href="visual.html#Select">Select</a> mode	Entered when starting <a href="visual.html#Select">Select</a> mode from <a href="insert.html#Insert">Insert</a> mode.
+			E.g., by dragging the mouse or <a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a>.
+			When the <a href="visual.html#Select">Select</a> mode ends, Vim returns to <a href="insert.html#Insert">Insert</a> mode.
+			If the <a href="options.html#'showmode'">'showmode'</a> option is on &quot;<a href="starting.html#--">--</a> (insert) SELECT --&quot;
+			is shown at the bottom of the <a href="windows.html#window">window</a>.
+
+==============================================================================
+
+6. Switching from mode to mode				*<a name="mode-switching"></A><b>mode-switching</b>*
+
+If for any reason you <a href="diff.html#do">do</a> not know which mode you are in, you can always get
+back to <a href="intro.html#Normal">Normal</a> mode by typing <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> <a href="if_cscop.html#twice">twice</a>.  This doesn't work for <a href="intro.html#Ex">Ex</a> mode
+though, use &quot;<a href="editing.html#:visual">:visual</a>&quot;.
+You will know you are back in <a href="intro.html#Normal">Normal</a> mode when you see the screen flash or
+hear the bell after you type <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>.  However, when pressing <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> after using
+<a href="motion.html#CTRL-O">CTRL-O</a> in <a href="insert.html#Insert">Insert</a> mode you get a beep but you are still in <a href="insert.html#Insert">Insert</a> mode, type
+<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> again.
+
+
+							*<a name="i_esc"></A><b>i_esc</b>*
+<b><font color="purple">		TO mode						    </font></b>
+<b><font color="purple">		Normal	Visual	Select	Insert	  Replace   Cmd-line  Ex </font></b>
+<b><font color="purple">FROM mode								 </font></b>
+<a href="intro.html#Normal">Normal</a>			<a href="visual.html#v">v</a> <a href="visual.html#V">V</a> ^V	  *4	 *1	   <a href="change.html#R">R</a> <a href="change.html#gR">gR</a>     : / ? !   <a href="intro.html#Q">Q</a>
+<a href="visual.html#Visual">Visual</a>		 *2		  ^G	 <a href="change.html#c">c</a> C	    <a href="starting.html#--">--</a>	      :       <a href="starting.html#--">--</a>
+<a href="visual.html#Select">Select</a>		 *5	^O ^G		 *6	    <a href="starting.html#--">--</a>	      <a href="starting.html#--">--</a>      <a href="starting.html#--">--</a>
+<a href="insert.html#Insert">Insert</a>		 <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>	  <a href="starting.html#--">--</a>	  <a href="starting.html#--">--</a>		  <a href="insert.html#&lt;Insert&gt;">&lt;Insert&gt;</a>    <a href="starting.html#--">--</a>      <a href="starting.html#--">--</a>
+<a href="insert.html#Replace">Replace</a>		 <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>	  <a href="starting.html#--">--</a>	  <a href="starting.html#--">--</a>	<a href="insert.html#&lt;Insert&gt;">&lt;Insert&gt;</a>	      <a href="starting.html#--">--</a>      <a href="starting.html#--">--</a>
+<a href="cmdline.html#Command-line">Command-line</a>	 *3	  <a href="starting.html#--">--</a>	  <a href="starting.html#--">--</a>	 <a href="insert.html#:start">:start</a>	    <a href="starting.html#--">--</a>		      <a href="starting.html#--">--</a>
+<a href="intro.html#Ex">Ex</a>		 <a href="editing.html#:vi">:vi</a>	  <a href="starting.html#--">--</a>	  <a href="starting.html#--">--</a>	 <a href="starting.html#--">--</a>	    <a href="starting.html#--">--</a>	      <a href="starting.html#--">--</a>
+
+<a href="starting.html#--">--</a> not possible
+
+*1 Go from <a href="intro.html#Normal">Normal</a> mode to <a href="insert.html#Insert">Insert</a> mode by giving the command &quot;<a href="insert.html#i">i</a>&quot;, &quot;<a href="insert.html#I">I</a>&quot;, &quot;<a href="insert.html#a">a</a>&quot;,
+   &quot;<a href="insert.html#A">A</a>&quot;, &quot;<a href="insert.html#o">o</a>&quot;, &quot;<a href="insert.html#O">O</a>&quot;, &quot;<a href="change.html#c">c</a>&quot;, &quot;<a href="change.html#C">C</a>&quot;, &quot;<a href="change.html#s">s</a>&quot; or S&quot;.
+*2 Go from <a href="visual.html#Visual">Visual</a> mode to <a href="intro.html#Normal">Normal</a> mode by giving a non-movement command, which
+   causes the command to be executed, or by hitting <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or &quot;<a href="visual.html#CTRL-V">CTRL-V</a>&quot;
+   (see |<a href="visual.html#v_v">v_v</a>|), which just stops <a href="visual.html#Visual">Visual</a> mode without side effects.
+*3 Go from <a href="cmdline.html#Command-line">Command-line</a> mode to <a href="intro.html#Normal">Normal</a> mode by:
+   - Hitting <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> or <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>, which causes the entered command to be executed.
+   - Deleting the complete line (e.g., with <a href="scroll.html#CTRL-U">CTRL-U</a>) and giving a final <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>.
+   - Hitting <a href="pattern.html#CTRL-C">CTRL-C</a> or <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, which quits the command-line without executing
+     the command.
+   In the last <a href="change.html#case">case</a> <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> may be the character defined with the <a href="options.html#'wildchar'">'wildchar'</a>
+   option, in which <a href="change.html#case">case</a> it will start command-line completion.  You can
+   ignore that and type <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> again.  {Vi: when hitting <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> the command-line
+   is executed.  This is unexpected for most people; therefore it was changed
+   in Vim.  But when the <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> is part of a <a href="map.html#mapping">mapping</a>, the command-line is
+   executed.  If you want the <a href="intro.html#Vi">Vi</a> behaviour also when typing <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, use &quot;<a href="map.html#:cmap">:cmap</a>
+   ^V&lt;Esc&gt; ^V^M&quot;}
+*4 Go from <a href="intro.html#Normal">Normal</a> to <a href="visual.html#Select">Select</a> mode by:
+   - use the mouse to select text while <a href="options.html#'selectmode'">'selectmode'</a> contains &quot;mouse&quot;
+   - use a non-printable command to move the cursor while keeping the Shift
+     key pressed, and the <a href="options.html#'selectmode'">'selectmode'</a> option contains &quot;key&quot;
+   - use &quot;<a href="visual.html#v">v</a>&quot;, &quot;<a href="visual.html#V">V</a>&quot; or &quot;<a href="visual.html#CTRL-V">CTRL-V</a>&quot; while <a href="options.html#'selectmode'">'selectmode'</a> contains &quot;cmd&quot;
+   - use &quot;<a href="visual.html#gh">gh</a>&quot;, &quot;<a href="visual.html#gH">gH</a>&quot; or &quot;g CTRL-H&quot;  |<a href="visual.html#g_CTRL-H">g_CTRL-H</a>|
+*5 Go from <a href="visual.html#Select">Select</a> mode to <a href="intro.html#Normal">Normal</a> mode by using a non-printable command to move
+   the cursor, without keeping the Shift key pressed.
+*6 Go from <a href="visual.html#Select">Select</a> mode to <a href="insert.html#Insert">Insert</a> mode by typing a printable character.  The
+   selection is deleted and the character is inserted.
+
+If the <a href="options.html#'insertmode'">'insertmode'</a> option is on, editing a file will start in <a href="insert.html#Insert">Insert</a> mode.
+
+
+	*<a name="CTRL-\_CTRL-N"></A><b>CTRL-\_CTRL-N</b>* *<a name="i_CTRL-\_CTRL-N"></A><b>i_CTRL-\_CTRL-N</b>* *<a name="c_CTRL-\_CTRL-N"></A><b>c_CTRL-\_CTRL-N</b>* *<a name="v_CTRL-\_CTRL-N"></A><b>v_CTRL-\_CTRL-N</b>*
+Additionally the command CTRL-\ <a href="motion.html#CTRL-N">CTRL-N</a> or &lt;C-\&gt;&lt;C-N&gt; can be used to go to
+<a href="intro.html#Normal">Normal</a> mode from any other mode.  This can be used to make sure Vim is in
+<a href="intro.html#Normal">Normal</a> mode, without causing a beep like <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> would.  However, this does not
+work in <a href="intro.html#Ex">Ex</a> mode.  When used after a command that takes an argument, such <a href="motion.html#as">as</a>
+|<a href="motion.html#f">f</a>| or |<a href="motion.html#m">m</a>|, the timeout set with <a href="options.html#'ttimeoutlen'">'ttimeoutlen'</a> applies.
+
+
+	*<a name="CTRL-\_CTRL-G"></A><b>CTRL-\_CTRL-G</b>* *<a name="i_CTRL-\_CTRL-G"></A><b>i_CTRL-\_CTRL-G</b>* *<a name="c_CTRL-\_CTRL-G"></A><b>c_CTRL-\_CTRL-G</b>* *<a name="v_CTRL-\_CTRL-G"></A><b>v_CTRL-\_CTRL-G</b>*
+The command CTRL-\ <a href="editing.html#CTRL-G">CTRL-G</a> or &lt;C-\&gt;&lt;C-G&gt; can be used to go to <a href="insert.html#Insert">Insert</a> mode when
+<a href="options.html#'insertmode'">'insertmode'</a> is set.  Otherwise it goes to <a href="intro.html#Normal">Normal</a> mode.  This can be used to
+make sure Vim is in the mode indicated by <a href="options.html#'insertmode'">'insertmode'</a>, without knowing in
+what mode Vim currently is.
+
+
+				    *<a name="Q"></A><b>Q</b>* *<a name="mode-Ex"></A><b>mode-Ex</b>* *<a name="Ex-mode"></A><b>Ex-mode</b>* *<a name="Ex"></A><b>Ex</b>* *<a name="EX"></A><b>EX</b>* *<a name="E501"></A><b>E501</b>*
+<a href="intro.html#Q">Q</a>			Switch to &quot;<a href="intro.html#Ex">Ex</a>&quot; mode.  This is a bit like typing &quot;<a href="cmdline.html#:">:</a>&quot;
+			commands one after another, except:
+			- You don't have to keep pressing &quot;<a href="cmdline.html#:">:</a>&quot;.
+			- The screen doesn't get updated after each command.
+			- There is no normal command-line editing.
+			- Mappings and <a href="map.html#abbreviations">abbreviations</a> are not used.
+			In fact, you are editing the lines with the &quot;standard&quot;
+			line-input editing commands (&lt;Del&gt; or <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> to erase,
+			<a href="scroll.html#CTRL-U">CTRL-U</a> to kill the whole line).
+			Vim will enter this mode by default if it's invoked <a href="motion.html#as">as</a>
+			&quot;<a href="starting.html#ex">ex</a>&quot; on the command-line.
+			Use the &quot;:vi&quot; command |<a href="editing.html#:visual">:visual</a>| to exit &quot;<a href="intro.html#Ex">Ex</a>&quot; mode.
+			Note: In older versions of Vim &quot;<a href="intro.html#Q">Q</a>&quot; formatted text,
+			that is now done with |<a href="change.html#gq">gq</a>|.  But if you use the
+			|<a href="http://vimdoc.sourceforge.net/htmldoc/vimrc_example.html">vimrc_example.vim</a>| <a href="usr_41.html#script">script</a> &quot;<a href="intro.html#Q">Q</a>&quot; works like &quot;<a href="change.html#gq">gq</a>&quot;.
+
+
+					*<a name="gQ"></A><b>gQ</b>*
+<a href="intro.html#gQ">gQ</a>			Switch to &quot;<a href="intro.html#Ex">Ex</a>&quot; mode like with &quot;<a href="intro.html#Q">Q</a>&quot;, but really behave
+			like typing &quot;<a href="cmdline.html#:">:</a>&quot; commands after another.  All command
+			line editing, completion etc. is available.
+			Use the &quot;:vi&quot; command |<a href="editing.html#:visual">:visual</a>| to exit &quot;<a href="intro.html#Ex">Ex</a>&quot; mode.
+			{not in Vi}
+
+==============================================================================
+
+7. The <a href="windows.html#window">window</a> contents					*<a name="window-contents"></A><b>window-contents</b>*
+
+In <a href="intro.html#Normal">Normal</a> mode and Insert/Replace mode the screen <a href="windows.html#window">window</a> will show the current
+contents of the buffer: What You See Is What You Get.  There are two
+exceptions:
+- When the <a href="options.html#'cpoptions'">'cpoptions'</a> option contains '<a href="motion.html#$">$</a>', and the change is within one line,
+  the text is not directly deleted, but a '<a href="motion.html#$">$</a>' is put at the last deleted
+  character.
+- When <a href="insert.html#inserting">inserting</a> text in one <a href="windows.html#window">window</a>, other <a href="windows.html#windows">windows</a> on the same text are not
+  updated until the insert is finished.
+{Vi: The screen is not always updated on slow terminals}
+
+Lines longer than the <a href="windows.html#window">window</a> width will wrap, unless the <a href="options.html#'wrap'">'wrap'</a> option is off
+(see below).  The <a href="options.html#'linebreak'">'linebreak'</a> option can be set to wrap at a blank character.
+
+If the <a href="windows.html#window">window</a> has room after the last line of the buffer, Vim will show '<a href="change.html#~">~</a>' in
+the first column of the last lines in the <a href="windows.html#window">window</a>, like this:
+
+	+-----------------------+
+	|some line		|
+	|last line		|
+	|~			|
+	|~			|
+	+-----------------------+
+
+Thus the '<a href="change.html#~">~</a>' lines indicate that the end of the buffer was reached.
+
+If the last line in a <a href="windows.html#window">window</a> doesn't fit, Vim will indicate this with a '<a href="repeat.html#@">@</a>' in
+the first column of the last lines in the <a href="windows.html#window">window</a>, like this:
+
+	+-----------------------+
+	|first line		|
+	|second line		|
+	|@			|
+	|@			|
+	+-----------------------+
+
+Thus the '<a href="repeat.html#@">@</a>' lines indicate that there is a line that doesn't fit in the
+<a href="windows.html#window">window</a>.
+
+When the &quot;lastline&quot; flag is present in the <a href="options.html#'display'">'display'</a> option, you will not see
+'<a href="repeat.html#@">@</a>' characters at the left side of <a href="windows.html#window">window</a>.  If the last line doesn't fit
+completely, only the part that fits is shown, and the last three characters of
+the last line are replaced with &quot;@@@&quot;, like this:
+
+	+-----------------------+
+	|first line		|
+	|second line		|
+	|a very long line that d|
+	|oesn't fit in the wi@@@|
+	+-----------------------+
+
+If there is a single line that is too long to fit in the <a href="windows.html#window">window</a>, this is a
+special situation.  Vim will show only part of the line, around where the
+cursor is.  There are no special characters shown, so that you can edit all
+parts of this line.
+{Vi: gives an &quot;internal error&quot; on lines that <a href="diff.html#do">do</a> not fit in the window}
+
+The '<a href="repeat.html#@">@</a>' occasion in the <a href="options.html#'highlight'">'highlight'</a> option can be used to set special
+highlighting for the '<a href="repeat.html#@">@</a>' and '<a href="change.html#~">~</a>' characters.  This makes it possible to
+distinguish them from real characters in the buffer.
+
+The <a href="options.html#'showbreak'">'showbreak'</a> option contains the string to put in front of wrapped lines.
+
+
+							*<a name="wrap-off"></A><b>wrap-off</b>*
+If the <a href="options.html#'wrap'">'wrap'</a> option is off, long lines will not wrap.  Only the part that
+fits on the screen is shown.  If the cursor is moved to a part of the line
+that is not shown, the screen is scrolled horizontally.  The advantage of
+this method is that columns are shown <a href="motion.html#as">as</a> they are and lines that cannot fit
+on the screen can be edited.  The disadvantage is that you cannot see all the
+characters of a line at once.  The <a href="options.html#'sidescroll'">'sidescroll'</a> option can be set to the
+minimal number of columns to scroll.  {Vi: has no <a href="options.html#'wrap'">'wrap'</a> option}
+
+All normal ASCII characters are displayed directly on the screen.  The <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>
+is replaced with the number of spaces that it represents.  Other non-printing
+characters are replaced with &quot;^{char}&quot;, where {char} is the non-printing
+character with 64 added.  Thus character 7 (bell) will be shown <a href="motion.html#as">as</a> &quot;^G&quot;.
+Characters between 127 and 160 are replaced with &quot;~{char}&quot;, where {char} is
+the character with 64 subtracted.  These characters occupy more than one
+position on the screen.  The cursor can only be positioned on the first one.
+
+If you set the <a href="options.html#'number'">'number'</a> option, all lines will be preceded with their
+number.  Tip: If you don't like wrapping lines to mix with the line numbers,
+set the <a href="options.html#'showbreak'">'showbreak'</a> option to eight spaces:
+	&quot;<a href="options.html#:set">:set</a> <a href="options.html#'showbreak'">showbreak</a>=\ \ \ \ \ \ \ \ &quot;
+
+If you set the <a href="options.html#'list'">'list'</a> option, <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> characters will not be shown <a href="motion.html#as">as</a> several
+spaces, but <a href="motion.html#as">as</a> &quot;^I&quot;.  A '<a href="motion.html#$">$</a>' will be placed at the end of the line, so you can
+find trailing blanks.
+
+In <a href="cmdline.html#Command-line">Command-line</a> mode only the command-line itself is shown correctly.  The
+display of the buffer contents is updated <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> you go back to Command
+mode.
+
+The last line of the <a href="windows.html#window">window</a> is used for status and other <a href="message.html#messages">messages</a>.  The
+status <a href="message.html#messages">messages</a> will only be used if an option is on:
+
+<b><font color="purple">status message			option	     default	Unix default	</font></b>
+current mode			<a href="options.html#'showmode'">'showmode'</a>	on	    on
+command characters		<a href="options.html#'showcmd'">'showcmd'</a>	on	    off
+cursor position			<a href="options.html#'ruler'">'ruler'</a>		off	    off
+
+The current mode is &quot;<a href="starting.html#--">--</a> INSERT --&quot; or &quot;<a href="starting.html#--">--</a> REPLACE --&quot;, see |<a href="options.html#'showmode'">'showmode'</a>|.  The
+command characters are those that you typed but were not used yet.  {Vi: does
+not show the characters you typed or the cursor position}
+
+If you have a slow terminal you can switch off the status <a href="message.html#messages">messages</a> to speed
+up editing:
+	<a href="options.html#:set">:set</a> <a href="options.html#'nosc'">nosc</a> noru nosm
+
+If there is an error, an error message will be shown for at least one second
+(in reverse video).  {Vi: error <a href="message.html#messages">messages</a> may be overwritten with other
+<a href="message.html#messages">messages</a> before you have a chance to read them}
+
+Some commands show how many lines were affected.  Above which threshold this
+happens can be controlled with the <a href="options.html#'report'">'report'</a> option (default 2).
+
+On the <a href="os_amiga.html#Amiga">Amiga</a> Vim will run in a CLI <a href="windows.html#window">window</a>.  The name Vim and the full name of
+the current file name will be shown in the title <a href="motion.html#bar">bar</a>.  When the <a href="windows.html#window">window</a> is
+resized, Vim will automatically redraw the <a href="windows.html#window">window</a>.  You may make the <a href="windows.html#window">window</a> <a href="motion.html#as">as</a>
+small <a href="motion.html#as">as</a> you like, but if it gets too small not a single line will fit in it.
+Make it at least 40 characters wide to be able to read most <a href="message.html#messages">messages</a> on the
+last line.
+
+On most <a href="os_unix.html#Unix">Unix</a> systems, resizing the <a href="windows.html#window">window</a> is recognized and handled correctly
+by Vim.  {Vi: not ok}
+
+==============================================================================
+
+8. Definitions						*<a name="definitions"></A><b>definitions</b>*
+
+  screen		The whole area that Vim uses to work in.  This can be
+			a terminal emulator <a href="windows.html#window">window</a>.  Also called &quot;the Vim
+			window&quot;.
+  <a href="windows.html#window">window</a>		A <a href="starting.html#view">view</a> on a buffer.
+
+A screen contains one or more <a href="windows.html#windows">windows</a>, separated by status lines and with the
+command line at the bottom.
+
+	+-------------------------------+
+screen	&#124; <a href="windows.html#window">window</a> 1	&#124; <a href="windows.html#window">window</a> 2	|
+	&#124;		&#124;		|
+	&#124;		&#124;		|
+	|= status line =|= status line =|
+	&#124; <a href="windows.html#window">window</a> 3			|
+	&#124;				|
+	&#124;				|
+	|==== status line ==============|
+	|command line			|
+	+-------------------------------+
+
+The command line is also used for <a href="message.html#messages">messages</a>.  It scrolls up the screen when
+there is not enough room in the command line.
+
+A difference is made between four types of lines:
+
+  buffer lines		The lines in the buffer.  This is the same <a href="motion.html#as">as</a> the
+			lines <a href="motion.html#as">as</a> they are read from/written to a file.  They
+			can be thousands of characters long.
+  logical lines		The buffer lines with <a href="fold.html#folding">folding</a> applied.  Buffer lines
+			in a closed fold are changed to a single logical line:
+			&quot;+-- 99 lines folded&quot;.  They can be thousands of
+			characters long.
+  <a href="windows.html#window">window</a> lines		The lines displayed in a <a href="windows.html#window">window</a>: A range of logical
+			lines with wrapping, line breaks, etc.  applied.  They
+			can only be <a href="motion.html#as">as</a> long <a href="motion.html#as">as</a> the width of the <a href="windows.html#window">window</a> allows,
+			longer lines are wrapped or truncated.
+  screen lines		The lines of the screen that Vim uses.  Consists of
+			the <a href="windows.html#window">window</a> lines of all <a href="windows.html#windows">windows</a>, with status lines
+			and the command line added.  They can only be <a href="motion.html#as">as</a> long
+			<a href="motion.html#as">as</a> the width of the screen allows.  When the command
+			line gets longer it wraps and lines are scrolled to
+			make room.
+
+<b><font color="purple">buffer lines	logical lines	window lines	screen lines </font></b>
+
+1. one		1. one		1. +-- folded   1.  +-- folded
+2. two		2. +-- folded	2. five		2.  five
+3. three	3. five		3. six		3.  six
+4. four		4. six		4. seven	4.  seven
+5. five		5. seven			5.  === status line ===
+6. six						6.  aaa
+7. seven					7.  bbb
+						8.  ccc ccc <a href="change.html#c">c</a>
+1. aaa		1. aaa		1. aaa		9.  <a href="change.html#cc">cc</a>
+2. bbb		2. bbb		2. bbb		10. ddd
+3. ccc ccc ccc	3. ccc ccc ccc	3. ccc ccc <a href="change.html#c">c</a>	11. ~ 
+4. ddd		4. ddd		4. <a href="change.html#cc">cc</a>		12. === status line ===
+				5. ddd		13. (command line)
+				6. ~ 
+
+==============================================================================
+<a href="intro.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

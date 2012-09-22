@@ -1,0 +1,259 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: recover</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: recover</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="recover.txt"></A><b>recover.txt</b>*   For Vim version 7.3.  Last change: 2010 Jul 20
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Recovery after a crash					*<a name="crash-recovery"></A><b>crash-recovery</b>*
+
+You have spent several hours typing in that text that has to be finished
+next morning, and then disaster strikes: Your computer crashes.
+
+			DON'T PANIC!
+
+You can recover most of your changes from the files that Vim uses to store
+the contents of the file.  Mostly you can recover your work with one command:
+	vim <a href="starting.html#-r">-r</a> filename
+
+1. The swap file	|<a href="recover.html#swap-file">swap-file</a>|
+2. Recovery		|<a href="recover.html#recovery">recovery</a>|
+
+==============================================================================
+
+1. The swap file					*<a name="swap-file"></A><b>swap-file</b>*
+
+Vim stores the things you changed in a swap file.  Using the original file
+you started from plus the swap file you can mostly recover your work.
+
+You can see the name of the current swap file being used with the command:
+
+
+	:sw[apname]					*<a name=":sw"></A><b>:sw</b>* *<a name=":swapname"></A><b>:swapname</b>*
+
+The name of the swap file is normally the same <a href="motion.html#as">as</a> the file you are editing,
+with the extension &quot;.swp&quot;.
+- On <a href="os_unix.html#Unix">Unix</a>, a '<a href="repeat.html#.">.</a>' is prepended to swap file names in the same directory <a href="motion.html#as">as</a> the
+  edited file.  This avoids that the swap file shows up in a directory
+  listing.
+- On <a href="os_msdos.html#MS-DOS">MS-DOS</a> machines and when the <a href="options.html#'shortname'">'shortname'</a> option is on, any '<a href="repeat.html#.">.</a>' in the
+  original file name is replaced with '<a href="motion.html#_">_</a>'.
+- If this file already exists (e.g., when you are recovering from a crash) a
+  warning is given and another extension is used, &quot;.swo&quot;, &quot;.swn&quot;, etc.
+- An existing file will never be overwritten.
+- The swap file is deleted <a href="motion.html#as">as</a> soon <a href="motion.html#as">as</a> Vim stops editing the file.
+
+Technical: The replacement of '<a href="repeat.html#.">.</a>' with '<a href="motion.html#_">_</a>' is done to avoid problems with
+	   <a href="os_msdos.html#MS-DOS">MS-DOS</a> compatible filesystems (e.g., crossdos, multidos).  If Vim
+	   is able to detect that the file is on an MS-DOS-like filesystem, a
+	   flag is set that has the same effect <a href="motion.html#as">as</a> the <a href="options.html#'shortname'">'shortname'</a> option.
+	   This flag is reset when you start editing another file.
+
+							*<a name="E326"></A><b>E326</b>*
+	   If the &quot;.swp&quot; file name already exists, the last character is
+	   decremented until there is no file with that name or &quot;.saa&quot; is
+	   reached.  In the last <a href="change.html#case">case</a>, no swap file is created.
+
+By setting the <a href="options.html#'directory'">'directory'</a> option you can place the swap file in another place
+than where the edited file is.
+Advantages:
+- You will not pollute the directories with &quot;.swp&quot; files.
+- When the <a href="options.html#'directory'">'directory'</a> is on another partition, reduce the risk of damaging
+  the file system where the file is (in a crash).
+Disadvantages:
+- You can get name collisions from files with the same name but in different
+  directories (although Vim tries to avoid that by comparing the path name).
+  This will result in bogus <a href="usr_11.html#ATTENTION">ATTENTION</a> warning <a href="message.html#messages">messages</a>.
+- When you use your home directory, and somebody else tries to edit the same
+  file, he will not see your swap file and will not get the <a href="usr_11.html#ATTENTION">ATTENTION</a> warning
+  message.
+On the <a href="os_amiga.html#Amiga">Amiga</a> you can also use a recoverable ram disk, but there is no 100&#37;
+guarantee that this works.  Putting swap files in a normal ram disk (like RAM:
+on the <a href="os_amiga.html#Amiga">Amiga</a>) or in a place that is cleared when rebooting (like /tmp on <a href="os_unix.html#Unix">Unix</a>)
+makes no sense, you will lose the swap file in a crash.
+
+If you want to put swap files in a fixed place, put a command resembling the
+following ones in your <a href="starting.html#.vimrc">.vimrc</a>:
+	<a href="options.html#:set">:set</a> <a href="options.html#'dir'">dir</a>=dh2:tmp	(for <a href="os_amiga.html#Amiga">Amiga</a>)
+	<a href="options.html#:set">:set</a> <a href="options.html#'dir'">dir</a>=~/tmp		(for <a href="os_unix.html#Unix">Unix</a>)
+	<a href="options.html#:set">:set</a> <a href="options.html#'dir'">dir</a>=c:\\tmp	(for <a href="os_msdos.html#MS-DOS">MS-DOS</a> and <a href="os_win32.html#Win32">Win32</a>)
+This is also very handy when editing files on floppy.  Of course you will have
+to create that &quot;tmp&quot; directory for this to work!
+
+For read-only files, a swap file is not used.  Unless the file is big, causing
+the amount of memory used to be higher than given with <a href="options.html#'maxmem'">'maxmem'</a> or
+<a href="options.html#'maxmemtot'">'maxmemtot'</a>.  And when making a change to a read-only file, the swap file is
+created anyway.
+
+The <a href="options.html#'swapfile'">'swapfile'</a> option can be reset to avoid creating a swapfile.
+
+
+<b><font color="purple">Detecting an existing swap file </font></b>
+
+You can find this in the user manual, section |<a href="usr_11.html#11.3">11.3</a>|.
+
+
+<b><font color="purple">Updating the swapfile </font></b>
+
+The swap file is updated after typing 200 characters or when you have not
+typed anything for four seconds.  This only happens if the buffer was
+changed, not when you only moved around.  The reason why it is not kept up to
+date all the time is that this would slow down normal work too much.  You can
+change the 200 character <a href="intro.html#count">count</a> with the <a href="options.html#'updatecount'">'updatecount'</a> option.  You can set
+the time with the <a href="options.html#'updatetime'">'updatetime'</a> option.  The time is given in milliseconds.
+After <a href="editing.html#writing">writing</a> to the swap file Vim syncs the file to disk.  This takes some
+time, especially on busy <a href="os_unix.html#Unix">Unix</a> systems.  If you don't want this you can set the
+<a href="options.html#'swapsync'">'swapsync'</a> option to an empty string.  The risk of losing work becomes bigger
+though.  On some non-Unix systems (MS-DOS, <a href="os_amiga.html#Amiga">Amiga</a>) the swap file won't be
+written at all.
+
+If the <a href="editing.html#writing">writing</a> to the swap file is not wanted, it can be switched off by
+setting the <a href="options.html#'updatecount'">'updatecount'</a> option to 0.  The same is done when starting Vim
+with the &quot;<a href="starting.html#-n">-n</a>&quot; option.  Writing can be switched back on by setting the
+<a href="options.html#'updatecount'">'updatecount'</a> option to non-zero.  Swap files will be created for all <a href="windows.html#buffers">buffers</a>
+when doing this.  But when setting <a href="options.html#'updatecount'">'updatecount'</a> to zero, the existing swap
+files will not be removed, it will only affect files that will be opened
+after this.
+
+If you want to make sure that your changes are in the swap file use this
+command:
+
+
+					*<a name=":pre"></A><b>:pre</b>* *<a name=":preserve"></A><b>:preserve</b>* *<a name="E313"></A><b>E313</b>* *<a name="E314"></A><b>E314</b>*
+:pre[serve]		Write all text for all <a href="windows.html#buffers">buffers</a> into swap file.  The
+			original file is no longer needed for <a href="recover.html#recovery">recovery</a>.
+			This sets a flag in the current buffer.  When the '<a href="change.html#&amp;">&amp;</a>'
+			flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a> the swap file will not
+			be deleted for this buffer when Vim exits and the
+			buffer is still loaded |<a href="options.html#cpo-&amp;">cpo-&amp;</a>|.
+			{Vi: might also exit}
+
+A Vim swap file can be recognized by the first six characters: &quot;b0VIM &quot;.
+After that comes the version number, e.g., &quot;3.0&quot;.
+
+
+<b><font color="purple">Links and symbolic links </font></b>
+
+On <a href="os_unix.html#Unix">Unix</a> it is possible to have two names for the same file.  This can be done
+with hard links and with symbolic links (symlinks).
+
+For hard links Vim does not know the other name of the file.  Therefore, the
+name of the swapfile will be based on the name you used to edit the file.
+There is no check for editing the same file by the other name too, because Vim
+cannot find the other swapfile (except for searching all of your harddisk,
+which would be very slow).
+
+For symbolic links Vim resolves the links to find the name of the actual file.
+The swap file name is based on that name.  Thus it doesn't matter by what name
+you edit the file, the swap file name will normally be the same.  However,
+there are exceptions:
+- When the directory of the actual file is not writable the swapfile is put
+  elsewhere.
+
+- When the symbolic links somehow create a loop you get an *<a name="E773"></A><b>E773</b>* error
+  message and the unmodified file name will be used.  You won't be able to
+  save your file normally.
+
+==============================================================================
+
+2. Recovery					*<a name="recovery"></A><b>recovery</b>* *<a name="E308"></A><b>E308</b>* *<a name="E311"></A><b>E311</b>*
+
+Basic file <a href="recover.html#recovery">recovery</a> is explained in the user manual: |<a href="usr_11.html">usr_11.txt</a>|.
+
+Another way to <a href="diff.html#do">do</a> <a href="recover.html#recovery">recovery</a> is to start Vim and use the &quot;<a href="recover.html#:recover">:recover</a>&quot; command.
+This is <a href="starting.html#easy">easy</a> when you start Vim to edit a file and you get the &quot;ATTENTION:
+Found a swap file ...&quot; message.  In this <a href="change.html#case">case</a> the single command &quot;<a href="recover.html#:recover">:recover</a>&quot;
+will <a href="diff.html#do">do</a> the work.  You can also give the name of the file or the swap file to
+the recover command:
+
+					*<a name=":rec"></A><b>:rec</b>* *<a name=":recover"></A><b>:recover</b>* *<a name="E305"></A><b>E305</b>* *<a name="E306"></A><b>E306</b>* *<a name="E307"></A><b>E307</b>*
+:rec[over] [file]	Try to recover [file] from the swap file.  If [file]
+			is not given use the file name for the current
+			buffer.  The current contents of the buffer are lost.
+			This command fails if the buffer was modified.
+
+:rec[over]! [file]	Like &quot;<a href="recover.html#:recover">:recover</a>&quot;, but any changes in the current
+			buffer are lost.
+
+
+							*<a name="E312"></A><b>E312</b>* *<a name="E309"></A><b>E309</b>* *<a name="E310"></A><b>E310</b>*
+Vim has some intelligence about what to <a href="diff.html#do">do</a> if the swap file is corrupt in
+some way.  If Vim has doubt about what it found, it will give an error
+message and insert lines with &quot;???&quot; in the text.  If you see an error message
+while recovering, search in the file for &quot;???&quot; to see what is wrong.  You may
+want to cut and paste to get the text you need.
+
+The most common remark is &quot;???LINES MISSING&quot;.  This means that Vim cannot read
+the text from the original file.  This can happen if the system crashed and
+parts of the original file were not written to disk.
+
+Be sure that the <a href="recover.html#recovery">recovery</a> was successful before overwriting the original
+file or <a href="change.html#deleting">deleting</a> the swap file.  It is good practice to write the recovered
+file elsewhere and run <a href="options.html#'diff'">'diff'</a> to find out if the changes you want are in the
+recovered file.  Or use |<a href="diff.html#:DiffOrig">:DiffOrig</a>|.
+
+Once you are sure the <a href="recover.html#recovery">recovery</a> is ok delete the swap file.  Otherwise, you
+will continue to get warning <a href="message.html#messages">messages</a> that the &quot;.swp&quot; file already exists.
+
+{Vi: recovers in another way and sends mail if there is something to recover}
+
+
+
+ENCRYPTION AND THE SWAP FILE				*<a name=":recover-crypt"></A><b>:recover-crypt</b>*
+
+When the text file is encrypted the swap file is encrypted <a href="motion.html#as">as</a> well.  This
+makes <a href="recover.html#recovery">recovery</a> a bit more complicated.  When recovering from a swap file and
+<a href="editing.html#encryption">encryption</a> has been used, you will be asked to enter one or two crypt keys.
+
+If the text file does not exist you will only be asked to enter the crypt key
+for the swap file.
+
+If the text file does exist, it may be encrypted in a different way than the
+swap file.  You will be asked for the crypt key <a href="if_cscop.html#twice">twice</a>:
+
+<b><font color="purple">	Need encryption key for "/tmp/tt" </font></b>
+<b><font color="purple">	Enter encryption key: ****** </font></b>
+<b><font color="purple">	"/tmp/tt" [crypted] 23200L, 522129C </font></b>
+<b><font color="purple">	Using swap file "/tmp/.tt.swp" </font></b>
+<b><font color="purple">	Original file "/tmp/tt" </font></b>
+<b><font color="purple">	Swap file is encrypted: "/tmp/.tt.swp" </font></b>
+<b><font color="purple">	If you entered a new crypt key but did not write the text file, </font></b>
+<b><font color="purple">	enter the new crypt key. </font></b>
+<b><font color="purple">	If you wrote the text file after changing the crypt key press enter </font></b>
+<b><font color="purple">	to use the same key for text file and swap file </font></b>
+<b><font color="purple">	Enter encryption key:  </font></b>
+
+You can be in one of these two situations:
+
+1. The <a href="editing.html#encryption">encryption</a> key was not changed, or after <a href="change.html#changing">changing</a> the key the text file
+   was written.  You will be prompted for the crypt key <a href="if_cscop.html#twice">twice</a>.  The second
+   time you can simply press Enter.  That means the same key is used for the
+   text file and the swap file.
+2. You entered a new <a href="editing.html#encryption">encryption</a> key, but did not save the text file.  Vim will
+   then use the new key for the swap file, and the text file will still be
+   encrypted with the old key.  At the second prompt enter the new key.
+
+Note that after <a href="recover.html#recovery">recovery</a> the key of the swap file will be used for the text
+file.  Thus if you write the text file, you need to use that new key.
+
+
+<a href="recover.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

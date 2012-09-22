@@ -1,0 +1,1211 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: cmdline</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: cmdline</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="cmdline.txt"></A><b>cmdline.txt</b>*   For Vim version 7.3.  Last change: 2011 Mar 27
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+				*<a name="Cmdline-mode"></A><b>Cmdline-mode</b>* *<a name="Command-line-mode"></A><b>Command-line-mode</b>*
+
+<a href="cmdline.html#Command-line">Command-line</a> mode		*<a name="Cmdline"></A><b>Cmdline</b>* *<a name="Command-line"></A><b>Command-line</b>* *<a name="mode-cmdline"></A><b>mode-cmdline</b>* *<a name=":"></A><b>:</b>*
+
+<a href="cmdline.html#Command-line">Command-line</a> mode is used to enter <a href="intro.html#Ex">Ex</a> commands (&quot;:&quot;), search patterns
+(&quot;/&quot; and &quot;?&quot;), and <a href="change.html#filter">filter</a> commands (&quot;!&quot;).
+
+Basic command line editing is explained in chapter 20 of the user manual
+|<a href="usr_20.html">usr_20.txt</a>|.
+
+1. <a href="cmdline.html#Command-line">Command-line</a> editing		|<a href="cmdline.html#cmdline-editing">cmdline-editing</a>|
+2. <a href="cmdline.html#Command-line">Command-line</a> completion	|<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|
+3. <a href="intro.html#Ex">Ex</a> command-lines		|<a href="cmdline.html#cmdline-lines">cmdline-lines</a>|
+4. <a href="intro.html#Ex">Ex</a> command-line ranges	|<a href="cmdline.html#cmdline-ranges">cmdline-ranges</a>|
+5. <a href="intro.html#Ex">Ex</a> command-line flags	|<a href="cmdline.html#ex-flags">ex-flags</a>|
+6. <a href="intro.html#Ex">Ex</a> special characters	|<a href="cmdline.html#cmdline-special">cmdline-special</a>|
+7. <a href="cmdline.html#Command-line">Command-line</a> window		|<a href="cmdline.html#cmdline-window">cmdline-window</a>|
+
+==============================================================================
+
+1. <a href="cmdline.html#Command-line">Command-line</a> editing					*<a name="cmdline-editing"></A><b>cmdline-editing</b>*
+
+Normally characters are inserted in front of the cursor position.  You can
+move around in the command-line with the left and right cursor keys.  With the
+<a href="insert.html#&lt;Insert&gt;">&lt;Insert&gt;</a> key, you can toggle between <a href="insert.html#inserting">inserting</a> and overstriking characters.
+{Vi: can only alter the last character in the line}
+
+Note that if your keyboard does not have working cursor keys or any of the
+other special keys, you can use &quot;<a href="map.html#:cnoremap">:cnoremap</a>&quot; to define another key for them.
+
+For example, to define tcsh style editing keys:		*<a name="tcsh-style"></A><b>tcsh-style</b>* 
+<b>	:cnoremap &lt;C-A&gt; &lt;Home&gt;</b>
+<b>	:cnoremap &lt;C-F&gt; &lt;Right&gt;</b>
+<b>	:cnoremap &lt;C-B&gt; &lt;Left&gt;</b>
+<b>	:cnoremap &lt;Esc&gt;b &lt;S-Left&gt;</b>
+<b>	:cnoremap &lt;Esc&gt;f &lt;S-Right&gt;</b>
+(&lt;&gt; <a href="intro.html#notation">notation</a> |<a href="intro.html#&lt;&gt;">&lt;&gt;</a>|; type all this literally)
+
+
+							*<a name="cmdline-too-long"></A><b>cmdline-too-long</b>*
+When the command line is getting longer than what fits on the screen, only the
+part that fits will be shown.  The cursor can only move in this visible part,
+thus you cannot edit beyond that.
+
+
+						*<a name="cmdline-history"></A><b>cmdline-history</b>* *<a name="history"></A><b>history</b>*
+The command-lines that you enter are remembered in a <a href="cmdline.html#history">history</a> table.  You can
+recall them with the up and down cursor keys.  There are actually five
+<a href="cmdline.html#history">history</a> tables:
+- one for '<a href="cmdline.html#:">:</a>' commands
+- one for search strings
+- one for expressions
+- one for input lines, typed for the |<a href="eval.html#input()">input()</a>| function.
+- one for debug mode commands
+These are completely separate.  Each <a href="cmdline.html#history">history</a> can only be accessed when
+entering the same type of line.
+Use the <a href="options.html#'history'">'history'</a> option to set the number of lines that are remembered
+(default: 20).
+Notes:
+- When you enter a command-line that is exactly the same <a href="motion.html#as">as</a> an older one, the
+  old one is removed (to avoid repeated commands moving older commands out of
+  the <a href="cmdline.html#history">history</a>).
+- Only commands that are typed are remembered.  Ones that completely come from
+  mappings are not put in the <a href="cmdline.html#history">history</a>.
+- All searches are put in the search <a href="cmdline.html#history">history</a>, including the ones that come
+  from commands like &quot;*&quot; and &quot;<a href="pattern.html##">#</a>&quot;.  But for a <a href="map.html#mapping">mapping</a>, only the last search is
+  remembered (to avoid that long mappings trash the <a href="cmdline.html#history">history</a>).
+{Vi: no history}
+{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>| feature}
+
+There is an automatic completion of names on the command-line; see
+|<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|.
+
+
+							*<a name="c_CTRL-V"></A><b>c_CTRL-V</b>*
+<a href="visual.html#CTRL-V">CTRL-V</a>		<a href="insert.html#Insert">Insert</a> next non-digit literally.  Up to three digits form the
+		decimal value of a single byte.  The non-digit and the three
+		digits are not considered for <a href="map.html#mapping">mapping</a>.  This works the same
+		way <a href="motion.html#as">as</a> in <a href="insert.html#Insert">Insert</a> mode (see above, |<a href="insert.html#i_CTRL-V">i_CTRL-V</a>|).
+		Note: Under Windows <a href="visual.html#CTRL-V">CTRL-V</a> is often mapped to paste text.
+		Use <a href="gui_w32.html#CTRL-Q">CTRL-Q</a> instead then.
+
+							*<a name="c_CTRL-Q"></A><b>c_CTRL-Q</b>*
+<a href="gui_w32.html#CTRL-Q">CTRL-Q</a>		Same <a href="motion.html#as">as</a> <a href="visual.html#CTRL-V">CTRL-V</a>.  But with some terminals it is used for
+		<a href="intro.html#control">control</a> flow, it doesn't work then.
+
+
+							*<a name="c_&lt;Left&gt;"></A><b>c_&lt;Left&gt;</b>* *<a name="c_Left"></A><b>c_Left</b>*
+<a href="motion.html#&lt;Left&gt;">&lt;Left&gt;</a>		cursor left
+
+							*<a name="c_&lt;Right&gt;"></A><b>c_&lt;Right&gt;</b>* *<a name="c_Right"></A><b>c_Right</b>*
+<a href="motion.html#&lt;Right&gt;">&lt;Right&gt;</a>		cursor right
+
+							*<a name="c_&lt;S-Left&gt;"></A><b>c_&lt;S-Left&gt;</b>*
+
+<a href="motion.html#&lt;S-Left&gt;">&lt;S-Left&gt;</a> or <a href="motion.html#&lt;C-Left&gt;">&lt;C-Left&gt;</a>					*<a name="c_&lt;C-Left&gt;"></A><b>c_&lt;C-Left&gt;</b>*
+		cursor one <a href="motion.html#WORD">WORD</a> left
+
+							*<a name="c_&lt;S-Right&gt;"></A><b>c_&lt;S-Right&gt;</b>*
+
+<a href="motion.html#&lt;S-Right&gt;">&lt;S-Right&gt;</a> or <a href="motion.html#&lt;C-Right&gt;">&lt;C-Right&gt;</a>					*<a name="c_&lt;C-Right&gt;"></A><b>c_&lt;C-Right&gt;</b>*
+		cursor one <a href="motion.html#WORD">WORD</a> right
+
+<a href="scroll.html#CTRL-B">CTRL-B</a> or <a href="motion.html#&lt;Home&gt;">&lt;Home&gt;</a>				*<a name="c_CTRL-B"></A><b>c_CTRL-B</b>* *<a name="c_&lt;Home&gt;"></A><b>c_&lt;Home&gt;</b>* *<a name="c_Home"></A><b>c_Home</b>*
+		cursor to beginning of command-line
+
+<a href="scroll.html#CTRL-E">CTRL-E</a> or <a href="motion.html#&lt;End&gt;">&lt;End&gt;</a>					*<a name="c_CTRL-E"></A><b>c_CTRL-E</b>* *<a name="c_&lt;End&gt;"></A><b>c_&lt;End&gt;</b>* *<a name="c_End"></A><b>c_End</b>*
+		cursor to end of command-line
+
+
+							*<a name="c_&lt;LeftMouse&gt;"></A><b>c_&lt;LeftMouse&gt;</b>*
+<a href="visual.html#&lt;LeftMouse&gt;">&lt;LeftMouse&gt;</a>	Move the cursor to the position of the mouse click.
+
+
+<a href="motion.html#CTRL-H">CTRL-H</a>						*<a name="c_&lt;BS&gt;"></A><b>c_&lt;BS&gt;</b>* *<a name="c_CTRL-H"></A><b>c_CTRL-H</b>* *<a name="c_BS"></A><b>c_BS</b>*
+<a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a>		Delete the character in front of the cursor (see |<a href="options.html#:fixdel">:fixdel</a>| if
+		your <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> key does not <a href="diff.html#do">do</a> what you want).
+
+							*<a name="c_&lt;Del&gt;"></A><b>c_&lt;Del&gt;</b>* *<a name="c_Del"></A><b>c_Del</b>*
+<a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>		Delete the character under the cursor (at end of line:
+		character before the cursor) (see |<a href="options.html#:fixdel">:fixdel</a>| if your <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>
+		key does not <a href="diff.html#do">do</a> what you want).
+
+							*<a name="c_CTRL-W"></A><b>c_CTRL-W</b>*
+<a href="index.html#CTRL-W">CTRL-W</a>		Delete the |<a href="motion.html#word">word</a>| before the cursor.  This depends on the
+		<a href="options.html#'iskeyword'">'iskeyword'</a> option.
+
+							*<a name="c_CTRL-U"></A><b>c_CTRL-U</b>*
+<a href="scroll.html#CTRL-U">CTRL-U</a>		Remove all characters between the cursor position and
+		the beginning of the line.  Previous versions of vim
+		deleted all characters on the line.  If that is the
+		preferred behavior, add the following to your <a href="starting.html#.vimrc">.vimrc</a>:
+<b>			:cnoremap &lt;C-U&gt; &lt;C-E&gt;&lt;C-U&gt;</b>
+ 
+
+						*<a name="c_&lt;Insert&gt;"></A><b>c_&lt;Insert&gt;</b>* *<a name="c_Insert"></A><b>c_Insert</b>*
+<a href="insert.html#&lt;Insert&gt;">&lt;Insert&gt;</a>	Toggle between insert and overstrike.  {not in Vi}
+
+
+{char1} <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> {char2}	or				*<a name="c_digraph"></A><b>c_digraph</b>*
+
+CTRL-K {char1} {char2}					*<a name="c_CTRL-K"></A><b>c_CTRL-K</b>*
+		enter digraph (see |<a href="digraph.html#digraphs">digraphs</a>|).  When {char1} is a special
+		key, the code for that key is inserted in <a href="intro.html#&lt;&gt;">&lt;&gt;</a> form.  {not in Vi}
+
+
+<a href="undo.html#CTRL-R">CTRL-R</a> {0-9a-z&quot;&#37;#:-=.}					*<a name="c_CTRL-R"></A><b>c_CTRL-R</b>* *<a name="c_&lt;C-R&gt;"></A><b>c_&lt;C-R&gt;</b>*
+		<a href="insert.html#Insert">Insert</a> the contents of a numbered or named <a href="sponsor.html#register">register</a>.  Between
+		typing <a href="undo.html#CTRL-R">CTRL-R</a> and the second character &#39;&#34;'' will be displayed
+		to indicate that you are expected to enter the name of a
+		<a href="sponsor.html#register">register</a>.
+		The text is inserted <a href="motion.html#as">as</a> if you typed it, but mappings and
+		<a href="map.html#abbreviations">abbreviations</a> are not used.  <a href="cmdline.html#Command-line">Command-line</a> completion through
+		<a href="options.html#'wildchar'">'wildchar'</a> is not triggered though.  And characters that end
+		the command line are inserted literally (&lt;Esc&gt;, <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>, <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>,
+		&lt;C-C&gt;).  A <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> or <a href="index.html#CTRL-W">CTRL-W</a> could still end the command line
+		though, and remaining characters will then be interpreted in
+		another mode, which might not be what you intended.
+		Special <a href="change.html#registers">registers</a>:
+			&#39;&#34;''	the unnamed <a href="sponsor.html#register">register</a>, containing the text of
+				the last delete or <a href="change.html#yank">yank</a>
+			'<a href="motion.html#&#37;">&#37;</a>'	the current file name
+			'<a href="pattern.html##">#</a>'	the alternate file name
+			'*'	the <a href="gui.html#clipboard">clipboard</a> contents (X11: primary selection)
+			'<a href="motion.html#+">+</a>'	the <a href="gui.html#clipboard">clipboard</a> contents
+			'<a href="pattern.html#/">/</a>'	the last search <a href="pattern.html#pattern">pattern</a>
+			'<a href="cmdline.html#:">:</a>'	the last command-line
+			'<a href="motion.html#-">-</a>'	the last small (less than a line) delete
+			'<a href="repeat.html#.">.</a>'	the last inserted text
+
+							*<a name="c_CTRL-R_="></A><b>c_CTRL-R_=</b>*
+			'<a href="change.html#=">=</a>'	the <a href="eval.html#expression">expression</a> <a href="sponsor.html#register">register</a>: you are prompted to
+				enter an expression (see |<a href="eval.html#expression">expression</a>|)
+				(doesn't work at the <a href="eval.html#expression">expression</a> prompt; some
+				things such <a href="motion.html#as">as</a> <a href="change.html#changing">changing</a> the buffer or current
+				<a href="windows.html#window">window</a> are not allowed to avoid side effects)
+				When the result is a |<a href="eval.html#List">List</a>| the items are used
+				<a href="motion.html#as">as</a> lines.  They can have line breaks inside
+				too.
+				When the result is a <a href="eval.html#Float">Float</a> it's automatically
+				converted to a String.
+		See |<a href="change.html#registers">registers</a>| about registers.  {not in Vi}
+		Implementation detail: When using the |<a href="eval.html#expression">expression</a>| <a href="sponsor.html#register">register</a>
+		and invoking <a href="eval.html#setcmdpos()">setcmdpos()</a>, this sets the position before
+		<a href="insert.html#inserting">inserting</a> the resulting string.  Use <a href="undo.html#CTRL-R">CTRL-R</a> <a href="undo.html#CTRL-R">CTRL-R</a> to set the
+		position afterwards.
+
+
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="scroll.html#CTRL-F">CTRL-F</a>				*<a name="c_CTRL-R_CTRL-F"></A><b>c_CTRL-R_CTRL-F</b>* *<a name="c_&lt;C-R&gt;_&lt;C-F&gt;"></A><b>c_&lt;C-R&gt;_&lt;C-F&gt;</b>*
+
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="motion.html#CTRL-P">CTRL-P</a>				*<a name="c_CTRL-R_CTRL-P"></A><b>c_CTRL-R_CTRL-P</b>* *<a name="c_&lt;C-R&gt;_&lt;C-P&gt;"></A><b>c_&lt;C-R&gt;_&lt;C-P&gt;</b>*
+
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="index.html#CTRL-W">CTRL-W</a>				*<a name="c_CTRL-R_CTRL-W"></A><b>c_CTRL-R_CTRL-W</b>* *<a name="c_&lt;C-R&gt;_&lt;C-W&gt;"></A><b>c_&lt;C-R&gt;_&lt;C-W&gt;</b>*
+
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="change.html#CTRL-A">CTRL-A</a>				*<a name="c_CTRL-R_CTRL-A"></A><b>c_CTRL-R_CTRL-A</b>* *<a name="c_&lt;C-R&gt;_&lt;C-A&gt;"></A><b>c_&lt;C-R&gt;_&lt;C-A&gt;</b>*
+		<a href="insert.html#Insert">Insert</a> the object under the cursor:
+			<a href="scroll.html#CTRL-F">CTRL-F</a>	the Filename under the cursor
+			<a href="motion.html#CTRL-P">CTRL-P</a>	the Filename under the cursor, expanded with
+				<a href="options.html#'path'">'path'</a> <a href="motion.html#as">as</a> in |<a href="editing.html#gf">gf</a>|
+			<a href="index.html#CTRL-W">CTRL-W</a>	the Word under the cursor
+			<a href="change.html#CTRL-A">CTRL-A</a>	the WORD under the cursor; see |<a href="motion.html#WORD">WORD</a>|
+
+		When <a href="options.html#'incsearch'">'incsearch'</a> is set the cursor position at the end of the
+		currently displayed match is used.  With <a href="index.html#CTRL-W">CTRL-W</a> the part of
+		the <a href="motion.html#word">word</a> that was already typed is not inserted again.
+
+		{not in Vi}
+		<a href="scroll.html#CTRL-F">CTRL-F</a> and <a href="motion.html#CTRL-P">CTRL-P</a>: {only when |<a href="various.html#+file_in_path">+file_in_path</a>| feature is
+		included}
+
+
+					*<a name="c_CTRL-R_CTRL-R"></A><b>c_CTRL-R_CTRL-R</b>* *<a name="c_&lt;C-R&gt;_&lt;C-R&gt;"></A><b>c_&lt;C-R&gt;_&lt;C-R&gt;</b>*
+
+					*<a name="c_CTRL-R_CTRL-O"></A><b>c_CTRL-R_CTRL-O</b>* *<a name="c_&lt;C-R&gt;_&lt;C-O&gt;"></A><b>c_&lt;C-R&gt;_&lt;C-O&gt;</b>*
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="undo.html#CTRL-R">CTRL-R</a> {0-9a-z&quot;&#37;#:-=. <a href="scroll.html#CTRL-F">CTRL-F</a> <a href="motion.html#CTRL-P">CTRL-P</a> <a href="index.html#CTRL-W">CTRL-W</a> CTRL-A}
+<a href="undo.html#CTRL-R">CTRL-R</a> <a href="motion.html#CTRL-O">CTRL-O</a> {0-9a-z&quot;&#37;#:-=. <a href="scroll.html#CTRL-F">CTRL-F</a> <a href="motion.html#CTRL-P">CTRL-P</a> <a href="index.html#CTRL-W">CTRL-W</a> CTRL-A}
+		<a href="insert.html#Insert">Insert</a> <a href="sponsor.html#register">register</a> or object under the cursor.  Works like
+		|<a href="cmdline.html#c_CTRL-R">c_CTRL-R</a>| but inserts the text literally.  For example, if
+		<a href="sponsor.html#register">register</a> a contains &quot;xy^Hz&quot; (where ^H is a backspace),
+		&quot;<a href="undo.html#CTRL-R">CTRL-R</a> a&quot; will insert &quot;xz&quot; while &quot;<a href="undo.html#CTRL-R">CTRL-R</a> <a href="undo.html#CTRL-R">CTRL-R</a> a&quot; will
+		insert &quot;xy^Hz&quot;.
+
+
+CTRL-\ <a href="motion.html#e">e</a> {expr}						*<a name="c_CTRL-\_e"></A><b>c_CTRL-\_e</b>*
+		Evaluate {expr} and replace the whole command line with the
+		result.  You will be prompted for the <a href="eval.html#expression">expression</a>, type <a href="intro.html#&lt;Enter&gt;">&lt;Enter&gt;</a>
+		to finish it.  It's most useful in mappings though.  See
+		|<a href="eval.html#expression">expression</a>|.
+		See |<a href="cmdline.html#c_CTRL-R_=">c_CTRL-R_=</a>| for <a href="insert.html#inserting">inserting</a> the result of an <a href="eval.html#expression">expression</a>.
+		Useful <a href="eval.html#functions">functions</a> are |<a href="eval.html#getcmdtype()">getcmdtype()</a>|, |<a href="eval.html#getcmdline()">getcmdline()</a>| and
+		|<a href="eval.html#getcmdpos()">getcmdpos()</a>|.
+		The cursor position is unchanged, except when the cursor was
+		at the end of the line, then it stays at the end.
+		|<a href="eval.html#setcmdpos()">setcmdpos()</a>| can be used to set the cursor position.
+		The |<a href="eval.html#sandbox">sandbox</a>| is used for evaluating the <a href="eval.html#expression">expression</a> to avoid
+		nasty side effects.
+		Example:
+<b>			:cmap &lt;F7&gt; &lt;C-\&gt;eAppendSome()&lt;CR&gt;</b>
+<b>			:func AppendSome()</b>
+<b>			   :let cmd = getcmdline() . " Some()"</b>
+<b>			   :" place the cursor on the )</b>
+<b>			   :call setcmdpos(strlen(cmd))</b>
+<b>			   :return cmd</b>
+<b>			:endfunc</b>
+ 		This doesn't work recursively, thus not when already editing
+		an <a href="eval.html#expression">expression</a>.
+
+
+							*<a name="c_CTRL-Y"></A><b>c_CTRL-Y</b>*
+<a href="scroll.html#CTRL-Y">CTRL-Y</a>		When there is a modeless selection, copy the selection into
+		the <a href="gui.html#clipboard">clipboard</a>. |<a href="gui.html#modeless-selection">modeless-selection</a>|
+		If there is no selection <a href="scroll.html#CTRL-Y">CTRL-Y</a> is inserted <a href="motion.html#as">as</a> a character.
+
+
+<a href="motion.html#CTRL-J">CTRL-J</a>					*<a name="c_CTRL-J"></A><b>c_CTRL-J</b>* *<a name="c_&lt;NL&gt;"></A><b>c_&lt;NL&gt;</b>* *<a name="c_&lt;CR&gt;"></A><b>c_&lt;CR&gt;</b>* *<a name="c_CR"></A><b>c_CR</b>*
+<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> or <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>	start entered command
+
+							*<a name="c_&lt;Esc&gt;"></A><b>c_&lt;Esc&gt;</b>* *<a name="c_Esc"></A><b>c_Esc</b>*
+<a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>		When typed and '<a href="change.html#x">x</a>' not present in <a href="options.html#'cpoptions'">'cpoptions'</a>, quit
+		<a href="cmdline.html#Command-line">Command-line</a> mode without executing.  In macros or when '<a href="change.html#x">x</a>'
+		present in <a href="options.html#'cpoptions'">'cpoptions'</a>, start entered command.
+		Note: If your <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> key is hard to hit on your keyboard, train
+		yourself to use CTRL-[.
+
+							*<a name="c_CTRL-C"></A><b>c_CTRL-C</b>*
+<a href="pattern.html#CTRL-C">CTRL-C</a>		quit command-line without executing
+
+
+							*<a name="c_&lt;Up&gt;"></A><b>c_&lt;Up&gt;</b>* *<a name="c_Up"></A><b>c_Up</b>*
+<a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>		recall older command-line from <a href="cmdline.html#history">history</a>, whose beginning
+		matches the current command-line (see below).
+		{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>|
+		feature}
+
+							*<a name="c_&lt;Down&gt;"></A><b>c_&lt;Down&gt;</b>* *<a name="c_Down"></A><b>c_Down</b>*
+<a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a>		recall more recent command-line from <a href="cmdline.html#history">history</a>, whose beginning
+		matches the current command-line (see below).
+		{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>|
+		feature}
+
+
+							*<a name="c_&lt;S-Up&gt;"></A><b>c_&lt;S-Up&gt;</b>* *<a name="c_&lt;PageUp&gt;"></A><b>c_&lt;PageUp&gt;</b>*
+<a href="scroll.html#&lt;S-Up&gt;">&lt;S-Up&gt;</a> or <a href="scroll.html#&lt;PageUp&gt;">&lt;PageUp&gt;</a>
+		recall older command-line from <a href="cmdline.html#history">history</a>
+		{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>|
+		feature}
+
+						*<a name="c_&lt;S-Down&gt;"></A><b>c_&lt;S-Down&gt;</b>* *<a name="c_&lt;PageDown&gt;"></A><b>c_&lt;PageDown&gt;</b>*
+<a href="scroll.html#&lt;S-Down&gt;">&lt;S-Down&gt;</a> or <a href="scroll.html#&lt;PageDown&gt;">&lt;PageDown&gt;</a>
+		recall more recent command-line from <a href="cmdline.html#history">history</a>
+		{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>|
+		feature}
+
+<a href="scroll.html#CTRL-D">CTRL-D</a>		command-line completion (see |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|)
+<a href="options.html#'wildchar'">'wildchar'</a> option
+		command-line completion (see |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|)
+<a href="motion.html#CTRL-N">CTRL-N</a>		command-line completion (see |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|)
+<a href="motion.html#CTRL-P">CTRL-P</a>		command-line completion (see |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|)
+<a href="change.html#CTRL-A">CTRL-A</a>		command-line completion (see |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|)
+<a href="various.html#CTRL-L">CTRL-L</a>		command-line completion (see |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|)
+
+
+							*<a name="c_CTRL-_"></A><b>c_CTRL-_</b>*
+CTRL-_		a - switch between Hebrew and English keyboard mode, which is
+		private to the command-line and not related to hkmap.
+		This is useful when Hebrew text entry is required in the
+		command-line, searches, <a href="map.html#abbreviations">abbreviations</a>, etc.  Applies only if
+		Vim is compiled with the |<a href="various.html#+rightleft">+rightleft</a>| feature and the
+		<a href="options.html#'allowrevins'">'allowrevins'</a> option is set.
+		See |<a href="rileft.html">rileft.txt</a>|.
+
+		<a href="motion.html#b">b</a> - switch between <a href="farsi.html#Farsi">Farsi</a> and English keyboard mode, which is
+		private to the command-line and not related to fkmap.  In
+		<a href="farsi.html#Farsi">Farsi</a> keyboard mode the characters are inserted in reverse
+		insert manner.  This is useful when <a href="farsi.html#Farsi">Farsi</a> text entry is
+		required in the command-line, searches, <a href="map.html#abbreviations">abbreviations</a>, etc.
+		Applies only if Vim is compiled with the |<a href="various.html#+farsi">+farsi</a>| feature.
+		See |<a href="farsi.html">farsi.txt</a>|.
+
+
+							*<a name="c_CTRL-^"></A><b>c_CTRL-^</b>*
+<a href="editing.html#CTRL-^">CTRL-^</a>		Toggle the use of language |<a href="map.html#:lmap">:lmap</a>| mappings and/or Input
+		Method.
+		When typing a <a href="pattern.html#pattern">pattern</a> for a search command and <a href="options.html#'imsearch'">'imsearch'</a> is
+		not -1, VAL is the value of <a href="options.html#'imsearch'">'imsearch'</a>, otherwise VAL is the
+		value of <a href="options.html#'iminsert'">'iminsert'</a>.
+		When language mappings are defined:
+		- If VAL is 1 (langmap mappings used) it becomes 0 (no langmap
+		  mappings used).
+		- If VAL was not 1 it becomes 1, thus langmap mappings are
+		  enabled.
+		When no language mappings are defined:
+		- If VAL is 2 (Input Method is used) it becomes 0 (no input
+		  method used)
+		- If VAL has another value it becomes 2, thus the Input Method
+		  is enabled.
+		These language mappings are normally used to type characters
+		that are different from what the keyboard produces.  The
+		<a href="options.html#'keymap'">'keymap'</a> option can be used to <a href="usr_90.html#install">install</a> a whole number of them.
+		When entering a command line, langmap mappings are switched
+		off, since you are expected to type a command.  After
+		switching it on with <a href="editing.html#CTRL-^">CTRL-^</a>, the new state is not used again
+		for the next command or Search <a href="pattern.html#pattern">pattern</a>.
+		{not in Vi}
+
+
+						*<a name="c_CTRL-]"></A><b>c_CTRL-]</b>*
+<a href="tagsrch.html#CTRL-]">CTRL-]</a>		Trigger abbreviation, without <a href="insert.html#inserting">inserting</a> a character.  {not in
+		Vi}
+
+For Emacs-style editing on the command-line see |<a href="tips.html#emacs-keys">emacs-keys</a>|.
+
+The <a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a> and <a href="motion.html#&lt;Down&gt;">&lt;Down&gt;</a> keys take the current command-line <a href="motion.html#as">as</a> a search string.
+The beginning of the next/previous command-lines are compared with this
+string.  The first line that matches is the new command-line.  When typing
+these two keys repeatedly, the same string is used again.  For example, this
+can be used to find the previous substitute command: Type &quot;<a href="change.html#:s">:s</a>&quot; and then <a href="motion.html#&lt;Up&gt;">&lt;Up&gt;</a>.
+The same could be done by typing <a href="scroll.html#&lt;S-Up&gt;">&lt;S-Up&gt;</a> a number of times until the desired
+command-line is shown.  (Note: the shifted arrow keys <a href="diff.html#do">do</a> not work on all
+terminals)
+
+
+							*<a name=":his"></A><b>:his</b>* *<a name=":history"></A><b>:history</b>*
+:his[tory]	Print the <a href="cmdline.html#history">history</a> of last entered commands.
+		{not in Vi}
+		{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>|
+		feature}
+
+:his[tory] [{name}] [{first}][, [{last}]]
+		<a href="eval.html#List">List</a> the contents of <a href="cmdline.html#history">history</a> {name} which can be:
+		c[md]	 or :	command-line <a href="cmdline.html#history">history</a>
+		s[earch] or /	search string <a href="cmdline.html#history">history</a>
+		e[xpr]	 or =	<a href="eval.html#expression">expression</a> <a href="sponsor.html#register">register</a> <a href="cmdline.html#history">history</a>
+		i[nput]	 or @	input line <a href="cmdline.html#history">history</a>
+		d[ebug]	 or <a href="change.html#&gt;">&gt;</a>	debug command <a href="cmdline.html#history">history</a>
+		a[ll]		all of the above
+		{not in Vi}
+
+		If the numbers {first} and/or {last} are given, the respective
+		range of entries from a <a href="cmdline.html#history">history</a> is listed.  These numbers can
+		be specified in the following form:
+
+							*<a name=":history-indexing"></A><b>:history-indexing</b>*
+		A positive number represents the absolute index of an entry
+		<a href="motion.html#as">as</a> it is given in the first column of a <a href="cmdline.html#:history">:history</a> listing.
+		This number remains fixed even if other entries are deleted.
+
+		A negative number means the relative position of an entry,
+		counted from the newest entry (which has index -1) backwards.
+
+		Examples:
+		<a href="eval.html#List">List</a> entries 6 to 12 from the search <a href="cmdline.html#history">history</a>:
+<b>			:history / 6,12</b>
+ 
+		<a href="eval.html#List">List</a> the recent five entries from all histories:
+<b>			:history all -5,</b>
+
+==============================================================================
+
+2. <a href="cmdline.html#Command-line">Command-line</a> completion				*<a name="cmdline-completion"></A><b>cmdline-completion</b>*
+
+When editing the command-line, a few commands can be used to complete the
+<a href="motion.html#word">word</a> before the cursor.  This is available for:
+
+- Command names: At the start of the command-line.
+- Tags: Only after the &quot;<a href="tagsrch.html#:tag">:tag</a>&quot; command.
+- File names: Only after a command that accepts a file name or a setting for
+  an option that can be set to a file name.  This is called file name
+  completion.
+- Shell command names: After &quot;<a href="various.html#:!cmd">:!cmd</a>&quot;, &quot;<a href="insert.html#:r">:r</a> !cmd&quot; and &quot;<a href="editing.html#:w">:w</a> !cmd&quot;.  $PATH is used.
+- Options: Only after the &quot;<a href="options.html#:set">:set</a>&quot; command.
+- Mappings: Only after a &quot;<a href="map.html#:map">:map</a>&quot; or similar command.
+- Variable and function names: Only after a &quot;<a href="eval.html#:if">:if</a>&quot;, &quot;<a href="eval.html#:call">:call</a>&quot; or similar command.
+
+When Vim was compiled without the |<a href="various.html#+cmdline_compl">+cmdline_compl</a>| feature only file names,
+directories and help items can be completed.  The number of help item matches
+is limited (currently to 300) to avoid a long delay when there are very many
+matches.
+
+These are the commands that can be used:
+
+
+							*<a name="c_CTRL-D"></A><b>c_CTRL-D</b>*
+<a href="scroll.html#CTRL-D">CTRL-D</a>		<a href="eval.html#List">List</a> names that match the <a href="pattern.html#pattern">pattern</a> in front of the cursor.
+		When showing file names, directories are highlighted (see
+		<a href="options.html#'highlight'">'highlight'</a> option).  Names where <a href="options.html#'suffixes'">'suffixes'</a> matches are moved
+		to the end.
+		The <a href="options.html#'wildoptions'">'wildoptions'</a> option can be set to &quot;tagfile&quot; to list the
+		file of matching <a href="tagsrch.html#tags">tags</a>.
+
+					*<a name="c_CTRL-I"></A><b>c_CTRL-I</b>* *<a name="c_wildchar"></A><b>c_wildchar</b>* *<a name="c_&lt;Tab&gt;"></A><b>c_&lt;Tab&gt;</b>*
+<a href="options.html#'wildchar'">'wildchar'</a> option
+		A match is done on the <a href="pattern.html#pattern">pattern</a> in front of the cursor.  The
+		match (if there are several, the first match) is inserted
+		in place of the <a href="pattern.html#pattern">pattern</a>.  (Note: does not work inside a
+		<a href="map.html#macro">macro</a>, because <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> or <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> are mostly used <a href="motion.html#as">as</a> <a href="options.html#'wildchar'">'wildchar'</a>,
+		and these have a special meaning in some macros.) When typed
+		again and there were multiple matches, the next
+		match is inserted.  After the last match, the first is used
+		again (wrap around).
+		The behavior can be changed with the <a href="options.html#'wildmode'">'wildmode'</a> option.
+
+							*<a name="c_CTRL-N"></A><b>c_CTRL-N</b>*
+<a href="motion.html#CTRL-N">CTRL-N</a>		After using <a href="options.html#'wildchar'">'wildchar'</a> which got multiple matches, go to next
+		match.  Otherwise recall more recent command-line from <a href="cmdline.html#history">history</a>.
+
+<a href="term.html#&lt;S-Tab&gt;">&lt;S-Tab&gt;</a>							*<a name="c_CTRL-P"></A><b>c_CTRL-P</b>* *<a name="c_&lt;S-Tab&gt;"></A><b>c_&lt;S-Tab&gt;</b>*
+<a href="motion.html#CTRL-P">CTRL-P</a>		After using <a href="options.html#'wildchar'">'wildchar'</a> which got multiple matches, go to
+		previous match.  Otherwise recall older command-line from
+		<a href="cmdline.html#history">history</a>.  <a href="term.html#&lt;S-Tab&gt;">&lt;S-Tab&gt;</a> only works with the <a href="gui.html#GUI">GUI</a>, on the <a href="os_amiga.html#Amiga">Amiga</a> and
+		with <a href="os_msdos.html#MS-DOS">MS-DOS</a>.
+
+							*<a name="c_CTRL-A"></A><b>c_CTRL-A</b>*
+<a href="change.html#CTRL-A">CTRL-A</a>		All names that match the <a href="pattern.html#pattern">pattern</a> in front of the cursor are
+		inserted.
+
+							*<a name="c_CTRL-L"></A><b>c_CTRL-L</b>*
+<a href="various.html#CTRL-L">CTRL-L</a>		A match is done on the <a href="pattern.html#pattern">pattern</a> in front of the cursor.  If
+		there is one match, it is inserted in place of the <a href="pattern.html#pattern">pattern</a>.
+		If there are multiple matches the longest common part is
+		inserted in place of the <a href="pattern.html#pattern">pattern</a>.  If the result is shorter
+		than the <a href="pattern.html#pattern">pattern</a>, no completion is done.
+		When <a href="options.html#'incsearch'">'incsearch'</a> is set, entering a search <a href="pattern.html#pattern">pattern</a> for &quot;<a href="pattern.html#/">/</a>&quot; or
+		&quot;<a href="pattern.html#?">?</a>&quot; and the current match is displayed then <a href="various.html#CTRL-L">CTRL-L</a> will add
+		one character from the end of the current match.  If
+		<a href="options.html#'ignorecase'">'ignorecase'</a> and <a href="options.html#'smartcase'">'smartcase'</a> are set and the command line has
+		no <a href="change.html#uppercase">uppercase</a> characters, the added character is converted to
+		<a href="change.html#lowercase">lowercase</a>.
+
+The <a href="options.html#'wildchar'">'wildchar'</a> option defaults to <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> (CTRL-E when in <a href="intro.html#Vi">Vi</a> compatible mode; in
+a previous version <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> was used).  In the <a href="pattern.html#pattern">pattern</a> standard <a href="editing.html#wildcards">wildcards</a> '*' and
+'<a href="pattern.html#?">?</a>' are accepted when matching file names.  '*' matches any string, '<a href="pattern.html#?">?</a>'
+matches exactly one character.
+
+If you like tcsh's autolist completion, you can use this <a href="map.html#mapping">mapping</a>:
+	<a href="map.html#:cnoremap">:cnoremap</a> X &lt;C-L&gt;&lt;C-D&gt;
+(Where X is the command key to use, &lt;C-L&gt; is <a href="various.html#CTRL-L">CTRL-L</a> and &lt;C-D&gt; is <a href="scroll.html#CTRL-D">CTRL-D</a>)
+This will find the longest match and then list all matching files.
+
+If you like tcsh's autolist completion, you can use the <a href="options.html#'wildmode'">'wildmode'</a> option to
+emulate it.  For example, this mimics autolist=ambiguous:
+	<a href="options.html#:set">:set</a> <a href="options.html#'wildmode'">wildmode</a>=longest,list
+This will find the longest match with the first <a href="options.html#'wildchar'">'wildchar'</a>, then list all
+matching files with the next.
+
+
+							*<a name="suffixes"></A><b>suffixes</b>*
+For file name completion you can use the <a href="options.html#'suffixes'">'suffixes'</a> option to set a priority
+between files with almost the same name.  If there are multiple matches,
+those files with an extension that is in the <a href="options.html#'suffixes'">'suffixes'</a> option are ignored.
+The default is &quot;.bak,~,.o,.h,.info,.swp,.obj&quot;, which means that files ending
+in &quot;.bak&quot;, &quot;<a href="change.html#~">~</a>&quot;, &quot;.o&quot;, &quot;.h&quot;, &quot;.info&quot;, &quot;.swp&quot; and &quot;.obj&quot; are sometimes ignored.
+
+An empty entry, two consecutive commas, match a file name that does not
+contain a &quot;<a href="repeat.html#.">.</a>&quot;, thus has no suffix.  This is useful to ignore &quot;prog&quot; and prefer
+&quot;prog.c&quot;.
+
+Examples:
+
+<b><font color="purple">  pattern:	files:				match:	</font></b>
+   test*	test.c test.h test.o		test.c
+   test*	test.h test.o			test.h and test.o
+   test*	test.i test.h test.c		test.i and test.c
+
+It is impossible to ignore <a href="cmdline.html#suffixes">suffixes</a> with two dots.
+
+If there is more than one matching file (after ignoring the ones matching
+the <a href="options.html#'suffixes'">'suffixes'</a> option) the first file name is inserted.  You can see that
+there is only one match when you type <a href="options.html#'wildchar'">'wildchar'</a> <a href="if_cscop.html#twice">twice</a> and the completed
+match stays the same.  You can get to the other matches by entering
+<a href="options.html#'wildchar'">'wildchar'</a>, <a href="motion.html#CTRL-N">CTRL-N</a> or <a href="motion.html#CTRL-P">CTRL-P</a>.  All files are included, also the ones with
+extensions matching the <a href="options.html#'suffixes'">'suffixes'</a> option.
+
+To completely ignore files with some extension use <a href="options.html#'wildignore'">'wildignore'</a>.
+
+To match only files that end at the end of the typed text append a &quot;<a href="motion.html#$">$</a>&quot;.  For
+example, to match only files that end in &quot;.c&quot;:
+<b>	:e *.c$</b>
+This will not match a file ending in &quot;.cpp&quot;.  Without the &quot;<a href="motion.html#$">$</a>&quot; it does match.
+
+The old value of an option can be obtained by hitting <a href="options.html#'wildchar'">'wildchar'</a> just after
+the '<a href="change.html#=">=</a>'.  For example, typing <a href="options.html#'wildchar'">'wildchar'</a> after &quot;<a href="options.html#:set">:set</a> <a href="options.html#'dir'">dir</a>=&quot; will insert the
+current value of <a href="options.html#'dir'">'dir'</a>.  This overrules file name completion for the <a href="options.html#options">options</a>
+that take a file name.
+
+If you would like using <a href="term.html#&lt;S-Tab&gt;">&lt;S-Tab&gt;</a> for <a href="motion.html#CTRL-P">CTRL-P</a> in an xterm, put this command in
+your .cshrc:
+<b>	xmodmap -e "keysym Tab = Tab Find"</b>
+And this in your <a href="starting.html#.vimrc">.vimrc</a>:
+<b>	:cmap &lt;Esc&gt;[1~ &lt;C-P&gt;</b>
+
+==============================================================================
+
+3. <a href="intro.html#Ex">Ex</a> command-lines					*<a name="cmdline-lines"></A><b>cmdline-lines</b>*
+
+The <a href="intro.html#Ex">Ex</a> commands have a few specialties:
+
+
+							*<a name=":quote"></A><b>:quote</b>* *<a name=":comment"></A><b>:comment</b>*
+&#39;&#34;'' at the start of a line causes the whole line to be ignored.  &#39;&#34;''
+after a command causes the rest of the line to be ignored.  This can be used
+to add comments.  Example:
+<b>	:set ai		"set 'autoindent' option</b>
+It is not possible to add a comment to a shell command &quot;<a href="various.html#:!cmd">:!cmd</a>&quot; or to the
+&quot;<a href="map.html#:map">:map</a>&quot; command and a few others, because they see the &#39;&#34;'' <a href="motion.html#as">as</a> part of their
+argument.  This is mentioned where the command is explained.
+
+
+							*<a name=":bar"></A><b>:bar</b>* *<a name=":\bar"></A><b>:\bar</b>*
+'&#124;' can be used to separate commands, so you can give multiple commands in one
+line.  If you want to use '&#124;' in an argument, precede it with '\'.
+
+These commands see the '&#124;' <a href="motion.html#as">as</a> their argument, and can therefore not be
+followed by another Vim command:
+    <a href="editing.html#:argdo">:argdo</a>
+    <a href="autocmd.html#:autocmd">:autocmd</a>
+    <a href="windows.html#:bufdo">:bufdo</a>
+    <a href="map.html#:command">:command</a>
+    <a href="if_cscop.html#:cscope">:cscope</a>
+    <a href="repeat.html#:debug">:debug</a>
+    <a href="fold.html#:folddoopen">:folddoopen</a>
+    <a href="fold.html#:folddoclosed">:folddoclosed</a>
+    <a href="eval.html#:function">:function</a>
+    <a href="repeat.html#:global">:global</a>
+    <a href="helphelp.html#:help">:help</a>
+    <a href="helphelp.html#:helpfind">:helpfind</a>
+    <a href="if_cscop.html#:lcscope">:lcscope</a>
+    <a href="quickfix.html#:make">:make</a>
+    <a href="various.html#:normal">:normal</a>
+    <a href="if_perl.html#:perl">:perl</a>
+    <a href="if_perl.html#:perldo">:perldo</a>
+    <a href="change.html#:promptfind">:promptfind</a>
+    <a href="change.html#:promptrepl">:promptrepl</a>
+    <a href="if_pyth.html#:pyfile">:pyfile</a>
+    <a href="if_pyth.html#:python">:python</a>
+    <a href="change.html#:registers">:registers</a>
+    <a href="insert.html#:read">:read</a> !
+    <a href="if_cscop.html#:scscope">:scscope</a>
+    <a href="sign.html#:sign">:sign</a>
+    <a href="if_tcl.html#:tcl">:tcl</a>
+    <a href="if_tcl.html#:tcldo">:tcldo</a>
+    <a href="if_tcl.html#:tclfile">:tclfile</a>
+    <a href="repeat.html#:vglobal">:vglobal</a>
+    <a href="windows.html#:windo">:windo</a>
+    <a href="editing.html#:write">:write</a> !
+    :[range]!
+    a user defined command without the &quot;-bar&quot; argument |<a href="map.html#:command">:command</a>|
+
+Note that this is confusing (inherited from Vi): With &quot;<a href="repeat.html#:g">:g</a>&quot; the '&#124;' is included
+in the command, with &quot;<a href="change.html#:s">:s</a>&quot; it is not.
+
+To be able to use another command anyway, use the &quot;<a href="eval.html#:execute">:execute</a>&quot; command.
+Example (append the output of &quot;ls&quot; and jump to the first line):
+<b>	:execute 'r !ls' | '[</b>
+
+There is one exception: When the '<a href="motion.html#b">b</a>' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>, with the
+&quot;<a href="map.html#:map">:map</a>&quot; and &quot;:abbr&quot; commands and friends <a href="visual.html#CTRL-V">CTRL-V</a> needs to be used instead of
+'\'.  You can also use &quot;<a href="intro.html#&lt;Bar&gt;">&lt;Bar&gt;</a>&quot; instead.  See also |<a href="map.html#map_bar">map_bar</a>|.
+
+Examples:
+<b>	:!ls | wc		view the output of two commands</b>
+<b>	:r !ls | wc		insert the same output in the text</b>
+<b>	:%g/foo/p|&gt;		moves all matching lines one shiftwidth</b>
+<b>	:%s/foo/bar/|&gt;		moves one line one shiftwidth</b>
+<b>	:map q 10^V|		map "q" to "10|"</b>
+<b>	:map q 10\| map \ l	map "q" to "10\" and map "\" to "l"</b>
+<b>					(when 'b' is present in 'cpoptions')</b>
+
+You can also use <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> to separate commands in the same way <a href="motion.html#as">as</a> with '&#124;'.  To
+insert a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> use <a href="visual.html#CTRL-V">CTRL-V</a> <a href="motion.html#CTRL-J">CTRL-J</a>.  &quot;^@&quot; will be shown.  Using '&#124;' is the
+preferred method.  But for external commands a <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a> must be used, because a
+'&#124;' is included in the external command.  To avoid the special meaning of <a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>
+it must be preceded with a <a href="intro.html#backslash">backslash</a>.  Example:
+<b>	:r !date&lt;NL&gt;-join</b>
+This reads the current date into the file and joins it with the previous line.
+
+Note that when the command before the '&#124;' generates an error, the following
+commands will not be executed.
+
+
+Because of <a href="intro.html#Vi">Vi</a> compatibility the following strange commands are supported:
+<b>	:|			print current line (like ":p")</b>
+<b>	:3|			print line 3 (like ":3p")</b>
+<b>	:3			goto line 3</b>
+
+A colon is allowed between the range and the command name.  It is ignored
+(this is <a href="intro.html#Vi">Vi</a> compatible).  For example:
+<b>	:1,$:s/pat/string</b>
+
+When the character '<a href="motion.html#&#37;">&#37;</a>' or '<a href="pattern.html##">#</a>' is used where a file name is expected, they are
+expanded to the current and alternate file name (see the chapter &quot;editing
+files&quot; |<a href="cmdline.html#:_&#37;">:_&#37;</a>| |<a href="cmdline.html#:_#">:_#</a>|).
+
+Embedded spaces in file names are allowed on the <a href="os_amiga.html#Amiga">Amiga</a> if one file name is
+expected <a href="motion.html#as">as</a> argument.  Trailing spaces will be ignored, unless escaped with a
+<a href="intro.html#backslash">backslash</a> or <a href="visual.html#CTRL-V">CTRL-V</a>.  Note that the &quot;<a href="editing.html#:next">:next</a>&quot; command uses spaces to separate
+file names.  Escape the spaces to include them in a file name.  Example:
+<b>	:next foo\ bar goes\ to school\</b>
+starts editing the three files &quot;foo bar&quot;, &quot;goes to&quot; and &quot;school &quot;.
+
+When you want to use the special characters &#39;&#34;'' or '&#124;' in a command, or want
+to use '<a href="motion.html#&#37;">&#37;</a>' or '<a href="pattern.html##">#</a>' in a file name, precede them with a <a href="intro.html#backslash">backslash</a>.  The
+<a href="intro.html#backslash">backslash</a> is not required in a range and in the &quot;<a href="change.html#:substitute">:substitute</a>&quot; command.
+
+
+							*<a name=":_!"></A><b>:_!</b>*
+The '<a href="change.html#!">!</a>' (bang) character after an <a href="intro.html#Ex">Ex</a> command makes the command behave in a
+different way.  The '<a href="change.html#!">!</a>' should be placed immediately after the command, without
+any blanks in between.  If you insert blanks the '<a href="change.html#!">!</a>' will be seen <a href="motion.html#as">as</a> an
+argument for the command, which has a different meaning.  For example:
+	<a href="editing.html#:w!">:w!</a> name	write the current buffer to file &quot;name&quot;, overwriting
+			any existing file
+	<a href="editing.html#:w">:w</a> !name	send the current buffer <a href="motion.html#as">as</a> standard input to command
+			&quot;name&quot;
+
+==============================================================================
+
+4. <a href="intro.html#Ex">Ex</a> command-line ranges	*<a name="cmdline-ranges"></A><b>cmdline-ranges</b>* *<a name="[range]"></A><b>[range]</b>* *<a name="E16"></A><b>E16</b>*
+
+Some <a href="intro.html#Ex">Ex</a> commands accept a line range in front of them.  This is noted <a href="motion.html#as">as</a>
+<a href="cmdline.html#[range]">[range]</a>.  It consists of one or more line specifiers, separated with '<a href="motion.html#,">,</a>' or
+'<a href="motion.html#;">;</a>'.
+
+The basics are explained in section |<a href="usr_10.html#10.3">10.3</a>| of the user manual.
+
+
+						*<a name=":,"></A><b>:,</b>* *<a name=":;"></A><b>:;</b>*
+When separated with '<a href="motion.html#;">;</a>' the cursor position will be set to that line
+before interpreting the next line specifier.  This doesn't happen for '<a href="motion.html#,">,</a>'.
+Examples:
+<b>   4,/this line/</b>
+ 	from line 4 till match with &quot;this line&quot; after the cursor line.
+<b>   5;/that line/</b>
+ 	from line 5 till match with &quot;that line&quot; after line 5.
+
+The default line specifier for most commands is the cursor position, but the
+commands &quot;<a href="editing.html#:write">:write</a>&quot; and &quot;<a href="repeat.html#:global">:global</a>&quot; have the whole file (1,$) <a href="motion.html#as">as</a> default.
+
+If more line specifiers are given than required for the command, the first
+one(s) will be ignored.
+
+
+Line numbers may be specified with:		*<a name=":range"></A><b>:range</b>* *<a name="E14"></A><b>E14</b>* *<a name="{address}"></A><b>{address}</b>*
+	{number}	an absolute line number
+
+	.		the current line			  *<a name=":."></A><b>:.</b>*
+
+	$		the last line in the file		  *<a name=":$"></A><b>:$</b>*
+
+	<a href="motion.html#&#37;">&#37;</a>		equal to 1,$ (the entire file)		  *<a name=":&#37;"></A><b>:&#37;</b>*
+
+	't		position of <a href="motion.html#mark">mark</a> t (lowercase)		  *<a name=":'"></A><b>:'</b>*
+	'T		position of <a href="motion.html#mark">mark</a> <a href="motion.html#T">T</a> (uppercase); when the <a href="motion.html#mark">mark</a> is in
+			another file it cannot be used in a range
+
+	/{pattern}[/]	the next line where {pattern} matches	  *<a name=":/"></A><b>:/</b>*
+
+	?{pattern}[?]	the previous line where {pattern} matches *<a name=":?"></A><b>:?</b>*
+	\/		the next line where the previously used search
+			<a href="pattern.html#pattern">pattern</a> matches
+	\?		the previous line where the previously used search
+			<a href="pattern.html#pattern">pattern</a> matches
+	\&amp;		the next line where the previously used substitute
+			<a href="pattern.html#pattern">pattern</a> matches
+
+Each may be followed (several times) by '<a href="motion.html#+">+</a>' or '<a href="motion.html#-">-</a>' and an optional number.
+This number is added or subtracted from the preceding line number.  If the
+number is omitted, 1 is used.
+
+The &quot;<a href="pattern.html#/">/</a>&quot; and &quot;<a href="pattern.html#?">?</a>&quot; after {pattern} are required to separate the <a href="pattern.html#pattern">pattern</a> from
+anything that follows.
+
+The &quot;<a href="pattern.html#/">/</a>&quot; and &quot;<a href="pattern.html#?">?</a>&quot; may be preceded with another address.  The search starts from
+there.  The difference from using '<a href="motion.html#;">;</a>' is that the cursor isn't moved.
+Examples:
+<b>	/pat1//pat2/	Find line containing "pat2" after line containing</b>
+<b>			"pat1", without moving the cursor.</b>
+<b>	7;/pat2/	Find line containing "pat2", after line 7, leaving</b>
+<b>			the cursor in line 7.</b>
+
+The {number} must be between 0 and the number of lines in the file.  When
+using a 0 (zero) this is interpreted <a href="motion.html#as">as</a> a 1 by most commands.  Commands that
+use it <a href="motion.html#as">as</a> a <a href="intro.html#count">count</a> <a href="diff.html#do">do</a> use it <a href="motion.html#as">as</a> a zero (|<a href="tagsrch.html#:tag">:tag</a>|, |<a href="tagsrch.html#:pop">:pop</a>|, etc).  Some commands
+interpret the zero <a href="motion.html#as">as</a> &quot;before the first line&quot; (|<a href="insert.html#:read">:read</a>|, search <a href="pattern.html#pattern">pattern</a>, etc).
+
+Examples:
+<b>	.+3		three lines below the cursor</b>
+<b>	/that/+1	the line below the next line containing "that"</b>
+<b>	.,$		from current line until end of file</b>
+<b>	0;/that		the first line containing "that", also matches in the</b>
+<b>			first line.</b>
+<b>	1;/that		the first line after line 1 containing "that"</b>
+
+Some commands allow for a <a href="intro.html#count">count</a> after the command.  This <a href="intro.html#count">count</a> is used <a href="motion.html#as">as</a> the
+number of lines to be used, starting with the line given in the last line
+specifier (the default is the cursor line).  The commands that accept a <a href="intro.html#count">count</a>
+are the ones that use a range but <a href="diff.html#do">do</a> not have a file name argument (because
+a file name can also be a number).
+
+Examples:
+<b>	:s/x/X/g 5	substitute 'x' by 'X' in the current line and four</b>
+<b>			following lines</b>
+<b>	:23d 4		delete lines 23, 24, 25 and 26</b>
+
+
+Folds and Range
+
+When <a href="fold.html#folds">folds</a> are active the line numbers are rounded off to include the whole
+closed fold.  See |<a href="fold.html#fold-behavior">fold-behavior</a>|.
+
+
+
+Reverse Range						*<a name="E493"></A><b>E493</b>*
+
+A range should have the lower line number first.  If this is not the <a href="change.html#case">case</a>, Vim
+will ask you if it should swap the line numbers.
+<b><font color="purple">	Backwards range given, OK to swap </font></b>
+This is not done within the global command &quot;<a href="repeat.html#:g">:g</a>&quot;.
+
+You can use &quot;<a href="various.html#:silent">:silent</a>&quot; before a command to avoid the question, the range will
+always be swapped then.
+
+
+
+Count and Range						*<a name="N:"></A><b>N:</b>*
+
+When giving a <a href="intro.html#count">count</a> before entering &quot;<a href="cmdline.html#:">:</a>&quot;, this is translated into:
+		:.,.+(count - 1)
+In words: The '<a href="intro.html#count">count</a>' lines at and after the cursor.  Example: To delete
+three lines:
+<b>		3:d&lt;CR&gt;		is translated into: .,.+2d&lt;CR&gt;</b>
+ 
+
+
+<a href="visual.html#Visual">Visual</a> Mode and Range					*<a name="v_:"></A><b>v_:</b>*
+
+<a href="intro.html#{Visual}">{Visual}</a>:	Starts a command-line with the <a href="visual.html#Visual">Visual</a> selected lines <a href="motion.html#as">as</a> a
+		range.  The code &quot;:'&lt;,'&gt;&quot; is used for this range, which makes
+		it possible to select a similar line from the command-line
+		<a href="cmdline.html#history">history</a> for <a href="repeat.html#repeating">repeating</a> a command on different Visually selected
+		lines.
+
+==============================================================================
+
+5. <a href="intro.html#Ex">Ex</a> command-line flags				*<a name="ex-flags"></A><b>ex-flags</b>*
+
+These flags are supported by a selection of <a href="intro.html#Ex">Ex</a> commands.  They print the line
+that the cursor ends up after executing the command:
+
+	l	output like for |<a href="various.html#:list">:list</a>|
+	#	add line number
+	p	output like for |<a href="various.html#:print">:print</a>|
+
+The flags can be combined, thus &quot;l#&quot; uses both a line number and |<a href="various.html#:list">:list</a>| style
+output.
+
+==============================================================================
+
+6. <a href="intro.html#Ex">Ex</a> special characters				*<a name="cmdline-special"></A><b>cmdline-special</b>*
+
+Note: These are special characters in the executed command line.  If you want
+to insert special things while typing you can use the <a href="undo.html#CTRL-R">CTRL-R</a> command.  For
+example, &quot;<a href="motion.html#&#37;">&#37;</a>&quot; stands for the current file name, while <a href="undo.html#CTRL-R">CTRL-R</a> <a href="motion.html#&#37;">&#37;</a> inserts the
+current file name right away.  See |<a href="cmdline.html#c_CTRL-R">c_CTRL-R</a>|.
+
+Note: If you want to avoid the special characters in a Vim <a href="usr_41.html#script">script</a> you may want
+to use |<a href="eval.html#fnameescape()">fnameescape()</a>|.
+
+
+In <a href="intro.html#Ex">Ex</a> commands, at places where a file name can be used, the following
+characters have a special meaning.  These can also be used in the <a href="eval.html#expression">expression</a>
+function expand() |<a href="eval.html#expand()">expand()</a>|.
+
+	<a href="motion.html#&#37;">&#37;</a>	Is replaced with the current file name.		  *<a name=":_&#37;"></A><b>:_&#37;</b>* *<a name="c_&#37;"></A><b>c_&#37;</b>*
+
+	#	Is replaced with the alternate file name.	  *<a name=":_#"></A><b>:_#</b>* *<a name="c_#"></A><b>c_#</b>*
+
+	#n	(where <a href="pattern.html#n">n</a> is a number) is replaced with		  *<a name=":_#0"></A><b>:_#0</b>* *<a name=":_#n"></A><b>:_#n</b>*
+
+		the file name of buffer <a href="pattern.html#n">n</a>.  &quot;#0&quot; is the same <a href="motion.html#as">as</a> &quot;<a href="pattern.html##">#</a>&quot;.     *<a name="c_#n"></A><b>c_#n</b>*
+
+	##	Is replaced with all names in the argument list	  *<a name=":_##"></A><b>:_##</b>* *<a name="c_##"></A><b>c_##</b>*
+		concatenated, separated by spaces.  Each space in a name
+		is preceded with a <a href="intro.html#backslash">backslash</a>.
+
+	#&lt;n	(where <a href="pattern.html#n">n</a> is a number <a href="change.html#&gt;">&gt;</a> 0) is replaced with old	  *<a name=":_#&lt;"></A><b>:_#&lt;</b>* *<a name="c_#&lt;"></A><b>c_#&lt;</b>*
+		file name <a href="pattern.html#n">n</a>.  See |<a href="starting.html#:oldfiles">:oldfiles</a>| or |<a href="eval.html#v:oldfiles">v:oldfiles</a>| to get the
+
+		number.							*<a name="E809"></A><b>E809</b>*
+		{only when compiled with the |<a href="various.html#+eval">+eval</a>| and |<a href="various.html#+viminfo">+viminfo</a>| features}
+
+Note that these, except &quot;#&lt;n&quot;, give the file name <a href="motion.html#as">as</a> it was typed.  If an
+absolute path is needed (when using the file name from a different directory),
+you need to add &quot;<a href="various.html#:p">:p</a>&quot;.  See |<a href="cmdline.html#filename-modifiers">filename-modifiers</a>|.
+
+The &quot;#&lt;n&quot; item returns an absolute path, but it will start with &quot;~/&quot; for files
+below your home directory.
+
+Note that backslashes are inserted before spaces, so that the command will
+correctly interpret the file name.  But this doesn't happen for shell
+commands.  For those you probably have to use <a href="quotes.html#quotes">quotes</a> (this fails for files
+that contain a <a href="change.html#quote">quote</a> and wildcards):
+<b>	:!ls "%"</b>
+<b>	:r !spell "%"</b>
+
+To avoid the special meaning of '<a href="motion.html#&#37;">&#37;</a>' and '<a href="pattern.html##">#</a>' insert a <a href="intro.html#backslash">backslash</a> before it.
+Detail: The special meaning is always escaped when there is a <a href="intro.html#backslash">backslash</a> before
+it, no matter how many backslashes.
+<b><font color="purple">	you type:		result	</font></b>
+	   #			alternate.file
+	   \#			#
+	   \\#			\#
+
+
+			       *<a name=":&lt;cword&gt;"></A><b>:&lt;cword&gt;</b>* *<a name=":&lt;cWORD&gt;"></A><b>:&lt;cWORD&gt;</b>* *<a name=":&lt;cfile&gt;"></A><b>:&lt;cfile&gt;</b>* *<a name="&lt;cfile&gt;"></A><b>&lt;cfile&gt;</b>*
+
+			       *<a name=":&lt;sfile&gt;"></A><b>:&lt;sfile&gt;</b>* *<a name="&lt;sfile&gt;"></A><b>&lt;sfile&gt;</b>* *<a name=":&lt;afile&gt;"></A><b>:&lt;afile&gt;</b>* *<a name="&lt;afile&gt;"></A><b>&lt;afile&gt;</b>*
+
+			       *<a name=":&lt;abuf&gt;"></A><b>:&lt;abuf&gt;</b>* *<a name="&lt;abuf&gt;"></A><b>&lt;abuf&gt;</b>* *<a name=":&lt;amatch&gt;"></A><b>:&lt;amatch&gt;</b>* *<a name="&lt;amatch&gt;"></A><b>&lt;amatch&gt;</b>*
+
+			       *<a name="&lt;slnum&gt;"></A><b>&lt;slnum&gt;</b>* *<a name="E495"></A><b>E495</b>* *<a name="E496"></A><b>E496</b>* *<a name="E497"></A><b>E497</b>* *<a name="E499"></A><b>E499</b>* *<a name="E500"></A><b>E500</b>*
+Note: these are typed literally, they are not special keys!
+	&lt;cword&gt;    is replaced with the <a href="motion.html#word">word</a> under the cursor (like |<a href="pattern.html#star">star</a>|)
+	&lt;cWORD&gt;    is replaced with the WORD under the cursor (see |<a href="motion.html#WORD">WORD</a>|)
+	<a href="cmdline.html#&lt;cfile&gt;">&lt;cfile&gt;</a>    is replaced with the path name under the cursor (like what
+		   |<a href="editing.html#gf">gf</a>| uses)
+	<a href="cmdline.html#&lt;afile&gt;">&lt;afile&gt;</a>    When executing autocommands, is replaced with the file name
+		   for a file read or write.
+	<a href="cmdline.html#&lt;abuf&gt;">&lt;abuf&gt;</a>     When executing autocommands, is replaced with the currently
+		   effective buffer number (for &quot;<a href="insert.html#:r">:r</a> file&quot; and &quot;<a href="repeat.html#:so">:so</a> file&quot; it is
+		   the current buffer, the file being read/sourced is not in a
+		   buffer).
+	<a href="cmdline.html#&lt;amatch&gt;">&lt;amatch&gt;</a>   When executing autocommands, is replaced with the match for
+		   which this <a href="autocmd.html#autocommand">autocommand</a> was executed.  It differs from
+		   <a href="cmdline.html#&lt;afile&gt;">&lt;afile&gt;</a> only when the file name isn't used to match with
+		   (for <a href="autocmd.html#FileType">FileType</a>, <a href="autocmd.html#Syntax">Syntax</a> and <a href="autocmd.html#SpellFileMissing">SpellFileMissing</a> events).
+	<a href="cmdline.html#&lt;sfile&gt;">&lt;sfile&gt;</a>    When executing a &quot;<a href="repeat.html#:source">:source</a>&quot; command, is replaced with the
+
+		   file name of the sourced file.  *<a name="E498"></A><b>E498</b>* 
+		   When executing a function, is replaced with
+		   &quot;function {function-name}&quot;; function call nesting is
+		   indicated like this:
+		   &quot;function {function-name1}..{function-name2}&quot;.  Note that
+		   <a href="cmdline.html#filename-modifiers">filename-modifiers</a> are useless when <a href="cmdline.html#&lt;sfile&gt;">&lt;sfile&gt;</a> is used inside
+		   a function.
+	<a href="cmdline.html#&lt;slnum&gt;">&lt;slnum&gt;</a>	   When executing a &quot;<a href="repeat.html#:source">:source</a>&quot; command, is replaced with the
+
+	           line number.  *<a name="E842"></A><b>E842</b>*
+		   When executing a function it's the line number relative to
+		   the start of the function.
+
+
+							 *<a name="filename-modifiers"></A><b>filename-modifiers</b>*
+
+	 *<a name=":_&#37;:"></A><b>:_&#37;:</b>* *<a name="::8"></A><b>::8</b>* *<a name="::p"></A><b>::p</b>* *<a name="::."></A><b>::.</b>* *<a name="::~"></A><b>::~</b>* *<a name="::h"></A><b>::h</b>* *<a name="::t"></A><b>::t</b>* *<a name="::r"></A><b>::r</b>* *<a name="::e"></A><b>::e</b>* *<a name="::s"></A><b>::s</b>* *<a name="::gs"></A><b>::gs</b>*
+
+	        *<a name="&#37;:8"></A><b>&#37;:8</b>* *<a name="&#37;:p"></A><b>&#37;:p</b>* *<a name="&#37;:."></A><b>&#37;:.</b>* *<a name="&#37;:~"></A><b>&#37;:~</b>* *<a name="&#37;:h"></A><b>&#37;:h</b>* *<a name="&#37;:t"></A><b>&#37;:t</b>* *<a name="&#37;:r"></A><b>&#37;:r</b>* *<a name="&#37;:e"></A><b>&#37;:e</b>* *<a name="&#37;:s"></A><b>&#37;:s</b>* *<a name="&#37;:gs"></A><b>&#37;:gs</b>*
+The file name modifiers can be used after &quot;<a href="motion.html#&#37;">&#37;</a>&quot;, &quot;<a href="pattern.html##">#</a>&quot;, &quot;#n&quot;, &quot;<a href="cmdline.html#&lt;cfile&gt;">&lt;cfile&gt;</a>&quot;, &quot;<a href="cmdline.html#&lt;sfile&gt;">&lt;sfile&gt;</a>&quot;,
+&quot;<a href="cmdline.html#&lt;afile&gt;">&lt;afile&gt;</a>&quot; or &quot;<a href="cmdline.html#&lt;abuf&gt;">&lt;abuf&gt;</a>&quot;.  They are also used with the |<a href="eval.html#fnamemodify()">fnamemodify()</a>| function.
+These are not available when Vim has been compiled without the |<a href="various.html#+modify_fname">+modify_fname</a>|
+feature.
+These modifiers can be given, in this order:
+	<a href="various.html#:p">:p</a>	Make file name a full path.  Must be the first modifier.  Also
+		changes &quot;~/&quot; (and &quot;~user/&quot; for <a href="os_unix.html#Unix">Unix</a> and <a href="os_vms.html#VMS">VMS</a>) to the path for
+		the home directory.  If the name is a directory a path
+		separator is added at the end.  For a file name that does not
+		exist and does not have an absolute path the result is
+		unpredictable.
+	:8	Converts the path to 8.3 short format (currently only on
+		<a href="os_win32.html#win32">win32</a>).  Will act on <a href="motion.html#as">as</a> much of a path that is an existing
+		path.
+	<a href="change.html#:~">:~</a>	Reduce file name to be relative to the home directory, if
+		possible.  File name is unmodified if it is not below the home
+		directory.
+	<a href="cmdline.html#:.">:.</a>	Reduce file name to be relative to current directory, if
+		possible.  File name is unmodified if it is not below the
+		current directory.
+		For maximum shortness, use &quot;:~:.&quot;.
+	<a href="helphelp.html#:h">:h</a>	Head of the file name (the last component and any separators
+		removed).  Cannot be used with <a href="editing.html#:e">:e</a>, <a href="insert.html#:r">:r</a> or <a href="change.html#:t">:t</a>.
+		Can be repeated to remove several components at the end.
+		When the file name ends in a path separator, only the path
+		separator is removed.  Thus &quot;:p:h&quot; on a directory name results
+		on the directory name itself (without trailing slash).
+		When the file name is an absolute path (starts with &quot;<a href="pattern.html#/">/</a>&quot; for
+		<a href="os_unix.html#Unix">Unix</a>; &quot;x:\&quot; for <a href="os_msdos.html#MS-DOS">MS-DOS</a>, WIN32, <a href="os_os2.html#OS/2">OS/2</a>; &quot;drive:&quot; for Amiga), that
+		part is not removed.  When there is no head (path is relative
+		to current directory) the result is empty.
+	<a href="change.html#:t">:t</a>	Tail of the file name (last component of the name).  Must
+		precede any <a href="insert.html#:r">:r</a> or <a href="editing.html#:e">:e</a>.
+	<a href="insert.html#:r">:r</a>	<a href="mbyte.html#Root">Root</a> of the file name (the last extension removed).  When
+		there is only an extension (file name that starts with '<a href="repeat.html#.">.</a>',
+		e.g., &quot;.vimrc&quot;), it is not removed.  Can be repeated to remove
+		several extensions (last one first).
+	<a href="editing.html#:e">:e</a>	Extension of the file name.  Only makes sense when used alone.
+		When there is no extension the result is empty.
+		When there is only an extension (file name that starts with
+		'.'), the result is empty.  Can be repeated to include more
+		extensions.  If there are not enough extensions (but at least
+		one) <a href="motion.html#as">as</a> much <a href="motion.html#as">as</a> possible are included.
+	:s?pat?sub?
+		Substitute the first occurrence of &quot;pat&quot; with &quot;sub&quot;.  This
+		works like the |<a href="change.html#:s">:s</a>| command.  &quot;pat&quot; is a regular <a href="eval.html#expression">expression</a>.
+		Any character can be used for '<a href="pattern.html#?">?</a>', but it must not occur in
+		&quot;pat&quot; or &quot;sub&quot;.
+		After this, the previous modifiers can be used again.  For
+		example &quot;<a href="various.html#:p">:p</a>&quot;, to make a full path after the substitution.
+	:gs?pat?sub?
+		Substitute all occurrences of &quot;pat&quot; with &quot;sub&quot;.  Otherwise
+		this works like &quot;<a href="change.html#:s">:s</a>&quot;.
+
+Examples, when the file name is &quot;src/version.c&quot;, current dir
+&quot;/home/mool/vim&quot;:
+<b>  :p			/home/mool/vim/src/version.c</b>
+<b>  :p:.				       src/version.c</b>
+<b>  :p:~				 ~/vim/src/version.c</b>
+<b>  :h				       src</b>
+<b>  :p:h			/home/mool/vim/src</b>
+<b>  :p:h:h		/home/mool/vim</b>
+<b>  :t					   version.c</b>
+<b>  :p:t					   version.c</b>
+<b>  :r				       src/version</b>
+<b>  :p:r			/home/mool/vim/src/version</b>
+<b>  :t:r					   version</b>
+<b>  :e						   c</b>
+<b>  :s?version?main?		       src/main.c</b>
+<b>  :s?version?main?:p	/home/mool/vim/src/main.c</b>
+<b>  :p:gs?/?\\?		\home\mool\vim\src\version.c</b>
+
+Examples, when the file name is &quot;src/version.c.gz&quot;:
+<b>  :p			/home/mool/vim/src/version.c.gz</b>
+<b>  :e						     gz</b>
+<b>  :e:e						   c.gz</b>
+<b>  :e:e:e					   c.gz</b>
+<b>  :e:e:r					   c</b>
+<b>  :r				       src/version.c</b>
+<b>  :r:e						   c</b>
+<b>  :r:r				       src/version</b>
+<b>  :r:r:r			       src/version</b>
+ 
+
+					*<a name="extension-removal"></A><b>extension-removal</b>* *<a name=":_&#37;&lt;"></A><b>:_&#37;&lt;</b>*
+If a &quot;<a href="change.html#&lt;">&lt;</a>&quot; is appended to &quot;<a href="motion.html#&#37;">&#37;</a>&quot;, &quot;<a href="pattern.html##">#</a>&quot;, &quot;#n&quot; or &quot;<a href="visual.html#CTRL-V">CTRL-V</a> p&quot; the extension of the file
+name is removed (everything after and including the last '<a href="repeat.html#.">.</a>' in the file
+name).  This is included for backwards compatibility with version 3.0, the
+&quot;<a href="insert.html#:r">:r</a>&quot; form is preferred.  Examples:
+
+<b>	%		current file name</b>
+<b>	%&lt;		current file name without extension</b>
+<b>	#		alternate file name for current window</b>
+<b>	#&lt;		idem, without extension</b>
+<b>	#31		alternate file number 31</b>
+<b>	#31&lt;		idem, without extension</b>
+<b>	&lt;cword&gt;		word under the cursor</b>
+<b>	&lt;cWORD&gt;		WORD under the cursor (see |WORD|)</b>
+<b>	&lt;cfile&gt;		path name under the cursor</b>
+<b>	&lt;cfile&gt;&lt;	idem, without extension</b>
+
+Note: Where a file name is expected <a href="editing.html#wildcards">wildcards</a> expansion is done.  On <a href="os_unix.html#Unix">Unix</a> the
+shell is used for this, unless it can be done internally (for speed).
+Backticks also work, like in
+<b>	:n `echo *.c`</b>
+(backtick expansion is not possible in |<a href="starting.html#restricted-mode">restricted-mode</a>|)
+But expansion is only done if there are any <a href="editing.html#wildcards">wildcards</a> before expanding the
+'<a href="motion.html#&#37;">&#37;</a>', '<a href="pattern.html##">#</a>', etc..  This avoids expanding <a href="editing.html#wildcards">wildcards</a> inside a file name.  If you
+want to expand the result of <a href="cmdline.html#&lt;cfile&gt;">&lt;cfile&gt;</a>, add a <a href="editing.html#wildcard">wildcard</a> character to it.
+Examples: (alternate file name is &quot;?readme?&quot;)
+<b><font color="purple">	command		expands to  </font></b>
+	<a href="editing.html#:e">:e</a> #		<a href="editing.html#:e">:e</a> ?readme?
+	<a href="editing.html#:e">:e</a> `ls #`	<a href="editing.html#:e">:e</a> {files matching &quot;?readme?&quot;}
+	<a href="editing.html#:e">:e</a> #.*		<a href="editing.html#:e">:e</a> {files matching &quot;?readme?.*&quot;}
+	<a href="editing.html#:cd">:cd</a> <a href="cmdline.html#&lt;cfile&gt;">&lt;cfile&gt;</a>	<a href="editing.html#:cd">:cd</a> {file name under cursor}
+	<a href="editing.html#:cd">:cd</a> &lt;cfile&gt;*	<a href="editing.html#:cd">:cd</a> {file name under cursor plus &quot;*&quot; and then expanded}
+
+When the expanded argument contains a &quot;<a href="change.html#!">!</a>&quot; and it is used for a shell command
+(&quot;:!cmd&quot;, &quot;<a href="insert.html#:r">:r</a> !cmd&quot; or &quot;<a href="editing.html#:w">:w</a> !cmd&quot;), the &quot;<a href="change.html#!">!</a>&quot; is escaped with a <a href="intro.html#backslash">backslash</a> to
+avoid it being expanded into a previously used command.  When the <a href="options.html#'shell'">'shell'</a>
+option contains &quot;sh&quot;, this is done <a href="if_cscop.html#twice">twice</a>, to avoid the shell trying to expand
+the &quot;<a href="change.html#!">!</a>&quot;.
+
+
+							*<a name="filename-backslash"></A><b>filename-backslash</b>*
+For filesystems that use a <a href="intro.html#backslash">backslash</a> <a href="motion.html#as">as</a> directory separator (MS-DOS, Windows,
+OS/2), it's a bit difficult to recognize a <a href="intro.html#backslash">backslash</a> that is used to <a href="intro.html#escape">escape</a>
+the special meaning of the next character.  The general rule is: If the
+<a href="intro.html#backslash">backslash</a> is followed by a normal file name character, it does not have a
+special meaning.  Therefore &quot;\file\foo&quot; is a valid file name, you don't have
+to type the <a href="intro.html#backslash">backslash</a> <a href="if_cscop.html#twice">twice</a>.
+
+An exception is the '<a href="motion.html#$">$</a>' sign.  It is a valid character in a file name.  But
+to avoid a file name like &quot;$home&quot; to be interpreted <a href="motion.html#as">as</a> an environment variable,
+it needs to be preceded by a <a href="intro.html#backslash">backslash</a>.  Therefore you need to use &quot;/\$home&quot;
+for the file &quot;$home&quot; in the root directory.  A few examples:
+
+<b><font color="purple">	FILE NAME	INTERPRETED AS	</font></b>
+	$home		expanded to value of environment var $home
+	\$home		file &quot;$home&quot; in current directory
+	/\$home		file &quot;$home&quot; in root directory
+	\\$home		file &quot;\\&quot;, followed by expanded $home
+
+==============================================================================
+
+6. <a href="cmdline.html#Command-line">Command-line</a> <a href="windows.html#window">window</a>				*<a name="cmdline-window"></A><b>cmdline-window</b>* *<a name="cmdwin"></A><b>cmdwin</b>*
+
+							*<a name="command-line-window"></A><b>command-line-window</b>*
+In the command-line <a href="windows.html#window">window</a> the command line can be edited just like editing
+text in any <a href="windows.html#window">window</a>.  It is a special kind of <a href="windows.html#window">window</a>, because you cannot leave
+it in a normal way.
+{not available when compiled without the |<a href="various.html#+cmdline_hist">+cmdline_hist</a>| or |<a href="various.html#+vertsplit">+vertsplit</a>|
+feature}
+
+
+
+OPEN						*<a name="c_CTRL-F"></A><b>c_CTRL-F</b>* *<a name="q:"></A><b>q:</b>* *<a name="q/"></A><b>q/</b>* *<a name="q?"></A><b>q?</b>*
+
+There are two ways to open the command-line <a href="windows.html#window">window</a>:
+1. From <a href="cmdline.html#Command-line">Command-line</a> mode, use the key specified with the <a href="options.html#'cedit'">'cedit'</a> option.
+   The default is <a href="scroll.html#CTRL-F">CTRL-F</a> when <a href="options.html#'compatible'">'compatible'</a> is not set.
+2. From <a href="intro.html#Normal">Normal</a> mode, use the &quot;<a href="cmdline.html#q:">q:</a>&quot;, &quot;<a href="cmdline.html#q/">q/</a>&quot; or &quot;<a href="cmdline.html#q?">q?</a>&quot; command.
+   This starts editing an <a href="intro.html#Ex">Ex</a> command-line (&quot;q:&quot;) or search string (&quot;q/&quot; or
+   &quot;q?&quot;).  Note that this is not possible while <a href="repeat.html#recording">recording</a> is in progress (the
+   &quot;<a href="repeat.html#q">q</a>&quot; stops <a href="repeat.html#recording">recording</a> then).
+
+When the <a href="windows.html#window">window</a> opens it is filled with the command-line <a href="cmdline.html#history">history</a>.  The last
+line contains the command <a href="motion.html#as">as</a> typed so far.  The left column will show a
+character that indicates the type of command-line being edited, see
+|<a href="cmdline.html#cmdwin-char">cmdwin-char</a>|.
+
+Vim will be in <a href="intro.html#Normal">Normal</a> mode when the editor is opened, except when <a href="options.html#'insertmode'">'insertmode'</a>
+is set.
+
+The height of the <a href="windows.html#window">window</a> is specified with <a href="options.html#'cmdwinheight'">'cmdwinheight'</a> (or smaller if there
+is no room).  The <a href="windows.html#window">window</a> is always full width and is positioned just above the
+command-line.
+
+
+EDIT
+
+You can now use commands to move around and edit the text in the <a href="windows.html#window">window</a>.  Both
+in <a href="intro.html#Normal">Normal</a> mode and <a href="insert.html#Insert">Insert</a> mode.
+
+It is possible to use &quot;<a href="cmdline.html#:">:</a>&quot;, &quot;<a href="pattern.html#/">/</a>&quot; and other commands that use the command-line,
+but it's not possible to open another command-line <a href="windows.html#window">window</a> then.  There is no
+nesting.
+
+							*<a name="E11"></A><b>E11</b>*
+The command-line <a href="windows.html#window">window</a> is not a normal <a href="windows.html#window">window</a>.  It is not possible to move to
+another <a href="windows.html#window">window</a> or edit another buffer.  All commands that would <a href="diff.html#do">do</a> this are
+disabled in the command-line <a href="windows.html#window">window</a>.  Of course it _is_ possible to execute
+any command that you entered in the command-line <a href="windows.html#window">window</a>.  Other text edits are
+discarded when closing the <a href="windows.html#window">window</a>.
+
+
+
+CLOSE							*<a name="E199"></A><b>E199</b>*
+
+There are several ways to leave the command-line <a href="windows.html#window">window</a>:
+
+<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>		Execute the command-line under the cursor.  Works both in
+		<a href="insert.html#Insert">Insert</a> and in <a href="intro.html#Normal">Normal</a> mode.
+<a href="pattern.html#CTRL-C">CTRL-C</a>		Continue in <a href="cmdline.html#Command-line">Command-line</a> mode.  The command-line under the
+		cursor is used <a href="motion.html#as">as</a> the command-line.  Works both in <a href="insert.html#Insert">Insert</a> and
+		in <a href="intro.html#Normal">Normal</a> mode.  &quot;<a href="windows.html#:close">:close</a>&quot; also works.  There is no redraw,
+		thus the <a href="windows.html#window">window</a> will remain visible.
+<a href="editing.html#:quit">:quit</a>		Discard the command line and go back to <a href="intro.html#Normal">Normal</a> mode.
+		&quot;<a href="editing.html#:exit">:exit</a>&quot;, &quot;<a href="editing.html#:xit">:xit</a>&quot; and CTRL-\ <a href="motion.html#CTRL-N">CTRL-N</a> also work.
+<a href="editing.html#:qall">:qall</a>		Quit Vim, unless there are changes in some buffer.
+<a href="editing.html#:qall">:qall</a>!		Quit Vim, discarding changes to any buffer.
+
+Once the command-line <a href="windows.html#window">window</a> is closed the old <a href="windows.html#window">window</a> sizes are restored.  The
+executed command applies to the <a href="windows.html#window">window</a> and buffer where the command-line was
+started from.  This works <a href="motion.html#as">as</a> if the command-line <a href="windows.html#window">window</a> was not there, except
+that there will be an extra screen redraw.
+The buffer used for the command-line <a href="windows.html#window">window</a> is deleted.  Any changes to lines
+other than the one that is executed with <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> are lost.
+
+If you would like to execute the command under the cursor and then have the
+command-line <a href="windows.html#window">window</a> open again, you may find this <a href="map.html#mapping">mapping</a> useful:
+
+<b>	:autocmd CmdwinEnter * map &lt;buffer&gt; &lt;F5&gt; &lt;CR&gt;q:</b>
+
+
+VARIOUS
+
+The command-line <a href="windows.html#window">window</a> cannot be used:
+- when there already is a command-line <a href="windows.html#window">window</a> (no nesting)
+- for entering an <a href="editing.html#encryption">encryption</a> key or when using <a href="eval.html#inputsecret()">inputsecret()</a>
+- when Vim was not compiled with the |<a href="various.html#+vertsplit">+vertsplit</a>| feature
+
+Some <a href="options.html#options">options</a> are set when the command-line <a href="windows.html#window">window</a> is opened:
+<a href="options.html#'filetype'">'filetype'</a>	&quot;vim&quot;, when editing an <a href="intro.html#Ex">Ex</a> command-line; this starts Vim <a href="syntax.html#syntax">syntax</a>
+		highlighting if it was enabled
+<a href="options.html#'rightleft'">'rightleft'</a>	off
+<a href="options.html#'modifiable'">'modifiable'</a>	on
+<a href="options.html#'buftype'">'buftype'</a>	&quot;nofile&quot;
+<a href="options.html#'swapfile'">'swapfile'</a>	off
+
+It is allowed to write the buffer contents to a file.  This is an <a href="starting.html#easy">easy</a> way to
+save the command-line <a href="cmdline.html#history">history</a> and read it back later.
+
+If the <a href="options.html#'wildchar'">'wildchar'</a> option is set to <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a>, and the command-line <a href="windows.html#window">window</a> is used
+for an <a href="intro.html#Ex">Ex</a> command, then two mappings will be added to use <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> for completion
+in the command-line <a href="windows.html#window">window</a>, like this:
+<b>	:imap &lt;buffer&gt; &lt;Tab&gt; &lt;C-X&gt;&lt;C-V&gt;</b>
+<b>	:nmap &lt;buffer&gt; &lt;Tab&gt; a&lt;C-X&gt;&lt;C-V&gt;</b>
+Note that hitting <a href="motion.html#&lt;Tab&gt;">&lt;Tab&gt;</a> in <a href="intro.html#Normal">Normal</a> mode will <a href="diff.html#do">do</a> completion on the next
+character.  That way it works at the end of the line.
+If you don't want these mappings, disable them with:
+<b>	au CmdwinEnter [:&gt;] iunmap &lt;Tab&gt;</b>
+<b>	au CmdwinEnter [:&gt;] nunmap &lt;Tab&gt;</b>
+You could put these lines in your <a href="starting.html#vimrc">vimrc</a> file.
+
+While in the command-line <a href="windows.html#window">window</a> you cannot use the mouse to put the cursor in
+another <a href="windows.html#window">window</a>, or drag statuslines of other <a href="windows.html#windows">windows</a>.  You can drag the
+statusline of the command-line <a href="windows.html#window">window</a> itself and the statusline above it.
+Thus you can resize the command-line <a href="windows.html#window">window</a>, but not others.
+
+
+AUTOCOMMANDS
+
+Two <a href="autocmd.html#autocommand">autocommand</a> events are used: |<a href="autocmd.html#CmdwinEnter">CmdwinEnter</a>| and |<a href="autocmd.html#CmdwinLeave">CmdwinLeave</a>|.  Since this
+<a href="windows.html#window">window</a> is of a special type, the <a href="autocmd.html#WinEnter">WinEnter</a>, <a href="autocmd.html#WinLeave">WinLeave</a>, <a href="autocmd.html#BufEnter">BufEnter</a> and <a href="autocmd.html#BufLeave">BufLeave</a>
+events are not triggered.  You can use the Cmdwin events to <a href="diff.html#do">do</a> settings
+specifically for the command-line <a href="windows.html#window">window</a>.  Be careful not to cause side
+effects!
+Example:
+<b>	:au CmdwinEnter :  let b:cpt_save = &amp;cpt | set cpt=.</b>
+<b>	:au CmdwinLeave :  let &amp;cpt = b:cpt_save</b>
+This sets <a href="options.html#'complete'">'complete'</a> to use completion in the current <a href="windows.html#window">window</a> for |<a href="insert.html#i_CTRL-N">i_CTRL-N</a>|.
+Another example:
+<b>	:au CmdwinEnter [/?]  startinsert</b>
+This will make Vim start in <a href="insert.html#Insert">Insert</a> mode in the command-line <a href="windows.html#window">window</a>.
+
+
+						*<a name="cmdwin-char"></A><b>cmdwin-char</b>*
+The character used for the <a href="pattern.html#pattern">pattern</a> indicates the type of command-line:
+	:	normal <a href="intro.html#Ex">Ex</a> command
+	<a href="change.html#&gt;">&gt;</a>	debug mode command |<a href="repeat.html#debug-mode">debug-mode</a>|
+	/	forward search string
+	?	backward search string
+	=	<a href="eval.html#expression">expression</a> for &quot;<a href="change.html#=">=</a> |<a href="eval.html#expr-register">expr-register</a>|
+	@	string for |<a href="eval.html#input()">input()</a>|
+	-	text for |<a href="insert.html#:insert">:insert</a>| or |<a href="insert.html#:append">:append</a>|
+
+<a href="cmdline.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

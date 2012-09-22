@@ -1,0 +1,816 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: various</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: various</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="various.txt"></A><b>various.txt</b>*   For Vim version 7.3.  Last change: 2011 Mar 03
+
+
+		  VIM REFERENCE MANUAL    by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+
+
+Various commands					*<a name="various"></A><b>various</b>*
+
+1. Various commands		|<a href="various.html#various-cmds">various-cmds</a>|
+2. Using Vim like less or more	|<a href="various.html#less">less</a>|
+
+==============================================================================
+
+1. Various commands					*<a name="various-cmds"></A><b>various-cmds</b>*
+
+
+							*<a name="CTRL-L"></A><b>CTRL-L</b>*
+<a href="various.html#CTRL-L">CTRL-L</a>			Clear and redraw the screen.  The redraw may happen
+			later, after processing typeahead.
+
+
+							*<a name=":redr"></A><b>:redr</b>* *<a name=":redraw"></A><b>:redraw</b>*
+:redr[aw][!]		Redraw the screen right now.  When ! is included it is
+			cleared first.
+			Useful to update the screen halfway executing a <a href="usr_41.html#script">script</a>
+			or function.  Also when halfway a <a href="map.html#mapping">mapping</a> and
+			<a href="options.html#'lazyredraw'">'lazyredraw'</a> is set.
+
+
+						*<a name=":redraws"></A><b>:redraws</b>* *<a name=":redrawstatus"></A><b>:redrawstatus</b>*
+:redraws[tatus][!]	Redraw the status line of the current <a href="windows.html#window">window</a>.  When !
+			is included all status lines are redrawn.
+			Useful to update the status line(s) when <a href="options.html#'statusline'">'statusline'</a>
+			includes an item that doesn't cause automatic
+			updating.
+
+
+							*<a name="N&lt;Del&gt;"></A><b>N&lt;Del&gt;</b>*
+<a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a>			When entering a number: Remove the last digit.
+			Note: if you like to use <a href="motion.html#&lt;BS&gt;">&lt;BS&gt;</a> for this, add this
+			<a href="map.html#mapping">mapping</a> to your <a href="starting.html#.vimrc">.vimrc</a>:
+<b>				:map CTRL-V &lt;BS&gt;   CTRL-V &lt;Del&gt;</b>
+ 			See |<a href="options.html#:fixdel">:fixdel</a>| if your <a href="change.html#&lt;Del&gt;">&lt;Del&gt;</a> key does not <a href="diff.html#do">do</a> what you
+			want.
+
+
+:as[cii]	or					*<a name="ga"></A><b>ga</b>* *<a name=":as"></A><b>:as</b>* *<a name=":ascii"></A><b>:ascii</b>*
+<a href="various.html#ga">ga</a>			Print the ascii value of the character under the
+			cursor in decimal, hexadecimal and <a href="eval.html#octal">octal</a>.  For
+			example, when the cursor is on a '<a href="change.html#R">R</a>':
+<b><font color="purple">				&lt;R&gt;  82,  Hex 52,  Octal 122 </font></b>
+			When the character is a non-standard ASCII character,
+			but printable according to the <a href="options.html#'isprint'">'isprint'</a> option, the
+			non-printable version is also given.  When the
+			character is larger than 127, the &lt;M-x&gt; form is also
+			printed.  For example:
+<b><font color="purple">				&lt;~A&gt;  &lt;M-^A&gt;  129,  Hex 81,  Octal 201 </font></b>
+<b><font color="purple">				&lt;p&gt;  &lt;|~&gt;  &lt;M-~&gt;  254,  Hex fe,  Octal 376 </font></b>
+			(where &lt;p&gt; is a special character)
+			The <a href="intro.html#&lt;Nul&gt;">&lt;Nul&gt;</a> character in a file is stored internally <a href="motion.html#as">as</a>
+			<a href="motion.html#&lt;NL&gt;">&lt;NL&gt;</a>, but it will be shown <a href="motion.html#as">as</a>:
+<b><font color="purple">				&lt;^@&gt;  0,  Hex 00,  Octal 000 </font></b>
+			If the character has composing characters these are
+			also shown.  The value of <a href="options.html#'maxcombine'">'maxcombine'</a> doesn't matter.
+			Mnemonic: Get Ascii value.  {not in Vi}
+
+
+							*<a name="g8"></A><b>g8</b>*
+<a href="various.html#g8">g8</a>			Print the hex values of the bytes used in the
+			character under the cursor, assuming it is in |<a href="mbyte.html#UTF-8">UTF-8</a>|
+			encoding.  This also shows composing characters.  The
+			value of <a href="options.html#'maxcombine'">'maxcombine'</a> doesn't matter.
+			Example of a character with two composing characters:
+<b><font color="purple">				e0 b8 81 + e0 b8 b9 + e0 b9 89 </font></b>
+			{not in Vi} {only when compiled with the |<a href="various.html#+multi_byte">+multi_byte</a>|
+			feature}
+
+
+							*<a name="8g8"></A><b>8g8</b>*
+<a href="various.html#8g8">8g8</a>			Find an illegal <a href="mbyte.html#UTF-8">UTF-8</a> byte sequence at or after the
+			cursor.  This works in two situations:
+			1. when <a href="options.html#'encoding'">'encoding'</a> is any 8-bit encoding
+			2. when <a href="options.html#'encoding'">'encoding'</a> is &quot;<a href="mbyte.html#utf-8">utf-8</a>&quot; and <a href="options.html#'fileencoding'">'fileencoding'</a> is
+			   any 8-bit encoding
+			Thus it can be used when editing a file that was
+			supposed to be <a href="mbyte.html#UTF-8">UTF-8</a> but was read <a href="motion.html#as">as</a> if it is an 8-bit
+			encoding because it contains illegal bytes.
+			Does not wrap around the end of the file.
+			Note that when the cursor is on an illegal byte or the
+			cursor is halfway a <a href="mbyte.html#multi-byte">multi-byte</a> character the command
+			won't move the cursor.
+			{not in Vi} {only when compiled with the |<a href="various.html#+multi_byte">+multi_byte</a>|
+			feature}
+
+
+						*<a name=":p"></A><b>:p</b>* *<a name=":pr"></A><b>:pr</b>* *<a name=":print"></A><b>:print</b>* *<a name="E749"></A><b>E749</b>*
+:[range]p[rint] [flags]
+			Print <a href="cmdline.html#[range]">[range]</a> lines (default current line).
+			Note: If you are looking for a way to print your text
+			on paper see |<a href="print.html#:hardcopy">:hardcopy</a>|.  In the <a href="gui.html#GUI">GUI</a> you can use the
+			File.Print menu entry.
+			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+:[range]p[rint] {count} [flags]
+			Print {count} lines, starting with <a href="cmdline.html#[range]">[range]</a> (default
+			current line |<a href="cmdline.html#cmdline-ranges">cmdline-ranges</a>|).
+			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+
+							*<a name=":P"></A><b>:P</b>* *<a name=":Print"></A><b>:Print</b>*
+:[range]P[rint] <a href="intro.html#[count]">[count]</a> [flags]
+			Just <a href="motion.html#as">as</a> &quot;<a href="various.html#:print">:print</a>&quot;.  Was apparently added to <a href="intro.html#Vi">Vi</a> for
+			people that keep the <a href="intro.html#shift">shift</a> key pressed too long...
+			Note: A user command can overrule this command.
+			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+
+							*<a name=":l"></A><b>:l</b>* *<a name=":list"></A><b>:list</b>*
+:[range]l[ist] <a href="intro.html#[count]">[count]</a> [flags]
+			Same <a href="motion.html#as">as</a> <a href="various.html#:print">:print</a>, but display unprintable characters
+			with '<a href="motion.html#^">^</a>' and put $ after the line.  This can be
+			further changed with the <a href="options.html#'listchars'">'listchars'</a> option.
+			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+
+							*<a name=":nu"></A><b>:nu</b>* *<a name=":number"></A><b>:number</b>*
+:[range]nu[mber] <a href="intro.html#[count]">[count]</a> [flags]
+			Same <a href="motion.html#as">as</a> <a href="various.html#:print">:print</a>, but precede each line with its line
+			number.  (See also <a href="options.html#'highlight'">'highlight'</a> and <a href="options.html#'numberwidth'">'numberwidth'</a>
+			option).
+			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+
+							*<a name=":#"></A><b>:#</b>*
+:[range]# <a href="intro.html#[count]">[count]</a> [flags]
+			synonym for <a href="various.html#:number">:number</a>.
+
+
+							*<a name=":#!"></A><b>:#!</b>*
+:#!{anything}		Ignored, so that you can start a Vim <a href="usr_41.html#script">script</a> with:
+<b>				#!vim -S</b>
+<b>				echo "this is a Vim script"</b>
+<b>				quit</b>
+ 
+
+							*<a name=":z"></A><b>:z</b>* *<a name="E144"></A><b>E144</b>*
+:{range}z[+-^.=]{count}	Display several lines of text surrounding the line
+			specified with {range}, or around the current line
+			if there is no {range}.  If there is a {count}, that's
+			how many lines you'll see; if there is only one <a href="windows.html#window">window</a>
+			then <a href="if_cscop.html#twice">twice</a> the value of the <a href="options.html#'scroll'">'scroll'</a> option is used,
+			otherwise the current <a href="windows.html#window">window</a> height minus 3 is used.
+
+			<a href="various.html#:z">:z</a> can be used either alone or followed by any of
+			several punctuation marks.  These have the following
+			effect:
+
+<b><font color="purple">			mark   first line    last line      new cursor line </font></b>
+			----   ----------    ---------      ------------
+			+      current line  1 scr forward  1 scr forward
+			-      1 scr back    current line   current line
+			^      2 scr back    1 scr back     1 scr back
+			.      1/2 scr back  1/2 scr fwd    1/2 scr fwd
+			=      1/2 scr back  1/2 scr fwd    current line
+
+			Specifying no <a href="motion.html#mark">mark</a> at all is the same <a href="motion.html#as">as</a> &quot;<a href="motion.html#+">+</a>&quot;.
+			If the <a href="motion.html#mark">mark</a> is &quot;<a href="change.html#=">=</a>&quot;, a line of dashes is printed
+			around the current line.
+
+
+:{range}z#[+-^.=]{count}				*<a name=":z#"></A><b>:z#</b>*
+			Like &quot;<a href="various.html#:z">:z</a>&quot;, but number the lines.
+			{not in all versions of <a href="intro.html#Vi">Vi</a>, not with these arguments}
+
+
+							*<a name=":="></A><b>:=</b>*
+<a href="various.html#:=">:=</a> [flags]		Print the last line number.
+			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+:{range}= [flags]	Prints the last line number in {range}.  For example,
+			this prints the current line number:
+<b>				:.=</b>
+ 			See |<a href="cmdline.html#ex-flags">ex-flags</a>| for [flags].
+
+
+:norm[al][!] {commands}					*<a name=":norm"></A><b>:norm</b>* *<a name=":normal"></A><b>:normal</b>*
+			Execute <a href="intro.html#Normal">Normal</a> mode commands {commands}.  This makes
+			it possible to execute <a href="intro.html#Normal">Normal</a> mode commands typed on
+			the command-line.  {commands} are executed like they
+			are typed.  For <a href="undo.html#undo">undo</a> all commands are undone together.
+			Execution stops when an error is encountered.
+			If the [!] is given, mappings will not be used.
+			{commands} should be a complete command.  If
+			{commands} does not finish a command, the last one
+			will be aborted <a href="motion.html#as">as</a> if <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a> or &lt;C-C&gt; was typed.
+			The display isn't updated while &quot;<a href="various.html#:normal">:normal</a>&quot; is busy.
+			This implies that an insert command must be completed
+			(to start <a href="insert.html#Insert">Insert</a> mode, see |<a href="insert.html#:startinsert">:startinsert</a>|).  A &quot;:&quot;
+			command must be completed <a href="motion.html#as">as</a> well.  And you can't use
+			&quot;<a href="intro.html#Q">Q</a>&quot; or &quot;<a href="intro.html#gQ">gQ</a>&quot; to start <a href="intro.html#Ex">Ex</a> mode.
+			{commands} cannot start with a space.  Put a <a href="intro.html#count">count</a> of
+			1 (one) before it, &quot;1 &quot; is one space.
+			The <a href="options.html#'insertmode'">'insertmode'</a> option is ignored for {commands}.
+			This command cannot be followed by another command,
+			since any '&#124;' is considered part of the command.
+			This command can be used recursively, but the depth is
+			limited by <a href="options.html#'maxmapdepth'">'maxmapdepth'</a>.
+			When this command is called from a non-remappable
+			<a href="map.html#mapping">mapping</a> |<a href="map.html#:noremap">:noremap</a>|, the argument can be mapped anyway.
+			An alternative is to use |<a href="eval.html#:execute">:execute</a>|, which uses an
+			<a href="eval.html#expression">expression</a> <a href="motion.html#as">as</a> argument.  This allows the use of
+			printable characters to represent special characters.
+			Example:
+<b>				:exe "normal \&lt;c-w&gt;\&lt;c-w&gt;"</b>
+ 			{not in <a href="intro.html#Vi">Vi</a>, of course}
+			{not available when the |<a href="various.html#+ex_extra">+ex_extra</a>| feature was
+			disabled at compile time}
+
+
+:{range}norm[al][!] {commands}				*<a name=":normal-range"></A><b>:normal-range</b>*
+			Execute <a href="intro.html#Normal">Normal</a> mode commands {commands} for each line
+			in the {range}.  Before executing the {commands}, the
+			cursor is positioned in the first column of the range,
+			for each line.  Otherwise it's the same <a href="motion.html#as">as</a> the
+			&quot;<a href="various.html#:normal">:normal</a>&quot; command without a range.
+			{not in Vi}
+			{not available when |<a href="various.html#+ex_extra">+ex_extra</a>| feature was disabled
+			at compile time}
+
+
+							*<a name=":sh"></A><b>:sh</b>* *<a name=":shell"></A><b>:shell</b>* *<a name="E371"></A><b>E371</b>*
+:sh[ell]		This command starts a shell.  When the shell exits
+			(after the &quot;exit&quot; command) you return to Vim.  The
+			name for the shell command comes from <a href="options.html#'shell'">'shell'</a> option.
+
+							*<a name="E360"></A><b>E360</b>*
+			Note: This doesn't work when Vim on the <a href="os_amiga.html#Amiga">Amiga</a> was
+			started in QuickFix mode from a compiler, because the
+			compiler will have set stdin to a non-interactive
+			mode.
+
+
+							*<a name=":!cmd"></A><b>:!cmd</b>* *<a name=":!"></A><b>:!</b>* *<a name="E34"></A><b>E34</b>*
+:!{cmd}			Execute {cmd} with the shell.  See also the <a href="options.html#'shell'">'shell'</a>
+			and <a href="options.html#'shelltype'">'shelltype'</a> option.
+			Any '<a href="change.html#!">!</a>' in {cmd} is replaced with the previous
+			external command (see also <a href="options.html#'cpoptions'">'cpoptions'</a>).  But not when
+			there is a <a href="intro.html#backslash">backslash</a> before the '<a href="change.html#!">!</a>', then that
+			<a href="intro.html#backslash">backslash</a> is removed.  Example: &quot;:!ls&quot; followed by
+			&quot;:!echo ! \! \\!&quot; executes &quot;echo ls ! \!&quot;.
+			After the command has been executed, the <a href="editing.html#timestamp">timestamp</a> of
+			the current file is checked |<a href="editing.html#timestamp">timestamp</a>|.
+			A '&#124;' in {cmd} is passed to the shell, you cannot use
+			it to append a Vim command.  See |<a href="cmdline.html#:bar">:bar</a>|.
+			A newline character ends {cmd}, what follows is
+			interpreted <a href="motion.html#as">as</a> a following &quot;<a href="cmdline.html#:">:</a>&quot; command.  However, if
+			there is a <a href="intro.html#backslash">backslash</a> before the newline it is removed
+			and {cmd} continues.  It doesn't matter how many
+			backslashes are before the newline, only one is
+			removed.
+			On <a href="os_unix.html#Unix">Unix</a> the command normally runs in a non-interactive
+			shell.  If you want an interactive shell to be used
+			(to use aliases) set <a href="options.html#'shellcmdflag'">'shellcmdflag'</a> to &quot;-ic&quot;.
+			For <a href="os_win32.html#Win32">Win32</a> also see |<a href="os_win32.html#:!start">:!start</a>|.
+			Vim redraws the screen after the command is finished,
+			because it may have printed any text.  This requires a
+			<a href="message.html#hit-enter">hit-enter</a> prompt, so that you can read any <a href="message.html#messages">messages</a>.
+			To avoid this use:
+<b>				:silent !{cmd}</b>
+ 			The screen is not redrawn then, thus you have to use
+			<a href="various.html#CTRL-L">CTRL-L</a> or &quot;:redraw!&quot; if the command did display
+			something.
+			Also see |<a href="tips.html#shell-window">shell-window</a>|.
+
+
+							*<a name=":!!"></A><b>:!!</b>*
+<a href="various.html#:!!">:!!</a>			Repeat last &quot;:!{cmd}&quot;.
+
+
+							*<a name=":ve"></A><b>:ve</b>* *<a name=":version"></A><b>:version</b>*
+:ve[rsion]		Print the version number of the editor.  If the
+			compiler used understands &quot;__DATE__&quot; the compilation
+			date is mentioned.  Otherwise a fixed release-date is
+			shown.
+			The following lines contain information about which
+			features were enabled when Vim was compiled.  When
+			there is a preceding '<a href="motion.html#+">+</a>', the feature is included,
+			when there is a '<a href="motion.html#-">-</a>' it is excluded.  To change this,
+			you have to edit feature.h and recompile Vim.
+			To check for this in an <a href="eval.html#expression">expression</a>, see |<a href="eval.html#has()">has()</a>|.
+			Here is an overview of the features.
+			The first column shows the smallest version in which
+			they are included:
+			   <a href="motion.html#T">T</a>	tiny
+			   <a href="change.html#S">S</a>	small
+			   N	normal
+			   <a href="motion.html#B">B</a>	big
+			   <a href="motion.html#H">H</a>	huge
+			   <a href="motion.html#m">m</a>	manually enabled or depends on other features
+			 (none) system dependent
+			Thus if a feature is marked with &quot;<a href="pattern.html#N">N</a>&quot;, it is included
+			in the normal, big and huge versions of Vim.
+
+
+							*<a name="+feature-list"></A><b>+feature-list</b>*
+
+   *<a name="+ARP"></A><b>+ARP</b>*		<a href="os_amiga.html#Amiga">Amiga</a> only: ARP support included
+
+<a href="motion.html#B">B</a>  *<a name="+arabic"></a><b>+arabic</b>*		|<a href="arabic.html#Arabic">Arabic</a>| language support
+
+N  *<a name="+autocmd"></a><b>+autocmd</b>*		|<a href="autocmd.html#:autocmd">:autocmd</a>|, automatic commands
+
+<a href="motion.html#m">m</a>  *<a name="+balloon_eval"></a><b>+balloon_eval</b>*	|<a href="debugger.html#balloon-eval">balloon-eval</a>| support. Included when compiling with
+			supported <a href="gui.html#GUI">GUI</a> (Motif, <a href="gui_x11.html#GTK">GTK</a>, <a href="gui.html#GUI">GUI</a>) and either
+			Netbeans/Sun Workshop integration or |<a href="various.html#+eval">+eval</a>| feature.
+
+N  *<a name="+browse"></a><b>+browse</b>*		|<a href="editing.html#:browse">:browse</a>| command
+
+N  *<a name="+builtin_terms"></a><b>+builtin_terms</b>*	some terminals builtin |<a href="term.html#builtin-terms">builtin-terms</a>|
+
+<a href="motion.html#B">B</a>  *<a name="++builtin_terms"></a><b>++builtin_terms</b>*	maximal terminals builtin |<a href="term.html#builtin-terms">builtin-terms</a>|
+
+N  *<a name="+byte_offset"></A><b>+byte_offset</b>*	support for '<a href="insert.html#o">o</a>' flag in <a href="options.html#'statusline'">'statusline'</a> option, &quot;go&quot;
+			and &quot;<a href="motion.html#:goto">:goto</a>&quot; commands.
+
+N  *<a name="+cindent"></a><b>+cindent</b>*		|<a href="options.html#'cindent'">'cindent'</a>|, C indenting
+
+N  *<a name="+clientserver"></a><b>+clientserver</b>*	<a href="os_unix.html#Unix">Unix</a> and <a href="os_win32.html#Win32">Win32</a>: Remote invocation |<a href="remote.html#clientserver">clientserver</a>|
+
+   *<a name="+clipboard"></a><b>+clipboard</b>*		|<a href="gui.html#clipboard">clipboard</a>| support
+
+N  *<a name="+cmdline_compl"></a><b>+cmdline_compl</b>*	command line completion |<a href="cmdline.html#cmdline-completion">cmdline-completion</a>|
+
+N  *<a name="+cmdline_hist"></a><b>+cmdline_hist</b>*	command line history |<a href="cmdline.html#cmdline-history">cmdline-history</a>|
+
+N  *<a name="+cmdline_info"></a><b>+cmdline_info</b>*	|<a href="options.html#'showcmd'">'showcmd'</a>| and |<a href="options.html#'ruler'">'ruler'</a>|
+
+N  *<a name="+comments"></a><b>+comments</b>*		|<a href="options.html#'comments'">'comments'</a>| support
+
+<a href="motion.html#B">B</a>  *<a name="+conceal"></a><b>+conceal</b>*		&quot;conceal&quot; support, see |<a href="syntax.html#conceal">conceal</a>| |<a href="syntax.html#:syn-conceal">:syn-conceal</a>| etc.
+
+N  *<a name="+cryptv"></a><b>+cryptv</b>*		encryption support |<a href="editing.html#encryption">encryption</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+cscope"></a><b>+cscope</b>*		|<a href="if_cscop.html#cscope">cscope</a>| support
+
+<a href="motion.html#m">m</a>  *<a name="+cursorbind"></a><b>+cursorbind</b>*	|<a href="options.html#'cursorbind'">'cursorbind'</a>| support
+
+<a href="motion.html#m">m</a>  *<a name="+cursorshape"></a><b>+cursorshape</b>*	|<a href="term.html#termcap-cursor-shape">termcap-cursor-shape</a>| support
+
+<a href="motion.html#m">m</a>  *<a name="+debug"></A><b>+debug</b>*		Compiled for debugging.
+
+N  *<a name="+dialog_gui"></a><b>+dialog_gui</b>*	Support for |<a href="editing.html#:confirm">:confirm</a>| with <a href="gui.html#GUI">GUI</a> <a href="gui_w32.html#dialog">dialog</a>.
+
+N  *<a name="+dialog_con"></a><b>+dialog_con</b>*	Support for |<a href="editing.html#:confirm">:confirm</a>| with console <a href="gui_w32.html#dialog">dialog</a>.
+
+N  *<a name="+dialog_con_gui"></a><b>+dialog_con_gui</b>*	Support for |<a href="editing.html#:confirm">:confirm</a>| with <a href="gui.html#GUI">GUI</a> and console <a href="gui_w32.html#dialog">dialog</a>.
+
+N  *<a name="+diff"></a><b>+diff</b>*		|<a href="diff.html#vimdiff">vimdiff</a>| and <a href="options.html#'diff'">'diff'</a>
+
+N  *<a name="+digraphs"></a><b>+digraphs</b>*		|<a href="digraph.html#digraphs">digraphs</a>| *<a name="E196"></a><b>E196</b>*
+
+   *<a name="+dnd"></a><b>+dnd</b>*		Support for DnD into the &quot;~ <a href="sponsor.html#register">register</a> |<a href="change.html#quote_~">quote_~</a>|.
+
+<a href="motion.html#B">B</a>  *<a name="+emacs_tags"></a><b>+emacs_tags</b>*	|<a href="tagsrch.html#emacs-tags">emacs-tags</a>| files
+
+N  *<a name="+eval"></a><b>+eval</b>*		<a href="eval.html#expression">expression</a> evaluation |<a href="eval.html#eval.txt">eval.txt</a>|
+
+N  *<a name="+ex_extra"></a><b>+ex_extra</b>*		Vim's extra <a href="intro.html#Ex">Ex</a> commands: |<a href="change.html#:center">:center</a>|, |<a href="change.html#:left">:left</a>|,
+			|<a href="various.html#:normal">:normal</a>|, |<a href="change.html#:retab">:retab</a>| and |<a href="change.html#:right">:right</a>|
+
+N  *<a name="+extra_search"></a><b>+extra_search</b>*	|<a href="options.html#'hlsearch'">'hlsearch'</a>| and |<a href="options.html#'incsearch'">'incsearch'</a>| <a href="options.html#options">options</a>.
+
+<a href="motion.html#B">B</a>  *<a name="+farsi"></a><b>+farsi</b>*		|<a href="farsi.html#farsi">farsi</a>| language
+
+N  *<a name="+file_in_path"></a><b>+file_in_path</b>*	|<a href="editing.html#gf">gf</a>|, |<a href="windows.html#CTRL-W_f">CTRL-W_f</a>| and |<a href="cmdline.html#&lt;cfile&gt;">&lt;cfile&gt;</a>|
+
+N  *<a name="+find_in_path"></a><b>+find_in_path</b>*	include file searches: |<a href="tagsrch.html#[I">[I</a>|, |<a href="tagsrch.html#:isearch">:isearch</a>|,
+			|<a href="tagsrch.html#CTRL-W_CTRL-I">CTRL-W_CTRL-I</a>|, |<a href="tagsrch.html#:checkpath">:checkpath</a>|, etc.
+
+N  *<a name="+folding"></a><b>+folding</b>*		|<a href="fold.html#folding">folding</a>|
+
+   *<a name="+footer"></a><b>+footer</b>*		|<a href="debugger.html#gui-footer">gui-footer</a>|
+
+   *<a name="+fork"></a><b>+fork</b>*		<a href="os_unix.html#Unix">Unix</a> only: |<a href="os_unix.html#fork">fork</a>| shell commands
+
+   *<a name="+float"></A><b>+float</b>*		Floating point support
+
+N  *<a name="+gettext"></a><b>+gettext</b>*		message translations |<a href="mlang.html#multi-lang">multi-lang</a>|
+
+   *<a name="+GUI_Athena"></a><b>+GUI_Athena</b>*	<a href="os_unix.html#Unix">Unix</a> only: <a href="gui_x11.html#Athena">Athena</a> |<a href="gui.html#GUI">GUI</a>|
+
+   *<a name="+GUI_neXtaw"></a><b>+GUI_neXtaw</b>*	<a href="os_unix.html#Unix">Unix</a> only: neXtaw |<a href="gui.html#GUI">GUI</a>|
+
+   *<a name="+GUI_GTK"></a><b>+GUI_GTK</b>*		<a href="os_unix.html#Unix">Unix</a> only: <a href="gui_x11.html#GTK+">GTK+</a> |<a href="gui.html#GUI">GUI</a>|
+
+   *<a name="+GUI_Motif"></a><b>+GUI_Motif</b>*		<a href="os_unix.html#Unix">Unix</a> only: <a href="gui_x11.html#Motif">Motif</a> |<a href="gui.html#GUI">GUI</a>|
+
+   *<a name="+GUI_Photon"></a><b>+GUI_Photon</b>*	<a href="os_qnx.html#QNX">QNX</a> only:  Photon |<a href="gui.html#GUI">GUI</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+hangul_input"></a><b>+hangul_input</b>*	Hangul input support |<a href="hangulin.html#hangul">hangul</a>|
+
+   *<a name="+iconv"></a><b>+iconv</b>*		Compiled with the |<a href="eval.html#iconv()">iconv()</a>| function
+
+   *<a name="+iconv/dyn"></a><b>+iconv/dyn</b>*		Likewise |<a href="mbyte.html#iconv-dynamic">iconv-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+N  *<a name="+insert_expand"></a><b>+insert_expand</b>*	|<a href="insert.html#insert_expand">insert_expand</a>| <a href="insert.html#Insert">Insert</a> mode completion
+
+N  *<a name="+jumplist"></a><b>+jumplist</b>*		|<a href="motion.html#jumplist">jumplist</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+keymap"></a><b>+keymap</b>*		|<a href="options.html#'keymap'">'keymap'</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+langmap"></a><b>+langmap</b>*		|<a href="options.html#'langmap'">'langmap'</a>|
+
+N  *<a name="+libcall"></a><b>+libcall</b>*		|<a href="eval.html#libcall()">libcall()</a>|
+
+N  *<a name="+linebreak"></a><b>+linebreak</b>*		|<a href="options.html#'linebreak'">'linebreak'</a>|, |<a href="options.html#'breakat'">'breakat'</a>| and |<a href="options.html#'showbreak'">'showbreak'</a>|
+
+N  *<a name="+lispindent"></a><b>+lispindent</b>*	|<a href="options.html#'lisp'">'lisp'</a>|
+
+N  *<a name="+listcmds"></a><b>+listcmds</b>*		Vim commands for the list of <a href="windows.html#buffers">buffers</a> |<a href="windows.html#buffer-hidden">buffer-hidden</a>|
+			and argument list |<a href="editing.html#:argdelete">:argdelete</a>|
+
+N  *<a name="+localmap"></a><b>+localmap</b>*		Support for mappings local to a buffer |<a href="map.html#:map-local">:map-local</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+lua"></a><b>+lua</b>*		|<a href="if_lua.html#Lua">Lua</a>| interface
+
+<a href="motion.html#m">m</a>  *<a name="+lua/dyn"></a><b>+lua/dyn</b>*		|<a href="if_lua.html#Lua">Lua</a>| interface |<a href="various.html#/dyn">/dyn</a>|
+
+N  *<a name="+menu"></a><b>+menu</b>*		|<a href="gui.html#:menu">:menu</a>|
+
+N  *<a name="+mksession"></a><b>+mksession</b>*		|<a href="starting.html#:mksession">:mksession</a>|
+
+N  *<a name="+modify_fname"></a><b>+modify_fname</b>*	|<a href="cmdline.html#filename-modifiers">filename-modifiers</a>|
+
+N  *<a name="+mouse"></a><b>+mouse</b>*		Mouse handling |<a href="term.html#mouse-using">mouse-using</a>|
+
+N  *<a name="+mouseshape"></a><b>+mouseshape</b>*	|<a href="options.html#'mouseshape'">'mouseshape'</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+mouse_dec"></a><b>+mouse_dec</b>*		<a href="os_unix.html#Unix">Unix</a> only: Dec terminal mouse handling |<a href="options.html#dec-mouse">dec-mouse</a>|
+
+N  *<a name="+mouse_gpm"></a><b>+mouse_gpm</b>*		<a href="os_unix.html#Unix">Unix</a> only: Linux console mouse handling |<a href="term.html#gpm-mouse">gpm-mouse</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+mouse_netterm"></a><b>+mouse_netterm</b>*	<a href="os_unix.html#Unix">Unix</a> only: netterm mouse handling |<a href="options.html#netterm-mouse">netterm-mouse</a>|
+
+N  *<a name="+mouse_pterm"></a><b>+mouse_pterm</b>*	<a href="os_qnx.html#QNX">QNX</a> only: pterm mouse handling |<a href="os_qnx.html#qnx-terminal">qnx-terminal</a>|
+N  *+mouse_sysmouse*	<a href="os_unix.html#Unix">Unix</a> only: *BSD console mouse handling |<a href="term.html#sysmouse">sysmouse</a>|
+
+N  *<a name="+mouse_xterm"></a><b>+mouse_xterm</b>*	<a href="os_unix.html#Unix">Unix</a> only: xterm mouse handling |<a href="options.html#xterm-mouse">xterm-mouse</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+multi_byte"></a><b>+multi_byte</b>*	16 and 32 bit characters |<a href="mbyte.html#multibyte">multibyte</a>|
+
+   *<a name="+multi_byte_ime"></a><b>+multi_byte_ime</b>*	<a href="os_win32.html#Win32">Win32</a> input method for multibyte chars |<a href="mbyte.html#multibyte-ime">multibyte-ime</a>|
+
+N  *<a name="+multi_lang"></a><b>+multi_lang</b>*	non-English language support |<a href="mlang.html#multi-lang">multi-lang</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+mzscheme"></a><b>+mzscheme</b>*		Mzscheme interface |<a href="if_mzsch.html#mzscheme">mzscheme</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+mzscheme/dyn"></a><b>+mzscheme/dyn</b>*	Mzscheme interface |<a href="if_mzsch.html#mzscheme-dynamic">mzscheme-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+netbeans_intg"></a><b>+netbeans_intg</b>*	|<a href="netbeans.html#netbeans">netbeans</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+ole"></a><b>+ole</b>*		<a href="os_win32.html#Win32">Win32</a> <a href="gui.html#GUI">GUI</a> only: |<a href="if_ole.html#ole-interface">ole-interface</a>|
+
+   *<a name="+osfiletype"></A><b>+osfiletype</b>*	Support for the <a href="options.html#'osfiletype'">'osfiletype'</a> option and <a href="filetype.html#filetype">filetype</a>
+			checking in automatic commands.  |<a href="filetype.html#autocmd-osfiletypes">autocmd-osfiletypes</a>|
+
+N  *<a name="+path_extra"></A><b>+path_extra</b>*	Up/downwards search in <a href="options.html#'path'">'path'</a> and <a href="options.html#'tags'">'tags'</a>
+
+<a href="motion.html#m">m</a>  *<a name="+perl"></a><b>+perl</b>*		<a href="if_perl.html#Perl">Perl</a> interface |<a href="if_perl.html#perl">perl</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+perl/dyn"></a><b>+perl/dyn</b>*		<a href="if_perl.html#Perl">Perl</a> interface |<a href="if_perl.html#perl-dynamic">perl-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+N  *<a name="+persistent_undo"></a><b>+persistent_undo</b>*	Persistent undo |<a href="undo.html#undo-persistence">undo-persistence</a>|
+
+   *<a name="+postscript"></a><b>+postscript</b>*	|<a href="print.html#:hardcopy">:hardcopy</a>| writes a PostScript file
+
+N  *<a name="+printer"></a><b>+printer</b>*		|<a href="print.html#:hardcopy">:hardcopy</a>| command
+
+<a href="motion.html#H">H</a>  *<a name="+profile"></a><b>+profile</b>*		|<a href="repeat.html#:profile">:profile</a>| command
+
+<a href="motion.html#m">m</a>  *<a name="+python"></a><b>+python</b>*		<a href="if_pyth.html#Python">Python</a> 2 interface |<a href="if_pyth.html#python">python</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+python/dyn"></a><b>+python/dyn</b>*	<a href="if_pyth.html#Python">Python</a> 2 interface |<a href="if_pyth.html#python-dynamic">python-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+python3"></a><b>+python3</b>*		<a href="if_pyth.html#Python">Python</a> 3 interface |<a href="if_pyth.html#python">python</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+python3/dyn"></a><b>+python3/dyn</b>*	<a href="if_pyth.html#Python">Python</a> 3 interface |<a href="if_pyth.html#python-dynamic">python-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+N  *<a name="+quickfix"></a><b>+quickfix</b>*		|<a href="quickfix.html#:make">:make</a>| and |<a href="quickfix.html#quickfix">quickfix</a>| commands
+
+N  *<a name="+reltime"></a><b>+reltime</b>*		|<a href="eval.html#reltime()">reltime()</a>| function, 'hlsearch'/'incsearch' timeout,
+			<a href="options.html#'redrawtime'">'redrawtime'</a> option
+
+<a href="motion.html#B">B</a>  *<a name="+rightleft"></a><b>+rightleft</b>*		Right to left typing |<a href="options.html#'rightleft'">'rightleft'</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+ruby"></a><b>+ruby</b>*		<a href="if_ruby.html#Ruby">Ruby</a> interface |<a href="if_ruby.html#ruby">ruby</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+ruby/dyn"></a><b>+ruby/dyn</b>*		<a href="if_ruby.html#Ruby">Ruby</a> interface |<a href="if_ruby.html#ruby-dynamic">ruby-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+N  *<a name="+scrollbind"></a><b>+scrollbind</b>*	|<a href="options.html#'scrollbind'">'scrollbind'</a>|
+
+<a href="motion.html#B">B</a>  *<a name="+signs"></a><b>+signs</b>*		|<a href="sign.html#:sign">:sign</a>|
+
+N  *<a name="+smartindent"></a><b>+smartindent</b>*	|<a href="options.html#'smartindent'">'smartindent'</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+sniff"></a><b>+sniff</b>*		SniFF interface |<a href="if_sniff.html#sniff">sniff</a>|
+
+N  *<a name="+startuptime"></a><b>+startuptime</b>*	|<a href="starting.html#--startuptime">--startuptime</a>| argument
+
+N  *<a name="+statusline"></A><b>+statusline</b>*	Options <a href="options.html#'statusline'">'statusline'</a>, <a href="options.html#'rulerformat'">'rulerformat'</a> and special
+			formats of <a href="options.html#'titlestring'">'titlestring'</a> and <a href="options.html#'iconstring'">'iconstring'</a>
+
+<a href="motion.html#m">m</a>  *<a name="+sun_workshop"></a><b>+sun_workshop</b>*	|<a href="workshop.html#workshop">workshop</a>|
+
+N  *<a name="+syntax"></a><b>+syntax</b>*		<a href="autocmd.html#Syntax">Syntax</a> highlighting |<a href="syntax.html#syntax">syntax</a>|
+
+   *<a name="+system()"></a><b>+system()</b>*		<a href="os_unix.html#Unix">Unix</a> only: opposite of |<a href="various.html#+fork">+fork</a>|
+
+N  *<a name="+tag_binary"></a><b>+tag_binary</b>*	binary searching in <a href="tagsrch.html#tags">tags</a> file |<a href="tagsrch.html#tag-binary-search">tag-binary-search</a>|
+
+N  *<a name="+tag_old_static"></a><b>+tag_old_static</b>*	old method for static <a href="tagsrch.html#tags">tags</a> |<a href="tagsrch.html#tag-old-static">tag-old-static</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+tag_any_white"></a><b>+tag_any_white</b>*	any white space allowed in <a href="tagsrch.html#tags">tags</a> file |<a href="tagsrch.html#tag-any-white">tag-any-white</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+tcl"></a><b>+tcl</b>*		<a href="if_tcl.html#Tcl">Tcl</a> interface |<a href="if_tcl.html#tcl">tcl</a>|
+
+<a href="motion.html#m">m</a>  *<a name="+tcl/dyn"></a><b>+tcl/dyn</b>*		<a href="if_tcl.html#Tcl">Tcl</a> interface |<a href="if_tcl.html#tcl-dynamic">tcl-dynamic</a>| |<a href="various.html#/dyn">/dyn</a>|
+
+   *<a name="+terminfo"></a><b>+terminfo</b>*		uses |<a href="term.html#terminfo">terminfo</a>| instead of <a href="term.html#termcap">termcap</a>
+
+N  *<a name="+termresponse"></a><b>+termresponse</b>*	support for |<a href="term.html#t_RV">t_RV</a>| and |<a href="eval.html#v:termresponse">v:termresponse</a>|
+
+N  *<a name="+textobjects"></a><b>+textobjects</b>*	|<a href="motion.html#text-objects">text-objects</a>| selection
+
+   *<a name="+tgetent"></A><b>+tgetent</b>*		non-Unix only: able to use external <a href="term.html#termcap">termcap</a>
+
+N  *<a name="+title"></A><b>+title</b>*		Setting the <a href="windows.html#window">window</a> <a href="options.html#'title'">'title'</a> and <a href="options.html#'icon'">'icon'</a>
+
+N  *<a name="+toolbar"></a><b>+toolbar</b>*		|<a href="gui.html#gui-toolbar">gui-toolbar</a>|
+
+N  *<a name="+user_commands"></a><b>+user_commands</b>*	User-defined commands. |<a href="map.html#user-commands">user-commands</a>|
+
+N  *<a name="+viminfo"></a><b>+viminfo</b>*		|<a href="options.html#'viminfo'">'viminfo'</a>|
+
+N  *<a name="+vertsplit"></a><b>+vertsplit</b>*		Vertically split <a href="windows.html#windows">windows</a> |<a href="windows.html#:vsplit">:vsplit</a>|
+
+N  *<a name="+virtualedit"></a><b>+virtualedit</b>*	|<a href="options.html#'virtualedit'">'virtualedit'</a>|
+
+<a href="change.html#S">S</a>  *<a name="+visual"></a><b>+visual</b>*		Visual mode |<a href="visual.html#Visual-mode">Visual-mode</a>|
+
+N  *<a name="+visualextra"></a><b>+visualextra</b>*	extra <a href="visual.html#Visual">Visual</a> mode commands |<a href="visual.html#blockwise-operators">blockwise-operators</a>|
+
+N  *<a name="+vreplace"></a><b>+vreplace</b>*		|<a href="change.html#gR">gR</a>| and |<a href="change.html#gr">gr</a>|
+
+N  *<a name="+wildignore"></a><b>+wildignore</b>*	|<a href="options.html#'wildignore'">'wildignore'</a>|
+
+N  *<a name="+wildmenu"></a><b>+wildmenu</b>*		|<a href="options.html#'wildmenu'">'wildmenu'</a>|
+
+<a href="change.html#S">S</a>  *<a name="+windows"></A><b>+windows</b>*		more than one <a href="windows.html#window">window</a>
+
+<a href="motion.html#m">m</a>  *<a name="+writebackup"></a><b>+writebackup</b>*	|<a href="options.html#'writebackup'">'writebackup'</a>| is default on
+
+<a href="motion.html#m">m</a>  *<a name="+xim"></a><b>+xim</b>*		X input method |<a href="mbyte.html#xim">xim</a>|
+
+   *<a name="+xfontset"></a><b>+xfontset</b>*		X fontset support |<a href="mbyte.html#xfontset">xfontset</a>|
+
+   *<a name="+xsmp"></A><b>+xsmp</b>*		XSMP (X session management) support
+
+   *<a name="+xsmp_interact"></A><b>+xsmp_interact</b>*	interactive XSMP (X session management) support
+
+N  *<a name="+xterm_clipboard"></A><b>+xterm_clipboard</b>*	<a href="os_unix.html#Unix">Unix</a> only: xterm <a href="gui.html#clipboard">clipboard</a> handling
+
+<a href="motion.html#m">m</a>  *<a name="+xterm_save"></a><b>+xterm_save</b>*	save and restore xterm screen |<a href="tips.html#xterm-screens">xterm-screens</a>|
+
+N  *<a name="+X11"></a><b>+X11</b>*		<a href="os_unix.html#Unix">Unix</a> only: can restore <a href="windows.html#window">window</a> title |<a href="options.html#X11">X11</a>|
+
+
+							*<a name="/dyn"></A><b>/dyn</b>* *<a name="E370"></A><b>E370</b>* *<a name="E448"></A><b>E448</b>*
+			To some of the features &quot;<a href="various.html#/dyn">/dyn</a>&quot; is added when the
+			feature is only available when the related library can
+			be dynamically loaded.
+
+:ve[rsion] {nr}		Is now ignored.  This was previously used to check the
+			version number of a <a href="starting.html#.vimrc">.vimrc</a> file.  It was removed,
+			because you can now use the &quot;<a href="eval.html#:if">:if</a>&quot; command for
+			version-dependent behavior.  {not in Vi}
+
+
+							*<a name=":redi"></A><b>:redi</b>* *<a name=":redir"></A><b>:redir</b>*
+:redi[r][!] <a href="change.html#&gt;">&gt;</a> <a href="editing.html#{file}">{file}</a>	Redirect <a href="message.html#messages">messages</a> to file <a href="editing.html#{file}">{file}</a>.  The <a href="message.html#messages">messages</a> which
+			are the output of commands are written to that file,
+			until redirection ends.  The <a href="message.html#messages">messages</a> are also still
+			shown on the screen.  When [!] is included, an
+			existing file is overwritten.  When [!] is omitted,
+			and <a href="editing.html#{file}">{file}</a> exists, this command fails.
+			Only one &quot;<a href="various.html#:redir">:redir</a>&quot; can be active at a time.  Calls to
+			&quot;<a href="various.html#:redir">:redir</a>&quot; will close any active redirection before
+			starting redirection to the new target.
+			To stop the <a href="message.html#messages">messages</a> and commands from being echoed to
+			the screen, put the commands in a function and call it
+			with &quot;<a href="various.html#:silent">:silent</a> call Function()&quot;.
+			An alternative is to use the <a href="options.html#'verbosefile'">'verbosefile'</a> option,
+			this can be used in combination with &quot;<a href="various.html#:redir">:redir</a>&quot;.
+			{not in Vi}
+
+:redi[r] <a href="change.html#&gt;&gt;">&gt;&gt;</a> <a href="editing.html#{file}">{file}</a>	Redirect <a href="message.html#messages">messages</a> to file <a href="editing.html#{file}">{file}</a>.  Append if <a href="editing.html#{file}">{file}</a>
+			already exists.  {not in Vi}
+
+:redi[r] @{a-zA-Z}
+:redi[r] @{a-zA-Z}&gt;	Redirect <a href="message.html#messages">messages</a> to <a href="sponsor.html#register">register</a> {a-z}.  Append to the
+			contents of the <a href="sponsor.html#register">register</a> if its name is given
+			<a href="change.html#uppercase">uppercase</a> {A-Z}.  The &quot;<a href="change.html#&gt;">&gt;</a>&quot; after the <a href="sponsor.html#register">register</a> name is
+			optional. {not in Vi}
+:redi[r] @{a-z}&gt;&gt;	Append <a href="message.html#messages">messages</a> to <a href="sponsor.html#register">register</a> {a-z}. {not in Vi}
+
+:redi[r] @*&gt;		
+:redi[r] @+&gt;		Redirect <a href="message.html#messages">messages</a> to the selection or <a href="gui.html#clipboard">clipboard</a>. For
+			backward compatibility, the &quot;<a href="change.html#&gt;">&gt;</a>&quot; after the <a href="sponsor.html#register">register</a>
+			name can be omitted. See |<a href="gui.html#quotestar">quotestar</a>| and |<a href="gui_x11.html#quoteplus">quoteplus</a>|.
+			{not in Vi}
+:redi[r] @*&gt;&gt;		
+:redi[r] @+&gt;&gt;		Append <a href="message.html#messages">messages</a> to the selection or <a href="gui.html#clipboard">clipboard</a>.
+			{not in Vi}
+
+:redi[r] @&quot;&gt;		Redirect <a href="message.html#messages">messages</a> to the unnamed <a href="sponsor.html#register">register</a>. For
+			backward compatibility, the &quot;<a href="change.html#&gt;">&gt;</a>&quot; after the <a href="sponsor.html#register">register</a>
+			name can be omitted. {not in Vi}
+:redi[r] @&quot;&gt;&gt;		Append <a href="message.html#messages">messages</a> to the unnamed <a href="sponsor.html#register">register</a>. {not in Vi}
+
+:redi[r] =&gt; {var}	Redirect <a href="message.html#messages">messages</a> to a variable.  If the variable
+			doesn't exist, then it is created.  If the variable
+			exists, then it is initialized to an empty string.
+			The variable will remain empty until redirection ends.
+			Only string <a href="eval.html#variables">variables</a> can be used.  After the
+			redirection starts, if the variable is removed or
+			locked or the variable type is changed, then further
+			command output <a href="message.html#messages">messages</a> will cause <a href="message.html#errors">errors</a>. {not in Vi}
+
+:redi[r] =&gt;&gt; {var}	Append <a href="message.html#messages">messages</a> to an existing variable.  Only string
+			<a href="eval.html#variables">variables</a> can be used. {not in Vi}
+
+:redi[r] END		End redirecting <a href="message.html#messages">messages</a>.  {not in Vi}
+
+
+						*<a name=":sil"></A><b>:sil</b>* *<a name=":silent"></A><b>:silent</b>*
+:sil[ent][!] {command}	Execute {command} silently.  <a href="intro.html#Normal">Normal</a> <a href="message.html#messages">messages</a> will not
+			be given or added to the message <a href="cmdline.html#history">history</a>.
+			When [!] is added, error <a href="message.html#messages">messages</a> will also be
+			skipped, and commands and mappings will not be aborted
+			when an error is detected.  |<a href="eval.html#v:errmsg">v:errmsg</a>| is still set.
+			When [!] is not used, an error message will cause
+			further <a href="message.html#messages">messages</a> to be displayed normally.
+			Redirection, started with |<a href="various.html#:redir">:redir</a>|, will continue <a href="motion.html#as">as</a>
+			usual, although there might be small differences.
+			This will allow redirecting the output of a command
+			without seeing it on the screen.  Example:
+<b>			    :redir &gt;/tmp/foobar</b>
+<b>			    :silent g/Aap/p</b>
+<b>			    :redir END</b>
+ 			To execute a <a href="intro.html#Normal">Normal</a> mode command silently, use the
+			|<a href="various.html#:normal">:normal</a>| command.  For example, to search for a
+			string without <a href="message.html#messages">messages</a>:
+<b>			    :silent exe "normal /path\&lt;CR&gt;"</b>
+ 			&quot;:silent!&quot; is useful to execute a command that may
+			fail, but the failure is to be ignored.  Example:
+<b>			    :let v:errmsg = ""</b>
+<b>			    :silent! /^begin</b>
+<b>			    :if v:errmsg != ""</b>
+<b>			    : ... pattern was not found</b>
+ 			&quot;<a href="various.html#:silent">:silent</a>&quot; will also avoid the <a href="message.html#hit-enter">hit-enter</a> prompt.  When
+			using this for an external command, this may cause the
+			screen to be messed up.  Use |<a href="various.html#CTRL-L">CTRL-L</a>| to clean it up
+			then.
+			&quot;<a href="various.html#:silent">:silent</a> menu ...&quot; defines a menu that will not echo a
+			<a href="cmdline.html#Command-line">Command-line</a> command.  The command will still produce
+			<a href="message.html#messages">messages</a> though.  Use &quot;<a href="various.html#:silent">:silent</a>&quot; in the command itself
+			to avoid that: &quot;<a href="various.html#:silent">:silent</a> menu <a href="eval.html#...">...</a>. <a href="various.html#:silent">:silent</a> command&quot;.
+
+
+						*<a name=":uns"></A><b>:uns</b>* *<a name=":unsilent"></A><b>:unsilent</b>*
+:uns[ilent] {command}	Execute {command} not silently.  Only makes a
+			difference when |<a href="various.html#:silent">:silent</a>| was used to get to this
+			command.
+			Use this for giving a message even when |<a href="various.html#:silent">:silent</a>| was
+			used.  In this example |<a href="various.html#:silent">:silent</a>| is used to avoid the
+			message about reading the file and |<a href="various.html#:unsilent">:unsilent</a>| to be
+			able to list the first line of each file.
+<b>    		:silent argdo unsilent echo expand('%') . ": " . getline(1)</b>
+ 
+
+
+						*<a name=":verb"></A><b>:verb</b>* *<a name=":verbose"></A><b>:verbose</b>*
+:[count]verb[ose] {command}
+			Execute {command} with <a href="options.html#'verbose'">'verbose'</a> set to <a href="intro.html#[count]">[count]</a>.  If
+			<a href="intro.html#[count]">[count]</a> is omitted one is used. &quot;:0verbose&quot; can be
+			used to set <a href="options.html#'verbose'">'verbose'</a> to zero.
+			The additional use of &quot;<a href="various.html#:silent">:silent</a>&quot; makes <a href="message.html#messages">messages</a>
+			generated but not displayed.
+			The combination of &quot;<a href="various.html#:silent">:silent</a>&quot; and &quot;<a href="various.html#:verbose">:verbose</a>&quot; can be
+			used to generate <a href="message.html#messages">messages</a> and check them with
+			|<a href="eval.html#v:statusmsg">v:statusmsg</a>| and friends.  For example:
+<b>				:let v:statusmsg = ""</b>
+<b>				:silent verbose runtime foobar.vim</b>
+<b>				:if v:statusmsg != ""</b>
+<b>				:  " foobar.vim could not be found</b>
+<b>				:endif</b>
+ 			When concatenating another command, the &quot;<a href="various.html#:verbose">:verbose</a>&quot;
+			only applies to the first one:
+<b>				:4verbose set verbose | set verbose</b>
+<b><font color="purple"> 				  verbose=4 </font></b>
+<b><font color="purple">				  verbose=0 </font></b>
+			For logging <a href="starting.html#verbose">verbose</a> <a href="message.html#messages">messages</a> in a file use the
+			<a href="options.html#'verbosefile'">'verbosefile'</a> option.
+
+
+							*<a name=":verbose-cmd"></A><b>:verbose-cmd</b>*
+When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing the value of a Vim option or a key map or
+an abbreviation or a user-defined function or a command or a highlight group
+or an <a href="autocmd.html#autocommand">autocommand</a> will also display where it was last defined.  If it was
+defined manually then there will be no &quot;Last set&quot; message.  When it was
+defined while executing a function, user command or <a href="autocmd.html#autocommand">autocommand</a>, the <a href="usr_41.html#script">script</a> in
+which it was defined is reported.
+{not available when compiled without the |<a href="various.html#+eval">+eval</a>| feature}
+
+
+							*<a name="K"></A><b>K</b>*
+<a href="various.html#K">K</a>			Run a program to lookup the keyword under the
+			cursor.  The name of the program is given with the
+			<a href="options.html#'keywordprg'">'keywordprg'</a> (kp) option (default is &quot;man&quot;).  The
+			keyword is formed of letters, numbers and the
+			characters in <a href="options.html#'iskeyword'">'iskeyword'</a>.  The keyword under or
+			right of the cursor is used.  The same can be done
+			with the command
+<b>				:!{program} {keyword}</b>
+ 			There is an example of a program to use in the tools
+			directory of Vim.  It is called '<a href="intro.html#ref">ref</a>' and does a
+			simple spelling check.
+			Special cases:
+			- If <a href="options.html#'keywordprg'">'keywordprg'</a> is empty, the &quot;<a href="helphelp.html#:help">:help</a>&quot; command is
+			  used.  It's a good idea to include more characters
+			  in <a href="options.html#'iskeyword'">'iskeyword'</a> then, to be able to find more help.
+			- When <a href="options.html#'keywordprg'">'keywordprg'</a> is equal to &quot;man&quot;, a <a href="intro.html#count">count</a> before
+			  &quot;<a href="various.html#K">K</a>&quot; is inserted after the &quot;man&quot; command and before
+			  the keyword.  For example, using &quot;2K&quot; while the
+			  cursor is on &quot;mkdir&quot;, results in:
+<b>				!man 2 mkdir</b>
+ 			- When <a href="options.html#'keywordprg'">'keywordprg'</a> is equal to &quot;man -s&quot;, a <a href="intro.html#count">count</a>
+			  before &quot;<a href="various.html#K">K</a>&quot; is inserted after the &quot;<a href="starting.html#-s">-s</a>&quot;.  If there is
+			  no <a href="intro.html#count">count</a>, the &quot;<a href="starting.html#-s">-s</a>&quot; is removed.
+			{not in Vi}
+
+
+							*<a name="v_K"></A><b>v_K</b>*
+{Visual}K		Like &quot;<a href="various.html#K">K</a>&quot;, but use the visually highlighted text for
+			the keyword.  Only works when the highlighted text is
+			not more than one line.  {not in Vi}
+
+
+[N]gs							*<a name="gs"></A><b>gs</b>* *<a name=":sl"></A><b>:sl</b>* *<a name=":sleep"></A><b>:sleep</b>*
+:[N]sl[eep] [N]	[m]	Do nothing for [N] seconds.  When [m] is included,
+			sleep for [N] milliseconds.  The <a href="intro.html#count">count</a> for &quot;<a href="various.html#gs">gs</a>&quot; always
+			uses seconds.  The default is one second.
+<b>			     :sleep	     "sleep for one second</b>
+<b>			     :5sleep	     "sleep for five seconds</b>
+<b>			     :sleep 100m     "sleep for a hundred milliseconds</b>
+<b>			     10gs	     "sleep for ten seconds</b>
+ 			Can be interrupted with <a href="pattern.html#CTRL-C">CTRL-C</a> (CTRL-Break on <a href="os_msdos.html#MS-DOS">MS-DOS</a>).
+			&quot;<a href="various.html#gs">gs</a>&quot; stands for &quot;goto sleep&quot;.
+			While sleeping the cursor is positioned in the text,
+			if at a visible position.  {not in Vi}
+
+
+							*<a name="g_CTRL-A"></A><b>g_CTRL-A</b>*
+<a href="index.html#g">g</a> <a href="change.html#CTRL-A">CTRL-A</a>		Only when Vim was compiled with MEM_PROFILING defined
+			(which is very rare): print memory usage statistics.
+			Only useful for debugging Vim.
+
+==============================================================================
+
+2. Using Vim like <a href="various.html#less">less</a> or more					*<a name="less"></A><b>less</b>*
+
+If you use the <a href="various.html#less">less</a> or more program to <a href="starting.html#view">view</a> a file, you don't get <a href="syntax.html#syntax">syntax</a>
+highlighting.  Thus you would like to use Vim instead.  You can <a href="diff.html#do">do</a> this by
+using the shell <a href="usr_41.html#script">script</a> &quot;$VIMRUNTIME/macros/less.sh&quot;.
+
+This shell <a href="usr_41.html#script">script</a> uses the Vim <a href="usr_41.html#script">script</a> &quot;$VIMRUNTIME/macros/less.vim&quot;.  It sets
+up mappings to simulate the commands that <a href="various.html#less">less</a> supports.  Otherwise, you can
+still use the Vim commands.
+
+This isn't perfect.  For example, when viewing a short file Vim will still use
+the whole screen.  But it works good enough for most uses, and you get <a href="syntax.html#syntax">syntax</a>
+highlighting.
+
+The &quot;<a href="motion.html#h">h</a>&quot; key will give you a short overview of the available commands.
+
+<a href="various.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>

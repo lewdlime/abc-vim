@@ -1,0 +1,368 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1">
+<title>Vim documentation: usr_23</title>
+</head>
+<body bgcolor="#ffffff">
+<hr />
+<h1>Vim documentation: usr_23</h1>
+<a name="top"></a>
+<a href="help.html">main help file</a>
+
+<hr />
+<pre>
+
+*<a name="usr_23.txt"></A><b>usr_23.txt</b>*	For Vim version 7.3.  Last change: 2006 Apr 24
+
+		     VIM USER MANUAL - by <a href="intro.html#Bram">Bram</a> <a href="intro.html#Moolenaar">Moolenaar</a>
+
+			     Editing other files
+
+
+This chapter is about editing files that are not ordinary files.  With Vim you
+can edit files that are compressed or encrypted.  Some files need to be
+accessed over the <a href="intro.html#internet">internet</a>.  With some restrictions, binary files can be
+edited <a href="motion.html#as">as</a> well.
+
+|<a href="usr_23.html#23.1">23.1</a>|	<a href="os_dos.html#DOS">DOS</a>, <a href="os_mac.html#Mac">Mac</a> and <a href="os_unix.html#Unix">Unix</a> files
+|<a href="usr_23.html#23.2">23.2</a>|	Files on the <a href="intro.html#internet">internet</a>
+|<a href="usr_23.html#23.3">23.3</a>|	Encryption
+|<a href="usr_23.html#23.4">23.4</a>|	Binary files
+|<a href="usr_23.html#23.5">23.5</a>|	Compressed files
+
+     Next chapter: |<a href="usr_24.html">usr_24.txt</a>|  Inserting quickly
+ Previous chapter: |<a href="usr_22.html">usr_22.txt</a>|  Finding the file to edit
+Table of contents: |<a href="usr_toc.html">usr_toc.txt</a>|
+
+==============================================================================
+
+*<a name="23.1"></A><b>23.1</b>*	<a href="os_dos.html#DOS">DOS</a>, <a href="os_mac.html#Mac">Mac</a> and <a href="os_unix.html#Unix">Unix</a> files
+
+Back in the early days, the old Teletype machines used two characters to
+start a new line.  One to move the carriage back to the first position
+(carriage return, &lt;CR&gt;), another to move the paper up (line feed, &lt;LF&gt;).
+   When computers came out, storage was expensive.  Some people decided that
+they did not need two characters for end-of-line.  The UNIX people decided
+they could use &lt;Line Feed&gt; only for end-of-line.  The Apple people
+standardized on <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>.  The <a href="os_msdos.html#MS-DOS">MS-DOS</a> (and Microsoft Windows) folks decided to
+keep the old &lt;CR&gt;&lt;LF&gt;.
+   This means that if you try to move a file from one system to another, you
+have line-break problems.  The Vim editor automatically recognizes the
+different file formats and handles things properly behind your back.
+   The option <a href="options.html#'fileformats'">'fileformats'</a> contains the various formats that will be tried
+when a new file is edited.  The following command, for example, tells Vim to
+try UNIX format first and <a href="os_msdos.html#MS-DOS">MS-DOS</a> format second:
+
+<b>	:set fileformats=unix,dos</b>
+
+You will notice the format in the message you get when editing a file.  You
+don't see anything if you edit a native file format.  Thus editing a <a href="os_unix.html#Unix">Unix</a> file
+on <a href="os_unix.html#Unix">Unix</a> won't result in a remark.  But when you edit a <a href="os_dos.html#dos">dos</a> file, Vim will
+notify you of this:
+
+<b><font color="purple">	"/tmp/test" [dos] 3L, 71C </font></b>
+
+For a <a href="os_mac.html#Mac">Mac</a> file you would see &quot;[mac]&quot;.
+   The detected file format is stored in the <a href="options.html#'fileformat'">'fileformat'</a> option.  To see
+which format you have, execute the following command:
+
+<b>	:set fileformat?</b>
+
+The three names that Vim uses are:
+
+	<a href="os_unix.html#unix">unix</a>		&lt;LF&gt;
+	<a href="os_dos.html#dos">dos</a>		&lt;CR&gt;&lt;LF&gt;
+	<a href="os_mac.html#mac">mac</a>		<a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>
+
+
+USING THE MAC FORMAT
+
+On <a href="os_unix.html#Unix">Unix</a>, &lt;LF&gt; is used to break a line.  It's not unusual to have a <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>
+character halfway a line.  Incidentally, this happens quite often in <a href="intro.html#Vi">Vi</a> (and
+Vim) scripts.
+   On the <a href="os_mac.html#Macintosh">Macintosh</a>, where <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> is the line break character, it's possible to
+have a &lt;LF&gt; character halfway a line.
+   The result is that it's not possible to be 100&#37; sure whether a file
+containing both <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a> and &lt;LF&gt; characters is a <a href="os_mac.html#Mac">Mac</a> or a <a href="os_unix.html#Unix">Unix</a> file.  Therefore,
+Vim assumes that on <a href="os_unix.html#Unix">Unix</a> you probably won't edit a <a href="os_mac.html#Mac">Mac</a> file, and doesn't check
+for this type of file.  To check for this format anyway, add &quot;<a href="os_mac.html#mac">mac</a>&quot; to
+<a href="options.html#'fileformats'">'fileformats'</a>:
+
+<b>	:set fileformats+=mac</b>
+
+Then Vim will take a guess at the file format.  Watch out for situations where
+Vim guesses wrong.
+
+
+OVERRULING THE FORMAT
+
+If you use the good old <a href="intro.html#Vi">Vi</a> and try to edit an <a href="os_msdos.html#MS-DOS">MS-DOS</a> format file, you will
+find that each line ends with a ^M character.  (^M is <a href="motion.html#&lt;CR&gt;">&lt;CR&gt;</a>).  The automatic
+detection avoids this.  Suppose you <a href="diff.html#do">do</a> want to edit the file that way?  Then
+you need to overrule the format:
+
+<b>	:edit ++ff=unix file.txt</b>
+
+The &quot;++&quot; string is an item that tells Vim that an option name follows, which
+overrules the default for this single command.  &quot;<a href="editing.html#++ff">++ff</a>&quot; is used for
+<a href="options.html#'fileformat'">'fileformat'</a>.  You could also use &quot;++ff=mac&quot; or &quot;++ff=dos&quot;.
+   This doesn't work for any option, only &quot;<a href="editing.html#++ff">++ff</a>&quot; and &quot;<a href="editing.html#++enc">++enc</a>&quot; are currently
+implemented.  The full names &quot;++fileformat&quot; and &quot;++encoding&quot; also work.
+
+
+CONVERSION
+
+You can use the <a href="options.html#'fileformat'">'fileformat'</a> option to convert from one file format to
+another.  Suppose, for example, that you have an <a href="os_msdos.html#MS-DOS">MS-DOS</a> file named README.TXT
+that you want to convert to UNIX format.  Start by editing the <a href="os_msdos.html#MS-DOS">MS-DOS</a> format
+file:
+<b>	vim README.TXT</b>
+
+Vim will recognize this <a href="motion.html#as">as</a> a <a href="os_dos.html#dos">dos</a> format file.  Now change the file format to
+UNIX:
+
+<b>	:set fileformat=unix</b>
+<b>	:write</b>
+
+The file is written in <a href="os_unix.html#Unix">Unix</a> format.
+
+==============================================================================
+
+*<a name="23.2"></A><b>23.2</b>*	Files on the <a href="intro.html#internet">internet</a>
+
+Someone sends you an e-mail message, which refers to a file by its URL.  For
+example:
+
+<b><font color="purple">	You can find the information here: </font></b>
+<b><font color="purple">		ftp://ftp.vim.org/pub/vim/README </font></b>
+
+You could start a program to <a href="intro.html#download">download</a> the file, save it on your local disk and
+then start Vim to edit it.
+   There is a much simpler way.  Move the cursor to any character of the URL.
+Then use this command:
+
+<b>	gf</b>
+
+With a bit of luck, Vim will figure out which program to use for downloading
+the file, <a href="intro.html#download">download</a> it and edit the copy.  To open the file in a new <a href="windows.html#window">window</a> use
+<a href="index.html#CTRL-W">CTRL-W</a> <a href="motion.html#f">f</a>.
+   If something goes wrong you will get an error message.  It's possible that
+the URL is wrong, you don't have permission to read it, the <a href="pi_netrw.html#network">network</a> connection
+is down, etc.  Unfortunately, it's hard to tell the cause of the error.  You
+might want to try the manual way of downloading the file.
+
+Accessing files over the <a href="intro.html#internet">internet</a> works with the <a href="pi_netrw.html#netrw">netrw</a> <a href="usr_05.html#plugin">plugin</a>.  Currently URLs
+with these formats are recognized:
+
+	<a href="ftp://">ftp://</a> uses ftp
+	rcp://		uses <a href="pi_netrw.html#rcp">rcp</a>
+	scp://		uses <a href="pi_netrw.html#scp">scp</a>
+	<a href="http://">http://</a> uses wget reading only
+
+Vim doesn't <a href="diff.html#do">do</a> the communication itself, it relies on the mentioned programs
+to be available on your computer.  On most <a href="os_unix.html#Unix">Unix</a> systems &quot;ftp&quot; and &quot;<a href="pi_netrw.html#rcp">rcp</a>&quot; will
+be present.  &quot;<a href="pi_netrw.html#scp">scp</a>&quot; and &quot;wget&quot; might need to be installed.
+
+Vim detects these URLs for each command that starts editing a new file, also
+with &quot;<a href="editing.html#:edit">:edit</a>&quot; and &quot;<a href="windows.html#:split">:split</a>&quot;, for example.  Write commands also work, except for
+	<a href="http://">http://</a>.
+
+For more information, also about passwords, see |<a href="pi_netrw.html#netrw">netrw</a>|.
+
+==============================================================================
+
+*<a name="23.3"></A><b>23.3</b>*	Encryption
+
+Some information you prefer to keep to yourself.  For example, when <a href="editing.html#writing">writing</a>
+a test on a computer that students also use.  You don't want clever students
+to figure out a way to read the questions before the exam starts.  Vim can
+encrypt the file for you, which gives you some protection.
+   To start editing a new file with <a href="editing.html#encryption">encryption</a>, use the &quot;<a href="starting.html#-x">-x</a>&quot; argument to start
+Vim.  Example:
+
+<b>	vim -x exam.txt</b>
+
+Vim prompts you for a key used for encrypting and decrypting the file:
+
+<b><font color="purple">	Enter encryption key: </font></b>
+
+Carefully type the secret key now.  You cannot see the characters you type,
+they will be replaced by stars.  To avoid the situation that a typing mistake
+will cause trouble, Vim asks you to enter the key again:
+
+<b><font color="purple">	Enter same key again: </font></b>
+
+You can now edit this file normally and put in all your secrets.  When you
+finish editing the file and tell Vim to exit, the file is encrypted and
+written.
+   When you edit the file with Vim, it will ask you to enter the same key
+again.  You don't need to use the &quot;<a href="starting.html#-x">-x</a>&quot; argument.  You can also use the normal
+&quot;<a href="editing.html#:edit">:edit</a>&quot; command.  Vim adds a magic string to the file by which it recognizes
+that the file was encrypted.
+   If you try to <a href="starting.html#view">view</a> this file using another program, all you get is garbage.
+Also, if you edit the file with Vim and enter the wrong key, you get garbage.
+Vim does not have a mechanism to check if the key is the right one (this makes
+it much harder to break the key).
+
+
+SWITCHING ENCRYPTION ON AND OFF
+
+To disable the <a href="editing.html#encryption">encryption</a> of a file, set the <a href="options.html#'key'">'key'</a> option to an empty string:
+
+<b>	:set key=</b>
+
+The next time you write the file this will be done without <a href="editing.html#encryption">encryption</a>.
+   Setting the <a href="options.html#'key'">'key'</a> option to enable <a href="editing.html#encryption">encryption</a> is not a good idea, because
+the password appears in the clear.  Anyone shoulder-surfing can read your
+password.
+   To avoid this problem, the &quot;<a href="editing.html#:X">:X</a>&quot; command was created.  It asks you for an
+<a href="editing.html#encryption">encryption</a> key, just like the &quot;<a href="starting.html#-x">-x</a>&quot; argument did:
+
+<b>	:X</b>
+<b>	Enter encryption key: ******</b>
+<b>	Enter same key again: ******</b>
+
+
+LIMITS ON ENCRYPTION
+
+The <a href="editing.html#encryption">encryption</a> algorithm used by Vim is weak.  It is good enough to keep out
+the casual prowler, but not good enough to keep out a cryptology expert with
+lots of time on his hands.  Also you should be aware that the swap file is not
+encrypted; so while you are editing, people with superuser privileges can read
+the unencrypted text from this file.
+   One way to avoid letting people read your swap file is to avoid using one.
+If the <a href="starting.html#-n">-n</a> argument is supplied on the command line, no swap file is used
+(instead, Vim puts everything in memory).  For example, to edit the encrypted
+file &quot;file.txt&quot; without a swap file use the following command:
+
+<b>	vim -x -n file.txt</b>
+
+When already editing a file, the swapfile can be disabled with:
+
+<b>	:setlocal noswapfile</b>
+
+Since there is no swapfile, <a href="recover.html#recovery">recovery</a> will be impossible.  Save the file a bit
+more often to avoid the risk of losing your changes.
+
+While the file is in memory, it is in plain text.  Anyone with privilege can
+look in the editor's memory and discover the contents of the file.
+   If you use a <a href="starting.html#viminfo">viminfo</a> file, be aware that the contents of text <a href="change.html#registers">registers</a> are
+written out in the clear <a href="motion.html#as">as</a> well.
+   If you really want to secure the contents of a file, edit it only on a
+portable computer not connected to a <a href="pi_netrw.html#network">network</a>, use good <a href="editing.html#encryption">encryption</a> tools, and
+keep the computer locked up in a big safe when not in use.
+
+==============================================================================
+
+*<a name="23.4"></A><b>23.4</b>*	Binary files
+
+You can edit binary files with Vim.  Vim wasn't really made for this, thus
+there are a few restrictions.  But you can read a file, change a character and
+write it back, with the result that only that one character was changed and
+the file is identical otherwise.
+   To make sure that Vim does not use its clever tricks in the wrong way, add
+the &quot;<a href="starting.html#-b">-b</a>&quot; argument when starting Vim:
+
+<b>	vim -b datafile</b>
+
+This sets the <a href="options.html#'binary'">'binary'</a> option.  The effect of this is that unexpected side
+effects are turned off.  For example, <a href="options.html#'textwidth'">'textwidth'</a> is set to zero, to avoid
+automatic <a href="change.html#formatting">formatting</a> of lines.  And files are always read in <a href="os_unix.html#Unix">Unix</a> file format.
+
+Binary mode can be used to change a message in a program.  Be careful not to
+insert or delete any characters, it would stop the program from working.  Use
+&quot;<a href="change.html#R">R</a>&quot; to enter replace mode.
+
+Many characters in the file will be unprintable.  To see them in Hex format:
+
+<b>	:set display=uhex</b>
+
+Otherwise, the &quot;<a href="various.html#ga">ga</a>&quot; command can be used to see the value of the character
+under the cursor.  The output, when the cursor is on an <a href="intro.html#&lt;Esc&gt;">&lt;Esc&gt;</a>, looks like
+this:
+
+<b><font color="purple">	&lt;^[&gt;  27,  Hex 1b,  Octal 033 </font></b>
+
+There might not be many line breaks in the file.  To get some overview switch
+the <a href="options.html#'wrap'">'wrap'</a> option off:
+
+<b>	:set nowrap</b>
+
+
+BYTE POSITION
+
+To see on which byte you are in the file use this command:
+
+<b>	g CTRL-G</b>
+
+The output is <a href="starting.html#verbose">verbose</a>:
+
+<b><font color="purple">    Col 9-16 of 9-16; Line 277 of 330; Word 1806 of 2058; Byte 10580 of 12206 </font></b>
+
+The last two numbers are the byte position in the file and the total number of
+bytes.  This takes into account how <a href="options.html#'fileformat'">'fileformat'</a> changes the number of bytes
+that a line break uses.
+    To move to a specific byte in the file, use the &quot;go&quot; command.  For
+example, to move to byte 2345:
+
+<b>	2345go</b>
+
+
+USING XXD
+
+A real binary editor shows the text in two ways: <a href="motion.html#as">as</a> it is and in hex format.
+You can <a href="diff.html#do">do</a> this in Vim by first converting the file with the &quot;xxd&quot; program.
+This comes with Vim.
+   First edit the file in binary mode:
+
+<b>	vim -b datafile</b>
+
+Now convert the file to a hex dump with xxd:
+
+<b>	:%!xxd</b>
+
+The text will look like this:
+
+<b><font color="purple">	0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49  ....9..;..tt.+NI </font></b>
+<b><font color="purple">	0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30  K,.`.....b..4^.0 </font></b>
+<b><font color="purple">	0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9  7;'1.".....i.59. </font></b>
+
+You can now <a href="starting.html#view">view</a> and edit the text <a href="motion.html#as">as</a> you like.  Vim treats the information <a href="motion.html#as">as</a>
+ordinary text.  Changing the hex does not cause the printable character to be
+changed, or the other way around.
+   Finally convert it back with:
+
+<b>	:%!xxd -r</b>
+
+Only changes in the hex part are used.  Changes in the printable text part on
+the right are ignored.
+
+See the manual page of xxd for more information.
+
+==============================================================================
+
+*<a name="23.5"></A><b>23.5</b>*	Compressed files
+
+This is <a href="starting.html#easy">easy</a>: You can edit a compressed file just like any other file.  The
+&quot;<a href="pi_gzip.html#gzip">gzip</a>&quot; <a href="usr_05.html#plugin">plugin</a> takes care of decompressing the file when you edit it.  And
+compressing it again when you write it.
+   These compression methods are currently supported:
+
+	.Z	<a href="pi_gzip.html#compress">compress</a>
+	.gz	<a href="pi_gzip.html#gzip">gzip</a>
+	.bz2	<a href="pi_gzip.html#bzip2">bzip2</a>
+
+Vim uses the mentioned programs to <a href="diff.html#do">do</a> the actual compression and
+decompression.  You might need to <a href="usr_90.html#install">install</a> the programs first.
+
+==============================================================================
+
+Next chapter: |<a href="usr_24.html">usr_24.txt</a>|  Inserting quickly
+
+Copyright: see |<a href="usr_01.html#manual-copyright">manual-copyright</a>|  vim:tw=78:ts=8:ft=help:norl:
+<a href="usr_23.html#top">top</a> - <a href="help.html">main help file</a>
+</pre>
+
+<hr />
+</body>
+</html>
