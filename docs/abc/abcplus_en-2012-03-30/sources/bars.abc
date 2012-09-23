@@ -1,5 +1,0 @@
-X: 1
-L: 1/4
-K: C
-CDEF .| GFED [| CDEF |: GFED :|CDEF :: GFED || CDEF [|] GFED
-CDEF |[| GFED :::|] CDEF : GFED |]
