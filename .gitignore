@@ -39,3 +39,7 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+test/.DS_Store
+
+test/abc-tunes/.DS_Store

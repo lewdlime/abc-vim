@@ -2,7 +2,8 @@
 " Language: abc music notation
 " Maintainer: Lee Savide <laughingman182@yahoo.com>
 " License: http://apache.org/licenses/LICENSE-2.0.txt
-" GetLatestVimScripts: 4100 1 abc-vim.vmb
+" Use vundle to keep this script up to date!
+" https://github.com/gmarik/vundle/
 
 if version < 600
     syntax clear
@@ -16,7 +17,7 @@ else
     set iskeyword=33-127,^(,^),^<,^>,^[,^],^{,^},^/,^\\,^%,^
 endif
 
-syn include @PS <sfile>:p:h/postscr.vim
+syn include @PS <sfile>:p:h$VIMRUNTIME/syntax/postscr.vim
 
 " Datatypes {{{
 syn case ignore
@@ -30,9 +31,14 @@ syn cluster abcNumber contains=abcInteger,abcFloat
 syn keyword abcMode contained maj[or] m[inor] ion[ian] aeo[lian] mix[olydian] dor[ian] phr[ygian] lyd[ian] loc[rian]
             \ nextgroup=abcKeyExplicit skipwhite
 syn case match
-syn match abcNoteChar '[A-Ga-g]' contained
-syn match abcBoolean 'yes no true false on off 1 0' contained
-syn match abcEncoding 'us-ascii\|utf-8\|native' contained nextgroup=abcInteger skipwhite
+syn match abcUnit '\<[1-9]\d*\%(\.\d*\)\=\%(in\|cm\|mm\|pt\)\>' contains=abcFloat contained
+syn match abcNoteChar '[A-Ga-g][b#]\=' contained
+syn match abcBoolean 'yes\|no\|true\|false\|on\|off\|[01]' contained
+syn match abcEncoding 'us-ascii\|utf-8\|native' contained
+syn match abcFontEncoding 'us-ascii\|utf-8\|native' contained nextgroup=abcInteger skipwhite
+
+syn match abcFieldIdentifier '^[\a+]:' contained
+syn match abcBodyFieldIdentifier '\[[\a]:' contained
 " }}}
 " Fonts {{{
 syn keyword abcFontKeyword contained nextgroup=abcEncoding skipwhite
@@ -99,14 +105,37 @@ syn keyword abcFontKeyword contained nextgroup=abcEncoding skipwhite
         \ Univers-BoldExt Univers-BoldExtObl UniversCE-Extended UniversCE-ExtendedObl
         \ UniversCE-BoldExt UniversCE-BoldExtObl Wingdings-Regular
         \ ZapfChancery-MediumItalic ZapfChanceryCE-MediumItalic ZapfDingBats
-syn match abcFont '\h[\w-]*\s\+\%(us-ascii\|utf-8\|native\)\=\s\+\d\+' contained contains=abcFontKeyword,abcEncoding,abcInteger
-syn match abcFont '\h[\w-]*\s\+\%(us-ascii\|utf-8\|native\)\=\s\+\d\.\d*\+' contained contains=abcFontKeyword,abcEncoding,abcFloat
+syn match abcFont '\h[\w-]*\s\+\%(us-ascii\|utf-8\|native\)\=\s\+\d\+' contained
+            \ contains=abcFontKeyword,abcFontEncoding,abcInteger
+syn match abcFont
+            \ '\h[\w-]*\s\+\%(us-ascii\|utf-8\|native\)\=\s\+\d\+\%(\.\d*\)\='
+            \ contained contains=abcFontKeyword,abcFontEncoding,abcFloat
 " }}}
 " Directives {{{
+" Keywords {{{
 syn keyword abcPreProcKeyword contained nextgroup=abcDefine skipwhite
             \ abc2pscompat alignbars aligncomposer annotationfont autoclef
             \ barnumbers barsperstaff breakoneoln bgcolor botmargin bstemdown
-cancelkey comball combinevoices composerfont composerspace contbarnb continueall custos dateformat deco decoration dynalign dynamic encoding flatbeams font footer footerfont format gchord gchordbox gchordfont graceslurs gracespace gstemdir header headerfont historyfont hyphenfont indent infofont infoline infoname infospace landscape leftmargin linebreak lineskipfac linewarn maxshrink maxstaffsep maxsysstaffsep measurebox measurefirst measurefont measurenb micronewps musiconly musicspace notespacingfactor oneperpage ornament pageheight pagewidth pango parskipfac partsbox partsfont partsspace pdfmark repeatfont rightmargin scale setdefl setfont-1 setfont-2 setfont-3 setfont-4 shiftunisson slurheight splittune squarebreve staffnonote staffsep staffwidth stemdir stemheight straightflags stretchlast stretchstaff subtitlefont subtitlespace sysstaffsep tempofont textfont textoption textspace timewarn titlecaps titlefont titleformat titleleft titlespace titletrim topmargin tuplets vocal vocalabove vocalfont voicefont volume wordsfont writefields break clip select tune voice clef newpage repbra repeat score sep setbarnb staff staffbreak staves tablature transpose vskip EPS multicol MIDI
+            \ cancelkey comball combinevoices composerfont composerspace
+            \ contbarnb continueall custos dateformat deco decoration dynalign
+            \ dynamic encoding flatbeams font footer footerfont format gchord
+            \ gchordbox gchordfont graceslurs gracespace gstemdir header
+            \ headerfont historyfont hyphenfont indent infofont infoline
+            \ infoname infospace landscape leftmargin linebreak lineskipfac
+            \ linewarn maxshrink maxstaffsep maxsysstaffsep measurebox
+            \ measurefirst measurefont measurenb micronewps musiconly
+            \ musicspace notespacingfactor oneperpage ornament pageheight
+            \ pagewidth pango parskipfac partsbox partsfont partsspace pdfmark
+            \ repeatfont rightmargin scale setdefl setfont-1 setfont-2
+            \ setfont-3 setfont-4 shiftunisson slurheight splittune squarebreve
+            \ staffnonote staffsep staffwidth stemdir stemheight straightflags
+            \ stretchlast stretchstaff subtitlefont subtitlespace sysstaffsep
+            \ tempofont textfont textoption textspace timewarn titlecaps
+            \ titlefont titleformat titleleft titlespace titletrim topmargin
+            \ tuplets vocal vocalabove vocalfont voicefont volume wordsfont
+            \ writefields break clip select tune voice clef newpage repbra
+            \ repeat score sep setbarnb staff staffbreak staves tablature
+            \ transpose vskip EPS multicol MIDI
 syn keyword abcPreProcMIDIGlobal contained nextgroup=abcDefine skipwhite C
             \ nobarlines barlines fermatafixed fermataproportional ratio
             \ chordname deltaloudness
@@ -121,7 +150,7 @@ syn keyword abcPreProcInt contained nextgroup=abcInteger skipwhite alignbars
             \ aligncomposer barsperstaff dynamic encoding gchord gstemdir
             \ measurefirst measurenb ornament pdfmark stemdir textoption tuplets
             \ vocal volume newpage setbarnb
-syn match abcPreProcInt '%%transpose\s\+[+-]\d[#b]\=' contains=abcInteger
+syn match abcPreProcInt '%%transpose\s\+[+-]\d\+\s*[#b]\=' contains=abcInteger
 syn keyword abcPreProcBool contained nextgroup=abcBoolean skipwhite abc2pscompat
             \ autoclef breakoneoln bstemdown cancelkey comball combinevoices
             \ contbarnb continueall custos dynalign flatbeams gchordbox
@@ -130,12 +159,15 @@ syn keyword abcPreProcBool contained nextgroup=abcBoolean skipwhite abc2pscompat
             \ shiftunisson splittune squarebreve staffnonote straightflags
             \ stretchlast stretchstaff timewarn titlecaps titleleft titletrim
             \ vocalabove writefields repbra
-syn keyword abcPreProcFont contained nextgroup=abcFont skipwhite annotationfont composerfont font 
-
-syn match abcPreProc excludenl '%%postscript\s\+.*$' contains=@PS
-syn match abcPreProc excludenl '%%\I\i*\s\+.*$' contains=abcPreProc.*
-syn match abcPreProc excludenl '%%MIDI ' nextgroup=abcPreProcMIDI.* skipwhite
-
+syn keyword abcPreProcFont contained nextgroup=abcFont skipwhite annotationfont
+            \ composerfont font 
+" }}}
+" Directives
+syn match abcPreProc excludenl '%%\h[\w-]*\s\+.*$' contains=abcPreProc.*
+syn match abcPreProc excludenl '^I:\h[\w-]*\s\+.*$' contains=abcPreProc.*
+syn match abcMIDI excludenl '%%MIDI ' nextgroup=abcPreProcMIDI.* skipwhite
+syn match abcPS excludenl '%%postscript\s\+.*$' contains=@PS
+" Regex
 syn match abcBreakSymbol '\(\d\%(:\d/\d\+\)\)\%([,\| ]\1\)*' contained
 syn match abcClipSymbol '\(\d\%(:\d/\d\+\)\)\=-\1\=' contained
 syn match abcSelectSymbol '\d\%(:\d/\d\+\)' contained contains=abcInteger
@@ -157,40 +189,16 @@ syn region abcTypeSet excludenl keepend matchgroup=abcTypeSetKeyword
 syn match abcTypeSet excludenl '%%endtext'
 syn region abcTypeSet matchgroup=abcTypeSetBegin start='%%begintext' skip='^\%(%%\)\=.*' matchgroup=abcTypeSetEnd end='%%endtext'
 syn match abcTypeSetKeyword contained '%%\%(begintext\|endtext\|beginps\|endps\|beginsvg\|endsvg\)'
-" 
-syn match abcDefine excludenl '[^%]*$' contained
-syn match abcPreProc '%%\I\i* ' nextgroup=abcDefine skipwhite
-" }}}
-" Fields {{{
-syn match abcFieldContinue '^+:[^%]*'
-syn match abcFieldIdentifier '^\a:'
-syn match abcField '^[\a+]:[^%]*' nextgroup=abcFieldContinue skipnl skipwhite
-syn region abcField start='\[\a:' skip='[^%\]]*' end='\]' contained oneline
-" May be changed to make multiline field
-
-
-
-syn match abcClefKeyword '\%(clef\)\|\%(m\%[iddle]\)\|\%(t\%[ranspose\]\)\|\%(o\%[ctave\]\)' contained
-syn match abcClefName '\%(treble\|alto\|tenor\|bass\)\d\=\%([+-]8\)\=' contained
-syn match abcClefName '\%(perc\|none\)' contained
-syn match abcClefMiddle 'm\%[iddle]=' nextgroup=abcNoteChar display
-syn match abcClefTranspose 't\%[ranspose]=' nextgroup=abcInteger display
-syn match abcClefOctave 'o\%[ctave]=' nextgroup=abcInteger display
-syn match abcClefStafflines 'stafflines=' nextgroup=abcInteger display
-syn match abcClefCustom '\(\h\w*\):\1=' nextgroup=abcDefine contained
-syn cluster abcClef contains=abcClef.*
-
-syn match abcKey '^K:[^%]*' contains=@abcClef,abcDefine
-syn match abcVoice '^V:[^%]*' contains=@abcClef,abcDefine
-
+" Directive arguments
+syn match abcPreProcStatement excludenl '[^%]*$' contained
 " }}}
 " Tune Body {{{
 syn match abcKeyIdentifier '[A-G][b#]\=\%(exp\)\=' contained nextgroup=abcMode,abcExplicit skipwhite
 syn region abcKeyExplicit start='\%(\s\+[_=^][a-g]\)*' contains=abcNote contained
 
-syn match abcRest 'z' contained nextgroup=abcNoteLength
-syn match abcRest 'Z\%([1-9]*\d*\)\=' contained
-
+syn match abcRest '[xz]' contained nextgroup=abcNoteLength
+syn match abcRest 'Z\%([1-9]*\d*\)\=' contained contains=abcInteger
+syn match abcSpacer '[yY]' contained nextgroup=abcFloat,abcChordString,abcDecoration
 "
 syn region abcGrace start='{\/' end='}' contained nextgroup=abc
 syn match abcNote '[A-Ga-g][_=^]\{,2}' contained nextgroup=abcOctave
@@ -212,27 +220,60 @@ syn keyword abcChordStringType contained m[in] maj dim aug sus
 syn match abcChordStringType '\%([1-9]\d*\)\|+' contained
 syn region abcChordString matchgroup=abcStringDelimiter start=+"[A-G][b#]\=+ end=+"+ contains=abcChordString.* contained oneline
 
-syn region abcAnnotation matchgroup=abcStringDelimiter start=++ end=+"+ contains= contained oneline
+syn region abcAnnotation matchgroup=abcStringDelimiter
+            \ start=+"\%(^\|_\|<\|>\|@\)+ end=+"+ contains=@PS contained oneline
+syn region abcDecoration start='!' end='!' contains=abcDecorationKeyword
+            \ contained
 
-" }}}
-" Top level {{{
-syn region abcFreeText excludenl start='^\s*$' skip='^\%(\a:\|%%\)\@<!' excludenl end='^\s*$' transparent
-
-syn match abcSpecialCharacter '\\u00[aA]9' conceal cchar=©
-syn match abcSpecialCharacter '\\u266[dD]' conceal cchar=♭
-syn match abcSpecialCharacter '\\u266[eE]' conceal cchar=♮
-syn match abcSpecialCharacter '\\u266[fF]' conceal cchar=♯
+syn match abcStringFontChar '\$[0-4]' contained
+syn match abcSpecialChar '\\u00[aA]9' contained conceal cchar=©
+syn match abcSpecialChar '\\u266[dD]' contained conceal cchar=♭
+syn match abcSpecialChar '\\u266[eE]' contained conceal cchar=♮
+syn match abcSpecialChar '\\u266[fF]' contained conceal cchar=♯
 syn match abcSpecialComment '^%abc\%(-[1-9]\.\d\)\='
+syn cluster abcStringChars contains=abcStringFontDelimiter,abcSpecialCharacter
+
+syn match abcFieldIdentifier '^[\a+]:' contained
+syn match abcBodyFieldIdentifier '\[[\a]:' contained
+syn match abcFieldContent '\a:\zs[^%]*' contained
 
 syn region abcFileHeader start='\%(^[\a+]:\)' excludenl end='\^s*$' contained contains=abcComment
-syn region abcTuneHeader start='\%(^X:.*\)\{1}\%(^T:.*\)*' end='^K:'
+syn region abcTuneHeader excludenl start='\%(^X:.*\_$\)\{1}\%(^T:.*\_$\)*' excludenl end='^K:.*\_$'
 " Negative look-behind is fine, since it looks for lines that aren't empty
-syn region abcPart matchgroup=abcPartIdentifier start='^P:' end='\%(^\s*$\)\|\%(^P:[^%]*$\)' keepend fold
-syn region abcPart matchgroup=abcPartIdentifier start='\[P:[^%\]]*\]' excludenl end='\%(^\s*$\)\|\[P:' keepend fold
-syn region abcVoice matchgroup=abcVoiceIdentifier start='^V:'
-            \ matchgroup=NONE excludenl end='\%(^V:\)\|\%(^P:\)\|\%(^\s*$\)' keepend fold
-syn region abcVoice matchgroup=abcVoiceIdentifier start='\[V:[^%\]]*\]'
-            \ matchgroup=abcField end='\%(\[V:\)\|\%(\[P:\)' excludenl end='^\s*$' keepend fold
+syn region abcBodyPart matchgroup=abcFieldIdentifier start='^P:' excludenl
+            \ matchgroup=abcFieldIdentifier end='^P:[^%]*$' matchgroup=NONE
+            \ end='^\s*$' keepend fold
+syn region abcBodyPart matchgroup=abcFieldIdentifier start='\[P:[^%\]]*\]'
+            \ end='\[P:' matchgroup=NONE excludenl end='^\s*$' keepend fold
+syn region abcBodyVoice matchgroup=abcFieldIdentifier start='^V:'
+            \ end='\%(^V:\)\|\%(^P:\)' matchgroup=NONE excludenl
+            \ end='\%(^\s*$\)' keepend fold
+syn region abcBodyVoice matchgroup=abcVoiceIdentifier start='\[V:[^%\]]*\]'
+            \ matchgroup=abcBodyFieldIdentifier end='\%(\[V:\)\|\%(\[P:\)'
+            \ matchgroup=NONE excludenl end='^\s*$' keepend fold
+" }}}
+" Fields {{{
+syn region abcFieldContinue matchgroup=abcFieldIdentifier start='^+:' excludenl
+            \ matchgroup=NONE end='%\|\_$' keepend oneline contained
+syn region abcField matchgroup=abcFieldIdentifier start='^[\a+]:'
+            \ matchgroup=NONE excludenl end='%\|\_$' nextgroup=abcFieldContinue skipnl skipwhite
+syn region abcBodyField start='\[\a:' end='\]' contains=abcFieldContent contained keepend oneline
+
+syn match abcClefKeyword '\%(clef\)\|\%(m\%[iddle]\)\|\%(t\%[ranspose\]\)\|\%(o\%[ctave\]\)' contained
+syn match abcClefName '\%(treble\|alto\|tenor\|bass\)\d\=\%([+-]8\)\=' contained
+syn match abcClefName '\%(perc\|none\)' contained
+syn match abcClefMiddle 'm\%[iddle]=' nextgroup=abcNoteChar display
+syn match abcClefTranspose 't\%[ranspose]=' nextgroup=abcInteger display
+syn match abcClefOctave 'o\%[ctave]=' nextgroup=abcInteger display
+syn match abcClefStafflines 'stafflines=' nextgroup=abcInteger display
+syn match abcClefCustom '\(\h\w*\):\1=' nextgroup=abcDefine contained
+syn cluster abcClef contains=abcClef.*
+
+syn region abcKey start='^K:' end='%' contains=@abcClef
+syn region abcVoice matchgroup=abcFieldIdentifier start='^V:' matchgroup=NONE
+            \ excludenl end='%\|\_$' contains=@abcClef
+" }}}
+syn region abcFreeText excludenl start='^\s*$' skip='^\%(\a:\|%%\)\@<!' excludenl end='^\s*$' transparent
 syn match abcComment excludenl '%\{1}.*$'
 " }}}
 " Syncing {{{
@@ -260,10 +301,10 @@ syn sync match abcSlurSync groupthere abcSlurBeginSync ')'
 
 syn sync match abcTupletSync groupthere abcSlurBeginSync '[1-9]\%(:[1-9]\)\{,2}'
 
-syn sync match abcChordBeginSync '\['
-syn sync match abcChordEndSync '\]'
-syn sync match abcChordGroupSync grouphere abcChordEndSync '\['
-syn sync match abcChordGroupSync groupthere abcChordBeginSync '\]'
+syn sync match abcBracketBeginSync '\[' contained
+syn sync match abcBracketEndSync '\]' contained
+syn sync match abcBracketGroupSync grouphere abcChordEndSync '\['
+syn sync match abcBracketGroupSync groupthere abcChordBeginSync '\]'
 
 syn sync region abcHeaderRegionSync start='^X:' end='^K:' keepend
 syn sync match abcHeaderSync grouphere abcHeaderRegionSync '^X:'
