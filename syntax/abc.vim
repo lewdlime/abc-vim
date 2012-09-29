@@ -29,7 +29,7 @@ syn match abcFloat '\<[+-]\=\d\+\.\d*\(e[+-]\=\d\+\)\=\>' contained
 syn match abcFloat '\<[+-]\=\.\d\+\(e[+-]\=\d\+\)\=\>' contained
 syn match abcFloat '\<[+-]\=\d\+e[+-]\=\d\+\>' contained
 syn cluster abcNumber contains=abcInteger,abcFloat
-syn keyword abcMode contained maj[or] m[inor] ion[ian] aeo[lian] mix[olydian] dor[ian] phr[ygian] lyd[ian] loc[rian] nextgroup=abcKeyExplicit skipwhite
+syn keyword abcModeKeyword contained maj[or] m[inor] ion[ian] aeo[lian] mix[olydian] dor[ian] phr[ygian] lyd[ian] loc[rian] nextgroup=abcKeyExplicit skipwhite
 syn case match
 syn match abcSpecialChar '\\u00[aA]9' contained conceal cchar=©
 syn match abcSpecialChar '\\u266[dD]' contained conceal cchar=♭
@@ -78,14 +78,17 @@ syn keyword abcTypeSetKeyword contained beginps beginsvg begintext endps endsvg 
 syn keyword abcTypeSetKeyword contained nextgroup=abcTextOptionKeyword skipwhite begintext textoption
 syn keyword abcTextOptionKeyword contained obeylines align justify ragged fill center skip right
 
-syn region abcTypeSet matchgroup=abcTypeSetKeyword start='%%text' excludenl end='\_$' contains=abcFontOperator oneline
-syn region abcTypeSet  matchgroup=abcTypeSetKeyword start='%%center' excludenl end='\_$' contains=abcFontOperator oneline
+syn region abcTypeSet matchgroup=abcTypeSetKeyword start='%%text' excludenl end='$' contains=abcFontOperator oneline
+syn region abcTypeSet  matchgroup=abcTypeSetKeyword start='%%center' excludenl end='$' contains=abcFontOperator oneline
 syn region abcTypeSet matchgroup=abcTypeSetKeyword start='%%begintext' skip='^\%(%%\)\=.*' end='%%endtext' fold keepend
 " }}}
 syn region abcPS start='%%postscript' contains=abcPreProcKeyword nextgroup=@PS skipwhite
 syn region abcPS matchgroup=abcTypeSetKeyword start='%%beginps' end='%%endps' fold keepend contains=@PS
 " }}}
 " Tune Body {{{
+" Errors
+syn match abcParenError ')'
+syn match abcCurlyError '}'
 syn keyword abcDecorationKeyword contained !trill! !trill(! !trill)! !lowermordent! !uppermordent! !mordent! !pralltriller! !roll! !turn! !turnx! !invertedturn! !invertedturnx! !arpeggia! !>! !accent! !emphasis! !fermata! !invertedfermata! !tenuto! !0! !1! !2! !3! !4! !5! !+! !plus! !snap! !slide! !wedge! !upbow! !downbow! !open! !thumb! !breath! !pppp! !ppp! !pp! !p! !mp! !mf! !f! !ff! !fff! !ffff! !sfz! !crescendo(! !<(! !crescendo)! !<)! !diminuendo(! !>(! !diminuendo)! !>)! !segno! !coda! !D.S.! !D.C.! !dacoda! !dacapo! !fine! !shortphrase! !mediumphrase! !longphrase! . ~ H L M O P S T u v
 syn match abcKeyIdentifier '[A-G][b#]\=\%(exp\)\=' contained nextgroup=abcMode,abcExplicit skipwhite
 syn region abcKeyExplicit start='\%(\s\+[_=^][a-g]\)*' contains=abcNote contained
@@ -117,8 +120,8 @@ syn region abcAnnotation matchgroup=abcStringDelimiter start=+"\%(^\|_\|<\|>\|@\
 syn region abcDecoration start='!' end='!' contains=abcDecorationKeyword contained keepend oneline
 " }}}
 " Fields {{{
-syn region abcFieldContinue matchgroup=abcFieldIdentifier start='^+:' excludenl matchgroup=NONE end='%\|\_$' keepend oneline contained
-syn region abcField matchgroup=abcFieldIdentifier start='^[\a+]:' matchgroup=NONE excludenl end='%\|\_$' nextgroup=abcFieldContinue skipnl skipwhite
+syn region abcFieldContinue matchgroup=abcFieldIdentifier start='^+:' excludenl matchgroup=NONE end='%\|$' keepend oneline contained
+syn region abcField matchgroup=abcFieldIdentifier start='^[\a+]:' matchgroup=NONE excludenl end='%\|$' nextgroup=abcFieldContinue skipnl skipwhite
 syn region abcBodyField start='\[\a:' end='\]' contains=abcFieldContent contained keepend oneline
 
 syn keyword abcClefKeyword clef= m[iddle]= t[ranspose\]= o[ctave]= contained
@@ -133,35 +136,36 @@ syn match abcClefOctave 'o\%[ctave]=' nextgroup=abcInteger display
 syn match abcClefStafflines 'stafflines=' nextgroup=abcInteger display
 
 syn region abcKey start='^K:' end='\ze%' contains=@abcClef
-syn region abcVoice matchgroup=abcFieldIdentifier start='^V:' matchgroup=NONE excludenl end='\_$\|\ze%' contains=@abcClef
+syn region abcVoice matchgroup=abcFieldIdentifier start='^V:' matchgroup=NONE excludenl end='$\|\ze%' contains=@abcClef
 " }}}
 " Top level {{{
-syn match abcSpecialComment '^%abc\%(-[1-9]\.\d\)\='
 syn cluster abcStringChars contains=abcFontOperator,abcSpecialCharacter
 
 syn match abcFieldIdentifier '^[\a+]:' contained
 syn match abcBodyFieldIdentifier '\[[\a]:' contained
 syn match abcFieldContent '\a:\zs[^%]*' contained
 
-syn region abcFileHeader start='^[A-DF-HIL-ORSUZmr]:' excludenl end='\_^s*\_$' contained contains=abcComment
+syn region abcFileHeader start='^[A-DF-HIL-ORSUZmr]:' excludenl end='^s*$' contained contains=abcComment
 syn region abcTuneHeader start='^X:' end='^K:' keepend fold display
+syn region abcTuneBody start='^K:.*$\zs' skip='\_.' end='^\s*$' keepend 
 
 syn region abcPartBody matchgroup=abcFieldIdentifier start='^P:' excludenl matchgroup=abcFieldIdentifier end='^P:[^%]*$' matchgroup=NONE end='^\s*$' keepend fold
 syn region abcPartBody matchgroup=abcFieldIdentifier start='\[P:[^%\]]*\]' end='\[P:' matchgroup=NONE excludenl end='^\s*$' keepend fold
-syn region abcVoiceBody matchgroup=abcFieldIdentifier start='^V:' end='\%(^V:\)\|\%(^P:\)' matchgroup=NONE excludenl end='\%(\_^\s*\_$\)' keepend fold
-syn region abcVoiceBody matchgroup=abcVoiceIdentifier start='\[V:[^%\]]*\]' matchgroup=abcBodyFieldIdentifier end='\%(\[V:\)\|\%(\[P:\)' matchgroup=NONE excludenl end='\_^\s*\_$' keepend fold
+syn region abcVoiceBody matchgroup=abcFieldIdentifier start='^V:' end='\%(^V:\)\|\%(^P:\)' matchgroup=NONE excludenl end='\%(^\s*$\)' keepend fold
+syn region abcVoiceBody matchgroup=abcVoiceIdentifier start='\[V:[^%\]]*\]' matchgroup=abcBodyFieldIdentifier end='\%(\[V:\)\|\%(\[P:\)' matchgroup=NONE excludenl end='^\s*$' keepend fold
 syn region abcFreeText excludenl start='^\s*$' skip='^\%(\a:\|%%\)\@<!' excludenl end='^\s*$' transparent fold
-syn match abcComment excludenl '%.*\_$'
-syn region abcPreProc matchgroup=abcPreProcKeyword start='%%\h[\w-]*' end='\_$' nextgroup=abcDefine skipwhite
-syn match abcPreProc '^I:\h[\w-]*' contains=abcFieldIdentifier nextgroup=abcDefine skipwhite
+syn match abcComment excludenl '%.*$' extend
+syn match abcPreProcIdentifier '%%'
+syn region abcPreProc matchgroup=abcPreProcIdentifier start='%%\h[\w-]*' matchgroup=NONE end='$' nextgroup=abcDefine skipwhite
 syn region abcPreProc matchgroup=abcFieldIdentifier start='\[I:\h[\w-]*' end='\]' contains=abcDefine oneline keepend
-syn region abcEmptyLine start='^\s*' excludenl end='\_$' transparent display keepend
+syn region abcEmptyLine start='^\s*' excludenl end='$' transparent keepend
+syn match abcSpecialComment '\%^%abc\%(-[1-9]\.\d\)\=' nextgroup=abcFileHeader skipwhite skipnl
 " }}}
 " Syncing {{{
 " Sync on abc comments
 syn sync ccomment abcComment
 " Register line continuations
-syn sync linecont '\\\_$'
+syn sync linecont '\\$'
 " Sync between each barline
 syn sync match abcStatementSync grouphere abcMeasure '|\|\[\|\]'
 syn sync match abcStatementSync groupthere abcMeasure '|\|\[\|\]'
@@ -185,13 +189,13 @@ syn sync match abcHeaderSync grouphere abcTuneHeader '^X:'
 syn sync match abcHeaderSync groupthere abcTuneHeader '^K:'
 " Sync from a P: field in the body to the next P: field
 " This also applies to the header, so thats fine
-syn sync match abcPartBodySync grouphere abcPartBody '\%\_^P:\)\|\%(\[P:\)'
-syn sync match abcPartBodySync groupthere abcPartBody '\%(\_^P:\)\|\%(\[P:\)\|\%(\_^\s*\_$\)'
+syn sync match abcPartBodySync grouphere abcPartBody '\%^P:\)\|\%(\[P:\)'
+syn sync match abcPartBodySync groupthere abcPartBody '\%(^P:\)\|\%(\[P:\)\|\%(^\s*$\)'
 " Sync from a V: field in the body to the next V: field
 " This also applies to the header, so thats fine
 " Also, sync up to the next part, since that takes higher precedence
-syn sync match abcVoiceSync grouphere abcVoiceBody '\%(\_^V:\)\|\%(\[V:\)'
-syn sync match abcVoiceSync grouphere abcVoiceBody '\%(\_^V:\)\|\%(\[V:\)\|\%(\_^P:\)\|\%(\[P:\)\|\%(\_^\s*\_$\)'
+syn sync match abcVoiceSync grouphere abcVoiceBody '\%(^V:\)\|\%(\[V:\)'
+syn sync match abcVoiceSync grouphere abcVoiceBody '\%(^V:\)\|\%(\[V:\)\|\%(^P:\)\|\%(\[P:\)\|\%(^\s*$\)'
 " Sync the file header
 syn sync match abcFileHeaderSync grouphere abcFileHeader '%abc\%(-[1-9]\.\d\)\='
 syn sync match abcFileHeaderSync groupthere abcFileHeader '\%(^\s*$\)\@<!'
