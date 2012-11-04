@@ -9,21 +9,20 @@ elseif exists('b:current_syntax')
     finish
 endif
 syn sync clear
-
 " Groups {{{
-syn match abcOperator /[#@;*?<>$&.`/\\-]*/ contained
-syn match abcGroupStart /[({\[]/ contained
-syn match abcGroupEnd /[)}\]]/ contained
-
-syn match abcEscape /$[0-4]/ contained
-syn match abcEscape /\\["%\[\]]/ contained
-syn match abcEscape /\\[`'"^~/A-Za-z][A-Za-z]/ contained
-syn match abcEscape /\\u\x\{4}/ contained
-syn match abcEscape /&\h\w*;/ contained
-syn match abcEscape /&#\d*;/ contained
-syn match abcEscape /&#x\x\{4};/ contained
-
-syn match abcString /"[^"]*"/ contained contains=abcCharacter
+" Characters
+syn case ignore
+syn keyword abcTodo contained todo volatile fixme
+syn case match
+syn match abcSpecialChar /$[0-4]/ contained
+syn match abcSpecialChar /\\.\{1,2}/ contained
+syn match abcSpecialChar /\\u\x\{4}/ contained
+syn match abcSpecialChar /\\U\x\{8}/ contained
+syn match abcSpecialChar /&[#[:alnum:]]*;/ contained
+syn region abcTypeset matchgroup=abcDirective start=/%%begin\(\I\i*\)/ end=/%%end\z1/ contains=abcSpecialChar transparent
+" Abc Code Constructs
+syn match abcOperator '[#$&-/;-@\[-`{}~]' contained
+syn match abcString /"[^"%]*"/ contained contains=abcSpecialChar
 syn match abcRest /[xz][1-9]*\d*\/*/ contained
 syn match abcRest /[xz][1-9]*\d*\%(\/[1-9]*\d*\)\=/ contained
 syn match abcSpacer /[yY]\d*\.\d\+/ contained
@@ -34,100 +33,69 @@ syn match abcBar /[|\[\]]\%([1-9]\%([,-]\d\)*\)\=/ contained
 syn match abcBar /:\+[|\[\]]\%([1-9]\%([,-]\d\)*\)\=/ contained
 syn match abcTuple /([1-9]\d*\%(:\d*\)\{,2}/ contained
 syn match abcMacro /~\w\{2,31}/ contained
+syn region abcChord matchgroup=abcOperator start=/\[\(\a:\)\@!/ skip=/[^%\]]*/ end=/\]/ keepend contained transparent contains=abcOperator,abcRest,abcSpacer,abcNote
+syn region abcGrace matchgroup=abcOperator start=/{\/\=/ skip=/[^}]*/ end=/}/ keepend contained transparent contains=abcOperator,abcRest,abcSpacer,abcNote
+syn region abcSlur matchgroup=abcOperator start=/(\d\@!/ skip=/[^)]*/ end=/)/ keepend contained transparent contains=@abcCode
 syn match abcSymbol /![<>.+[:alnum:]]*[()]\=!/ contained
 
-syn match abcFieldIdentifier /^+:/ contained
-syn match abcFieldIdentifier /^\a:/ contained
-syn match abcFieldIdentifier /\[\a:/ contained
+syn cluster abcCode contains=abcOperator,abcString,abcRest,abcSpacer,abcNote,abcBar,abcTuple,abcMacro,abcChord,abcGrace,abcSlur,abcSymbol
+" Fields
+syn match abcFieldIdentifier /\[\a:/ms=s+1 contained
+syn match abcInlineString /:[^\]]*\]/ms=s+1,me=e-1 contained contains=abcSpecialChar
+syn region abcInlineField matchgroup=abcFieldIdentifier start=/\[[IK-NP-RUVmr]:/ skip=/[^%\]]/ matchgroup=abcOperator end=/\]/ keepend oneline transparent contained contains=abcInlineString
 
-syn match abcFieldContents /:[^%]*$/ms=s+2,hs=s+2,he=e contained
-syn match abcInlineContents /:[^%\]]*\]/ms=s+1,me=e-1,hs=s+1,he=e-1 contains=abcCharacter
-
-syn match abcFileField /^[A-DF-IL-ORSUZmr]:/ contains=abcFieldContents,abcDirective,abcComment contained nextgroup=abcContinueField skipnl
-syn match abcHeaderField /^[A-DF-IK-TVWXZmr]:/ contains=abcFieldContents,abcDirective,abcComment contained nextgroup=abcContinueField skipnl
-syn match abcBodyField /^[IK-NP-RTU-Wmrsw]:/ contains=abcFieldContents,abcDirective,abcComment contained nextgroup=abcContinueField skipnl
-syn match abcContinueField /^+:/ contained contains=abcFieldContents,abcDirective,abcComment nextgroup=abcContinueField skipnl
-
-syn region abcInlineField matchgroup=abcFieldIdentifier start=/\[[IK-NP-RUVmr]:/ skip=/\\["%\[\]]/ end=/\]/ keepend contained contains=abcInlineContents
-
-syn cluster abcCode contains=abcString,abcRest,abcSpacer,abcNote,abcBar,abcTuple,abcMacro,abcSymbol,abcInlineField,abcOperator
-
-syn region abcChord matchgroup=abcGroupStart start=/\[/ matchgroup=abcGroupEnd end=/\]/ contains=@abcCode keepend contained concealends
-syn region abcGrace matchgroup=abcGroupStart start=/{/ matchgroup=abcGroupEnd end=/}/ contains=@abcCode keepend contained concealends
-syn region abcSlur matchgroup=abcGroupStart start=/(/ matchgroup=abcGroupEnd end=/)/ contains=@abcCode keepend contained
-
-syn region abcTuneHeader matchgroup=abcHeaderField start=/^X:/ end=/^K:.*$/ keepend contained contains=abcHeaderField,abcDirective,abcComment
-syn region abcTune matchgroup=abcHeader start=/^X:/ matchgroup=NONE end=/^\s*$/ keepend contains=@abcCode,abcChord,abcSlur,abcGrace,,abcBodyField,abcComment,abcDirective
+syn match abcFieldIdentifier /^[\a+]:/ contained
+syn match abcFieldString /:.*$/ms=s+1 contained contains=abcSpecialChar nextgroup=abcContinueField skipnl
+syn region abcContinueField matchgroup=abcFieldIdentifier start=/^+:/ end=/$/ keepend oneline contained transparent contains=abcFieldString
+syn region abcFileField matchgroup=abcFieldIdentifier start=/^[A-DF-IL-ORSUZmr]:/ end=/$/ keepend oneline transparent contained contains=abcFieldString
+syn region abcHeaderField matchgroup=abcFieldIdentifier start=/^[A-DF-IK-TVWXZmr]:/ end=/$/ keepend oneline transparent contained contains=abcFieldString
+syn region abcBodyField matchgroup=abcFieldIdentifier start=/^[IK-NP-RTU-Wmrsw]:/ end=/$/ keepend oneline transparent contained contains=abcFieldString
+" Toplevel
+syn region abcTuneHeader matchgroup=abcHeaderField start=/^X:/ end=/^K:.*$/ keepend transparent contained contains=abcHeaderField,abcDirective,abcComment,abcTypeset
+syn region abcTune matchgroup=abcTuneHeader start=/^X:/ matchgroup=NONE end=/^\s*$/ keepend transparent contains=@abcCode,abcBodyField,abcInlineField,abcComment,abcDirective,abcTypeset
 
 syn match abcComment /%.*$/ extend
-syn match abcDirective /%%.*$/ extend
 syn match abcSpecialComment /^%abc\%(-\d\.\d\)\=/ contained
-syn region abcFileHeader matchgroup=abcSpecialComment start=/\%^\%(%abc\%(-[1-9]\.\d\)\=\)\=/ matchgroup=NONE end=/^\s*$/ keepend contains=abcFileField,abcDirective,abcComment
+syn match abcDirective /%%.*$/ extend
+syn region abcFileHeader matchgroup=abcSpecialComment start=/\%^\%(%abc\%(-[1-9]\.\d\)\=\)\=/ matchgroup=NONE end=/^\s*$/ keepend transparent contains=abcFileField,abcDirective,abcComment,abcTypeset
 " }}}
 " Syncing {{{
-syn sync match abcTuneSync grouphere abcTuneHeader /^X:/
-syn sync match abcTuneSync groupthere NONE /^\s*$/
-
-syn sync match abcTuneHeaderSync grouphere abcTuneHeader /^X:/
-syn sync match abcTuneHeaderSync groupthere abcTuneHeader /^K:.*$/
-
-syn sync match abcTuneBodySync grouphere abcTuneHeader /^K:*.$/
-syn sync match abcTuneBodySync groupthere NONE /^\s*$/
-
-syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/
-syn sync match abcFileHeaderSync groupthere NONE /^\s*$/
-syn sync match abcInlineFieldSync grouphere abcInlineField /\[[IK-NP-RUVmr]:/
-syn sync match abcInlineFieldSync groupthere abcInlineField /\]/
-
-syn sync match abcTupleSync /([1-9]\d*\%(:\d*\)\{,2}/
-syn sync match abcSlurSync grouphere abcSlur /(/
-syn sync match abcSlurSync groupthere abcSlur /)/
-syn sync match abcGraceSync grouphere abcGrace /{/
-syn sync match abcGraceSync groupthere abcGrace /}/
-syn sync match abcBracketSync grouphere abcChord /\[/
-syn sync match abcBracketSync grouphere abcInlineField /\[\a:/
-syn sync match abcBracketSync groupthere abcChord /\]/
-syn sync match abcBracketSync groupthere abcInlineField /\]/
-
-syn sync match abcStringSync /"[^"]*"/
-syn sync match abcBarSync /[:|][:|]/
-syn sync match abcBarSync /[|\[\]]\%([1-9]\%([,-]\d\)*\)\=/
-syn sync match abcBarSync /:\+[|\[\]]\%([1-9]\%([,-]\d\)*\)\=/
-syn sync match abcNoteSync /[=_^]\{,2}[a-gA-G][,']*[1-9]*\d*/ contained
-
-syn sync linecont /\\/
 syn sync ccomment abcComment
+syn sync linecont /\\$/
+"syn sync match abcTypesetSync grouphere abcTypeset /%%begin\I\i*/
+"syn sync match abcTypesetSync groupthere abcTypeset /%%end\I\i*/
+"syn sync match abcOperatorSync '[#$&-/;-@\[-`{}~]'
+"syn sync match abcBarSync /[:|][:|]/
+"syn sync match abcBarSync /[|\[\]]\%([1-9]\%([,-]\d\)*\)\=/
+"syn sync match abcBarSync /:*[|\[\]]\%([1-9]\%([,-]\d\)*\)\=/
+"syn sync match abcTuple /([1-9]\d*\%(:\d*\)\{,2}/
+"
+"syn sync match abcChordSync grouphere abcChord /\[\(\a:\)\@!/
+"syn sync match abcChordSync groupthere abcChord /\]/
+"
+"syn sync match abcGraceSync grouphere abcGrace /{/
+"syn sync match abcGraceSync groupthere abcGrace /}/
+"
+"syn sync match abcSlurSync grouphere abcSlur /(\d\@!/
+"syn sync match abcSlurSync groupthere abcSlur /)/
+"
+"syn sync match abcInlineFieldSync grouphere abcInlineField /\[\a:/
+"syn sync match abcInlineFieldSync groupthere abcInlineField /\]/
+"
+"syn sync match abcFieldSync grouphere abcFileField /^[A-DF-IL-ORSUZmr]:/
+"syn sync match abcFieldSync grouphere abcHeaderField /^[A-DF-IK-TVWXZmr]:/
+"syn sync match abcFieldSync grouphere abcBodyField /^[IK-NP-RTU-Wmrsw]:/
+"syn sync match abcFieldSync groupthere NONE /$/
+"
+"syn sync match abcTuneHeaderSync grouphere abcTuneHeader /^X:/
+"syn sync match abcTuneHeaderSync groupthere abcTuneHeader /^K:.*$/
+"syn sync match abcTuneSync grouphere abcTune /^X:/
+"syn sync match abcTuneSync groupthere NONE /^\s*$/
+"
+"syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^%abc/
+"syn sync match abcFileHeaderSync groupthere NONE /^\s*$/
 " }}}
 " Highlighting {{{
-if &background == 'light'
-    hi String guibg=bg guifg=magenta gui=none
-    hi Comment guibg=bg guifg=ForestGreen gui=italic
-    hi SpecialComment guibg=bg guifg=HotPink gui=none
-    hi Constant guibg=bg guifg=orange gui=none
-    hi Error guibg=red guifg=white gui=undercurl
-    hi Debug guibg=bg guifg=#d3a901 gui=undercurl
-    hi Identifier guibg=bg guifg=#0e7c6b gui=none
-    hi Ignore guibg=bg guifg=bg gui=none
-    hi PreProc guibg=bg guifg=#a33243 gui=none
-    hi Special guibg=bg guifg=#844631 gui=none
-    hi Statement guibg=bg guifg=#2239a8 gui=bold
-    hi Todo guibg=#fedc56 guifg=#512b1e gui=bold
-    hi Type guibg=bg guifg=#1d318d gui=bold
-else
-    hi String guibg=bg guifg=magenta gui=none
-    hi Comment guibg=bg guifg=#77be21 gui=italic
-    hi SpecialComment guibg=bg guifg=#ff66cc gui=none
-    hi Constant guibg=bg guifg=#dc8511 gui=none
-    hi Error guibg=red guifg=white gui=undercurl
-    hi Debug guibg=yellow guifg=red gui=undercurl
-    hi Identifier guibg=bg guifg=#16c9ae gui=none
-    hi Ignore guibg=bg guifg=bg gui=none
-    hi PreProc guibg=bg guifg=#e09ea8 gui=none
-    hi Special guibg=bg guifg=#d3a901 gui=none
-    hi Statement guibg=bg guifg=#a7b4ed gui=bold
-    hi Todo guibg=#fedc56 guifg=#512b1e gui=bold
-    hi Type guibg=bg guifg=#95a4ea gui=bold
-endif
 if version >= 508 || !exists("did_abc_syn_inits")
   if version < 508
     let did_abc_syn_inits = 1
@@ -135,26 +103,41 @@ if version >= 508 || !exists("did_abc_syn_inits")
   else
     command -nargs=+ HiLink hi def link <args>
   endif
-
+  hi Error term=standout,bold cterm=standout,bold ctermfg=white ctermbg=red gui=standout,bold guifg=white guibg=red
+  hi Todo term=standout cterm=standout ctermfg=black ctermbg=yellow gui=standout guifg=black guibg=yellow
+  hi Comment term=italic cterm=italic ctermfg=darkgreen ctermbg=bg gui=italic guifg=darkgreen guibg=bg
+  hi SpecialChar term=underline cterm=bold ctermfg=magenta ctermbg=bg gui=bold guifg=magenta guibg=bg
+  hi Operator term=bold cterm=bold ctermfg=darkcyan ctermbg=bg gui=bold guifg=DodgerBlue guibg=bg
+  hi String term=italic cterm=italic ctermfg=green ctermbg=bg gui=italic guifg=green guibg=bg
+  hi Statement term=underline,bold cterm=bold ctermfg=lightcyan ctermbg=bg gui=bold guifg=LightSeaGreen guibg=bg
+  hi Constant term=underline,bold cterm=bold ctermfg=darkyellow ctermbg=bg gui=bold guifg=ForestGreen guibg=bg
+  hi Delimiter term=bold cterm=bold ctermfg=darkyellow ctermbg=bg gui=bold guifg=orange guibg=bg
+  hi Macro term=none cterm=none ctermfg=darkmagenta ctermbg=bg gui=none guifg=DarkViolet guibg=bg
+  hi Type term=none cterm=none ctermfg=lightred ctermbg=bg gui=none guifg=firebrick guibg=bg
+  hi SpecialComment term=bold cterm=bold ctermfg=magenta ctermbg=bg gui=bold guifg=magenta guibg=bg
+  hi PreProc term=bold cterm=bold ctermfg=magenta ctermbg=bg gui=bold guifg=magenta
+  hi Identifier term=none cterm=bold ctermfg=lightgreen ctermbg=bg gui=bold guifg=LimeGreen guibg=bg
+  hi Special term=none cterm=none ctermfg=cyan ctermbg=bg gui=bold guifg=cyan guibg=bg
+  HiLink abcError           Error
+  HiLink abcTodo            Todo
+  HiLink abcNormal          Normal
+  HiLink abcSpecialChar     SpecialChar
+  HiLink abcOperator        Operator
+  HiLink abcString          String
+  HiLink abcRest            Statement
+  HiLink abcSpacer          Statement
+  HiLink abcNote            Constant
+  HiLink abcBar             Delimiter
+  HiLink abcTuple           Operator
+  HiLink abcMacro           Macro
+  HiLink abcSymbol          Type
   HiLink abcComment         Comment
   HiLink abcSpecialComment  SpecialComment
   HiLink abcDirective       PreProc
-  HiLink abcEscape          SpecialChar
-  HiLink abcOperator        Operator
-  HiLink abcGroupStart      Operator
-  HiLink abcGroupEnd        Operator
   HiLink abcFieldIdentifier Identifier
-  HiLink abcString          String
-  HiLink abcFieldContents   String
-  HiLink abcInlineContents  String
+  HiLink abcFieldString     String
+  HiLink abcInlineString    String
   HiLink abcInlineField     Special
-  HiLink abcBar             Delimiter
-  HiLink abcTuple           Statement
-  HiLink abcNote            Constant
-  HiLink abcRest            Constant
-  HiLink abcSpacer          Constant
-  HiLink abcMacro           Macro
-
   delcommand HiLink
 endif
 " }}}
