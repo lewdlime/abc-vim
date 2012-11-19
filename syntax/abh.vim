@@ -1,3 +1,4 @@
+
 " Vim syntax file
 " Language: abc music notation includes
 " Maintainer: Lee Savide <laughingman182@gmail.com>

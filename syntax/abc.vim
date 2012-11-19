@@ -100,21 +100,7 @@ if version >= 508 || !exists("did_abc_syn_inits")
   else
     command -nargs=+ HiLink hi def link <args>
   endif
-  "Todo - fg: black bg: yellow
-  "Error - fg: red bg: white
-  "Comment - fg: blue
-  "SpecialComment - fg: magenta
-  "SpecialChar - fg: maroon
-  "Operator - fg: cornflowerblue
-  "String - fg: darkgreen
-  "Statement - fg: aquamarine
-  "Constant - fg: hotpink
-  "Delimiter - fg: forestgreen
-  "Macro - fg: orchid
-  "Type - fg: crimson
-  "PreProc - fg: magenta
-  "Identifier - fg: coral
-  "Special - fg: firebrick
+  " Use Solarized colors for main groups, then use molokai
   hi Todo cterm=standout ctermfg=#000000 ctermbg=#ffff00 gui=standout guifg=#000000 guibg=#ffff00
   hi Error cterm=standout,bold ctermfg=#ffffff ctermbg=#ff0000 gui=standout,bold guifg=#ffffff guibg=#ff0000
   hi Comment cterm=italic ctermfg=#0000ff ctermbg=bg gui=italic guifg=#0000ff guibg=bg
