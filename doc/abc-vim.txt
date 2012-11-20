@@ -1,12 +1,12 @@
 *abc-vim.txt*    For Vim version 7.3.  Last change: 2012 Jun 14
 
-                  -------------------------------
-                  abc Music Notation, version 2.1
-                  -------------------------------
+                        -----------------------------
+                        abc Music Notation Vim Plugin
+                        -----------------------------
 
 Author:  Lee Savide <laughingman182@gmail.com>, or <laughingman182@yahoo.com>
 Copyright: (c) 2012 by Lee Savide                *abc-vim-copyright*
-    |pi_abc.txt| by Lee Savide is licensed under a Creative Commons
+    |abc-vim.txt| by Lee Savide is licensed under a Creative Commons
     Attribution-NonCommercial-ShareAlike 3.0 Unported License. Please
     read the license deed at
     http://creativecommons.org/licenses/by-nc-sa/3.0/.
@@ -21,45 +21,33 @@ CONTENTS                                                    *abc-vim-contents*
         4.1. Headers                                     |abc-intro-headers|
         4.2. Music                                       |abc-intro-music|
     5. abc syntax                                        |abc-syntax|
-        5.1. Toplevel Objects                            |abc-toplevel|
-            5.1.1. Version String                        |abc-version|
+        5.1. About the syntax definition                 |abc-syn-about|
         5.2. Directives                                  |abc-directives|
             5.2.1. Directive Locking                     |abc-directive-lock|
-        5.3. Embedded Syntaxes                           |abc-emb-syntax|
-            5.3.1. PostScript                            |abc-emb-postscript|
-            5.3.2. XML                                   |abc-emb-xml|
-            5.3.3. TeX                                   |abc-emb-tex|
-            5.3.4. C                                     |abc-emb-c|
-        5.4. Free Text                                   |abc-freetext|
-        5.5. Typeset Text                                |abc-typesettext|
-        5.6. Fields & Datatypes                          |abc-fields-datatypes|
-        5.7. Regular Expressions & 'abc-include'         |abc-include|
-        5.8. Header Sections                             |abc-header|
-        5.9. Tune Body Sections                          |abc-body|
-        5.10. Precedence                                 |abc-precedence|
+        5.3. Free Text                                   |abc-freetext|
+        5.4. Typeset Text                                |abc-typesettext|
+        5.5. Fields & Datatypes                          |abc-fields-datatypes|
+        5.6. Regular Expressions & 'abc-include'         |abc-include|
+        5.7. Header Sections                             |abc-header|
+        5.8. Tune Body Sections                          |abc-body|
+        5.9. Precedence                                  |abc-precedence|
+        5.10.                                            |abc-syntax|
         5.11.                                            |abc-syntax|
-        5.12.                                            |abc-syntax|
-        5.13. MIDI                                       |abc-midi|
-        5.14. Errors and Warnings                        |abc-errors|
-        5.15. Unicode Support                            |abc-utf|
+        5.12. MIDI                                       |abc-midi|
+        5.13. Errors and Warnings                        |abc-errors|
+        5.14. Unicode Support                            |abc-utf|
     6. Folding                                           |abc-folding|
-    7. abc and XML                                       |abc-xml|
-        7.1. DocBook                                     |abc-docbook|
-        7.2. XHTML                                       |abc-html|
-        7.3. SVG                                         |abc-svg|
-        7.4. MathML                                      |abc-mml|
-        7.5. Others                                      |abc-other-xml|
-    8. Variables                                         |abc-variables|
-    9. Compilers                                         |abc-compilers|
-    10. Omnicompletion                                   |abc-omni|
-    11. Options                                          |abc-options|
-        11.1. Per-Tune Options                           |abc-local-options|
-        11.2. Global Options                             |abc-global-options|
-    12. Help                                             |abc-help|
-    13. Developers                                       |abc-developers|
-    14. Changelog                                        |abc-changelog|
-    15. Licenses                                         |abc-licenses|
-    16. Todo                                             |abc-todo|
+    7. Variables                                         |abc-variables|
+    8. Compilers                                         |abc-compilers|
+    9. Omnicompletion                                    |abc-omni|
+    10. Options                                          |abc-options|
+        10.1. Per-Tune Options                           |abc-local-options|
+        10.2. Global Options                             |abc-global-options|
+    11. Help                                             |abc-help|
+    12. Developers                                       |abc-developers|
+    13. Changelog                                        |abc-changelog|
+    14. Licenses                                         |abc-licenses|
+    15. Todo                                             |abc-todo|
 
 ==============================================================================
 1. Introduction                                                      *abc-vim*
@@ -118,15 +106,17 @@ Or in HTML at: >
 ==============================================================================
 3. Why abc-vim?                                                  *abc-vim-why*
 
-abc is a very powerful standard for writing music. The only problem it
-currently has is popularity. No one knows about abc because the commercial
-applications for music notation, like Finale or Sibelius, have too much 
-say in being the 'professional' standard. The sad thing is, abc is FAR more
-useful. The format of abc music notation is what makes it stand out; it TEACHES
-you how music theory works as you use it. 
+abc is a very powerful, albeit underappreciated, standard for writing music.
+The reason it's underappreciated is that the commercial nature of existing
+music composition software typically leads novice users to believe that the
+commercial products are "better". Comparitively, abc is FAR more useful. The
+format of abc music notation is what makes it stand out; it TEACHES you how
+music theory works as you use it. This document stands as a combined
+introduction to abc notation and as a guide and reference to the features of
+the abc-vim plugin(s).
 
 ==============================================================================
-4. ABC Intro                                                   *abc-intro*
+4. ABC Intro {{{                                                   *abc-intro*
 
 Author: John Chambers <jc@trillian.mit.edu>
 -----------------------------------------------------------------------------
@@ -155,7 +145,7 @@ This is fairly easy to read, and once you understand it, you can quickly
 start typing in your own tunes.
 
 -----------------------------------------------------------------------------
-4.1 Headers                                        *abc-intro-headers*
+4.1 Headers                                               *abc-intro-headers*
 
 First, there are a bunch of "header" lines that say things about the tune as
 a whole. The X: line merely gives an index number. If a file has several
@@ -169,7 +159,7 @@ Printing software will typically show the first title in a larger font than
 others, which are considered "subtitles".
 
 The R: line ("rhythm") says it's a jig. This is also used by some software.
-For example, f you're on a Unix-like system you could use a command like: >
+For example, if you're on a Unix-like system you could use a command like: >
    grep -li "R: *jig" *.abc
 <
 to locate all the jigs in a directory of abc files.
@@ -192,22 +182,21 @@ ABC's rules say that the X: and T: lines must be first, and the K: line is
 the last of the header lines. Then comes the fun part, the music.
 
 -----------------------------------------------------------------------------
-4.2 Music                                               *abc-intro-music*
+4.2 Music                                                   *abc-intro-music*
 
 First, if you play a melody instrument, you can ignore all the stuff in
 double quotes. Those are called "accompaniment chords". They are to be played
 on guitar or accordion or harp or whatever. Now that you know what they are,
 you can probably understand the chords in this tune. So we can ignore them,
-and the first part of the tune is:
-
+and the first part of the tune is: >
    D \
    | ~G3 GAB | ~A3 ABd | edd gdd | edB dBA \
-
+<
 The backslash means "continued on next line", and is used to merge several
 lines of abc into one staff. When reading, we can ignore backslashes, and the
-result is:
+result is: >
    D | ~G3 GAB | ~A3 ABd | edd gdd | edB dBA
-
+<
 The letters A-G and a-g are notes. Large notes are the bottom half of the
 staff, and lower case is the upper half. The scale actually runs CDEFGAB,
 with C being the C below the staff, and B being the line in the middle of the
@@ -227,8 +216,7 @@ notation for a "turn". It is displayed as a large ~ symbol above or below the
 note, and played however you feel like playing it.
 
 So, to translate this all into rather coarse ASCII graphics, here are the
-first two bars of the above line:
-
+first two bars of the above line: >
                                                                  ,|
                                            ,|                  ,/ |
          |\                 ~            ,/ |     ~          ,/   |
@@ -242,20 +230,21 @@ first two bars of the above line:
        \ |/         | ' |                     |                     |
      ----|----------|---|---------------------|---------------------|
          J        (*)
-
+<
 Wow, that was difficult to type! The ABC notation is much easier, especially
 if you're a keyboard player. But anyone who plays any instrument should find
 ABC fairly easy to type.
 
 -----------------------------------------------------------------------------
 Let's see, what else do you need to know? Oh, yes; in the above tune, you'll
-see |: and :| symbols. You guessed right; these are repeat symbols. I left
+see \|: and :\| symbols. You guessed right; these are repeat symbols. I left
 out the |: at the beginning, as is done in a lot of printed music. You can
-also indicate first and second endings:
+also indicate first and second endings: >
     |: ...  |1 ...  :|2 ...  ||
-where ... represents any music. The || symbol represents a double bar, and
-you can use [| and |] to get the thick+thin or thin+thick styles of double
-bars. You can also use :: in the middle of a line as a shorthand for :||:,
+<
+where ... represents any music. The \|\| symbol represents a double bar, and
+you can use [\| and \|] to get the thick+thin or thin+thick styles of double
+bars. You can also use :: in the middle of a line as a shorthand for :\|\|:,
 that is, double bars with repeats on both sides.
 
 There's also notation for two more octaves. It is sort of pictorial, using a
@@ -280,16 +269,16 @@ You can also indicate ties and slurs. A tie (or single-note slur) can be
 indicated with a hyphen. If the above tune had started G3- GAB it would have
 meant to tie the G to the G in the second group of notes. To get a slur, put
 parentheses around a group of notes. Thus, in the above example, you might
-indicate a generic jig bowing by writing:
+indicate a generic jig bowing by writing: >
    D | ~G2G (GA)B | ~A2A (AB)d | (ed)d (gd)d | (ed)B (dB)A |
-
+<
 A few words about spacing: I've used more spaces in the above examples than
 you really need. About the only spaces that are needed within the music are
 the ones that separate groups of notes. This is used by abc display or print
 programs to determine how notes are beamed together. If the third bar had
-been |eddgdd|, the result would be six notes all beamed together. If you
-write |ed dg dd| you would get a waltz-type beaming, with three groups of two
-notes each. |edd gdd| gives two groups of three notes each.
+been \|eddgdd\|, the result would be six notes all beamed together. If you
+write \|ed dg dd\| you would get a waltz-type beaming, with three groups of two
+notes each. \|edd gdd\| gives two groups of three notes each.
 
 Spaces around the bar lines aren't needed, but they help a lot if you want
 your ABC to be readable by humans. Also, the header lines don't need spaces
@@ -308,7 +297,9 @@ There's more to ABC, but this is all you need to know to read or write
 typical folk tunes. Now go to your favorite editor and type in a few tunes.
 And check out the ABC home page: >
    http://abcnotation.org.uk/
+<
 You'll find pointers to lots of software and music collections there.
+
 -----------------------------------------------------------------------------
 
 This is the second file from my set of ABC documents. Some others: >
@@ -317,52 +308,76 @@ This is the second file from my set of ABC documents. Some others: >
   http://trillian.mit.edu/~jc/music/abc/doc/ABCprimer.html
   http://trillian.mit.edu/~jc/music/abc/doc/ABCtut.html
 <
-==============================================================================
-5. abc Syntax                                                     *abc-syntax*
-
+" }}}
 
 ==============================================================================
-6. abc Folds                                                     *abc-folding*
+5. abc Syntax {{{                                                 *abc-syntax*
 
+5.1. About the syntax definition                               *abc-syn-about*  
+------------------------------------------------------------------------------
+The syntax of abc is not completely standardized. While there is an active
+community of developers building the standard, no formallized definition truly
+exists...yet. Regardless, the main document that describes abc's syntax is at
+the following URL: >
+    http://abcnotation.com/wiki/abc:standard:v2.1
+<
+This document was made around a number of other documents. Namely, the
+document was designed around 4 sets of software that implement abc notation:
+abcm2ps, abcMIDI, abctab2ps, and BarFly. Furthermore, a BNF description of the
+abc syntax was created by Henrik Norbeck, for abc 1.6 and for extensions he
+proposed to the format, labeled as abc 2.0. The most recent version currently
+in use is abc 2.1. This plugin and documentation will conform to that version
+of abc; Backwards compatibility will be added later on.
 
-==============================================================================
-7. abc and XML                                                       *abc-xml*
-
-
-==============================================================================
-8. Variables                                                   *abc-variables*
-
-
-==============================================================================
-9. Compilers                                                   *abc-compilers*
-
-
-==============================================================================
-10. Omnicompletion                                                  *abc-omni*
-
-
-==============================================================================
-11. Options                                                      *abc-options*
-
+" }}}
 
 ==============================================================================
-12. Help                                                            *abc-help*
+6. abc Folds {{{                                                 *abc-folding*
 
-
-==============================================================================
-13. Developers                                                *abc-developers*
-
+" }}}
 
 ==============================================================================
-14. Changelog                                                  *abc-changelog*
+7. Variables {{{                                               *abc-variables*
 
-
-==============================================================================
-15. Licenses                                                    *abc-licenses*
-
+" }}}
 
 ==============================================================================
-16. Todo                                                            *abc-todo*
+8. Compilers {{{                                               *abc-compilers*
+
+" }}}
+
+==============================================================================
+9. Omnicompletion {{{                                               *abc-omni*
+
+" }}}
+
+==============================================================================
+10. Options {{{                                                  *abc-options*
+
+" }}}
+
+==============================================================================
+11. Help {{{                                                        *abc-help*
+
+" }}}
+
+==============================================================================
+12. Developers {{{                                            *abc-developers*
+
+" }}}
+
+==============================================================================
+13. Changelog {{{                                              *abc-changelog*
+
+" }}}
+
+==============================================================================
+14. Licenses {{{                                                *abc-licenses*
+
+" }}}
+
+==============================================================================
+15. Todo                                                            *abc-todo*
 
 
-"vim:tw=78:ts=8:ft=help
+vim:tw=78:ts=8:ft=help
