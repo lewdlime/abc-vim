@@ -2,7 +2,6 @@
 " Language: abc music notation
 " Maintainer: Lee Savide <laughingman182@yahoo.com>
 " License: http://apache.org/licenses/LICENSE-2.0.txt
-" Last Change: Nov 19 2012
 
 if version < 600
     syn clear
@@ -94,29 +93,105 @@ syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/
 syn sync match abcFileHeaderSync groupthere NONE /^\s*$/
 " }}}
 " Highlighting {{{
-if version >= 508 || !exists("did_abc_syn_inits")
+if version >= 508 || !exists('did_abc_syn_inits')
   if version < 508
     let did_abc_syn_inits = 1
     command -nargs=+ HiLink hi link <args>
   else
     command -nargs=+ HiLink hi def link <args>
   endif
-  " Use Solarized colors for main groups, then use molokai
-  hi Todo cterm=standout ctermfg=#000000 ctermbg=#ffff00 gui=standout guifg=#000000 guibg=#ffff00
-  hi Error cterm=standout,bold ctermfg=#ffffff ctermbg=#ff0000 gui=standout,bold guifg=#ffffff guibg=#ff0000
-  hi Comment cterm=italic ctermfg=#0000ff ctermbg=bg gui=italic guifg=#0000ff guibg=bg
-  hi SpecialComment cterm=italic ctermfg=#ff00ff ctermbg=bg gui=bold guifg=#ff00ff guibg=bg
-  hi SpecialChar ctermfg=#b03060 ctermbg=bg gui=bold guifg=#b03060 guibg=bg
-  hi Operator ctermfg=#6495ed ctermbg=bg gui=bold guifg=#6495ed guibg=bg
-  hi String ctermfg=#006400 ctermbg=bg gui=italic guifg=#006400 guibg=bg
-  hi Statement ctermfg=#7fffd4 ctermbg=bg gui=bold guifg=#7fffd4 guibg=bg
-  hi Constant ctermfg=#ff69b4 ctermbg=bg gui=bold guifg=#ff69b4 guibg=bg
-  hi Delimiter ctermfg=#228b22 ctermbg=bg gui=bold guifg=#228b22 guibg=bg
-  hi Macro cterm=bold ctermfg=#da70d6 ctermbg=bg gui=none guifg=#da70d6 guibg=bg
-  hi Type ctermfg=#dc143c ctermbg=bg gui=none guifg=#dc143c guibg=bg
-  hi PreProc cterm=bold ctermfg=#ff00ff ctermbg=bg gui=bold guifg=#ff00ff guibg=bg
-  hi Identifier ctermfg=#ff7f50 ctermbg=bg gui=bold guifg=#ff7f50 guibg=bg
-  hi Special ctermfg=#b22222 ctermbg=bg gui=bold guifg=#b22222 guibg=bg
+  " if light background, use solarized colors
+  if &background == 'light'
+    hi Normal          guifg=#657B83 guibg=#FDF6E3
+    hi Error           term=bold ctermfg=15 ctermbg=12 gui=bold guifg=#DC322F
+    hi Comment         term=italic ctermfg=1 gui=italic guifg=#93A1A1
+    hi Constant        ctermfg=4 guifg=#2AA198
+    hi Special         ctermfg=5 guifg=#DC322F
+    hi Identifier      ctermfg=3 guifg=#268BD2
+    hi Statement       ctermfg=6 guifg=#719E07
+    hi PreProc         ctermfg=5 guifg=#CB4B16
+    hi Type            ctermfg=2 guifg=#B58900
+    hi Underlined      cterm=underline ctermfg=5 guifg=#6C71C4
+    hi Ignore          ctermfg=15
+    hi Todo            term=bold ctermfg=0 ctermbg=14 gui=bold guifg=#D33682
+
+    hi Boolean         guifg=#AE81FF
+    hi Character       guifg=#E6DB74
+    hi Number          guifg=#AE81FF
+    hi String          guifg=#E6DB74
+    hi Conditional     guifg=#F92672               gui=bold
+    hi Debug           guifg=#BCA3A3               gui=bold
+    hi Define          guifg=#66D9EF
+    hi Delimiter       guifg=#8F8F8F
+    hi Exception       guifg=#A6E22E               gui=bold
+    hi Float           guifg=#AE81FF
+    hi Function        guifg=#A6E22E
+    hi Keyword         guifg=#F92672               gui=bold
+    hi Label           guifg=#E6DB74               gui=none
+    hi Macro           guifg=#C4BE89               gui=italic
+    hi Operator        guifg=#F92672
+    hi PreCondit       guifg=#A6E22E               gui=bold
+    hi Repeat          guifg=#F92672               gui=bold
+    hi SpecialChar     guifg=#F92672               gui=bold
+    hi SpecialComment  guifg=#465457               gui=bold
+    hi StorageClass    guifg=#FD971F               gui=italic
+    hi Structure       guifg=#66D9EF
+    hi Tag             guifg=#F92672               gui=italic
+    hi Typedef         guifg=#66D9EF
+    if has('spell')
+      hi SpellBad   term=undercurl ctermbg=12 gui=undercurl guisp=#DC322F
+      hi SpellCap   term=undercurl ctermbg=9 gui=undercurl guisp=#6C71C4
+      hi SpellRare  term=undercurl ctermbg=13 gui=undercurl guisp=#2AA198
+      hi SpellLocal term=undercurl ctermbg=11 gui=undercurl guisp=#B58900
+    endif
+  " else use molokai colors for dark background
+  else 
+    hi SpecialKey     term=bold ctermfg=9 gui=italic guifg=#465457
+    hi ErrorMsg       term=standout ctermfg=15 ctermbg=4 gui=bold guifg=#F92672 guibg=#232526
+    hi Normal         guifg=#F8F8F2 guibg=#1B1D1E
+    hi Error          term=reverse ctermfg=15 ctermbg=12 guifg=#960050 guibg=#1E0010
+    hi Comment        term=bold ctermfg=11 guifg=#465457
+    hi Constant       term=underline ctermfg=13 gui=bold guifg=#AE81FF
+    hi Special        term=bold ctermfg=12 gui=italic guifg=#66D9EF guibg=bg
+    hi Identifier     term=underline cterm=bold ctermfg=11 guifg=#FD971F
+    hi Statement      term=bold ctermfg=14 gui=bold guifg=#F92672
+    hi PreProc        term=underline ctermfg=9 guifg=#A6E22E
+    hi Type           term=underline ctermfg=10 guifg=#66D9EF
+    hi Underlined     term=underline cterm=underline ctermfg=9 gui=underline guifg=#808080
+    hi Ignore         ctermfg=0 guifg=#808080 guibg=bg
+    hi Todo           term=standout ctermfg=0 ctermbg=14 gui=bold guifg=#FFFFFF guibg=bg
+
+    hi String         guifg=#E6DB74
+    hi Character      guifg=#E6DB74
+    hi Number         guifg=#AE81FF
+    hi Boolean        guifg=#AE81FF
+    hi Float          guifg=#AE81FF
+    hi Function       guifg=#A6E22E
+    hi Conditional    gui=bold guifg=#F92672
+    hi Repeat         gui=bold guifg=#F92672
+    hi Label          guifg=#E6DB74
+    hi Operator       guifg=#F92672
+    hi Keyword        gui=bold guifg=#F92672
+    hi Exception      gui=bold guifg=#A6E22E
+    hi Include        links to PreProc
+    hi Define         guifg=#66D9EF
+    hi Macro          gui=italic guifg=#C4BE89
+    hi PreCondit      gui=bold guifg=#A6E22E
+    hi StorageClass   gui=italic guifg=#FD971F
+    hi Structure      guifg=#66D9EF
+    hi Typedef        guifg=#66D9EF
+    hi Tag            gui=italic guifg=#F92672
+    hi SpecialChar    gui=bold guifg=#F92672
+    hi Delimiter      guifg=#8F8F8F
+    hi SpecialComment gui=bold guifg=#465457
+    hi Debug          gui=bold guifg=#BCA3A3
+    if has('spell')
+      hi SpellBad   term=undercurl ctermbg=12 gui=undercurl guisp=#DC322F
+      hi SpellCap   term=undercurl ctermbg=9 gui=undercurl guisp=#6C71C4
+      hi SpellRare  term=undercurl ctermbg=13 gui=undercurl guisp=#2AA198
+      hi SpellLocal term=undercurl ctermbg=11 gui=undercurl guisp=#B58900
+    endif
+  endif
   HiLink abcTodo            Todo
   HiLink abcError           Error
   HiLink abcComment         Comment
