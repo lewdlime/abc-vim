@@ -22,7 +22,7 @@ syn match abcSpecialChar /&#\=\d*;/ contained
 syn match abcSpecialChar /&\I\i*;/ contained
 " Code {{{
 syn match abcOperator '[()#$&-/;-@^-`{}~\\]' contained
-syn match abcString /"[^"%]*"/ contained contains=abcSpecialChar
+syn match abcString /"[^"%\r\n]*"/ contained contains=abcSpecialChar
 syn match abcRest /[xzXZ][1-9]*\d*\/*/ contained
 syn match abcRest /[xz][1-9]*\d*\%(\/[1-9]*\d*\)\=/ contained
 syn match abcSpacer /[yY]\(\d*\.\d*\)\=/ contained
@@ -39,7 +39,7 @@ syn match abcSymbol /![<>][()]\=!/ contained
 syn match abcSymbol /[~HLMOPSTuv]/ contained
 syn match abcMacro /~\I\i\{1,31}/ contained
 syn region abcChord matchgroup=abcOperator start=/\[\(\a:\|\d*\|:*\)\@<!/ skip=/[^%\]]*/ end=/\]/ keepend contained
-syn region abcGrace matchgroup=abcOperator start=/{\/\=/ skip=/[^}]*/ end=/}/ keepend contained
+syn region abcGrace matchgroup=abcOperator start=/{\/\=/ skip=/[^}\r\n]*/ end=/}/ keepend contained
 syn region abcSlur matchgroup=abcOperator start=/(\(\d*\)\@<!/ skip=/\\)/ end=/)/ keepend contained
 " }}}
 syn cluster abcCode contains=abcOperator,abcString,abcRest,abcSpacer,abcNote,abcBar,abcTuple,abcSymbol,abcMacro,abcChord,abcGrace,abcSlur
@@ -65,32 +65,29 @@ syn region abcFileHeader matchgroup=abcSpecialComment start=/\%^\%(%abc\%(-[1-9]
 " }}}
 " }}}
 " Syncing {{{
-syn sync fromstart
-syn sync ccomment abcComment
-syn sync match abcTypesetSync grouphere abcTypeset /%%begin\I\i*/
-syn sync match abcTypesetSync groupthere abcTypeset /%%end\I\i*/
-syn sync linecont /\\$/
-syn sync match abcChordSync grouphere abcChord /\[\(\a:\|\d*\|:*\)\@<!/
-syn sync match abcChordSync groupthere abcChord /\]/
-syn sync match abcGraceSync grouphere abcGrace /{\/\=/
-syn sync match abcGraceSync groupthere abcGrace /}/
-syn sync match abcSlurSync grouphere abcSlur /(\(\d*\)\@<!/
-syn sync match abcSlurSync groupthere abcSlur /)/
-syn sync match abcInlineFieldSync grouphere abcInlineField /\[\a:/
-syn sync match abcInlineFieldSync groupthere abcInlineField /\]/
-syn sync linecont /^+:/
-syn sync match abcFieldSync grouphere abcFileField /^[A-DF-IL-ORSUZmr]:/
-syn sync match abcFieldSync grouphere abcHeaderField /^[A-DF-IK-TVWXZmr]:/
-syn sync match abcFieldSync grouphere abcBodyField /^[IK-NP-RTU-Wmrsw]:/
-syn sync match abcFieldSync groupthere NONE /$/
-syn sync match abcTuneHeaderSync grouphere abcTuneHeader /^X:/
-syn sync match abcTuneHeaderSync groupthere abcTuneHeader /^K:.*$/
-syn sync match abcTuneBodySync grouphere abcTuneBody /\%(\_^X:.*\_$\)\(\%(\_^\s*\_$\)*\)\@<!\%(\_^K:.*\_$\)\zs\1/
-syn sync match abcTuneBodySync groupthere NONE /^\s*$/
-syn sync match abcTuneSync grouphere abcTune /^X:/
-syn sync match abcTuneSync groupthere NONE /^\s*$/
-syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/
-syn sync match abcFileHeaderSync groupthere NONE /^\s*$/
+if has('b:abc_sync' == 1)
+    exe "syn sync match abcTypesetSync grouphere abcTypeset /%%begin\I\i*/"
+    exe "syn sync match abcTypesetSync groupthere abcTypeset /%%end\I\i*/"
+    exe "syn sync linecont /\\$/"
+    exe "syn sync match abcChordSync grouphere abcChord /\[\(\a:\|\d*\|:*\)\@<!/"
+    exe "syn sync match abcChordSync groupthere abcChord /\]/"
+    exe "syn sync match abcGraceSync grouphere abcGrace /{\/\=/"
+    exe "syn sync match abcGraceSync groupthere abcGrace /}/"
+    exe "syn sync match abcSlurSync grouphere abcSlur /(\(\d*\)\@<!/"
+    exe "syn sync match abcSlurSync groupthere abcSlur /)/"
+    exe "syn sync match abcInlineFieldSync grouphere abcInlineField /\[\a:/"
+    exe "syn sync match abcInlineFieldSync groupthere abcInlineField /\]/"
+    exe "syn sync match abcFieldSync grouphere abcFileField /^[A-DF-IL-ORSUZmr]:/"
+    exe "syn sync match abcFieldSync grouphere abcHeaderField /^[A-DF-IK-TVWXZmr]:/"
+    exe "syn sync match abcFieldSync grouphere abcBodyField /^[IK-NP-RTU-Wmrsw]:/"
+    exe "syn sync match abcFieldSync groupthere NONE /^\s*$/"
+    exe "syn sync match abcTuneSync grouphere abcTune /^X:/"
+    exe "syn sync match abcTuneSync groupthere NONE /^\s*$/"
+    exe "syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/"
+    exe "syn sync match abcFileHeaderSync groupthere NONE /^\s*$/"
+else
+    exe "syn sync ccomment abcComment"
+endif
 " }}}
 " Highlighting {{{
 if version >= 508 || !exists('did_abc_syn_inits')
@@ -212,5 +209,6 @@ if version >= 508 || !exists('did_abc_syn_inits')
   delcommand HiLink
 endif
 " }}}
+let b:abc_sync = 0
 let b:current_syntax = 'abc'
 " vim: ts=4

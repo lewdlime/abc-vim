@@ -1,57 +1,46 @@
 " Vim syntax file
-" Language: abc format file
-" Maintainer: Lee Savide <laughingman182@gmail.com>
+" Language: abc music notation
+" Maintainer: Lee Savide <laughingman182@yahoo.com>
 " License: http://apache.org/licenses/LICENSE-2.0.txt
-" Last Change: Nov 19 2012
 
-" A format file contains lines giving the parameters values, format:
-"
-"	parameter [parameter list]
-"In a format file, empty lines and lines starting with '%' are ignored.
-if !exists('main_syntax')
-    if version < 600
-        syntax clear
-    elseif has('b:current_syntax=1')
-        finish
-    endif
-    let main_syntax = 'fmt'
+if version < 600
+    syn clear
+elseif exists('b:current_syntax')
+    finish
 endif
 syn sync clear
-
-syn case ignore
-" PostScript syntax items {{{
-syn match fmtHex "\<\x\{2,}\>"
-" Integers
-syn match fmtInteger "\<[+-]\=\d\+\>"
-" Radix
-syn match fmtRadix "\d\+#\x\+\>"
-" Reals - upper and lower case e is allowed
-syn match fmtFloat "[+-]\=\d\+\.\>" contained
-syn match fmtFloat "[+-]\=\d\+\.\d*\(e[+-]\=\d\+\)\=\>" contained
-syn match fmtFloat "[+-]\=\.\d\+\(e[+-]\=\d\+\)\=\>" contained
-syn match fmtFloat "[+-]\=\d\+e[+-]\=\d\+\>" contained
-syn cluster fmtNumber contains=fmtInteger,fmtRadix,fmtFloat
-" }}}
 syn case match
-
-syn match fmtSpecialChar /\$[0-4]/ contained
-syn match fmtSpecialChar /&#\=[:alnum:]]*;/ contained
-syn match fmtSpecialChar /\\.\{,2}/ contained
-
-syn match fmtString /"[^"]*"/hs=s+1,he=e-1 contained
-syn match fmtOperator /[(){}\[\]<>:;',*+=_^#@$&!?|\/\\-]/ contained
-
-syn keyword fmtBoolean true false on off yes no
-syn keyword fmtSize in cm mm pt
-syn keyword fmtEncoding utf-8 us-ascii iso-8859-1 iso-8859-2 iso-8859-3 iso-8859-4 iso-8859-5 iso-8859-6 iso-8859-7 iso-8859-8 iso-8859-9 iso-8859-10
-syn keyword fmtLock contained lock
-syn keyword fmtFontEncoding contained utf-8 us-ascii native
-" Boolean directives
-syn keyword fmtDirective contained abc2pscompat autoclef breakoneoln 
-
-
-
-
-
-
-" vim:ts=4:sw=4:fdm=marker:fdc=3
+syn keyword fmtKeyword contained abc2pscompat alignbars aligncomposer annotationfont autoclef barnumbers barsperstaff breaklimit breakoneoln beginps beginsvg bgcolor botmargin bstemdown cancelkey comball combinevoices composerfont composerspace contbarnb continueall custos dateformat deco decoration dblrepbar dynalign dynamic encoding flatbeams font footer footerfont format gchord gchordbox gchordfont graceslurs gracespace gstemdir header headerfont historyfont hyphencont indent infofont infoline infoname infospace keywarn landscape leftmargin linebreak lineskipfac linewarn maxshrink maxstaffsep maxsysstaffsep measurebox measurefirst measurefont measurenb micronewps musiconly musicspace notespacingfactor oneperpage ornament pageheight pagewidth pango parskipfac partsbox partsfont partsspace pdfmark postscript repeatfont rightmargin scale setdefl setfont-1 setfont-2 setfont-3 setfont-4 shiftunison slurheight splittune squarebreve stafflines staffnonote staffscale staffsep staffwidth stemdir stemheight straightflags stretchlast stretchstaff subtitlefont subtitlespace sysstaffsep tempofont textfont textoption textspace timewarn titlecaps titlefont titleformat titleleft titlespace titletrim topmargin topspace tuplets user vocal vocalabove vocalfont vocalspace voicefont voicescale volume wordsfont wordsspace writefields begintext center clef EPS endtext multicol newpage repbra repeat score sep setbarnb staff staffbreak staves tablature text transpose vskip break clip select tune voice
+syn keyword fmtArgument contained box obeylines ragged fill center skip right
+syn match fmtArgument contained / [^ %\t\r\n]*$/
+syn match fmtDirective /^\I\i*/ contains=fmtKeyword nextgroup=fmtArgument skipwhite
+syn match fmtComment /%.*$/
+" Highlighting {{{
+if version >= 508 || !exists('did_abc_syn_inits')
+  if version < 508
+    let did_abc_syn_inits = 1
+    command -nargs=+ HiLink hi link <args>
+  else
+    command -nargs=+ HiLink hi def link <args>
+  endif
+  " if light background, use solarized colors
+  if &background == 'light'
+    hi Normal          guifg=#657B83 guibg=#FDF6E3
+    hi Comment         term=italic ctermfg=1 gui=italic guifg=#93A1A1
+    hi Statement       ctermfg=6 guifg=#719E07
+    hi PreProc         ctermfg=5 guifg=#CB4B16
+  " else use molokai colors for dark background
+  else 
+    hi Normal         guifg=#F8F8F2 guibg=#1B1D1E
+    hi Comment        term=bold ctermfg=11 guifg=#465457
+    hi Statement      term=bold ctermfg=14 gui=bold guifg=#F92672
+    hi PreProc        term=underline ctermfg=9 guifg=#A6E22E
+  endif
+  HiLink fmtComment     Comment
+  HiLink fmtDirective   PreProc
+  HiLink fmtArgument    Statement
+  delcommand HiLink
+endif
+" }}}
+let b:current_syntax = 'fmt'
+" vim: ts=4
