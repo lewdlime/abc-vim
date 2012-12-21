@@ -14,12 +14,28 @@ syn sync clear
 syn case ignore
 syn keyword abcTodo contained todo volatile fixme
 syn case match
+" Special Characters & Comments {{{
 syn match abcSpecialChar /$[0-4]/ contained
 syn match abcSpecialChar /\\.\{,2}/ contained
 syn match abcSpecialChar /\\u\x\{4}/ contained
 syn match abcSpecialChar /\\U\x\{8}/ contained
 syn match abcSpecialChar /&#\=\d*;/ contained
 syn match abcSpecialChar /&\I\i*;/ contained
+
+syn match abcComment /%.*$/ extend
+syn match abcSpecialComment /^%abc\%(-\d\.\d\)\=/ contained
+syn match abcDirective /%%.*$/ extend
+" }}}
+" Fields {{{
+syn match abcFieldIdentifier /^[\a+]:/ contained
+syn match abcInlineIdentifier /\[\a:/ contained
+syn region abcInlineField matchgroup=abcInlineIdentifier start=/\[[IK-NP-RUVmr]:/ skip=/[^%\]]/ matchgroup=abcOperator end=/\]/ keepend contained contains=abcSpecialChar
+
+syn match abcContinueField /^+:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipnl
+syn match abcBodyField excludenl /^[IK-NP-RTU-Wmrsw]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipwhite skipnl
+syn match abcFileField excludenl /^[A-DF-IL-ORSUZmr]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipwhite skipnl
+syn match abcHeaderField excludenl /^[A-DF-IK-XZmr]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipwhite skipnl
+" }}}
 " Code {{{
 syn match abcOperator '[()#$&-/;-@^-`{}~\\]' contained
 syn match abcString /"[^"%\r\n]*"/ contained contains=abcSpecialChar
@@ -37,20 +53,12 @@ syn match abcSymbol /![a-zA-Z.-]*[()]\=!/ contained
 syn match abcSymbol /![.+]!/ contained
 syn match abcSymbol /![<>][()]\=!/ contained
 syn match abcSymbol /[~HLMOPSTuv]/ contained
-syn match abcMacro /~\I\i\{1,31}/ contained
+syn match abcMacro /\~\I\i\{1,31}/ contained
 syn region abcChord matchgroup=abcOperator start=/\[\(\a:\|\d*\|:*\)\@<!/ skip=/[^%\]]*/ end=/\]/ keepend contained
 syn region abcGrace matchgroup=abcOperator start=/{\/\=/ skip=/[^}\r\n]*/ end=/}/ keepend contained
 syn region abcSlur matchgroup=abcOperator start=/(\(\d*\)\@<!/ skip=/\\)/ end=/)/ keepend contained
-" }}}
-syn cluster abcCode contains=abcOperator,abcString,abcRest,abcSpacer,abcNote,abcBar,abcTuple,abcSymbol,abcMacro,abcChord,abcGrace,abcSlur
-" Fields {{{
-syn match abcFieldIdentifier /^[\a+]:/ contained
-syn match abcInlineIdentifier /\[\a:/ contained
-syn region abcInlineField matchgroup=abcInlineIdentifier start=/\[[IK-NP-RUVmr]:/ skip=/[^%\]]/ matchgroup=abcOperator end=/\]/ keepend contained contains=abcSpecialChar
-syn match abcContinueField /^+:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar
-syn match abcBodyField excludenl /^[IK-NP-RTU-Wmrsw]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar
-syn match abcFileField excludenl /^[A-DF-IL-ORSUZmr]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar
-syn match abcHeaderField excludenl /^[A-DF-IK-XZmr]:/ contained contains=abcFieldIdentifier,abcSpecialChar
+
+syn cluster abcCode contains=abcOperator,abcString,abcRest,abcSpacer,abcNote,abcBar,abcTuple,abcSymbol,abcMacro,abcChord,abcGrace,abcSlur,abcComment,abcDirective
 " }}}
 " Toplevel {{{
 syn region abcTuneHeader matchgroup=abcHeaderField start=/^X:/ end=/^K:.*$/ keepend contains=abcHeaderField,abcDirective,abcComment,abcTypeset
@@ -58,9 +66,6 @@ syn region abcTuneBody start=/\%(\_^X:.*\_$\)\(\%(\_^\s*\_$\)*\)\@<!\%(\_^K:.*\_
 syn region abcTune matchgroup=abcTuneHeader start=/^X:/ matchgroup=NONE end=/^\s*$/ keepend contains=@abcCode,abcInlineField,abcBodyField
 
 syn region abcTypeset matchgroup=abcDirective start=/%%begin\(\I\i*\)/ end=/%%end\z1/ contains=abcSpecialChar transparent
-syn match abcComment /%.*$/ extend
-syn match abcSpecialComment /^%abc\%(-\d\.\d\)\=/ contained
-syn match abcDirective /%%.*$/ extend
 syn region abcFileHeader matchgroup=abcSpecialComment start=/\%^\%(%abc\%(-[1-9]\.\d\)\=\)\=/ matchgroup=NONE end=/^\s*$/ keepend contains=abcFileField,abcDirective,abcComment,abcTypeset
 " }}}
 " }}}
@@ -97,7 +102,8 @@ if version >= 508 || !exists('did_abc_syn_inits')
   else
     command -nargs=+ HiLink hi def link <args>
   endif
-  " if light background, use solarized colors
+  " Color Schemes {{{
+  " if background is light, use solarized colors
   if &background == 'light'
     hi Normal          guifg=#657B83 guibg=#FDF6E3
     hi Error           term=bold ctermfg=15 ctermbg=12 gui=bold guifg=#DC322F
@@ -189,6 +195,8 @@ if version >= 508 || !exists('did_abc_syn_inits')
       hi SpellLocal term=undercurl ctermbg=11 gui=undercurl guisp=#B58900
     endif
   endif
+  " }}}
+  " Linking {{{
   HiLink abcTodo            Todo
   HiLink abcError           Error
   HiLink abcComment         Comment
@@ -207,6 +215,7 @@ if version >= 508 || !exists('did_abc_syn_inits')
   HiLink abcFieldIdentifier Identifier
   HiLink abcInlineField     Special
   delcommand HiLink
+  " }}}
 endif
 " }}}
 let b:abc_sync = 0
