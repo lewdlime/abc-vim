@@ -9,11 +9,39 @@ elseif exists('b:current_syntax')
     finish
 endif
 syn sync clear
+setlocal iskeyword+=%-
 " Groups {{{
-" Characters
+" Keywords
 syn case ignore
-syn keyword abcTodo contained todo volatile fixme
+"syn keyword abcTodo contained todo volatile fixme
+syn keyword abcClefMode contained ion[ian] aeo[lian] mix[olydian] dor[ian] phr[ygian] lyd[ian] loc[rian] maj[or] m[inor]
 syn case match
+syn keyword abcTypesetArgs contained abcm2ps begintext endtext beginsvg endsvg  \
+    beginps endps center clef EPS footer header multicol newpage postscript ps  \
+    repbra repeat score sep setbarnb staff staffbreak staves tablature text     \
+    transpose vskip
+syn keyword abcPreProcArg contained abc2pscompat alignbars aligncomposer        \
+    annotationfont autoclef barsperstaff breaklimit breakoneoln bgcolor         \
+    botmargin bstemdown cancelkey comball combinevoices composerfont            \
+    composerspace contbarnb continueall custos dateformat deco decoration       \
+    dblrepbar dynalign dynamic encoding flatbeams font footerfont format gchord \
+    gchordbox gchordfont graceslurs gracespace gstemdir headerfont historyfont  \
+    hyphencont indent infofont infoline infoname infospace keywarn landscape    \
+    leftmargin linebreak lineskipfac linewarn maxshrink maxstaffsep             \
+    maxsysstaffsep measurebox measurefirst measurefont measurenb micronewps     \
+    musiconly musicspace notespacingfactor oneperpage ornament pageheight       \
+    pagewidth pango parskipfac partsbox partsfont partsspace pdfmark repeatfont \
+    rightmargin scale setdefl setfont-1 setfont-2 setfont-3 setfont-4           \
+    shiftunison slurheight splittune squarebreve stafflines staffnonote         \
+    staffscale staffsep staffwidth stemdir stemheight straightflags stretchlast \
+    stretchstaff subtitlefont subtitlespace sysstaffsep tempofont textfont      \
+    textoption textspace timewarn titlecaps titlefont titleformat titleleft     \
+    titlespace titletrim topmargin topspace tuplets user vocal vocalabove       \
+    vocalfont vocalspace voicefont voicescale volume wordsfont wordsspace       \
+    writefields
+syn keyword abcPreProcExt contained break clip select tune voice
+syn cluster abcDirectiveArgs contains=abcPreProcArg,abcTypesetArgs,abcPreProcExt
+
 " Special Characters & Comments {{{
 syn match abcSpecialChar /$[0-4]/ contained
 syn match abcSpecialChar /\\.\{,2}/ contained
@@ -22,7 +50,7 @@ syn match abcSpecialChar /\\U\x\{8}/ contained
 syn match abcSpecialChar /&#\=\d*;/ contained
 syn match abcSpecialChar /&\I\i*;/ contained
 
-syn match abcComment /%.*$/ extend
+syn match abcComment /%.*$/
 syn match abcSpecialComment /^%abc\%(-\d\.\d\)\=/ contained
 syn match abcDirective /%%.*$/ extend
 " }}}
@@ -70,29 +98,26 @@ syn region abcFileHeader matchgroup=abcSpecialComment start=/\%^\%(%abc\%(-[1-9]
 " }}}
 " }}}
 " Syncing {{{
-if has('b:abc_sync' == 1)
-    exe "syn sync match abcTypesetSync grouphere abcTypeset /%%begin\I\i*/"
-    exe "syn sync match abcTypesetSync groupthere abcTypeset /%%end\I\i*/"
-    exe "syn sync linecont /\\$/"
-    exe "syn sync match abcChordSync grouphere abcChord /\[\(\a:\|\d*\|:*\)\@<!/"
-    exe "syn sync match abcChordSync groupthere abcChord /\]/"
-    exe "syn sync match abcGraceSync grouphere abcGrace /{\/\=/"
-    exe "syn sync match abcGraceSync groupthere abcGrace /}/"
-    exe "syn sync match abcSlurSync grouphere abcSlur /(\(\d*\)\@<!/"
-    exe "syn sync match abcSlurSync groupthere abcSlur /)/"
-    exe "syn sync match abcInlineFieldSync grouphere abcInlineField /\[\a:/"
-    exe "syn sync match abcInlineFieldSync groupthere abcInlineField /\]/"
-    exe "syn sync match abcFieldSync grouphere abcFileField /^[A-DF-IL-ORSUZmr]:/"
-    exe "syn sync match abcFieldSync grouphere abcHeaderField /^[A-DF-IK-TVWXZmr]:/"
-    exe "syn sync match abcFieldSync grouphere abcBodyField /^[IK-NP-RTU-Wmrsw]:/"
-    exe "syn sync match abcFieldSync groupthere NONE /^\s*$/"
-    exe "syn sync match abcTuneSync grouphere abcTune /^X:/"
-    exe "syn sync match abcTuneSync groupthere NONE /^\s*$/"
-    exe "syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/"
-    exe "syn sync match abcFileHeaderSync groupthere NONE /^\s*$/"
-else
-    exe "syn sync ccomment abcComment"
-endif
+syn sync match abcTypesetSync grouphere abcTypeset /%%begin\I\i*/
+syn sync match abcTypesetSync groupthere NONE /%%end\I\i*/
+syn sync linecont /\\$/
+syn sync match abcChordSync grouphere abcChord /\[\(\a:\|\d*\|:*\)\@<!/
+syn sync match abcChordSync groupthere NONE /\]/
+syn sync match abcGraceSync grouphere abcGrace /{\/\=/
+syn sync match abcGraceSync groupthere NONE /}/
+syn sync match abcSlurSync grouphere abcSlur /(\(\d*\)\@<!/
+syn sync match abcSlurSync groupthere NONE /)/
+syn sync match abcInlineFieldSync grouphere abcInlineField /\[\a:/
+syn sync match abcInlineFieldSync groupthere NONE /\]/
+syn sync match abcFieldSync grouphere abcFileField /^[A-DF-IL-ORSUZmr]:/
+syn sync match abcFieldSync grouphere abcHeaderField /^[A-DF-IK-TVWXZmr]:/
+syn sync match abcFieldSync grouphere abcBodyField /^[IK-NP-RTU-Wmrsw]:/
+syn sync match abcFieldSync groupthere NONE /^\s*$/
+syn sync match abcTuneSync grouphere abcTune /^X:/
+syn sync match abcTuneSync groupthere NONE /^\s*$/
+syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/
+syn sync match abcFileHeaderSync groupthere NONE /^\s*$/
+syn sync ccomment abcComment minlines=20 maxlines=300
 " }}}
 " Highlighting {{{
 if version >= 508 || !exists('did_abc_syn_inits')
