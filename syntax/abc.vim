@@ -67,8 +67,6 @@ syn match abcDirective "%%.*"
 " }}}
 " Syncing {{{
 syn sync linecont "\\$"
-syn sync match abcTypesetSync grouphere abcDirective "%%begin\I\i*"
-syn sync match abcTypesetSync groupthere NONE "%%end\I\i*"
 syn sync match abcFileHeaderSync grouphere abcFileHeader "\%^abc"
 syn sync match abcFileHeaderSync groupthere NONE "^\s*$"
 syn sync match abcTuneHeaderSync grouphere abcTuneHeader "^X:"
@@ -91,7 +89,7 @@ if version >= 508 || !exists('did_abc_syn_inits')
   HiLink abcQuote           Operator
   HiLink abcStruct          Operator
   HiLink abcFieldID         Identifier
-  HiLink abcVersion         
+  HiLink abcVersion         PreProc
   HiLink abcLineBreak       Special
   HiLink abcLineJoin        Special
   HiLink abcAccidental      Type
