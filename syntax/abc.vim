@@ -67,6 +67,7 @@ syn match abcDirective "%%.*"
 
 " }}}
 " Syncing {{{
+syn sync ccomment abcComment
 syn sync linecont "\\$"
 syn sync match abcFileHeaderSync grouphere abcFileHeader "\%^abc"
 syn sync match abcFileHeaderSync groupthere NONE "^\s*$"
