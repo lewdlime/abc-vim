@@ -67,7 +67,7 @@ syn match abcDirective "%%.*"
 " }}}
 " Syncing {{{
 syn sync linecont "\\$"
-syn sync match abcTypesetSync grouphere abcTypeset "%%begin\I\i*"
+syn sync match abcTypesetSync grouphere abcDirective "%%begin\I\i*"
 syn sync match abcTypesetSync groupthere NONE "%%end\I\i*"
 syn sync match abcFileHeaderSync grouphere abcFileHeader "\%^abc"
 syn sync match abcFileHeaderSync groupthere NONE "^\s*$"
