@@ -5,119 +5,76 @@
 
 if version < 600
     syn clear
+    syn sync clear
 elseif exists('b:current_syntax')
     finish
 endif
-syn sync clear
-setlocal iskeyword+=%-
-" Groups {{{
-" Keywords
+
 syn case ignore
-"syn keyword abcTodo contained todo volatile fixme
-syn keyword abcClefMode contained ion[ian] aeo[lian] mix[olydian] dor[ian] phr[ygian] lyd[ian] loc[rian] maj[or] m[inor]
+syn keyword abcTodo todo volatile note fixme contained 
+
+" Groups {{{
 syn case match
-syn keyword abcTypesetArgs contained abcm2ps begintext endtext beginsvg endsvg  \
-    beginps endps center clef EPS footer header multicol newpage postscript ps  \
-    repbra repeat score sep setbarnb staff staffbreak staves tablature text     \
-    transpose vskip
-syn keyword abcPreProcArg contained abc2pscompat alignbars aligncomposer        \
-    annotationfont autoclef barsperstaff breaklimit breakoneoln bgcolor         \
-    botmargin bstemdown cancelkey comball combinevoices composerfont            \
-    composerspace contbarnb continueall custos dateformat deco decoration       \
-    dblrepbar dynalign dynamic encoding flatbeams font footerfont format gchord \
-    gchordbox gchordfont graceslurs gracespace gstemdir headerfont historyfont  \
-    hyphencont indent infofont infoline infoname infospace keywarn landscape    \
-    leftmargin linebreak lineskipfac linewarn maxshrink maxstaffsep             \
-    maxsysstaffsep measurebox measurefirst measurefont measurenb micronewps     \
-    musiconly musicspace notespacingfactor oneperpage ornament pageheight       \
-    pagewidth pango parskipfac partsbox partsfont partsspace pdfmark repeatfont \
-    rightmargin scale setdefl setfont-1 setfont-2 setfont-3 setfont-4           \
-    shiftunison slurheight splittune squarebreve stafflines staffnonote         \
-    staffscale staffsep staffwidth stemdir stemheight straightflags stretchlast \
-    stretchstaff subtitlefont subtitlespace sysstaffsep tempofont textfont      \
-    textoption textspace timewarn titlecaps titlefont titleformat titleleft     \
-    titlespace titletrim topmargin topspace tuplets user vocal vocalabove       \
-    vocalfont vocalspace voicefont voicescale volume wordsfont wordsspace       \
-    writefields
-syn keyword abcPreProcExt contained break clip select tune voice
-syn cluster abcDirectiveArgs contains=abcPreProcArg,abcTypesetArgs,abcPreProcExt
+syn match abcQuote #"# contained
+syn match abcStruct #[\[\]{}()]# contained
+syn match abcStruct #\[[IK-NP-RUVmr]:# contained
+syn match abcFieldID #^[A-Za-z+]:# contained
+syn match abcVersion "%abc\%([1-9]\.\d\)\?" contained
+syn match abcLineBreak "!\s\+" contained
+syn match abcLineJoin "\\\s\+" contained
 
-" Special Characters & Comments {{{
-syn match abcSpecialChar /$[0-4]/ contained
-syn match abcSpecialChar /\\.\{,2}/ contained
-syn match abcSpecialChar /\\u\x\{4}/ contained
-syn match abcSpecialChar /\\U\x\{8}/ contained
-syn match abcSpecialChar /&#\=\d*;/ contained
-syn match abcSpecialChar /&\I\i*;/ contained
+syn match abcAccidental "[=_^]\{,2}" contained
+syn match abcAccidental "[_^]\%(/\|3/2\)\?" contained
+syn match abcNote "[A-Ga-g][,']*/*" contained nextgroup=abcNoteOp
+syn match abcNote "[A-Ga-g][,']*\%([1-9]/[1-9]\d*\)\?" contained nextgroup=abcNoteOp
+syn match abcNote "[A-Ga-g][,']*\d*" contained nextgroup=abcNoteOp
+syn match abcRest "[xz]/*" contained
+syn match abcRest "[xz]\%([1-9]/[1-9]\d*\)\?" contained
+syn match abcRest "[XZ]\%([1-9]\d*\)\?" contained
+syn match abcRest "[yY]\d*" contained
 
-syn match abcComment /%.*$/
-syn match abcSpecialComment /^%abc\%(-\d\.\d\)\=/ contained
-syn match abcDirective /%%.*$/ extend
-" }}}
-" Fields {{{
-syn match abcFieldIdentifier /^[\a+]:/ contained
-syn match abcInlineIdentifier /\[\a:/ contained
-syn region abcInlineField matchgroup=abcInlineIdentifier start=/\[[IK-NP-RUVmr]:/ skip=/[^%\]]/ matchgroup=abcOperator end=/\]/ keepend contained contains=abcSpecialChar
+syn match abcBar "[|\[\]]\?|\%([1-9]\%([-,][2-9]\)*\)\?" contained
+syn match abcBar "|[|\[\]]\?\%([1-9]\%([-,][2-9]\)*\)\?" contained
+syn match abcBar ":*\%([|\[\]]\)\{,2}:*" contained
+syn match abcBar #[|\[\]]\{1,2}"[\w\s]*"\s\+# contained " abcm2ps only
 
-syn match abcContinueField /^+:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipnl
-syn match abcBodyField excludenl /^[IK-NP-RTU-Wmrsw]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipwhite skipnl
-syn match abcFileField excludenl /^[A-DF-IL-ORSUZmr]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipwhite skipnl
-syn match abcHeaderField excludenl /^[A-DF-IK-XZmr]:.*$/ contained contains=abcFieldIdentifier,abcSpecialChar nextgroup=abcContinueField,abcComment,abcDirective skipwhite skipnl
-" }}}
-" Code {{{
-syn match abcOperator '[()#$&-/;-@^-`{}~\\]' contained
-syn match abcString /"[^"%\r\n]*"/ contained contains=abcSpecialChar
-syn match abcRest /[xzXZ][1-9]*\d*\/*/ contained
-syn match abcRest /[xz][1-9]*\d*\%(\/[1-9]*\d*\)\=/ contained
-syn match abcSpacer /[yY]\(\d*\.\d*\)\=/ contained
-syn match abcNote /[=_^]\{,2}[a-gA-G][,']*[1-9]*\d*\/*/ contained
-syn match abcNote /[=_^]\{,2}[a-gA-G][,']*[1-9]*\d*\%(\/[1-9]*\d*\)\=/ contained
-syn match abcBar /[|\[\]]/ contained
-syn match abcBar /[:|]\{,1}/ contained
-syn match abcBar /[|\[\]]\%([1-9]\%([,-]\d*\)*\)\=/ contained
-syn match abcBar /:*[|\[\]]\%([1-9]\%([,-]\d*\)*\)\=/ contained
-syn match abcTuple /([1-9]\d*\%(:\d*\)\{,2}/ contained
-syn match abcSymbol /![a-zA-Z.-]*[()]\=!/ contained
-syn match abcSymbol /![.+]!/ contained
-syn match abcSymbol /![<>][()]\=!/ contained
-syn match abcSymbol /[~HLMOPSTuv]/ contained
-syn match abcMacro /\~\I\i\{1,31}/ contained
-syn region abcChord matchgroup=abcOperator start=/\[\(\a:\|\d*\|:*\)\@<!/ skip=/[^%\]]*/ end=/\]/ keepend contained
-syn region abcGrace matchgroup=abcOperator start=/{\/\=/ skip=/[^}\r\n]*/ end=/}/ keepend contained
-syn region abcSlur matchgroup=abcOperator start=/(\(\d*\)\@<!/ skip=/\\)/ end=/)/ keepend contained
+syn match abcBrokenRhythm "[<>]*" contained
+syn match abcTie "-[,']\?" contained
+syn match abcDot "\." contained
+syn match abcTuplet "([2-9]\%(:[1-9]\?\)\{,2}" contained
 
-syn cluster abcCode contains=abcOperator,abcString,abcRest,abcSpacer,abcNote,abcBar,abcTuple,abcSymbol,abcMacro,abcChord,abcGrace,abcSlur,abcComment,abcDirective
-" }}}
-" Toplevel {{{
-syn region abcTuneHeader matchgroup=abcHeaderField start=/^X:/ end=/^K:.*$/ keepend contains=abcHeaderField,abcDirective,abcComment,abcTypeset
-syn region abcTuneBody start=/\%(\_^X:.*\_$\)\(\%(\_^\s*\_$\)*\)\@<!\%(\_^K:.*\_$\)\zs\1\@<!/ end=/^\s*$/ keepend transparent contains=@abcCode,abcInlineField,abcBodyField
-syn region abcTune matchgroup=abcTuneHeader start=/^X:/ matchgroup=NONE end=/^\s*$/ keepend contains=@abcCode,abcInlineField,abcBodyField
+syn match abcDecoration "![\w+<>./-]\+[()]\?!" contained
+syn match abcChordSymbol %"\([A-G][#b=]\?[\w+]\{,3}\%(/[A-G]\)\?\)\%(;\1\)*"% contained
 
-syn region abcTypeset matchgroup=abcDirective start=/%%begin\(\I\i*\)/ end=/%%end\z1/ contains=abcSpecialChar transparent
-syn region abcFileHeader matchgroup=abcSpecialComment start=/\%^\%(%abc\%(-[1-9]\.\d\)\=\)\=/ matchgroup=NONE end=/^\s*$/ keepend contains=abcFileField,abcDirective,abcComment,abcTypeset
-" }}}
+syn match abcField "^[A-DF-IK-XZmr+]:.*" contained contains=abcFieldID
+syn match abcBodyField "^[IK-NP-RT-Wmrsw+]:.*" contained contains=abcFieldID
+
+syn region abcInlineField matchgroup=abcStruct start="\[[IK-NP-RUVmr]:" end="\]" keepend contained
+syn region abcChord matchgroup=abcStruct start="\[" end="\]" keepend contained
+syn region abcSlur matchgroup=abcStruct start="(" end=")" keepend contained
+syn region abcGrace matchgroup=abcStruct start="{" end="}" keepend contained
+syn region abcAnnotation matchgroup=abcQuote start=#"[<>^_]# end=#"# contained
+syn region abcAnnotation matchgroup=abcQuote start=#"[@]\%(\d\+,\d\+\)# end=#"# contained
+
+syn region abcTuneHeader matchgroup=abcField start="^X:" end="^K:.*$" keepend contains=abcField contained
+syn region abcTune matchgroup=abcField start="^X:" matchgroup=NONE end="^\s*$" keepend contains=ALLBUT,abcFileHeader,abcVersion
+syn region abcFileHeader matchgroup=abcVersion start="\%^%abc" matchgroup=NONE end="^\s*$" keepend contains=abcField
+
+syn match abcMacro "^#.*"
+syn match abcComment "%.*" contains=abcTodo
+syn match abcDirective "%%.*"
+
 " }}}
 " Syncing {{{
-syn sync match abcTypesetSync grouphere abcTypeset /%%begin\I\i*/
-syn sync match abcTypesetSync groupthere NONE /%%end\I\i*/
-syn sync linecont /\\$/
-syn sync match abcChordSync grouphere abcChord /\[\(\a:\|\d*\|:*\)\@<!/
-syn sync match abcChordSync groupthere NONE /\]/
-syn sync match abcGraceSync grouphere abcGrace /{\/\=/
-syn sync match abcGraceSync groupthere NONE /}/
-syn sync match abcSlurSync grouphere abcSlur /(\(\d*\)\@<!/
-syn sync match abcSlurSync groupthere NONE /)/
-syn sync match abcInlineFieldSync grouphere abcInlineField /\[\a:/
-syn sync match abcInlineFieldSync groupthere NONE /\]/
-syn sync match abcFieldSync grouphere abcFileField /^[A-DF-IL-ORSUZmr]:/
-syn sync match abcFieldSync grouphere abcHeaderField /^[A-DF-IK-TVWXZmr]:/
-syn sync match abcFieldSync grouphere abcBodyField /^[IK-NP-RTU-Wmrsw]:/
-syn sync match abcFieldSync groupthere NONE /^\s*$/
-syn sync match abcTuneSync grouphere abcTune /^X:/
-syn sync match abcTuneSync groupthere NONE /^\s*$/
-syn sync match abcFileHeaderSync grouphere abcFileHeader /\%^/
-syn sync match abcFileHeaderSync groupthere NONE /^\s*$/
-syn sync ccomment abcComment minlines=20 maxlines=300
+syn sync linecont "\\$"
+syn sync match abcTypesetSync grouphere abcTypeset "%%begin\I\i*"
+syn sync match abcTypesetSync groupthere NONE "%%end\I\i*"
+syn sync match abcFileHeaderSync grouphere abcFileHeader "\%^abc"
+syn sync match abcFileHeaderSync groupthere NONE "^\s*$"
+syn sync match abcTuneHeaderSync grouphere abcTuneHeader "^X:"
+syn sync match abcTuneHeaderSync groupthere abcTuneHeader "^K:.*$"
+syn sync match abcTuneSync grouphere abcTune "^X:"
+syn sync match abcTuneSync groupthere NONE "^\s*$"
 " }}}
 " Highlighting {{{
 if version >= 508 || !exists('did_abc_syn_inits')
@@ -130,25 +87,33 @@ if version >= 508 || !exists('did_abc_syn_inits')
   " Linking {{{
   HiLink abcTodo            Todo
   HiLink abcError           Error
-  HiLink abcComment         Comment
-  HiLink abcSpecialChar     SpecialChar
-  HiLink abcOperator        Operator
-  HiLink abcString          String
+
+  HiLink abcQuote           Operator
+  HiLink abcStruct          Operator
+  HiLink abcFieldID         Identifier
+  HiLink abcVersion         
+  HiLink abcLineBreak       Special
+  HiLink abcLineJoin        Special
+  HiLink abcAccidental      Type
+  HiLink abcNote            Statement
   HiLink abcRest            Statement
-  HiLink abcSpacer          Statement
-  HiLink abcNote            Constant
   HiLink abcBar             Delimiter
-  HiLink abcTuple           Operator
+  HiLink abcBrokenRhythm    Special
+  HiLink abcTie             Special
+  HiLink abcDot             Special
+  HiLink abcTuplet          Special
+  HiLink abcDecoration      Type
+  HiLink abcChordSymbol     String
+  HiLink abcField           String
+  HiLink abcBodyField       String
+  HiLink abcInlineField     String 
+  HiLink abcAnnotation      String
   HiLink abcMacro           Macro
-  HiLink abcSymbol          Type
-  HiLink abcSpecialComment  SpecialComment
+  HiLink abcComment         Comment
   HiLink abcDirective       PreProc
-  HiLink abcFieldIdentifier Identifier
-  HiLink abcInlineField     Special
   delcommand HiLink
   " }}}
 endif
 " }}}
-let b:abc_sync = 0
 let b:current_syntax = 'abc'
 " vim: ts=4
