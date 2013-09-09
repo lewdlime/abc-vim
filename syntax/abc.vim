@@ -33,6 +33,7 @@ syn match abcRest "[xz]\%([1-9]/[1-9]\d*\)\?" contained
 syn match abcRest "[XZ]\%([1-9]\d*\)\?" contained
 syn match abcRest "[yY]\d*" contained
 
+syn match abcBar "[|\[\]]" contained
 syn match abcBar "[|\[\]]\?|\%([1-9]\%([-,][2-9]\)*\)\?" contained
 syn match abcBar "|[|\[\]]\?\%([1-9]\%([-,][2-9]\)*\)\?" contained
 syn match abcBar ":*\%([|\[\]]\)\{,2}:*" contained
