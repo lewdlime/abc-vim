@@ -107,7 +107,6 @@ if version >= 508 || !exists('did_abc_syn_inits')
     HiLink abcComment      Comment
     HiLink abcDirective    PreProc
   else
-    let did_abc_syn_inits = 1
     hi def link abcTodo         Todo
     hi def link abcError        Error
     hi def link abcQuote        Operator
