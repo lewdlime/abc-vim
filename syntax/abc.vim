@@ -24,7 +24,7 @@ syn match abcLineBreak /!\s\+/ contained
 syn match abcLineJoin /\\\s\+/ contained
 
 syn match abcAccidental /[=_^]\{,2}/ contained
-syn match abcAccidental /[_^]\%(/\|3/2\)\?/ contained
+syn match abcAccidental "[_^]\%(/\|3/2\)\?" contained
 syn match abcNote "[A-Ga-g][,']*/*" contained nextgroup=abcNoteOp
 syn match abcNote "[A-Ga-g][,']*\%([1-9]/[1-9]\d*\)\?" contained nextgroup=abcNoteOp
 syn match abcNote /[A-Ga-g][,']*\d*/ contained nextgroup=abcNoteOp
