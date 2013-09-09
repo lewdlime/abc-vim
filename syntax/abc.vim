@@ -49,8 +49,8 @@ syn match abcChordSymbol %"\([A-G][#b=]\?[\w+]\{,3}\%(/[A-G]\)\?\)\%(;\1\)*"% co
 
 syn match abcField "^[A-DF-IK-XZmr+]:.*" contained contains=abcFieldID
 syn match abcBodyField "^[IK-NP-RT-Wmrsw+]:.*" contained contains=abcFieldID
+syn match abcInlineField "\[[IK-NP-RUVmr]:[^\r\n\]]*\]" contained contains=abcFieldID
 
-syn region abcInlineField matchgroup=abcFieldID start="\[[IK-NP-RUVmr]:" matchgroup=abcStruct end="\]" keepend contained
 syn region abcChord matchgroup=abcStruct start="\[" end="\]" keepend contained
 syn region abcSlur matchgroup=abcStruct start="(" end=")" keepend contained
 syn region abcGrace matchgroup=abcStruct start="{" end="}" keepend contained
