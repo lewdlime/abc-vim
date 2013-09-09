@@ -58,7 +58,7 @@ syn region abcAnnotation matchgroup=abcQuote start=/"[<>^_]/ end=/"/ contained
 syn region abcAnnotation matchgroup=abcQuote start=/"[@]\%(\d\+,\d\+\)/ end=/"/ contained
 
 syn match abcMacro /^#.*/
-syn match abcDirective /%\{2}.*/ contains=abcComment
+syn match abcDirective /%%.*/ contains=abcComment
 syn match abcComment /%\{1}.*$/ contains=abcTodo
 
 "syn region abcTuneHeader matchgroup=abcField start=/^X:/ end=/^K:.*$/ keepend contains=abcField contained
