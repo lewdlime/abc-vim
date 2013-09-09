@@ -61,7 +61,7 @@ syn match abcMacro /^#.*/
 syn match abcDirective /%%.*/ contains=abcComment
 syn match abcComment /%\{1}.*$/ contains=abcTodo
 
-"syn region abcTuneHeader matchgroup=abcField start=/^X:/ end=/^K:.*$/ keepend contains=abcField contained
+syn region abcTuneHeader matchgroup=abcField start=/^X:/ end=/^K:.*$/ keepend contains=abcField contained
 syn region abcTune matchgroup=abcField start=/^X:/ matchgroup=NONE end=/^\s*$/ keepend contains=ALLBUT,abcFileHeader,abcVersion
 syn region abcFileHeader matchgroup=abcVersion start=/\%^%abc/ matchgroup=NONE end=/^\s*$/ keepend contains=abcField
 
