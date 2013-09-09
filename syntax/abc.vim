@@ -78,31 +78,31 @@ syn sync match abcTuneSync groupthere NONE "^\s*$"
 if version >= 508 || !exists('did_abc_syn_inits')
   if version < 508
     let did_abc_syn_inits = 1
-    hi link abcTodo         Todo
-    hi link abcError        Error
-    hi link abcQuote        Operator
-    hi link abcStruct       Operator
-    hi link abcFieldID      Identifier
-    hi link abcVersion      PreProc
-    hi link abcLineBreak    Special
-    hi link abcLineJoin     Special
-    hi link abcAccidental   Type
-    hi link abcNote         Statement
-    hi link abcRest         Statement
-    hi link abcBar          Delimiter
-    hi link abcBrokenRhythm Special
-    hi link abcTie          Special
-    hi link abcDot          Special
-    hi link abcTuplet       Special
-    hi link abcDecoration   Type
-    hi link abcChordSymbol  String
-    hi link abcField        String
-    hi link abcBodyField    String
-    hi link abcInlineField  String 
-    hi link abcAnnotation   String
-    hi link abcMacro        Macro
-    hi link abcComment      Comment
-    hi link abcDirective    PreProc
+    HiLink abcTodo         Todo
+    HiLink abcError        Error
+    HiLink abcQuote        Operator
+    HiLink abcStruct       Operator
+    HiLink abcFieldID      Identifier
+    HiLink abcVersion      PreProc
+    HiLink abcLineBreak    Special
+    HiLink abcLineJoin     Special
+    HiLink abcAccidental   Type
+    HiLink abcNote         Statement
+    HiLink abcRest         Statement
+    HiLink abcBar          Delimiter
+    HiLink abcBrokenRhythm Special
+    HiLink abcTie          Special
+    HiLink abcDot          Special
+    HiLink abcTuplet       Special
+    HiLink abcDecoration   Type
+    HiLink abcChordSymbol  String
+    HiLink abcField        String
+    HiLink abcBodyField    String
+    HiLink abcInlineField  String 
+    HiLink abcAnnotation   String
+    HiLink abcMacro        Macro
+    HiLink abcComment      Comment
+    HiLink abcDirective    PreProc
   else
     let did_abc_syn_inits = 1
     hi def link abcTodo         Todo
