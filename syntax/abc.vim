@@ -62,8 +62,8 @@ syn region abcTune matchgroup=abcField start="^X:" matchgroup=NONE end="^\s*$" k
 syn region abcFileHeader matchgroup=abcVersion start="\%^%abc" matchgroup=NONE end="^\s*$" keepend contains=abcField
 
 syn match abcMacro "^#.*"
-syn match abcComment "%.*" contains=abcTodo
-syn match abcDirective "%%.*"
+syn match abcComment "%.*$" contains=abcTodo
+syn match abcDirective "%%.*$"
 
 " }}}
 " Syncing {{{
