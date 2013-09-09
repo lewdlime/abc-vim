@@ -78,38 +78,59 @@ syn sync match abcTuneSync groupthere NONE "^\s*$"
 if version >= 508 || !exists('did_abc_syn_inits')
   if version < 508
     let did_abc_syn_inits = 1
-    command -nargs=+ HiLink hi link <args>
+    hi link abcTodo         Todo
+    hi link abcError        Error
+    hi link abcQuote        Operator
+    hi link abcStruct       Operator
+    hi link abcFieldID      Identifier
+    hi link abcVersion      PreProc
+    hi link abcLineBreak    Special
+    hi link abcLineJoin     Special
+    hi link abcAccidental   Type
+    hi link abcNote         Statement
+    hi link abcRest         Statement
+    hi link abcBar          Delimiter
+    hi link abcBrokenRhythm Special
+    hi link abcTie          Special
+    hi link abcDot          Special
+    hi link abcTuplet       Special
+    hi link abcDecoration   Type
+    hi link abcChordSymbol  String
+    hi link abcField        String
+    hi link abcBodyField    String
+    hi link abcInlineField  String 
+    hi link abcAnnotation   String
+    hi link abcMacro        Macro
+    hi link abcComment      Comment
+    hi link abcDirective    PreProc
   else
-    command -nargs=+ HiLink hi def link <args>
+    let did_abc_syn_inits = 1
+    hi def link abcTodo         Todo
+    hi def link abcError        Error
+    hi def link abcQuote        Operator
+    hi def link abcStruct       Operator
+    hi def link abcFieldID      Identifier
+    hi def link abcVersion      PreProc
+    hi def link abcLineBreak    Special
+    hi def link abcLineJoin     Special
+    hi def link abcAccidental   Type
+    hi def link abcNote         Statement
+    hi def link abcRest         Statement
+    hi def link abcBar          Delimiter
+    hi def link abcBrokenRhythm Special
+    hi def link abcTie          Special
+    hi def link abcDot          Special
+    hi def link abcTuplet       Special
+    hi def link abcDecoration   Type
+    hi def link abcChordSymbol  String
+    hi def link abcField        String
+    hi def link abcBodyField    String
+    hi def link abcInlineField  String 
+    hi def link abcAnnotation   String
+    hi def link abcMacro        Macro
+    hi def link abcComment      Comment
+    hi def link abcDirective    PreProc
   endif
-  " Linking {{{
-  HiLink abcTodo            Todo
-  HiLink abcError           Error
-
-  HiLink abcQuote           Operator
-  HiLink abcStruct          Operator
-  HiLink abcFieldID         Identifier
-  HiLink abcVersion         PreProc
-  HiLink abcLineBreak       Special
-  HiLink abcLineJoin        Special
-  HiLink abcAccidental      Type
-  HiLink abcNote            Statement
-  HiLink abcRest            Statement
-  HiLink abcBar             Delimiter
-  HiLink abcBrokenRhythm    Special
-  HiLink abcTie             Special
-  HiLink abcDot             Special
-  HiLink abcTuplet          Special
-  HiLink abcDecoration      Type
-  HiLink abcChordSymbol     String
-  HiLink abcField           String
-  HiLink abcBodyField       String
-  HiLink abcInlineField     String 
-  HiLink abcAnnotation      String
-  HiLink abcMacro           Macro
-  HiLink abcComment         Comment
-  HiLink abcDirective       PreProc
-  delcommand HiLink
   " }}}
 endif
 " }}}
