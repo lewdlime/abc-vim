@@ -17,7 +17,7 @@ syn keyword abcTodo todo volatile note fixme contained
 syn case match
 syn match abcQuote #"# contained
 syn match abcStruct #[\[\]{}()]# contained
-syn match abcStruct #\[[IK-NP-RUVmr]:# contained
+syn match abcFieldID #\[[IK-NP-RUVmr]:# contained
 syn match abcFieldID #^[A-Za-z+]:# contained
 syn match abcVersion "%abc\%([1-9]\.\d\)\?" contained
 syn match abcLineBreak "!\s\+" contained
@@ -49,7 +49,7 @@ syn match abcChordSymbol %"\([A-G][#b=]\?[\w+]\{,3}\%(/[A-G]\)\?\)\%(;\1\)*"% co
 syn match abcField "^[A-DF-IK-XZmr+]:.*" contained contains=abcFieldID
 syn match abcBodyField "^[IK-NP-RT-Wmrsw+]:.*" contained contains=abcFieldID
 
-syn region abcInlineField matchgroup=abcStruct start="\[[IK-NP-RUVmr]:" end="\]" keepend contained
+syn region abcInlineField matchgroup=abcFieldID start="\[[IK-NP-RUVmr]:" matchgroup=abcStruct end="\]" keepend contained
 syn region abcChord matchgroup=abcStruct start="\[" end="\]" keepend contained
 syn region abcSlur matchgroup=abcStruct start="(" end=")" keepend contained
 syn region abcGrace matchgroup=abcStruct start="{" end="}" keepend contained
