@@ -15,37 +15,43 @@ syn keyword abcTodo todo volatile note fixme contained
 
 " Groups {{{
 syn case match
+
+syn match abcComment /%\{-1}[^\n\r%].*/ contains=abcTodo
+syn match abcDirective /%\{-2}.*/ nextgroup=abcComment 
+syn match abcMacro /^#.*/ " abcpp only
+syn match abcMacro /\~\a\+\d\+/ contained
+
 syn match abcQuote /"/ contained
 syn match abcStruct /[\[\]{}()]/ contained
 syn match abcFieldID /\[[IK-NP-RUVmr]:/ contained
 syn match abcFieldID /^[A-Za-z+]:/ contained
-syn match abcVersion /%abc\%([1-9]\.\d\)\?/ contained
+syn match abcVersion /%abc\%(-[1-9]\.\d\)\=/ contained
 syn match abcLineBreak /!\s\+/ contained
 syn match abcLineJoin /\\\s\+/ contained
 
-syn match abcAccidental /[=_^]\{,2}/ contained
-syn match abcAccidental "[_^]\%(/\|3/2\)\?" contained
-syn match abcNote "[A-Ga-g][,']*/*" contained nextgroup=abcNoteOp
-syn match abcNote "[A-Ga-g][,']*\%([1-9]/[1-9]\d*\)\?" contained nextgroup=abcNoteOp
-syn match abcNote /[A-Ga-g][,']*\d*/ contained nextgroup=abcNoteOp
-syn match abcRest "[xz]/*" contained
-syn match abcRest "[xz]\%([1-9]/[1-9]\d*\)\?" contained
-syn match abcRest "[XZ]\%([1-9]\d*\)\?" contained
+syn match abcAccidental /[=_^]\{1,2}/ contained
+syn match abcAccidental "[_^]\%(\/\|3\/2\)" contained
+syn match abcNote "[A-Ga-g][,']*\/*" contained
+syn match abcNote "[A-Ga-g][,']*\%([1-9]\/[1-9]\d*\)\=" contained
+syn match abcNote /[A-Ga-g][,']*\%(\d\|<*\|>*\)*/ contained
+syn match abcRest "[xz]\/*" contained
+syn match abcRest "[xz]\d*" contained
+syn match abcRest "[xz]\%([1-9]\/[1-9]\d*\)\=" contained
+syn match abcRest "[XZ]\%([1-9]\d*\)\=" contained
 syn match abcRest /[yY]\d*/ contained
 
-syn match abcBar /[|\[\]]/ contained
-syn match abcBar /[|\[\]]\?|\%([1-9]\%([-,][2-9]\)*\)\?/ contained
-syn match abcBar /|[|\[\]]\?\%([1-9]\%([-,][2-9]\)*\)\?/ contained
-syn match abcBar /:*\%([|\[\]]\)\{,2}:*/ contained
-syn match abcBar /[|\[\]]\{1,2}"[\w\s]*"\s\+/ contained " abcm2ps only
+syn match abcBar /[|[\]]/ contained
+syn match abcBar /[|[\]][|:]\%([1-9]\%([-,][2-9]\)*\)\=/ contained
+syn match abcBar /[|:][|[\]]\%([1-9]\%([-,][2-9]\)*\)\=/ contained
+syn match abcBar /:*\%([|[\]]\)\{-2}:*/ contained
+syn match abcBar /[|[\]]\{1,2}"[[:alnum:][:blank:]]*"\s*/ contained " abcm2ps only
 
-syn match abcBrokenRhythm /[<>]*/ contained
-syn match abcTie /-[,']\?/ contained
+syn match abcTie /-[,']\=/ contained
 syn match abcDot /\./ contained
-syn match abcTuplet /([2-9]\%(:[1-9]\?\)\{,2}/ contained
+syn match abcTuplet /([2-9]\%(:[1-9]\=\)\{,2}/ contained
 
-syn match abcDecoration "![\w+<>./-]\+[()]\?!" contained
-syn match abcChordSymbol %"\([A-G][#b=]\?[\w+]\{,3}\%(/[A-G]\)\?\)\%(;\1\)*"% contained
+syn match abcDecoration "![[:alnum:]+<>./-]\+[()]\=!" contained
+syn match abcChordSymbol %"\([A-G][#b=]\=[[:alnum:]+]\{1,3}\%(\/[A-G]\)\=\)\%(;\1\)*"% contained
 
 syn match abcField /^[A-DF-IK-XZmr+]:.*/ contained contains=abcFieldID
 syn match abcBodyField /^[IK-NP-RT-Wmrsw+]:.*/ contained contains=abcFieldID
@@ -57,9 +63,6 @@ syn region abcGrace matchgroup=abcStruct start=/{/ end=/}/ keepend contained
 syn region abcAnnotation matchgroup=abcQuote start=/"[<>^_]/ end=/"/ contained
 syn region abcAnnotation matchgroup=abcQuote start=/"[@]\%(\d\+,\d\+\)/ end=/"/ contained
 
-syn match abcMacro /^#.*/
-syn match abcDirective /%%.*/ contains=abcComment
-syn match abcComment /%\{1}.*$/ contains=abcTodo
 
 syn region abcTuneHeader matchgroup=abcField start=/^X:/ end=/^K:.*$/ keepend contains=abcField contained
 syn region abcTune matchgroup=abcField start=/^X:/ matchgroup=NONE end=/^\s*$/ keepend contains=ALLBUT,abcFileHeader,abcVersion
